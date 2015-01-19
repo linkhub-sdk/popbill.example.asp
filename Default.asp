@@ -1,65 +1,23 @@
-<!--#include file="Popbill/Linkhub/Linkhub.asp"--> 
-<html>
-<head>
-	<title>jsSHA - SHA Hashes in Ïú†Ìã∞ÏóêÌîÑ JavaScript</title>
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-</head>
-<body>
-<div>
-<%
-	set m_linkhub = new Linkhub
-	m_linkhub.LinkID = "TESTER"
-	m_linkhub.SecretKey = "rwtm9A5KjzRMePE9z9mpXl0UKshv3iSBs7v16N2Fs0s="
-
-	On Error Resume Next
-	Set token = m_linkhub.getToken("POPBILL_TEST","1231212312",array("member","110"))
-	
-	If Err.Number <> 0 then
-		Response.Write("Error Number -> " & Err.Number)
-		Response.write("<BR>Error Source -> " & Err.Source)
-		Response.Write("<BR>Error Desc   -> " & Err.Description)
-		Err.Clears
-	Else
-		Response.write token.usercode
-	End If
-
-	On Error GoTo 0
-
-	Response.write "<br/>"
-
-	On Error Resume Next
-
-	remainPoint = m_linkhub.getBalance(token.session_token,"POPBILL_TEST")
-
-	If Err.Number <> 0 then
-		Response.Write("Error Number -> " & Err.Number)
-		Response.write("<BR>Error Source -> " & Err.Source)
-		Response.Write("<BR>Error Desc   -> " & Err.Description)
-		Err.Clears
-	Else
-		Response.write "RemainPoint : " + CStr(remainpoint)
-	End If
-
-	On Error GoTo 0
-
-	Response.write "<br/>"
-
-	On Error Resume Next
-
-	remainPoint = m_linkhub.getPartnerBalance(token.session_token,"POPBILL_TEST")
-
-	If Err.Number <> 0 then
-		Response.Write("Error Number -> " & Err.Number)
-		Response.write("<BR>Error Source -> " & Err.Source)
-		Response.Write("<BR>Error Desc   -> " & Err.Description)
-		Err.Clears
-	Else
-		Response.write "RemainPoint : " + CStr(remainpoint)
-	End If
-
-	On Error GoTo 0
-
-%>
-</div>
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+		<link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
+		
+		<title>∆À∫Ù SDK ASP Example.</title>
+	</head>
+	<body>
+		<div id="content">
+			<p class="heading1">∆À∫Ù SDK jsp Example.</p>
+			<br/>
+			<fieldset class="fieldset1">
+				<legend>∆À∫Ù API ∏Ò∑œ</legend>
+					<ul>
+						<li><a href="TaxinvoiceExample">TaxinvoiceService</a> - ºº±›∞ËªÍº≠ API</li>
+						<li><a href="MessageService">MessageService</a> - πÆ¿⁄∏ﬁΩ√¡ˆ API</li>
+						<li><a href="FaxService">FaxService</a> - ∆—Ω∫ API</li>
+						
+					</ul>
+			</fieldset>
+		 </div>
+	</body>
 </html>

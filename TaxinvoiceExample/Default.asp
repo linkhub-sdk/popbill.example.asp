@@ -3,14 +3,14 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
 		<link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
 		
-		<title>팝빌 세금계산서 SDK ASP Example.</title>
+		<title>팝빌 SDK ASP Example.</title>
 	</head>
 
 	<body>
 
 		<div id="content">
 
-			<p class="heading1">팝빌 세금계산서 SDK jsp Example.</p>
+			<p class="heading1">팝빌 세금계산서 SDK ASP Example.</p>
 			
 			<br/>
 
