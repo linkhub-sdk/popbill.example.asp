@@ -60,7 +60,7 @@ End Function
 
 '수정
 
-Public Function Update(CorpNum, KeyType, MgtKey, ByRef TI, writeSpecification)
+Public Function Update(CorpNum, KeyType, MgtKey, ByRef TI, writeSpecification, UserID)
 	If TI Is Nothing Then Err.raise -99999999,"POPBILL","수정할 세금계산서 정보가 입력되지 않았습니다."
 
 	If MgtKey = "" Then
@@ -74,7 +74,7 @@ Public Function Update(CorpNum, KeyType, MgtKey, ByRef TI, writeSpecification)
 
     postdata = m_PopbillBase.toString(tmpDic)
 
-    Set Update = m_PopbillBase.httpPOST("/Taxinvoice/"+ KeyType +"/" + MgtKey, m_PopbillBase.getSession_token(CorpNum),"PATCH", postdata, "")
+    Set Update = m_PopbillBase.httpPOST("/Taxinvoice/"+ KeyType +"/" + MgtKey, m_PopbillBase.getSession_token(CorpNum),"PATCH", postdata, UserID)
 End Function 
 
 '연동관리번호 사용여부 확인

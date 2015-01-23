@@ -93,8 +93,13 @@
     
 	On Error Resume Next
 	
-	'Update(사업자번호, 발행유형, 연동관리번호, 세금계산서객체, 전자명세서작성여부, 회원아이디)
-	Set Presponse = m_TaxinvoiceService.Update("1234567890", "SELL", "20150122-05", newTaxinvoice, false,"")
+	testCorpNum = "1234567890"		'팝빌회원 사업자번호
+	userID = "testkorea"			'팝빌회원 아이디
+	keyType = "SELL"				'발행유형
+	mgtKey = "20150122-05"			'연동관리번호
+	writeSpecificationYN = False	'거래명세서 동시작성여부
+
+	Set Presponse = m_TaxinvoiceService.Update(testCorpNum, keyType, mgtKey, newTaxinvoice, writeSpecificationYN, userID)
 
 	If Err.Number <> 0 Then
 		code = Err.Number
