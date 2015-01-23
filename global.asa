@@ -1,2 +1,2 @@
 <!-- 팝빌 토큰 캐쉬. 성능향상을 위해서는 global.asa에 아래 딕셔너리를 추가.  -->
-<object id="POPBILL_TOKEN_CACHE1" progid="Scripting.Dictionary" runat="Server" scope="Application"></object>
+<object id="POPBILL_TOKEN_CACHE" progid="Scripting.Dictionary" runat="Server" scope="Application"></object>

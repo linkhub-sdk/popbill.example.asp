@@ -136,7 +136,8 @@ Public Function JoinMember(JoinInfo)
     
     postdata = m_Linkhub.toString(tmp)
    
-    Set JoinMember = httpPOST("/Join", "", postdata)
+    Set JoinMember = httpPOST("/Join", "", "", postdata, "")
+
 
 End Function
 '''''''''''''  End of PopbillBase

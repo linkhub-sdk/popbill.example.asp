@@ -20,6 +20,7 @@
 				<fieldset class="fieldset2">
 					<legend>회원사 정보</legend>
 					<ul>
+						
 						<li><a href="checkIsMember.asp">checkCorpIsMember</a> - 연동회원사 가입 여부 확인</li>
 						<li><a href="joinMember.asp">joinMember</a> - 연동회원사 가입 요청</li>
 						<li><a href="getBalance.asp">getBalance</a> - 연동회원사 잔여포인트 확인</li>

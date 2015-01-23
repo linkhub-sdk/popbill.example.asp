@@ -6,33 +6,32 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1231212312"		' 사업자번호 ("-"제외)
-		
+	testCorpNum = "1234567890"	 '회원 사업자번호, "-" 제외
+	userID = "testkorea"  ' 회원 아이디
+	TOGO = "PBOX"   'TBOX(임시문서함), SBOX(매출문서함), PBOX(매입문서함)
+
 	On Error Resume Next
 
-	Set Presponse = m_TaxinvoiceService.CheckIsMember(testCorpNum,LinkID)
+	url = m_TaxinvoiceService.GetURL(testCorpNum, userID, TOGO)
 
-	If Err.Number <> 0 Then
-		code = Err.Number
-		message = Err.Description
+	If Err.Number <> 0 then
+		Response.Write("Error Number -> " & Err.Number)
+		Response.write("<BR>Error Source -> " & Err.Source)
+		Response.Write("<BR>Error Desc   -> " & Err.Description)
 		Err.Clears
-	Else
-		code = Presponse.code
-		message =Presponse.message
+		Response.End
 	End If
 
 	On Error GoTo 0
 %>
-
 	<body>
 		<div id="content">
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동회원사 가입 여부 확인 결과</legend>
+				<legend>팝빌 전자세금계산서 문서함 URL</legend>
 				<ul>
-					<li>Response.code : <%=CStr(code)%></li>
-					<li>Response.message : <%=message%></li>
+					<li>URL : <%=url%> </li>
 				</ul>
 			</fieldset>
 		 </div>

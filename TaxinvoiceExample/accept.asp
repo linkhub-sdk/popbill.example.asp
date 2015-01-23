@@ -6,33 +6,35 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1231212312"		' 사업자번호 ("-"제외)
-		
+	testCorpNum = "1231212312"	'회원 사업자번호, "-" 제외
+	testUserID = "userid"    '회원 아이디
+	KeyType= "BUY"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	MgtKey = "20150122-22"      '연동관리번호 
+	Memo = "발행예정승인 메모"      '메모
+
 	On Error Resume Next
-
-	Set Presponse = m_TaxinvoiceService.CheckIsMember(testCorpNum,LinkID)
-
+	
+	Set Presponse = m_TaxinvoiceService.Accept(testCorpNum, KeyType ,MgtKey, Memo ,testUserID)
+	
 	If Err.Number <> 0 Then
 		code = Err.Number
 		message = Err.Description
 		Err.Clears
-	Else
+	Else 
 		code = Presponse.code
-		message =Presponse.message
+		message = Presponse.message
 	End If
-
 	On Error GoTo 0
 %>
-
 	<body>
 		<div id="content">
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동회원사 가입 여부 확인 결과</legend>
+				<legend>세금계산서 발행예정에 대한 공급받는자의 승인 처리</legend>
 				<ul>
-					<li>Response.code : <%=CStr(code)%></li>
-					<li>Response.message : <%=message%></li>
+					<li>Response.code : <%=code%> </li>
+					<li>Response.message : <%=message%> </li>
 				</ul>
 			</fieldset>
 		 </div>

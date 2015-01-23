@@ -6,34 +6,36 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1231212312"		' 사업자번호 ("-"제외)
-		
+	testCorpNum = "1234567890"		 ' 회원 사업자번호, "-" 제외
+	
 	On Error Resume Next
 
-	Set Presponse = m_TaxinvoiceService.CheckIsMember(testCorpNum,LinkID)
+	remainPoint = m_TaxinvoiceService.getPartnerBalance(testCorpNum)
 
-	If Err.Number <> 0 Then
+	If Err.Number <> 0 then
 		code = Err.Number
 		message = Err.Description
 		Err.Clears
-	Else
-		code = Presponse.code
-		message =Presponse.message
 	End If
 
 	On Error GoTo 0
 %>
-
 	<body>
 		<div id="content">
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동회원사 가입 여부 확인 결과</legend>
-				<ul>
-					<li>Response.code : <%=CStr(code)%></li>
-					<li>Response.message : <%=message%></li>
-				</ul>
+				<legend>파트너 잔여포인트 확인결과</legend>
+				<% If code = 0 Then %>
+					<ul>
+						<li>잔여포인트 : <%=CStr(remainpoint)%> </li>
+					</ul>
+				<%	Else  %>
+					<ul>
+						<li>Response.code: <%=code%> </li>
+						<li>Response.message: <%=message%> </li>
+					</ul>	
+				<%	End If	%>
 			</fieldset>
 		 </div>
 	</body>

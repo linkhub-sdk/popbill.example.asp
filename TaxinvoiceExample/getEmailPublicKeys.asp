@@ -10,12 +10,14 @@
 	
 	On Error Resume Next
 
-	remainPoint = m_TaxinvoiceService.getBalance(testCorpNum)
+	Set Presponse = m_TaxinvoiceService.GetEmailPublicKeys(testCorpNum)
 
 	If Err.Number <> 0 then
-		code = Err.Number
-		message =  Err.Description
+		Response.Write("Error Number -> " & Err.Number)
+		Response.write("<BR>Error Source -> " & Err.Source)
+		Response.Write("<BR>Error Desc   -> " & Err.Description)
 		Err.Clears
+		Response.end
 	End If
 
 	On Error GoTo 0
@@ -25,17 +27,17 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동회원사 잔여포인트 확인결과</legend>
-				<% If code = 0 Then %>
-					<ul>
-						<li>잔여포인트 : <%=CStr(remainpoint)%> </li>
-					</ul>
-				<%	Else  %>
+				<legend>대용량 연계사업자 이메일 목록 확인 </legend>
+				<fieldset class="filedset2">
 				<ul>
-					<li>Response.code: <%=code%> </li>
-					<li>Response.message: <%=message%> </li>
-				</ul>	
-				<%	End If	%>
+				<%
+					For i=0 To Presponse.length -1
+				%>
+						<li> <%=Presponse.Get(i).email%></li>
+				<%
+					Next
+				%>
+				</ul>
 			</fieldset>
 		 </div>
 	</body>

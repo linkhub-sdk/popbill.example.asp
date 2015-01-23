@@ -6,33 +6,39 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1231212312"		' 사업자번호 ("-"제외)
-		
+	testCorpNum = "1234567890"	 '회원 사업자번호, "-" 제외
+	testUserID = "testkorea"	 '회원 아이디
+	mgtKey = "20150122-00"		 '연동관리번호
+	keyType = "SELL"			 '발행형태, (SELL-매출) (BUY-매입) (TRUSTEE-위수탁)
+
 	On Error Resume Next
 
-	Set Presponse = m_TaxinvoiceService.CheckIsMember(testCorpNum,LinkID)
+	checkMgtKeyInUse = m_TaxinvoiceService.CheckMgtKeyInUse(testCorpNum, keyType, mgtKey)
 
 	If Err.Number <> 0 Then
 		code = Err.Number
 		message = Err.Description
-		Err.Clears
-	Else
-		code = Presponse.code
-		message =Presponse.message
-	End If
+	Else	
+		If checkMgtKeyInUse = True Then
+			code = 1
+			message = "사용중"
+		Else
+			code = 0 
+			message = "미사용중"
+		End If
+	End If 
 
 	On Error GoTo 0
 %>
-
 	<body>
 		<div id="content">
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동회원사 가입 여부 확인 결과</legend>
+				<legend>연동관리번호 사용여부 확인</legend>
 				<ul>
-					<li>Response.code : <%=CStr(code)%></li>
-					<li>Response.message : <%=message%></li>
+					<li>Response.code : <%=code%> </li>
+					<li>Response.message : <%=message%> </li>
 				</ul>
 			</fieldset>
 		 </div>

@@ -44,40 +44,303 @@ End Function
 '''''''''''''  End of PopbillBase
 
 '임시저장
-Public Function Register(CorpNum ,byref TI , writeSpecification ,  UserID)
+Public Function Register(CorpNum ,byref TI, writeSpecification, UserID)
 	
 	If TI Is Nothing Then Err.raise -99999999,"POPBILL","등록할 세금계산서 정보가 입력되지 않았습니다."
 
     Set tmpDic = TI.toJsonInfo
 	If writeSpecification Then
-        tmpDic.Add "writeSpecification", True
+        tmpDic.Set "writeSpecification", True
     End If
     
     postdata = m_PopbillBase.toString(tmpDic)
 
     Set Register = m_PopbillBase.httpPOST("/Taxinvoice", m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
 End Function
+
+'수정
+
+Public Function Update(CorpNum, KeyType, MgtKey, ByRef TI, writeSpecification)
+	If TI Is Nothing Then Err.raise -99999999,"POPBILL","수정할 세금계산서 정보가 입력되지 않았습니다."
+
+	If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
+
+    Set tmpDic = TI.toJsonInfo
+	If writeSpecification Then
+        tmpDic.Set "writeSpecification", True
+    End If
+
+    postdata = m_PopbillBase.toString(tmpDic)
+
+    Set Update = m_PopbillBase.httpPOST("/Taxinvoice/"+ KeyType +"/" + MgtKey, m_PopbillBase.getSession_token(CorpNum),"PATCH", postdata, "")
+End Function 
+
+'연동관리번호 사용여부 확인
+Public Function CheckMgtKeyInUse(CorpNum, KeyType, MgtKey)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
+		
+	On Error Resume Next
+	
+	Set result = m_PopbillBase.httpGET("/Taxinvoice/" +KeyType +"/"+ MgtKey, m_PopbillBase.getSession_token(CorpNum), "")
+	
+	If Err.Number = -11000005  Then
+		CheckMgtKeyInUse = False
+		Err.Clears
+	Else 
+		CheckMgtKeyInUse = True
+		Err.Clears
+	End If
+	On Error GoTo 0
+End Function 
+
 '파일 첨부
-Public Function AttachFile(CorpNum , KeyType , MgtKey , FilePath ,  UserID )
+Public Function AttachFile(CorpNum, KeyType, MgtKey, FilePath, UserID)
     If MgtKey = "" Then
         Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
     End If
     
-    Set AttachFile = m_PopbillBase.httpPOST_File("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files", _
-                        m_PopbillBase.getSession_token(CorpNum), FilePath, UserID)
-End Function
-'상세정보 확인
-Public Function GetDetailInfo(CorpNum , KeyType, MgtKey )
-    If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
-    End If
-    
-    Set GetDetailInfo = m_PopbillBase.httpGET("/Taxinvoice/" + KeyType + "/" + MgtKey + "?Detail", _
-                                m_PopbillBase.getSession_token(CorpNum), "")
+    Set AttachFile = m_PopbillBase.httpPOST_File("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files", m_PopbillBase.getSession_token(CorpNum), FilePath, UserID)
 End Function
 
-'삭제
-Public Function Delete(CorpNum , KeyType , MgtKey ,  UserID )
+'세금계산서 첨부파일 1개 삭제 
+Public Function DeleteFile(CorpNum , KeyType , MgtKey , FileID,  UserID )
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
+
+	
+	Set DeleteFile = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files/" + FileID, _
+                        m_PopbillBase.getSession_token(CorpNum), "DELETE","", UserID)
+	
+End Function
+
+'세금계산서 첨부파일 목록확인 
+Public Function GetFiles(CorpNum, KeyType, MgtKey, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
+    
+    Set GetFiles = m_PopbillBase.httpGET("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files", _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+End Function
+
+'발행예정 처리 
+Public Function Send(CorpNum, KeyType, MgtKey, Memo, UserID)
+	If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
+    
+	Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
+	
+	postdata = m_PopbillBase.toString(tmp)
+
+    Set Send = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "SEND", postdata, UserID)
+
+End Function
+
+'발행예정 취소 처리 
+Public Function CancelSend(CorpNum, KeyType, MgtKey, Memo, UserID)
+	If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
+    
+	Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
+	
+	postdata = m_PopbillBase.toString(tmp)
+
+    Set CancelSend = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "CANCELSEND", postdata, UserID)
+
+End Function
+
+'발헁예정 승인
+Public Function Accept(CorpNum, KeyType, MgtKey, Memo, UserID)
+	If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
+    
+	Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
+	
+	postdata = m_PopbillBase.toString(tmp)
+
+    Set Accept = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "ACCEPT", postdata, UserID)
+End Function
+
+'발헁예정 거부
+Public Function Deny(CorpNum, KeyType, MgtKey, Memo, UserID)
+	If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
+
+	Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
+	
+	postdata = m_PopbillBase.toString(tmp)
+	
+    Set Deny = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "DENY", postdata, UserID)
+End Function
+
+
+'발헁
+Public Function Issue(CorpNum, KeyType, MgtKey, Memo, EmailSubject, ForceIssue, UserID)
+	If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
+    
+	Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
+	tmp.Set "EmailSubject", EmailSubject
+	tmp.Set "forceIssue", ForceIssue
+
+	postdata = m_PopbillBase.toString(tmp)
+
+    Set Issue = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "ISSUE", postdata, UserID)
+End Function
+
+'발헁 취소 처리
+Public Function CancelIssue(CorpNum, KeyType, MgtKey, Memo, UserID)
+	If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
+    
+	Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
+	
+	postdata = m_PopbillBase.toString(tmp)
+
+    Set CancelIssue = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCELISSUE", postdata, UserID)
+End Function
+
+
+'역)발행요청 처리.
+Public Function Request(CorpNum, KeyType, MgtKey, Memo, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
+	
+	postdata = m_PopbillBase.toString(tmp)
+
+    Set Request = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "REQUEST", postdata, UserID)
+End Function
+
+
+'역)발행요청 발행거부 처리.
+Public Function Refuse(CorpNum, KeyType, MgtKey, Memo, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
+	
+	postdata = m_PopbillBase.toString(tmp)
+
+    Set Request = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "REFUSE", postdata, UserID)
+End Function
+
+'세금계산서 역)발행요청 취소 처리
+Public Function CancelRequest(CorpNum, KeyType, MgtKey, Memo, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
+	
+	postdata = m_PopbillBase.toString(tmp)
+
+    Set CancelRequest = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "CANCELREQUEST", postdata, UserID)
+End Function
+
+
+
+
+
+'세금계산서 상태/요약 정보 다량(최대1000건) 확인
+Public Function GetInfos(CorpNum, KeyType, MgtKeyList, UserID)
+    If isEmpty(MgtKeyList) Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set tmp = JSON.parse("[]")
+
+	For i=0 To UBound(MgtKeyList) -1
+		tmp.Set i, MgtKeyList(i)
+	Next
+
+	postdata = m_PopbillBase.toString(tmp)
+
+	Set result = m_PopbillBase.httpPOST("/Taxinvoice/" +KeyType, _
+					m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
+
+	
+	Set infoObj = CreateObject("Scripting.Dictionary")
+
+	For i=0 To result.length-1
+		infoObj.Add i, result.Get(i)
+	Next
+		
+	Set GetInfos = infoObj
+
+End Function
+
+
+'문서이력확인 
+Public Function GetLogs(CorpNum, KeyType, MgtKey)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set result = m_PopbillBase.httpGET("/Taxinvoice/" +KeyType+ "/"+ MgtKey+"/Logs", _
+					m_PopbillBase.getSession_token(CorpNum), "")
+
+	Set logObj = CreateObject("Scripting.Dictionary")
+
+	For i = 0 To result.length -1
+		Set logTmp = New TaxinvoiceLog
+		logTmp.fromJsonInfo result.Get(i)
+		logObj.Add i, logTmp
+	Next
+
+	Set GetLogs = logObj
+End Function
+
+'세금계산서 상태/요약 정보 확인
+Public Function GetInfo(CorpNum, KeyType, MgtKey, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set infoTmp = New TaxinvoiceInfo
+	
+	Set result = m_PopbillBase.httpGET("/Taxinvoice/" +KeyType+ "/"+ MgtKey, _
+					m_PopbillBase.getSession_token(CorpNum), UserID)
+
+	infoTmp.fromJsonInfo result
+	Set GetInfo = infoTmp
+
+End Function
+
+
+'세금계산서 삭제
+Public Function Delete(CorpNum , KeyType , MgtKey , UserID)
     If MgtKey = "" Then
         Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
     End If
@@ -85,15 +348,179 @@ Public Function Delete(CorpNum , KeyType , MgtKey ,  UserID )
     Set Delete = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, m_PopbillBase.getSession_token(CorpNum), "DELETE", "", UserID)
 End Function
 
+'국세청 전송
+Public Function SendToNTS(CorpNum, KeyType, MgtKey, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+    Set SendToNTS = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "NTS", "", UserID)
+End Function
+
+
+'이메일 재전송
+Public Function SendEmail(CorpNum, KeyType, MgtKey, Receiver, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set tmp = JSON.parse("{}")
+	tmp.Set "receiver", Receiver
+	
+	postdata = m_PopbillBase.toString(tmp)
+
+    Set SendEmail = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "EMAIL", postdata, UserID)
+End Function
+
+'문자 재전송
+Public Function SendSMS(CorpNum, KeyType, MgtKey, Sender, Receiver, Contents, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+	
+	Set tmp = JSON.parse("{}")
+	tmp.Set "sender", Sender
+	tmp.Set "receiver", Receiver
+	tmp.Set "contents", Contents
+
+	postdata = m_PopbillBase.toString(tmp)
+
+	Set SendSMS = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "SMS", postdata, UserID)
+End Function
+
+'팩스 재전송
+Public Function SendFAX(CorpNum, KeyType, MgtKey, Sender, Receiver, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+	
+	Set tmp = JSON.parse("{}")
+
+	tmp.Set "receiver", Receiver
+	tmp.Set "sender", Sender
+
+	postdata = m_PopbillBase.toString(tmp)
+
+	Set SendFAX = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
+                        m_PopbillBase.getSession_token(CorpNum), "FAX", postdata, UserID)
+End Function
+
+'세금계산서 URL확인
+Public Function GetURL(CorpNum, UserID, TOGO)
+	Set result = m_PopbillBase.httpGET("/Taxinvoice?TG=" + TOGO, _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetURL = result.url
+End Function
+
+'세금계산서 보기 팝업 URL
+Public Function GetPopupURL(CorpNum, KeyType, MgtKey, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=POPUP" , _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetPopupURL = result.url
+End Function
+
+'인쇄 URL확인
+Public Function GetPrintURL(CorpNum, KeyType, MgtKey, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=PRINT" , _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetPrintURL = result.url
+End Function
+
+'다량 인쇄 URL확인
+Public Function GetMassPrintURL(CorpNum, KeyType, mgtKeyList, UserID)
+    If isNull(mgtKeyList) Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+	
+	Set tmp = JSON.parse("[]")
+
+	For i=0 To UBound(MgtKeyList) -1
+		tmp.Set i, MgtKeyList(i)
+	Next
+
+	postdata = m_PopbillBase.toString(tmp)
+
+	Set result = m_PopbillBase.httpPOST("/Taxinvoice/"+ KeyType +"?Print", m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
+
+	GetMassPrintURL = result.url
+
+End Function
+
+'인쇄 URL확인(공급받는자)
+Public Function GetEPrintURL(CorpNum, KeyType, MgtKey, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=EPRINT" , _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetEPrintURL = result.url
+End Function
+
+'메일 URL확인
+Public Function GetMailURL(CorpNum, KeyType, MgtKey, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=MAIL" , _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetMailURL = result.url
+End Function
+
+'상세정보 확인
+Public Function GetDetailInfo(CorpNum , KeyType, MgtKey )
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
+	
+	Set detailTmp = New Taxinvoice
+		
+    Set tmp = m_PopbillBase.httpGET("/Taxinvoice/" + KeyType + "/" + MgtKey + "?Detail", _
+                                m_PopbillBase.getSession_token(CorpNum), "")
+
+	detailTmp.fromJsonInfo tmp
+	Set GetDetailInfo = detailTmp
+End Function
+
+'세금계산서 발행 단가 확인 
+Public Function GetUnitCost(CorpNum)
+	Set result = m_PopbillBase.httpGET("/Taxinvoice?cfg=UNITCOST", m_PopbillBase.getSession_token(CorpNum), "")
+	GetUnitCost = result.unitCost
+End Function
+
+'공인인증서의 만료일시 확인 
+Public Function GetCertificateExpireDate(CorpNum)
+	Set result = m_PopbillBase.httpGET("/Taxinvoice?cfg=CERT", _
+                        m_PopbillBase.getSession_token(CorpNum), "")
+	GetCertificateExpireDate = result.certificateExpiration
+End Function
+
+'대용량 연계사업자 이메일 목록 확인 
+Public Function GetEmailPublicKeys(CorpNum)
+	Set GetEmailPublicKeys = m_PopbillBase.httpGET("/Taxinvoice/EmailPublicKeys", _
+                        m_PopbillBase.getSession_token(CorpNum), "")
+End Function
 End Class
 
-''Taxinvoice Class
+'Taxinvoice Class
 Class Taxinvoice
 
-Public writeDate            
-Public chargeDirection      
-Public issueType            
-Public issueTiming          
+Public writeDate			
+Public chargeDirection
+Public issueType       
+Public issueTiming
 Public taxType              
 
 Public invoicerCorpNum      
@@ -101,7 +528,7 @@ Public invoicerMgtKey
 Public invoicerTaxRegID     
 Public invoicerCorpName     
 Public invoicerCEOName      
-Public invoicerAddr         
+Public invoicerAddr
 Public invoicerBizClass     
 Public invoicerBizType      
 Public invoicerContactName  
@@ -296,6 +723,127 @@ Public Sub AddContact(contact)
 	Set addContactList(Ubound(addContactList)) = contact
 End Sub
 
+
+Public Sub fromJsonInfo(jsonInfo)
+	
+	On Error Resume Next
+
+	writeDate = jsonInfo.writeDate
+	chargeDirection = jsonInfo.chargeDirection     
+	issueType = jsonInfo.issueType           
+	issueTiming = jsonInfo.issueTiming         
+	taxType = jsonInfo.taxType             
+
+	invoicerCorpNum = jsonInfo.invoicerCorpNum     
+	invoicerMgtKey = jsonInfo.invoicerMgtKey      
+	invoicerTaxRegID = jsonInfo.invoicerTaxRegID    
+	invoicerCorpName = jsonInfo.invoicerCorpName    
+	invoicerCEOName = jsonInfo.invoicerCEOName     
+	invoicerAddr = jsonInfo. invoicerAddr       
+	invoicerBizClass = jsonInfo.invoicerBizClass    
+	invoicerBizType = jsonInfo.invoicerBizType     
+	invoicerContactName = jsonInfo.invoicerContactName 
+	invoicerDeptName = jsonInfo.invoicerDeptName    
+	invoicerTEL = jsonInfo.invoicerTEL         
+	invoicerHP = jsonInfo.invoicerHP          
+	invoicerEmail = jsonInfo.invoicerEmail       
+	invoicerSMSSendYN = jsonInfo.invoicerSMSSendYN   
+
+	invoiceeType = jsonInfo.invoiceeType        
+	invoiceeCorpNum = jsonInfo.invoiceeCorpNum     
+	invoiceeMgtKey = jsonInfo.invoiceeMgtKey      
+	invoiceeTaxRegID = jsonInfo.invoiceeTaxRegID    
+	invoiceeCorpName = jsonInfo.invoiceeCorpName    
+	invoiceeCEOName = jsonInfo.invoiceeCEOName     
+	invoiceeAddr = jsonInfo.invoiceeAddr        
+	invoiceeBizClass = jsonInfo.invoiceeBizClass    
+	invoiceeBizType = jsonInfo.invoiceeBizType     
+	invoiceeContactName1 = jsonInfo.invoiceeContactName1
+	invoiceeDeptName1 = jsonInfo.invoiceeDeptName1   
+	invoiceeTEL1 = jsonInfo.invoiceeTEL1         
+	invoiceeHP1 = jsonInfo.invoiceeHP1         
+	invoiceeEmail1 = jsonInfo.invoiceeEmail1      
+	invoiceeContactName2 = jsonInfo.invoiceeContactName2
+	invoiceeDeptName2 = jsonInfo.invoiceeDeptName2    
+	invoiceeTEL2 = jsonInfo.invoiceeTEL2        
+	invoiceeHP2 = jsonInfo.invoiceeHP2         
+	invoiceeEmail2 = jsonInfo.invoiceeEmail2      
+	invoiceeSMSSendYN = jsonInfo.invoiceeSMSSendYN   
+
+	trusteeCorpNum = jsonInfo.trusteeCorpNum      
+	trusteeMgtKey = jsonInfo.trusteeMgtKey       
+	trusteeTaxRegID = jsonInfo.trusteeTaxRegID     
+	trusteeCorpName = jsonInfo.trusteeCorpName     
+	trusteeCEOName = jsonInfo.trusteeCEOName      
+	trusteeAddr = jsonInfo.trusteeAddr         
+	trusteeBizClass = jsonInfo.trusteeBizClass     
+	trusteeBizType = jsonInfo.trusteeBizType      
+	trusteeContactName = jsonInfo.trusteeContactName  
+	trusteeDeptName = jsonInfo.trusteeDeptName     
+	trusteeTEL = jsonInfo.trusteeTEL          
+	trusteeHP = jsonInfo.trusteeHP           
+	trusteeEmail = jsonInfo.trusteeEmail        
+	trusteeSMSSendYN = jsonInfo.trusteeSMSSendYN
+
+	taxTotal = jsonInfo.taxTotal            
+	supplyCostTotal = jsonInfo.supplyCostTotal     
+	totalAmount = jsonInfo.totalAmount         
+	modifyCode = jsonInfo.modifyCode          
+	orgNTSConfirmNum = jsonInfo.orgNTSConfirmNum     
+	purposeType = jsonInfo.purposeType         
+	serialNum = jsonInfo.serialNum           
+	cash = jsonInfo.cash                
+	chkBill = jsonInfo.chkBill             
+	credit = jsonInfo.credit              
+	note = jsonInfo.note                
+	remark1 = jsonInfo.remark1             
+	remark2 = jsonInfo.remark2             
+	remark3 = jsonInfo.remark3             
+	kwon = jsonInfo.kwon                
+	ho = jsonInfo.ho                  
+	businessLicenseYN = jsonInfo.businessLicenseYN   
+	bankBookYN = jsonInfo.bankBookYN                
+	ntsconfirmNum = jsonInfo.ntsconfirmNum       
+	originalTaxinvoiceKey = jsonInfo.originalTaxinvoiceKey
+
+
+	ReDim detailList(jsonInfo.detailList.length)
+	For i = 0 To jsonInfo.detailList.length-1
+		Set tmpDetail = New TaxinvoiceDetail
+		tmpDetail.fromJsonInfo jsonInfo.detailList.Get(i)
+		Set detailList(i) = tmpDetail
+	Next
+
+	ReDim addContactList(jsonInfo.addContactList.length)
+	For i = 0 To jsonInfo.addContactList.length-1
+		Set tmpContact = New Contact
+		tmpContact.fromJsonInfo jsonInfo.addContactList.Get(i)
+		Set addContactList(i) = tmpContact
+	Next
+
+	On Error GoTo 0	
+
+	End Sub
+End Class
+
+Class TaxinvoiceLog
+Public DocLogType
+Public Log
+Public ProcType
+Public ProcCorpName
+Public ProcMemo
+Public regDT
+
+Public Sub fromJsonInfo(jsonInfo)
+	On Error Resume Next
+	DocLogType = jsonInfo.DocLogType
+	Log = jsonInfo.Log
+	ProcType = jsonInfo.ProcType
+	ProcCorpName = jsonInfo.ProcCorpName
+	ProceMemo = jsonInfo.ProcMemo
+	regDT = jsonInfo.regDT
+	On Error GoTo 0
+End Sub
 End Class
 
 Class TaxinvoiceDetail
@@ -311,7 +859,6 @@ Public remark
 
 Public Function toJsonInfo() 
     Set toJsonInfo = JSON.parse("{}")
-    
     toJsonInfo.set "serialNum", CInt(serialNum)
     toJsonInfo.set "purchaseDT", purchaseDT
     toJsonInfo.set "itemName", itemName
@@ -321,7 +868,22 @@ Public Function toJsonInfo()
     toJsonInfo.set "supplyCost", supplyCost
     toJsonInfo.set "tax", tax
     toJsonInfo.set "remark", remark
-End Function
+End Function 
+
+
+Public Sub fromJsonInfo(jsonInfo)
+	On Error Resume Next
+	serialNum = jsonInfo.serialNum
+	purchaseDT = jsonInfo.purchaseDT
+	itemName = jsonInfo.itemName
+	spec = jsonInfo.spec
+	qty = jsonInfo.qty
+	unitCost = jsonInfo.unitCost
+	supplyCost = jsonInfo.supplyCost
+	tax = jsonInfo.tax
+	remark = jsonInfo.remark
+	On Error GoTo 0
+End Sub
 End Class
 
 Class Contact
@@ -331,10 +893,99 @@ Public contactName
 
 Public Function toJsonInfo() 
     Set toJsonInfo = JSON.parse("{}")
-    
     toJsonInfo.set "serialNum", CInt(serialNum)
     toJsonInfo.set "email", email
     toJsonInfo.set "contactName", contactName
+
 End Function
+
+Public Sub fromJsonInfo(jsonInfo)
+	On Error Resume Next
+
+	serialNum = jsonInfo.serialNum
+	email = jsonInfo.email
+	contactName = jsonInfo.contactName
+
+	On Error GoTo 0
+End Sub
+
+End Class
+
+
+Class TaxinvoiceInfo
+Public itemKey                 
+Public stateCode               
+Public taxType                 
+Public purposeType             
+Public modifyCode              
+Public issueType               
+Public writeDate               
+
+Public invoicerCorpName        
+Public invoicerCorpNum         
+Public invoicerMgtKey          
+Public invoiceeCorpName        
+Public invoiceeCorpNum         
+Public invoiceeMgtKey          
+Public trusteeCorpName         
+Public trusteeCorpNum          
+Public trusteeMgtKey           
+
+Public supplyCostTotal         
+Public taxTotal                
+
+Public issueDT                 
+Public preIssueDT              
+Public stateDT                 
+Public openYN                  
+Public openDT                  
+
+Public ntsresult               
+Public ntsconfirmNum           
+Public ntssendDT               
+Public ntsresultDT             
+Public ntssendErrCode          
+Public stateMemo               
+
+Public regDT                   
+
+Public Sub fromJsonInfo(jsonInfo)
+	On Error Resume Next
+
+	itemKey = jsonInfo.itemKey
+	stateCode = jsonInfo.stateCode              
+	taxType = jsonInfo.taxType
+	purposeType = jsonInfo.purposeType            
+	modifyCode = jsonInfo.modifyCode
+	issueType = jsonInfo.issueType              
+	writeDate = jsonInfo.writeDate              
+
+	invoicerCorpName = jsonInfo.invoicerCorpName       
+	invoicerCorpNum = jsonInfo.invoicerCorpNum        
+	invoicerMgtKey = jsonInfo.invoicerMgtKey        
+	invoiceeCorpName = jsonInfo.invoiceeCorpName       
+	invoiceeCorpNum = jsonInfo.invoiceeCorpNum        
+	invoiceeMgtKey = jsonInfo.invoiceeMgtKey         
+	trusteeCorpName = jsonInfo.trusteeCorpName        
+	trusteeCorpNum = jsonInfo.trusteeCorpNum         
+	trusteeMgtKey = jsonInfo.trusteeMgtKey          
+	supplyCostTotal = jsonInfo.supplyCostTotal         
+	taxTotal = jsonInfo.taxTotal               
+	issueDT = jsonInfo.issueDT                
+	preIssueDT = jsonInfo.preIssueDT             
+	stateDT = jsonInfo.stateDT                
+	openYN = jsonInfo.openYN                 
+	openDT = jsonInfo.openDT                 
+
+	ntsresult = jsonInfo.ntsresult              
+	ntsconfirmNum = jsonInfo.ntsconfirmNum          
+	ntssendDT = jsonInfo.ntssendDT              
+	ntsresultDT = jsonInfo.ntsresultDT            
+	ntssendErrCode = jsonInfo.ntssendErrCode         
+	stateMemo = jsonInfo.stateMemo              
+
+	On Error GoTo 0
+End Sub
+
 End Class
 %>

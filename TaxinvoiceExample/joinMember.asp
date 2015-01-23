@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+		<link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
+		<title>팝빌 SDK ASP Example.</title>
+	</head>
+<!--#include file="common.asp"--> 
+
+<%
+	Set joinInfo = New JoinForm
+
+	joinInfo.LinkID = "TESTER"		   '연동아이디 
+	joinInfo.CorpNum = "1234567890"    '사업자번호, "-"제외 10자리
+	joinInfo.CEOName = "대표자성명"	   '대표자성명
+	joinInfo.CorpName =  "상호"		   '상호명
+	joinInfo.Addr =   "주소"		   '주소
+	joinInfo.ZipCode =  "500-100"	   '우편번호
+	joinInfo.BizType =  "업태"		   '업태
+	joinInfo.BizClass = "업종"		   '업종
+	joinInfo.ID =  "userid"		       '아이디 (6자 이상 20자 미만)
+	joinInfo.PWD =  "1234567890"       '비밀번호 (6자 이상 20자 미만)
+	joinInfo.ContactName = "담당자명"    '담당자명
+	joinInfo.ContactTEL = "02-999-9999"   '담당자연락처
+	joinInfo.ContactHP = "010-1234-5678"	'담당자 휴대폰번호
+	joinInfo.ContactFAX = "02-999-9999"		'팩스번호
+	joinInfo.ContactEmail = "test@test.com" '담당자 이메일
+
+	On Error Resume Next
+
+	Set Presponse = m_TaxinvoiceService.JoinMember(joinInfo)
+	
+	If Err.Number <> 0 Then
+		code = Err.Number
+		message = Err.Description
+		Err.Clears
+	Else
+		code = Presponse.code
+		message =Presponse.message
+	End If
+
+	On Error GoTo 0
+
+%>
+
+	<body>
+		<div id="content">
+			<p class="heading1">Response</p>
+			<br/>
+			<fieldset class="fieldset1">
+				<legend>연동회원 가입요청</legend>
+				<ul>
+					<li>Response.code : <%=code%> </li>
+					<li>Response.message: <%=message%> </li>
+				</ul>
+			</fieldset>
+		 </div>
+	</body>
+</html>

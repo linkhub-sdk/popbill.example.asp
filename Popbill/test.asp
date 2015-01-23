@@ -10,7 +10,7 @@
 <%
 
 	set m_TaxinvoiceService = new TaxinvoiceService
-	m_TaxinvoiceService.Initialize "TESTER", "t4B19Ph5K2aIh9oNd91Q99Vwe9jST2/2IJbWjxhCgsA="
+	m_TaxinvoiceService.Initialize "TESTER", "KeA10mdmFeU+WqdWacAb0D6wqYsB8ss6pluoax0aT2I="
 	m_TaxinvoiceService.IsTest = True
 	
 	On Error Resume Next

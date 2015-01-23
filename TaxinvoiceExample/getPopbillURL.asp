@@ -6,11 +6,13 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		 ' 회원 사업자번호, "-" 제외
-	
+	testCorpNum = "1234567890"	 '회원 사업자번호, "-" 제외
+	userID = "testkorea"  ' 회원 아이디
+	TOGO = "LOGIN"   'LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 / CERT : 공인인증서 등록 팝업
+
 	On Error Resume Next
 
-	remainPoint = m_TaxinvoiceService.getBalance(testCorpNum)
+	url = m_TaxinvoiceService.GetPopbillURL(testCorpNum, userID, TOGO)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -25,16 +27,16 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동회원사 잔여포인트 확인결과</legend>
+				<legend>팝빌 SSO URL 요청</legend>
 				<% If code = 0 Then %>
 					<ul>
-						<li>잔여포인트 : <%=CStr(remainpoint)%> </li>
+						<li>URL : <%=CStr(url)%> </li>
 					</ul>
 				<%	Else  %>
-				<ul>
-					<li>Response.code: <%=code%> </li>
-					<li>Response.message: <%=message%> </li>
-				</ul>	
+					<ul>
+						<li>Response.code: <%=code%> </li>
+						<li>Response.message: <%=message%> </li>
+					</ul>	
 				<%	End If	%>
 			</fieldset>
 		 </div>

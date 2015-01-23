@@ -58,7 +58,7 @@ public function getToken(serviceID , access_id, Scope)
 	
 	If winhttp1.Status <> 200 Then
 		Set er = parse(result)
-		Err.raise er.code , "LINKHUB", er.message
+		Err.raise er.code ,"LINKHUB", er.message
     End if
 	Set getToken = parse(result)
 	

@@ -6,11 +6,15 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		 ' 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
+	userID = "testkorea"		' 회원 아이디
+	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	MgtKey = "20150122-00"      '연동관리번호 
 	
+
 	On Error Resume Next
 
-	remainPoint = m_TaxinvoiceService.getBalance(testCorpNum)
+	url = m_TaxinvoiceService.GetPrintURL(testCorpNum, KeyType, MgtKey, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -25,17 +29,17 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동회원사 잔여포인트 확인결과</legend>
+				<legend>인쇄 URL확인</legend>
 				<% If code = 0 Then %>
 					<ul>
-						<li>잔여포인트 : <%=CStr(remainpoint)%> </li>
+						<li>URL : <%=url%> </li>
 					</ul>
-				<%	Else  %>
-				<ul>
-					<li>Response.code: <%=code%> </li>
-					<li>Response.message: <%=message%> </li>
-				</ul>	
-				<%	End If	%>
+				<% Else %>
+					<ul>
+						<li>Response.code : <%=code%> </li>
+						<li>Response.message : <%=message%> </li>
+					</ul>
+				<% End If %>
 			</fieldset>
 		 </div>
 	</body>
