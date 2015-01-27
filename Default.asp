@@ -13,8 +13,8 @@
 				<legend>팝빌 API 목록</legend>
 					<ul>
 						<li><a href="TaxinvoiceExample">TaxinvoiceService</a> - 세금계산서 API</li>
-						<li><a href="MessageService">MessageService</a> - 문자메시지 API</li>
-						<li><a href="FaxService">FaxService</a> - 팩스 API</li>
+						<li><a href="MessageExample">MessageService</a> - 문자메시지 API</li>
+						<li><a href="FaxExample">FaxService</a> - 팩스 API</li>
 						
 					</ul>
 			</fieldset>

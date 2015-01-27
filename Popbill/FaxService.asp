@@ -45,7 +45,21 @@ Public Function GetUnitCost(CorpNum)
     GetUnitCost = result.unitCost
 End Function
 
-''팩스 전송
+'팩스 전송내역조회 URL
+Public Function GetURL(CorpNum, UserID, TOGO)
+    Set result = m_PopbillBase.httpGET("/FAX/?TG="+TOGO, m_PopbillBase.getSession_token(CorpNum),UserID)
+	GetURL = result.url
+End Function
+
+
+'팩스 예약전송 취소
+Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
+	If isNull(ReceiptNum) Or IsEmpty(ReceiptNum) Then Err.Raise -99999999, "POPBILL", "접수번호가 입력되지 않았습니다."
+
+    Set CancelReserve = m_PopbillBase.httpGET("/FAX/"&ReceiptNum&"/Cancel", m_PopbillBase.getSession_token(CorpNum),UserID)
+End Function
+
+'팩스 전송
 Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT , UserID )
 	If isNull(receivers) Or IsEmpty(receivers) Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
     If UBound(receivers) < 0 Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
@@ -78,6 +92,61 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
     SendFAX = result.receiptNum
 End Function
 
+
+'팩스 전송결과 확인
+Public Function GetFaxDetail(CorpNum, receiptNum, UserID)
+	If  isEmpty(receiptNum) Then
+			Err.Raise -99999999, "POPBILL", "팩스 접수번호(receiptNum)가 입력되지 않았습니다."
+	End If
+
+	Set sentFaxList = m_PopbillBase.httpGET("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
+	
+	Set faxResult = New FaxState 
+
+	For i=0 To sentFaxList.length-1
+		faxResult.fromJsonInfo sentFaxList.Get(i)
+	Next
+
+	Set GetFaxDetail = faxResult
+
+End Function 
+End Class
+
+Class FaxState
+Public sendState
+Public convState
+Public sendNum
+Public receiveNum
+Public receiveName
+Public sendPageCnt
+Public successPageCnt
+Public failPageCnt
+Public refundPageCnt
+Public cancelPageCnt
+Public reserveDT
+Public sendDT
+Public resultDT
+Public sendResult
+
+Public Sub fromJsonInfo(jsonInfo)
+	On Error Resume Next
+	sendState = jsonInfo.sendState
+	convState = jsonInfo.convState
+	sendNum = jsonInfo.sendNum
+	receiveNum = jsonInfo.receiveNum
+	receiveName = jsonInfo.receiveName
+	sendPageCnt = jsonInfo.sendPageCnt
+	successPageCnt = jsonInfo.successPageCnt
+	receiveName = jsonInfo.receiveName
+	failPageCnt = jsonInfo.failPageCnt
+	refundPageCnt = jsonInfo.refundPageCnt
+	cancelPageCnt = jsonInfo.cancelPageCnt
+	reserveDT = jsonInfo.reserveDT
+	sendDT = jsonInfo.sendDT
+	resultDT = jsonInfo.resultDT
+	sendResult = jsonInfo.sendResult
+	On Error GoTo 0
+End Sub
 End Class
 
 Class FaxReceiver
@@ -86,7 +155,6 @@ Public receiverName
 
 Public Function toJsonInfo() 
     Set toJsonInfo = JSON.parse("{}")
-    
     toJsonInfo.set "rcv", receiverNum
     toJsonInfo.set "rcvnm", receiverName
 End Function

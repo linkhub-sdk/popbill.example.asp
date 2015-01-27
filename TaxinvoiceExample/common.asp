@@ -4,7 +4,7 @@
 	'연동상담시 발급받은 연동아이디 
 	LinkID = "TESTER"
 	'연동상담시 발급받은 비밀키, 유출에 주의
-	SecretKey =  "yj1oEHdWJI0fMMsagD0JxBnYnbNRQuTD3MwxNwty2Tg="
+	SecretKey ="ut8QMlWBgUYLCgvHqit0rmPdyBPNeWUziQLT0osDvXQ="
 
 	set m_TaxinvoiceService = new TaxinvoiceService
 	m_TaxinvoiceService.Initialize LinkID, SecretKey
