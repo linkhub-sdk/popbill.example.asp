@@ -10,6 +10,8 @@
 	userID = "testkorea"		 '팝빌 회원 아이디
 	TOGO = "BOX"				 'BOX(전송내역조회 팝업)
 
+	On Error Resume Next
+
 	url = m_MessageService.GetURL(testCorpNum, userID, TOGO)
 
 	If Err.Number <> 0 then
@@ -17,7 +19,8 @@
 		message = Err.Description
 		Err.Clears
 	End If
-
+	
+	On Error GoTo 0
 
 %>
 	<body>

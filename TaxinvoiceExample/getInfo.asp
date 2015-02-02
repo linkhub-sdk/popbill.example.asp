@@ -11,8 +11,6 @@
 	MgtKey = "20150121-18"      '연동관리번호 
 	UserID = "testkorea"		'회원아이디
 
-	
-	
 	Set result = m_TaxinvoiceService.GetInfo(testCorpNum, KeyType, MgtKey, UserID)
 
 	If Err.Number <> 0 Then

@@ -10,6 +10,8 @@
 	userID = "testkorea"				'팝빌 회원 아이디
 	ReceiptNum = "015012713000000010"   '문자 전송시 발급받은 접수번호(ReceiptNum)
 	
+	On Error Resume Next
+
 	Set result = m_MessageService.GetMessages(testCorpNum, ReceiptNum, UserID)
 	
 	If Err.Number <> 0 then
@@ -17,6 +19,8 @@
 		message = Err.Description
 		Err.Clears
 	End If
+
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">

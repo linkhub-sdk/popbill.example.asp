@@ -7,8 +7,8 @@
 <!--#include file="common.asp"--> 
 <%
 	testCorpNum = "1234567890"	 '회원 사업자번호, "-" 제외
-	userID = "testkorea"  ' 회원 아이디
-	TOGO = "PBOX"   'TBOX(임시문서함), SBOX(매출문서함), PBOX(매입문서함)
+	userID = "testkorea"		 '회원 아이디
+	TOGO = "PBOX"				 'TBOX(임시문서함), SBOX(매출문서함), PBOX(매입문서함)
 
 	On Error Resume Next
 

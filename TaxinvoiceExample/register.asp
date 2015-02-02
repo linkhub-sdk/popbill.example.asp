@@ -19,7 +19,7 @@
     newTaxinvoice.invoicerCorpNum = "1234567890"
     newTaxinvoice.invoicerTaxRegID = ""					'종사업자 식별번호. 필요시 기재. 형식은 숫자 4자리.
     newTaxinvoice.invoicerCorpName = "공급자 상호"
-    newTaxinvoice.invoicerMgtKey = "20150122-30"		'공급자 파트너 관리번호
+    newTaxinvoice.invoicerMgtKey = "20150122-30"		'공급자 파트너 관리번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
     newTaxinvoice.invoicerCEOName = "공급자 대표자 성명"
     newTaxinvoice.invoicerAddr = "공급자 주소"
     newTaxinvoice.invoicerBizClass = "공급자 업종"

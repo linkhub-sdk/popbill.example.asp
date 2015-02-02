@@ -24,6 +24,8 @@
 		msgList.Add i, message
 	Next
 	
+	On Error Resume Next
+
 	receiptNum = m_MessageService.SendLMS(testCorpNum, "", "","", msgList, reserveDT, userID)
 
 	If Err.Number <> 0 then
@@ -31,6 +33,8 @@
 		message =  Err.Description
 		Err.Clears
 	End If
+
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">

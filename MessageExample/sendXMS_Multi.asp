@@ -9,13 +9,11 @@
 	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
 	userID = "testkorea"			'팝빌 회원 아이디
 '	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
-	
 
 	Set msgList = CreateObject("Scripting.Dictionary")
 	
 	For i =0 To 49
-
-	Set message = New Messages
+		Set message = New Messages
 		message.sender = "07075100000"
 		message.receiver = "010111222"
 		message.receivername = " 수신자이름"+CStr(i)
@@ -24,16 +22,17 @@
 	Next
 
 	For i =50 To 99
-
-	Set message = New Messages
+		Set message = New Messages
 		message.sender = "07075100000"
 		message.receiver = "111222"
 		message.receivername = " 수신자이름"+CStr(i)
 		message.content = "단/장문 자동인식 메시지 테스트입니다. 문자내용의 길이가 90byte 이상인경우 장문(LMS)로 전송됩니다 단/장문 자동인식 메시지 테스트입니다."
 		message.subject = "장문 제목입니다"
-	
 		msgList.Add i, message
 	Next
+
+	On Error Resume Next
+
 	receiptNum = m_MessageService.SendXMS(testCorpNum, "", "","", msgList, reserveDT, userID)
 
 	If Err.Number <> 0 then
@@ -41,6 +40,8 @@
 		message =  Err.Description
 		Err.Clears
 	End If
+
+	On Error GoTo 0 
 %>
 	<body>
 		<div id="content">

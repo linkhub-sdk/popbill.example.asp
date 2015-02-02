@@ -8,7 +8,7 @@
 <%
 	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
 	userID = "testkorea"			'팝빌 회원 아이디
-	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+'	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
 
 	Set msgList = CreateObject("Scripting.Dictionary")
 
@@ -20,6 +20,8 @@
 
 	msgList.Add 0, message
 	
+	On Error Resume Next
+
 	receiptNum = m_MessageService.SendSMS(testCorpNum, "","",msgList, reserveDT, userID)
 
 	If Err.Number <> 0 then
@@ -27,6 +29,8 @@
 		message =  Err.Description
 		Err.Clears
 	End If
+
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">

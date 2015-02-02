@@ -14,11 +14,13 @@
 
 	Set message = New Messages
 	message.sender = "0264429700"
-	message.receiver = "11112222"
+	message.receiver = "010111222"
 	message.receivername = "수신자이름"
 	message.content = "단/장문 메시지 자동인식전송 테스트입니다. 전송하는 메시지의 길이가 90byte이상인 경우 장문(LMS)타입으로 메시지가 전송됩니다. 문자전송 테스트입니다."
 	
 	msgList.Add 0, message
+
+	On Error Resume Next
 
 	receiptNum = m_MessageService.SendXMS(testCorpNum, "", "", "", msgList, reserveDT, userID)
 
@@ -27,6 +29,8 @@
 		message =  Err.Description
 		Err.Clears
 	End If
+
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">

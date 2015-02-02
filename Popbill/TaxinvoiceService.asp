@@ -847,6 +847,7 @@ End Sub
 End Class
 
 Class TaxinvoiceDetail
+
 Public serialNum       
 Public purchaseDT      
 Public itemName        

@@ -11,7 +11,6 @@
 	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
 	MgtKey = "20150122-00"      '연동관리번호 
 	
-
 	On Error Resume Next
 
 	url = m_TaxinvoiceService.GetPopupURL(testCorpNum, KeyType, MgtKey, userID)

@@ -8,7 +8,7 @@
 	<body>
 		<div id="content">
 			
-			<p class="heading1">팝빌 문자메시지 API SDK SpringMVC Example.</p>
+			<p class="heading1">팝빌 문자메시지 SDK ASP Example.</p>
 
 			<br/>
 

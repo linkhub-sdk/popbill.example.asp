@@ -7,10 +7,9 @@
 <!--#include file="common.asp"--> 
 <%
 	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	userID = "testkorea"		' 회원 아이디
+	userID = "testkorea"		'회원 아이디
 	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
 	MgtKey = "20150122-00"      '연동관리번호 
-	
 
 	On Error Resume Next
 
