@@ -62,6 +62,39 @@ Public Function SendXMS(CorpNum, sender, subject, Contents, Messages, reserveDT,
 	SendXMS = SendMessage("XMS", CorpNum, sender, subject, Contents, Messages, reserveDT, UserID)	
 End Function
 
+'MMS 메시지 전송
+Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, reserveDT, UserID)
+	If IsNull(msgList) Or IsEmpty(msgList) Then 
+		Err.raise -99999999, "POPBILL", "전송할 메시지가 입력되지 않았습니다."
+	End If
+
+	If isNull(FilePaths) Then Err.Raise -99999999, "POPBILL", "전송할 파일경로가 입력되지 않았습니다."
+
+	Set tmp = JSON.parse("{}")
+	    
+    If sender <> "" Then tmp.Set "snd", sender
+    If Contents <> "" Then tmp.Set "content", Contents
+    If subject <> "" Then tmp.Set "subject", subject
+    If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
+
+	Set msgs = JSON.parse("[]")
+
+	For i=0 To msgList.Count-1
+		Set msgObj = New Messages
+		msgObj.setValue msgList.Item(i)
+		msgs.Set i, msgObj.toJsonInfo
+	Next
+
+	tmp.Set "msgs", msgs
+
+	postdata = m_PopbillBase.toString(tmp)
+
+	Set result = m_PopbillBase.httpPost_Files("/MMS", m_PopbillBase.getSession_Token(CorpNum), postdata, FilePaths, UserID)
+	SendMMS = result.receiptNum
+End Function
+
+
+
 Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList, reserveDT, UserID)
 	If IsNull(msgList) Or IsEmpty(msgList) Then 
 		Err.raise -99999999, "POPBILL", "전송할 메시지가 입력되지 않았습니다."

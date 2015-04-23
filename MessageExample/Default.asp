@@ -38,6 +38,7 @@
 					<ul>
 						<li><a href="sendSMS.asp">sendSMS</a> - 단문 문자메시지 1건 전송</li>
 						<li><a href="sendSMS_Multi.asp">sendSMS</a> - 단문 문자메시지 다량(최대1000건) 전송</li>
+						<li><a href="sendSMS_Same.asp">sendSMS</a> - 단문 문자메시지 동보 전송</li>
 					</ul>
 				</fieldset>
 				
@@ -46,6 +47,7 @@
 					<ul>
 						<li><a href="sendLMS.asp">sendLMS</a> - 장문 문자메시지 1건 전송</li>
 						<li><a href="sendLMS_Multi.asp">sendLMS</a> - 장문 문자메시지 다량(최대1000건) 전송</li>
+						<li><a href="sendLMS_Same.asp">sendLMS</a> - 장문 문자메시지 동보 전송</li>
 					</ul>
 				</fieldset>
 				
@@ -54,9 +56,17 @@
 					<ul>
 						<li><a href="sendXMS.asp">sendXMS</a> - 단/장문 문자메시지 1건 전송</li>
 						<li><a href="sendXMS_Multi.asp">sendXMS</a> - 단/장문 문자메시지 다량(최대1000건) 전송</li>
+						<li><a href="sendXMS_Same.asp">sendXMS</a> - 단/장문 문자메시지 동보전송</li>
 					</ul>
 				</fieldset>
-				
+				<fieldset class="fieldset2">
+					<legend>MMS 문자 전송 </legend>
+					<ul>
+						<li><a href="sendMMS.asp">sendMMS</a> - MMS 문자메시지 1건 전송</li>
+						<li><a href="sendMMS_Multi.asp">sendMMS</a> - MMS 문자메시지 다량(최대1000건) 전송</li>
+						<li><a href="sendMMS_Same.asp">sendMMS</a> - MMS 문자메시지 동보 전송</li>
+					</ul>
+				</fieldset>
 				<fieldset class="fieldset2">
 					<legend>전송결과/예약취소</legend>
 					<ul>
@@ -69,7 +79,7 @@
 					<legend>기타</legend>
 					<ul>
 						<li><a href="getURL.asp">getURL</a> - 문자메시지 관련 SSO URL 확인</li>
-						<li><a href="getUnitCost.asp">getUnitCost</a> - 세금계산서 발행 단가 확인</li>
+						<li><a href="getUnitCost.asp">getUnitCost</a> - 문자메시지 전송 단가 확인</li>
 					</ul>
 				</fieldset>
 

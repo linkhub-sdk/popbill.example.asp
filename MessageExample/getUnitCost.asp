@@ -8,7 +8,7 @@
 <%
 	testCorpNum = "1234567890"	 '팝빌 회원 사업자번호, "-" 제외
 	userID = "testkorea"		 '팝빌 회원 아이디
-	sendType = "SMS"			 '전송유형 (SMS - 단문, LMS - 장문)
+	sendType = "MMS"			 '전송유형 (SMS - 단문, LMS - 장문, MMS)
 
 	On Error Resume Next
 

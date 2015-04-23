@@ -9,21 +9,31 @@
 	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
 	userID = "testkorea"			'팝빌 회원 아이디
 '	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
-	
+
+
+	senderNum = "07075103710"		'동보전송 발신번호
+	subject = "동보전송 제목"
+	content = "동보전송 내용, 90Byte초과시 LMS(장문) 메시지로 전송됨" 
+
 	Set msgList = CreateObject("Scripting.Dictionary")
-
-	Set message = New Messages
-	message.sender = "07075100000"
-	message.receiver = "01011112222"
-	message.receivername = " 수신자이름"
-	message.content = "발신 내용. 장문은 2000Byte로 길이가 조정되어 전송됩니다. This is Message 메시지 테스트중"
-	message.subject = "장문 제목입니다"
-
-	msgList.Add 0, message
 	
+	For i =0 To 49
+		Set message = New Messages
+		message.receiver = "010111222"
+		message.receivername = " 수신자이름"+CStr(i)
+		msgList.Add i, message
+	Next
+
+	For i =50 To 99
+		Set message = New Messages
+		message.receiver = "010111333"
+		message.receivername = " 수신자이름"+CStr(i)
+		msgList.Add i, message
+	Next
+
 	On Error Resume Next
-	
-	receiptNum = m_MessageService.SendLMS(testCorpNum, "", "","", msgList, reserveDT, userID)
+
+	receiptNum = m_MessageService.SendXMS(testCorpNum, senderNum, subject,content, msgList, reserveDT, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -31,14 +41,14 @@
 		Err.Clears
 	End If
 
-	On Error GoTo 0
+	On Error GoTo 0 
 %>
 	<body>
 		<div id="content">
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>장문 문자메시지 1건 전송 </legend>
+				<legend>단/장문 자동인식 문자메시지 동보전송 </legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li>ReceiptNum(접수번호) : <%=receiptNum%> </li>

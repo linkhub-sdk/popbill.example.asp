@@ -99,17 +99,21 @@ Public Function GetFaxDetail(CorpNum, receiptNum, UserID)
 			Err.Raise -99999999, "POPBILL", "팩스 접수번호(receiptNum)가 입력되지 않았습니다."
 	End If
 
-	Set sentFaxList = m_PopbillBase.httpGET("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
-	
-	Set faxResult = New FaxState 
+	Set result = m_PopbillBase.httpGET("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
+		
+	Set tmp = CreateObject("Scripting.Dictionary")
 
-	For i=0 To sentFaxList.length-1
-		faxResult.fromJsonInfo sentFaxList.Get(i)
+	For i=0 To result.length-1
+		Set faxInfo = New FaxState
+		faxInfo.fromJsonInfo result.Get(i)
+		tmp.Add i, faxInfo
 	Next
 
-	Set GetFaxDetail = faxResult
+	Set GetFaxDetail = tmp
 
 End Function 
+
+
 End Class
 
 Class FaxState

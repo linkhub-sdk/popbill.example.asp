@@ -4,7 +4,7 @@
 	'연동상담시 발급받은 연동아이디 
 	LinkID = "TESTER"
 	'연동상담시 발급받은 비밀키, 유출에 주의
-	SecretKey = "EGh1WjSul2JcPazL6AtQy7VTGamL5i14SK4/qGZvz6E="
+	SecretKey = "SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I="
 
 	set m_MessageService = new MessageService
 	m_MessageService.Initialize LinkID, SecretKey

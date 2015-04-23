@@ -8,7 +8,7 @@
 <%
 	testCorpNum = "1234567890"			'팝빌 회원 사업자번호, "-" 제외
 	userID = "testkorea"				'팝빌 회원 아이디
-	ReceiptNum = "015012713000000010"   '문자 전송시 발급받은 접수번호(ReceiptNum)
+	ReceiptNum = "015042313000000003"   '문자 전송시 발급받은 접수번호(ReceiptNum)
 	
 	On Error Resume Next
 
@@ -37,6 +37,7 @@
 							<ul>
 								<li>state : <%=result.Item(i).state%> </li>
 								<li>subject : <%=result.Item(i).subject%> </li>
+								<li>content : <%=result.Item(i).content%> </li>
 								<li>type : <%=result.Item(i).msgType%> </li>
 								<li>sendnum: <%=result.Item(i).sendnum%> </li>
 								<li>receiveNum : <%=result.Item(i).receiveNum%> </li>
@@ -45,6 +46,7 @@
 								<li>sendDT : <%=result.Item(i).sendDT%> </li>
 								<li>resultDT : <%=result.Item(i).resultDT%> </li>
 								<li>sendResult : <%=result.Item(i).sendResult%> </li>
+
 							</ul>
 						</fieldset>
 					<% 

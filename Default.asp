@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<div id="content">
-			<p class="heading1">ÆËºô SDK jsp Example.</p>
+			<p class="heading1">ÆËºô SDK ASP Example.</p>
 			<br/>
 			<fieldset class="fieldset1">
 				<legend>ÆËºô API ¸ñ·Ï</legend>

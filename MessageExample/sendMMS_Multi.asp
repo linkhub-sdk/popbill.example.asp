@@ -12,18 +12,23 @@
 	
 	Set msgList = CreateObject("Scripting.Dictionary")
 
-	Set message = New Messages
-	message.sender = "07075100000"
-	message.receiver = "01011112222"
-	message.receivername = " 수신자이름"
-	message.content = "발신 내용. 장문은 2000Byte로 길이가 조정되어 전송됩니다. This is Message 메시지 테스트중"
-	message.subject = "장문 제목입니다"
+	For i =0 To 99
 
-	msgList.Add 0, message
+	Set message = New Messages
+		message.sender = "07075100000"
+		message.receiver = "010111222"
+		message.receivername = " 수신자이름"+CStr(i)
+		message.content = "MMS 메시지 내용"
+		message.subject = "MMS 메시지 제목"
 	
+		msgList.Add i, message
+	Next
+	
+	FilePaths = Array("C:\popbill.example.asp\test.jpg")
+
 	On Error Resume Next
-	
-	receiptNum = m_MessageService.SendLMS(testCorpNum, "", "","", msgList, reserveDT, userID)
+
+	receiptNum = m_MessageService.SendMMS(testCorpNum,"","","", msgList, FilePaths, reserveDT, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -38,7 +43,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>장문 문자메시지 1건 전송 </legend>
+				<legend>MMS 문자메시지 1건 전송 </legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li>ReceiptNum(접수번호) : <%=receiptNum%> </li>
