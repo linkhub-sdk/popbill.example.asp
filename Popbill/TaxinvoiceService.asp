@@ -129,13 +129,14 @@ Public Function GetFiles(CorpNum, KeyType, MgtKey, UserID)
 End Function
 
 '발행예정 처리 
-Public Function Send(CorpNum, KeyType, MgtKey, Memo, UserID)
+Public Function Send(CorpNum, KeyType, MgtKey, Memo, EmailSubject, UserID)
 	If MgtKey = "" Then
         Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
     End If
     
 	Set tmp = JSON.parse("{}")
 	tmp.Set "memo", Memo
+	tmp.Set "emailSubject", EmailSubject
 	
 	postdata = m_PopbillBase.toString(tmp)
 

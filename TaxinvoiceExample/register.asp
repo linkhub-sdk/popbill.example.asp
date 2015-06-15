@@ -6,9 +6,14 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
+	testCorpNum = "1234567890"		'팝빌회원 사업자번호
+	writeSpecificationYN = False	'거래명세서 동시작성여부
+	userID = "testkorea"			'회원 아이디
+
+
 	Set newTaxinvoice = New Taxinvoice
 
-	newTaxinvoice.writeDate = "20140122"             '필수, 기재상 작성일자
+	newTaxinvoice.writeDate = "20150615"             '필수, 기재상 작성일자
     newTaxinvoice.chargeDirection = "정과금"         '필수, {정과금, 역과금}
     newTaxinvoice.issueType = "정발행"               '필수, {정발행, 역발행, 위수탁}
     newTaxinvoice.purposeType = "영수"               '필수, {영수, 청구}
@@ -19,7 +24,7 @@
     newTaxinvoice.invoicerCorpNum = "1234567890"
     newTaxinvoice.invoicerTaxRegID = ""					'종사업자 식별번호. 필요시 기재. 형식은 숫자 4자리.
     newTaxinvoice.invoicerCorpName = "공급자 상호"
-    newTaxinvoice.invoicerMgtKey = "20150122-30"		'공급자 파트너 관리번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
+    newTaxinvoice.invoicerMgtKey = "20150615-22"		'공급자 파트너 관리번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
     newTaxinvoice.invoicerCEOName = "공급자 대표자 성명"
     newTaxinvoice.invoicerAddr = "공급자 주소"
     newTaxinvoice.invoicerBizClass = "공급자 업종"
@@ -92,10 +97,6 @@
     newTaxinvoice.AddContact newContact
     
 	On Error Resume Next
-
-	testCorpNum = "1234567890"		'팝빌회원 사업자번호
-	writeSpecificationYN = False	'거래명세서 동시작성여부
-	userID = "testkorea"			'회원 아이디
 
 	Set Presponse = m_TaxinvoiceService.Register(testCorpNum, newTaxinvoice, writeSpecificationYN, userID)
 
