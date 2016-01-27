@@ -7,7 +7,8 @@
 <!--#include file="common.asp"--> 
 <%
 	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"			'팝빌 회원 아이디
+	userID = "testkorea"					'팝빌 회원 아이디
+	adsYN = False							'광고문자 전송여부
 '	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
 	
 	Set msgList = CreateObject("Scripting.Dictionary")
@@ -16,7 +17,7 @@
 
 	Set message = New Messages
 		message.sender = "07075100000"
-		message.receiver = "010111222"
+		message.receiver = "000111222"
 		message.receivername = " 수신자이름"+CStr(i)
 		message.content = "MMS 메시지 내용"
 		message.subject = "MMS 메시지 제목"
@@ -28,7 +29,7 @@
 
 	On Error Resume Next
 
-	receiptNum = m_MessageService.SendMMS(testCorpNum,"","","", msgList, FilePaths, reserveDT, userID)
+	receiptNum = m_MessageService.SendMMS(testCorpNum,"","","", msgList, FilePaths, reserveDT, adsYN, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

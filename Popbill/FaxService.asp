@@ -37,6 +37,29 @@ End Function
 Public Function JoinMember(JoinInfo)
     Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
+'담당자 목록조회
+Public Function ListContact(CorpNum, UserID)
+	Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
+End Function
+'담당자 정보수정
+Public Function UpdateContact(CorpNum, contInfo, UserId)
+	Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
+End Function
+'담당자 추가 
+Public Function RegistContact(CorpNum, contInfo, UserId)
+	Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
+End Function
+'회사정보 수정
+Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
+	Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
+End Function
+'회사정보 확인 
+Public Function GetCorpInfo(CorpNum, UserId)
+	Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
+End Function
+Public Function CheckID(id)
+	Set CheckID = m_popbillBase.CheckID(id)
+End Function
 '''''''''''''  End of PopbillBase
 
 ''단가확인

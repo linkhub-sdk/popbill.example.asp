@@ -39,6 +39,29 @@ End Function
 Public Function JoinMember(JoinInfo)
     Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
+'담당자 목록조회
+Public Function ListContact(CorpNum, UserID)
+	Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
+End Function
+'담당자 정보수정
+Public Function UpdateContact(CorpNum, contInfo, UserId)
+	Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
+End Function
+'담당자 추가 
+Public Function RegistContact(CorpNum, contInfo, UserId)
+	Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
+End Function
+'회사정보 수정
+Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
+	Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
+End Function
+'회사정보 확인 
+Public Function GetCorpInfo(CorpNum, UserId)
+	Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
+End Function
+Public Function CheckID(id)
+	Set CheckID = m_popbillBase.CheckID(id)
+End Function
 '''''''''''''  End of PopbillBase
 
 ''단가확인
@@ -47,23 +70,24 @@ Public Function GetUnitCost(CorpNum, MType)
     GetUnitCost = result.unitCost
 End Function
 
+
 '단문 메시지 전송
-Public Function SendSMS(CorpNum, sender, Contents, Messages, reserveDT, UserID)
-	SendSMS = SendMessage("SMS", CorpNum, sender, "", Contents, Messages, reserveDT, UserID)	
+Public Function SendSMS(CorpNum, sender, Contents, Messages, reserveDT, adsYN, UserID)
+	SendSMS = SendMessage("SMS", CorpNum, sender, "", Contents, Messages, reserveDT, adsYN, UserID)	
 End Function
 
-'장문 메시지 전송
-Public Function SendLMS(CorpNum, sender, subject, Contents, Messages, reserveDT, UserID)
-	SendLMS = SendMessage("LMS", CorpNum, sender, subject, Contents, Messages, reserveDT, UserID)	
+'장문 메시지 전송 (광고)
+Public Function SendLMS(CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)
+	SendLMS = SendMessage("LMS", CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)	
 End Function
 
-'단/장문 메시지 자동인식 전송
-Public Function SendXMS(CorpNum, sender, subject, Contents, Messages, reserveDT, UserID)
-	SendXMS = SendMessage("XMS", CorpNum, sender, subject, Contents, Messages, reserveDT, UserID)	
+'단/장문 메시지 자동인식 전송(광고)
+Public Function SendXMS(CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)
+	SendXMS = SendMessage("XMS", CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)	
 End Function
 
-'MMS 메시지 전송
-Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, reserveDT, UserID)
+'MMS 메시지 전송 (광고)
+Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, reserveDT, adsYN, UserID)
 	If IsNull(msgList) Or IsEmpty(msgList) Then 
 		Err.raise -99999999, "POPBILL", "전송할 메시지가 입력되지 않았습니다."
 	End If
@@ -76,6 +100,7 @@ Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, 
     If Contents <> "" Then tmp.Set "content", Contents
     If subject <> "" Then tmp.Set "subject", subject
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
+	If adsYN <> "" Then tmp.Set "adsYN", adsYN
 
 	Set msgs = JSON.parse("[]")
 
@@ -95,7 +120,7 @@ End Function
 
 
 
-Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList, reserveDT, UserID)
+Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList, reserveDT, adsYN, UserID)
 	If IsNull(msgList) Or IsEmpty(msgList) Then 
 		Err.raise -99999999, "POPBILL", "전송할 메시지가 입력되지 않았습니다."
 	End If
@@ -106,6 +131,7 @@ Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList,
     If Contents <> "" Then tmp.Set "content", Contents
     If subject <> "" Then tmp.Set "subject", subject
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
+	If adsYN Then tmp.Set "adsYN", adsYN
 
 	Set msgs = JSON.parse("[]")
 
@@ -159,6 +185,61 @@ Public Function GetMessages(CorpNum, ReceiptNum, UserID)
 	Set GetMessages = tmp
 
 End Function 
+
+'문자전송내역 조회 
+Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Page, PerPage)
+	If SDate = "" Then
+        Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
+	End If
+	If EDate = "" Then
+        Err.Raise -99999999, "POPBILL", "종료일자가 이력되지 않았습니다."
+	End If
+
+	uri = "/Message/Search"
+	uri = uri & "?SDate=" & SDate
+	uri = uri & "&EDate=" & EDate
+
+	uri = uri & "&State="
+	For i=0 To UBound(State) -1	
+		If i = UBound(State) -1 then
+			uri = uri & State(i)
+		Else
+			uri = uri & State(i) & ","
+		End If
+	Next
+
+	uri = uri & "&Item="
+	For i=0 To UBound(Item) -1
+		If i = UBound(Item) -1  then	
+			uri = uri & Item(i)
+		Else
+			uri = uri & Item(i) & ","
+		End If
+	Next
+	
+	If ReserveYN Then
+		uri = uri & "&ReserveYN=1"
+	Else 
+		uri = uri & "&ReserveYN=0"
+	End If
+
+	If SenderYN Then
+		uri = uri & "&SenderYN=1"
+	Else 
+		uri = uri & "&SenderYN=0"
+	End If
+
+	uri = uri & "&Page=" & CStr(Page)
+	uri = uri & "&PerPage=" & CStr(PerPage)
+	
+	Set searchResult = New MSGSearchResult
+	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
+
+	searchResult.fromJsonInfo tmpObj
+	
+	Set Search = searchResult
+End Function
+
 End Class
 
 Class Messages
@@ -199,6 +280,7 @@ Public reserveDT
 Public sendDT
 Public resultDT
 Public sendResult
+Public tranNet
 
 Public Sub fromJsonInfo(msgInfo)
 	On Error Resume Next
@@ -213,8 +295,43 @@ Public Sub fromJsonInfo(msgInfo)
 	sendDT = msgInfo.sendDT
 	resultDT = msgInfo.resultDT
 	sendResult = msgInfo.sendResult
+	tranNet = msgInfo.tranNet
 	On Error GoTo 0
 End Sub
+End Class
+
+
+Class MSGSearchResult
+	Public code
+	Public total
+	Public perPage
+	Public pageNum
+	Public pageCount
+	Public message
+	Public list()
+
+	Public Sub Class_Initialize
+		ReDim list(-1)
+	End Sub
+
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		code = jsonInfo.code
+		total = jsonInfo.total
+		perPage = jsonInfo.perPage
+		pageNum = jsonInfo.pageNum
+		pageCount = jsonInfo.pageCount
+		message = jsonInfo.message
+		
+		ReDim list(jsonInfo.list.length)
+		For i = 0 To jsonInfo.list.length -1
+			Set tmpObj = New MessageInfo
+			tmpObj.fromJsonInfo jsonInfo.list.Get(i)
+			Set list(i) = tmpObj
+		Next
+
+		On Error GoTo 0
+	End Sub
 End Class
 
 %>

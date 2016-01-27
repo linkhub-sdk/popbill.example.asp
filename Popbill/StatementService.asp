@@ -42,6 +42,29 @@ End Function
 Public Function JoinMember(JoinInfo)
     Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
+'담당자 목록조회
+Public Function ListContact(CorpNum, UserID)
+	Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
+End Function
+'담당자 정보수정
+Public Function UpdateContact(CorpNum, contInfo, UserId)
+	Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
+End Function
+'담당자 추가 
+Public Function RegistContact(CorpNum, contInfo, UserId)
+	Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
+End Function
+'회사정보 수정
+Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
+	Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
+End Function
+'회사정보 확인 
+Public Function GetCorpInfo(CorpNum, UserId)
+	Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
+End Function
+Public Function CheckID(id)
+	Set CheckID = m_popbillBase.CheckID(id)
+End Function
 '''''''''''''  End of PopbillBase
 
 ''단가확인
@@ -352,6 +375,43 @@ Public Function GetMassPrintURL(CorpNum, itemCode, mgtKeyList, UserID)
 	Set result = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"?Print", m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
 	GetMassPrintURL = result.url
 End Function
+
+'전자명세서 즉시발행
+Public Function RegistIssue(CorpNum, ByRef statement, Memo, UserID)
+	If statement Is Nothing Then Err.raise -99999999,"POPBILL","등록할 전자명세서 정보가 입력되지 않았습니다."
+
+    Set tmpDic = statement.toJsonInfo
+
+	If Memo <> "" Then
+		tmpDic.Set "memo", Memo
+	End If
+
+	postdata = m_PopbillBase.toString(tmpDic)
+
+	Set RegistIssue = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), _
+					"ISSUE", postdata, UserID)
+
+End Function
+
+'선팩스 전송
+Public Function FAXSend(CorpNum, ByRef statement, SendNum, ReceiveNum, UserID)
+	If statement Is Nothing Then Err.raise -99999999,"POPBILL","전송할 전자명세서 정보가 입력되지 않았습니다."
+	
+	If isNull(ReceiveNum) Or isEmpty(ReceiveNum) Then 
+		Err.Raise -99999999, "POPBILL", "수신팩스번호가 입력되지 않았습니다."
+	End If
+	
+	Set tmpDic = statement.toJsonInfo
+	tmpDic.Set "sendNum", SendNum
+	tmpDic.Set "receiveNum", ReceiveNum
+
+	postdata = m_PopbillBase.toString(tmpDic)
+	
+	Set result = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), "FAX", postdata, UserID)
+	FAXSend = result.receiptNum
+
+End Function 
+
 End Class
 
 Class StatementLog

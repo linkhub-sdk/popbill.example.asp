@@ -7,9 +7,9 @@
 <!--#include file="common.asp"--> 
 <%
 	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"			'팝빌 회원 아이디
+	userID = "testkorea"					'팝빌 회원 아이디
+	adsYN = True							'광고문자 전송여부
 '	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
-
 
 	senderNum = "07075103710"		'동보전송 발신번호
 	subject = "동보전송 제목"
@@ -19,21 +19,21 @@
 	
 	For i =0 To 49
 		Set message = New Messages
-		message.receiver = "010111222"
+		message.receiver = "000111222"
 		message.receivername = " 수신자이름"+CStr(i)
 		msgList.Add i, message
 	Next
 
 	For i =50 To 99
 		Set message = New Messages
-		message.receiver = "010111333"
+		message.receiver = "000111222"
 		message.receivername = " 수신자이름"+CStr(i)
 		msgList.Add i, message
 	Next
 
 	On Error Resume Next
 
-	receiptNum = m_MessageService.SendXMS(testCorpNum, senderNum, subject,content, msgList, reserveDT, userID)
+	receiptNum = m_MessageService.SendXMS(testCorpNum, senderNum, subject,content, msgList, reserveDT, adsYN, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

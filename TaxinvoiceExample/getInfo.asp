@@ -61,6 +61,7 @@
 						<li> ntssendErrCode :  <%=result.ntssendErrCode%> </li>
 						<li> stateMemo :  <%=result.stateMemo%> </li>
 						<li> regDT :  <%=result.regDT%> </li>
+						<li> lateIssueYN :  <%=result.lateIssueYN%> </li>
 					</ul>	
 					<%	
 						Else

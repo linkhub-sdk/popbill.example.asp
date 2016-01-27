@@ -23,10 +23,22 @@ Public Sub Class_Initialize
 	Set m_sha1 = GetObject( "script:" & Request.ServerVariables("APPL_PHYSICAL_PATH") + "Popbill\Linkhub" & "\sha1.wsc" )
 End Sub
 
-Public Function UTCTime
-	UTCTime = DateAdd("h",m_sha1.getTimeZoneOffSet(),now)
-End Function
+Public function getTime
+	Set winhttp1 = CreateObject("Msxml2.ServerXMLHTTP.6.0")
+    Call winhttp1.Open("GET", linkhub_ServiceURL + "/Time")
+    
+    winhttp1.send
+    result = winhttp1.responseText
+       
+    If winhttp1.Status <> 200 Then
+		Set er = parse(result)
+		Err.raise er.code , "LINKHUB", er.message
+    End If
 
+    Set winhttp1 = Nothing
+       
+    getTime = result
+End Function
 
 public function getToken(serviceID , access_id, Scope)
 
@@ -36,7 +48,7 @@ public function getToken(serviceID , access_id, Scope)
 
 	postData = toString(postObject)
 
-	xDate = m_sha1.getUTCTime
+	xDate = getTime
 	Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 	Call winhttp1.Open("POST", linkhub_ServiceURL + "/" + serviceID + "/Token")
 	Call winhttp1.setRequestHeader("x-lh-date", xdate)

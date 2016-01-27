@@ -41,6 +41,29 @@ End Function
 Public Function JoinMember(JoinInfo)
     Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
+'담당자 목록조회
+Public Function ListContact(CorpNum, UserID)
+	Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
+End Function
+'담당자 정보수정
+Public Function UpdateContact(CorpNum, contInfo, UserId)
+	Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
+End Function
+'담당자 추가 
+Public Function RegistContact(CorpNum, contInfo, UserId)
+	Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
+End Function
+'회사정보 수정
+Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
+	Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
+End Function
+'회사정보 확인 
+Public Function GetCorpInfo(CorpNum, UserId)
+	Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
+End Function
+Public Function CheckID(id)
+	Set CheckID = m_popbillBase.CheckID(id)
+End Function
 '''''''''''''  End of PopbillBase
 
 '임시저장
@@ -295,7 +318,9 @@ Public Function GetInfos(CorpNum, KeyType, MgtKeyList, UserID)
 	Set infoObj = CreateObject("Scripting.Dictionary")
 
 	For i=0 To result.length-1
-		infoObj.Add i, result.Get(i)
+		Set infoTmp = New TaxinvoiceInfo
+		infoTmp.fromJsonInfo result.Get(i)
+		infoObj.Add i, infoTmp
 	Next
 		
 	Set GetInfos = infoObj
@@ -513,6 +538,101 @@ Public Function GetEmailPublicKeys(CorpNum)
 	Set GetEmailPublicKeys = m_PopbillBase.httpGET("/Taxinvoice/EmailPublicKeys", _
                         m_PopbillBase.getSession_token(CorpNum), "")
 End Function
+
+'세금계산서 목록조회
+Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, LateOnly, Page, PerPage)
+    If DType = "" Then
+        Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
+	End If
+	If SDate = "" Then
+        Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
+	End If
+	If EDate = "" Then
+        Err.Raise -99999999, "POPBILL", "종료일자가 이력되지 않았습니다."
+	End If
+
+	uri = "/Taxinvoice/" & KeyType
+	uri = uri & "?DType=" & DType
+	uri = uri & "&SDate=" & SDate
+	uri = uri & "&EDate=" & EDate
+
+	uri = uri & "&State="
+	For i=0 To UBound(State) -1	
+		If i = UBound(State) -1 then
+			uri = uri & State(i)
+		Else
+			uri = uri & State(i) & ","
+		End If
+	Next
+
+	uri = uri & "&Type="
+	For i=0 To UBound(TIType) -1
+		If i = UBound(TIType) -1  then	
+			uri = uri & TIType(i)
+		Else
+			uri = uri & TIType(i) & ","
+		End If
+	Next
+	
+	uri = uri & "&TaxType="
+	For i=0 To UBound(TaxType) -1 
+		If i = UBound(TaxType) -1 then
+			uri = uri & TaxType(i)
+		Else
+			uri = uri & TaxType(i) & ","
+		End If
+	Next
+
+	If Not IsNull(LateOnly) Then 
+		If LateOnly Then
+			uri = uri & "&LateOnly=1"
+		Else 
+			uri = uri & "&LateOnly=0"
+		End If
+	End If
+
+	uri = uri & "&Page=" & CStr(Page)
+	uri = uri & "&PerPage=" & CStr(PerPage)
+	
+	Set searchResult = New TISearchResult
+	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
+
+	searchResult.fromJsonInfo tmpObj
+	
+	Set Search = searchResult
+End Function
+
+Public Function RegistIssue(CorpNum, ByRef TI, WriteSpecification, DealInvoiceMgtKey, ForceIssue, Memo, EmailSubject, UserID)
+	If TI Is Nothing Then Err.raise -99999999,"POPBILL","등록할 세금계산서 정보가 입력되지 않았습니다."
+
+    Set tmpDic = TI.toJsonInfo
+	
+	If WriteSpecification Then
+        tmpDic.Set "writeSpecification", True
+    End If
+	
+	If ForceIssue Then
+		tmpDic.Set "forceIssue", True
+	End If
+
+	If DealInvoiceMgtKey <> "" Then
+		tmpDic.Set "dealInvoiceMgtKey", DealInvoiceMgtKey
+	End If
+
+	If Memo <> "" Then
+		tmpDic.Set "memo", Memo
+	End If
+	
+	If EmailSubject <> "" Then
+		tmpDic.Set "emailSubject", EmailSubject
+	End If
+
+	postdata = m_PopbillBase.toString(tmpDic)
+
+	Set RegistIssue = m_PopbillBase.httpPOST("/Taxinvoice", m_PopbillBase.getSession_token(CorpNum), _
+							"ISSUE", postdata, UserID)
+End Function
+
 End Class
 
 'Taxinvoice Class
@@ -941,6 +1061,7 @@ Public preIssueDT
 Public stateDT                 
 Public openYN                  
 Public openDT                  
+Public lateIssueYN
 
 Public ntsresult               
 Public ntsconfirmNum           
@@ -978,6 +1099,7 @@ Public Sub fromJsonInfo(jsonInfo)
 	stateDT = jsonInfo.stateDT                
 	openYN = jsonInfo.openYN                 
 	openDT = jsonInfo.openDT                 
+	lateIssueYN = jsonInfo.lateIssueYN                 
 
 	ntsresult = jsonInfo.ntsresult              
 	ntsconfirmNum = jsonInfo.ntsconfirmNum          
@@ -985,9 +1107,44 @@ Public Sub fromJsonInfo(jsonInfo)
 	ntsresultDT = jsonInfo.ntsresultDT            
 	ntssendErrCode = jsonInfo.ntssendErrCode         
 	stateMemo = jsonInfo.stateMemo              
-
+	
+	regDT = jsonInfo.regDT
 	On Error GoTo 0
 End Sub
-
 End Class
+
+Class TISearchResult
+	Public code
+	Public total
+	Public perPage
+	Public pageNum
+	Public pageCount
+	Public message
+	Public list()
+
+	Public Sub Class_Initialize
+		ReDim list(-1)
+	End Sub
+
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		code = jsonInfo.code
+		total = jsonInfo.total
+		perPage = jsonInfo.perPage
+		pageNum = jsonInfo.pageNum
+		pageCount = jsonInfo.pageCount
+		message = jsonInfo.message
+		
+		ReDim list(jsonInfo.list.length)
+		For i = 0 To jsonInfo.list.length -1
+			Set tmpObj = New TaxinvoiceInfo
+			tmpObj.fromJsonInfo jsonInfo.list.Get(i)
+			Set list(i) = tmpObj
+		Next
+
+		On Error GoTo 0
+	End Sub
+End Class
+
+
 %>

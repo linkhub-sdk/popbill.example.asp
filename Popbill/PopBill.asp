@@ -1,5 +1,6 @@
 <!--#include file="Linkhub/Linkhub.asp"--> 
 <%
+
 Application("LINKHUB_TOKEN_SCOPE_POPBILL") = Array("member")
 Const ServiceID_REAL = "POPBILL"
 Const ServiceID_TEST = "POPBILL_TEST"
@@ -77,7 +78,7 @@ Public Function getSession_token(CorpNum)
 		Next
 		If refresh = False then
 			Dim utcnow
-			utcnow = m_Linkhub.UTCTime
+			utcnow = CDate(Replace(left(m_linkhub.getTime,19),"T" , " " ))
 			refresh = CDate(Replace(left(m_Token.expiration,19),"T" , " " )) < utcnow
 		End if
     End If
@@ -140,25 +141,81 @@ Public Function JoinMember(JoinInfo)
 
 
 End Function
+
+' 담당자 목록조회
+Public Function ListContact(CorpNum, UserID)
+
+	Set result = httpGET("/IDs",getSession_token(CorpNum), UserID)
+
+	Set infoObj = CreateObject("Scripting.Dictionary")
+
+	For i = 0 To result.length - 1
+		Set contInfo = New ContactInfo
+		contInfo.fromJsonInfo result.Get(i)
+		infoObj.Add i, contInfo
+	Next
+
+	Set ListContact = infoObj
+End Function
+
+'담당자 수정 
+Public Function UpdateContact(CorpNum, ContactInfo, UserID)
+	Set tmp = ContactInfo.toJsonInfo
+	postdata = m_Linkhub.toString(tmp)
+
+	Set UpdateContact = httpPOST("/IDs", getSession_token(CorpNum), "", postdata, UserID)
+End Function
+
+'담당자 추가
+Public Function RegistContact(CorpNum, ContactInfo, UserId)
+	Set tmp = ContactInfo.toJsonInfo
+	postdata = m_Linkhub.toString(tmp)
+	
+	Set RegistContact = httpPOST("/IDs/New", getSession_token(CorpNum), "", postdata, UserId)
+End Function 
+
+'회사정보 확인
+Public Function GetCorpInfo(CorpNum, UserID)
+	Set result = httpGET("/CorpInfo",getSession_token(CorpNum), UserID)
+
+	Set infoObj = New CorpInfo
+	infoObj.fromJsonInfo result
+	
+	Set GetCorpInfo = infoObj
+End Function
+
+'회사정보 수정
+Public Function UpdateCorpInfo(CorpNum, CorpInfo, UserID)
+	Set tmp = CorpInfo.toJsonInfo
+	postdata = m_Linkhub.toString(tmp)
+
+	Set UpdateCorpInfo = httpPOST("/CorpInfo", getSession_token(CorpNum), "", postdata, UserId)
+End Function
+
+'아이디 중복확인
+Public Function CheckID(id)
+	Set CheckID = httpGET("/IDCheck?ID="+id, "", "")
+End Function
+
 '''''''''''''  End of PopbillBase
 
 'Private Functions
 Public Function httpGET(url , BearerToken , UserID )
-    
+
     Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    Call winhttp1.Open("GET", IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL) + url)
+    Call winhttp1.Open("GET", IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL) + url, false)
     
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
-    
+	
     If UserID <> "" Then
         Call winhttp1.setRequestHeader("x-pb-userid", UserID)
     End If
-    
-    winhttp1.Send
+
+	winhttp1.Send
     winhttp1.WaitForResponse
-    result = winhttp1.responseText
-       
+	result = winhttp1.responseText
+	
     If winhttp1.Status <> 200 Then
 		Set winhttp1 = Nothing
         Set parsedDic = m_Linkhub.parse(result)
@@ -398,5 +455,78 @@ Public ContactTEL
 Public ContactHP       
 Public ContactFAX      
 Public ContactEmail    
+End Class
+
+'담당자 정보
+Class ContactInfo
+	Public id
+	Public pwd
+	Public email
+	Public hp
+	Public personName
+	Public searchAllAllowYN
+	Public tel
+	Public fax
+	Public mgrYN
+	Public regDT
+	
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+			
+		id = jsonInfo.id
+		email = jsonInfo.email
+		hp = jsonInfo.hp
+		personName = jsonInfo.personName
+		searchAllAllowYN = jsonInfo.searchAllAllowYN
+		tel = jsonInfo.tel
+		fax = jsonInfo.fax
+		mgrYN = jsonInfo.mgrYN
+		regDT = jsonInfo.regDT
+
+		On Error GoTo 0
+	End Sub
+
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.set "id", id
+		toJsonInfo.set "pwd", pwd
+		toJsonInfo.set "email", email
+		toJsonInfo.set "hp", hp
+		toJsonInfo.set "personName", personName
+		toJsonInfo.set "searchAllAllowYN", searchAllAllowYN
+		toJsonInfo.set "tel", tel
+		toJsonInfo.set "fax", fax
+		toJsonInfo.set "mgrYN", mgrYN
+	End Function
+
+End Class
+
+'회사정보 
+Class CorpInfo
+	Public ceoname
+	Public corpName
+	Public addr
+	Public bizType
+	Public bizClass
+
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		ceoname = jsonInfo.ceoname
+		corpName = jsonInfo.corpName
+		addr = jsonInfo.addr
+		bizType = jsonInfo.bizType
+		bizClass = jsonInfo.bizClass
+		On Error GoTo 0
+	End Sub
+
+	Public Function toJsonINfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.Set "ceoname", ceoname
+		toJsonInfo.Set "corpName", corpName
+		toJsonInfo.Set "addr", addr
+		toJsonInfo.Set "bizType", bizType
+		toJsonInfo.Set "bizClass", bizClass
+	End Function
+
 End Class
 %>
