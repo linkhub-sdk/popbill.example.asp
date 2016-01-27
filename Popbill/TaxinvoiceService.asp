@@ -633,6 +633,32 @@ Public Function RegistIssue(CorpNum, ByRef TI, WriteSpecification, DealInvoiceMg
 							"ISSUE", postdata, UserID)
 End Function
 
+'다른 전자명세서 첨부 
+Public Function AttachStatement(CorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey)
+	Set tmp = JSON.parse("{}")
+
+	tmp.Set "ItemCode", SubItemCode
+	tmp.Set "MgtKey", SubMgtKey
+
+	postdata = m_PopbillBase.toString(tmp)
+
+	Set AttachStatement = m_PopbillBase.httpPOST("/Taxinvoice/" & KeyType & "/" & MgtKey & "/AttachStmt", _
+									m_PopbillBase.getSession_token(CorpNum), "", postdata, "")
+End Function
+
+'다른 전자명세서 첨부해제
+Public Function DetachStatement(CorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey)
+	Set tmp = JSON.parse("{}")
+
+	tmp.Set "ItemCode", SubItemCode
+	tmp.Set "MgtKey", SubMgtKey
+
+	postdata = m_PopbillBase.toString(tmp)
+
+	Set DetachStatement = m_PopbillBase.httpPOST("/Taxinvoice/" & KeyType & "/" & MgtKey & "/DetachStmt", _
+									m_PopbillBase.getSession_token(CorpNum), "", postdata, "")
+End Function
+
 End Class
 
 'Taxinvoice Class

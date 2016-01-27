@@ -268,7 +268,6 @@ Public Function GetDetailInfo(CorpNum, itemCode, mgtKey, UserID)
 	infoObj.fromJsonInfo result
 
 	Set GetDetailInfo = infoObj
-
 End Function 
 
 
@@ -460,6 +459,25 @@ Public Function Search(CorpNum, DType, SDate, EDate, State, ItemCode, Order, Pag
 	Set Search = searchResult
 End Function
 
+Public Function AttachStatement(CorpNum, ItemCode, MgtKey, SubItemCode, SubMgtKey)
+	Set tmp = JSON.parse("{}")
+	tmp.Set "ItemCode", SubItemCode
+	tmp.Set "MgtKey", SubMgtKey
+	
+	postdata = m_PopbillBase.toString(tmp)
+	Set AttachStatement = m_PopbillBase.httpPOST("/Statement/"+CStr(ItemCode)+"/"+mgtKey+"/AttachStmt", _
+						m_PopbillBase.getSession_token(CorpNum), "", postdata, "")
+End Function
+
+Public Function DetachStatement(CorpNum, ItemCode, MgtKey, SubItemCode, SubMgtKey)
+	Set tmp = JSON.parse("{}")
+	tmp.Set "ItemCode", SubItemCode
+	tmp.Set "MgtKey", SubMgtKey
+	
+	postdata = m_PopbillBase.toString(tmp)
+	Set DetachStatement = m_PopbillBase.httpPOST("/Statement/"+CStr(ItemCode)+"/"+mgtKey+"/DetachStmt", _
+						m_PopbillBase.getSession_token(CorpNum), "", postdata, "")
+End Function
 
 End Class
 

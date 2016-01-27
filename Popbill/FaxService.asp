@@ -137,7 +137,7 @@ Public Function GetFaxDetail(CorpNum, receiptNum, UserID)
 End Function 
 
 '팩스 목록 조회
-Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Page, PerPage)
+Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Order, Page, PerPage)
 	If SDate = "" Then
         Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
 	End If
@@ -161,6 +161,7 @@ Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Pa
 	If ReserveYN Then uri = uri & "&ReserveYN=1"
 	If SedernOnlyYN Then uri = uri & "&SenderOnlyYN=1"
 	
+	uri = uri & "&Order=" & Order
 	uri = uri & "&Page=" & CStr(Page)
 	uri = uri & "&PerPage=" & CStr(PerPage)
 	
@@ -192,6 +193,7 @@ Public sendDT
 Public resultDT
 Public sendResult
 Public receiptDT
+Public fileNames
 
 Public Sub fromJsonInfo(jsonInfo)
 	On Error Resume Next
@@ -211,6 +213,9 @@ Public Sub fromJsonInfo(jsonInfo)
 	resultDT = jsonInfo.resultDT
 	sendResult = jsonInfo.sendResult
 	receiptDT = jsonInfo.receiptDT
+	fileNames = jsonInfo.fileNames
+
+
 	On Error GoTo 0
 End Sub
 End Class

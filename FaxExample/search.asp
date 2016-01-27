@@ -8,8 +8,8 @@
 <!--#include file="common.asp"--> 
 <%
 	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	SDate = "20160101"					'시작일자, yyyyMMdd
-	EDate = "20160127"					'종료일자, yyyyMMdd
+	SDate = "20151224"					'시작일자, yyyyMMdd
+	EDate = "20151225"					'종료일자, yyyyMMdd
 	
 	' 전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -18,15 +18,16 @@
 	State(2) = "3"
 	State(3) = "4"
 	
-	ReserveYN = False				'예약전송 검색여부
+	ReserveYN = True				'예약전송 검색여부
 	SenderOnlyYN = False		'개인조회 여부
 
+	Order = "D"			'정렬발향, A-오름차순, D-내림차순
 	Page = 1				'페이지 번호
 	PerPage = 20		'페이지당 검색개수
 	
 	On Error Resume Next
 
-	Set result = m_FaxService.Search(testCorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Page, PerPage)
+	Set result = m_FaxService.Search(testCorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Order, Page, PerPage)
 	
 	If Err.Number <> 0 Then
 		code = Err.Number
@@ -73,6 +74,7 @@
 								<li>sendDT(발송시간) : <%=result.list(i).sendDT%></li>
 								<li>sendResult(통신사 처리결과) : <%=result.list(i).sendResult%></li>
 								<li>receiptDT(전송 접수시간) : <%=result.list(i).receiptDT%></li>
+								<li>fileNames(전송파일명 배열) : <%=result.list(i).fileNames%></li>
 							</ul>
 						</fieldset>
 				<%	

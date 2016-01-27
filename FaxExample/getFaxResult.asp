@@ -53,6 +53,7 @@
 								<li>sendDT(발송시간) : <%=result.Item(i).sendDT%></li>
 								<li>sendResult(통신사 처리결과) : <%=result.Item(i).sendResult%></li>
 								<li>receiptDT(전송 접수시간) : <%=result.Item(i).receiptDT%></li>
+								<li>fileNames(전송파일명 배열) : <%=result.Item(i).fileNames%></li>
 							</ul>
 						</fieldset>
 				<%	

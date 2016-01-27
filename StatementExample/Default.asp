@@ -73,6 +73,8 @@
 						<li><a href="sendSMS.asp">sendSMS</a> - 알림문자 재전송</li>
 						<li><a href="sendFAX.asp">sendFAX</a> - 팩스 전송</li>
 						<li><a href="FAXSend.asp">FAXSend</a> - 선팩스 전송</li>
+						<li><a href="attachStatement.asp">attachStatement</a> - 다른 전자명세서 첨부</li>
+						<li><a href="detachStatement.asp">detachStatement</a> - 다른 전자명세서 첨부해제</li>
 					</ul>
 				</fieldset>
 				
