@@ -358,7 +358,7 @@ Public Function GetInfo(CorpNum, KeyType, MgtKey, UserID)
 	
 	Set result = m_PopbillBase.httpGET("/Taxinvoice/" +KeyType+ "/"+ MgtKey, _
 					m_PopbillBase.getSession_token(CorpNum), UserID)
-
+	
 	infoTmp.fromJsonInfo result
 	Set GetInfo = infoTmp
 
@@ -540,7 +540,7 @@ Public Function GetEmailPublicKeys(CorpNum)
 End Function
 
 '세금계산서 목록조회
-Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, LateOnly, Page, PerPage)
+Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, LateOnly, Order, Page, PerPage)
     If DType = "" Then
         Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
 	End If
@@ -590,7 +590,7 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
 			uri = uri & "&LateOnly=0"
 		End If
 	End If
-
+	uri = uri & "&Order=" & Order
 	uri = uri & "&Page=" & CStr(Page)
 	uri = uri & "&PerPage=" & CStr(PerPage)
 	
@@ -657,7 +657,7 @@ Public invoicerDeptName
 Public invoicerTEL          
 Public invoicerHP           
 Public invoicerEmail        
-Public invoicerSMSSendYN    
+Public invoicerSMSSendYN
 
 Public invoiceeType         
 Public invoiceeCorpNum      
@@ -1046,12 +1046,17 @@ Public writeDate
 Public invoicerCorpName        
 Public invoicerCorpNum         
 Public invoicerMgtKey          
+Public invoicerPrintYN
+
 Public invoiceeCorpName        
 Public invoiceeCorpNum         
 Public invoiceeMgtKey          
+Public invoiceePrintYN
+
 Public trusteeCorpName         
 Public trusteeCorpNum          
 Public trusteeMgtKey           
+Public trusteePrintYN
 
 Public supplyCostTotal         
 Public taxTotal                
@@ -1086,12 +1091,15 @@ Public Sub fromJsonInfo(jsonInfo)
 	invoicerCorpName = jsonInfo.invoicerCorpName       
 	invoicerCorpNum = jsonInfo.invoicerCorpNum        
 	invoicerMgtKey = jsonInfo.invoicerMgtKey        
+	invoicerPrintYN = jsonInfo.invoicerPrintYN        
 	invoiceeCorpName = jsonInfo.invoiceeCorpName       
 	invoiceeCorpNum = jsonInfo.invoiceeCorpNum        
 	invoiceeMgtKey = jsonInfo.invoiceeMgtKey         
+	invoiceePrintYN = jsonInfo.invoiceePrintYN         
 	trusteeCorpName = jsonInfo.trusteeCorpName        
 	trusteeCorpNum = jsonInfo.trusteeCorpNum         
 	trusteeMgtKey = jsonInfo.trusteeMgtKey          
+	trusteePrintYN = jsonInfo.trusteePrintYN          
 	supplyCostTotal = jsonInfo.supplyCostTotal         
 	taxTotal = jsonInfo.taxTotal               
 	issueDT = jsonInfo.issueDT                

@@ -412,6 +412,55 @@ Public Function FAXSend(CorpNum, ByRef statement, SendNum, ReceiveNum, UserID)
 
 End Function 
 
+
+'전자명세서 목록 조회
+Public Function Search(CorpNum, DType, SDate, EDate, State, ItemCode, Order, Page, PerPage)
+    If DType = "" Then
+        Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
+	End If
+	If SDate = "" Then
+        Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
+	End If
+	If EDate = "" Then
+        Err.Raise -99999999, "POPBILL", "종료일자가 이력되지 않았습니다."
+	End If
+
+	uri = "/Statement/Search"
+	uri = uri & "?DType=" & DType
+	uri = uri & "&SDate=" & SDate
+	uri = uri & "&EDate=" & EDate
+
+	uri = uri & "&State="
+	For i=0 To UBound(State) -1	
+		If i = UBound(State) -1 then
+			uri = uri & State(i)
+		Else
+			uri = uri & State(i) & ","
+		End If
+	Next
+
+	uri = uri & "&ItemCode="
+	For i=0 To UBound(Itemcode) -1
+		If i = UBound(Itemcode) -1  then	
+			uri = uri & Itemcode(i)
+		Else
+			uri = uri & Itemcode(i) & ","
+		End If
+	Next
+	
+	uri = uri & "&Order=" & Order
+	uri = uri & "&Page=" & CStr(Page)
+	uri = uri & "&PerPage=" & CStr(PerPage)
+	
+	Set searchResult = New StmtSearchResult
+	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
+
+	searchResult.fromJsonInfo tmpObj
+	
+	Set Search = searchResult
+End Function
+
+
 End Class
 
 Class StatementLog
@@ -445,8 +494,10 @@ Public purposeType
 Public writeDate
 Public senderCorpName
 Public senderCorpNum
+Public senderPrintYN
 Public receiverCorpName
 Public receiverCorpNum
+Public receiverPrintYN
 Public supplyCostTotal
 Public taxTotal
 Public issueDT
@@ -465,8 +516,10 @@ Public Sub fromJsonInfo(jsonInfo)
 	writeDate = jsonInfo.writeDate
 	senderCorpName = jsonInfo.senderCorpName
 	senderCorpNum = jsonInfo.senderCorpNum
+	senderPrintYN = jsonInfo.senderPrintYN
 	receiverCorpName = jsonInfo.receiverCorpName
 	receiverCorpNum = jsonInfo.receiverCorpNum
+	receiverPrintYN = jsonInfo.receiverPrintYN
 	supplyCostTotal = jsonInfo.supplyCostTotal
 	taxTotal = jsonInfo.taxTotal
 	issueDT = jsonInfo.issueDT
@@ -727,5 +780,38 @@ Public Sub fromJsonInfo(jsonInfo)
     spare5 = jsonInfo.spare5
 	On Error GoTo 0 
 End Sub
+End Class
+
+Class StmtSearchResult
+	Public code
+	Public total
+	Public perPage
+	Public pageNum
+	Public pageCount
+	Public message
+	Public list()
+
+	Public Sub Class_Initialize
+		ReDim list(-1)
+	End Sub
+
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		code = jsonInfo.code
+		total = jsonInfo.total
+		perPage = jsonInfo.perPage
+		pageNum = jsonInfo.pageNum
+		pageCount = jsonInfo.pageCount
+		message = jsonInfo.message
+		
+		ReDim list(jsonInfo.list.length)
+		For i = 0 To jsonInfo.list.length -1
+			Set tmpObj = New StatementInfo
+			tmpObj.fromJsonInfo jsonInfo.list.Get(i)
+			Set list(i) = tmpObj
+		Next
+
+		On Error GoTo 0
+	End Sub
 End Class
 %>

@@ -38,8 +38,10 @@
 						<li>writeDate : <%=result.writeDate%> </li>
 						<li>senderCorpName : <%=result.senderCorpName%> </li>
 						<li>senderCorpNum : <%=result.senderCorpNum%> </li>
+						<li>senderPrintYN : <%=result.senderPrintYN%> </li>
 						<li>receiverCorpName : <%=result.receiverCorpName%> </li>
 						<li>receiverCorpNum : <%=result.receiverCorpNum%> </li>
+						<li>receiverPrintYN : <%=result.receiverPrintYN%> </li>
 						<li>supplyCostTotal : <%=result.supplyCostTotal%> </li>
 						<li>taxTotal : <%=result.taxTotal%> </li>
 						<li>issueDT : <%=result.issueDT%> </li>

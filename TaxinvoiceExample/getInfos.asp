@@ -46,12 +46,15 @@
 										<li> invoicerCorpName :  <%=result.Item(i).invoicerCorpName%> </li>
 										<li> invoicerCorpNum :  <%=result.Item(i).invoicerCorpNum%> </li>
 										<li> invoicerMgtKey :  <%=result.Item(i).invoicerMgtKey%> </li>
+										<li> invoicerPrintYN :  <%=result.Item(i).invoicerPrintYN%> </li>
 										<li> invoiceeCorpName :  <%=result.Item(i).invoiceeCorpName%> </li>
 										<li> invoiceeCorpNum :  <%=result.Item(i).invoiceeCorpNum%> </li>
 										<li> invoiceeMgtKey :  <%=result.Item(i).invoiceeMgtKey%> </li>
+										<li> invoiceePrintYN :  <%=result.Item(i).invoiceePrintYN%> </li>
 										<li> trusteeCorpName :  <%=result.Item(i).trusteeCorpName%> </li>
 										<li> trusteeCorpNum :  <%=result.Item(i).trusteeCorpName%> </li>
 										<li> trusteeMgtKey :  <%=result.Item(i).trusteeMgtKey%> </li> 
+										<li> trusteePrintYN :  <%=result.Item(i).trusteePrintYN%> </li> 
 										<li> supplyCostTotal :  <%=result.Item(i).supplyCostTotal%> </li>
 										<li> taxTotal :  <%=result.Item(i).taxTotal%> </li>
 										<li> issueDT :  <%=result.Item(i).issueDT%> </li>

@@ -55,6 +55,7 @@
 				<fieldset class="fieldset2">
 					<legend>정보 확인</legend>
 					<ul>
+						<li><a href="search.asp">search</a> - 현금영수증 목록조회</li>
 						<li><a href="getInfo.asp">getInfo</a> - 현금영수증 상태확인</li>
 						<li><a href="getInfos.asp">getInfos</a> - 현금영수증 상태 대량 확인</li>
 						<li><a href="getLogs.asp">getLogs</a> - 현금영수증 이력 확인</li>

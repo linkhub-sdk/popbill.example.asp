@@ -41,12 +41,15 @@
 						<li> invoicerCorpName :  <%=result.invoicerCorpName%> </li>
 						<li> invoicerCorpNum :  <%=result.invoicerCorpNum%> </li>
 						<li> invoicerMgtKey :  <%=result.invoicerMgtKey%> </li>
+						<li> invoicerPrintYN :  <%=result.invoicerPrintYN%> </li>
 						<li> invoiceeCorpName :  <%=result.invoiceeCorpName%> </li>
 						<li> invoiceeCorpNum :  <%=result.invoiceeCorpNum%> </li>
 						<li> invoiceeMgtKey :  <%=result.invoiceeMgtKey%> </li>
+						<li> invoiceePrintYN :  <%=result.invoiceePrintYN%> </li>
 						<li> trusteeCorpName :  <%=result.trusteeCorpName%> </li>
 						<li> trusteeCorpNum :  <%=result.trusteeCorpName%> </li>
 						<li> trusteeMgtKey :  <%=result.trusteeMgtKey%> </li> 
+						<li> trusteePrintYN :  <%=result.trusteePrintYN%> </li> 
 						<li> supplyCostTotal :  <%=result.supplyCostTotal%> </li>
 						<li> taxTotal :  <%=result.taxTotal%> </li>
 						<li> issueDT :  <%=result.issueDT%> </li>

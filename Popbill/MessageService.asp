@@ -187,7 +187,7 @@ Public Function GetMessages(CorpNum, ReceiptNum, UserID)
 End Function 
 
 '문자전송내역 조회 
-Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Page, PerPage)
+Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage)
 	If SDate = "" Then
         Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
 	End If
@@ -229,6 +229,7 @@ Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Page, P
 		uri = uri & "&SenderYN=0"
 	End If
 
+	uri = uri & "&Order=" & Order
 	uri = uri & "&Page=" & CStr(Page)
 	uri = uri & "&PerPage=" & CStr(PerPage)
 	
@@ -238,6 +239,11 @@ Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Page, P
 	searchResult.fromJsonInfo tmpObj
 	
 	Set Search = searchResult
+End Function
+
+'080 수신거부목록 확인 
+Public Function GetAutoDenyList(CorpNum)
+	Set GetAutoDenyList = m_PopbillBase.httpGET("/Message/Denied", m_PopbillBase.getSession_token(CorpNum), "")
 End Function
 
 End Class
@@ -281,6 +287,7 @@ Public sendDT
 Public resultDT
 Public sendResult
 Public tranNet
+Public receiptDT
 
 Public Sub fromJsonInfo(msgInfo)
 	On Error Resume Next
@@ -296,6 +303,7 @@ Public Sub fromJsonInfo(msgInfo)
 	resultDT = msgInfo.resultDT
 	sendResult = msgInfo.sendResult
 	tranNet = msgInfo.tranNet
+	receiptDT = msgInfo.receiptDT
 	On Error GoTo 0
 End Sub
 End Class

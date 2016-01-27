@@ -47,6 +47,7 @@
 								<li>receiveName : <%=result.Item(i).receiveName%> </li>
 								<li>reserveDT : <%=result.Item(i).reserveDT%> </li>
 								<li>tranNet : <%=result.Item(i).tranNet%> </li>
+								<li>receiptDT : <%=result.Item(i).receiptDT%> </li>
 							</ul>
 						</fieldset>
 					<% 

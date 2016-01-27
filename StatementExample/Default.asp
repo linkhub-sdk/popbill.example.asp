@@ -62,6 +62,7 @@
 						<li><a href="getInfos.asp">getInfos</a> - 전자명세서 상태 대량 확인</li>
 						<li><a href="getLogs.asp">getLogs</a> - 전자명세서 이력 확인</li>
 						<li><a href="getDetailInfo.asp">getDetailInfo</a> - 전자명세서 상세정보 확인</li>
+						<li><a href="search.asp">search</a> - 전자명세서 목록 조회</li>
 					</ul>
 				</fieldset>
 				

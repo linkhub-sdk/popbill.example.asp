@@ -136,6 +136,43 @@ Public Function GetFaxDetail(CorpNum, receiptNum, UserID)
 
 End Function 
 
+'팩스 목록 조회
+Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Page, PerPage)
+	If SDate = "" Then
+        Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
+	End If
+	If EDate = "" Then
+        Err.Raise -99999999, "POPBILL", "종료일자가 이력되지 않았습니다."
+	End If
+
+	uri = "/FAX/Search"
+	uri = uri & "?SDate=" & SDate
+	uri = uri & "&EDate=" & EDate
+
+	uri = uri & "&State="
+	For i=0 To UBound(State) -1	
+		If i = UBound(State) -1 then
+			uri = uri & State(i)
+		Else
+			uri = uri & State(i) & ","
+		End If
+	Next
+	
+	If ReserveYN Then uri = uri & "&ReserveYN=1"
+	If SedernOnlyYN Then uri = uri & "&SenderOnlyYN=1"
+	
+	uri = uri & "&Page=" & CStr(Page)
+	uri = uri & "&PerPage=" & CStr(PerPage)
+	
+	Set searchResult = New FAXSearchResult
+	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
+
+	searchResult.fromJsonInfo tmpObj
+	
+	Set Search = searchResult
+End Function
+
+
 
 End Class
 
@@ -154,6 +191,7 @@ Public reserveDT
 Public sendDT
 Public resultDT
 Public sendResult
+Public receiptDT
 
 Public Sub fromJsonInfo(jsonInfo)
 	On Error Resume Next
@@ -172,6 +210,7 @@ Public Sub fromJsonInfo(jsonInfo)
 	sendDT = jsonInfo.sendDT
 	resultDT = jsonInfo.resultDT
 	sendResult = jsonInfo.sendResult
+	receiptDT = jsonInfo.receiptDT
 	On Error GoTo 0
 End Sub
 End Class
@@ -185,5 +224,39 @@ Public Function toJsonInfo()
     toJsonInfo.set "rcv", receiverNum
     toJsonInfo.set "rcvnm", receiverName
 End Function
+End Class
+
+
+Class FAXSearchResult
+	Public code
+	Public total
+	Public perPage
+	Public pageNum
+	Public pageCount
+	Public message
+	Public list()
+
+	Public Sub Class_Initialize
+		ReDim list(-1)
+	End Sub
+
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		code = jsonInfo.code
+		total = jsonInfo.total
+		perPage = jsonInfo.perPage
+		pageNum = jsonInfo.pageNum
+		pageCount = jsonInfo.pageCount
+		message = jsonInfo.message
+		
+		ReDim list(jsonInfo.list.length)
+		For i = 0 To jsonInfo.list.length -1
+			Set tmpObj = New FaxState
+			tmpObj.fromJsonInfo jsonInfo.list.Get(i)
+			Set list(i) = tmpObj
+		Next
+
+		On Error GoTo 0
+	End Sub
 End Class
 %>

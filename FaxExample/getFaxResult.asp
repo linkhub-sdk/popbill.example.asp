@@ -52,6 +52,7 @@
 								<li>reserveDT(예약시간) : <%=result.Item(i).reserveDT%></li>
 								<li>sendDT(발송시간) : <%=result.Item(i).sendDT%></li>
 								<li>sendResult(통신사 처리결과) : <%=result.Item(i).sendResult%></li>
+								<li>receiptDT(전송 접수시간) : <%=result.Item(i).receiptDT%></li>
 							</ul>
 						</fieldset>
 				<%	

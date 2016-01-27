@@ -26,12 +26,13 @@
 
 	ReserveYN = False	' 예약전송여부
 	SenderYN = False		' 개인조회여부 
+	Order = "D"				' 정렬방향, D-내림차순, A-오름차순
 	Page = 1					' 페이지 번호 
 	PerPage = 30			' 페이지당 검색개수 
 	
 	On Error Resume Next
 
-	Set result = m_MessageService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Page, PerPage)
+	Set result = m_MessageService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage)
 	
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -74,6 +75,7 @@
 								<li>reserveDT : <%=result.list(i).reserveDT%> </li>
 								<li>sendDT : <%=result.list(i).sendDT%> </li>
 								<li>tranNet : <%=result.list(i).tranNet%> </li>
+								<li>receiptDT : <%=result.list(i).receiptDT%> </li>
 							</ul>
 						</fieldset>
 

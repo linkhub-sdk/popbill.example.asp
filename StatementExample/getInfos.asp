@@ -46,8 +46,10 @@
 								<li>writeDate : <%=result.Item(i).writeDate%> </li>
 								<li>senderCorpName : <%=result.Item(i).senderCorpName%> </li>
 								<li>senderCorpNum : <%=result.Item(i).senderCorpNum%> </li>
+								<li>senderPrintYN : <%=result.Item(i).senderPrintYN%> </li>
 								<li>receiverCorpName : <%=result.Item(i).receiverCorpName%> </li>
 								<li>receiverCorpNum : <%=result.Item(i).receiverCorpNum%> </li>
+								<li>receiverPrintYN : <%=result.Item(i).receiverPrintYN%> </li>
 								<li>supplyCostTotal : <%=result.Item(i).supplyCostTotal%> </li>
 								<li>taxTotal : <%=result.Item(i).taxTotal%> </li>
 								<li>issueDT : <%=result.Item(i).issueDT%> </li>

@@ -87,6 +87,7 @@
 					<ul>
 						<li><a href="getURL.asp">getURL</a> - 문자메시지 관련 SSO URL 확인</li>
 						<li><a href="getUnitCost.asp">getUnitCost</a> - 문자메시지 전송 단가 확인</li>
+						<li><a href="getAutoDenyList.asp">getAutoDenyList</a> - 080수신거부 목록 확인</li>
 					</ul>
 				</fieldset>
 
