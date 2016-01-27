@@ -31,7 +31,7 @@
 
 	LateOnly = null		' 지연발행여부,  null- 전체조회, False-정상발행분 조회, True-지연발행분 조회
 	Order = "D"			' 정렬방향, A-오름차순, D-내림차순
-	Page = 1			' 페이지 번호
+	Page = 1				' 페이지 번호
 	PerPage = 10		' 페이지당 검색갯수, 최대 1000
 	
 	Set result = m_TaxinvoiceService.Search(testCorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, LateOnly, Order, Page, PerPage)

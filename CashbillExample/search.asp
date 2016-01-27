@@ -17,21 +17,24 @@
 	State(1) = "2**"
 	State(2) = "3**"
 	
-	Dim TradeType(2)
+	'현금영수증 형태, N-일반현금영수증, C-취소현금영수증
+	Dim TradeType(2)			
 	TradeType(0) = "N"
 	TradeType(1) = "C"
 
-	Dim TradeUsage(2)
+	'거래용도 배열, P-소득공제용, C-지출증빙용
+	Dim TradeUsage(2)		
 	TradeUsage(0) = "P"
 	TradeUsage(1) = "C"
 
-	Dim TaxationType(2)
+	'과세형태 배열, T-과세,  N-비과세
+	Dim TaxationType(2)		
 	TaxationType(0) = "T"
 	TaxationType(1) = "N"
 
 	Order = "D"			'정렬방향, A-오름차순, D-내림차순
-	Page = 1
-	PerPage = 20
+	Page = 1				'페이지번호
+	PerPage = 20		'페이지당 검색개수, 최대 1000
 
 	On Error Resume Next
 	
