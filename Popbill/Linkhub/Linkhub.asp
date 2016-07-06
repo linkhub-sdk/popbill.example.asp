@@ -24,10 +24,11 @@ Public Sub Class_Initialize
 End Sub
 
 Public function getTime
-	Set winhttp1 = CreateObject("Msxml2.ServerXMLHTTP.6.0")
+	Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
     Call winhttp1.Open("GET", linkhub_ServiceURL + "/Time")
     
     winhttp1.send
+	winhttp1.WaitForResponse
     result = winhttp1.responseText
        
     If winhttp1.Status <> 200 Then
