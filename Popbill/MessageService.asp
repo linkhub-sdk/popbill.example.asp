@@ -62,6 +62,16 @@ End Function
 Public Function CheckID(id)
 	Set CheckID = m_popbillBase.CheckID(id)
 End Function
+
+'과금정보 확인
+Public Function GetChargeInfo ( CorpNum, MType, UserID )
+	Set result = m_PopbillBase.httpGET ( "/Message/ChargeInfo?Type=" &MType, m_PopbillBase.getSession_token(CorpNum), UserID )
+
+	Set chrgInfo = New ChargeInfo
+	chrgInfo.fromJsonInfo result
+	
+	Set GetChargeInfo = chrgInfo
+End Function 
 '''''''''''''  End of PopbillBase
 
 ''단가확인

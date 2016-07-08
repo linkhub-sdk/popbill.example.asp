@@ -529,4 +529,20 @@ Class CorpInfo
 	End Function
 
 End Class
+
+'과금정보
+Class ChargeInfo
+	Public unitCost
+	Public chargeMethod
+	Public rateSystem
+
+	Public Sub fromJsonInfo ( jsonInfo )
+		On Error Resume Next
+		unitCost = jsonInfo.unitCost
+		chargeMethod = jsonInfo.chargeMethod
+		rateSystem = jsonInfo.rateSystem
+		On Error GoTo 0
+	End Sub 
+
+End Class
 %>
