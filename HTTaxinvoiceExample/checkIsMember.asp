@@ -6,36 +6,33 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	userID = "testkorea"		' 회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20160712-05"      '연동관리번호 
-
+	testCorpNum = "1231212312"		' 사업자번호 ("-"제외)
+		
 	On Error Resume Next
 
-	url = m_TaxinvoiceService.GetMailURL(testCorpNum, KeyType, MgtKey, userID)
+	Set Presponse = m_HTTaxinvoiceService.CheckIsMember(testCorpNum,LinkID)
 
-	If Err.Number <> 0 then
+	If Err.Number <> 0 Then
 		code = Err.Number
 		message = Err.Description
 		Err.Clears
+	Else
+		code = Presponse.code
+		message =Presponse.message
 	End If
 
 	On Error GoTo 0
 %>
+
 	<body>
 		<div id="content">
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>메일 URL확인 </legend>
+				<legend>연동회원사 가입 여부 확인 결과</legend>
 				<ul>
-					<% If code = 0 Then %>
-						<li>URL : <%=url%> </li>
-					<% Else %>
-						<li> Response.code : <%=code%> </li>
-						<li> Response.message : <%=message%> </li>
-					<% End If %>
+					<li>Response.code : <%=CStr(code)%></li>
+					<li>Response.message : <%=message%></li>
 				</ul>
 			</fieldset>
 		 </div>

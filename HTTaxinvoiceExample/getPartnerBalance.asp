@@ -6,14 +6,11 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	userID = "testkorea"		' 회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20160712-05"      '연동관리번호 
-
+	testCorpNum = "1234567890"		 ' 회원 사업자번호, "-" 제외
+	
 	On Error Resume Next
 
-	url = m_TaxinvoiceService.GetMailURL(testCorpNum, KeyType, MgtKey, userID)
+	remainPoint = m_HTTaxinvoiceService.getPartnerBalance(testCorpNum)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -28,15 +25,17 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>메일 URL확인 </legend>
-				<ul>
-					<% If code = 0 Then %>
-						<li>URL : <%=url%> </li>
-					<% Else %>
-						<li> Response.code : <%=code%> </li>
-						<li> Response.message : <%=message%> </li>
-					<% End If %>
-				</ul>
+				<legend>파트너 잔여포인트 확인결과</legend>
+				<% If code = 0 Then %>
+					<ul>
+						<li>잔여포인트 : <%=CStr(remainpoint)%> </li>
+					</ul>
+				<%	Else  %>
+					<ul>
+						<li>Response.code: <%=code%> </li>
+						<li>Response.message: <%=message%> </li>
+					</ul>	
+				<%	End If	%>
 			</fieldset>
 		 </div>
 	</body>

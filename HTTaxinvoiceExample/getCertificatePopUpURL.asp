@@ -6,18 +6,16 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	userID = "testkorea"		' 회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20160712-05"      '연동관리번호 
+	testCorpNum = "4108600477"	 '회원 사업자번호, "-" 제외
+	userID = "innoposttest"  ' 회원 아이디
 
 	On Error Resume Next
 
-	url = m_TaxinvoiceService.GetMailURL(testCorpNum, KeyType, MgtKey, userID)
+	url = m_HTTaxinvoiceService.GetCertificatePopUpURL(testCorpNum, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number
-		message = Err.Description
+		message =  Err.Description
 		Err.Clears
 	End If
 
@@ -28,15 +26,17 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>메일 URL확인 </legend>
-				<ul>
-					<% If code = 0 Then %>
+				<legend>공인인증서 등록 팝업 URL</legend>
+				<% If code = 0 Then %>
+					<ul>
 						<li>URL : <%=url%> </li>
-					<% Else %>
-						<li> Response.code : <%=code%> </li>
-						<li> Response.message : <%=message%> </li>
-					<% End If %>
-				</ul>
+					</ul>
+				<%	Else  %>
+					<ul>
+						<li>Response.code: <%=code%> </li>
+						<li>Response.message: <%=message%> </li>
+					</ul>	
+				<%	End If	%>
 			</fieldset>
 		 </div>
 	</body>
