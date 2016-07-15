@@ -1,7 +1,6 @@
 <%
 Const SELL = "SELL"
 Const BUY = "BUY"
-Const TRUSTEE = "TRUSTEE"
 
 Class HTCashbillService
 
@@ -152,7 +151,8 @@ Class HTCashbillService
 		Set Search = searchResult
 
 	End Function 
-
+	
+	'수집 결과 요약정보 조회
 	Public Function Summary ( CorpNum, JobID, TradeType, TradeUsage, UserID )
 		If Not ( Len ( JobID ) = 18 ) Then
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
@@ -185,12 +185,14 @@ Class HTCashbillService
 
 	End Function
 	
+	'정액제 신청 URL
 	Public Function GetFlatRatePopUpURL ( CorpNum, UserID )
 		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill?TG=CHRG", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetFlatRatePopUpURL = result.url
 	End Function
-	
+		
+	'정액제 상태 확인
 	Public Function GetFlatRateState ( CorpNum, UserID ) 
 		Set responseObj = m_PopbillBase.httpGET("/HomeTax/Cashbill/Contract", _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -200,20 +202,21 @@ Class HTCashbillService
 		Set GetFlatRateState = flatrateObj
 	End Function 
 
+	'공인인증서 등록 URL
 	Public Function GetCertificatePopUpURL ( CorpNum, UserID )
 		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill?TG=CERT", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetCertificatePopUpURL = result.url
 	End Function 
 
+	'공인인증서 만료일자 확인
 	Public Function GetCertificateExpireDate ( CorpNum, UserID )
 		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/CertInfo", _
 					m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetCertificateExpireDate = result.certificateExpiration
 	End Function 
 
-
-''End Of Class HTTaxinvoiceService
+'End Of Class HTCashbillService
 End Class
 
 Class HTCBFlatRate 
@@ -241,7 +244,6 @@ Class HTCBFlatRate
 		On Error GoTo 0
 	End Sub 
 End class
-
 
 Class HTCashbillSummary
 	Public count
@@ -332,9 +334,7 @@ Class HTCashbill
 		deductionType = jsonInfo.deductionType
 		On Error GoTo 0
 	End Sub 
-
 End class
-
 
 Class HTCBJobState
 	Public jobID

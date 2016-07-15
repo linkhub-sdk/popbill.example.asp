@@ -6,9 +6,9 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 '회원 사업자번호, "-" 제외
-	userID = "testkorea"  ' 회원 아이디
-	TOGO = "CHRG"   'LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 
+	testCorpNum = "1234567890"	 '연동회원 사업자번호, "-" 제외
+	userID = "testkorea"				 '연동회원 아이디
+	TOGO = "CHRG"					 'LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 
 
 	On Error Resume Next
 

@@ -9,7 +9,7 @@
 <%
 	Set joinInfo = New JoinForm
 
-	joinInfo.LinkID = "TESTER"		   '연동아이디 
+	joinInfo.LinkID = "TESTER"		   '링크아이디 
 	joinInfo.CorpNum = "1234567890"    '사업자번호, "-"제외 10자리
 	joinInfo.CEOName = "대표자성명"	   '대표자성명
 	joinInfo.CorpName =  "상호"		   '상호명

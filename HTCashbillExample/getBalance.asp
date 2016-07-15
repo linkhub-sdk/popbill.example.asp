@@ -6,7 +6,7 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		 ' 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		' 연동회원 사업자번호, "-" 제외
 
 	On Error Resume Next
 

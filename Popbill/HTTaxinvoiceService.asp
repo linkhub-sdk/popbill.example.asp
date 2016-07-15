@@ -170,6 +170,7 @@ Class HTTaxinvoiceService
 
 	End Function 
 
+	'수집 결과 요약정보 조회
 	Public Function Summary ( CorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, UserID )
 		If Not ( Len ( JobID ) = 18 ) Then
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
@@ -218,7 +219,8 @@ Class HTTaxinvoiceService
 		Set Summary = summaryResult
 
 	End Function
-	
+
+	'상세정보 조회 - JSON
 	Public Function GetTaxinvoice ( CorpNum, NTSConfirmNum, UserID )
 		If Not ( Len ( NTSConfirmNum ) = 24 ) Then
 			Err.Raise -99999999, "POPBILL", "국세청승인번호가 올바르지 않습니다."
@@ -232,6 +234,7 @@ Class HTTaxinvoiceService
 		Set GetTaxinvoice = taxinvoiceDetail
 	End Function
 	
+	'상세정보 조회 - XML
 	Public Function GetXML ( CorpNum, NTSConfirmNum, UserID )
 		If Not ( Len ( NTSConfirmNum ) = 24 ) Then
 			Err.Raise -99999999, "POPBILL", "국세청승인번호가 올바르지 않습니다."
@@ -245,12 +248,14 @@ Class HTTaxinvoiceService
 		Set GetXML = taxinvoiceXML
 	End Function
 	
+	'정액제 신청 팝업 URL
 	Public Function GetFlatRatePopUpURL ( CorpNum, UserID )
 		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice?TG=CHRG", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetFlatRatePopUpURL = result.url
 	End Function
 	
+	'정액제 상태 확인
 	Public Function GetFlatRateState ( CorpNum, UserID ) 
 		Set responseObj = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/Contract", _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -260,12 +265,14 @@ Class HTTaxinvoiceService
 		Set GetFlatRateState = flatrateObj
 	End Function 
 
+	'공인인증서 등록 URL
 	Public Function GetCertificatePopUpURL ( CorpNum, UserID )
 		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice?TG=CERT", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetCertificatePopUpURL = result.url
 	End Function 
 
+	'공인인증서 만료일자 확인 
 	Public Function GetCertificateExpireDate ( CorpNum, UserID )
 		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/CertInfo", _
 					m_PopbillBase.getSession_token(CorpNum), UserID)

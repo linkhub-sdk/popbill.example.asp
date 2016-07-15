@@ -6,15 +6,15 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		'연동회원 사업자번호, "-" 제외
 	KeyType= "SELL"						'발행유형 SELL(매출), BUY(매입)
 	SDate = "20160601"					'시작일자, 표시형식(yyyyMMdd)
 	EDate =	"20160831"					'종료일자, 표시형식(yyyyMMdd)
-	testUserID = "testkorea"		'회원 아이디
+	testUserID = "testkorea"			'연동회원 아이디
 	
 	On Error Resume Next
 
-	'수집요청시 반환되는 jobID의 유효시간은 1시간 입니다.
+	'수집요청시 반환되는 작업아이디(jobID)의 유효시간은 1시간 입니다.
 	jobID = m_HTCashbillService.requestJob(testCorpNum, KeyType, SDate, EDate, testUserID)
 
 	If Err.Number <> 0 then

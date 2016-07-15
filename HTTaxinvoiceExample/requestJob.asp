@@ -6,12 +6,12 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'회원 사업자번호, "-" 제외
-	KeyType= SELL						'발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	DType = "W"							'검색 일자유형, W-작성일자, I-발행일자, S-전송일자
-	SDate = "20160601"					'시작일자, 표시형식(yyyyMMdd)
-	EDate =	"20160831"					'종료일자, 표시형식(yyyyMMdd)
-	testUserID = "testkorea"		'회원 아이디
+	testCorpNum = "1234567890"	'연동회원 사업자번호, "-" 제외
+	KeyType= SELL					'발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	DType = "W"						'검색 일자유형, W-작성일자, I-발행일자, S-전송일자
+	SDate = "20160601"				'시작일자, 표시형식(yyyyMMdd)
+	EDate =	"20160831"				'종료일자, 표시형식(yyyyMMdd)
+	testUserID = "testkorea"		'연동회원 아이디
 	
 	On Error Resume Next
 

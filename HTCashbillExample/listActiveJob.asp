@@ -6,8 +6,8 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌회원 사업자번호, "-" 제외
-	UserID = "testkorea"					'팝빌회원 아이디
+	testCorpNum = "1234567890"		'연동회원 사업자번호, "-" 제외
+	UserID = "testkorea"					'연동회원 아이디
 	
 	'수집요청시 반환되는 jobID의 유효시간은 1시간 입니다.
 	Set result = m_HTCashbillService.ListActiveJob(testCorpNum, UserID)

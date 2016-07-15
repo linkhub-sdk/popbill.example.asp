@@ -7,8 +7,8 @@
 <!--#include file="common.asp"--> 
 
 <%
-	CorpNum = "1234567890"		 ' 연동회원 사업자번호
-	UserID = "testkorea"				 ' 연동회원 아이디 
+	CorpNum = "1234567890"	' 연동회원 사업자번호
+	UserID = "testkorea"			' 연동회원 아이디 
 
 	Set contInfo = New ContactInfo
 	contInfo.id = "testkorea00000"
