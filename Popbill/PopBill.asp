@@ -215,11 +215,11 @@ Public Function httpGET(url , BearerToken , UserID )
 	winhttp1.Send
     winhttp1.WaitForResponse
 	result = winhttp1.responseText
-	
+
     If winhttp1.Status <> 200 Then
 		Set winhttp1 = Nothing
         Set parsedDic = m_Linkhub.parse(result)
-        Err.Raise parsedDic.code, "POPBILL", parsedDic.message
+        Err.raise parsedDic.code, "POPBILL", paredDic.message
     End If
     
     Set winhttp1 = Nothing
@@ -256,7 +256,7 @@ Public Function httpPOST(url , BearerToken , override , postdata ,  UserID )
     If winhttp1.Status <> 200 Then
         Set winhttp1 = Nothing
 		Set parsedDic = m_Linkhub.parse(result)
-        Err.Raise parsedDic.code, "POPBILL", parsedDic.message
+        Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
     Set winhttp1 = Nothing
@@ -309,7 +309,7 @@ Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
     If winhttp1.Status <> 200 Then
         Set winhttp1 = Nothing
 		Set parsedDic = m_Linkhub.parse(result)
-        Err.Raise parsedDic.code, "POPBILL", parsedDic.message
+        Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
     Set winhttp1 = Nothing
@@ -375,7 +375,7 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
     If winhttp1.Status <> 200 Then
         Set winhttp1 = Nothing
 		Set parsedDic = m_Linkhub.parse(result)
-        Err.Raise parsedDic.code, "POPBILL", parsedDic.message
+        Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
     Set winhttp1 = Nothing

@@ -108,7 +108,7 @@ Class HTCashbillService
 		Set jobList = CreateObject("Scripting.Dictionary")
 
 		For i=0 To result.length-1
-			Set jobInfo = New HTTIJobState
+			Set jobInfo = New HTCBJobState
 			jobInfo.fromJsonInfo result.Get(i)
 			jobList.Add i, jobInfo
 		Next
@@ -117,130 +117,97 @@ Class HTCashbillService
 	End Function
 
 	'수집 결과 조회
-	Public Function Search ( CorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, Page, PerPage, Order, UserID )
+	Public Function Search ( CorpNum, JobID, TradeType, TradeUsage, Page, PerPage, Order, UserID )
 		If  Not ( Len ( JobID ) = 18 )  Then
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If 
 
-		uri = "/HomeTax/Taxinvoice/" & JobID
-		uri = uri & "?Type="
-		For i = 0 To UBound(TIType) -1 
-			If i = UBound(TIType) -1 Then
-				uri = uri & TIType(i)
+		uri = "/HomeTax/Cashbill/" & JobID
+		uri = uri & "?TradeType="
+		For i = 0 To UBound(TradeType) -1 
+			If i = UBound(TradeType) -1 Then
+				uri = uri & TradeType(i)
 			Else
-				uri = uri & TIType(i) & ","
+				uri = uri & TradeType(i) & ","
 			End if
 		Next
 		
-		uri = uri & "&TaxType="
-		For i = 0 To UBound(TaxType) -1 
-			If i = UBound(TaxType) -1 Then
-				uri = uri & TaxType(i)
+		uri = uri & "&TradeUsage="
+		For i = 0 To UBound(TradeUsage) -1 
+			If i = UBound(TradeUsage) -1 Then
+				uri = uri & TradeUsage(i)
 			Else
-				uri = uri & TaxType(i) & ","
+				uri = uri & TradeUsage(i) & ","
 			End if
 		Next
 		
-		uri = uri & "&PurposeType="
-		For i = 0 To UBound(PurposeType) -1 
-			If i = UBound(PurposeType) -1 Then
-				uri = uri & PurposeType(i)
-			Else
-				uri = uri & PurposeType(i) & ","
-			End if
-		Next
-		
-		If TaxRegIDYN <> "" Then
-			uri = uri & "&TaxRegIDYN=" & TaxRegIDYN
-		End If 
-
-		uri = uri & "&TaxRegIDType=" & TaxRegIDType
-		
-		uri = uri & "&TaxRegID=" & TaxRegID
 		uri = uri & "&Page=" & CStr(Page)
 		uri = uri & "&PerPage=" & CStr(PerPage)
 		uri = uri & "&Order=" & Order
 
 		Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set searchResult = New HTTaxinvoiceSerach
+		Set searchResult = New HTCashbillSearch
 		searchResult.fromJsonInfo result
-		Set Search = searchResult 
+		Set Search = searchResult
 
 	End Function 
 
-	Public Function Summary ( CorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, UserID )
+	Public Function Summary ( CorpNum, JobID, TradeType, TradeUsage, UserID )
 		If Not ( Len ( JobID ) = 18 ) Then
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If 
 
-		uri = "/HomeTax/Taxinvoice/" & JobID & "/Summary"
-		uri = uri & "?Type="
-		For i = 0 To UBound(TIType) -1 
-			If i = UBound(TIType) -1 Then
-				uri = uri & TIType(i)
+		uri = "/HomeTax/Cashbill/" & JobID & "/Summary"
+		uri = uri & "?TradeType="
+		For i = 0 To UBound(TradeType) -1 
+			If i = UBound(TradeType) -1 Then
+				uri = uri & TradeType(i)
 			Else
-				uri = uri & TIType(i) & ","
+				uri = uri & TradeType(i) & ","
 			End if
 		Next
 		
-		uri = uri & "&TaxType="
-		For i = 0 To UBound(TaxType) -1 
-			If i = UBound(TaxType) -1 Then
-				uri = uri & TaxType(i)
+		uri = uri & "&TradeUsage="
+		For i = 0 To UBound(TradeUsage) -1 
+			If i = UBound(TradeUsage) -1 Then
+				uri = uri & TradeUsage(i)
 			Else
-				uri = uri & TaxType(i) & ","
+				uri = uri & TradeUsage(i) & ","
 			End if
 		Next
 		
-		uri = uri & "&PurposeType="
-		For i = 0 To UBound(PurposeType) -1 
-			If i = UBound(PurposeType) -1 Then
-				uri = uri & PurposeType(i)
-			Else
-				uri = uri & PurposeType(i) & ","
-			End if
-		Next
-		
-		uri = uri & "&TaxRegIDType=" & TaxRegIDType
-
-		If TaxRegIDYN <> "" Then
-			uri = uri & "&TaxRegIDYN=" & TaxRegIDYN
-		End If 
-		
-		uri = uri & "&TaxRegID=" & TaxRegID
-
 		Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 	
-		Set summaryResult = New HTTaxinvoiceSummary
+		Set summaryResult = New HTCashbillSummary
 		summaryResult.fromJsonInfo result
 		Set Summary = summaryResult
 
 	End Function
 	
 	Public Function GetFlatRatePopUpURL ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice?TG=CHRG", _
+		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill?TG=CHRG", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetFlatRatePopUpURL = result.url
 	End Function
 	
 	Public Function GetFlatRateState ( CorpNum, UserID ) 
-		Set responseObj = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/Contract", _
+		Set responseObj = m_PopbillBase.httpGET("/HomeTax/Cashbill/Contract", _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set flatRateObj = New HTTIFlatRate
+		Set flatRateObj = New HTCBFlatRate
 		flatRateObj.fromJsonInfo responseObj
 		Set GetFlatRateState = flatrateObj
 	End Function 
 
 	Public Function GetCertificatePopUpURL ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice?TG=CERT", _
+		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill?TG=CERT", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetCertificatePopUpURL = result.url
 	End Function 
 
 	Public Function GetCertificateExpireDate ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/CertInfo", _
+		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/CertInfo", _
 					m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetCertificateExpireDate = result.certificateExpiration
 	End Function 
@@ -276,10 +243,11 @@ Class HTCBFlatRate
 End class
 
 
-Class HTTaxinvoiceSummary
+Class HTCashbillSummary
 	Public count
 	Public supplyCostTotal
 	Public taxTotal
+	Public serviceFeeTotal
 	Public amountTotal
 	
 	Public Sub fromJsonInfo ( jsonInfo )
@@ -287,12 +255,13 @@ Class HTTaxinvoiceSummary
 		count = jsonInfo.count
 		supplyCostTotal = jsonInfo.supplyCostTotal
 		taxTotal = jsonInfo.taxTotal
+		serviceFeeTotal = jsonInfo.serviceFeeTotal
 		amountTotal = jsonInfo.amountTotal
 		On Error GoTo 0 
 	End Sub 
 End Class 
 
-Class HTTaxinvoiceSerach
+Class HTCashbillSearch
 	Public code
 	Public message
 	Public total
@@ -316,7 +285,7 @@ Class HTTaxinvoiceSerach
 		
 		ReDim list ( jsonInfo.list.length )
 		For i = 0 To jsonInfo.list.length -1
-			Set tmpObj = New HTTaxinvoiceAbbr
+			Set tmpObj = New HTCashbill
 			tmpObj.fromJsonInfo jsonInfo.list.Get(i)
 			Set list(i) = tmpObj
 		next
@@ -325,94 +294,42 @@ Class HTTaxinvoiceSerach
 	End Sub 
 End Class 
 
-Class HTTaxinvoiceAbbr
+Class HTCashbill
 	Public ntsconfirmNum
-	Public writeDate
-	Public issueDate
-	Public sendDate
-	Public taxType
-	Public purposeType
-	Public supplyCostTotal
-	Public taxTotal
-	Public totalAmount
-	Public remark1
-
-	Public modifyYN
-	Public orgNTSConfirmNum
-
-	Public purchaseDate
-	Public itemName
-	Public spec
-	Public qty
-	Public unitCost
+	Public tradeDT
+	Public tradeUsage
+	Public tradeType
 	Public supplyCost
 	Public tax
-	Public remark
+	Public serviceFee
+	Public totalAmount
+	Public franchiseCorpNum
+	Public franchiseCorpName
+	Public franchiseCorpType
+	Public identityNum
+	Public identityNumType
+	Public customerName
+	Public cardOwnerName
+	Public deductionType
 
-	Public invoicerCorpNum
-	Public invoicerTaxRegID
-	Public invoicerCorpName
-	Public invoicerCEOName
-	Public invoicerEmail
-
-	Public invoiceeCorpNum
-	Public invoiceeType
-	Public invoiceeTaxRegID
-	Public invoiceeCorpName
-	Public invoiceeCEOName
-	Public invoiceeEmail1
-	Public invoiceeEmail2
-
-	Public trusteeCorpNum
-	Public trusteeTaxRegID
-	Public trusteeCorpName
-	Public trusteeCEOName
-	Public trusteeEmail
-	
 	Public Sub fromJsonInfo ( jsonInfo )
 		On Error Resume Next
 		ntsconfirmNum = jsonInfo.ntsconfirmNum
-		writeDate = jsonInfo.writeDate
-		issueDate = jsonInfo.issueDate
-		sendDate = jsonInfo.sendDate
-		taxType = jsonInfo.taxType
-		purposeType = jsonInfo.purposeType
-		supplyCostTotal = jsonInfo.supplyCostTotal
-		taxTotal = jsonInfo.taxTotal
-		totalAmount = jsonInfo.totalAmount
-		remark1 = jsonInfo.remark1
-
-		modifyYN = jsonInfo.modifyYN
-		orgNTSConfirmNum = jsonInfo.orgNTSConfirmNUm
-
-		purchaseDate = jsonInfo.purchaseDate
-		itemName = jsonInfo.itemName
-		spec = jsonInfo.spec
-		qty = jsonInfo.qty
-		unitCost = jsonInfo.unitCost
+		tradeDT = jsonInfo.tradeDT
+		tradeUsage = jsonInfo.tradeUsage
+		tradeType = jsonInfo.tradeType
 		supplyCost = jsonInfo.supplyCost
-		tax = jsonInfo.taxt 
-		remark = jsonInfo.remark
-
-		invoicerCorpNum = jsonInfo.invoicerCorpNum
-		invoicerTaxRegID = jsonInfo.invoicerTaxRegID
-		invoicerCorpName = jsonInfo.invoicerCorpName
-		invoicerCEOName = jsonInfo.invoicerCEOName
-		invoicerEmail = jsonInfo.invoicerEmail
-
-		invoiceeCorpNum = jsonInfo.invoiceeCorpNum
-		invoiceeType = jsonInfo.invoiceeType
-		invoiceeTaxRegID = jsonInfo.invoiceeTaxRegID
-		invoiceeCorpName = jsonInfo.invoiceeCorpName
-		invoiceeCEOName = jsonInfo.invoiceeCEOName
-		invoiceeEmail1 = jsonInfo.invoiceeEmail1
-		invoiceeEmail2 = jsonInfo.invoiceeEmail2
-
-		trusteeCorpNum = jsonInfo.trusteeCorpNum
-		trusteeTaxRegID = jsonInfo.trusteeTaxRegID
-		trusteeCorpName = jsonInfo.trusteeCorpName
-		trusteeCEOName = jsonInfo.trusteeCEOName
-		trusteeEmail = jsonInfo.trusteeEmail
+		tax = jsonInfo.tax
+		serviceFee = jsonInfo.serviceFee
+		totalAmount = jsonInfo.totalAmount
+		franchiseCorpNum = jsonInfo.franchiseCorpNum
+		franchiseCorpName = jsonInfo.franchiseCorpName
+		franchiseCorpType = jsonInfo.franchiseCorpType
+		identityNum = jsonInfo.identityNum
+		identityNumType = jsonInfo.identityNumType
+		customerName = jsonInfo.customerName
+		cardOwnerName = jsonInfo.cardOwnerName
+		deductionType = jsonInfo.deductionType
 		On Error GoTo 0
 	End Sub 
 

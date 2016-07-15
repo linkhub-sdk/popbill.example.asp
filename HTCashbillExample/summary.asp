@@ -7,39 +7,22 @@
 <!--#include file="common.asp"--> 
 <%
 	testCorpNum = "1234567890"		'팝빌회원 사업자번호, "-" 제외
-	UserID = "innoposttest"				'팝빌회원 아이디
+	UserID = "testkorea"				'팝빌회원 아이디
 	
 	'수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
-	JobID = "016071514000000002"
+	JobID = "016071511000000009"
 
-	'문서형태 배열, N-일반 전자세금계산서, M-수정 전자세금계산서 
-	Dim TIType(2) 
-	TIType(0) = "N"
-	TIType(1) = "M"
+	'현금영수증 배열 N-일반현금영수증, C-취소현금영수증
+	Dim TradeType(2) 
+	TradeType(0) = "N"
+	TradeType(1) = ""
 
-	'과세형태 배열,  T-과세, N-면세, Z-영세
-	Dim TaxType(3)
-	TaxType(0) = "T"
-	TaxType(1) = "N"
-	TaxType(2) = "Z"
+	'거래용도 배열, P-소득공제용, C-지출증빙용
+	Dim TradeUsage(2)
+	TradeUsage(0) = "P"
+	TradeUsage(1) = ""
 	
-	'영수/청구 배열, R-영수, C-청구, N-없음
-	Dim PurposeType(3)
-	PurposeType(0) = "R"
-	PurposeType(1) = "C"
-	PurposeType(2) = "N"
-
-	'종사업장 유무, 공백-전체조회, 0-종사업장번호 없음, 1-종사업장번호 조회
-	TaxRegIDYN = ""
-
-	'종사업장 사업자 유형, S-공급자, B-공급받는자, T-수탁자
-	TaxRegIDType = "S"
-
-	'종사업장번호, 콤마(",")로 구분하여 구성 ex) 1234,1001
-	TaxRegID = ""
-	
-
-	Set result = m_HTTaxinvoiceService.Summary(testCorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, UserID)
+	Set result = m_HTCashbillService.Summary(testCorpNum, JobID, TradeType, TradeUsage, UserID)
 
 	If Err.Number <> 0 Then
 		code = Err.Number
@@ -62,6 +45,7 @@
 						<li> count (수집 결과 건수) : <%=result.count%> </li>
 						<li> supplyCostTotal (공급가액 합계) : <%=result.supplyCostTotal%> </li>
 						<li> taxTotal (세액 합계) : <%=result.taxTotal%> </li>
+						<li> serviceFeeTotal (봉사료 합계) : <%=result.serviceFeeTotal%> </li>
 						<li> amountTotal (합계 금액) : <%=result.amountTotal%> </li>
 					</ul>
 				<%

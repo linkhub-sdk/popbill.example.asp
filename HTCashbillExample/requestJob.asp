@@ -6,16 +6,20 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 ' 회원 사업자번호, "-" 제외
-	userID = "testkorea"				 ' 회원 아이디
-
+	testCorpNum = "1234567890"		'회원 사업자번호, "-" 제외
+	KeyType= "SELL"						'발행유형 SELL(매출), BUY(매입)
+	SDate = "20160601"					'시작일자, 표시형식(yyyyMMdd)
+	EDate =	"20160831"					'종료일자, 표시형식(yyyyMMdd)
+	testUserID = "testkorea"		'회원 아이디
+	
 	On Error Resume Next
 
-	url = m_HTTaxinvoiceService.GetFlatRatePopUpURL(testCorpNum, userID)
+	'수집요청시 반환되는 jobID의 유효시간은 1시간 입니다.
+	jobID = m_HTCashbillService.requestJob(testCorpNum, KeyType, SDate, EDate, testUserID)
 
 	If Err.Number <> 0 then
 		code = Err.Number
-		message =  Err.Description
+		message = Err.Description
 		Err.Clears
 	End If
 
@@ -26,10 +30,10 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>정액제 신청 팝업 URL</legend>
+				<legend>수집 요청</legend>
 				<% If code = 0 Then %>
 					<ul>
-						<li>URL : <%=url%> </li>
+						<li>jobID(작업아이디) : <%=jobID%> </li>
 					</ul>
 				<%	Else  %>
 					<ul>

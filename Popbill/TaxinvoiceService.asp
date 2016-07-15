@@ -550,7 +550,7 @@ Public Function GetEmailPublicKeys(CorpNum)
 End Function
 
 '세금계산서 목록조회
-Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, LateOnly, Order, Page, PerPage)
+Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, TaxRegID, UserID)
     If DType = "" Then
         Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
 	End If
@@ -600,12 +600,21 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
 			uri = uri & "&LateOnly=0"
 		End If
 	End If
+
+	If TaxRegIDYN <> "" Then
+		uri = uri & "&TaxRegIDYN=" & TaxRegIDYN
+	End If 
+
+	uri = uri & "&TaxRegIDType=" & TaxRegIDType
+	
+	uri = uri & "&TaxRegID=" & TaxRegID
+
 	uri = uri & "&Order=" & Order
 	uri = uri & "&Page=" & CStr(Page)
 	uri = uri & "&PerPage=" & CStr(PerPage)
 	
 	Set searchResult = New TISearchResult
-	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
+	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 
 	searchResult.fromJsonInfo tmpObj
 	

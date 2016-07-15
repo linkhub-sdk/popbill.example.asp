@@ -6,12 +6,13 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 ' 회원 사업자번호, "-" 제외
-	userID = "testkorea"				 ' 회원 아이디
+	testCorpNum = "1234567890"	 '회원 사업자번호, "-" 제외
+	userID = "testkorea"  ' 회원 아이디
+	TOGO = "CHRG"   'LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 
 
 	On Error Resume Next
 
-	url = m_HTTaxinvoiceService.GetFlatRatePopUpURL(testCorpNum, userID)
+	url = m_HTCashbillService.GetPopbillURL(testCorpNum, userID, TOGO)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -26,10 +27,10 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>정액제 신청 팝업 URL</legend>
+				<legend>팝빌 SSO URL 요청</legend>
 				<% If code = 0 Then %>
 					<ul>
-						<li>URL : <%=url%> </li>
+						<li>URL : <%=CStr(url)%> </li>
 					</ul>
 				<%	Else  %>
 					<ul>

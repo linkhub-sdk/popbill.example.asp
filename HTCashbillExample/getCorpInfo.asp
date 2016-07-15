@@ -6,18 +6,12 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	'연동회원 사업자번호
-	testCorpNum = "1234567890"
-
-	'국세청승인번호 
-	NTSConfirmNum = "2016071441000029000007fa"
-	
-	' 연동회원 아이디 
-	UserID = "innoposttest"				 
+	testCorpNum = "1234567890"	'팝빌회원 사업자번호, "-" 제외
+	UserID = "testkorea"				'팝빌회원 아이디
 	
 	On Error Resume Next
 
-	Set result = m_HTTaxinvoiceService.GetXML ( testCorpNum, NTSConfirmNum, UserID )
+	Set result = m_HTCashbillService.GetCorpInfo(testCorpNum, UserID)
 
 	If Err.Number <> 0 Then
 		code = Err.Number
@@ -32,15 +26,21 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend> 상세정보 조회 - XML</legend>
+				<legend>회사정보 조회</legend>
 				<%
 					If code = 0 Then
 				%>
-					<ul>
-						<li> ResultCode (상태코드) : <%=result.ResultCode%></li>
-						<li> Message (국세청승인번호) : <%=result.Message%></li>
-						<li> retObject (전자세금계산서 XML 문서) : <%=Replace(result.retObject, "<" ,"&lt")%></li>
-					</ul>
+					<fieldset class="fieldset2">					
+						<legend> CorpInfo </legend>
+							<ul>
+								<li> ceoname (대표자명) : <%=result.ceoname%></li>
+								<li> corpName (상호) : <%=result.corpName%></li>
+								<li> addr (주소) : <%=result.addr%></li>
+								<li> bizType (업태) : <%=result.bizType%></li>
+								<li> bizClass (종목) : <%=result.bizClass%></li>
+
+							</ul>
+						</fieldset>
 				<%
 					Else
 				%>

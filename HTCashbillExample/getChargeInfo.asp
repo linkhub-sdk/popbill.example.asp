@@ -6,16 +6,16 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 ' 회원 사업자번호, "-" 제외
-	userID = "testkorea"				 ' 회원 아이디
-
+	testCorpNum = "1234567890"	'팝빌회원 사업자번호, "-" 제외
+	UserID = "testkorea"				'팝빌회원 아이디
+	
 	On Error Resume Next
 
-	url = m_HTTaxinvoiceService.GetFlatRatePopUpURL(testCorpNum, userID)
+	Set result = m_HTCashbillService.GetChargeInfo ( testCorpNum, UserID )
 
-	If Err.Number <> 0 then
+	If Err.Number <> 0 Then
 		code = Err.Number
-		message =  Err.Description
+		message = Err.Description
 		Err.Clears
 	End If
 
@@ -26,17 +26,25 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>정액제 신청 팝업 URL</legend>
-				<% If code = 0 Then %>
+				<legend> 과금정보 조회</legend>
+				<%
+					If code = 0 Then
+				%>
 					<ul>
-						<li>URL : <%=url%> </li>
+						<li> unitCost (단가) : <%=result.unitCost%></li>
+						<li> chargeMethod (과금유형) : <%=result.chargeMethod%></li>
+						<li> rateSystem (과금제도) : <%=result.rateSystem%></li>
 					</ul>
-				<%	Else  %>
+				<%
+					Else
+				%>
 					<ul>
 						<li>Response.code: <%=code%> </li>
 						<li>Response.message: <%=message%> </li>
 					</ul>	
-				<%	End If	%>
+				<%	
+					End If
+				%>
 			</fieldset>
 		 </div>
 	</body>

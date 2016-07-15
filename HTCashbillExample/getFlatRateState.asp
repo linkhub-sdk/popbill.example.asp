@@ -6,12 +6,12 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-	UserID = "testkorea"				' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+	testCorpNum = "1234567890"		'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+	UserID = "testkorea"					'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
 	
 	On Error Resume Next
 
-	Set result = m_HTTaxinvoiceService.GetFlatRateState ( testCorpNum, UserID )
+	Set result = m_HTCashbillService.GetFlatRateState ( testCorpNum, UserID )
 
 	If Err.Number <> 0 Then
 		code = Err.Number

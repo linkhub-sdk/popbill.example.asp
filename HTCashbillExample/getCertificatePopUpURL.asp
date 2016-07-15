@@ -6,12 +6,12 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 ' 회원 사업자번호, "-" 제외
-	userID = "testkorea"				 ' 회원 아이디
+	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
+	userID = "innoposttest"			' 회원 아이디
 
 	On Error Resume Next
 
-	url = m_HTTaxinvoiceService.GetFlatRatePopUpURL(testCorpNum, userID)
+	url = m_HTCashbillService.GetCertificatePopUpURL(testCorpNum, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -26,7 +26,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>정액제 신청 팝업 URL</legend>
+				<legend>공인인증서 등록 팝업 URL</legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li>URL : <%=url%> </li>

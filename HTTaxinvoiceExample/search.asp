@@ -6,11 +6,11 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "4108600477"		'팝빌회원 사업자번호, "-" 제외
-	UserID = "innoposttest"				'팝빌회원 아이디
+	testCorpNum = "1234567890"		'팝빌회원 사업자번호, "-" 제외
+	UserID = "testkorea"				'팝빌회원 아이디
 	
 	'수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
-	JobID = "016071414000000005"
+	JobID = "016071514000000001"
 
 	'문서형태 배열, N-일반 전자세금계산서, M-수정 전자세금계산서 
 	Dim TIType(2) 

@@ -7,14 +7,14 @@
 <!--#include file="common.asp"--> 
 
 <%
-	'연동회원 사업자번호
-	testCorpNum = "4108600477"
+	' 연동회원 사업자번호
+	testCorpNum = "1234567890"
 
-	'국세청승인번호 
-	NTSConfirmNum = "201607044100002900000353"
+	' 전자세금계산서 국세청승인번호 
+	NTSConfirmNum = "2016071441000029000007fa"
 	
 	' 연동회원 아이디 
-	UserID = "innoposttest"				 
+	UserID = "testkorea"				 
 
 	On Error Resume Next
 
@@ -59,7 +59,7 @@
 					<li>orgNTSConfirmNum (원본 전자세금계산서 국세청승인번호) : <%=result.orgNTSConfirmNum%> </li>
 
 					<li>invoicerCorpNum (공급자 사업자번호) : <%=result.invoicerCorpNum%> </li>
-					<li>invoicerMgtKey (공급자 문서관리번호) : <%=result.invoicerMgtKey%> </li>
+					<li>invoicerMgtKey (공급자 관리번호) : <%=result.invoicerMgtKey%> </li>
 					<li>invoicerTaxRegID (공급자 종사업장번호 ) : <%=result.invoicerTaxRegID%> </li>
 					<li>invoicerCorpName (공급자 상호) : <%=result.invoicerCorpName%> </li>
 					<li>invoicerCEOName (공급자 대표자성명) : <%=result.invoicerCEOName%> </li>
@@ -70,18 +70,18 @@
 					<li>invoicerTEL (공급자 연락처) : <%=result.invoicerTEL%> </li>
 					<li>invoicerEmail (공급자 이메일) : <%=result.invoicerEmail%> </li>
 
-					<li>invoiceeCorpNum (공급받는자 이메일) : <%=result.invoiceeCorpNum%> </li>
-					<li>invoiceeType (공급받는자 이메일) : <%=result.invoiceeType%> </li>
-					<li>invoiceeMgtKey (공급받는자 이메일) : <%=result.invoiceeMgtKey%> </li>
-					<li>invoiceeTaxRegID (공급받는자 이메일) : <%=result.invoiceeTaxRegID%> </li>
-					<li>invoiceeCorpName (공급받는자 이메일) : <%=result.invoiceeCorpName%> </li>
-					<li>invoiceeCEOName (공급받는자 이메일) : <%=result.invoiceeCEOName%> </li>
-					<li>invoiceeAddr (공급받는자 이메일) : <%=result.invoiceeAddr%> </li>
-					<li>invoiceeBizType (공급받는자 이메일) : <%=result.invoiceeBizType%> </li>
-					<li>invoiceeBizClass (공급받는자 이메일) : <%=result.invoiceeBizClass%> </li>
-					<li>invoiceeContactName1 (공급받는자 이메일) : <%=result.invoiceeContactName1%> </li>
-					<li>invoiceeTEL1 (공급받는자 이메일) : <%=result.invoiceeTEL1%> </li>
-					<li>invoiceeEmail1 (공급받는자 이메일) : <%=result.invoiceeEmail1%> </li>
+					<li>invoiceeCorpNum (공급받는자 사업자번호) : <%=result.invoiceeCorpNum%> </li>
+					<li>invoiceeType (공급받는자 구분) : <%=result.invoiceeType%> </li>
+					<li>invoiceeMgtKey (공급받는자 관리번호) : <%=result.invoiceeMgtKey%> </li>
+					<li>invoiceeTaxRegID (공급받는자 종사업장번호) : <%=result.invoiceeTaxRegID%> </li>
+					<li>invoiceeCorpName (공급받는자 상호) : <%=result.invoiceeCorpName%> </li>
+					<li>invoiceeCEOName (공급받는자 대표자성명) : <%=result.invoiceeCEOName%> </li>
+					<li>invoiceeAddr (공급받는자 주소) : <%=result.invoiceeAddr%> </li>
+					<li>invoiceeBizType (공급받는자 업태) : <%=result.invoiceeBizType%> </li>
+					<li>invoiceeBizClass (공급받는자 종목) : <%=result.invoiceeBizClass%> </li>
+					<li>invoiceeContactName1 (공급받는자 담당자 성명) : <%=result.invoiceeContactName1%> </li>
+					<li>invoiceeTEL1 (공급받는자 담당자 연락처) : <%=result.invoiceeTEL1%> </li>
+					<li>invoiceeEmail1 (공급받는자 담당자 이메일) : <%=result.invoiceeEmail1%> </li>
 				</ul>
 				<fieldset class="fieldset2">	
 				<%

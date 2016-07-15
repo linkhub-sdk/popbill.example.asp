@@ -6,17 +6,19 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 ' 회원 사업자번호, "-" 제외
-	userID = "testkorea"				 ' 회원 아이디
+	testID = "testkorea124124"    '중복확인할 아이디 
 
 	On Error Resume Next
 
-	url = m_HTTaxinvoiceService.GetFlatRatePopUpURL(testCorpNum, userID)
-
-	If Err.Number <> 0 then
+	Set Presponse = m_HTCashbillService.CheckID(testID)
+	
+	If Err.Number <> 0 Then
 		code = Err.Number
-		message =  Err.Description
+		message = Err.Description
 		Err.Clears
+	Else
+		code = Presponse.code
+		message = Presponse.message
 	End If
 
 	On Error GoTo 0
@@ -26,17 +28,11 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>정액제 신청 팝업 URL</legend>
-				<% If code = 0 Then %>
-					<ul>
-						<li>URL : <%=url%> </li>
-					</ul>
-				<%	Else  %>
-					<ul>
-						<li>Response.code: <%=code%> </li>
-						<li>Response.message: <%=message%> </li>
-					</ul>	
-				<%	End If	%>
+				<legend>아이디 중복확인 </legend>
+				<ul>
+					<li>Response.code : <%=code%> </li>
+					<li>Response.message: <%=message%> </li>
+				</ul>
 			</fieldset>
 		 </div>
 	</body>

@@ -10,7 +10,7 @@
 	UserID = "testkorea"					'팝빌회원 아이디
 	
 	'수집요청시 반환되는 jobID의 유효시간은 1시간 입니다.
-	Set result = m_HTTaxinvoiceService.ListActiveJob(testCorpNum, UserID)
+	Set result = m_HTCashbillService.ListActiveJob(testCorpNum, UserID)
 	
 	If Err.Number <> 0 Then
 		code = Err.Number

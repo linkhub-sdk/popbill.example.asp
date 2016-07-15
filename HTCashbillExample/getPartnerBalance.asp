@@ -6,16 +6,15 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 ' 회원 사업자번호, "-" 제외
-	userID = "testkorea"				 ' 회원 아이디
-
+	testCorpNum = "1234567890"		 ' 회원 사업자번호, "-" 제외
+	
 	On Error Resume Next
 
-	url = m_HTTaxinvoiceService.GetFlatRatePopUpURL(testCorpNum, userID)
+	remainPoint = m_HTCashbillService.getPartnerBalance(testCorpNum)
 
 	If Err.Number <> 0 then
 		code = Err.Number
-		message =  Err.Description
+		message = Err.Description
 		Err.Clears
 	End If
 
@@ -26,10 +25,10 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>정액제 신청 팝업 URL</legend>
+				<legend>파트너 잔여포인트 확인결과</legend>
 				<% If code = 0 Then %>
 					<ul>
-						<li>URL : <%=url%> </li>
+						<li>잔여포인트 : <%=CStr(remainpoint)%> </li>
 					</ul>
 				<%	Else  %>
 					<ul>

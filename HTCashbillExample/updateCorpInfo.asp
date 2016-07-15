@@ -5,37 +5,46 @@
 		<title>팝빌 SDK ASP Example.</title>
 	</head>
 <!--#include file="common.asp"--> 
+
 <%
-	testCorpNum = "124567890"		 ' 회원 사업자번호, "-" 제외
+	CorpNum = "1234567890"		 ' 연동회원 사업자번호
+	UserID = "testkorea"				 ' 연동회원 아이디 
+
+	Set infoObj = New CorpInfo
+
+	infoObj.ceoname = "링크허브 대표자"
+	infoObj.corpName = "링크허브"
+	infoObj.addr	= "주소수정"
+	infoObj.bizType = "업태정보"
+	infoObj.bizClass = "업종정보"
 	
 	On Error Resume Next
 
-	remainPoint = m_TaxinvoiceService.getBalance(testCorpNum)
-
-	If Err.Number <> 0 then
+	Set Presponse = m_HTCashbillService.UpdateCorpInfo(CorpNum, infoObj, UserID)
+	
+	If Err.Number <> 0 Then
 		code = Err.Number
-		message =  Err.Description
+		message = Err.Description
 		Err.Clears
+	Else
+		code = Presponse.code
+		message =Presponse.message
 	End If
 
 	On Error GoTo 0
+
 %>
+
 	<body>
 		<div id="content">
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동회원사 잔여포인트 확인결과</legend>
-				<% If code = 0 Then %>
-					<ul>
-						<li>잔여포인트 : <%=CStr(remainpoint)%> </li>
-					</ul>
-				<%	Else  %>
+				<legend>회사정보 수정</legend>
 				<ul>
-					<li>Response.code: <%=code%> </li>
+					<li>Response.code : <%=code%> </li>
 					<li>Response.message: <%=message%> </li>
-				</ul>	
-				<%	End If	%>
+				</ul>
 			</fieldset>
 		 </div>
 	</body>
