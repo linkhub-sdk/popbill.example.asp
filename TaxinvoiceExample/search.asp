@@ -6,8 +6,8 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "4108600477"		' [필수] 팝빌회원 사업자번호, "-" 제외
-	UserID = "innoposttest"
+	testCorpNum = "1234567890"		' [필수] 팝빌회원 사업자번호, "-" 제외
+	UserID = "testkorea"
 	KeyType= "SELL"						' [필수] 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
 	DType = "R"								' [필수] 검색일자 유형, R-등록일자, W-작성일자, I-발행일자
 	SDate = "20160501"					' [필수] 시작일자, yyyyMMdd
