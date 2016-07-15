@@ -219,7 +219,7 @@ Public Function httpGET(url , BearerToken , UserID )
     If winhttp1.Status <> 200 Then
 		Set winhttp1 = Nothing
         Set parsedDic = m_Linkhub.parse(result)
-        Err.raise parsedDic.code, "POPBILL", paredDic.message
+        Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
     Set winhttp1 = Nothing
