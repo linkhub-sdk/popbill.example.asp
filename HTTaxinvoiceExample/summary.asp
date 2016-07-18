@@ -7,10 +7,10 @@
 <!--#include file="common.asp"--> 
 <%
 	testCorpNum = "1234567890"		'연동회원 사업자번호, "-" 제외
-	UserID = "innoposttest"				'연동회원 아이디
+	UserID = "testkorea"				'연동회원 아이디
 	
 	'수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
-	JobID = "016071514000000002"
+	JobID = "016071516000000009"
 
 	'문서형태 배열, N-일반 전자세금계산서, M-수정 전자세금계산서 
 	Dim TIType(2) 
@@ -38,6 +38,7 @@
 	'종사업장번호, 콤마(",")로 구분하여 구성 ex) 1234,1001
 	TaxRegID = ""
 	
+	On Error Resume Next
 
 	Set result = m_HTTaxinvoiceService.Summary(testCorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, UserID)
 
@@ -46,8 +47,8 @@
 		message = Err.Description
 		Err.Clears
 	End If
-
-
+	
+	On Error GoTo 0 
 %>
 	<body>
 		<div id="content">

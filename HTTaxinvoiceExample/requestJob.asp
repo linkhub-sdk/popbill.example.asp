@@ -9,12 +9,12 @@
 	testCorpNum = "1234567890"	'연동회원 사업자번호, "-" 제외
 	KeyType= SELL					'발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
 	DType = "W"						'검색 일자유형, W-작성일자, I-발행일자, S-전송일자
-	SDate = "20160601"				'시작일자, 표시형식(yyyyMMdd)
+	SDate = "201606013"				'시작일자, 표시형식(yyyyMMdd)
 	EDate =	"20160831"				'종료일자, 표시형식(yyyyMMdd)
 	testUserID = "testkorea"		'연동회원 아이디
 	
 	On Error Resume Next
-
+	
 	'수집요청시 반환되는 jobID의 유효시간은 1시간 입니다.
 	jobID = m_HTTaxinvoiceService.requestJob(testCorpNum, KeyType, DType, SDate, EDate, testUserID)
 

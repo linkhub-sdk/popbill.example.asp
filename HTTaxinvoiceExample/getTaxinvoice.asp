@@ -11,11 +11,11 @@
 	testCorpNum = "1234567890"
 
 	' 전자세금계산서 국세청승인번호 
-	NTSConfirmNum = "2016071441000029000007fa"
+	NTSConfirmNum = "20160714410000290000083e"
 	
 	' 연동회원 아이디 
 	UserID = "testkorea"				 
-
+	
 	On Error Resume Next
 
 	Set result = m_HTTaxinvoiceService.GetTaxinvoice(testCorpNum, NTSConfirmNUm, UserID)
@@ -25,9 +25,8 @@
 		message = Err.Description
 		Err.Clears
 	End If
-
-	On Error GoTo 0
-
+	
+	On Error GoTo 0 
 %>
 
 	<body>
@@ -35,6 +34,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
+				<% If code = 0 Then %>
 				<legend>상세정보 조회</legend>
 				<ul>
 					<li>ntsconfirmNum (국세청승인번호) : <%=result.ntsconfirmNum%> </li>
@@ -103,6 +103,12 @@
 						Next					
 				%>
 				</fieldset>
+				<%	Else  %>
+					<ul>
+						<li>Response.code: <%=code%> </li>
+						<li>Response.message: <%=message%> </li>
+					</ul>	
+				<%	End If	%>
 			</fieldset>
 		 </div>
 	</body>

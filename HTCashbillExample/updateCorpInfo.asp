@@ -16,7 +16,7 @@
 	infoObj.corpName = "링크허브"
 	infoObj.addr	= "주소수정"
 	infoObj.bizType = "업태정보"
-	infoObj.bizClass = "업종정보"
+	infoObj.bizClass = "종목정보"
 	
 	On Error Resume Next
 

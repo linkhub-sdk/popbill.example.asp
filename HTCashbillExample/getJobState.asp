@@ -11,7 +11,8 @@
 	UserID = "testkorea"					'연동회원 아이디
 	
 	On Error Resume Next
-
+	
+	'작업아이디(jobID)의 유효시간은 1시간 입니다. 
 	Set result = m_HTCashbillService.GetJobState(testCorpNum, JobID, UserID)
 
 	If Err.Number <> 0 Then

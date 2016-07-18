@@ -21,6 +21,9 @@
 	Dim TradeUsage(2)
 	TradeUsage(0) = "P"
 	TradeUsage(1) = ""
+
+
+	On Error Resume Next
 	
 	Set result = m_HTCashbillService.Summary(testCorpNum, JobID, TradeType, TradeUsage, UserID)
 
@@ -30,7 +33,7 @@
 		Err.Clears
 	End If
 
-
+	On Error GoTo 0 
 %>
 	<body>
 		<div id="content">
