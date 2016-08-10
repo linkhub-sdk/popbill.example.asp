@@ -8,7 +8,7 @@
 <%
 	testCorpNum = "1234567890"	 '회원 사업자번호, "-" 제외
 	userID = "testkorea"  ' 회원 아이디
-	TOGO = "LOGIN"   'LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 / CERT : 공인인증서 등록 팝업
+	TOGO = "LOGIN"   'LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 / CERT : 공인인증서 등록 팝업 / SEAL : 인감 및 첨부문서 등록 URL
 
 	On Error Resume Next
 

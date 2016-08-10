@@ -8,7 +8,7 @@
 <%
 	testCorpNum = "1234567890"	 'ÆËºô È¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
 	userID = "testkorea"		 'ÆËºô È¸¿ø ¾ÆÀÌµð
-	TOGO = "LOGIN"				 'LOGIN = ÆËºô·Î±×ÀÎ / CHRG : Æ÷ÀÎÆ®ÃæÀü ÆË¾÷ 
+	TOGO = "LOGIN"				 'LOGIN = ÆËºô·Î±×ÀÎ / CHRG : Æ÷ÀÎÆ®ÃæÀü ÆË¾÷ / SEAL : ÀÎ°¨ ¹× Ã·ºÎ¹®¼­ µî·Ï URL
 
 	On Error Resume Next
 
