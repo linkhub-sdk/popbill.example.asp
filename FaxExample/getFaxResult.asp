@@ -6,9 +6,9 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		  '팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"			  '팝빌 회원 아이디
-	receiptNum = "015042313172100001" '팩스 전송시 발급받은 전송번호
+	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
+	userID = "testkorea"					'팝빌 회원 아이디
+	receiptNum = "016081013464500001" '팩스 전송시 발급받은 전송번호
  
  	'전송결과코드는 [팝빌 FAX API 연동매뉴얼 5.부록] 참조
 	
@@ -42,6 +42,7 @@
 								<li>sendState(전송상태) : <%=result.Item(i).sendState%> </li>
 								<li>convState(변환상태) : <%=result.Item(i).convState%> </li>
 								<li>sendNum(발신번호) : <%=result.Item(i).sendNum%> </li>
+								<li>senderName(발신자명) : <%=result.Item(i).senderName%> </li>
 								<li>receiveNum(수신번호) : <%=result.Item(i).receiveNum%> </li>
 								<li>receiveName(수신자명) : <%=result.Item(i).receiveName%> </li>
 								<li>sendPageCnt(페이지수) : <%=result.Item(i).sendPageCnt%></li>

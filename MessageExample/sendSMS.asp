@@ -15,6 +15,7 @@
 
 	Set message = New Messages
 	message.sender = "07075103710"				'발신자번호
+	message.senderName = "발신자명"				'발신자명
 	message.receiver = "000111222"			'수신자번호
 	message.receivername = " 수신자이름"		'수신자명
 	message.content = "팝빌 메시지 API 테스트중" '메시지 내용(단문메시지의 경우, 90byte 초과한 내용은 길이가 조정되어 전송됩니다)
@@ -23,7 +24,7 @@
 	
 	On Error Resume Next
 
-	receiptNum = m_MessageService.SendSMS(testCorpNum, "","", msgList, reserveDT, adsYN, userID)
+	receiptNum = m_MessageService.SendSMS(testCorpNum, "","", "", msgList, reserveDT, adsYN, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

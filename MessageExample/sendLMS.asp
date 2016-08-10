@@ -15,7 +15,8 @@
 
 	Set message = New Messages
 	message.sender = "07075100000"
-	message.receiver = "01043245117"
+	message.senderName = "발신자명"
+	message.receiver = "010111222"
 	message.receivername = " 수신자이름"
 	message.content = "발신 내용. 장문은 2000Byte로 길이가 조정되어 전송됩니다. This is Message 메시지 테스트중"
 	message.subject = "장문 제목입니다"
@@ -24,7 +25,7 @@
 	
 	On Error Resume Next
 	
-	receiptNum = m_MessageService.SendLMS(testCorpNum, "", "","", msgList, reserveDT, adsYN, userID)
+	receiptNum = m_MessageService.SendLMS(testCorpNum, "", "", "","", msgList, reserveDT, adsYN, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

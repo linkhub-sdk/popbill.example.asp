@@ -63,6 +63,7 @@
 								<li>sendState(전송상태) : <%=result.list(i).sendState%> </li>
 								<li>convState(변환상태) : <%=result.list(i).convState%> </li>
 								<li>sendNum(발신번호) : <%=result.list(i).sendNum%> </li>
+								<li>senderName(발신자명) : <%=result.list(i).senderName%> </li>
 								<li>receiveNum(수신번호) : <%=result.list(i).receiveNum%> </li>
 								<li>receiveName(수신자명) : <%=result.list(i).receiveName%> </li>
 								<li>sendPageCnt(페이지수) : <%=result.list(i).sendPageCnt%></li>

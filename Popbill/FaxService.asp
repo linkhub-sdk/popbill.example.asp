@@ -92,7 +92,7 @@ Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
 End Function
 
 '팩스 전송
-Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT , UserID )
+Public Function SendFAX(CorpNum , sendNum , senderName, receivers , FilePaths ,  reserveDT , UserID )
 	If isNull(receivers) Or IsEmpty(receivers) Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
     If UBound(receivers) < 0 Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
     If isNull(FilePaths) Or IsEmpty(FilePaths) Then Err.Raise -99999999, "POPBILL", "전송할 파일경로가 입력되지 않았습니다."
@@ -102,7 +102,7 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
     Set Form = JSON.parse("{}")
     
     Form.set "snd", sendNum
-    
+    If senderName <> "" Then Form.set "sndnm", senderName
     If reserveDT <> "" Then Form.set "sndDT", reserveDT
     
     Form.set "fCnt", UBound(FilePaths) + 1
@@ -190,6 +190,7 @@ Class FaxState
 Public sendState
 Public convState
 Public sendNum
+Public senderName
 Public receiveNum
 Public receiveName
 Public sendPageCnt
@@ -209,6 +210,7 @@ Public Sub fromJsonInfo(jsonInfo)
 	sendState = jsonInfo.sendState
 	convState = jsonInfo.convState
 	sendNum = jsonInfo.sendNum
+	senderName = jsonInfo.senderName
 	receiveNum = jsonInfo.receiveNum
 	receiveName = jsonInfo.receiveName
 	sendPageCnt = jsonInfo.sendPageCnt
@@ -223,7 +225,6 @@ Public Sub fromJsonInfo(jsonInfo)
 	sendResult = jsonInfo.sendResult
 	receiptDT = jsonInfo.receiptDT
 	fileNames = jsonInfo.fileNames
-
 
 	On Error GoTo 0
 End Sub

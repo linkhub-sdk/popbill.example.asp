@@ -16,6 +16,7 @@
 	For i =0 To 49
 		Set message = New Messages
 		message.sender = "07075100000"
+		message.senderName = "발신자명"
 		message.receiver = "000111222"
 		message.receivername = " 수신자이름"+CStr(i)
 		message.content = "문자내용이 90byte 이하인경우 단문(sms)로 전송됩니다."
@@ -25,6 +26,7 @@
 	For i =50 To 99
 		Set message = New Messages
 		message.sender = "07075100000"
+		message.senderName = "발신자명"
 		message.receiver = "000111222"
 		message.receivername = " 수신자이름"+CStr(i)
 		message.content = "단/장문 자동인식 메시지 테스트입니다. 문자내용의 길이가 90byte 이상인경우 장문(LMS)로 전송됩니다 단/장문 자동인식 메시지 테스트입니다."
@@ -34,7 +36,7 @@
 
 	On Error Resume Next
 
-	receiptNum = m_MessageService.SendXMS(testCorpNum, "", "","", msgList, reserveDT, adsYN, userID)
+	receiptNum = m_MessageService.SendXMS(testCorpNum, "", "", "", "", msgList, reserveDT, adsYN, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

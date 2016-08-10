@@ -12,6 +12,7 @@
 '	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
 	
 	senderNum = "07075103710"        '동보전송 발신번호
+	senderName = "발신자명"		      '동보전송 발신자명
 	subject = "동보전송 메시지 제목"
 	content = "동보전송 메시지 내용"
 
@@ -30,7 +31,7 @@
 
 	On Error Resume Next
 
-	receiptNum = m_MessageService.SendMMS(testCorpNum,senderNum,subject,content,msgList, FilePaths, reserveDT, adsYN, userID)
+	receiptNum = m_MessageService.SendMMS(testCorpNum, senderNum, senderName, subject, content, msgList, FilePaths, reserveDT, adsYN, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

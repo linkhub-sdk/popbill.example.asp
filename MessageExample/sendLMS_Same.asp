@@ -10,9 +10,12 @@
 	userID = "testkorea"					'팝빌 회원 아이디
 	adsYN = False							'광고문자 전송여부
 	senderNum = "07075103710"		'동보전송번호
+	senderName = "발신자명"			'동보전송 발신자명
 	subject = "동보전송 메시지 제목"
 	content = "동보전송 메시지 내용"
 '	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+
+
 	'수신정보배열, 최대 1000건
 	Set msgList = CreateObject("Scripting.Dictionary")
 	
@@ -27,7 +30,7 @@
 	
 	On Error Resume Next
 
-	receiptNum = m_MessageService.SendLMS(testCorpNum, senderNum, subject, content, msgList, reserveDT, adsYN, userID)
+	receiptNum = m_MessageService.SendLMS(testCorpNum, senderNum, senderName, subject, content, msgList, reserveDT, adsYN, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

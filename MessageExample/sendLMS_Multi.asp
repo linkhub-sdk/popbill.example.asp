@@ -17,6 +17,7 @@
 	For i =0 To 99
 	Set message = New Messages
 		message.sender = "07075100000"
+		message.senderName = "발신자명"
 		message.receiver = "0001111222"
 		message.receivername = " 수신자이름"+CStr(i)
 		message.content = "발신 내용. 장문은 2000Byte로 길이가 조정되어 전송됩니다. This is Message 메시지 테스트중"
@@ -28,7 +29,7 @@
 	
 	On Error Resume Next
 
-	receiptNum = m_MessageService.SendLMS(testCorpNum, "", "","", msgList, reserveDT, adsYN, userID)
+	receiptNum = m_MessageService.SendLMS(testCorpNum, "", "", "","", msgList, reserveDT, adsYN, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

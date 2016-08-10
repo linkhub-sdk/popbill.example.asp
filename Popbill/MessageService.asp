@@ -82,22 +82,22 @@ End Function
 
 
 '단문 메시지 전송
-Public Function SendSMS(CorpNum, sender, Contents, Messages, reserveDT, adsYN, UserID)
-	SendSMS = SendMessage("SMS", CorpNum, sender, "", Contents, Messages, reserveDT, adsYN, UserID)	
+Public Function SendSMS(CorpNum, sender, senderName, Contents, Messages, reserveDT, adsYN, UserID)
+	SendSMS = SendMessage("SMS", CorpNum, sender, senderName, "", Contents, Messages, reserveDT, adsYN, UserID)	
 End Function
 
 '장문 메시지 전송 (광고)
-Public Function SendLMS(CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)
-	SendLMS = SendMessage("LMS", CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)	
+Public Function SendLMS(CorpNum, sender, senderName, subject, Contents, Messages, reserveDT, adsYN, UserID)
+	SendLMS = SendMessage("LMS", CorpNum, sender, senderName, subject, Contents, Messages, reserveDT, adsYN, UserID)	
 End Function
 
 '단/장문 메시지 자동인식 전송(광고)
-Public Function SendXMS(CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)
-	SendXMS = SendMessage("XMS", CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)	
+Public Function SendXMS(CorpNum, sender, senderName, subject, Contents, Messages, reserveDT, adsYN, UserID)
+	SendXMS = SendMessage("XMS", CorpNum, sender, senderName, subject, Contents, Messages, reserveDT, adsYN, UserID)	
 End Function
 
 'MMS 메시지 전송 (광고)
-Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, reserveDT, adsYN, UserID)
+Public Function SendMMS(CorpNum, sender, senderName, subject, Contents, msgList, FilePaths, reserveDT, adsYN, UserID)
 	If IsNull(msgList) Or IsEmpty(msgList) Then 
 		Err.raise -99999999, "POPBILL", "전송할 메시지가 입력되지 않았습니다."
 	End If
@@ -107,6 +107,7 @@ Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, 
 	Set tmp = JSON.parse("{}")
 	    
     If sender <> "" Then tmp.Set "snd", sender
+	If senderName <> "" Then tmp.Set "sndnm", senderName
     If Contents <> "" Then tmp.Set "content", Contents
     If subject <> "" Then tmp.Set "subject", subject
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
@@ -130,7 +131,7 @@ End Function
 
 
 
-Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList, reserveDT, adsYN, UserID)
+Private Function SendMessage(MType, CorpNum, sender, senderName, subject, Contents, msgList, reserveDT, adsYN, UserID)
 	If IsNull(msgList) Or IsEmpty(msgList) Then 
 		Err.raise -99999999, "POPBILL", "전송할 메시지가 입력되지 않았습니다."
 	End If
@@ -138,6 +139,7 @@ Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList,
 	Set tmp = JSON.parse("{}")
 	    
     If sender <> "" Then tmp.Set "snd", sender
+    If senderName <> "" Then tmp.Set "sndnm", senderName
     If Contents <> "" Then tmp.Set "content", Contents
     If subject <> "" Then tmp.Set "subject", subject
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
@@ -260,6 +262,7 @@ End Class
 
 Class Messages
 Public sender
+Public senderName
 Public receiver
 Public receiverName
 Public content
@@ -267,6 +270,7 @@ Public subject
 
 Public Sub setValue(msgList)
 	sender = msgList.sender
+	senderName = msgList.senderName
 	receiver = msgList.receiver
 	receiverName = msgList.receiverName
 	content = msgList.content
@@ -277,6 +281,7 @@ Public Function toJsonInfo()
 	Set toJsonInfo = JSON.parse("{}")
 	toJsonInfo.set "rcv", receiver
 	If sender <> "" Then  toJsonInfo.set "snd", sender
+	If senderName <> "" Then  toJsonInfo.set "sndnm", senderName
 	If receiverName <> "" Then toJsonInfo.set "rcvnm", receiverName
 	If content <> "" Then toJsonInfo.set "msg", content
 	If subject <> "" Then toJsonInfo.set "sjt", subject
@@ -290,6 +295,7 @@ Public subject
 Public msgType
 Public content
 Public sendNum
+Public senderName
 Public receiveNum
 Public receiveName
 Public reserveDT
@@ -306,6 +312,7 @@ Public Sub fromJsonInfo(msgInfo)
 	msgType = msgInfo.type
 	content = msgInfo.content
 	sendNum = msgInfo.sendNum
+	senderName = msgInfo.senderName
 	receiveNum = msgInfo.receiveNum
 	receiveName = msgInfo.receiveName
 	reserveDT = msgInfo.reserveDT

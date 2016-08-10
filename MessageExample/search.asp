@@ -70,6 +70,7 @@
 								<li>content : <%=result.list(i).content%> </li>
 								<li>type : <%=result.list(i).msgType%> </li>
 								<li>sendnum: <%=result.list(i).sendnum%> </li>
+								<li>senderName: <%=result.list(i).senderName%> </li>
 								<li>receiveNum : <%=result.list(i).receiveNum%> </li>
 								<li>receiveName : <%=result.list(i).receiveName%> </li>
 								<li>reserveDT : <%=result.list(i).reserveDT%> </li>

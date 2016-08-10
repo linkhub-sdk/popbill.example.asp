@@ -15,6 +15,7 @@
 
 	Set message = New Messages
 	message.sender = "07075103710"
+	message.senderName = "발신자명"
 	message.receiver = "000111222"
 	message.receivername = " 수신자이름"
 	message.content = "MMS 메시지 테스트중"
@@ -26,7 +27,7 @@
 
 	On Error Resume Next
 
-	receiptNum = m_MessageService.SendMMS(testCorpNum,"","","", msgList, FilePaths, reserveDT, adsYN, userID)
+	receiptNum = m_MessageService.SendMMS(testCorpNum, "", "", "", "", msgList, FilePaths, reserveDT, adsYN, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number
