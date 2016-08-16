@@ -1,5 +1,3 @@
-
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
@@ -9,22 +7,21 @@
 <!--#include file="common.asp"--> 
 <%
 	testCorpNum = "1234567890"
-	DType = "R"							'검색일자 유형, R-등록일자, W-작성일자, I-발행일자
-	SDate = "20160101"				'시작일자, yyyyMMdd
-	EDate = "20160127"				'종료일자, yyyyMMdd
+	DType = "W"							'검색일자 유형, R-등록일자, W-작성일자, I-발행일자
+	SDate = "20160701"				'시작일자, yyyyMMdd
+	EDate = "20160831"				'종료일자, yyyyMMdd
 
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
-	Dim State(3)
-	State(0) = "100"
-	State(1) = "2**"
-	State(2) = "3**"
+	Dim State(2)
+	State(0) = "2**"
+	State(1) = "3**"
 
 	'명세서 코드배열 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
 	Dim ItemCode(6)
 	ItemCode(0) = "121"
 	ItemCode(1) = "122"
 	ItemCode(2) = "123"
-	ItemCode(3) = "122"
+	ItemCode(3) = "124"
 	ItemCode(4) = "125"
 	ItemCode(5) = "126"
 
@@ -32,9 +29,11 @@
 	Page = 1				'페이지 번호
 	PerPage = 20		'페이지당 검색개수
 
+	SQuery = "세광"	'거래처정보, 거래처상호 또는 사업자등록번호 기재, 미기지시 전체조회
+
 	On Error Resume Next
 
-	Set result = m_StatementService.Search(testCorpNum, DType, SDate, EDate, State, ItemCode, Order, Page, PerPage)
+	Set result = m_StatementService.Search(testCorpNum, DType, SDate, EDate, State, ItemCode, Order, Page, PerPage, SQuery)
 
 	If Err.Number <> 0 Then
 		code = Err.Number

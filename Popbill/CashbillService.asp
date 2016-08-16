@@ -74,7 +74,7 @@ End Function
 '단가확인
 Public Function GetUnitCost(CorpNum)
     Set result = m_PopbillBase.httpGET("/Cashbill?cfg=UNITCOST", m_PopbillBase.getSession_token(CorpNum),"")
-    GetUnitCost = result.unitCost
+    GetUnitCost = result.unitCosts
 End Function
 
 '연동관리번호 사용여부 확인
@@ -358,7 +358,7 @@ Public Function RegistIssue(CorpNum, ByRef Cashbill, Memo, UserID)
 End Function 
 
 '현금영수증 목록 조회
-Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TaxationType, Order, Page, PerPage)
+Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TaxationType, Order, Page, PerPage, QString)
     If DType = "" Then
         Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
 	End If
@@ -409,7 +409,7 @@ Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsag
 			uri = uri & TaxationType(i) & ","
 		End If
 	Next
-
+	uri = uri & "&QString=" & QString
 	uri = uri & "&Order=" & Order
 	uri = uri & "&Page=" & CStr(Page)
 	uri = uri & "&PerPage=" & CStr(PerPage)

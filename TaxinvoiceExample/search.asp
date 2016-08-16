@@ -9,14 +9,14 @@
 	testCorpNum = "1234567890"		' [필수] 팝빌회원 사업자번호, "-" 제외
 	UserID = "testkorea"
 	KeyType= "SELL"						' [필수] 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	DType = "R"								' [필수] 검색일자 유형, R-등록일자, W-작성일자, I-발행일자
-	SDate = "20160501"					' [필수] 시작일자, yyyyMMdd
-	EDate = "20160731"					' [필수] 종료일자, yyyyMMdd
+	DType = "W"								' [필수] 검색일자 유형, R-등록일자, W-작성일자, I-발행일자
+	SDate = "20160701"					' [필수] 시작일자, yyyyMMdd
+	EDate = "20160831"					' [필수] 종료일자, yyyyMMdd
 	
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(2)
-	State(0) = "2**"
-	State(1) = "3**"
+	State(0) = "3**"
+	State(1) = "6**"
 
 	
 	' 문서유형 배열, N-일반세금계산서, M-수정세금계산서  중 선택배열
@@ -45,7 +45,10 @@
 	'종사업장번호, 콤마(",")로 구분하여 구성 ex) "1234,0001"
 	TaxRegID = ""
 
-	Set result = m_TaxinvoiceService.Search(testCorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, TaxRegID, UsreID)
+	'거래처 정보, 거래처 상호 또는 사업자등록번호 기재, 공백처리시 전체조회
+	QString = "공급"
+
+	Set result = m_TaxinvoiceService.Search(testCorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, TaxRegID, QString, UsreID)
 
 	If Err.Number <> 0 Then
 		code = Err.Number

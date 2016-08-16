@@ -7,15 +7,15 @@
 <!--#include file="common.asp"--> 
 <%
 	testCorpNum = "1234567890"	'팝빌 회원 사업자번호, "-" 제외
-	DType = "R"							'검색일자 유형, R-등록일자, T-거래일자, I-발행일자
-	SDate = "20150101"				'시작일자, yyyyMMdd
-	EDate = "20160127"				'종료일자, yyyyMMdd
+	DType = "T"							'검색일자 유형, R-등록일자, T-거래일자, I-발행일자
+	SDate = "20160701"				'시작일자, yyyyMMdd
+	EDate = "20160831"				'종료일자, yyyyMMdd
 
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(3)
-	State(0) = "100"
-	State(1) = "2**"
-	State(2) = "3**"
+	State(0) = "2**"
+	State(1) = "3**"
+	State(2) = "4**"
 	
 	'현금영수증 형태, N-일반현금영수증, C-취소현금영수증
 	Dim TradeType(2)			
@@ -36,9 +36,11 @@
 	Page = 1				'페이지번호
 	PerPage = 20		'페이지당 검색개수, 최대 1000
 
+	QString = ""		'식별번호 기재, 공백처리시 전체조회
+
 	On Error Resume Next
 	
-	Set SearchResult = m_CashbillService.Search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TaxationType, Order, Page, PerPage)
+	Set SearchResult = m_CashbillService.Search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TaxationType, Order, Page, PerPage, QString)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -65,7 +67,7 @@
 					<% If code = 0 Then 
 						For i=0 To UBound(SearchResult.list)-1 %>
 						<fieldset class="fieldset2">
-							<legend> 현금영수증 조회 결과 [<%=i+1%> <%=UBound(SearchResult.list)%>]</legend>
+							<legend> 현금영수증 조회 결과 [<%=i+1%> / <%=UBound(SearchResult.list)%>]</legend>
 							<ul>
 								<li>itemKey : <%=SearchResult.list(i).itemKey%></li>
 								<li>mgtKey : <%=SearchResult.list(i).mgtKey%></li>

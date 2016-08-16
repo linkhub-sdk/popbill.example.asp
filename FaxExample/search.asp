@@ -8,8 +8,8 @@
 <!--#include file="common.asp"--> 
 <%
 	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	SDate = "20151224"					'시작일자, yyyyMMdd
-	EDate = "20151225"					'종료일자, yyyyMMdd
+	SDate = "20160801"					'시작일자, yyyyMMdd
+	EDate = "20160825"					'종료일자, yyyyMMdd
 	
 	' 전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -18,7 +18,7 @@
 	State(2) = "3"
 	State(3) = "4"
 	
-	ReserveYN = True				'예약전송 검색여부
+	ReserveYN = False				'예약전송 검색여부
 	SenderOnlyYN = False		'개인조회 여부
 
 	Order = "D"			'정렬발향, A-오름차순, D-내림차순
