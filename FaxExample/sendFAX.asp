@@ -9,19 +9,18 @@
 	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
 	userID = "testkorea"			'팝빌 회원 아이디
 	sendNum = "07075103710"			'발신자 번호
-	senderName = "발신자명"			'발신자명
-	reserveDT = "20150128200000"	'전송예약시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	reserveDT = ""	'전송예약시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
 	
 	Dim receivers(0)
 	Set receivers(0) = New FaxReceiver
-	receivers(0).receiverNum = "0264429700"
+	receivers(0).receiverNum = "070111222"
 	receivers(0).receiverName = "수신자 명칭"
 
 	FilePaths = Array("C:\popbill.example.asp\대한민국헌법.doc")
 
 	On Error Resume Next
 
-	url = m_FaxService.SendFAX(testCorpNum , sendNum, senderName, receivers, FilePaths, reserveDT , userID )
+	url = m_FaxService.SendFAX(testCorpNum , sendNum, receivers, FilePaths, reserveDT , userID )
 
 	If Err.Number <> 0 then
 		code = Err.Number

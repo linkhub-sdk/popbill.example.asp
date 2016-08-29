@@ -8,7 +8,7 @@
 <%
 	testCorpNum = "1234567890"			'팝빌 회원 사업자번호, "-" 제외
 	userID = "testkorea"				'팝빌 회원 아이디
-	ReceiptNum = "016081011000000021"   '문자 전송시 발급받은 접수번호(ReceiptNum)
+	ReceiptNum = "016082909000000003"   '문자 전송시 발급받은 접수번호(ReceiptNum)
 	
 	On Error Resume Next
 

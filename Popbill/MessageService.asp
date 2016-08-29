@@ -82,22 +82,22 @@ End Function
 
 
 '단문 메시지 전송
-Public Function SendSMS(CorpNum, sender, senderName, Contents, Messages, reserveDT, adsYN, UserID)
-	SendSMS = SendMessage("SMS", CorpNum, sender, senderName, "", Contents, Messages, reserveDT, adsYN, UserID)	
+Public Function SendSMS(CorpNum, sender, Contents, Messages, reserveDT, adsYN, UserID)
+	SendSMS = SendMessage("SMS", CorpNum, sender, "", Contents, Messages, reserveDT, adsYN, UserID)	
 End Function
 
 '장문 메시지 전송 (광고)
-Public Function SendLMS(CorpNum, sender, senderName, subject, Contents, Messages, reserveDT, adsYN, UserID)
-	SendLMS = SendMessage("LMS", CorpNum, sender, senderName, subject, Contents, Messages, reserveDT, adsYN, UserID)	
+Public Function SendLMS(CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)
+	SendLMS = SendMessage("LMS", CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)	
 End Function
 
 '단/장문 메시지 자동인식 전송(광고)
-Public Function SendXMS(CorpNum, sender, senderName, subject, Contents, Messages, reserveDT, adsYN, UserID)
-	SendXMS = SendMessage("XMS", CorpNum, sender, senderName, subject, Contents, Messages, reserveDT, adsYN, UserID)	
+Public Function SendXMS(CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)
+	SendXMS = SendMessage("XMS", CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, UserID)	
 End Function
 
 'MMS 메시지 전송 (광고)
-Public Function SendMMS(CorpNum, sender, senderName, subject, Contents, msgList, FilePaths, reserveDT, adsYN, UserID)
+Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, reserveDT, adsYN, UserID)
 	If IsNull(msgList) Or IsEmpty(msgList) Then 
 		Err.raise -99999999, "POPBILL", "전송할 메시지가 입력되지 않았습니다."
 	End If
@@ -107,7 +107,6 @@ Public Function SendMMS(CorpNum, sender, senderName, subject, Contents, msgList,
 	Set tmp = JSON.parse("{}")
 	    
     If sender <> "" Then tmp.Set "snd", sender
-	If senderName <> "" Then tmp.Set "sndnm", senderName
     If Contents <> "" Then tmp.Set "content", Contents
     If subject <> "" Then tmp.Set "subject", subject
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
@@ -131,7 +130,7 @@ End Function
 
 
 
-Private Function SendMessage(MType, CorpNum, sender, senderName, subject, Contents, msgList, reserveDT, adsYN, UserID)
+Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList, reserveDT, adsYN, UserID)
 	If IsNull(msgList) Or IsEmpty(msgList) Then 
 		Err.raise -99999999, "POPBILL", "전송할 메시지가 입력되지 않았습니다."
 	End If
@@ -139,7 +138,6 @@ Private Function SendMessage(MType, CorpNum, sender, senderName, subject, Conten
 	Set tmp = JSON.parse("{}")
 	    
     If sender <> "" Then tmp.Set "snd", sender
-    If senderName <> "" Then tmp.Set "sndnm", senderName
     If Contents <> "" Then tmp.Set "content", Contents
     If subject <> "" Then tmp.Set "subject", subject
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT

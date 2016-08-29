@@ -25,7 +25,7 @@
 	
 	On Error Resume Next
 	
-	receiptNum = m_MessageService.SendLMS(testCorpNum, "", "", "","", msgList, reserveDT, adsYN, userID)
+	receiptNum = m_MessageService.SendLMS(testCorpNum, "", "","", msgList, reserveDT, adsYN, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number
