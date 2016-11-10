@@ -6,10 +6,23 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	testUserID = "testkorea"    '회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20150121-07"      '연동관리번호 
+	'**************************************************************
+	' 세금계산서에 첨부된 파일의 목록을 확인합니다.
+	' - 응답항목 중 파일아이디(AttachedFile) 항목은 파일삭제(DeleteFile API)
+	'   호출시 이용할 수 있습니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외 10자리
+	testCorpNum = "1234567890"	
+
+	' 팝빌회원 아이디
+	testUserID = "testkorea"   
+	
+	' 세금계산서 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"             
+
+	' 문서관리번호 
+	MgtKey = "20150121-07"      
 
 
 	On Error Resume Next
@@ -29,7 +42,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>세금계산서 첨부파일 목록확인</legend>
+				<legend>세금계산서 첨부파일 목록 확인</legend>
 					<% 
 						If code = 0 Then	
 							For i=0 To Presponse.length -1

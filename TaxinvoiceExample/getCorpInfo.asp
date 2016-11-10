@@ -6,8 +6,15 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌회원 사업자번호, "-" 제외
-	UserID = "testkorea"					'팝빌회원 아이디
+	'**************************************************************
+	' 연동회원의 회사정보를 확인합니다.
+	'**************************************************************
+
+	'팝빌회원 사업자번호, "-" 제외 10자리
+	testCorpNum = "1234567890"		
+
+	'팝빌회원 아이디
+	UserID = "testkorea"					
 	
 	Set result = m_TaxinvoiceService.GetCorpInfo(testCorpNum, UserID)
 
@@ -34,7 +41,6 @@
 								<li> addr (주소) : <%=result.addr%></li>
 								<li> bizType (업태) : <%=result.bizType%></li>
 								<li> bizClass (종목) : <%=result.bizClass%></li>
-
 							</ul>
 						</fieldset>
 				<%

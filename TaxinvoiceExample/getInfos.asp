@@ -6,11 +6,23 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	UserID = "testkorea"	  '회원아이디
+	'**************************************************************
+	' 대량의 세금계산서 상태/요약 정보를 확인합니다. (최대 1000건)
+	' - 세금계산서 상태정보(GetInfos API) 응답항목에 대한 자세한 정보는
+	'  "[전자세금계산서 API 연동매뉴얼] > 4.2. (세금)계산서 상태정보 구성"
+	'  을 참조하시기 바랍니다.
+	'**************************************************************
 
-	'세금계산서 연동관리번호 배열, 최대 1000건
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	
+
+	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"        
+
+	' 팝빌회원 아이디
+	UserID = "testkorea"	  
+
+	' 세금계산서 문서관리번호 배열, 최대 1000건
 	Dim MgtKeyList(3) 
 	MgtKeyList(0) = "20150121-01"
 	MgtKeyList(1) = "20150121-02"
@@ -29,7 +41,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>팝빌 세금계산서 상태/요약 다량 요청</legend>
+				<legend>세금계산서 상태/요약 정보 확인 - 대량</legend>
 				<%
 					If code = 0 Then
 						For i=0 To result.Count-1

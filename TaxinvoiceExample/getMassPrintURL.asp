@@ -6,10 +6,21 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "123457890"	'회원 사업자번호, "-" 제외
-	userID = "testkorea"		' 회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	'**************************************************************
+	' 대량건의 전자세금계산서 인쇄팝업 URL을 반환합니다. (최대 100건)
+	' - 보안정책으로 인해 반환된 URL의 유효시간은 30초입니다
+	'**************************************************************
 
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "123457890"	
+
+	' 팝빌회원 아이디
+	userID = "testkorea"		
+
+	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"             
+	
+	' 인쇄할 세금계산서 문서관리번호 배열, 최대 100건
 	Dim MgtKeyList(3) 
 	MgtKeyList(0) = "20150121-01"
 	MgtKeyList(1) = "20150121-02"
@@ -32,7 +43,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>다량 세금계산서 인쇄 URL확인</legend>
+				<legend>세금계산서 인쇄 URL - 대량</legend>
 				<ul>
 					<% If code = 0 Then %>
 						<li>URL : <%=url%> </li>

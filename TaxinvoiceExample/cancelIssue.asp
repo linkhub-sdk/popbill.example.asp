@@ -6,11 +6,28 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	testUserID = "testkorea"    '회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20150122-21"      '연동관리번호 
-	Memo = "발행취소 메모"      '메모
+	'**************************************************************
+	'[발행완료] 상태의 세금계산서를 [발행취소] 처리합니다.
+	' - [발행취소]는 국세청 전송전에만 가능합니다.
+	' - 발행취소된 세금계산서는 국세청에 전송되지 않습니다.
+	' - 발행취소 세금계산서에 기재된 문서관리번호를 재사용 하기 위해서는
+	'   삭제(Delete API)를 호출하여 [삭제] 처리 하셔야 합니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	
+
+	' 팝빌회원 아이디
+	testUserID = "testkorea"   
+	
+	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"             
+
+	' 문서관리번호 
+	MgtKey = "20150122-21"     
+	
+	' 메모
+	Memo = "발행취소 메모"      
 
 	On Error Resume Next
 	
@@ -31,7 +48,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>세금계산서 발행 취소 처리</legend>
+				<legend>세금계산서 발행취소</legend>
 				<ul>
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message : <%=message%> </li>

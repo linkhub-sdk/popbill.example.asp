@@ -6,11 +6,24 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1231212312"	'회원 사업자번호, "-" 제외
-	testUserID = "userid"    '회원 아이디
-	KeyType= "BUY"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20150122-22"      '연동관리번호 
-	Memo = "발행예정승인 메모"      '메모
+	'**************************************************************
+	'  발행예정 세금계산서를 승인처리 합니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"
+
+	 ' 팝빌회원 아이디
+	testUserID = "userid"
+
+	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "BUY"
+
+	' 문서관리번호 
+	MgtKey = "20150122-22"
+
+	' 메모
+	Memo = "발행예정승인 메모"
 
 	On Error Resume Next
 	
@@ -31,7 +44,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>세금계산서 발행예정에 대한 공급받는자의 승인 처리</legend>
+				<legend>발행예정 세금계산서 승인 </legend>
 				<ul>
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message : <%=message%> </li>

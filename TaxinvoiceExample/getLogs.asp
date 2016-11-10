@@ -6,9 +6,14 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20150122-13"      '연동관리번호 
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	
+
+	'발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"             
+
+	'문서관리번호 
+	MgtKey = "20150122-13"      
 
 	Set result = m_TaxinvoiceService.GetLogs(testCorpNum, KeyType, MgtKey)
 	

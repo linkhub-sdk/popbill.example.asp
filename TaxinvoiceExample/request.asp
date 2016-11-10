@@ -6,11 +6,29 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1231212312"	'회원 사업자번호, "-" 제외
-	testUserID = "userid"       '회원 아이디
-	KeyType= "BUY"              '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20150121-15"      '연동관리번호 
-	Memo = "역발행 요청 메모"   '메모
+	'**************************************************************
+	' 공급받는자가 1건의 역발행 세금계산서를 발행요청합니다.
+	' - 역발행 세금계산서 프로세스를 구현하기 위해서는 공급자/공급받는자가 모두
+	'   팝빌에 회원이여야 합니다.
+	' - 역발행 요청후 공급자가 [발행] 처리시 포인트가 차감되며 역발행
+	'   세금계산서 항목중 과금방향(ChargeDirection) 에 기재한 값에 따라
+	'   정과금(공급자과금) 또는 역과금(공급받는자과금) 처리됩니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1231212312"	
+
+	' 팝빌회원 아이디
+	testUserID = "userid"       
+
+	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "BUY"              
+
+	' 문서관리번호 
+	MgtKey = "20150121-15"      
+
+	' 메모
+	Memo = "역발행 요청 메모"   
 
 	On Error Resume Next
 	
@@ -31,7 +49,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>세금계산서 역)발행요청 처리</legend>
+				<legend>세금계산서 역발행요청</legend>
 				<ul>
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message : <%=message%> </li>

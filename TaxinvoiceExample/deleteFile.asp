@@ -6,11 +6,26 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	testUserID = "testkorea"    '회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20150121-07"      '연동관리번호 
-	FileID = "5131AACD-9D35-4CCE-BAC7-4943653FB002.PBF "   '첨부파일 목록(getFiles) AttachedFile 값 참조. 
+	'**************************************************************
+	' 세금계산서에 첨부된 파일을 삭제합니다.
+	' - 파일을 식별하는 파일아이디는 첨부파일 목록(GetFileList API) 의 응답항목
+	'   중 파일아이디(AttachedFile) 값을 통해 확인할 수 있습니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	
+
+	' 팝빌회원 아이디
+	testUserID = "testkorea"   
+	
+	' 세금계산서 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"             
+
+	' 문서관리번호 
+	MgtKey = "20150121-07"      
+
+	' 파일아이디, 첨부파일 목록(getFiles) AttachedFile 값 참조. 
+	FileID = "5131AACD-9D35-4CCE-BAC7-4943653FB002.PBF "   
 
 	On Error Resume Next
 	
@@ -31,7 +46,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>세금계산서 첨부파일 1개 삭제</legend>
+				<legend>세금계산서 첨부파일 삭제</legend>
 					<ul>
 						<li>Response.code : <%=code%> </li>
 						<li>Response.message : <%=message%> </li>

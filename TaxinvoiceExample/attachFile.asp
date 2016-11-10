@@ -6,13 +6,26 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	'파일첨부는 해당세금계산서가 [임시저장]상태일 경우에만 가능
+	'**************************************************************
+	' 세금계산서에 첨부파일을 등록합니다.
+	' - [임시저장] 상태의 세금계산서만 파일을 첨부할수 있습니다.
+	' - 첨부파일은 최대 5개까지 등록할 수 있습니다.
+	'**************************************************************
 
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	testUserID = "testkorea"    '회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20150121-07"      '연동관리번호 
-	filePath = "C:\popbill.example.asp\Popbill\로고.gif"     '첨부할 파일경로
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	
+
+	' 팝빌회원 아이디
+	testUserID = "testkorea"   
+	
+	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"             
+
+	' 문서관리번호 
+	MgtKey = "20161110-07"      
+
+	' 첨부할 파일경로
+	filePath = "C:\popbill.example.asp\Popbill\로고.gif"     
 
 	On Error Resume Next
 
@@ -38,7 +51,6 @@
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message : <%=message%> </li>
 				</ul>
-				
 			</fieldset>
 		 </div>
 	</body>

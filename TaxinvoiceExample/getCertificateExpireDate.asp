@@ -6,7 +6,14 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		 ' 회원 사업자번호, "-" 제외
+	'**************************************************************
+	' 팝빌에 등록되어 있는 공인인증서의 만료일자를 확인합니다.
+	' - 공인인증서가 갱신/재발급/비밀번호 변경이 되는 경우 해당 인증서를
+	'   재등록 하셔야 정상적으로 API를 이용하실 수 있습니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		 
 	
 	On Error Resume Next
 
@@ -25,7 +32,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>공인인증서의 만료일시 확인</legend>
+				<legend>공인인증서 만료일시 확인</legend>
 					<ul>
 						<% If code = 0 Then %>
 							<li>만료일시 : <%=certificateExpiration%> </li>

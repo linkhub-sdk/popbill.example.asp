@@ -6,12 +6,29 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		' [필수] 팝빌회원 사업자번호, "-" 제외
+	'**************************************************************
+	' 검색조건을 사용하여 세금계산서 목록을 조회합니다.
+	' - 응답항목에 대한 자세한 사항은 "[전자세금계산서 API 연동매뉴얼] >
+	'   4.2. (세금)계산서 상태정보 구성" 을 참조하시기 바랍니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외 10자리
+	testCorpNum = "1234567890"		
+	
+	' 팝빌회원 아이디
 	UserID = "testkorea"
-	KeyType= "SELL"						' [필수] 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	DType = "W"								' [필수] 검색일자 유형, R-등록일자, W-작성일자, I-발행일자
-	SDate = "20160701"					' [필수] 시작일자, yyyyMMdd
-	EDate = "20160831"					' [필수] 종료일자, yyyyMMdd
+
+	' [필수] 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"						
+
+	' [필수] 검색일자 유형, R-등록일자, W-작성일자, I-발행일자
+	DType = "W"							
+	
+	' [필수] 시작일자, yyyyMMdd
+	SDate = "20160701"					
+
+	' [필수] 종료일자, yyyyMMdd
+	EDate = "20160831"					
 	
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(2)
@@ -30,11 +47,17 @@
 	TaxType(1) = "N"
 	TaxType(2) = "Z"
 
-	LateOnly = null		' 지연발행여부,  null- 전체조회, False-정상발행분 조회, True-지연발행분 조회
+	' 지연발행여부,  null- 전체조회, False-정상발행분 조회, True-지연발행분 조회
+	LateOnly = null		
 
-	Order = "D"			' 정렬방향, A-오름차순, D-내림차순
-	Page = 1				' 페이지 번호
-	PerPage = 100		' 페이지당 검색갯수, 최대 1000
+	' 정렬방향, A-오름차순, D-내림차순
+	Order = "D"			
+
+	' 페이지 번호
+	Page = 1				
+
+	' 페이지당 검색갯수, 최대 1000
+	PerPage = 100		
 
 	'종사업장번호 사업자유형, S-매출, B-매입, T-수탁
 	TaxRegIDType = "S"
@@ -46,9 +69,10 @@
 	TaxRegID = ""
 
 	'거래처 정보, 거래처 상호 또는 사업자등록번호 기재, 공백처리시 전체조회
-	QString = "공급"
+	QString = ""
 
-	Set result = m_TaxinvoiceService.Search(testCorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, TaxRegID, QString, UsreID)
+	Set result = m_TaxinvoiceService.Search(testCorpNum, KeyType, DType, SDate, EDate, State, _ 
+						TIType, TaxType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, TaxRegID, QString, UsreID)
 
 	If Err.Number <> 0 Then
 		code = Err.Number
@@ -61,7 +85,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>세금계산서 목록조회 결과</legend>
+				<legend>세금계산서 목록조회</legend>
 						<ul>
 							<li> code : <%=result.code%></li>
 							<li> total : <%=result.total%></li>

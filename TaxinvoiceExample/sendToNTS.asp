@@ -6,10 +6,26 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	testUserID = "testkorea"    '회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20150122-29"      '연동관리번호 
+	'**************************************************************
+	' [발행완료] 상태의 세금계산서를 국세청으로 즉시전송합니다.
+	' - 국세청 즉시전송을 호출하지 않은 세금계산서는 발행일 기준 익일 오후 3시에
+	'   팝빌 시스템에서 일괄적으로 국세청으로 전송합니다.
+	' - 익일전송시 전송일이 법정공휴일인 경우 다음 영업일에 전송됩니다.
+	' - 국세청 전송에 관한 사항은 "[전자세금계산서 API 연동매뉴얼] > 1.4 국세청
+	'   전송 정책" 을 참조하시기 바랍니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	
+
+	' 팝빌회원 아이디
+	testUserID = "testkorea"   
+	 
+	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"             
+
+	' 문서관리번호 
+	MgtKey = "20150122-29"      
 
 	On Error Resume Next
 	
@@ -30,7 +46,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>국세청 전송처리</legend>
+				<legend>국세청 즉시전송</legend>
 				<ul>
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message : <%=message%> </li>

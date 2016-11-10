@@ -6,11 +6,26 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	testUserID = "testkorea"    '회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20150121-17"      '연동관리번호 
-	Receiver = "frenchofkiss@gmail.com"    '이메일주소
+	'**************************************************************
+	' 발행 안내메일을 재전송합니다.
+	' - 메일내용중 전자세금계산서 [보기] 버튼이 동작하지 않는 경우,
+	'   키보드 왼쪽 Shift 키를 누르고 버튼을 클릭해보시기 바랍니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	
+
+	' 팝빌회원 아이디
+	testUserID = "testkorea"   
+	
+	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"             
+
+	' 문서관리번호 
+	MgtKey = "20150121-17"      
+
+	'이메일주소
+	Receiver = "test@test.com"    
 
 	On Error Resume Next
 	
@@ -31,7 +46,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>이메일 재전송</legend>
+				<legend>세금계산서 메일 재전송</legend>
 				<ul>
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message : <%=message%> </li>

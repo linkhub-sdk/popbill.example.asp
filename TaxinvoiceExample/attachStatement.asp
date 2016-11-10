@@ -6,13 +6,27 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌회원 사업자번호, "-" 제외
-	KeyType= "SELL"						'발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20160126-55"			'세금계산서 연동관리번호 
-	SubItemCode = 121					'전자명세서 종류 코드
-	SubMgtKey = "20160126-54"		'전자명세서 관리번호
+	'**************************************************************
+	'  전자명세서 1건을 세금계산서에 첨부합니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		
+
+	' 세금계산서 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"						
+
+	' 세금계산서 문서관리번호 
+	MgtKey = "20160126-55"			
+
+	' 전자명세서 종류 코드
+	SubItemCode = 121					
+
+	' 전자명세서 관리번호
+	SubMgtKey = "20160126-54"		
 
 	On Error Resume Next
+	
 	Set Presponse = m_TaxinvoiceService.AttachStatement(testCorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey)
 	
 	If Err.Number <> 0 Then

@@ -6,10 +6,22 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 '회원 사업자번호, "-" 제외
-	testUserID = "testkorea"	 '회원 아이디
-	mgtKey = "20150122-00"		 '연동관리번호
-	keyType = "SELL"			 '발행형태, (SELL-매출) (BUY-매입) (TRUSTEE-위수탁)
+	'**************************************************************
+	' 세금계산서 문서관리번호 중복여부를 확인합니다.
+	' - 1~24자리로 숫자, 영문 '-', '_' 조합으로 사업자별로 중복되지 않도록 구성합니다.
+	'**************************************************************
+	
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	 
+
+	' 팝빌회원 아이디
+	testUserID = "testkorea"	 
+
+	' 문서관리번호
+	mgtKey = "20150122-00"		 
+
+	' 발행형태, (SELL-매출) (BUY-매입) (TRUSTEE-위수탁)
+	keyType = "SELL"			 
 
 	On Error Resume Next
 
@@ -35,7 +47,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동관리번호 사용여부 확인</legend>
+				<legend>문서관리번호 사용여부 확인</legend>
 				<ul>
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message : <%=message%> </li>

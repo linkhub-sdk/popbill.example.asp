@@ -6,10 +6,22 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	userID = "testkorea"		'회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20150122-00"      '연동관리번호 
+	'**************************************************************
+	' 1건의 전자세금계산서 인쇄팝업 URL을 반환합니다.
+	' - 보안정책으로 인해 반환된 URL의 유효시간은 30초입니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	
+
+	' 팝빌회원 아이디
+	userID = "testkorea"		
+
+	' 세금계산서 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"             
+
+	' 문서관리번호 
+	MgtKey = "20150122-00"      
 
 	On Error Resume Next
 
@@ -28,7 +40,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>인쇄 URL확인</legend>
+				<legend>세금계산서 인쇄 URL</legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li>URL : <%=url%> </li>

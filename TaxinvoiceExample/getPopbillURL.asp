@@ -6,9 +6,20 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 '회원 사업자번호, "-" 제외
-	userID = "testkorea"  ' 회원 아이디
-	TOGO = "LOGIN"   'LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 / CERT : 공인인증서 등록 팝업 / SEAL : 인감 및 첨부문서 등록 URL
+	'**************************************************************
+	' 팝빌 관련 기본 팝업 URL을 반환합니다.
+	' - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	 
+
+	' 팝빌회원 아이디
+	userID = "testkorea"  
+
+	' LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 
+	' CERT : 공인인증서 등록 팝업 / SEAL : 인감 및 첨부문서 등록 URL
+	TOGO = "LOGIN"   
 
 	On Error Resume Next
 
@@ -27,7 +38,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>팝빌 SSO URL 요청</legend>
+				<legend>팝빌 기본 팝업 URL</legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li>URL : <%=CStr(url)%> </li>

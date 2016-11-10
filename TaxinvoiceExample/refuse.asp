@@ -6,11 +6,26 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	'회원 사업자번호, "-" 제외
-	testUserID = "testkorea"    '회원 아이디
-	KeyType= "SELL"             '발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	MgtKey = "20150120-04"      '연동관리번호 
-	Memo = "역발행 요청 거부 메모"      '메모
+	'**************************************************************
+	' 공급받는자에게 요청받은 역발행 세금계산서를 [거부]처리 합니다.
+	' - 세금계산서의 문서관리번호를 재사용하기 위해서는 삭제 (Delete API) 를
+	'   호출하여 [삭제] 처리해야 합니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"
+
+	' 팝빌회원 아이디
+	testUserID = "testkorea"
+	
+	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
+	KeyType= "SELL"
+
+	' 문서관리번호 
+	MgtKey = "20150120-04"      
+
+	' 메모
+	Memo = "역발행 요청 거부 메모"      
 
 	On Error Resume Next
 	
@@ -31,7 +46,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>역)발행요청 발행거부 처리</legend>
+				<legend>역발행요청 거부</legend>
 				<ul>
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message : <%=message%> </li>
