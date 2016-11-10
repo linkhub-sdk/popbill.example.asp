@@ -29,7 +29,7 @@
 		message = Err.Description
 	Else	
 		If result = True Then
-			code = 1fdtfr
+			code = 1
 			message = "»ç¿ëÁß"
 		Else
 			code = 0 
