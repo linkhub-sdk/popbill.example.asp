@@ -6,10 +6,23 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
+	'**************************************************************
+	' 검색조건을 사용하여 전자명세서 목록을 조회합니다.
+	' - 응답항목에 대한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
+	'   3.3.3. Search (목록 조회)" 를 참조하시기 바랍니다.
+	'**************************************************************
+
+	'팝빌회원 사업자번호
 	testCorpNum = "1234567890"
-	DType = "W"							'검색일자 유형, R-등록일자, W-작성일자, I-발행일자
-	SDate = "20160701"				'시작일자, yyyyMMdd
-	EDate = "20160831"				'종료일자, yyyyMMdd
+
+	'검색일자 유형, R-등록일자, W-작성일자, I-발행일자
+	DType = "W"
+
+	'시작일자, yyyyMMdd
+	SDate = "20160901"				
+
+	'종료일자, yyyyMMdd
+	EDate = "20161131"				
 
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(2)
@@ -24,12 +37,18 @@
 	ItemCode(3) = "124"
 	ItemCode(4) = "125"
 	ItemCode(5) = "126"
+	
+	'정렬방향, A-오름차순, D-내림차순
+	Order = "D"			
 
-	Order = "D"			'정렬방향, A-오름차순, D-내림차순
-	Page = 1				'페이지 번호
-	PerPage = 20		'페이지당 검색개수
+	'페이지 번호
+	Page = 1				
 
-	SQuery = "세광"	'거래처정보, 거래처상호 또는 사업자등록번호 기재, 미기지시 전체조회
+	'페이지당 검색개수
+	PerPage = 20		
+
+	'거래처정보, 거래처상호 또는 사업자등록번호 기재, 미기지시 전체조회
+	SQuery = ""	
 
 	On Error Resume Next
 
@@ -57,7 +76,6 @@
 						<li> pageCount : <%=result.pageCount%></li>
 						<li> message : <%=result.message%></li>
 					</ul>
-
 					<% If code = 0 Then 
 						For i=0 To UBound(result.list)-1 %>
 
@@ -91,7 +109,6 @@
 						<li>Response.code : <%=code%> </li>
 						<li>Response.message: <%=message%> </li>
 					<% End If %>
-
 			</fieldset>
 		 </div>
 	</body>

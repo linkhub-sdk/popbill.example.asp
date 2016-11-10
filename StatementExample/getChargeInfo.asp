@@ -6,11 +6,20 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌회원 사업자번호, "-" 제외
-	itemCode = "121"						'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
-	UserID = "testkorea"					'팝빌회원 아이디
+	'**************************************************************
+	' 연동회원의 전자명세서 API 서비스 과금정보를 확인합니다.
+	'**************************************************************
+
+	'팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"
+
+	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
+	itemCode = "121"
+
+	'팝빌회원 아이디
+	UserID = "testkorea"
 		
-	Set result = m_StatementService.GetChargeInfo ( testCorpNum, ItemCode, UserID )
+	Set result = m_StatementService.GetChargeInfo(testCorpNum, ItemCode, UserID)
 
 	If Err.Number <> 0 Then
 		code = Err.Number
@@ -28,7 +37,7 @@
 					If code = 0 Then
 				%>
 						<ul>
-							<li> unitCost (단가) : <%=result.unitCost%></li>
+							<li> unitCost (발행단가) : <%=result.unitCost%></li>
 							<li> chargeMethod (과금유형) : <%=result.chargeMethod%></li>
 							<li> rateSystem (과금제도) : <%=result.rateSystem%></li>
 						</ul>

@@ -5,20 +5,38 @@
 		<title>팝빌 SDK ASP Example.</title>
 	</head>
 <!--#include file="common.asp"--> 
-
 <%
-	CorpNum = "1234567890"		 ' 연동회원 사업자번호
-	UserID = "testkorea"				 ' 연동회원 아이디 
+	'**************************************************************
+	' 연동회원의 담당자 정보를 수정합니다.
+	'**************************************************************
 
+	' 팝빌회원 사업자번호
+	CorpNum = "1234567890"		 
+
+	' 팝빌회원 아이디 
+	UserID = "testkorea"				 
+
+
+	'담당자 정보 객체 생성
 	Set contInfo = New ContactInfo
-	
+		
+	'담당자명
 	contInfo.personName = "ASPTest"
+
+	'연락처
 	contInfo.tel = "010-1234-1234"
+
+	'휴대폰번호
 	contInfo.hp = "010-1234-1234"
+
+	'메일주소
 	contInfo.email = "code@linkhub.co.kr"
+
+	'팩스번호
 	contInfo.fax = "02-6442-9700"
+
+    '전체조회여부, Ture-회사조회, False-개인조회
 	contInfo.searchAllAllowYN = True
-	contInfo.mgrYN = True
 
 	On Error Resume Next
 

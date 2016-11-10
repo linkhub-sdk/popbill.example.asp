@@ -6,10 +6,24 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"			'팝빌 회원 사업자번호, "-"제외 10자리
-	userID = "testkorea"				'팝빌 회원 아이디
-	itemCode = "121"					'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
-	mgtKey = "20150201-01"				'연동관리번호
+	'**************************************************************
+	' 전자명세서 상태 변경이력을 확인합니다.
+	' - 상태 변경이력 확인(GetLogs API) 응답항목에 대한 자세한 정보는
+	'   "[전자명세서 API 연동매뉴얼] > 3.3.4 GetLogs (상태 변경이력 확인)"
+	'   을 참조하시기 바랍니다.
+	'**************************************************************
+
+	'팝빌 회원 사업자번호, "-"제외 10자리
+	testCorpNum = "1234567890"			
+
+	'팝빌 회원 아이디
+	userID = "testkorea"				
+
+	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
+	itemCode = "121"					
+
+	'문서관리번호
+	mgtKey = "20150201-01"				
 
 	On Error Resume Next
 
@@ -28,12 +42,12 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>전자명세서 이력 확인</legend>
+				<legend>전자명세서 상태변경 이력 </legend>
 				<ul>
 					<% If code = 0 Then 
 						For i=0 To result.Count-1%>
 						<fieldset class="fieldset2">
-						<legend> 전자명세서 이력정보[<%=i+1%>]</legend>
+						<legend> 전자명세서 상태변경 이력 [<%=i+1%>]</legend>
 							<ul>
 								<li>docLogType : <%=result.Item(i).docLogType%> </li>
 								<li>log : <%=result.Item(i).log%> </li>

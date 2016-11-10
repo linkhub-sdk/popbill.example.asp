@@ -6,8 +6,15 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌회원 사업자번호, "-" 제외
-	UserID = "testkorea"					'팝빌회원 아이디
+	'**************************************************************
+	' 연동회원의 회사정보를 확인합니다.
+	'**************************************************************
+
+	'팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"
+
+	'팝빌회원 아이디
+	UserID = "testkorea"
 	
 	Set result = m_StatementService.GetCorpInfo(testCorpNum, UserID)
 
@@ -27,14 +34,13 @@
 					If code = 0 Then
 				%>
 					<fieldset class="fieldset2">					
-						<legend> CorpInfo </legend>
+						<legend> 회사정보 </legend>
 							<ul>
 								<li> ceoname (대표자명) : <%=result.ceoname%></li>
 								<li> corpName (상호) : <%=result.corpName%></li>
 								<li> addr (주소) : <%=result.addr%></li>
 								<li> bizType (업태) : <%=result.bizType%></li>
 								<li> bizClass (종목) : <%=result.bizClass%></li>
-
 							</ul>
 						</fieldset>
 				<%

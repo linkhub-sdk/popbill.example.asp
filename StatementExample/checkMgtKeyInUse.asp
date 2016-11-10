@@ -6,9 +6,19 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 '회원 사업자번호, "-" 제외
-	mgtKey = "20150202-01"		 '연동관리번호
-	itemCode = "121"			 '명세서 구분코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
+	'**************************************************************
+	' 전자명세서 관리번호 중복여부를 확인합니다.
+	' - 관리번호는 1~24자리로 숫자, 영문 '-', '_' 조합으로 구성할 수 있습니다.
+	'**************************************************************
+
+	' 팝빌회원 사업자번호, "-" 제외 10자리
+	testCorpNum = "1234567890"
+
+	' 문서관리번호
+	mgtKey = "20150202-01"
+
+	' 명세서 구분코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
+	itemCode = "121"
 
 	On Error Resume Next
 
@@ -19,7 +29,7 @@
 		message = Err.Description
 	Else	
 		If result = True Then
-			code = 1
+			code = 1fdtfr
 			message = "사용중"
 		Else
 			code = 0 
@@ -34,7 +44,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동관리번호 사용여부 확인</legend>
+				<legend>문서관리번호 사용여부 확인</legend>
 				<ul>
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message : <%=message%> </li>

@@ -1,14 +1,30 @@
 <!--#include virtual="/Popbill/Popbill.asp"--> 
 <!--#include virtual="/Popbill/StatementService.asp"-->
 <%
-	'연동상담시 발급받은 링크아이디 
+	'**************************************************************
+	' 팝빌 전자명세서 API ASP SDK Example
+	'
+	' - ASP SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/577
+	' - 업데이트 일자 : 2016-11-10
+	' - 연동 기술지원 연락처 : 1600-8536 / 070-4304-2991~2
+	' - 연동 기술지원 이메일 : dev@linkhub.co.kr
+	'
+	' <테스트 연동개발 준비사항>
+	' 1) 19, 22번 라인에 선언된 링크아이디(LinkID)와 비밀키(SecretKey)를
+	'    링크허브 가입시 메일로 발급받은 인증정보를 참조하여 변경합니다.
+	' 2) 팝빌 개발용 사이트(test.popbill.com)에 연동회원으로 가입합니다.
+	'**************************************************************
+
+	' 링크아이디 
 	LinkID = "TESTER"
-	'연동상담시 발급받은 비밀키, 유출에 주의
+
+	' 비밀키
 	SecretKey = "SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I="
 
 	set m_StatementService = new StatementService
+
 	m_StatementService.Initialize LinkID, SecretKey
 
-	'연동환경설정값, 테스트완료후 상업용 전환시 False로 값을 수정하거나 주석처리.
+	' 연동환경 설정값, 개발용(True), 상업용(False)
 	m_StatementService.IsTest = True
 %>

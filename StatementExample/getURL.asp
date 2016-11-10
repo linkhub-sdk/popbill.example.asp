@@ -6,9 +6,19 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 '팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"		 '팝빌 회원 아이디
-	TOGO = "SBOX"				 'TBOX(임시문서함), SBOX(발행문서함)
+	'**************************************************************
+	' 팝빌 전자명세서 문서함 팝업 URL을 반환합니다.
+	' - 보안정책으로 인해 반환된 URL의 유효시간은 30초입니다.
+	'**************************************************************
+
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	 
+
+	'팝빌 회원 아이디
+	userID = "testkorea"		 
+
+	'TBOX(임시문서함), SBOX(발행문서함)
+	TOGO = "SBOX"				 
 
 	On Error Resume Next
 
@@ -27,7 +37,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>전자명세서 관련 SSO URL 요청</legend>
+				<legend>전자명세서 문서함 관련 팝업 URL</legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li>URL : <%=CStr(url)%> </li>

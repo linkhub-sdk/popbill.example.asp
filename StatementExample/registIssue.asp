@@ -6,63 +6,160 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
+	'**************************************************************
+	' 1건의 전자명세서를 즉시발행 처리합니다.
+	'**************************************************************
 
-	testCorpNum = "1234567890"		 ' 팝빌 회원 사업자번호
-	userID = "testkorea"					 ' 팝빌 회원 아이디
-	memo = "즉시발행 메모"			 ' 메모 
-	mgtKey = "20160126-10"			 ' 관리번호 
+	' 팝빌회원 사업자번호
+	testCorpNum = "1234567890"		 
+	
+	' 팝빌 회원 아이디
+	userID = "testkorea"					 
 
+	' 문서관리번호, 1~24자리 숫자, 영문, '-', '_' 조합으로 사업자별로 중복되지 않도록 구성
+	mgtKey = "20161110-01"			 
+
+	' 메모 
+	memo = "즉시발행 메모"			 
+
+
+
+	'전자명세서 객체 생성
 	Set newStatement = New Statement
 
-    newStatement.writeDate = "20160126"             '필수, 기재상 작성일자
-    newStatement.purposeType = "영수"               '필수, {영수, 청구}
-    newStatement.taxType = "과세"                   '필수, {과세, 영세, 면세}
-    newStatement.formCode = ""						'맞춤양식코드(기본값 "")
-    
-    newStatement.itemCode = "121"					'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
-    
+    '[필수] 기재상 작성일자, 날짜형식(yyyyMMdd)
+    newStatement.writeDate = "20161110"  
+
+	'[필수] {영수, 청구} 중 기재
+    newStatement.purposeType = "영수"
+
+    '[필수] 과세형태, {과세, 영세, 면세} 중 기재
+    newStatement.taxType = "과세"                   
+
+    '맞춤양식코드, 공백처리시 기본양식으로 작성
+    newStatement.formCode = ""						
+	
+	'[필수] 명세서 종류코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
+    newStatement.itemCode = "121"				
+
+    '[필수] 문서관리번호, 숫자, 영문, '-', '_' 조합 (최대24자리)으로 사업자별로 중복되지 않도록 구성   
     newStatement.mgtKey = mgtKey
     
+
+
+	'**************************************************************
+    '				                              공급자 정보
+	'**************************************************************
+
+    '공급자 사업자번호, '-' 제외 10자리
     newStatement.senderCorpNum = testCorpNum
-    newStatement.senderTaxRegID = "" '종사업자 식별번호. 필요시 기재. 형식은 숫자 4자리.
+
+    '공급자 종사업장 식별번호, 필요시 기재, 형식은 숫자 4자리
+    newStatement.senderTaxRegID = ""
+
+	'공급자 상호
     newStatement.senderCorpName = "공급자 상호"
+
+    '공급자 대표자성명
     newStatement.senderCEOName = "공급자"" 대표자 성명"
+
+	'공급자 주소
     newStatement.senderAddr = "공급자 주소"
-    newStatement.senderBizClass = "공급자 업종"
+
+	'공급자 종목
+    newStatement.senderBizClass = "공급자 종목"
+
+	'공급자 업태
     newStatement.senderBizType = "공급자 업태,업태2"
+
+	'공급자 담당자 성명
     newStatement.senderContactName = "공급자 담당자명"
+
+	'공급자 메일주소
     newStatement.senderEmail = "test@test.com"
+
+	'공급자 연락처
     newStatement.senderTEL = "070-7070-0707"
+
+	'공급자 휴대폰번호
     newStatement.senderHP = "010-000-2222"
+
+
+
+	'**************************************************************
+    '				                      공급받는자 정보
+	'**************************************************************
     
+    '공급받는자 사업자번호, '-' 제외 10자리
     newStatement.receiverCorpNum = "8888888888"
+
+    '공급받는자 상호
     newStatement.receiverCorpName = "공급받는자 상호"
+
+    '공급받는자 대표자 성명
     newStatement.receiverCEOName = "공급받는자 대표자 성명"
+
+    '공급받는자 주소
     newStatement.receiverAddr = "공급받는자 주소"
-    newStatement.receiverBizClass = "공급받는자 업종"
+
+    '공급받는자 종목
+    newStatement.receiverBizClass = "공급받는자 종목"
+
+    '공급받는자 업태
     newStatement.receiverBizType = "공급받는자 업태"
+
+    '공급받는자 담당자명
     newStatement.receiverContactName = "공급받는자 담당자명"
+
+    '공급받는자 메일주소
+
     newStatement.receiverEmail = "test@receiver.com"
+
+
+
+	'**************************************************************
+    '				                      전자명세서 기재사항
+	'**************************************************************	
+
+    '[필수] 공급가액 합계
+	newStatement.supplyCostTotal = "100000"
+
+	'[필수] 세액 합계
+    newStatement.taxTotal = "10000"
+
+    '[필수] 합계금액, 공급가액 합계 + 세액 합계
+    newStatement.totalAmount = "110000"
     
-    newStatement.supplyCostTotal = "100000"      '필수 공급가액 합계
-    newStatement.taxTotal = "10000"                  '필수 세액 합계
-    newStatement.totalAmount = "110000"             '필수 합계금액.  공급가액 + 세액
-    
+    '기재 상 일련번호 항목
     newStatement.serialNum = "123"
+
+    '기재 상 비고 항목
     newStatement.remark1 = "비고1"
     newStatement.remark2 = "비고2"
     newStatement.remark3 = "비고3"
     
-    newStatement.businessLicenseYN = False		'사업자등록증 이미지 첨부시 설정.
-    newStatement.bankBookYN = False				'통장사본 이미지 첨부시 설정.
-    newStatement.faxsendYN = False				'발행시 Fax발송시 설정.
-    newStatement.smssendYN = True				'발행시 문자발송기능 사용시 활용
+			
+	'사업자등록증 이미지 첨부여부
+    newStatement.businessLicenseYN = False 
+
+	'통장사본 이미지 첨부여부
+    newStatement.bankBookYN = False        
 	
+	'발행시 알림문자 전송여부
+    newStatement.smssendYN = True 
+	
+
+
+
+
+	'**************************************************************
+    '				                      전자명세서 상세(품목)
+	'**************************************************************	
 
 	Set newDetail = New StatementDetail
 
     newDetail.serialNum = "1"             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20150110"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20161110"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명"
     newDetail.spec = "규격"
     newDetail.unit = "단위"
@@ -82,7 +179,7 @@
 	Set newDetail = New StatementDetail
 
     newDetail.serialNum = "2"             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20150112"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20161110"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명"
     newDetail.spec = "규격"
     newDetail.unit = "단위"
@@ -100,9 +197,15 @@
 	newStatement.AddDetail newDetail
 	
 
-	'추가속성, 자세한사항은 전자명세서 API 연동매뉴얼 [5.부록 > 5.2 기본양식 추가속성 테이블] 참조.
+	'**************************************************************
+	'										전자명세서 추가속성
+    ' - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
+    '   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+	'**************************************************************
+
 	newStatement.propertyBag.Set "Balance", "150000"
 	newStatement.propertyBag.Set "CBalance", "100000"
+
 
 	On Error Resume Next
 
