@@ -16,6 +16,7 @@
 	'팝빌회원 아이디 
 	UserID = "testkorea"				 
 
+
 	Set infoObj = New CorpInfo
 	
 	' 대표자명

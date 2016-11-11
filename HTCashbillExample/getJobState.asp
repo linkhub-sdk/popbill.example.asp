@@ -6,13 +6,23 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'연동회원 사업자번호, "-" 제외
-	JobID = "016071511000000009"	'수집요청시 반환받은작업아이디(jobID)
-	UserID = "testkorea"					'연동회원 아이디
+	'**************************************************************
+	' 수집 요청 상태를 확인합니다.
+	' - 응답항목 관한 정보는 "[홈택스 현금영수증 연계 API 연동매뉴얼
+	'   > 3.2.2. GetJobState (수집 상태 확인)" 을 참고하시기 바랍니다 .
+	'**************************************************************
+
+	'팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"
+
+	'팝빌회원 아이디
+	UserID = "testkorea"
+
+		'수집요청시 반환받은작업아이디(jobID)
+	JobID = "016071511000000009"	
 	
 	On Error Resume Next
 	
-	'작업아이디(jobID)의 유효시간은 1시간 입니다. 
 	Set result = m_HTCashbillService.GetJobState(testCorpNum, JobID, UserID)
 
 	If Err.Number <> 0 Then

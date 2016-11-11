@@ -6,15 +6,30 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'연동회원 사업자번호, "-" 제외
-	KeyType= "SELL"						'발행유형 SELL(매출), BUY(매입)
-	SDate = "20160601"					'시작일자, 표시형식(yyyyMMdd)
-	EDate =	"20160831"					'종료일자, 표시형식(yyyyMMdd)
-	testUserID = "testkorea"			'연동회원 아이디
+	'**************************************************************
+	' 현금영수증 매출/매입 내역 수집을 요청합니다
+	' - 매출/매입 연계 프로세스는 "[홈택스 현금영수증 연계 API 연동매뉴얼]
+	'   > 1.2. 프로세스 흐름도" 를 참고하시기 바랍니다.
+	' - 수집 요청후 반환받은 작업아이디(JobID)의 유효시간은 1시간 입니다.
+	'**************************************************************
+
+	'팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		
+
+	'발행유형 SELL(매출), BUY(매입)
+	KeyType= "SELL"						
+
+	'시작일자, 표시형식(yyyyMMdd)
+	SDate = "20160601"					
+
+	'종료일자, 표시형식(yyyyMMdd)
+	EDate =	"20160831"					
+
+	'팝빌회원 아이디
+	testUserID = "testkorea"			
 	
 	On Error Resume Next
 
-	'수집요청시 반환되는 작업아이디(jobID)의 유효시간은 1시간 입니다.
 	jobID = m_HTCashbillService.requestJob(testCorpNum, KeyType, SDate, EDate, testUserID)
 
 	If Err.Number <> 0 then

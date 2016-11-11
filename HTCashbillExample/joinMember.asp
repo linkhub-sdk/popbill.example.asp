@@ -5,25 +5,55 @@
 		<title>팝빌 SDK ASP Example.</title>
 	</head>
 <!--#include file="common.asp"--> 
-
 <%
+	'**************************************************************
+	' 팝빌 연동회원 가입을 요청합니다.
+	'**************************************************************
+
+	' 회원정보 객체 생성
 	Set joinInfo = New JoinForm
 
-	joinInfo.LinkID = "TESTER"		   '링크아이디 
-	joinInfo.CorpNum = "1234567890"    '사업자번호, "-"제외 10자리
-	joinInfo.CEOName = "대표자성명"	   '대표자성명
-	joinInfo.CorpName =  "상호"		   '상호명
-	joinInfo.Addr =   "주소"		   '주소
-	joinInfo.ZipCode =  "500-100"	   '우편번호
-	joinInfo.BizType =  "업태"		   '업태
-	joinInfo.BizClass = "업종"		   '업종
-	joinInfo.ID =  "userid"		       '아이디 (6자 이상 20자 미만)
-	joinInfo.PWD =  "1234567890"       '비밀번호 (6자 이상 20자 미만)
-	joinInfo.ContactName = "담당자명"    '담당자명
-	joinInfo.ContactTEL = "02-999-9999"   '담당자연락처
-	joinInfo.ContactHP = "010-1234-5678"	'담당자 휴대폰번호
-	joinInfo.ContactFAX = "02-999-9999"		'팩스번호
-	joinInfo.ContactEmail = "test@test.com" '담당자 이메일
+	'링크아이디 
+	joinInfo.LinkID = "TESTER"		   
+
+	'사업자번호, "-"제외 10자리
+	joinInfo.CorpNum = "1234567890"    
+
+	'대표자성명
+	joinInfo.CEOName = "대표자성명"	
+	
+	'상호명
+	joinInfo.CorpName =  "상호"	
+	
+	'주소
+	joinInfo.Addr =   "주소"		   
+
+	'업태
+	joinInfo.BizType =  "업태"		   
+
+	'종목
+	joinInfo.BizClass = "종목"
+
+	'아이디 (6자 이상 20자 미만)
+	joinInfo.ID =  "userid"
+
+	'비밀번호 (6자 이상 20자 미만)
+	joinInfo.PWD =  "1234567890"
+
+	'담당자명
+	joinInfo.ContactName = "담당자명"    
+
+	'담당자연락처
+	joinInfo.ContactTEL = "02-999-9999"   
+
+	'담당자 휴대폰번호
+	joinInfo.ContactHP = "010-1234-5678"	
+
+	'팩스번호
+	joinInfo.ContactFAX = "02-999-9999"		
+
+	'담당자 이메일
+	joinInfo.ContactEmail = "test@test.com" '
 
 	On Error Resume Next
 
