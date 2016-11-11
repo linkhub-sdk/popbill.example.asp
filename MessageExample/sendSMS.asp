@@ -6,19 +6,37 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"					'팝빌 회원 아이디
-	adsYN = False							'광고문자 전송여부
-'	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		
+
+	'팝빌 회원 아이디
+	userID = "testkorea"					
+
+	'광고문자 전송여부
+	adsYN = False							
+
+	'예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	reserveDT = ""
 
 	Set msgList = CreateObject("Scripting.Dictionary")
 
+	'메시지 전송정보
 	Set message = New Messages
-	message.sender = "07075103710"				'발신자번호
-	message.senderName = "발신자명"				'발신자명
-	message.receiver = "000111222"			'수신자번호
-	message.receivername = " 수신자이름"		'수신자명
-	message.content = "팝빌 메시지 API 테스트중" '메시지 내용(단문메시지의 경우, 90byte 초과한 내용은 길이가 조정되어 전송됩니다)
+
+	'발신자번호
+	message.sender = "07043042991"
+
+	'발신자명
+	message.senderName = "발신자명"		
+	
+	'수신자번호
+	message.receiver = "000111222"			
+
+	'수신자명
+	message.receivername = " 수신자이름"		
+
+	'메시지 내용, 90byte 초과하는 경우 길이가 조정되어 전송됨
+	message.content = "팝빌 메시지 API 테스트중" 
 
 	msgList.Add 0, message
 	

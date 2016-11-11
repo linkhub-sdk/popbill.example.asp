@@ -6,26 +6,46 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"					'팝빌 회원 아이디
-	adsYN = False							'광고문자 전송여부
-'	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		
+
+	'팝빌 회원 아이디
+	userID = "testkorea"					
+
+	'광고문자 전송여부
+	adsYN = False							
+
+	'예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	reserveDT = ""
 	
+	
+	'문자전송정보 배열, 최대 1000건
 	Set msgList = CreateObject("Scripting.Dictionary")
 
 	For i =0 To 99
-
-	Set message = New Messages
+		Set message = New Messages
+		'발신번호
 		message.sender = "07075100000"
+
+		'발신자명
 		message.senderName = "발신자명"
+
+		'수신번호
 		message.receiver = "000111222"
+
+		'수신자명
 		message.receivername = " 수신자이름"+CStr(i)
+
+		'메시지 내용, 2000byte초과시 길이가 조정되어 전송됨.
 		message.content = "MMS 메시지 내용"
+		
+		'메시지 제목
 		message.subject = "MMS 메시지 제목"
 	
 		msgList.Add i, message
 	Next
 	
+	'포토메시지 이미지파일, 300Kbyte JPEG 포맷 전송가능
 	FilePaths = Array("C:\popbill.example.asp\test.jpg")
 
 	On Error Resume Next

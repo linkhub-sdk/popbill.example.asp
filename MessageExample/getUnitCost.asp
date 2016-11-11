@@ -6,9 +6,18 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 '팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"		 '팝빌 회원 아이디
-	sendType = "MMS"			 '전송유형 (SMS - 단문, LMS - 장문, MMS)
+	'**************************************************************
+	' 문자메시지 전송단가를 확인합니다.
+	'**************************************************************
+
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"
+
+	'팝빌 회원 아이디
+	userID = "testkorea"
+
+	'전송유형 (SMS - 단문, LMS - 장문, MMS)
+	sendType = "MMS"
 
 	On Error Resume Next
 

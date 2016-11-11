@@ -6,26 +6,43 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"					'팝빌 회원 아이디
-	adsYN = False							'광고문자 전송여부
-'	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"
+
+	'팝빌 회원 아이디
+	userID = "testkorea"
+
+	'광고문자 전송여부
+	adsYN = False
+
+	'예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	reserveDT = ""
 	
-	senderNum = "07075103710"        '동보전송 발신번호
+
+	'발신번호
+	senderNum = "07075103710"        
+
+	'메시지 제목
 	subject = "동보전송 메시지 제목"
+
+	'메시지 네ㅐ용 
 	content = "동보전송 메시지 내용"
-
+	
 	Set msgList = CreateObject("Scripting.Dictionary")
-
+	
+	'문자전송정보 배열, 최대 1000건
 	For i =0 To 99
 
-	Set message = New Messages
+		Set message = New Messages
+		'수신번호
 		message.receiver = "000111222"
+
+		'수신자명
 		message.receivername = " 수신자이름"+CStr(i)
-	
 		msgList.Add i, message
 	Next
-	
+		
+	'포토메시지 이미지파일, 300Kbyte JPEG 포맷 전송가능
 	FilePaths = Array("C:\popbill.example.asp\test.jpg")
 
 	On Error Resume Next
@@ -45,7 +62,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>MMS 문자메시지 1건 전송 </legend>
+				<legend>MMS 문자메시지 전송</legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li>ReceiptNum(접수번호) : <%=receiptNum%> </li>

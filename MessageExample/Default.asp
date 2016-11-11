@@ -18,11 +18,11 @@
 				<fieldset class="fieldset2">
 					<legend>회원사 정보</legend>
 					<ul>
-						<li><a href="checkIsMember.asp">checkIsMember</a> - 연동회원사 가입 여부 확인</li>
+						<li><a href="checkIsMember.asp">checkIsMember</a> - 연동회원 가입여부 확인</li>
 						<li><a href="checkID.asp">checkID</a> - 아이디 중복확인</li>
-						<li><a href="joinMember.asp">joinMember</a> - 연동회원사 가입 요청</li>
+						<li><a href="joinMember.asp">joinMember</a> - 연동회원 가입 요청</li>
 						<li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
-						<li><a href="getBalance.asp">getBalance</a> - 연동회원사 잔여포인트 확인</li>
+						<li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
 						<li><a href="getPartnerBalance.asp">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
 						<li><a href="getPopbillURL.asp">getPopbillURL</a> - 팝빌 SSO URL 요청</li>
 						<li><a href="listContact.asp">listContact</a> - 담당자 목록 조회</li>
@@ -77,9 +77,9 @@
 				<fieldset class="fieldset2">
 					<legend>전송결과/예약취소</legend>
 					<ul>
-						<li><a href="search.asp">search</a> - 문자메시지 전송내역 확인</li>
+						<li><a href="search.asp">search</a> - 문자메시지 전송내역 목록 조회</li>
 						<li><a href="getMessages.asp">getMessages</a> - 접수번호에 해당하는 문자메시지 전송결과 확인</li>
-						<li><a href="cancelReserve.asp">cancelReserve</a> - 예약문자메시지의 예약 취소. 예약시간 10분전까지만 가능.</li>
+						<li><a href="cancelReserve.asp">cancelReserve</a> - 예약문자메시지 예약 취소</li>
 					</ul>
 				</fieldset>
 				

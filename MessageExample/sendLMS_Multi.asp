@@ -6,25 +6,46 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"					'팝빌 회원 아이디
-	adsYN = False							'광고문자 전송여부
-'	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		
+
+	'팝빌 회원 아이디
+	userID = "testkorea"					
+
+	'광고문자 전송여부
+	adsYN = False							
+
+	'예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+'	reserveDT = "20150128200000"    
 	
-	'대량문자 전송, 최대 1000건
+	
 	Set msgList = CreateObject("Scripting.Dictionary")
 	
 	For i =0 To 99
-	Set message = New Messages
-		message.sender = "07075100000"
-		message.senderName = "발신자명"
-		message.receiver = "0001111222"
-		message.receivername = " 수신자이름"+CStr(i)
-		message.content = "발신 내용. 장문은 2000Byte로 길이가 조정되어 전송됩니다. This is Message 메시지 테스트중"
-		message.subject = "장문 제목입니다"
-	
-		msgList.Add i, message
+
+		'문자전송정보, 최대 1000건
+		Set message = New Messages
 		
+		'발신번호
+		message.sender = "07043042991"
+
+		'발신자명
+		message.senderName = "발신자명"
+
+		'수신번호
+		message.receiver = "0001111222"
+
+		'수신자명
+		message.receivername = " 수신자이름"+CStr(i)
+
+		'메시지제목
+		message.subject = "장문 제목입니다"
+		
+		'메시지내용, 최대 2000byte 초과시 길이가 조정되어 전송됨.
+		message.content = "발신 내용. 장문은 2000Byte로 길이가 조정되어 전송됩니다. This is Message 메시지 테스트중"
+
+		msgList.Add i, message
+	
 	Next
 	
 	On Error Resume Next

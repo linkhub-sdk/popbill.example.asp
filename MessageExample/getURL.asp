@@ -6,9 +6,19 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 '팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"		 '팝빌 회원 아이디
-	TOGO = "BOX"				 'BOX(전송내역조회 팝업)
+	'**************************************************************
+	' 문자메시지 전송내역 팝업 URL을 반환합니다.
+	' - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+	'**************************************************************
+
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"
+
+	'팝빌 회원 아이디
+	userID = "testkorea"
+
+	'BOX(전송내역조회 팝업)
+	TOGO = "BOX"
 
 	On Error Resume Next
 
@@ -28,7 +38,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>문자 전송내역 조회 URL</legend>
+				<legend>문자 전송내역 팝업 URL</legend>
 				<ul>
 					<% If code = 0 Then %>
 						<li>URL : <%=url%> </li>

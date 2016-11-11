@@ -6,28 +6,52 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"					'팝빌 회원 아이디
-	adsYN = False							'광고문자 전송여부
-'	reserveDT = "20150128200000"    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		
 
-	senderNum = "07075103710"		'동보전송 발신번호
-	subject = "동보전송 제목"
-	content = "동보전송 내용, 90Byte초과시 LMS(장문) 메시지로 전송됨" 
+	'팝빌 회원 아이디
+	userID = "testkorea"					
 
+	'광고문자 전송여부
+	adsYN = False							
+
+	'예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	reserveDT = ""
+
+	'발신번호
+	senderNum = "07043042991"
+
+	'메시지 제목
+	subject = "문자전송 제목"
+
+	'메시지 내용, 90byte 기준으로 단/장문 메시지가 자동인식되어 전송
+	content = "문자전송 내용, 90Byte초과시 LMS(장문) 메시지로 전송됨" 
+
+
+	'수신정보 배열, 최대 1000건	
 	Set msgList = CreateObject("Scripting.Dictionary")
 	
 	For i =0 To 49
 		Set message = New Messages
+
+		'수신번호
 		message.receiver = "000111222"
+
+		'수신자명
 		message.receivername = " 수신자이름"+CStr(i)
+
 		msgList.Add i, message
 	Next
 
 	For i =50 To 99
 		Set message = New Messages
+
+		'수신번호
 		message.receiver = "000111222"
+
+		'수신자명
 		message.receivername = " 수신자이름"+CStr(i)
+
 		msgList.Add i, message
 	Next
 
