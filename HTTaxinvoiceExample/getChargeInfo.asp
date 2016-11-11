@@ -6,8 +6,15 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'연동회원 사업자번호, "-" 제외
-	UserID = "testkorea"					'연동회원 아이디
+	'**************************************************************
+	' 홈택스 전자세금계산서 연계 API 서비스 과금정보를 확인합니다.
+	'**************************************************************
+
+	'팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		
+
+	'팝빌회원 아이디
+	UserID = "testkorea"					
 	
 	On Error Resume Next
 
@@ -31,7 +38,7 @@
 					If code = 0 Then
 				%>
 					<ul>
-						<li> unitCost (단가) : <%=result.unitCost%></li>
+						<li> unitCost (월정액 요금) : <%=result.unitCost%></li>
 						<li> chargeMethod (과금유형) : <%=result.chargeMethod%></li>
 						<li> rateSystem (과금제도) : <%=result.rateSystem%></li>
 					</ul>

@@ -6,8 +6,17 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'연동회원 사업자번호, "-" 제외
-	UserID = "testkorea"				'연동회원 아이디
+	'**************************************************************
+	' 검색조건을 사용하여 수집 결과 요약정보를 조회합니다.
+	' - 응답항목에 관한 정보는 "[홈택스 전자(세금)계산서 연계 API 연동매뉴얼]
+	'   > 3.3.2. Summary (수집 결과 요약정보 조회)" 을 참고하시기 바랍니다.
+	'**************************************************************
+
+	'팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	
+	
+	'팝빌회원 아이디
+	UserID = "testkorea"				
 	
 	'수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
 	JobID = "016071516000000009"
@@ -40,7 +49,8 @@
 	
 	On Error Resume Next
 
-	Set result = m_HTTaxinvoiceService.Summary(testCorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, UserID)
+	Set result = m_HTTaxinvoiceService.Summary(testCorpNum, JobID, TIType, TaxType,  _
+							PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, UserID)
 
 	If Err.Number <> 0 Then
 		code = Err.Number
