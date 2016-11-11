@@ -6,25 +6,30 @@
 	</head>
 	<!--#include file="common.asp"--> 
 	<%
-			'휴폐업조회 - 단건
+		'**************************************************************
+		' 1건의 사업자 휴폐업여부를 조회합니다.
+		'**************************************************************
+	
+		'팝빌회원 사업자번호
+		UserCorpNum = "1234567890"							
 
-			UserCorpNum = "1234567890"							'팝빌회원 사업자번호
-			CorpNum = request.QueryString("CorpNum")		'조회할 사업자번호
+		'조회할 사업자번호
+		CorpNum = request.QueryString("CorpNum")		
+		
+		If CorpNum <> "" Then
+
+			On Error Resume Next
 			
-			If CorpNum <> "" Then
+			Set result = m_ClosedownService.checkCorpNum(UserCorpNum, CorpNum)
+		
+			If Err.Number <> 0 Then
+				code = Err.Number
+				message = Err.Description
+				Err.Clears
+			End If
 
-				On Error Resume Next
-				
-				Set result = m_ClosedownService.checkCorpNum(UserCorpNum, CorpNum)
-			
-				If Err.Number <> 0 Then
-					code = Err.Number
-					message = Err.Description
-					Err.Clears
-				End If
-
-				On Error GoTo 0
-			End if
+			On Error GoTo 0
+		End if
 	%>
 	<body>
 		<div id="content">

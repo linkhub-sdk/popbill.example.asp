@@ -6,27 +6,30 @@
 	</head>
 	<!--#include file="common.asp"--> 
 	<%
-			'휴폐업조회 - 대량
+		'**************************************************************
+		' 다수의 사업자에 대한 휴폐업여부를 조회합니다. (최대 1000건)
+		'**************************************************************
 
-			UserCorpNum = "1234567890"		'팝빌회원 사업자번호
+		'팝빌회원 사업자번호
+		UserCorpNum = "1234567890"		
 
-			'조회할 사업자번호 배열, 최대 1000건
-			Dim CorpNumList(3)
-			CorpNumList(0) = "1234567890"
-			CorpNumList(1) = "4108600477"
-			CorpNumList(2) = "110-04-45791"
-							
-			On Error Resume Next
+		'조회할 사업자번호 배열, 최대 1000건
+		Dim CorpNumList(3)
+		CorpNumList(0) = "1234567890"
+		CorpNumList(1) = "4108600477"
+		CorpNumList(2) = "110-04-45791"
+						
+		On Error Resume Next
 
-			Set result = m_ClosedownService.checkCorpNums(UserCorpnum, CorpNumList)
-			
-			If Err.Number <> 0 Then
-				code = Err.Number
-				message = Err.Description
-				Err.Clears
-			End If
+		Set result = m_ClosedownService.checkCorpNums(UserCorpnum, CorpNumList)
+		
+		If Err.Number <> 0 Then
+			code = Err.Number
+			message = Err.Description
+			Err.Clears
+		End If
 
-			On Error GoTo 0
+		On Error GoTo 0
 	%>
 	<body>
 		<div id="content">
