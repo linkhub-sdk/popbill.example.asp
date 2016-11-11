@@ -15,7 +15,9 @@
 
 	'ÆËºôÈ¸¿ø ¾ÆÀÌµð
 	UserID = "testkorea"					
-	
+
+	On Error Resume Next
+
 	Set result = m_TaxinvoiceService.GetCorpInfo(testCorpNum, UserID)
 
 	If Err.Number <> 0 Then
@@ -23,6 +25,8 @@
 		message = Err.Description
 		Err.Clears
 	End If
+
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">

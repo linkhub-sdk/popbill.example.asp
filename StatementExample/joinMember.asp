@@ -52,7 +52,7 @@
 	'팩스번호
 	joinInfo.ContactFAX = "02-999-9999"		
 
-	담당자 이메일
+	'담당자 이메일
 	joinInfo.ContactEmail = "test@test.com" '
 
 	On Error Resume Next

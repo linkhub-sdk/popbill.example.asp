@@ -7,13 +7,17 @@
 <!--#include file="common.asp"--> 
 <%
 	testCorpNum = "1234567890"	 '회원 사업자번호, "-" 제외
+	
 	On Error Resume Next
+	
 	unitCost = m_ClosedownService.GetUnitCost(testCorpNum)
+	
 	If Err.Number <> 0 then
 		code = Err.Number
 		message = Err.Description
 		Err.Clears
 	End If
+	
 	On Error GoTo 0
 %>
 	<body>

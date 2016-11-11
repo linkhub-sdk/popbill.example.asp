@@ -23,6 +23,7 @@
 	joinInfo.ContactHP = "010-1234-5678"	'담당자 휴대폰번호
 	joinInfo.ContactFAX = "02-999-9999"		'팩스번호
 	joinInfo.ContactEmail = "test@test.com" '담당자 이메일
+	
 	On Error Resume Next
 	
 	Set Presponse = m_ClosedownService.JoinMember(joinInfo)
@@ -35,6 +36,7 @@
 		code = Presponse.code
 		message =Presponse.message
 	End If
+	
 	On Error GoTo 0
 %>
 

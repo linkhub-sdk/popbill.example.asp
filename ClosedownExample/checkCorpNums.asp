@@ -16,12 +16,16 @@
 			CorpNumList(1) = "4108600477"
 			CorpNumList(2) = "110-04-45791"
 							
+			On Error Resume Next
+
 			Set result = m_ClosedownService.checkCorpNums(UserCorpnum, CorpNumList)
+			
 			If Err.Number <> 0 Then
 				code = Err.Number
 				message = Err.Description
 				Err.Clears
 			End If
+
 			On Error GoTo 0
 	%>
 	<body>

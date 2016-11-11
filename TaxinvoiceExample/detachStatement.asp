@@ -26,6 +26,7 @@
 	SubMgtKey = "20160126-54"		
 
 	On Error Resume Next
+
 	Set Presponse = m_TaxinvoiceService.DetachStatement(testCorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey)
 	
 	If Err.Number <> 0 Then

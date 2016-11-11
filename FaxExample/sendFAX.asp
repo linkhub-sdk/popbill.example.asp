@@ -6,16 +6,29 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"			'팝빌 회원 아이디
-	sendNum = "07075103710"			'발신자 번호
-	reserveDT = ""	'전송예약시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		
+
+	'팝빌 회원 아이디
+	userID = "testkorea"			
+
+	'발신자 번호
+	sendNum = "07075103710"			
+
+	'전송예약시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	reserveDT = ""	
 	
+	'수신자 정보 
 	Dim receivers(0)
 	Set receivers(0) = New FaxReceiver
+
+	'수신번호
 	receivers(0).receiverNum = "070111222"
+
+	'수신자명
 	receivers(0).receiverName = "수신자 명칭"
 
+	'팩스전송할 파일
 	FilePaths = Array("C:\popbill.example.asp\대한민국헌법.doc")
 
 	On Error Resume Next

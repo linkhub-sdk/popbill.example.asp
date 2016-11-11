@@ -6,35 +6,86 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 ' 팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"				 ' 팝빌 회원 아이디
-	mgtKey = "20160127-02"		 ' 연동관리번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-	memo = "즉시발행 메모 "		 ' 메모
+	' 팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	
 
+	' 팝빌 회원 아이디
+	userID = "testkorea"				 
+
+	' 문서관리번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
+	mgtKey = "20160127-02"		 
+
+	' 메모
+	memo = "즉시발행 메모 "		 
+
+	' 현금영수증 객체 생성
 	Set CashbillObj = New CashBill
-
+	
     CashbillObj.mgtKey = mgtKey				   
-    CashbillObj.tradeType = "승인거래"				'승인거래 or 취소거래
-    CashbillObj.franchiseCorpNum = testCorpNum		'발행자 사업자번호
+
+    '현금영수증 형태, [승인거래, 취소거래] 중 기재
+    CashbillObj.tradeType = "승인거래"				
+
+	'발행자 사업자번호, "-" 제외 10자리
+	CashbillObj.franchiseCorpNum = testCorpNum		
+
+    '발행자 상호명
     CashbillObj.franchiseCorpName = "발행자 상호"
-    CashbillObj.franchiseCEOName = "발행자 대표자"
-    CashbillObj.franchiseAddr = "발행자 주소"
-    CashbillObj.franchiseTEL = "070-1234-1234"
-    CashbillObj.identityNum = "01043245117"
-    CashbillObj.customerName = "고객명"
-    CashbillObj.itemName = "상품명"
-    CashbillObj.orderNumber = "주문번호"
-    CashbillObj.email = "test@test.com"
-    CashbillObj.hp = "111-1234-1234"
-    CashbillObj.fax = "777-444-3333"			
-    CashbillObj.serviceFee = "0"				'봉사료
-    CashbillObj.supplyCost = "10000"			'공급가액
-    CashbillObj.tax = "1000"					'부가세
-    CashbillObj.totalAmount = "11000"			'거래금액
-    CashbillObj.tradeUsage = "소득공제용"       '소득공제용 or 지출증빙용
-    CashbillObj.taxationType = "과세"           '과세 or 비과세
+
+    '발행자 대표자 성명
+	CashbillObj.franchiseCEOName = "발행자 대표자"
     
-	CashbillObj.smssendYN = False				'발행시 안내문자 자동전송여부
+    '발행자 주소
+	CashbillObj.franchiseAddr = "발행자 주소"
+    
+    '발행자 연락처
+	CashbillObj.franchiseTEL = "070-1234-1234"
+    
+    '거래처 식별번호, 거래유형에 따라 작성
+    '소득공제용 - 주민등록/휴대폰/카드번호 기재가능
+    '지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능	
+	CashbillObj.identityNum = "010111222"
+
+    '거래유형, [소득공제용, 지출증빙용] 중 기재
+	CashbillObj.tradeUsage = "소득공제용"
+    
+    '과세형태, [과세, 비과세] 중 기재
+	CashbillObj.taxationType = "과세" 
+	
+	'공급가액
+	CashbillObj.supplyCost = "10000"			
+
+	'세액
+	CashbillObj.tax = "1000"					
+
+	'봉사료
+	CashbillObj.serviceFee = "0"				
+    
+	'합계금액, 공급가액 + 봉사료 + 세액
+	CashbillObj.totalAmount = "11000"			
+    
+	
+    '주문고객명
+	CashbillObj.customerName = "고객명"
+    
+	'상품명	
+	CashbillObj.itemName = "상품명"
+    
+	'주문번호
+	CashbillObj.orderNumber = "주문번호"
+    
+	'고객 메일주소
+	CashbillObj.email = "test@test.com"
+    
+	'고객 휴대폰번호
+	CashbillObj.hp = "111-1234-1234"
+    
+	'고객 팩스번호
+	CashbillObj.fax = "777-444-3333"			
+    
+	'발행안내문자 전송여부
+	'안내문자 전송시 포인트가 차감되며, 전송실패시 환불처리됩니다.
+	CashbillObj.smssendYN = False
 
 	On Error Resume Next
 

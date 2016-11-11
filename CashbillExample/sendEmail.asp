@@ -6,10 +6,21 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 '팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"		 '팝빌 회원 아이디
-	mgtKey = "20150201-01"		 '연동관리번호	
-	receiver = "test@test.com"		'수신자 이메일주소
+	'**************************************************************
+	' 발행 안내메일을 재전송합니다.
+	'**************************************************************
+
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	 
+
+	'팝빌 회원 아이디
+	userID = "testkorea"		 
+
+	'문서관리번호	
+	mgtKey = "20150201-01"		 
+
+	'수신 메일주소
+	receiver = "test@test.com"		
 
 	On Error Resume Next
 		
@@ -32,7 +43,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>알림메일 재전송 </legend>
+				<legend>알림메일 재전송</legend>
 				<ul>
 					<li>Response.code : <%=code%></li>
 					<li>Response.message : <%=message%></li>

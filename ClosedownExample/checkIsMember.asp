@@ -9,6 +9,7 @@
 	testCorpNum = "1234567890"		'사업자번호 ("-"제외)
 		
 	On Error Resume Next
+
 	Set Presponse = m_ClosedownService.CheckIsMember(testCorpNum,LinkID)
 	
 	If Err.Number <> 0 Then

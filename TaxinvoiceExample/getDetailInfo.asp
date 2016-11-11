@@ -21,6 +21,8 @@
 	' 문서관리번호 
 	MgtKey = "20150121-01"      
 
+	On Error Resume Next
+
 	Set taxInfo = m_TaxinvoiceService.GetDetailInfo(testCorpNum, KeyType, MgtKey)
 
 	If Err.Number <> 0 Then
@@ -28,6 +30,7 @@
 		message = Err.Description
 		Err.Clears
 	End If
+
 	On Error GoTo 0
 %>
 	<body>

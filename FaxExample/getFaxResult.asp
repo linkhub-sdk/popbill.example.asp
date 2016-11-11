@@ -6,12 +6,20 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"					'팝빌 회원 아이디
-	receiptNum = "016082909435800001" '팩스 전송시 발급받은 전송번호
- 
- 	'전송결과코드는 [팝빌 FAX API 연동매뉴얼 5.부록] 참조
+	'**************************************************************
+	' 팩스 전송요청시 반환받은 접수번호(receiptNum)을 사용하여 팩스전송
+	' 결과를 확인합니다.
+	'**************************************************************
 	
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		
+
+	'팝빌 회원 아이디
+	userID = "testkorea"					
+
+	'팩스 전송시 발급받은 전송번호
+	receiptNum = "016082909435800001" 
+ 
 	On Error Resume Next
 
 	Set result = m_FaxService.GetFaxDetail(testCorpNum, receiptNum, userID)

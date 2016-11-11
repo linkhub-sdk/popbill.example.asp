@@ -7,9 +7,18 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"		'팝빌 회원 사업자번호, "-" 제외
-	SDate = "20160801"					'시작일자, yyyyMMdd
-	EDate = "20160825"					'종료일자, yyyyMMdd
+	'**************************************************************
+	' 검색조건을 사용하여 팩스전송 내역을 조회합니다.
+	'**************************************************************
+
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		
+
+	'시작일자, yyyyMMdd
+	SDate = "20160801"					
+
+	'종료일자, yyyyMMdd
+	EDate = "20160825"					
 	
 	' 전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -18,12 +27,20 @@
 	State(2) = "3"
 	State(3) = "4"
 	
-	ReserveYN = False				'예약전송 검색여부
-	SenderOnlyYN = False		'개인조회 여부
+	'예약전송 검색여부
+	ReserveYN = False			
+	
+	'개인조회 여부
+	SenderOnlyYN = False		
 
-	Order = "D"			'정렬발향, A-오름차순, D-내림차순
-	Page = 1				'페이지 번호
-	PerPage = 20		'페이지당 검색개수
+	'정렬발향, A-오름차순, D-내림차순
+	Order = "D"			
+
+	'페이지 번호
+	Page = 1				
+
+	'페이지당 검색개수
+	PerPage = 20		
 	
 	On Error Resume Next
 

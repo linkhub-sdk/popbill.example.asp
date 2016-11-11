@@ -6,10 +6,19 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 '팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"		 '팝빌 회원 아이디
+	'**************************************************************
+	' 다수건의 현금영수증 인쇄팝업 URL을 반환합니다. (최대 100건)
+	' 보안정책으로 인해 반환된 URL의 유효시간은 30초입니다.
+	'**************************************************************
 
-	Dim mgtKeyList(2)			'현금영수증 연동관리번호, 최대 100건
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	 
+
+	'팝빌 회원 아이디
+	userID = "testkorea"		 
+
+	'현금영수증 문서관리번호, 최대 100건
+	Dim mgtKeyList(2)			
 	mgtKeyList(0) = "20150201-01"	     
 	mgtKeyList(1) = "20150129-05"
 
@@ -31,7 +40,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>다량 현금영수증 인쇄 팝업 URL</legend>
+				<legend>현금영수증 인쇄 팝업 URL - 대량</legend>
 				<ul>
 					<% If code = 0 Then %>
 						<li>URL : <%=url%> </li>

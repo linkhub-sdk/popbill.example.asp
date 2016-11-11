@@ -15,6 +15,8 @@
 
 	'ÆËºôÈ¸¿ø ¾ÆÀÌµð
 	UserID = "testkorea"
+
+	On Error Resume Next
 	
 	Set result = m_StatementService.ListContact(testCorpNum, UserID)
 
@@ -23,6 +25,8 @@
 		message = Err.Description
 		Err.Clears
 	End If
+
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">

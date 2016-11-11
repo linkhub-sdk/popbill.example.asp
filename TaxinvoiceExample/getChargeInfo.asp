@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 연동회원의 전자세금계산서 API 서비스 과금정보를 확인합니다.
+	' 전자세금계산서 API 서비스 과금정보를 확인합니다.
 	'**************************************************************
 
 	'팝빌회원 사업자번호, "-" 제외 10자리
@@ -16,6 +16,8 @@
 	'팝빌회원 아이디
 	UserID = "testkorea"					
 	
+	On Error Resume Next
+
 	Set result = m_TaxinvoiceService.GetChargeInfo(testCorpNum, UserID)
 
 	If Err.Number <> 0 Then
@@ -23,6 +25,8 @@
 		message = Err.Description
 		Err.Clears
 	End If
+
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">

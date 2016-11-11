@@ -10,6 +10,8 @@
 	sendType = "MMS"					 '전송유형 (SMS - 단문, LMS - 장문, MMS-포토)
 	UserID = "innoposttest"					'팝빌회원 아이디
 	
+	On Error Resume Next
+
 	Set result = m_MessageService.GetChargeInfo ( testCorpNum, sendType, UserID )
 
 	If Err.Number <> 0 Then
@@ -17,6 +19,8 @@
 		message = Err.Description
 		Err.Clears
 	End If
+
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">

@@ -42,7 +42,7 @@
 	' 선언하여 발행(Issue API)을 호출할 수 있습니다.
 	ForceIssue = False
 
-ext
+	On Error Resume Next
 	
 	Set Presponse = m_TaxinvoiceService.Issue(testCorpNum, KeyType ,MgtKey, Memo ,EmailSubject, ForceIssue, testUserID)
 	

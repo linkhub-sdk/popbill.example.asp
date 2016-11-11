@@ -9,12 +9,15 @@
 	testCorpNum = "1234567890"		 '팝빌 회원 사업자번호, "-" 제외
 	
 	On Error Resume Next
+
 	remainPoint = m_ClosedownService.getBalance(testCorpNum)
+
 	If Err.Number <> 0 then
 		code = Err.Number
 		message =  Err.Description
 		Err.Clears
 	End If
+
 	On Error GoTo 0
 %>
 	<body>

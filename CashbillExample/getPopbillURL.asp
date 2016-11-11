@@ -6,9 +6,19 @@
 	</head>
 <!--#include file="common.asp"--> 
 <%
-	testCorpNum = "1234567890"	 '팝빌 회원 사업자번호, "-" 제외
-	userID = "testkorea"		 '팝빌 회원 아이디
-	TOGO = "LOGIN"				 'LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 
+	'**************************************************************
+	' 팝빌(www.popbill.com)에 로그인된 팝빌 URL을 반환합니다.
+	' - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+	'**************************************************************
+
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"	 
+
+	'팝빌 회원 아이디
+	userID = "testkorea"		 
+
+	'LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 
+	TOGO = "LOGIN"				 
 
 	On Error Resume Next
 

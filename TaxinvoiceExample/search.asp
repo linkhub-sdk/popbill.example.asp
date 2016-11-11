@@ -71,6 +71,8 @@
 	'거래처 정보, 거래처 상호 또는 사업자등록번호 기재, 공백처리시 전체조회
 	QString = ""
 
+	On Error Resume Next
+
 	Set result = m_TaxinvoiceService.Search(testCorpNum, KeyType, DType, SDate, EDate, State, _ 
 						TIType, TaxType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, TaxRegID, QString, UsreID)
 
@@ -79,6 +81,8 @@
 		message = Err.Description
 		Err.Clears
 	End If
+
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">

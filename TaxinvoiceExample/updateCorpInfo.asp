@@ -30,7 +30,7 @@
 	' 업태
 	infoObj.bizType = "업태정보"
 		
-	' 종목=
+	' 종목
 	infoObj.bizClass = "종목정보"
 	
 	On Error Resume Next

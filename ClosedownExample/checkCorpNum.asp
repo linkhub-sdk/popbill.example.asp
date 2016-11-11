@@ -12,14 +12,17 @@
 			CorpNum = request.QueryString("CorpNum")		'조회할 사업자번호
 			
 			If CorpNum <> "" Then
+
 				On Error Resume Next
 				
 				Set result = m_ClosedownService.checkCorpNum(UserCorpNum, CorpNum)
+			
 				If Err.Number <> 0 Then
 					code = Err.Number
 					message = Err.Description
 					Err.Clears
 				End If
+
 				On Error GoTo 0
 			End if
 	%>

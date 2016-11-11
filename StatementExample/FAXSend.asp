@@ -165,7 +165,7 @@
 	Set newDetail = New StatementDetail
 
     newDetail.serialNum = "1"             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20150110"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20161110"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명"
     newDetail.spec = "규격"
     newDetail.unit = "단위"
@@ -185,7 +185,7 @@
 	Set newDetail = New StatementDetail
 
     newDetail.serialNum = "2"             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20150112"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20161110"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명"
     newDetail.spec = "규격"
     newDetail.unit = "단위"

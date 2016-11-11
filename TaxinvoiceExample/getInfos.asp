@@ -28,6 +28,8 @@
 	MgtKeyList(1) = "20150121-02"
 	MgtKeyList(2) = "20150121-03"
 	
+	On Error Resume Next
+
 	Set result = m_TaxinvoiceService.GetInfos(testCorpNum, KeyType, MgtKeyList, UserID)
 
 	If Err.Number <> 0 Then
@@ -35,6 +37,8 @@
 		message = Err.Description
 		Err.Clears
 	End If
+
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">
