@@ -13,19 +13,19 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"	
+	testCorpNum = "1234567890"
 
 	' 팝빌회원 아이디
-	testUserID = "testkorea"   
+	testUserID = "testkorea"
 	
 	' 세금계산서 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	KeyType= "SELL"             
+	KeyType = "SELL"
 
 	' 문서관리번호 
-	MgtKey = "20150121-07"      
+	MgtKey = "20161114-02"
 
 	' 파일아이디, 첨부파일 목록(getFiles) AttachedFile 값 참조. 
-	FileID = "5131AACD-9D35-4CCE-BAC7-4943653FB002.PBF "   
+	FileID = "18CAA3E1-A9F9-40FE-B327-B024FA404208.PBF"
 
 	On Error Resume Next
 	

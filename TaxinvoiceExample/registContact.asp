@@ -11,20 +11,20 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호
-	CorpNum = "1234567890"		 
+	CorpNum = "1234567890"
 
 	' 팝빌회원 아이디 
-	UserID = "testkorea"				 
+	UserID = "testkorea"
 	
 
 	' 담당자 정보 객체 생성
 	Set contInfo = New ContactInfo
 
 	' 담당자 아이디, 6자이상 20자미만
-	contInfo.id = "testkorea00000"
+	contInfo.id = "testkorea000001"
 
 	' 비밀번호
-	contInfo.pwd = "testkorea1234"
+	contInfo.pwd = "this_is_password"
 
 	' 담당자명
 	contInfo.personName = "ASPTest"

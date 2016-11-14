@@ -15,7 +15,7 @@
 				<legend>팝빌 기본 API</legend>
 
 				<fieldset class="fieldset2">
-					<legend>회원사 정보</legend>
+					<legend>회원 정보</legend>
 					<ul>					
 						<li><a href="checkIsMember.asp">checkIsMember</a> - 연동회원 가입여부</li>
 						<li><a href="checkID.asp">checkID</a> - 아이디 중복확인</li>

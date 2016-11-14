@@ -22,10 +22,10 @@
 	testUserID = "testkorea"   
 	 
 	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	KeyType= "SELL"             
+	KeyType = "SELL"             
 
 	' 문서관리번호 
-	MgtKey = "20150122-29"      
+	MgtKey = "20161114-02"      
 
 	On Error Resume Next
 	

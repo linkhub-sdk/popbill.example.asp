@@ -13,22 +13,22 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호, "-" 제외 10자리
-	testCorpNum = "1234567890"		
+	testCorpNum = "1234567890"
 	
 	' 팝빌회원 아이디
 	UserID = "testkorea"
 
 	' [필수] 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	KeyType= "SELL"						
+	KeyType = "SELL"
 
 	' [필수] 검색일자 유형, R-등록일자, W-작성일자, I-발행일자
-	DType = "W"							
+	DType = "W"
 	
 	' [필수] 시작일자, yyyyMMdd
-	SDate = "20160701"					
+	SDate = "20161001"
 
 	' [필수] 종료일자, yyyyMMdd
-	EDate = "20160831"					
+	EDate = "20161131"
 	
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(2)
@@ -51,13 +51,13 @@
 	LateOnly = null		
 
 	' 정렬방향, A-오름차순, D-내림차순
-	Order = "D"			
+	Order = "D"
 
 	' 페이지 번호
-	Page = 1				
+	Page = 1
 
 	' 페이지당 검색갯수, 최대 1000
-	PerPage = 100		
+	PerPage = 100
 
 	'종사업장번호 사업자유형, S-매출, B-매입, T-수탁
 	TaxRegIDType = "S"
@@ -89,7 +89,11 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>세금계산서 목록조회</legend>
+				<%
+					If code = 0 Then
+						For i=0 To UBound(result.list) -1
+				%>
+						<legend>세금계산서 목록조회</legend>
 						<ul>
 							<li> code : <%=result.code%></li>
 							<li> total : <%=result.total%></li>
@@ -98,11 +102,6 @@
 							<li> pageCount : <%=result.pageCount%></li>
 							<li> message : <%=result.message%></li>
 						</ul>
-
-				<%
-					If code = 0 Then
-						For i=0 To UBound(result.list) -1
-				%>
 							<fieldset class="fieldset2">					
 								<legend>  Search.List [ <%=i+1%> / <%=UBound(result.list)%> ]</legend>
 									<ul>

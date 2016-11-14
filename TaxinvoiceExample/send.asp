@@ -13,22 +13,22 @@
 	'**************************************************************
 
 	'팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"	
+	testCorpNum = "1234567890"
 
 	'팝빌회원 아이디
-	testUserID = "testkorea"   
+	testUserID = "testkorea"
 	
 	'발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
 	KeyType= "SELL"             
 
 	'문서관리번호 
-	MgtKey = "20150615-22"     
+	MgtKey = "20161114-02"     
 	
 	'메모
 	Memo = "발행예정 메모"    
 	
 	'발행예정 안내메일 제목, 공백으로 처리시 기본문구로 전송
-	EmailSubject = ""				
+	EmailSubject = ""
 
 	On Error Resume Next
 	

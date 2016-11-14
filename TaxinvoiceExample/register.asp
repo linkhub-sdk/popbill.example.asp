@@ -17,33 +17,33 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호
-	testCorpNum = "1234567890"		
+	testCorpNum = "1234567890"
 
 	' 팝빌회원 아이디
-	userID = "testkorea"			
+	userID = "testkorea"
 	
 
 	' 세금계산서 정보 객체 생성
 	Set newTaxinvoice = New Taxinvoice
 
 	' [필수] 작성일자, 날짜형식(yyyyMMdd)
-	newTaxinvoice.writeDate = "20161110"             
+	newTaxinvoice.writeDate = "20161114"
 
 	' [필수] {정과금, 역과금} 중 기재, '역과금'은 역발행 프로세스에서만 이용가능
-    newTaxinvoice.chargeDirection = "정과금"        
+    newTaxinvoice.chargeDirection = "정과금"
 	
 	' [필수] 발행형태, {정발행, 역발행, 위수탁} 중 기재
-    newTaxinvoice.issueType = "정발행"               
+    newTaxinvoice.issueType = "정발행"
 
 	' [필수] {영수, 청구} 중 기재 
-    newTaxinvoice.purposeType = "영수"               
+    newTaxinvoice.purposeType = "영수"
 
 	' [필수] 발행시점, {직접발행, 승인시자동발행}
 	' 승인시자동발행의 경우 발행예정 프로세스에서만 이용가능
-    newTaxinvoice.issueTiming = "직접발행"         
+    newTaxinvoice.issueTiming = "직접발행"
 	
 	' [필수] 과세형태,  {과세, 영세, 면세} 중 기재 
-    newTaxinvoice.taxType = "과세"                   
+    newTaxinvoice.taxType = "과세"
     
     
 
@@ -55,14 +55,14 @@
     newTaxinvoice.invoicerCorpNum = "1234567890"
 
 	'[필수] 공급자 종사업자 식별번호. 필요시 숫자 4자리 기재
-    newTaxinvoice.invoicerTaxRegID = ""					
+    newTaxinvoice.invoicerTaxRegID = ""	
 
     '[필수] 공급자 상호
 	newTaxinvoice.invoicerCorpName = "공급자 상호"
 
     '[필수] 공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
     '사업자 별로 중복되지 않도록 구성
-    newTaxinvoice.invoicerMgtKey = "20161110-01"		
+    newTaxinvoice.invoicerMgtKey = "20161114-02"
 
 	'[필수] 공급자 대표자 성명
     newTaxinvoice.invoicerCEOName = "공급자 대표자 성명"
@@ -102,7 +102,7 @@
     newTaxinvoice.invoiceeType = "사업자"
 
     '[필수] 공급받는자 사업자번호, '-' 제외 10자리
-    newTaxinvoice.invoiceeCorpNum = "1231212312"
+    newTaxinvoice.invoiceeCorpNum = "8888888888"
 
     '[필수] 공급받는자 종사업자 식별번호. 필요시 숫자 4자리 기재	
 	newTaxinvoice.invoiceeTaxRegID = ""
@@ -138,7 +138,7 @@
 	newTaxinvoice.invoiceeHP1 = "010-111-222"
 
     '역발행시 공급자에게 발행안내문자 전송여부
-    Taxinvoice.invoiceeSMSSendYN = False
+    newTaxinvoice.invoiceeSMSSendYN = False
 
 
 
@@ -240,11 +240,13 @@
 	'**************************************************************
 
     set newContact = New Contact
+	newContact.serialNum = 1
     newContact.contactName = "담당자1 성명"
     newContact.email = "test1@test.com"   
     newTaxinvoice.AddContact newContact
 
     set newContact = New Contact
+	newContact.serialNum = 2
     newContact.contactName = "담당자2 성명"
     newContact.email = "test2@test.com"
     newTaxinvoice.AddContact newContact

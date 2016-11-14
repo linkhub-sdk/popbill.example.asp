@@ -1008,7 +1008,7 @@ Public Sub fromJsonInfo(jsonInfo)
 	Log = jsonInfo.Log
 	ProcType = jsonInfo.ProcType
 	ProcCorpName = jsonInfo.ProcCorpName
-	ProceMemo = jsonInfo.ProcMemo
+	ProcMemo = jsonInfo.ProcMemo
 	regDT = jsonInfo.regDT
 	On Error GoTo 0
 End Sub

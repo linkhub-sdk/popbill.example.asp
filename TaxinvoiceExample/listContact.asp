@@ -11,10 +11,10 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"		
+	testCorpNum = "1234567890"
 
 	' 팝빌회원 아이디
-	UserID = "testkorea"					
+	UserID = "testkorea"
 	
 	On Error Resume Next	
 	
@@ -39,7 +39,7 @@
 						For i=0 To result.Count-1
 				%>
 							<fieldset class="fieldset2">					
-								<legend> ContactInfoList [ <%=i+1%> / <%=result.Count%> ] </legend>
+								<legend> 담당자정보 [ <%=i+1%> / <%=result.Count%> ] </legend>
 									<ul>
 										<li> id : <%=result.Item(i).id%></li>
 										<li> email : <%=result.Item(i).email%></li>

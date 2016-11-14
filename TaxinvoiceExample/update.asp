@@ -22,7 +22,7 @@
 	keyType = "SELL"				
 
 	'문서관리번호
-	mgtKey = "20150122-05"		
+	mgtKey = "20161114-02"		
 	
 	'거래명세서 동시작성여부
 	writeSpecificationYN = False	
@@ -33,7 +33,7 @@
 	Set newTaxinvoice = New Taxinvoice
 
 	' [필수] 작성일자, 날짜형식(yyyyMMdd)
-	newTaxinvoice.writeDate = "20161110"             
+	newTaxinvoice.writeDate = "20161114"
 
 	' [필수] {정과금, 역과금} 중 기재, '역과금'은 역발행 프로세스에서만 이용가능
     newTaxinvoice.chargeDirection = "정과금"        
@@ -64,7 +64,7 @@
     newTaxinvoice.invoicerTaxRegID = ""					
 
     '[필수] 공급자 상호
-	newTaxinvoice.invoicerCorpName = "공급자 상호"
+	newTaxinvoice.invoicerCorpName = "공급자 상호_수정"
 
     '[필수] 공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
     '사업자 별로 중복되지 않도록 구성
@@ -144,7 +144,7 @@
 	newTaxinvoice.invoiceeHP1 = "010-111-222"
 
     '역발행시 공급자에게 발행안내문자 전송여부
-    Taxinvoice.invoiceeSMSSendYN = False
+    newTaxinvoice.invoiceeSMSSendYN = False
 
 
 
@@ -246,11 +246,13 @@
 	'**************************************************************
 
     set newContact = New Contact
+	newContact.serialNum = 1
     newContact.contactName = "담당자1 성명"
     newContact.email = "test1@test.com"   
     newTaxinvoice.AddContact newContact
 
     set newContact = New Contact
+	newContact.serialNum = 2
     newContact.contactName = "담당자2 성명"
     newContact.email = "test2@test.com"
     newTaxinvoice.AddContact newContact

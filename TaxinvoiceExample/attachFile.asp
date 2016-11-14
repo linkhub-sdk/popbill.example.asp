@@ -13,19 +13,19 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"	
+	testCorpNum = "1234567890"
 
 	' 팝빌회원 아이디
-	testUserID = "testkorea"   
+	testUserID = "testkorea"
 	
 	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	KeyType= "SELL"             
+	KeyType= "SELL"
 
 	' 문서관리번호 
-	MgtKey = "20161110-07"      
+	MgtKey = "20161114-02"
 
 	' 첨부할 파일경로
-	filePath = "C:\popbill.example.asp\Popbill\로고.gif"     
+	filePath = "C:\popbill.example.asp\Popbill\로고.gif"
 
 	On Error Resume Next
 

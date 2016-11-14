@@ -19,13 +19,13 @@
 	testUserID = "testkorea"
 	
 	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	KeyType= "SELL"
+	KeyType = "SELL"
 
 	' 문서관리번호 
-	MgtKey = "20150120-04"      
+	MgtKey = "20161114-02"
 
 	' 메모
-	Memo = "역발행 요청 거부 메모"      
+	Memo = "역발행 요청 거부 메모"
 
 	On Error Resume Next
 	

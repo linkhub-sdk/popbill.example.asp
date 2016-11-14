@@ -15,11 +15,11 @@
 	testCorpNum = "1234567890"	 
 
 	' 팝빌회원 아이디
-	userID = "testkorea"  
+	userID = "testkorea"
 
 	' LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 
 	' CERT : 공인인증서 등록 팝업 / SEAL : 인감 및 첨부문서 등록 URL
-	TOGO = "LOGIN"   
+	TOGO = "CHRG"
 
 	On Error Resume Next
 

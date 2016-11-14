@@ -5,7 +5,6 @@
 		<title>팝빌 SDK ASP Example.</title>
 	</head>
 <!--#include file="common.asp"--> 
-
 <%
 	'**************************************************************
 	' 팝빌 연동회원 가입을 요청합니다.
@@ -36,10 +35,10 @@
 	joinInfo.BizClass = "종목"
 
 	'아이디 (6자 이상 20자 미만)
-	joinInfo.ID =  "userid"
+	joinInfo.ID =  "userid123123"
 
 	'비밀번호 (6자 이상 20자 미만)
-	joinInfo.PWD =  "1234567890"
+	joinInfo.PWD =  "this_is_password"
 
 	'담당자명
 	joinInfo.ContactName = "담당자명"    

@@ -12,24 +12,22 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"	 
+	testCorpNum = "1234567890"
 
 	' 팝빌회원 아이디
-	userID = "testkorea"		 
+	userID = "testkorea"
 
 	' TBOX(임시문서함), SBOX(매출문서함), PBOX(매입문서함)
-	TOGO = "PBOX"				 
+	TOGO = "SBOX"
 
 	On Error Resume Next
 
 	url = m_TaxinvoiceService.GetURL(testCorpNum, userID, TOGO)
 
 	If Err.Number <> 0 then
-		Response.Write("Error Number -> " & Err.Number)
-		Response.write("<BR>Error Source -> " & Err.Source)
-		Response.Write("<BR>Error Desc   -> " & Err.Description)
+		code = Err.Number
+		message = Err.Description
 		Err.Clears
-		Response.End
 	End If
 
 	On Error GoTo 0
@@ -40,9 +38,18 @@
 			<br/>
 			<fieldset class="fieldset1">
 				<legend>팝빌 전자세금계산서 문서함 URL</legend>
-				<ul>
-					<li>URL : <%=url%> </li>
-				</ul>
+				<% 
+					If code = 0 Then
+				%>
+					<ul>
+						<li>URL : <%=url%> </li>
+					</ul>
+				<% Else %>
+					<ul>
+						<li> Response.code : <%=code%> </li>
+						<li> Response.message : <%=message%> </li>
+					</ul>
+				<% End If %>
 			</fieldset>
 		 </div>
 	</body>

@@ -23,13 +23,13 @@
 	KeyType= "SELL"
 
 	' 문서관리번호 
-	MgtKey = "20150121-17"
+	MgtKey = "20161114-02"
 
 	' 발신번호
 	Sender = "07043042991"
 
 	' 수신팩스번호
-	Receiver = "0264429700"
+	Receiver = "070111222"
 
 	On Error Resume Next
 

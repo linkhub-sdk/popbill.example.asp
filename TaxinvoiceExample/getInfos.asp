@@ -14,18 +14,18 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"	
+	testCorpNum = "1234567890"
 
 	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	KeyType= "SELL"        
+	KeyType = "SELL"
 
 	' 팝빌회원 아이디
-	UserID = "testkorea"	  
+	UserID = "testkorea"
 
 	' 세금계산서 문서관리번호 배열, 최대 1000건
 	Dim MgtKeyList(3) 
-	MgtKeyList(0) = "20150121-01"
-	MgtKeyList(1) = "20150121-02"
+	MgtKeyList(0) = "20161114-01"
+	MgtKeyList(1) = "20161114-02"
 	MgtKeyList(2) = "20150121-03"
 	
 	On Error Resume Next
