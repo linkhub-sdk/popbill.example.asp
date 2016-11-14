@@ -22,7 +22,7 @@
 	itemCode = "121"					
 
 	'문서관리번호
-	mgtKey = "20150202-03"				
+	mgtKey = "20161114-10"				
 
 	On Error Resume Next
 

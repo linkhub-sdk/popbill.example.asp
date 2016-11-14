@@ -13,19 +13,19 @@
 	'**************************************************************
 
 	'팝빌 회원 사업자번호, "-"제외 10자리
-	testCorpNum = "1234567890"	
+	testCorpNum = "1234567890"
 	
 	'팝빌 회원 아이디
-	userID = "testkorea"				
+	userID = "testkorea"
 
 	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
-	itemCode = "121"					
+	itemCode = "121"
 
 	'문서관리번호
-	mgtKey = "20150201-01"				
+	mgtKey = "20161114-06"
 
 	'파일아이디, 첨부파일목록(getFiles) API의 AttachedFile값
-	FileID = "96D6F12A-0192-469F-9306-D56B2A9DB939.PBF"		
+	FileID = "2556D18D-9380-4843-B748-5B8120C31BA5.PBF"
 
 	On Error Resume Next
 

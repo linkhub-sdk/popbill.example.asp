@@ -29,7 +29,8 @@
 	State(0) = "2**"
 	State(1) = "3**"
 
-	'명세서 코드배열 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
+	'명세서 종류코드배열 
+	' - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
 	Dim ItemCode(6)
 	ItemCode(0) = "121"
 	ItemCode(1) = "122"
@@ -68,6 +69,7 @@
 			<br/>
 			<fieldset class="fieldset1">
 				<legend>전자명세서 목록조회</legend>
+					<% If code = 0 Then %>
 					<ul>
 						<li> code : <%=result.code%></li>
 						<li> total : <%=result.total%></li>
@@ -76,8 +78,8 @@
 						<li> pageCount : <%=result.pageCount%></li>
 						<li> message : <%=result.message%></li>
 					</ul>
-					<% If code = 0 Then 
-						For i=0 To UBound(result.list)-1 %>
+					
+					<% For i=0 To UBound(result.list)-1 %>
 
 						<fieldset class="fieldset2">
 							<legend> 전자명세서 조회결과 [ <%=i+1%> / <%=UBound(result.list)%> ] </legend>

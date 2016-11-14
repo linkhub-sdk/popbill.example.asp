@@ -38,7 +38,7 @@
 	joinInfo.ID =  "userid"
 
 	'비밀번호 (6자 이상 20자 미만)
-	joinInfo.PWD =  "1234567890"
+	joinInfo.PWD =  "this_is_password"
 
 	'담당자명
 	joinInfo.ContactName = "담당자명"    
@@ -53,7 +53,7 @@
 	joinInfo.ContactFAX = "02-999-9999"		
 
 	'담당자 이메일
-	joinInfo.ContactEmail = "test@test.com" '
+	joinInfo.ContactEmail = "test@test.com"
 
 	On Error Resume Next
 

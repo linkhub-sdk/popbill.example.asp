@@ -19,14 +19,14 @@
 	userID = "testkorea"			 
 
 	'문서관리번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-	mgtKey = "20150202-04"			 
+	mgtKey = "20161114-06"
 	
 
 	'전자명세서 객체 생성
 	Set newStatement = New Statement
 
     '[필수] 기재상 작성일자, 날짜형식(yyyyMMdd)
-    newStatement.writeDate = "20161110"  
+    newStatement.writeDate = "20161114"  
 
 	'[필수] {영수, 청구} 중 기재
     newStatement.purposeType = "영수"
@@ -110,8 +110,13 @@
     newStatement.receiverContactName = "공급받는자 담당자명"
 
     '공급받는자 메일주소
-
     newStatement.receiverEmail = "test@receiver.com"
+
+	'공급받는자 연락처
+	newStatement.receiverTEL = "070-4304-2991"
+
+	'공급받는자 휴대폰번호
+	newStatement.receiverHP = "010-111-222"
 
 
 
@@ -203,7 +208,6 @@
 
 	newStatement.propertyBag.Set "Balance", "150000"
 	newStatement.propertyBag.Set "CBalance", "100000"
-
 
 	On Error Resume Next
 

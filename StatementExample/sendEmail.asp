@@ -14,13 +14,13 @@
 	testCorpNum = "1234567890"	
 	
 	'팝빌 회원 아이디
-	userID = "testkorea"				
+	userID = "testkorea"
 
 	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
-	itemCode = "121"					
+	itemCode = "121"
 
 	'문서관리번호
-	mgtKey = "20150201-01"				
+	mgtKey = "20161114-06"
 
 	'수신자 이메일주소
 	receiver = "test@test.com"	

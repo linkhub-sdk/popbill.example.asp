@@ -14,19 +14,19 @@
 	'**************************************************************
 
 	'팝빌 회원 사업자번호, "-"제외 10자리
-	testCorpNum = "1234567890"		
+	testCorpNum = "1234567890"
 
 	'팝빌 회원 아이디	
-	userID = "testkorea"					
+	userID = "testkorea"
 
 	'발신번호
-	sendNum = "07075103710"			
+	sendNum = "07043042991"
 
 	'수신팩스번호
-	receiveNum = "010111222"			
+	receiveNum = "010111222"
 
 	'팩스전송파일명 
-	mgtKey = "20160126-55"			
+	mgtKey = "20161114-09"
 	
 
 
@@ -118,8 +118,13 @@
     newStatement.receiverContactName = "공급받는자 담당자명"
 
     '공급받는자 메일주소
-
     newStatement.receiverEmail = "test@receiver.com"
+
+	'공급받는자 연락처
+	newStatement.receiverTEL = "070-4304-2991"
+
+	'공급받는자 휴대폰번호
+	newStatement.receiverHP = "010-111-222"
 
 
 

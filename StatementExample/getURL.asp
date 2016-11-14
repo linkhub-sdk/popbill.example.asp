@@ -18,7 +18,7 @@
 	userID = "testkorea"		 
 
 	'TBOX(임시문서함), SBOX(발행문서함)
-	TOGO = "SBOX"				 
+	TOGO = "SBOX"
 
 	On Error Resume Next
 

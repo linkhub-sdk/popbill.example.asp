@@ -22,7 +22,7 @@
 	itemCode = "121"					
 
 	'문서관리번호
-	mgtKey = "20150201-01"				
+	mgtKey = "20161114-06"				
 
 	On Error Resume Next
 
@@ -59,7 +59,6 @@
 						Next
 						Else
 					%>
-
 						<li>Response.code : <%=code%> </li>
 						<li>Response.message: <%=message%> </li>
 					<% End If %>

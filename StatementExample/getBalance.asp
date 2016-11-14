@@ -13,7 +13,7 @@
 	'**************************************************************
 
 	' 팝빌 회원 사업자번호, "-" 제외 10자리
-	testCorpNum = "1234567890"		 
+	testCorpNum = "1234567890"
 	
 	On Error Resume Next
 
@@ -37,7 +37,7 @@
 					<ul>
 						<li>잔여포인트 : <%=CStr(remainpoint)%> </li>
 					</ul>
-				<%	Else  %>
+				<% Else %>
 				<ul>
 					<li>Response.code: <%=code%> </li>
 					<li>Response.message: <%=message%> </li>

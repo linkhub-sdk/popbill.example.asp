@@ -16,6 +16,7 @@
 	' 팝빌회원 아이디 
 	UserID = "testkorea"				 
 
+
 	' 회사정보 객체 생성
 	Set infoObj = New CorpInfo
 	

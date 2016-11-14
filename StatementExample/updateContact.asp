@@ -21,19 +21,19 @@
 	Set contInfo = New ContactInfo
 		
 	'담당자명
-	contInfo.personName = "ASPTest"
+	contInfo.personName = "담당자명"
 
 	'연락처
-	contInfo.tel = "010-1234-1234"
+	contInfo.tel = "070-4304-2991"
 
 	'휴대폰번호
 	contInfo.hp = "010-1234-1234"
 
 	'메일주소
-	contInfo.email = "code@linkhub.co.kr"
+	contInfo.email = "dev@linkhub.co.kr"
 
 	'팩스번호
-	contInfo.fax = "02-6442-9700"
+	contInfo.fax = "070-111-222"
 
     '전체조회여부, Ture-회사조회, False-개인조회
 	contInfo.searchAllAllowYN = True

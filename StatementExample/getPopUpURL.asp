@@ -21,7 +21,7 @@
 	itemCode = "121"
 
 	'문서관리번호
-	mgtKey = "20150201-01"
+	mgtKey = "20161114-10"
 
 	On Error Resume Next
 
@@ -40,7 +40,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend> 전자명세서 팝업 URL 요청</legend>
+				<legend> 전자명세서 보기 팝업 URL 요청</legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li>URL : <%=CStr(url)%> </li>

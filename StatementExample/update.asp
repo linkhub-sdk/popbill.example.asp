@@ -12,35 +12,35 @@
 	'**************************************************************
 
 	'팝빌 회원 사업자번호
-	testCorpNum = "1234567890"	
+	testCorpNum = "1234567890"
 
 	'팝빌 회원 아이디
-	userID = "testkorea"		
+	userID = "testkorea"
 
 	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
 	itemCode = "121"
 
 	'문서관리번호
-	mgtKey = "20150201-01"		
+	mgtKey = "20161114-04"
 
 
 	'전자명세서 객체 생성
 	Set newStatement = New Statement
 
     '[필수] 기재상 작성일자, 날짜형식(yyyyMMdd)
-    newStatement.writeDate = "20161110"  
+    newStatement.writeDate = "20161114"
 
 	'[필수] {영수, 청구} 중 기재
     newStatement.purposeType = "영수"
 
     '[필수] 과세형태, {과세, 영세, 면세} 중 기재
-    newStatement.taxType = "과세"                   
+    newStatement.taxType = "과세"           
 
     '맞춤양식코드, 공백처리시 기본양식으로 작성
-    newStatement.formCode = ""						
+    newStatement.formCode = ""
 	
 	'[필수] 명세서 종류코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
-    newStatement.itemCode = "121"				
+    newStatement.itemCode = "121"
 
     '[필수] 문서관리번호, 숫자, 영문, '-', '_' 조합 (최대24자리)으로 사업자별로 중복되지 않도록 구성   
     newStatement.mgtKey = mgtKey
@@ -58,10 +58,10 @@
     newStatement.senderTaxRegID = ""
 
 	'공급자 상호
-    newStatement.senderCorpName = "공급자 상호"
+    newStatement.senderCorpName = "공급자 상호_수정"
 
     '공급자 대표자성명
-    newStatement.senderCEOName = "공급자"" 대표자 성명"
+    newStatement.senderCEOName = "공급자"" 대표자 성명_수정"
 
 	'공급자 주소
     newStatement.senderAddr = "공급자 주소"

@@ -11,7 +11,7 @@
 	'**************************************************************
 
 	'중복확인할 아이디 
-	testID = "testkorea124124"    
+	testID = "testkorea"   
 
 	On Error Resume Next
 

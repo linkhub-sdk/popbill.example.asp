@@ -7,23 +7,23 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 다수건의 전자명세서 상태/요약 정보를 확인합니다. (최대 1000건)
+	' 대량의 전자명세서 상태/요약 정보를 확인합니다. (최대 1000건)
 	' - 응답항목에 대한 자세한 정보는 "[전자명세서 API 연동매뉴얼] > 3.3.2.
 	'   GetInfos (상태 대량 확인)"을 참조하시기 바랍니다.
 	'**************************************************************
 	
-	'팝빌회원 사업자번호
+	' 팝빌회원 사업자번호
 	testCorpNum = "1234567890"
 
-	'팝빌회원 아이디
+	' 팝빌회원 아이디
 	userID = "testkorea"
 
-	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
+	' 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
 	itemCode = "121"					
 
-	'문서관리번호 배열, 최대 1000건
+	' 문서관리번호 배열, 최대 1000건
 	Dim mgtKeyList(2)
-	mgtKeyList(0) = "20150202-03"
+	mgtKeyList(0) = "20161114-06"
 	mgtKeyList(1) = "20150202-04"
 
 	On Error Resume Next
@@ -43,13 +43,13 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>전자명세서 상태 대량 확인</legend>
+				<legend>전자명세서 상태/요약정보 확인 - 대량 </legend>
 				<ul>
 					<% If code = 0 Then 
 						For i=0 To result.Count-1 %>
 
 						<fieldset class="fieldset2">
-							<legend> 전자명세서 조회결과 [<%=i+1%>] </legend>
+							<legend> 전자명세서 정보 [<%=i+1%>] </legend>
 							<ul>
 								<li>itemKey : <%=result.Item(i).itemKey%> </li>
 								<li>stateCode : <%=result.Item(i).stateCode%> </li>
