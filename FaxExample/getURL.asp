@@ -15,9 +15,9 @@
 	testCorpNum = "1234567890"	 
 
 	'ÆËºô È¸¿ø ¾ÆÀÌµð
-	userID = "testkorea"		 
+	userID = "testkorea"
 
-	TOGO = "BOX"				 
+	TOGO = "BOX"
 
 	On Error Resume Next
 

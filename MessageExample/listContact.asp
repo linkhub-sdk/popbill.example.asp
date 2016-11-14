@@ -39,7 +39,7 @@
 						For i=0 To result.Count-1
 				%>
 							<fieldset class="fieldset2">					
-								<legend> ContactInfoList [ <%=i+1%> / <%=result.Count%> ] </legend>
+								<legend> 담당자 정보 [ <%=i+1%> / <%=result.Count%> ] </legend>
 									<ul>
 										<li> id : <%=result.Item(i).id%></li>
 										<li> email : <%=result.Item(i).email%></li>

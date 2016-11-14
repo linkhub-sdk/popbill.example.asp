@@ -27,11 +27,11 @@
 	'수신정보배열, 최대 1000건
 	Set msgList = CreateObject("Scripting.Dictionary")
 
-	For i=0 To 99
+	For i = 0 To 99
 		Set message = New Messages
 
 		'수신번호
-		message.receiver = "000111222"		
+		message.receiver = "000111222"
 
 		'수신자명
 		message.receivername = " 수신자이름"+CStr(i)

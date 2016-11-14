@@ -11,13 +11,13 @@
 	'**************************************************************
 
 	'팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "4108600477"		
+	testCorpNum = "1234567890"		
 
 	'전송유형 (SMS - 단문, LMS - 장문, MMS-포토)
 	sendType = "MMS"					 
 
 	'팝빌회원 아이디
-	UserID = "innoposttest"					
+	UserID = "testkorea"					
 	
 	On Error Resume Next
 

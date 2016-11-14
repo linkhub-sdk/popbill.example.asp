@@ -19,7 +19,7 @@
 	Set infoObj = New CorpInfo
 	
 	' 대표자명
-	infoObj.ceoname = "링크허브 대표자"
+	infoObj.ceoname = "링크허브 대표자_ASP"
 
 	' 상호
 	infoObj.corpName = "링크허브"

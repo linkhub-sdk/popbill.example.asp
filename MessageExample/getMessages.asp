@@ -42,7 +42,7 @@
 						For i=0 To result.Count-1 
 					%>
 						<fieldset class="fieldset2">
-							<legend> 문자메시지 전송결과 [<%=i+1%>] </legend>
+							<legend>문자메시지 전송결과 [<%=i+1%>]</legend>
 							<ul>
 								<li>state : <%=result.Item(i).state%> </li>
 								<li>sendResult : <%=result.Item(i).sendResult%> </li>

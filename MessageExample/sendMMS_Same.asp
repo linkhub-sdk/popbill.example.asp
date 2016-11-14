@@ -18,9 +18,8 @@
 	'예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
 	reserveDT = ""
 	
-
 	'발신번호
-	senderNum = "07075103710"        
+	senderNum = "07043042991"        
 
 	'메시지 제목
 	subject = "동보전송 메시지 제목"

@@ -29,7 +29,7 @@
 	contInfo.hp = "010-1234-1234"
 
 	' 담당자 이메일주소
-	contInfo.email = "code@linkhub.co.kr"
+	contInfo.email = "dev@linkhub.co.kr"
 
 	' 담당자 팩스번호
 	contInfo.fax = "02-6442-9700"

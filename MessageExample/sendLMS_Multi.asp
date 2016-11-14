@@ -16,12 +16,12 @@
 	adsYN = False							
 
 	'예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
-'	reserveDT = "20150128200000"    
+	reserveDT = ""
 	
 	
 	Set msgList = CreateObject("Scripting.Dictionary")
 	
-	For i =0 To 99
+	For i = 0 To 99
 
 		'문자전송정보, 최대 1000건
 		Set message = New Messages

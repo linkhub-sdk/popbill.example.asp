@@ -25,7 +25,7 @@
 	Set message = New Messages
 	
 	'발신번호
-	message.sender = "07075100000"
+	message.sender = "07043042991"
 
 	'발신자명
 	message.senderName = "발신자명"

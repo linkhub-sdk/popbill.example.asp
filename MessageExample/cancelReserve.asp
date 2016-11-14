@@ -40,7 +40,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>예약문자 메시지 취소</legend>
+				<legend>문자예약전송 취소</legend>
 					<ul>
 						<li>Response.code: <%=code%> </li>
 						<li>Response.message: <%=message%> </li>

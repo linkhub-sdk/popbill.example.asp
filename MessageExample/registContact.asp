@@ -23,7 +23,7 @@
 	contInfo.id = "testkorea00000"
 
 	' 비밀번호
-	contInfo.pwd = "testkorea1234"
+	contInfo.pwd = "this_is_password"
 
 	' 담당자명
 	contInfo.personName = "ASPTest"
@@ -38,7 +38,7 @@
 	contInfo.email = "dev@linkhub.co.kr"
 
 	' 팩스 번호
-	contInfo.fax = "02-6442-9700"
+	contInfo.fax = "070-4304-2991"
 
 	' 회사조회 권한여부, True-회사조회 / False -개인조회
 	contInfo.searchAllAllowYN = True

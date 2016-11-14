@@ -22,11 +22,11 @@
 	'문자전송정보 배열, 최대 1000건
 	Set msgList = CreateObject("Scripting.Dictionary")
 	
-	For i =0 To 49
+	For i = 0 To 49
 		Set message = New Messages
 
 		'발신번호
-		message.sender = "07075100000"
+		message.sender = "07043042991"
 
 		'발신자명
 		message.senderName = "발신자명"
@@ -43,11 +43,11 @@
 		msgList.Add i, message
 	Next
 
-	For i =50 To 99
+	For i = 50 To 99
 		Set message = New Messages
 
 		'발신번호
-		message.sender = "07075100000"
+		message.sender = "07043042991"
 
 		'발신자명
 		message.senderName = "발신자명"
