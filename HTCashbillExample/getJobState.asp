@@ -19,7 +19,7 @@
 	UserID = "testkorea"
 
 		'수집요청시 반환받은작업아이디(jobID)
-	JobID = "016071511000000009"	
+	JobID = "016111417000000002"	
 	
 	On Error Resume Next
 	

@@ -17,13 +17,13 @@
 	testCorpNum = "1234567890"		
 
 	'발행유형 SELL(매출), BUY(매입)
-	KeyType= "SELL"						
+	KeyType= "BUY"						
 
 	'시작일자, 표시형식(yyyyMMdd)
-	SDate = "20160601"					
+	SDate = "20161001"
 
 	'종료일자, 표시형식(yyyyMMdd)
-	EDate =	"20160831"					
+	EDate =	"20161131"					
 
 	'팝빌회원 아이디
 	testUserID = "testkorea"			

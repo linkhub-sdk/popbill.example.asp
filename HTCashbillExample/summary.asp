@@ -16,20 +16,20 @@
 	testCorpNum = "1234567890"		
 
 	'팝빌회원 아이디
-	UserID = "testkorea"					
+	UserID = "testkorea"
 	
 	'수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
-	JobID = "016071511000000009"
+	JobID = "016111417000000002"
 
 	'현금영수증 배열 N-일반현금영수증, C-취소현금영수증
 	Dim TradeType(2) 
 	TradeType(0) = "N"
-	TradeType(1) = ""
+	TradeType(1) = "C"
 
 	'거래용도 배열, P-소득공제용, C-지출증빙용
 	Dim TradeUsage(2)
 	TradeUsage(0) = "P"
-	TradeUsage(1) = ""
+	TradeUsage(1) = "C"
 
 
 	On Error Resume Next

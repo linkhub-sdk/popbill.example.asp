@@ -29,6 +29,6 @@
 	set m_HTCashbillService = new HTCashbillService
 	m_HTCashbillService.Initialize LinkID, SecretKey
 
-	'연동환경설정값, 테스트완료후 상업용 전환시 False로 값을 수정하거나 주석처리.
+	'연동환경 설정값 개발용(True), 상업용(False)
 	m_HTCashbillService.IsTest = True
 %>

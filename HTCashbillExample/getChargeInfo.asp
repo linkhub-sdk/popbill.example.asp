@@ -38,7 +38,7 @@
 					If code = 0 Then
 				%>
 					<ul>
-						<li> unitCost (단가) : <%=result.unitCost%></li>
+						<li> unitCost (월정액 단가) : <%=result.unitCost%></li>
 						<li> chargeMethod (과금유형) : <%=result.chargeMethod%></li>
 						<li> rateSystem (과금제도) : <%=result.rateSystem%></li>
 					</ul>

@@ -14,10 +14,10 @@
 	'**************************************************************
 
 	'팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "123456780"
+	testCorpNum = "1234567890"
 
 	'팝빌회원 아이디
-	UserID = "testkorea"					
+	UserID = "testkorea"
 	
 	On Error Resume Next
 

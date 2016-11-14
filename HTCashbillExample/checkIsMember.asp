@@ -35,7 +35,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동회원사 가입 여부 확인 결과</legend>
+				<legend>연동회원사 가입여부 확인</legend>
 				<ul>
 					<li>Response.code : <%=CStr(code)%></li>
 					<li>Response.message : <%=message%></li>
