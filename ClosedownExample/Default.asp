@@ -16,7 +16,7 @@
 				<fieldset class="fieldset2">
 					<legend>회원정보</legend>
 					<ul>
-						<li><a href="checkIsMember.asp">checkCorpIsMember</a> - 연동회원 가입여부 확인</li>
+						<li><a href="checkIsMember.asp">checkIsMember</a> - 연동회원 가입여부</li>
 						<li><a href="checkID.asp">checkID</a> - 아이디 중복확인</li>
 						<li><a href="joinMember.asp">joinMember</a> - 연동회원 가입 요청</li>
 						<li><a href="getChargeInfo.asp">getChargeInfo</a> - 연동회원 잔여포인트 확인</li>

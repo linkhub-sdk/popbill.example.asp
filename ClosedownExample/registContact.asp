@@ -38,7 +38,7 @@
 	contInfo.email = "dev@linkhub.co.kr"
 
 	' 팩스 번호
-	contInfo.fax = "02-6442-9700"
+	contInfo.fax = "070-4304-2991"
 
 	' 회사조회 권한여부, True-회사조회 / False -개인조회
 	contInfo.searchAllAllowYN = True

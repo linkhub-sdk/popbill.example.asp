@@ -16,7 +16,7 @@
 		'조회할 사업자번호 배열, 최대 1000건
 		Dim CorpNumList(3)
 		CorpNumList(0) = "1234567890"
-		CorpNumList(1) = "4108600477"
+		CorpNumList(1) = "6798700433"
 		CorpNumList(2) = "110-04-45791"
 						
 		On Error Resume Next
@@ -46,7 +46,7 @@
 					For i=0 To result.Count-1
 			%>
 					<fieldset class="fieldset2">
-						<legend>휴폐업조회 - 대량</legend>
+						<legend>휴폐업정보 [<%=i+1 %>]</legend>
 						<ul>
 								<li>사업자번호(corpNum) : <%= result.Item(i).corpNum%></li>		
 								<li>휴폐업상태(state) : <%= result.Item(i).state%></li>
