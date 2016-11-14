@@ -23,37 +23,37 @@
 	joinInfo.CEOName = "대표자성명"	
 	
 	'상호명
-	joinInfo.CorpName =  "상호"	
+	joinInfo.CorpName = "상호"	
 	
 	'주소
-	joinInfo.Addr =   "주소"		   
+	joinInfo.Addr = "주소"		   
 
 	'업태
-	joinInfo.BizType =  "업태"		   
+	joinInfo.BizType = "업태"		   
 
 	'종목
 	joinInfo.BizClass = "종목"
 
 	'아이디 (6자 이상 20자 미만)
-	joinInfo.ID =  "userid"
+	joinInfo.ID = "userid"
 
 	'비밀번호 (6자 이상 20자 미만)
-	joinInfo.PWD =  "1234567890"
+	joinInfo.PWD = "this_is_password"
 
 	'담당자명
-	joinInfo.ContactName = "담당자명"    
+	joinInfo.ContactName = "담당자명"
 
 	'담당자연락처
-	joinInfo.ContactTEL = "02-999-9999"   
+	joinInfo.ContactTEL = "02-999-9999"
 
 	'담당자 휴대폰번호
-	joinInfo.ContactHP = "010-1234-5678"	
+	joinInfo.ContactHP = "010-1234-5678"
 
 	'팩스번호
-	joinInfo.ContactFAX = "02-999-9999"		
+	joinInfo.ContactFAX = "02-999-9999"
 
 	'담당자 이메일
-	joinInfo.ContactEmail = "test@test.com" '
+	joinInfo.ContactEmail = "test@test.com"
 
 	On Error Resume Next
 
@@ -77,7 +77,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동회원 가입요청</legend>
+				<legend>연동회원 가입</legend>
 				<ul>
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message: <%=message%> </li>

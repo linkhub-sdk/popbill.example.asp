@@ -15,10 +15,10 @@
 	testCorpNum = "1234567890"		
 
 	'시작일자, yyyyMMdd
-	SDate = "20160801"					
+	SDate = "20161001"					
 
 	'종료일자, yyyyMMdd
-	EDate = "20160825"					
+	EDate = "20161131"					
 	
 	' 전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -28,19 +28,19 @@
 	State(3) = "4"
 	
 	'예약전송 검색여부
-	ReserveYN = False			
+	ReserveYN = False
 	
 	'개인조회 여부
-	SenderOnlyYN = False		
+	SenderOnlyYN = False
 
 	'정렬발향, A-오름차순, D-내림차순
-	Order = "D"			
+	Order = "D"
 
 	'페이지 번호
-	Page = 1				
+	Page = 1
 
 	'페이지당 검색개수
-	PerPage = 20		
+	PerPage = 20
 	
 	On Error Resume Next
 

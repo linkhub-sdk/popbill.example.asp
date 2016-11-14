@@ -26,7 +26,7 @@
 	sender = "07043042991"		 
 
 	'수신팩스번호
-	receiver = "0264429700"		 
+	receiver = "070111222"		 
 
 	On Error Resume Next 
 

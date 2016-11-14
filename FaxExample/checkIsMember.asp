@@ -12,7 +12,7 @@
 	'**************************************************************
 
 	' 사업자번호 ("-"제외)
-	testCorpNum = "1231212312"		
+	testCorpNum = "1234567890"		
 		
 	On Error Resume Next
 
@@ -35,7 +35,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>연동회원사 가입 여부 확인 결과</legend>
+				<legend>연동회원사 가입여부 확인</legend>
 				<ul>
 					<li>Response.code : <%=code%></li>
 					<li>Response.message : <%=message%></li>

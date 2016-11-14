@@ -22,7 +22,7 @@
 
 	On Error Resume Next
 
-	Set Presponse = m_FaxService.CancelReserve(testCorpNum , receiptNum, userID )
+	Set Presponse = m_FaxService.CancelReserve(testCorpNum, receiptNum, userID)
 
 	If Err.Number <> 0 Then
 		code = Err.Number
@@ -41,7 +41,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>팩스예약전송취소</legend>
+				<legend>팩스예약전송 취소</legend>
 				<ul>
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message : <%=message%> </li>

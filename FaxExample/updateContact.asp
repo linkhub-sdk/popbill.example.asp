@@ -20,7 +20,7 @@
 	Set contInfo = New ContactInfo
 	
 	' 담당자명
-	contInfo.personName = "ASPTest"
+	contInfo.personName = "ASPTest_1114"
 
 	' 담당자 연락처
 	contInfo.tel = "010-1234-1234"

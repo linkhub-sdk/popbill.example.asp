@@ -17,7 +17,6 @@
 	'팝빌 회원 아이디
 	userID = "testkorea"		 
 
-	'BOX(전송내역조회 팝업)
 	TOGO = "BOX"				 
 
 	On Error Resume Next

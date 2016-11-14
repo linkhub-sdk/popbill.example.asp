@@ -13,7 +13,7 @@
 	userID = "testkorea"			
 
 	'발신자 번호
-	sendNum = "07075103710"			
+	sendNum = "07043042991"			
 
 	'전송예약시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
 	reserveDT = ""	

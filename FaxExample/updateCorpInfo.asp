@@ -25,11 +25,11 @@
 	infoObj.corpName = "링크허브"
 
 	' 주소
-	infoObj.addr	= "주소수정"
+	infoObj.addr = "주소수정"
 
 	' 업태
 	infoObj.bizType = "업태정보"
-		
+
 	' 종목
 	infoObj.bizClass = "종목정보"
 	
@@ -47,7 +47,6 @@
 	End If
 
 	On Error GoTo 0
-
 %>
 
 	<body>

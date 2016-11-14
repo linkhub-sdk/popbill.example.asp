@@ -14,7 +14,10 @@
 
 	'발신자 번호
 	sendNum = "07075103710"			
-'	reserveDT = "20150123200000"	'전송예약시간 yyyyMMddHHmmss, reserveDT값이 null 경우 즉시전송
+
+
+	'전송예약시간 yyyyMMddHHmmss, reserveDT값이 null 경우 즉시전송
+	reserveDT = ""
 	
 	'수신정보 배열 최대 1000건
 	Dim receivers(1)
@@ -23,7 +26,7 @@
 	receivers(0).receiverName = "수신자 명칭"
 
 	Set receivers(1) = New FaxReceiver
-	receivers(1).receiverNum = "00011112222"
+	receivers(1).receiverNum = "000111222"
 	receivers(1).receiverName = "수신자 명칭"
 	
 	'팩스전송 파일경로
@@ -31,7 +34,7 @@
 
 	On Error Resume Next
 
-	url = m_FaxService.SendFAX(testCorpNum, sendNum, receivers, FilePaths,  reserveDT , userID )
+	url = m_FaxService.SendFAX(testCorpNum, sendNum, receivers, FilePaths, reserveDT, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number
