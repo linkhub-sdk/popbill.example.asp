@@ -19,7 +19,7 @@
 	UserID = "testkorea"
 
 	' 전자세금계산서 국세청승인번호 
-	NTSConfirmNum = "20160714410000290000083e"
+	NTSConfirmNum = "201611104100020300000cb2"
 	
 	
 	On Error Resume Next

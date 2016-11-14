@@ -26,10 +26,10 @@
 	DType = "W"						
 
 	'시작일자, 표시형식(yyyyMMdd)
-	SDate = "201606013"			
+	SDate = "20161001"			
 	
 	'종료일자, 표시형식(yyyyMMdd)
-	EDate =	"20160831"				
+	EDate =	"20161131"				
 
 	
 	On Error Resume Next

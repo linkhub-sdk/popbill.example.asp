@@ -16,10 +16,10 @@
 	testCorpNum = "1234567890"
 
 	' 팝빌회원 아이디 
-	UserID = "innoposttest"				 
+	UserID = "testkorea"				 
 
 	'국세청승인번호 
-	NTSConfirmNum = "2016071441000029000007fa"
+	NTSConfirmNum = "201611104100020300000cb2"
 	
 	
 	On Error Resume Next

@@ -13,13 +13,13 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"		
+	testCorpNum = "6798700433"		
 
 	' 수집요청시 반환받은 작업아이디(jobID)
-	JobID = "016071510000000001"	
+	JobID = "016111416000000024"	
 
 	' 팝빌회원 아이디
-	UserID = "testkorea"					
+	UserID = "testkorea_linkhub"	
 	
 	On Error Resume Next
 
