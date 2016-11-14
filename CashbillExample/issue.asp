@@ -19,7 +19,7 @@
 	userID = "testkorea"			 
 
 	'문서관리번호
-	mgtKey = "20150201-01"			 
+	mgtKey = "20161114-03"			 
 
 	'메모 
 	memo = "현금영수증 발행메모"	 

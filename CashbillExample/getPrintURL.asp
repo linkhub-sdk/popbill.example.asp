@@ -18,7 +18,7 @@
 	userID = "testkorea"		 
 
 	'현금영수증 연동관리번호
-	mgtKey = "20150201-01"	     
+	mgtKey = "20161114-01"	     
 
 	On Error Resume Next
 

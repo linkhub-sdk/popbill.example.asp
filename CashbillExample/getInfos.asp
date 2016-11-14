@@ -20,7 +20,7 @@
 
 	'조회할 현금영수증 문서관리번호 배열, 최대 1000건
 	Dim mgtKeyList(3) 
-	MgtKeyList(0) = "20150129-04"
+	MgtKeyList(0) = "20161114-01"
 	MgtKeyList(1) = "20150129-05"
 	MgtKeyList(2) = "20150129-06"
 

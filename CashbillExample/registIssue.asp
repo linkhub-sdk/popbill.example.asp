@@ -12,11 +12,12 @@
 	' 팝빌 회원 아이디
 	userID = "testkorea"				 
 
+
 	' 문서관리번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-	mgtKey = "20160127-02"		 
+	mgtKey = "20161114-01"
 
 	' 메모
-	memo = "즉시발행 메모 "		 
+	memo = "즉시발행 메모"
 
 	' 현금영수증 객체 생성
 	Set CashbillObj = New CashBill
@@ -24,7 +25,7 @@
     CashbillObj.mgtKey = mgtKey				   
 
     '현금영수증 형태, [승인거래, 취소거래] 중 기재
-    CashbillObj.tradeType = "승인거래"				
+    CashbillObj.tradeType = "승인거래"
 
 	'발행자 사업자번호, "-" 제외 10자리
 	CashbillObj.franchiseCorpNum = testCorpNum		
@@ -44,7 +45,7 @@
     '거래처 식별번호, 거래유형에 따라 작성
     '소득공제용 - 주민등록/휴대폰/카드번호 기재가능
     '지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능	
-	CashbillObj.identityNum = "010111222"
+	CashbillObj.identityNum = "01011112222"
 
     '거래유형, [소득공제용, 지출증빙용] 중 기재
 	CashbillObj.tradeUsage = "소득공제용"

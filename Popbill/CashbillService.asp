@@ -74,7 +74,7 @@ End Function
 '단가확인
 Public Function GetUnitCost(CorpNum)
     Set result = m_PopbillBase.httpGET("/Cashbill?cfg=UNITCOST", m_PopbillBase.getSession_token(CorpNum),"")
-    GetUnitCost = result.unitCosts
+    GetUnitCost = result.unitCost
 End Function
 
 '연동관리번호 사용여부 확인

@@ -7,18 +7,15 @@
 	</head>
 	<body>
 		<div id="content">
-			
 			<p class="heading1">팝빌 현금영수증 SDK ASP Example.</p>
-
 			<br/>
-
 			<fieldset class="fieldset1">
 				<legend>팝빌 기본 API</legend>
 
 				<fieldset class="fieldset2">
 					<legend>회원정보</legend>
 					<ul>
-						<li><a href="checkIsMember.asp">checkCorpIsMember</a> - 연동회원 가입여부 확인</li>
+						<li><a href="checkIsMember.asp">checkIsMember</a> - 연동회원 가입여부 확인</li>
 						<li><a href="checkID.asp">checkID</a> - 아이디 중복확인</li>
 						<li><a href="joinMember.asp">joinMember</a> - 연동회원 가입 요청</li>
 						<li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>

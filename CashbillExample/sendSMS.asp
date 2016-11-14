@@ -20,10 +20,10 @@
 	userID = "testkorea"		 
 
 	'문서관리번호	
-	mgtKey = "20150201-01"		 
+	mgtKey = "20161114-01"		 
 
 	'발신번호	
-	sender = "07075106766"	
+	sender = "07043242991"	
 	
 	'수신번호
 	receiver = "010111222"		 

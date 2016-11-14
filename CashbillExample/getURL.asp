@@ -12,13 +12,13 @@
 	'**************************************************************
 
 	'팝빌 회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"	 
+	testCorpNum = "1234567890"
 
 	'팝빌 회원 아이디
-	userID = "testkorea"		 
+	userID = "testkorea"
 
 	'TBOX(임시문서함), PBOX(발행문서함), WRITE(현금영수증 작성)
-	TOGO = "PBOX"				 
+	TOGO = "PBOX"
 
 	On Error Resume Next
 

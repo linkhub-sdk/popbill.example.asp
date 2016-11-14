@@ -12,10 +12,11 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호
-	CorpNum = "1234567890"		 
+	CorpNum = "1234567890"
 
 	' 팝빌회원 아이디 
-	UserID = "testkorea"				 
+	UserID = "testkorea"
+
 
 	' 담당자 정보 객체 생성
 	Set contInfo = New ContactInfo
@@ -30,10 +31,10 @@
 	contInfo.hp = "010-1234-1234"
 
 	' 담당자 이메일주소
-	contInfo.email = "code@linkhub.co.kr"
+	contInfo.email = "dev@linkhub.co.kr"
 
 	' 담당자 팩스번호
-	contInfo.fax = "02-6442-9700"
+	contInfo.fax = "070-111-222"
 
 	' 회사조회여부, True-회사조회, False-개인조회
 	contInfo.searchAllAllowYN = True

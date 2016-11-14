@@ -16,10 +16,10 @@
 	testCorpNum = "1234567890"	
 	
 	'팝빌회원 아이디
-	userID = "testkorea"				
+	userID = "testkorea"
 
 	'문서관리번호
-	mgtKey = "20150201-01"				
+	mgtKey = "20161114-03"				
 
 	'메모
 	memo = "현금영수증 발행취소메모"	
@@ -37,8 +37,7 @@
 		message = Presponse.message
 	End If
 
-	On Error GoTo 0 
-
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">

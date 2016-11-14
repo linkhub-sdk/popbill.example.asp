@@ -18,7 +18,7 @@
 	userID = "testkorea"		 
 
 	'LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 
-	TOGO = "LOGIN"				 
+	TOGO = "CHRG"				 
 
 	On Error Resume Next
 

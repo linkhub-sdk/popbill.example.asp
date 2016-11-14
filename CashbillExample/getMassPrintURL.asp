@@ -19,7 +19,7 @@
 
 	'현금영수증 문서관리번호, 최대 100건
 	Dim mgtKeyList(2)			
-	mgtKeyList(0) = "20150201-01"	     
+	mgtKeyList(0) = "20161114-01"	     
 	mgtKeyList(1) = "20150129-05"
 
 	On Error Resume Next

@@ -12,13 +12,13 @@
 	'**************************************************************
 
 	'팝빌 회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"	 
+	testCorpNum = "1234567890"
 
 	'팝빌 회원 아이디
-	userID = "testkorea"		 
+	userID = "testkorea"
 
 	'문서관리번호
-	mgtKey = "20150201-01"	     
+	mgtKey = "20161114-01"
 
 	On Error Resume Next
 

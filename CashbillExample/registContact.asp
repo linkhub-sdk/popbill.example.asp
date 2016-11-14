@@ -11,16 +11,17 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호
-	CorpNum = "1234567890"		 
+	CorpNum = "1234567890"
 
 	' 팝빌회원 아이디 
-	UserID = "testkorea"				 
+	UserID = "testkorea"
+
 
 	' 담당자 정보 객체 생성
 	Set contInfo = New ContactInfo
 
 	' 담당자 아이디, 6자이상 20자미만
-	contInfo.id = "testkorea00000"
+	contInfo.id = "testkorea"
 
 	' 비밀번호
 	contInfo.pwd = "testkorea1234"
@@ -38,7 +39,7 @@
 	contInfo.email = "dev@linkhub.co.kr"
 
 	' 팩스 번호
-	contInfo.fax = "02-6442-9700"
+	contInfo.fax = "070-111-222"
 
 	' 회사조회 권한여부, True-회사조회 / False -개인조회
 	contInfo.searchAllAllowYN = True
