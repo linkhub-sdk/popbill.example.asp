@@ -28,7 +28,7 @@
 	SDate = "20161001"
 
 	' [필수] 종료일자, yyyyMMdd
-	EDate = "20161131"
+	EDate = "20161231"
 	
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(2)
@@ -119,6 +119,8 @@
 										<li> invoiceeCorpNum :  <%=result.list(i).invoiceeCorpNum%> </li>
 										<li> invoiceeMgtKey :  <%=result.list(i).invoiceeMgtKey%> </li>
 										<li> invoiceePrintYN :  <%=result.list(i).invoiceePrintYN%> </li>
+										<li> closeDownState :  <%=result.list(i).closeDownState%> </li>
+										<li> closeDownStateDate :  <%=result.list(i).closeDownStateDate%> </li>
 										<li> trusteeCorpName :  <%=result.list(i).trusteeCorpName%> </li>
 										<li> trusteeCorpNum :  <%=result.list(i).trusteeCorpName%> </li>
 										<li> trusteeMgtKey :  <%=result.list(i).trusteeMgtKey%> </li> 

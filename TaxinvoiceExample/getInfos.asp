@@ -24,7 +24,7 @@
 
 	' 세금계산서 문서관리번호 배열, 최대 1000건
 	Dim MgtKeyList(3) 
-	MgtKeyList(0) = "20161114-01"
+	MgtKeyList(0) = "20161221-03"
 	MgtKeyList(1) = "20161114-02"
 	MgtKeyList(2) = "20150121-03"
 	
@@ -67,6 +67,8 @@
 										<li> invoiceeCorpNum :  <%=result.Item(i).invoiceeCorpNum%> </li>
 										<li> invoiceeMgtKey :  <%=result.Item(i).invoiceeMgtKey%> </li>
 										<li> invoiceePrintYN :  <%=result.Item(i).invoiceePrintYN%> </li>
+										<li> closeDownState :  <%=result.Item(i).closeDownState%> </li>
+										<li> closeDownStateDate :  <%=result.Item(i).closeDownStateDate%> </li>
 										<li> trusteeCorpName :  <%=result.Item(i).trusteeCorpName%> </li>
 										<li> trusteeCorpNum :  <%=result.Item(i).trusteeCorpName%> </li>
 										<li> trusteeMgtKey :  <%=result.Item(i).trusteeMgtKey%> </li> 

@@ -20,7 +20,7 @@
 	KeyType= "SELL"
 
 	' 문서관리번호 
-	MgtKey = "20161114-02"
+	MgtKey = "20161221-03"
 
 	' 팝빌회원아이디
 	UserID = "testkorea"
@@ -62,6 +62,8 @@
 						<li> invoiceeCorpNum :  <%=result.invoiceeCorpNum%> </li>
 						<li> invoiceeMgtKey :  <%=result.invoiceeMgtKey%> </li>
 						<li> invoiceePrintYN :  <%=result.invoiceePrintYN%> </li>
+						<li> closeDownState :  <%=result.closeDownState%> </li>
+						<li> closeDownStateDate:  <%=result.closeDownStateDate%> </li>
 						<li> trusteeCorpName :  <%=result.trusteeCorpName%> </li>
 						<li> trusteeCorpNum :  <%=result.trusteeCorpName%> </li>
 						<li> trusteeMgtKey :  <%=result.trusteeMgtKey%> </li> 

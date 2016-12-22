@@ -19,7 +19,7 @@
 	KeyType = "SELL"
 
 	' 문서관리번호
-	MgtKey = "20161114-02"
+	MgtKey = "20161221-03"
 
 	On Error Resume Next
 
@@ -76,9 +76,9 @@
 					<li>invoiceeBizType : <%=taxInfo.invoiceeBizType%></li>
 					<li>invoiceeContactName1 : <%=taxInfo.invoiceeContactName1%></li>
 					<li>invoiceeDeptName1 : <%=taxInfo.invoiceeDeptName1%></li>
-					<li>invoiceeCorpTEL1 : <%=taxInfo.invoiceeTEL1%></li>
-					<li>invoiceeCorpHP1 : <%=taxInfo.invoiceeHP1%></li>
-					<li>invoiceeCorpEmail : <%=taxInfo.invoiceeEmail1%></li>
+					<li>closeDownState : <%=taxInfo.closeDownState%></li>
+					<li>closeDownStateDate : <%=taxInfo.closeDownStateDate%></li>
+
 					
 					<%
 						For i=0 To UBound(taxInfo.detailList)-1

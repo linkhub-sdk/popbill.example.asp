@@ -685,6 +685,9 @@ End Class
 'Taxinvoice Class
 Class Taxinvoice
 
+Public closeDownState
+Public closeDownStateDate 
+
 Public writeDate			
 Public chargeDirection
 Public issueType       
@@ -895,7 +898,10 @@ End Sub
 Public Sub fromJsonInfo(jsonInfo)
 	
 	On Error Resume Next
-
+	
+	closeDownState = jsonInfo.closeDownState
+	closeDownStateDate = jsonInfo.closeDownStateDate
+	
 	writeDate = jsonInfo.writeDate
 	chargeDirection = jsonInfo.chargeDirection     
 	issueType = jsonInfo.issueType           
@@ -1082,6 +1088,10 @@ End Class
 
 
 Class TaxinvoiceInfo
+
+Public closeDownState
+Public closeDownStateDate
+
 Public itemKey                 
 Public stateCode               
 Public taxType                 
@@ -1126,6 +1136,9 @@ Public regDT
 
 Public Sub fromJsonInfo(jsonInfo)
 	On Error Resume Next
+
+	closeDownState = jsonInfo.closeDownState
+	closeDownStateDate = jsonInfo.closeDownStateDate
 
 	itemKey = jsonInfo.itemKey
 	stateCode = jsonInfo.stateCode              
