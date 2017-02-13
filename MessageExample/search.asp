@@ -18,7 +18,7 @@
 	SDate = "20161001"
 
 	'종료일자
-	EDate = "20161131"					
+	EDate = "20170213"					
 	
 	'전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -50,7 +50,7 @@
 	
 	On Error Resume Next
 
-	Set result = m_MessageService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage)
+	Set resultObj = m_MessageService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage)
 	
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -67,34 +67,34 @@
 			<fieldset class="fieldset1">
 				<legend>문자메시지 전송내역 조회 </legend>
 				<ul>
-						<li> code : <%=result.code%></li>
-						<li> total : <%=result.total%></li>
-						<li> pageNum : <%=result.pageNum%></li>
-						<li> perPage : <%=result.perPage%></li>
-						<li> pageCount : <%=result.pageCount%></li>
-						<li> message : <%=result.message%></li>
+						<li> code : <%=resultObj.code%></li>
+						<li> total : <%=resultObj.total%></li>
+						<li> pageNum : <%=resultObj.pageNum%></li>
+						<li> perPage : <%=resultObj.perPage%></li>
+						<li> pageCount : <%=resultObj.pageCount%></li>
+						<li> message : <%=resultObj.message%></li>
 				</ul>
 					<% If code = 0 Then
-						For i=0 To UBound(result.list) -1
+						For i=0 To UBound(resultObj.list) -1
 					%>
 
 						<fieldset class="fieldset2">
-							<legend> 문자메시지 전송결과 [ <%=i+1%> / <%= UBound(result.list)%> ] </legend>
+							<legend> 문자메시지 전송결과 [ <%=i+1%> / <%= UBound(resultObj.list)%> ] </legend>
 							<ul>
-								<li>state : <%=result.list(i).state%> </li>
-								<li>resultDT : <%=result.list(i).resultDT%> </li>
-								<li>sendResult : <%=result.list(i).sendResult%> </li>
-								<li>subject : <%=result.list(i).subject%> </li>
-								<li>content : <%=result.list(i).content%> </li>
-								<li>type : <%=result.list(i).msgType%> </li>
-								<li>sendnum: <%=result.list(i).sendnum%> </li>
-								<li>senderName: <%=result.list(i).senderName%> </li>
-								<li>receiveNum : <%=result.list(i).receiveNum%> </li>
-								<li>receiveName : <%=result.list(i).receiveName%> </li>
-								<li>reserveDT : <%=result.list(i).reserveDT%> </li>
-								<li>sendDT : <%=result.list(i).sendDT%> </li>
-								<li>tranNet : <%=result.list(i).tranNet%> </li>
-								<li>receiptDT : <%=result.list(i).receiptDT%> </li>
+								<li>state : <%=resultObj.list(i).state%> </li>
+								<li>resultDT : <%=resultObj.list(i).resultDT%> </li>
+								<li>result : <%=resultObj.list(i).result%> </li>
+								<li>subject : <%=resultObj.list(i).subject%> </li>
+								<li>content : <%=resultObj.list(i).content%> </li>
+								<li>type : <%=resultObj.list(i).msgType%> </li>
+								<li>sendnum: <%=resultObj.list(i).sendnum%> </li>
+								<li>senderName: <%=resultObj.list(i).senderName%> </li>
+								<li>receiveNum : <%=resultObj.list(i).receiveNum%> </li>
+								<li>receiveName : <%=resultObj.list(i).receiveName%> </li>
+								<li>reserveDT : <%=resultObj.list(i).reserveDT%> </li>
+								<li>sendDT : <%=resultObj.list(i).sendDT%> </li>
+								<li>tranNet : <%=resultObj.list(i).tranNet%> </li>
+								<li>receiptDT : <%=resultObj.list(i).receiptDT%> </li>
 							</ul>
 						</fieldset>
 

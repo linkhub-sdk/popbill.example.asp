@@ -289,6 +289,7 @@ End Class
 
 Class MessageInfo
 Public state
+Public result
 Public subject
 Public msgType
 Public content
@@ -306,6 +307,7 @@ Public receiptDT
 Public Sub fromJsonInfo(msgInfo)
 	On Error Resume Next
 	state = msgInfo.state
+	result = msgInfo.result
 	subject = msgInfo.subject
 	msgType = msgInfo.type
 	content = msgInfo.content

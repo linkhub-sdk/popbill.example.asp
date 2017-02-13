@@ -45,7 +45,7 @@
 							<legend>문자메시지 전송결과 [<%=i+1%>]</legend>
 							<ul>
 								<li>state : <%=result.Item(i).state%> </li>
-								<li>sendResult : <%=result.Item(i).sendResult%> </li>
+								<li>result : <%=result.Item(i).result%> </li>
 								<li>sendDT : <%=result.Item(i).sendDT%> </li>
 								<li>resultDT : <%=result.Item(i).resultDT%> </li>
 								<li>subject : <%=result.Item(i).subject%> </li>
