@@ -124,6 +124,35 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
 End Function
 
 
+'팩스 재전송
+Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  reserveDT , UserID)
+    If isNull(receiptNum) Or IsEmpty(receiptNum) Then Err.Raise -99999999, "POPBILL", "팩스 접수번호(receiptNum)가 입력되지 않았습니다."
+
+    Set Form = JSON.parse("{}")
+    
+	If sendNum <> "" Then Form.set "snd", sendNum
+	If senderName <> "" Then Form.set "sndnm", senderName
+    If reserveDT <> "" Then Form.set "sndDT", reserveDT
+
+	If UBound(receivers) >= 0 Then 
+		Dim tmpArray() : ReDim tmpArray(UBound(receivers))
+		For i = 0 to UBound(receivers)
+			If  isNull(receivers(i)) Or IsEmpty(receivers(i)) Then
+				Err.Raise -99999999, "POPBILL", CStr(i+1) & " 번째 수신자 정보가 기재되지 않았습니다."
+			else
+				Set tmpArray(i) =  receivers(i).toJsonInfo()
+			End if
+		Next
+		Form.set "rcvs", tmpArray
+	End If 
+	
+    postdata = m_PopbillBase.toString(Form)
+    Set result = m_PopbillBase.httpPOST("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+
+    ResendFAX = result.receiptNum
+End Function
+
+
 '팩스 전송결과 확인
 Public Function GetFaxDetail(CorpNum, receiptNum, UserID)
 	If  isEmpty(receiptNum) Then
