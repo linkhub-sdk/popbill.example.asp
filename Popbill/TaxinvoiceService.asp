@@ -1124,6 +1124,7 @@ Public stateDT
 Public openYN                  
 Public openDT                  
 Public lateIssueYN
+Public interOPYN
 
 Public ntsresult               
 Public ntsconfirmNum           
@@ -1168,6 +1169,7 @@ Public Sub fromJsonInfo(jsonInfo)
 	openYN = jsonInfo.openYN                 
 	openDT = jsonInfo.openDT                 
 	lateIssueYN = jsonInfo.lateIssueYN                 
+	interOPYN = jsonInfo.interOPYN
 
 	ntsresult = jsonInfo.ntsresult              
 	ntsconfirmNum = jsonInfo.ntsconfirmNum          

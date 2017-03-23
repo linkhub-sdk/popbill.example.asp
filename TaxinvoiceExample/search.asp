@@ -121,6 +121,7 @@
 										<li> invoiceePrintYN :  <%=result.list(i).invoiceePrintYN%> </li>
 										<li> closeDownState :  <%=result.list(i).closeDownState%> </li>
 										<li> closeDownStateDate :  <%=result.list(i).closeDownStateDate%> </li>
+										<li> interOPYN :  <%=result.list(i).interOPYN%> </li>
 										<li> trusteeCorpName :  <%=result.list(i).trusteeCorpName%> </li>
 										<li> trusteeCorpNum :  <%=result.list(i).trusteeCorpName%> </li>
 										<li> trusteeMgtKey :  <%=result.list(i).trusteeMgtKey%> </li> 

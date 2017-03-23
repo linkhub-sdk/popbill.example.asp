@@ -69,6 +69,7 @@
 										<li> invoiceePrintYN :  <%=result.Item(i).invoiceePrintYN%> </li>
 										<li> closeDownState :  <%=result.Item(i).closeDownState%> </li>
 										<li> closeDownStateDate :  <%=result.Item(i).closeDownStateDate%> </li>
+										<li> interOPYN :  <%=result.Item(i).interOPYN%> </li>
 										<li> trusteeCorpName :  <%=result.Item(i).trusteeCorpName%> </li>
 										<li> trusteeCorpNum :  <%=result.Item(i).trusteeCorpName%> </li>
 										<li> trusteeMgtKey :  <%=result.Item(i).trusteeMgtKey%> </li> 
