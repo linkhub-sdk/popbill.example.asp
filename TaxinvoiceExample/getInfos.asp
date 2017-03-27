@@ -53,42 +53,41 @@
 							<fieldset class="fieldset2">					
 								<legend> TaxinvoiceResult : <%=i+1%> </legend>
 									<ul>
-										<li> itemKey :  <%=result.Item(i).itemKey%> </li>
-										<li> stateCode :  <%=result.Item(i).stateCode%> </li>
-										<li> taxType :  <%=result.Item(i).taxType%> </li>
-										<li> purposeType :  <%=result.Item(i).purposeType%> </li>
-										<li> issueType :  <%=result.Item(i).issueType %> </li>
-										<li> writeDate :  <%=result.Item(i).writeDate%> </li>
-										<li> invoicerCorpName :  <%=result.Item(i).invoicerCorpName%> </li>
-										<li> invoicerCorpNum :  <%=result.Item(i).invoicerCorpNum%> </li>
-										<li> invoicerMgtKey :  <%=result.Item(i).invoicerMgtKey%> </li>
-										<li> invoicerPrintYN :  <%=result.Item(i).invoicerPrintYN%> </li>
-										<li> invoiceeCorpName :  <%=result.Item(i).invoiceeCorpName%> </li>
-										<li> invoiceeCorpNum :  <%=result.Item(i).invoiceeCorpNum%> </li>
-										<li> invoiceeMgtKey :  <%=result.Item(i).invoiceeMgtKey%> </li>
-										<li> invoiceePrintYN :  <%=result.Item(i).invoiceePrintYN%> </li>
-										<li> closeDownState :  <%=result.Item(i).closeDownState%> </li>
-										<li> closeDownStateDate :  <%=result.Item(i).closeDownStateDate%> </li>
-										<li> interOPYN :  <%=result.Item(i).interOPYN%> </li>
-										<li> trusteeCorpName :  <%=result.Item(i).trusteeCorpName%> </li>
-										<li> trusteeCorpNum :  <%=result.Item(i).trusteeCorpName%> </li>
-										<li> trusteeMgtKey :  <%=result.Item(i).trusteeMgtKey%> </li> 
-										<li> trusteePrintYN :  <%=result.Item(i).trusteePrintYN%> </li> 
-										<li> supplyCostTotal :  <%=result.Item(i).supplyCostTotal%> </li>
-										<li> taxTotal :  <%=result.Item(i).taxTotal%> </li>
-										<li> issueDT :  <%=result.Item(i).issueDT%> </li>
-										<li> preIssueDT :  <%=result.Item(i).preIssueDT%> </li>
-										<li> stateDT :  <%=result.Item(i).stateDT%> </li>
-										<li> openYN :  <%=result.Item(i).openYN%> </li>
-										<li> openDT :  <%=result.Item(i).openDT%> </li>
-										<li> ntsresult :  <%=result.Item(i).ntsresult%> </li>
-										<li> ntsconfirmNum :  <%=result.Item(i).ntsconfirmNum %> </li>
-										<li> ntssendDT :  <%=result.Item(i).ntssendDT%> </li>
-										<li> ntsresultDT :  <%=result.Item(i).ntsresultDT%> </li>
-										<li> ntssendErrCode :  <%=result.Item(i).ntssendErrCode%> </li>
-										<li> stateMemo :  <%=result.Item(i).stateMemo%> </li>
-										<li> regDT :  <%=result.Item(i).regDT%> </li>
-										<li> lateIssueYN :  <%=result.Item(i).lateIssueYN%> </li>
+										<li> itemKey (세금계산서 아이템키) :  <%=result.Item(i).itemKey%> </li>
+										<li> stateCode (상태코드) :  <%=result.Item(i).stateCode%> </li>
+										<li> taxType (과세형태) :  <%=result.Item(i).taxType%> </li>
+										<li> purposeType (영수/청구) :  <%=result.Item(i).purposeType%> </li>
+										<li> issueType (발행형태) :  <%=result.Item(i).issueType %> </li>
+										<li> writeDate (작성일자) :  <%=result.Item(i).writeDate%> </li>
+
+										<li> invoicerCorpName (공급자 상호) :  <%=result.Item(i).invoicerCorpName%> </li>
+										<li> invoicerCorpNum (공급자 사업자번호) :  <%=result.Item(i).invoicerCorpNum%> </li>
+										<li> invoicerMgtKey (공급자 문서관리번호) :  <%=result.Item(i).invoicerMgtKey%> </li>
+										<li> invoicerPrintYN (공급자 인쇄여부) :  <%=result.Item(i).invoicerPrintYN%> </li>
+
+										<li> invoiceeCorpName (공급받는자 상호) :  <%=result.Item(i).invoiceeCorpName%> </li>
+										<li> invoiceeCorpNum (공급받는자 사업자번호) :  <%=result.Item(i).invoiceeCorpNum%> </li>
+										<li> invoiceeMgtKey (공급받는자 문서관리번호) :  <%=result.Item(i).invoiceeMgtKey%> </li>
+										<li> invoiceePrintYN (공급받는자 인쇄여부) :  <%=result.Item(i).invoiceePrintYN%> </li>
+										<li> closeDownState (공급받는자 휴폐업상태) :  <%=result.Item(i).closeDownState%> </li>
+										<li> closeDownStateDate (공급받는자 휴폐업일시) :  <%=result.Item(i).closeDownStateDate%> </li>
+										<li> interOPYN (연동문서 여부) :  <%=result.Item(i).interOPYN%> </li>
+
+										<li> supplyCostTotal (공급가액 합계) :  <%=result.Item(i).supplyCostTotal%> </li>
+										<li> taxTotal (세액 합계) :  <%=result.Item(i).taxTotal%> </li>
+										<li> issueDT (발행 일시) :  <%=result.Item(i).issueDT%> </li>
+										<li> preIssueDT (발행예정 일시) :  <%=result.Item(i).preIssueDT%> </li>
+										<li> stateDT (상태 변경일시) :  <%=result.Item(i).stateDT%> </li>
+										<li> openYN (개봉 여부) :  <%=result.Item(i).openYN%> </li>
+										<li> openDT (개봉 일시) :  <%=result.Item(i).openDT%> </li>
+										<li> ntsresult (국세청 전송결과) :  <%=result.Item(i).ntsresult%> </li>
+										<li> ntsconfirmNum (국세청 승인번호) :  <%=result.Item(i).ntsconfirmNum %> </li>
+										<li> ntssendDT (국세청 전송일시) :  <%=result.Item(i).ntssendDT%> </li>
+										<li> ntsresultDT (국세청 결과 수신일시) :  <%=result.Item(i).ntsresultDT%> </li>
+										<li> ntssendErrCode (전송실패 사유) :  <%=result.Item(i).ntssendErrCode%> </li>
+										<li> stateMemo (상태메모) :  <%=result.Item(i).stateMemo%> </li>
+										<li> regDT (임시저장 일시) :  <%=result.Item(i).regDT%> </li>
+										<li> lateIssueYN (지연발행 여부) :  <%=result.Item(i).lateIssueYN%> </li>
 									</ul>
 								</fieldset>
 				<%
