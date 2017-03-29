@@ -43,37 +43,34 @@
 					<% If code = 0 Then %>
 						<fieldset class="fieldset2">
 							<ul>
-								<li>mgtKey : <%=Presponse.mgtKey%></li>
-								<li>tradeDate : <%=Presponse.tradeDate%></li>
-								<li>tradeUsage : <%=Presponse.tradeUsage%></li>
-								<li>tradeType : <%=Presponse.tradeType %></li>
-								<li>taxationType : <%=Presponse.taxationType%></li>
-								<li>supplyCost : <%=Presponse.supplyCost%></li>
-								<li>tax : <%=Presponse.tax %></li>
-								<li>serviceFee : <%=Presponse.serviceFee%></li>
-								<li>totalAmount : <%=Presponse.totalAmount%></li>
+								<li>confirmNum (국세청승인번호) : <%=Presponse.confirmNum%></li>
+								<li>mgtKey (문서관리번호) : <%=Presponse.mgtKey%></li>
+								<li>tradeDate (거래일자) : <%=Presponse.tradeDate%></li>
+								<li>tradeUsage (거래유형) : <%=Presponse.tradeUsage%></li>
+								<li>tradeType (현금영수증 형태) : <%=Presponse.tradeType %></li>
+								<li>taxationType (과세형태) : <%=Presponse.taxationType%></li>
+								<li>supplyCost (공급가액) : <%=Presponse.supplyCost%></li>
+								<li>tax (세액) : <%=Presponse.tax %></li>
+								<li>serviceFee (봉사료) : <%=Presponse.serviceFee%></li>
+								<li>totalAmount (거래금액) : <%=Presponse.totalAmount%></li>
 
-								<li>franchiseCorpNum : <%=Presponse.franchiseCorpNum%></li>
-								<li>franchiseCorpName : <%=Presponse.franchiseCorpName%></li>
-								<li>franchiseCEOName : <%=Presponse.franchiseCEOName%></li>
-								<li>franchiseAddr : <%=Presponse.franchiseAddr%></li>
-								<li>franchiseTEL : <%=Presponse.franchiseTEL %></li>
+								<li>franchiseCorpNum (발행자 사업자번호) : <%=Presponse.franchiseCorpNum%></li>
+								<li>franchiseCorpName (발행자 상호) : <%=Presponse.franchiseCorpName%></li>
+								<li>franchiseCEOName (발행자 대표자명) : <%=Presponse.franchiseCEOName%></li>
+								<li>franchiseAddr (가맹점 주소) : <%=Presponse.franchiseAddr%></li>
+								<li>franchiseTEL (가맹점 전화번호) : <%=Presponse.franchiseTEL %></li>
 
-								<li>identityNum : <%=Presponse.identityNum%></li>
-								<li>customerName : <%=Presponse.customerName%></li>
-								<li>itemName : <%=Presponse.itemName%></li>
-								<li>orderNumber : <%=Presponse.orderNumber%></li>
+								<li>identityNum (거래처 식별번호) : <%=Presponse.identityNum%></li>
+								<li>customerName (고개명) : <%=Presponse.customerName%></li>
+								<li>itemName (상품명) : <%=Presponse.itemName%></li>
+								<li>orderNumber (가맹점 주문번호) : <%=Presponse.orderNumber%></li>
 								
-								<li>email : <%=Presponse.email%></li>
-								<li>hp : <%=Presponse.hp%></li>
-								<li>fax : <%=Presponse.fax%></li>
-								<li>smssendYN : <%=Presponse.smssendYN%></li>
-								<li>faxsendYN : <%=Presponse.faxsendYN %></li>
-								
-								<li>confirmNum : <%=Presponse.confirmNum%></li>
-								
-								<li>orgConfirmNum : <%=Presponse.orgConfirmNum%></li>
-								<li>orgTradeDate : <%=Presponse.orgTradeDate%></li>
+								<li>email (고객 이메일) : <%=Presponse.email%></li>
+								<li>hp (고객 휴대폰번호) : <%=Presponse.hp%></li>
+								<li>smssendYN (알림문자 전송여부) : <%=Presponse.smssendYN%></li>
+							
+								<li>orgConfirmNum (원본 현금영수증 국세청승인번호) : <%=Presponse.orgConfirmNum%></li>
+								<li>orgTradeDate (원본 현금영수증 거래일자) : <%=Presponse.orgTradeDate%></li>
 							</ul>
 						</fieldset>
 					<%	Else %>

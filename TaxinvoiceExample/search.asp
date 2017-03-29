@@ -25,10 +25,10 @@
 	DType = "W"
 	
 	' [필수] 시작일자, yyyyMMdd
-	SDate = "20161001"
+	SDate = "20170101"
 
 	' [필수] 종료일자, yyyyMMdd
-	EDate = "20161231"
+	EDate = "20170601"
 	
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(2)
@@ -98,12 +98,12 @@
 				%>
 						<legend>세금계산서 목록조회</legend>
 						<ul>
-							<li> code : <%=result.code%></li>
-							<li> total : <%=result.total%></li>
-							<li> pageNum : <%=result.pageNum%></li>
-							<li> perPage : <%=result.perPage%></li>
-							<li> pageCount : <%=result.pageCount%></li>
-							<li> message : <%=result.message%></li>
+							<li> code (응답코드) : <%=result.code%></li>
+							<li> message (응답메시지) : <%=result.message%></li>
+							<li> total (총 검색결과 건수) : <%=result.total%></li>
+							<li> pageNum (페이지 번호) : <%=result.pageNum%></li>
+							<li> perPage (페이지당 목록개수) : <%=result.perPage%></li>
+							<li> pageCount (페이지 개수) : <%=result.pageCount%></li>
 						</ul>
 						<%
 							For i=0 To UBound(result.list) -1

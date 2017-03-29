@@ -20,10 +20,10 @@
 	DType = "T"						
 	
 	'시작일자, yyyyMMdd
-	SDate = "20160901"				
+	SDate = "20170101"				
 
 	'종료일자, yyyyMMdd
-	EDate = "20161131"				
+	EDate = "20170601"				
 
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(3)
@@ -78,41 +78,44 @@
 			<fieldset class="fieldset1">
 				<legend>현금영수증 목록조회</legend>
 					<ul>
-						<li> code : <%=SearchResult.code%></li>
-						<li> total : <%=SearchResult.total%></li>
-						<li> pageNum : <%=SearchResult.pageNum%></li>
-						<li> perPage : <%=SearchResult.perPage%></li>
-						<li> pageCount : <%=SearchResult.pageCount%></li>
-						<li> message : <%=SearchResult.message%></li>
+						<li> code (응답 코드) : <%=SearchResult.code%></li>
+						<li> message (응답 메시지) : <%=SearchResult.message%></li>
+						<li> total (총 검색결과 건수) : <%=SearchResult.total%></li>
+						<li> pageNum (페이지 번호) : <%=SearchResult.pageNum%></li>
+						<li> perPage (페이지당 검색개수) : <%=SearchResult.perPage%></li>
+						<li> pageCount (페이지 개수) : <%=SearchResult.pageCount%></li>
 					</ul>
 					<% If code = 0 Then 
 						For i=0 To UBound(SearchResult.list)-1 %>
 						<fieldset class="fieldset2">
-							<legend> 현금영수증 조회 결과 [<%=i+1%> / <%=UBound(SearchResult.list)%>]</legend>
+							<legend> 현금영수증 조회 결과 [<%= i+1 %> / <%= SearchResult.total %>]</legend>
 							<ul>
-								<li>itemKey : <%=SearchResult.list(i).itemKey%></li>
-								<li>mgtKey : <%=SearchResult.list(i).mgtKey%></li>
-								<li>tradeDate : <%=SearchResult.list(i).tradeDate%></li>
-								<li>issueDT : <%=SearchResult.list(i).issueDT%></li>
-								<li>customerName : <%=SearchResult.list(i).customerName%></li>
-								<li>itemName : <%=SearchResult.list(i).itemName%></li>
-								<li>identityNum : <%=SearchResult.list(i).identityNum%></li>
-								<li>taxactionType : <%=SearchResult.list(i).taxationType%></li>
-								<li>totalAmount : <%=SearchResult.list(i).totalAmount%></li>
-								<li>tradeUsage : <%=SearchResult.list(i).tradeUsage%></li>
-								<li>tradeType : <%=SearchResult.list(i).tradeType%></li>
-								<li>stateCode : <%=SearchResult.list(i).stateCode%></li>
-								<li>stateDT : <%=SearchResult.list(i).stateDT%></li>
+								<li>itemKey (현금영수증 아이템키) : <%=SearchResult.list(i).itemKey%></li>
+								<li>mgtKey (문서관리번호) : <%=SearchResult.list(i).mgtKey%></li>
+								<li>tradeDate (거래일자) : <%=SearchResult.list(i).tradeDate%></li>
+								<li>issueDT (발행일시) : <%=SearchResult.list(i).issueDT%></li>
+								<li>regDT (등록일시) : <%=SearchResult.list(i).regDT%></li>
+
+								<li>taxationType (과세형태) : <%=SearchResult.list(i).taxationType%></li>
+								<li>totalAmount (거래금액) : <%=SearchResult.list(i).totalAmount%></li>
+								<li>tradeUsage (거래용도) : <%=SearchResult.list(i).tradeUsage%></li>
+								<li>tradeType (현금영수증 형태) : <%=SearchResult.list(i).tradeType%></li>
+								<li>stateCode (상태코드) : <%=SearchResult.list(i).stateCode%></li>
+								<li>stateDT (상태변경일시) : <%=SearchResult.list(i).stateDT%></li>
+
+								<li>identityNum (거래처 식별번호) : <%=SearchResult.list(i).identityNum%></li>
+								<li>customerName (고객명) : <%=SearchResult.list(i).customerName%></li>
+								<li>itemName (상품명) : <%=SearchResult.list(i).itemName%></li>
+
+								<li>confirmNum (국세청 승인번호) : <%=SearchResult.list(i).confirmNum%></li>
+								<li>orgConfirmNum (원본 현금영수증 국세청승인번호) : <%=SearchResult.list(i).orgConfirmNum%></li>
+								<li>orgTradeDate (원본 현금영수증 거래일자) : <%=SearchResult.list(i).orgTradeDate%></li>
+								<li>ntssendDT (국세청 전송일시) : <%=SearchResult.list(i).ntssendDT%></li>
+								<li>ntsresultDT (국세청 처리결과 수신일시) : <%=SearchResult.list(i).ntsResultDT%></li>
+								<li>ntsresultCode (국세청 처리결과 상태코드) : <%=SearchResult.list(i).ntsResultCode%></li>
+								<li>ntsresultMessage (국세청 처리결과 메시지) : <%=SearchResult.list(i).ntsResultMessage%></li>
+
 								<li>printYN : <%=SearchResult.list(i).printYN%></li>
-								<li>confirmNum : <%=SearchResult.list(i).confirmNum%></li>
-								<li>orgTradeDate : <%=SearchResult.list(i).orgTradeDate%></li>
-								<li>orgConfirmNum : <%=SearchResult.list(i).orgConfirmNum%></li>
-								<li>ntssendDT : <%=SearchResult.list(i).ntssendDT%></li>
-								<li>ntsPresponse : <%=SearchResult.list(i).ntsResult%></li>
-								<li>ntsPresponseDT : <%=SearchResult.list(i).ntsResultDT%></li>
-								<li>ntsPresponseCode : <%=SearchResult.list(i).ntsResultCode%></li>
-								<li>ntsPresponseMessage : <%=SearchResult.list(i).ntsResultMessage%></li>
-								<li>regDT : <%=SearchResult.list(i).regDT%></li>
 							</ul>
 						</fieldset>
 					<%	Next
