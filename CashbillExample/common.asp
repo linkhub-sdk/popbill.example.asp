@@ -5,7 +5,7 @@
 	' 팝빌 현금영수증 API ASP SDK Example
 	'
 	' - ASP SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/577
-	' - 업데이트 일자 : 2016-11-10
+	' - 업데이트 일자 : 2017-05-24
 	' - 연동 기술지원 연락처 : 1600-8536 / 070-4304-2991~2
 	' - 연동 기술지원 이메일 : dev@linkhub.co.kr
 	'
@@ -22,6 +22,7 @@
 	SecretKey = "SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I="
 
 	set m_CashbillService = new CashbillService
+
 	m_CashbillService.Initialize LinkID, SecretKey
 
 	'연동환경 설정값, 개발용(True), 상업용(False)

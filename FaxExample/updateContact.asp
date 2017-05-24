@@ -16,9 +16,13 @@
 	' 팝빌회원 아이디 
 	UserID = "testkorea"				 
 
+
 	' 담당자 정보 객체 생성
 	Set contInfo = New ContactInfo
 	
+	' 담당자 아이디 
+	contInfo.id = UserID
+
 	' 담당자명
 	contInfo.personName = "ASPTest_1114"
 
