@@ -63,8 +63,8 @@
 					<legend>기타</legend>
 					<ul>
 						<li><a href="getURL.asp">getURL</a> - 팩스 API 관련 URL</li>
-						<li><a href="getUnitCost.asp">getUnitCost</a> 팩스 전송 단가</li>
-						<li><a href="getSenderNumberList.asp">getSenderNumberList</a> 팩스 발신번호 목록 조회</li>
+						<li><a href="getUnitCost.asp">getUnitCost</a> - 팩스 전송 단가</li>
+						<li><a href="getSenderNumberList.asp">getSenderNumberList</a> - 팩스 발신번호 목록 조회</li>
 					</ul>
 				</fieldset>
 			</fieldset>
