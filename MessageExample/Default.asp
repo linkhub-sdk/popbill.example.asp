@@ -32,13 +32,11 @@
 						<li><a href="getCorpInfo.asp">getCorpInfo</a> - 회사정보 확인</li>
 					</ul>
 				</fieldset>
-
 			</fieldset>
-			
 			<br />
 			
 			<fieldset class="fieldset1">
-				<legend>문자메시지 관련 API</legend>
+				<legend>문자 서비스 관련 API</legend>
 				
 				<fieldset class="fieldset2">
 					<legend>단문 문자 전송</legend>
@@ -86,12 +84,12 @@
 				<fieldset class="fieldset2">
 					<legend>기타</legend>
 					<ul>
-						<li><a href="getURL.asp">getURL</a> - 문자메시지 관련 SSO URL 확인</li>
+						<li><a href="getURL.asp">getURL</a> - 문자 API 관련 SSO URL 확인</li>
 						<li><a href="getUnitCost.asp">getUnitCost</a> - 문자메시지 전송 단가 확인</li>
-						<li><a href="getAutoDenyList.asp">getAutoDenyList</a> - 080수신거부 목록 확인</li>
+						<li><a href="getAutoDenyList.asp">getAutoDenyList</a> - 080 수신거부 목록 확인</li>
+						<li><a href="getSenderNumberList.asp">getSenderNumberList</a> - 문자 발신번호 목록 확인</li>
 					</ul>
 				</fieldset>
-
 			</fieldset>
 		 </div>
 	</body>

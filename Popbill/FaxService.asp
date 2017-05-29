@@ -210,7 +210,10 @@ Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Or
 	Set Search = searchResult
 End Function
 
-
+' 발신번호 목록 확인
+Public Function GetSenderNumberList(CorpNum)
+	Set GetSenderNumberList = m_PopbillBase.httpGET("/FAX/SenderNumber", m_PopbillBase.getSession_token(CorpNum), "")
+End Function
 
 End Class
 

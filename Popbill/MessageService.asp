@@ -256,6 +256,11 @@ Public Function GetAutoDenyList(CorpNum)
 	Set GetAutoDenyList = m_PopbillBase.httpGET("/Message/Denied", m_PopbillBase.getSession_token(CorpNum), "")
 End Function
 
+' 발신번호 목록 확인
+Public Function GetSenderNumberList(CorpNum)
+	Set GetSenderNumberList = m_PopbillBase.httpGET("/Message/SenderNumber", m_PopbillBase.getSession_token(CorpNum), "")
+End Function
+
 End Class
 
 Class Messages

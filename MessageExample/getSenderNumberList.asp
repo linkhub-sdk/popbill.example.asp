@@ -7,47 +7,44 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 문자 API 관련 팝업 URL을 반환합니다.
-	' - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+	' 문자 발신번호 목록을 확인합니다.
 	'**************************************************************
 
-	'팝빌 회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"
-
-	'팝빌 회원 아이디
-	userID = "testkorea"
-
-	'BOX(전송내역조회 팝업) / SENDER(발신번호 관리 팝업)
-	TOGO = "SENDER"
-
+	' 팝빌회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"		 
+	
 	On Error Resume Next
 
-	url = m_MessageService.GetURL(testCorpNum, userID, TOGO)
+	Set Presponse = m_MessageService.GetSenderNumberList(testCorpNum)
 
-	If Err.Number <> 0 then
+	If Err.Number <> 0 Then
 		code = Err.Number
 		message = Err.Description
 		Err.Clears
 	End If
-	
-	On Error GoTo 0
 
+	On Error GoTo 0
 %>
 	<body>
 		<div id="content">
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>문자 API 관련 팝업 URL</legend>
+				<legend>문자 발신번호 목록 확인</legend>
+				<%
+					For i=0 To Presponse.length -1
+				%>
+				<fieldset class="fieldset2">
 				<ul>
-					<% If code = 0 Then %>
-						<li>URL : <%=url%> </li>
-					<% Else %>
-						<li>Response.code : <%=code%> </li>
-						<li>Response.message : <%=message%> </li>
-					<% End If %>
+					<li>발신번호 (number) : <%=Presponse.Get(i).number%> </li>
+					<li>대표번호 지정여부 (representYN) : <%=Presponse.Get(i).representYN%> </li>
+					<li>등록상태 (state) : <%=Presponse.Get(i).state%> </li>
 				</ul>
-			</fieldset>
+				</fieldset>
+				<%
+					Next
+				%>
+
 		 </div>
 	</body>
 </html>
