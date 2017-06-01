@@ -92,7 +92,7 @@ Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
 End Function
 
 '팩스 전송
-Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT , UserID )
+Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT , UserID, adsYN )
 	If isNull(receivers) Or IsEmpty(receivers) Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
     If UBound(receivers) < 0 Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
     If isNull(FilePaths) Or IsEmpty(FilePaths) Then Err.Raise -99999999, "POPBILL", "전송할 파일경로가 입력되지 않았습니다."
@@ -103,7 +103,8 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
     
     Form.set "snd", sendNum
     If reserveDT <> "" Then Form.set "sndDT", reserveDT
-    
+  	If adsYN Then Form.Set "adsYN", adsYN  
+
     Form.set "fCnt", UBound(FilePaths) + 1
     
 	Dim tmpArray() : ReDim tmpArray(UBound(receivers))

@@ -13,9 +13,9 @@
 	userID = "testkorea"			
 
 	'발신자 번호
-	sendNum = "07043042991"			
+	sendNum = "07043042992"	
 
-	'전송예약시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	'전송예약시간 yyyyMMddHHmmss,  공백처리시 즉시전송
 	reserveDT = ""	
 	
 	'수신자 정보 
@@ -31,9 +31,12 @@
 	'팩스전송할 파일
 	FilePaths = Array("C:\popbill.example.asp\대한민국헌법.doc")
 
+	'광고팩스 전송여부
+	adsYN = False
+
 	On Error Resume Next
 
-	url = m_FaxService.SendFAX(testCorpNum , sendNum, receivers, FilePaths, reserveDT , userID )
+	url = m_FaxService.SendFAX(testCorpNum , sendNum, receivers, FilePaths, reserveDT , userID, adsYN )
 
 	If Err.Number <> 0 then
 		code = Err.Number

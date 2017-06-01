@@ -18,7 +18,7 @@
 	userID = "testkorea"					
 
 	'팩스 전송시 발급받은 전송번호
-	receiptNum = "016082909435800001" 
+	receiptNum = "017060110521100001" 
  
 	On Error Resume Next
 
