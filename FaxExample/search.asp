@@ -15,10 +15,10 @@
 	testCorpNum = "1234567890"		
 
 	'시작일자, yyyyMMdd
-	SDate = "20161001"					
+	SDate = "20170601"					
 
 	'종료일자, yyyyMMdd
-	EDate = "20161131"					
+	EDate = "20170730"					
 	
 	' 전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -77,22 +77,22 @@
 					<fieldset class="fieldset2">
 							<legend> 팩스 전송결과 [ <%=i+1%> /  <%=UBound(result.list)%> ] </legend>
 							<ul>
-								<li>sendState(전송상태) : <%=result.list(i).sendState%> </li>
-								<li>convState(변환상태) : <%=result.list(i).convState%> </li>
-								<li>sendNum(발신번호) : <%=result.list(i).sendNum%> </li>
-								<li>senderName(발신자명) : <%=result.list(i).senderName%> </li>
-								<li>receiveNum(수신번호) : <%=result.list(i).receiveNum%> </li>
-								<li>receiveName(수신자명) : <%=result.list(i).receiveName%> </li>
-								<li>sendPageCnt(페이지수) : <%=result.list(i).sendPageCnt%></li>
-								<li>successPageCnt(성공 페이지수) : <%=result.list(i).successPageCnt%></li>
-								<li>failPageCnt(실패 페이지수) : <%=result.list(i).failPageCnt%></li>
-								<li>refundPageCnt(환불 페이지수) : <%=result.list(i).refundPageCnt%></li>
-								<li>cancelPageCnt(취소 페이지수) : <%=result.list(i).cancelPageCnt%></li>
-								<li>reserveDT(예약시간) : <%=result.list(i).reserveDT%></li>
-								<li>sendDT(발송시간) : <%=result.list(i).sendDT%></li>
-								<li>sendResult(통신사 처리결과) : <%=result.list(i).sendResult%></li>
-								<li>receiptDT(전송 접수시간) : <%=result.list(i).receiptDT%></li>
-								<li>fileNames(전송파일명 배열) : <%=result.list(i).fileNames%></li>
+								<li>state (전송상태 코드) : <%=result.list(i).state%> </li>
+								<li>result (전송결과 코드) : <%=result.list(i).result%> </li>
+								<li>sendNum (발신번호) : <%=result.list(i).sendNum%> </li>
+								<li>senderName (발신자명) : <%=result.list(i).senderName%> </li>
+								<li>receiveNum (수신번호) : <%=result.list(i).receiveNum%> </li>
+								<li>receiveName (수신자명) : <%=result.list(i).receiveName%> </li>
+								<li>title (팩스 제목) : <%=result.list(i).title %> </li>
+								<li>sendPageCnt (페이지수) : <%=result.list(i).sendPageCnt%></li>
+								<li>successPageCnt (성공 페이지수) : <%=result.list(i).successPageCnt%></li>
+								<li>failPageCnt (실패 페이지수) : <%=result.list(i).failPageCnt%></li>
+								<li>refundPageCnt (환불 페이지수) : <%=result.list(i).refundPageCnt%></li>
+								<li>cancelPageCnt (취소 페이지수) : <%=result.list(i).cancelPageCnt%></li>
+								<li>reserveDT (예약시간) : <%=result.list(i).reserveDT%></li>
+								<li>sendDT (발송시간) : <%=result.list(i).sendDT%></li>
+								<li>receiptDT (전송 접수시간) : <%=result.list(i).receiptDT%></li>
+								<li>fileNames (전송파일명 배열) : <%=result.list(i).fileNames%></li>
 							</ul>
 						</fieldset>
 				<%	

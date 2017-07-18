@@ -34,9 +34,12 @@
 	'광고팩스 전송여부
 	adsYN = False
 
+	'팩스제목
+	title = "팩스 동보전송 제목"
+
 	On Error Resume Next
 
-	url = m_FaxService.SendFAX(testCorpNum, sendNum, receivers, FilePaths, reserveDT, userID, adsYN)
+	url = m_FaxService.SendFAX(testCorpNum, sendNum, receivers, FilePaths, reserveDT, userID, adsYN, title)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -54,7 +57,7 @@
 				<legend>팩스 전송</legend>
 				<ul>
 					<% If code = 0 Then %>
-						<li>recepitNum : <%=url%> </li>
+						<li>recepitNum (접수번호) : <%=url%> </li>
 					<% Else %>
 						<li>Response.code : <%=code%> </li>
 						<li>Response.message : <%=message%> </li>

@@ -602,7 +602,7 @@ Public Sub fromJsonInfo(jsonInfo)
 
 	confirmNum = jsonInfo.confirmNum 
 	orgTradeDate = jsonInfo.orgTradeDate 
-	orgConfirmNum = jsonInfo.orgTradeDate 
+	orgConfirmNum = jsonInfo.orgConfirmNum 
 
 	ntssendDT = jsonInfo.ntssendDT 
 	ntsresult = jsonInfo.ntsresult 

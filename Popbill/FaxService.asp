@@ -92,7 +92,7 @@ Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
 End Function
 
 '팩스 전송
-Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT , UserID, adsYN )
+Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT , UserID, adsYN, title)
 	If isNull(receivers) Or IsEmpty(receivers) Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
     If UBound(receivers) < 0 Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
     If isNull(FilePaths) Or IsEmpty(FilePaths) Then Err.Raise -99999999, "POPBILL", "전송할 파일경로가 입력되지 않았습니다."
@@ -104,6 +104,7 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
     Form.set "snd", sendNum
     If reserveDT <> "" Then Form.set "sndDT", reserveDT
   	If adsYN Then Form.Set "adsYN", adsYN  
+	If title <> "" Then Form.set "title", title
 
     Form.set "fCnt", UBound(FilePaths) + 1
     
@@ -126,7 +127,7 @@ End Function
 
 
 '팩스 재전송
-Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  reserveDT , UserID)
+Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  reserveDT , UserID, title)
     If isNull(receiptNum) Or IsEmpty(receiptNum) Then Err.Raise -99999999, "POPBILL", "팩스 접수번호(receiptNum)가 입력되지 않았습니다."
 
     Set Form = JSON.parse("{}")
@@ -134,6 +135,8 @@ Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  
 	If sendNum <> "" Then Form.set "snd", sendNum
 	If senderName <> "" Then Form.set "sndnm", senderName
     If reserveDT <> "" Then Form.set "sndDT", reserveDT
+
+	If title <> "" Then Form.set "title", title
 
 	If UBound(receivers) >= 0 Then 
 		Dim tmpArray() : ReDim tmpArray(UBound(receivers))
@@ -219,6 +222,11 @@ End Function
 End Class
 
 Class FaxState
+
+Public state
+Public result
+Public title 
+
 Public sendState
 Public convState
 Public sendNum
@@ -239,6 +247,10 @@ Public fileNames
 
 Public Sub fromJsonInfo(jsonInfo)
 	On Error Resume Next
+	state = jsonInfo.state
+	result = jsonInfo.result
+	title = jsonInfo.title
+
 	sendState = jsonInfo.sendState
 	convState = jsonInfo.convState
 	sendNum = jsonInfo.sendNum

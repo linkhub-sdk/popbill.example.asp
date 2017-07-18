@@ -18,7 +18,7 @@
 	userID = "testkorea"					
 
 	'팩스 전송시 발급받은 전송번호
-	receiptNum = "017060110521100001" 
+	receiptNum = "017071717172000001" 
  
 	On Error Resume Next
 
@@ -47,12 +47,13 @@
 					<fieldset class="fieldset2">
 							<legend> 팩스 전송결과 [<%=i+1%>] </legend>
 							<ul>
-								<li>sendState (전송상태) : <%=result.Item(i).sendState%> </li>
-								<li>convState (변환상태) : <%=result.Item(i).convState%> </li>
+								<li>state (전송상태 코드) : <%=result.Item(i).state%> </li>
+								<li>result (전송결과 코드) : <%=result.Item(i).result%> </li>
 								<li>sendNum (발신번호) : <%=result.Item(i).sendNum%> </li>
 								<li>senderName (발신자명) : <%=result.Item(i).senderName%> </li>
 								<li>receiveNum (수신번호) : <%=result.Item(i).receiveNum%> </li>
 								<li>receiveName (수신자명) : <%=result.Item(i).receiveName%> </li>
+								<li>title (팩스 제목) : <%=result.Item(i).title %> </li>
 								<li>sendPageCnt (페이지수) : <%=result.Item(i).sendPageCnt%></li>
 								<li>successPageCnt (성공 페이지수) : <%=result.Item(i).successPageCnt%></li>
 								<li>failPageCnt (실패 페이지수) : <%=result.Item(i).failPageCnt%></li>
@@ -60,7 +61,6 @@
 								<li>cancelPageCnt (취소 페이지수) : <%=result.Item(i).cancelPageCnt%></li>
 								<li>reserveDT (예약시간) : <%=result.Item(i).reserveDT%></li>
 								<li>sendDT (발송시간) : <%=result.Item(i).sendDT%></li>
-								<li>sendResult (통신사 처리결과) : <%=result.Item(i).sendResult%></li>
 								<li>receiptDT (전송 접수시간) : <%=result.Item(i).receiptDT%></li>
 								<li>fileNames (전송파일명 배열) : <%=result.Item(i).fileNames%></li>
 							</ul>

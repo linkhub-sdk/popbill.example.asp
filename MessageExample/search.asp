@@ -15,10 +15,10 @@
 	testCorpNum = "1234567890"		
 
 	'시작일자
-	SDate = "20161001"
+	SDate = "20170601"
 
 	'종료일자
-	EDate = "20170213"					
+	EDate = "20170731"					
 	
 	'전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -82,19 +82,21 @@
 							<legend> 문자메시지 전송결과 [ <%=i+1%> / <%= UBound(resultObj.list)%> ] </legend>
 							<ul>
 								<li>state : <%=resultObj.list(i).state%> </li>
-								<li>resultDT : <%=resultObj.list(i).resultDT%> </li>
-								<li>result : <%=resultObj.list(i).result%> </li>
-								<li>subject : <%=resultObj.list(i).subject%> </li>
-								<li>content : <%=resultObj.list(i).content%> </li>
-								<li>type : <%=resultObj.list(i).msgType%> </li>
-								<li>sendnum: <%=resultObj.list(i).sendnum%> </li>
-								<li>senderName: <%=resultObj.list(i).senderName%> </li>
-								<li>receiveNum : <%=resultObj.list(i).receiveNum%> </li>
-								<li>receiveName : <%=resultObj.list(i).receiveName%> </li>
-								<li>reserveDT : <%=resultObj.list(i).reserveDT%> </li>
-								<li>sendDT : <%=resultObj.list(i).sendDT%> </li>
-								<li>tranNet : <%=resultObj.list(i).tranNet%> </li>
-								<li>receiptDT : <%=resultObj.list(i).receiptDT%> </li>
+
+								<li>state (전송상태 코드) : <%=resultObj.list(i).state%> </li>
+								<li>result (전송결과 코드) : <%=resultObj.list(i).result%> </li>
+								<li>subject (메시지 제목) : <%=resultObj.list(i).subject%> </li>
+								<li>content (메시지 내용) : <%=resultObj.list(i).content%> </li>
+								<li>type (메시지 유형) : <%=resultObj.list(i).msgType%> </li>
+								<li>sendnum (발신번호) : <%=resultObj.list(i).sendnum%> </li>
+								<li>senderName (발신자명) : <%=resultObj.list(i).senderName%> </li>
+								<li>receiveNum (수신번호) : <%=resultObj.list(i).receiveNum%> </li>
+								<li>receiveName (수신자명) : <%=resultObj.list(i).receiveName%> </li>
+								<li>receiptDT (접수일시) : <%=resultObj.list(i).receiptDT%> </li>
+								<li>sendDT (전송일시) : <%=resultObj.list(i).sendDT%> </li>
+								<li>resultDT (전송결과 수신일시) : <%=resultObj.list(i).resultDT%> </li>
+								<li>reserveDT (예약일시) : <%=resultObj.list(i).reserveDT%> </li>
+								<li>tranNet (전송처리 이동통신사명) : <%=resultObj.list(i).tranNet%> </li>
 							</ul>
 						</fieldset>
 

@@ -19,7 +19,7 @@
 	userID = "testkorea"		 
 	
 	'문서관리번호
-	mgtKey = "20161114-01"
+	mgtKey = "20170718-04"
 
 	On Error Resume Next
 

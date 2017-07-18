@@ -33,7 +33,13 @@
     CashbillObj.mgtKey = mgtKey				   
 
     '현금영수증 형태, [승인거래, 취소거래] 중 기재
-    CashbillObj.tradeType = "승인거래"				
+    CashbillObj.tradeType = "승인거래"			
+	
+	'[취소거래시 필수] 원본 현금영수증 국세청승인번호
+	CashbillObj.orgConfirmNum = ""
+
+	'[취소거래시 필수] 원본 현금영수증 거래일자
+	CashbillObj.orgTradeDate = ""
 
 	'발행자 사업자번호, "-" 제외 10자리
 	CashbillObj.franchiseCorpNum = testCorpNum		

@@ -18,15 +18,18 @@
 	userID = "testkorea"			
 	
 	'팩스 접수번호 
-	receiptNum = "017021616254800001"
+	receiptNum = "017071717142000001"
 	
 	'발신자 번호
-	sendNum = "070111222"		
+	sendNum = "07043042991"		
 	
 	sendName = "발신자명9999"
 
 	'전송예약시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
 	reserveDT = ""	
+
+	'팩스제목
+	title = "팩스 동보 재전송"
 	
 	'수신정보가 기존전송정보와 동일한 경우
 	ReDim receivers(-1)
@@ -44,7 +47,7 @@
 	
 	On Error Resume Next
 
-	url = m_FaxService.ResendFAX(testCorpNum, receiptNum, sendNum, sendName, receivers, reserveDT, userID)
+	url = m_FaxService.ResendFAX(testCorpNum, receiptNum, sendNum, sendName, receivers, reserveDT, userID, title)
 
 	If Err.Number <> 0 then
 		code = Err.Number

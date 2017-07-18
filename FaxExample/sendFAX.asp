@@ -23,7 +23,7 @@
 	Set receivers(0) = New FaxReceiver
 
 	'수신번호
-	receivers(0).receiverNum = "070111222"
+	receivers(0).receiverNum = "07043042999"
 
 	'수신자명
 	receivers(0).receiverName = "수신자 명칭"
@@ -31,12 +31,16 @@
 	'팩스전송할 파일
 	FilePaths = Array("C:\popbill.example.asp\대한민국헌법.doc")
 
+
 	'광고팩스 전송여부
 	adsYN = False
 
+	'팩스제목
+	title = "ASP  팩스 전송 테스트"
+
 	On Error Resume Next
 
-	url = m_FaxService.SendFAX(testCorpNum , sendNum, receivers, FilePaths, reserveDT , userID, adsYN )
+	url = m_FaxService.SendFAX(testCorpNum , sendNum, receivers, FilePaths, reserveDT , userID, adsYN, title )
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -54,7 +58,7 @@
 				<legend>팩스 전송</legend>
 				<ul>
 					<% If code = 0 Then %>
-						<li>recepitNum : <%=url%> </li>
+						<li>recepitNum (접수번호) : <%=url%> </li>
 					<% Else %>
 						<li>Response.code : <%=code%> </li>
 						<li>Response.message : <%=message%> </li>

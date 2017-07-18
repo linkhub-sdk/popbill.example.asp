@@ -17,7 +17,7 @@
 	userID = "testkorea"
 
 	'문자 전송시 발급받은 접수번호(ReceiptNum)
-	ReceiptNum = "016082909000000003"
+	ReceiptNum = "017071711000000002"
 	
 	On Error Resume Next
 
@@ -44,20 +44,20 @@
 						<fieldset class="fieldset2">
 							<legend>문자메시지 전송결과 [<%=i+1%>]</legend>
 							<ul>
-								<li>state : <%=result.Item(i).state%> </li>
-								<li>result : <%=result.Item(i).result%> </li>
-								<li>sendDT : <%=result.Item(i).sendDT%> </li>
-								<li>resultDT : <%=result.Item(i).resultDT%> </li>
-								<li>subject : <%=result.Item(i).subject%> </li>
-								<li>content : <%=result.Item(i).content%> </li>
-								<li>type : <%=result.Item(i).msgType%> </li>
-								<li>sendnum: <%=result.Item(i).sendnum%> </li>
-								<li>senderName: <%=result.Item(i).senderName%> </li>
-								<li>receiveNum : <%=result.Item(i).receiveNum%> </li>
-								<li>receiveName : <%=result.Item(i).receiveName%> </li>
-								<li>reserveDT : <%=result.Item(i).reserveDT%> </li>
-								<li>tranNet : <%=result.Item(i).tranNet%> </li>
-								<li>receiptDT : <%=result.Item(i).receiptDT%> </li>
+								<li>state (전송상태 코드) : <%=result.Item(i).state%> </li>
+								<li>result (전송결과 코드) : <%=result.Item(i).result%> </li>
+								<li>subject (메시지 제목) : <%=result.Item(i).subject%> </li>
+								<li>content (메시지 내용) : <%=result.Item(i).content%> </li>
+								<li>type (메시지 유형) : <%=result.Item(i).msgType%> </li>
+								<li>sendnum (발신번호) : <%=result.Item(i).sendnum%> </li>
+								<li>senderName (발신자명) : <%=result.Item(i).senderName%> </li>
+								<li>receiveNum (수신번호) : <%=result.Item(i).receiveNum%> </li>
+								<li>receiveName (수신자명) : <%=result.Item(i).receiveName%> </li>
+								<li>receiptDT (접수일시) : <%=result.Item(i).receiptDT%> </li>
+								<li>sendDT (전송일시) : <%=result.Item(i).sendDT%> </li>
+								<li>resultDT (전송결과 수신일시) : <%=result.Item(i).resultDT%> </li>
+								<li>reserveDT (예약일시) : <%=result.Item(i).reserveDT%> </li>
+								<li>tranNet (전송처리 이동통신사명) : <%=result.Item(i).tranNet%> </li>
 							</ul>
 						</fieldset>
 					<% 
