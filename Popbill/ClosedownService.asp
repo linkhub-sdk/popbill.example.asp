@@ -120,6 +120,7 @@ Public Function CheckCorpNums(MemberCorpNum, CorpNumList)
 
 	Set tmpDic = CreateObject("Scripting.Dictionary")
 
+
 	For i=0 To result.length-1
 		Set stateObj = New CorpState 
 		stateObj.fromJsonInfo result.Get(i)
@@ -136,6 +137,7 @@ Public state
 Public ctype
 Public stateDate
 Public checkDate
+Public typeDate '과세유형 변경일자 추가 2017/08/17
 
 Public Sub fromJsonInfo(jsonInfo)
 	On Error Resume Next
@@ -153,6 +155,9 @@ Public Sub fromJsonInfo(jsonInfo)
 		End If 
 		If Not isEmpty(jsonInfo.checkDate) Then
 			checkDate = jsonInfo.checkDate
+		End If 
+		If Not isEmpty(jsonInfo.typeDate) Then
+			typeDate = jsonInfo.typeDate
 		End If 
 	On Error GoTo 0
 End Sub

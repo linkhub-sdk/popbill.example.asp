@@ -68,6 +68,7 @@
 						<li>휴폐업상태(state) : <%= result.state%></li>
 						<li>사업자유형(type) : <%= result.ctype%></li>	
 						<li>휴폐업일자(stateDate) : <%= result.stateDate%></li>	
+						<li>과세유형 전환일자(typeDate) : <%= result.typeDate%></li>	
 						<li>국세청 확일일자(checkDate) : <%= result.checkDate%></li>	
 					</ul>
 				</fieldset>

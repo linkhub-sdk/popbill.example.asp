@@ -357,6 +357,41 @@ Public Function RegistIssue(CorpNum, ByRef Cashbill, Memo, UserID)
 	Set RegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "ISSUE", postdata, UserID)
 End Function 
 
+
+'취소현금영수증 즉시발행. 2017/08/17 추가
+Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID)
+
+	Set tmp = JSON.parse("{}")
+	tmp.Set "mgtKey", mgtKey
+	tmp.Set "orgConfirmNum", orgConfirmNum
+	tmp.Set "orgTradeDate", orgTradeDate
+	tmp.Set "memo", memo
+	If smssendYN Then
+        tmp.Set "smssendYN", True
+    End If
+
+	postdata = m_PopbillBase.toString(tmp)
+	
+	Set RevokeRegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postdata, UserID)
+End Function 
+
+'취소현금영수증 임시저장. 2017/08/17 추가
+Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, userID)
+
+	Set tmp = JSON.parse("{}")
+	tmp.Set "mgtKey", mgtKey
+	tmp.Set "orgConfirmNum", orgConfirmNum
+	tmp.Set "orgTradeDate", orgTradeDate
+	If smssendYN Then
+        tmp.Set "smssendYN", True
+    End If
+
+	postdata = m_PopbillBase.toString(tmp)
+	
+	Set RevokeRegister = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postdata, UserID)
+End Function 
+
+
 '현금영수증 목록 조회
 Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TaxationType, Order, Page, PerPage, QString)
     If DType = "" Then
