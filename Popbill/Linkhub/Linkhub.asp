@@ -123,6 +123,28 @@ Public Function GetPartnerBalance(BearerToken, serviceID)
 
 End Function
 
+' 파트너 포인트 충전 팝업 URL - 2017/08/29 추가
+Public Function GetPartnerURL(BearerToken, serviceID, TOGO)
+
+    Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
+    Call winhttp1.Open("GET", linkhub_ServiceURL + "/" + serviceID + "/URL?TG=" + TOGO)
+    Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
+    
+    winhttp1.send
+    winhttp1.WaitForResponse
+    result = winhttp1.responseText
+    
+    If winhttp1.Status <> 200 Then
+        Set er = parse(result)
+		Err.raise er.code , "LINKHUB", er.message
+    End If
+    
+    Set winhttp1 = Nothing
+    Set parsedDic = parse(result)
+    GetPartnerURL = parsedDic.url
+
+End Function
+
 public Function toString(object)
 	toString = JSON.Stringify(object)
 End Function

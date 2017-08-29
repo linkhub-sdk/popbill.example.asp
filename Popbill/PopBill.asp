@@ -102,6 +102,12 @@ End Function
 Public Function GetPartnerBalance(CorpNum)
     GetPartnerBalance = m_Linkhub.GetPartnerBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL))
 End Function
+
+'파트너 포인트 충전 URL - 2017/08/29 추가
+Public Function GetPartnerURL(CorpNum, TOGO)
+    GetPartnerURL = m_Linkhub.GetPartnerURL(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), TOGO)
+End Function
+
 '팝빌 기본 URL
 Public Function GetPopbillURL(CorpNum , UserID , TOGO )
 

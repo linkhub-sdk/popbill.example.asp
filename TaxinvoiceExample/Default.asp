@@ -22,8 +22,9 @@
 						<li><a href="joinMember.asp">joinMember</a> - 연동회원 가입 요청</li>
 						<li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
 						<li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
+						<li><a href="getPopbillURL.asp">getPopbillURL</a> - 팝빌 SSO URL 요청 (로그인/포인트충전/공인인증서 등록)</li>
 						<li><a href="getPartnerBalance.asp">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
-						<li><a href="getPopbillURL.asp">getPopbillURL</a> - 팝빌 SSO URL 요청</li>
+						<li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트 충전 URL 확인</li>
 						<li><a href="listContact.asp">listContact</a> - 담당자 목록 조회</li>
 						<li><a href="updateContact.asp">updateContact</a> - 담당자 정보 수정</li>
 						<li><a href="registContact.asp">registContact</a> - 담당자 추가</li>

@@ -29,6 +29,12 @@ End Function
 Public Function GetPopbillURL(CorpNum , UserID , TOGO )
 	GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 End Function
+
+'파트너 포인트 충전 팝업 URL - 2017/08/29 추가
+Public Function GetPartnerURL(CorpNum, TOGO)
+    GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
+End Function
+
 '회원가입 여부
 Public Function CheckIsMember(CorpNum , linkID)
     Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)

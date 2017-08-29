@@ -29,6 +29,12 @@ End Function
 Public Function GetPartnerBalance(CorpNum)
     GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
 End Function
+
+'ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL
+Public Function GetPartnerURL(CorpNum, TOGO)
+    GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
+End Function
+
 'ÆËºô ±âº» URL
 Public Function GetPopbillURL(CorpNum , UserID , TOGO )
 	GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
