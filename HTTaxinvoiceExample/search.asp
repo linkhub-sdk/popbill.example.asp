@@ -16,10 +16,10 @@
 	testCorpNum = "1234567890"	
 
 	'팝빌회원 아이디
-	UserID = "testkorea"
+	UserID = ""
 	
 	'수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
-	JobID = "016111416000000024"
+	JobID = "017082913000000001"
 
 	'문서형태 배열, N-일반 전자세금계산서, M-수정 전자세금계산서 
 	Dim TIType(2) 
@@ -99,6 +99,7 @@
 								<li> issueDate (발행일자) : <%= result.list(i).issueDate %></li>
 								<li> sendDate (전송일자) : <%= result.list(i).sendDate %></li>
 								<li> taxType (과세형태) : <%= result.list(i).taxType %></li>
+								<li> invoiceType (매입/매출) : <%= result.list(i).invoiceType %></li>
 								<li> purposeType (영수/청구) : <%= result.list(i).purposeType %></li>
 								<li> supplyCostTotal (공급가액 합계) : <%= result.list(i).supplyCostTotal %></li>
 								<li> taxTotal (세액 합계) : <%= result.list(i).taxTotal %></li>

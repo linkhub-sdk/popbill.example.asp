@@ -320,6 +320,11 @@ Class HTCashbill
 	Public cardOwnerName
 	Public deductionType
 
+	'매입/매출 구분 추가 - 2017/08/29
+	Public invoiceType
+
+
+
 	Public Sub fromJsonInfo ( jsonInfo )
 		On Error Resume Next
 		ntsconfirmNum = jsonInfo.ntsconfirmNum
@@ -338,6 +343,7 @@ Class HTCashbill
 		customerName = jsonInfo.customerName
 		cardOwnerName = jsonInfo.cardOwnerName
 		deductionType = jsonInfo.deductionType
+		invoiceType = jsonInfo.invoiceType
 		On Error GoTo 0
 	End Sub 
 End class

@@ -563,7 +563,6 @@ Class HTTaxinvoiceAbbr
 	Public taxTotal
 	Public totalAmount
 	Public remark1
-
 	Public modifyYN
 	Public orgNTSConfirmNum
 
@@ -596,6 +595,9 @@ Class HTTaxinvoiceAbbr
 	Public trusteeCEOName
 	Public trusteeEmail
 	
+	'매입/매출 구분 필드 추가 (2017/08/29)
+	Public invoiceType
+	
 	Public Sub fromJsonInfo ( jsonInfo )
 		On Error Resume Next
 		ntsconfirmNum = jsonInfo.ntsconfirmNum
@@ -608,6 +610,7 @@ Class HTTaxinvoiceAbbr
 		taxTotal = jsonInfo.taxTotal
 		totalAmount = jsonInfo.totalAmount
 		remark1 = jsonInfo.remark1
+
 
 		modifyYN = jsonInfo.modifyYN
 		orgNTSConfirmNum = jsonInfo.orgNTSConfirmNUm
@@ -640,6 +643,8 @@ Class HTTaxinvoiceAbbr
 		trusteeCorpName = jsonInfo.trusteeCorpName
 		trusteeCEOName = jsonInfo.trusteeCEOName
 		trusteeEmail = jsonInfo.trusteeEmail
+
+		invoiceType = jsonInfo.invoiceType
 		On Error GoTo 0
 	End Sub 
 

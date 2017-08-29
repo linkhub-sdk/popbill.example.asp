@@ -16,10 +16,10 @@
 	testCorpNum = "1234567890"		
 
 	'팝빌회원 아이디
-	UserID = "testkorea"
+	UserID = ""
 	
 	'수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
-	JobID = "016111417000000002"
+	JobID = "017082913000000002"
 
 	'현금영수증 배열 N-일반현금영수증, C-취소현금영수증
 	Dim TradeType(2) 
@@ -80,6 +80,7 @@
 								<li> tradeDT (거래일시) : <%= result.list(i).tradeDT %></li>
 								<li> tradeUsage (거래유형) : <%= result.list(i).tradeUsage %></li>
 								<li> tradeType (현금영수증 형태) : <%= result.list(i).tradeType %></li>
+								<li> invoiceType (매입/매출) : <%= result.list(i).invoiceType %></li>
 								<li> supplyCost (공급가액) : <%= result.list(i).supplyCost %></li>
 								<li> tax (세액) : <%= result.list(i).tax %></li>
 								<li> serviceFee (봉사료) : <%= result.list(i).serviceFee %></li>
