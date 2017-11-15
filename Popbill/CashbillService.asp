@@ -365,16 +365,24 @@ End Function
 
 
 '취소현금영수증 즉시발행. 2017/08/17 추가
-Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID)
+Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount )
 
 	Set tmp = JSON.parse("{}")
 	tmp.Set "mgtKey", mgtKey
 	tmp.Set "orgConfirmNum", orgConfirmNum
 	tmp.Set "orgTradeDate", orgTradeDate
 	tmp.Set "memo", memo
+	
 	If smssendYN Then
         tmp.Set "smssendYN", True
     End If
+
+	tmp.Set "isPartCancel", isPartCancel
+	tmp.Set "cancelType", cancelType
+	tmp.Set "supplyCost", supplyCost
+	tmp.Set "tax", tax
+	tmp.Set "serviceFee", serviceFee
+	tmp.Set "totalAmount", totalAmount
 
 	postdata = m_PopbillBase.toString(tmp)
 	
@@ -382,7 +390,7 @@ Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, 
 End Function 
 
 '취소현금영수증 임시저장. 2017/08/17 추가
-Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, userID)
+Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, userID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount)
 
 	Set tmp = JSON.parse("{}")
 	tmp.Set "mgtKey", mgtKey
@@ -391,6 +399,12 @@ Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, sms
 	If smssendYN Then
         tmp.Set "smssendYN", True
     End If
+	tmp.Set "isPartCancel", isPartCancel
+	tmp.Set "cancelType", cancelType
+	tmp.Set "supplyCost", supplyCost
+	tmp.Set "tax", tax
+	tmp.Set "serviceFee", serviceFee
+	tmp.Set "totalAmount", totalAmount
 
 	postdata = m_PopbillBase.toString(tmp)
 	
@@ -497,6 +511,7 @@ Public confirmNum
 
 Public orgConfirmNum
 Public orgTradeDate
+Public cancelType
 
 Public Sub fromJsonInfo(jsonInfo)
 	On Error Resume Next
@@ -531,6 +546,8 @@ Public Sub fromJsonInfo(jsonInfo)
 
 	orgConfirmNum = jsonInfo.orgConfirmNum
 	orgTradeDate = jsonInfo.orgTradeDate
+
+	cancelType = jsonInfo.cancelType
 
 	On Error GoTo 0 
 End Sub 
@@ -568,6 +585,7 @@ Public Function toJsonInfo()
 
 	toJsonInfo.Set "orgConfirmNum", orgConfirmNum
 	toJsonInfo.Set "orgTradeDate", orgTradeDate
+	toJsonInfo.Set "cancelType", cancelType
 End Function 
 End Class
 

@@ -55,7 +55,9 @@
 					<legend>취소현금영수증 발행</legend>
 					<ul>
 						<li><a href="revokeRegistIssue.asp">revokeRegistIssue</a> - 취소현금영수증 즉시발행</li>
+						<li><a href="revokeRegistIssue_part.asp">revokeRegistIssue</a> - (부분) 취소현금영수증 즉시발행</li>
 						<li><a href="revokeRegister.asp">revokeRegister</a> - 취소현금영수증 임시저장</li>
+						<li><a href="revokeRegister_part.asp">revokeRegister</a> - (부분) 취소현금영수증 임시저장</li>
 					</ul>
 				</fieldset>				
 
