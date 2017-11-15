@@ -19,7 +19,7 @@
 	userID = "testkorea"		 
 
 	'문서관리번호
-	mgtKey = "20170718-04"       
+	mgtKey = "20171115-01"       
 
 	On Error Resume Next
 
@@ -71,6 +71,7 @@
 							
 								<li>orgConfirmNum (원본 현금영수증 국세청승인번호) : <%=Presponse.orgConfirmNum%></li>
 								<li>orgTradeDate (원본 현금영수증 거래일자) : <%=Presponse.orgTradeDate%></li>
+								<li>cancelType (취소사유) : <%=Presponse.cancelType %></li>
 							</ul>
 						</fieldset>
 					<%	Else %>
