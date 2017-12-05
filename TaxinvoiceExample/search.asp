@@ -25,10 +25,10 @@
 	DType = "W"
 	
 	' [필수] 시작일자, yyyyMMdd
-	SDate = "20170101"
+	SDate = "20171101"
 
 	' [필수] 종료일자, yyyyMMdd
-	EDate = "20170601"
+	EDate = "20171231"
 	
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(2)
@@ -46,6 +46,12 @@
 	TaxType(0) = "T"
 	TaxType(1) = "N"
 	TaxType(2) = "Z"
+
+	' 과세형태 배열, T-과세, N-면세, Z-영세 중 선택 배열
+	Dim IssueType(3)
+	IssueType(0) = "N"
+	IssueType(1) = "R"
+	IssueType(2) = "T"
 
 	' 지연발행여부,  null- 전체조회, False-정상발행분 조회, True-지연발행분 조회
 	LateOnly = null		
@@ -77,7 +83,7 @@
 	On Error Resume Next
 
 	Set result = m_TaxinvoiceService.Search(testCorpNum, KeyType, DType, SDate, EDate, State, _ 
-						TIType, TaxType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, _
+						TIType, TaxType, IssueType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, _
 						TaxRegID, QString, InterOPYN, UsreID)
 
 	If Err.Number <> 0 Then

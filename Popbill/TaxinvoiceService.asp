@@ -556,7 +556,7 @@ Public Function GetEmailPublicKeys(CorpNum)
 End Function
 
 '세금계산서 목록조회
-Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, TaxRegID, QString, InterOPYN, UserID)
+Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, IssueType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, TaxRegID, QString, InterOPYN, UserID)
     If DType = "" Then
         Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
 	End If
@@ -598,6 +598,18 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
 			uri = uri & TaxType(i) & ","
 		End If
 	Next
+
+	If Not IsNull(IssueType) Then 
+		uri = uri & "&IssueType="
+		
+		For i=0 To UBound(IssueType) -1 
+			If i = UBound(IssueType) -1 then
+				uri = uri & IssueType(i)
+			Else
+				uri = uri & IssueType(i) & ","
+			End If
+		Next
+	End if
 
 	If Not IsNull(LateOnly) Then 
 		If LateOnly Then
