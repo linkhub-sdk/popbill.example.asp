@@ -23,6 +23,10 @@ Public Sub Class_Initialize
 	Set m_sha1 = GetObject( "script:" & Request.ServerVariables("APPL_PHYSICAL_PATH") + "Popbill\Linkhub" & "\sha1.wsc" )
 End Sub
 
+Public Sub Class_Terminate
+	m_sha1 = Nothing 
+End Sub 
+
 Public function getTime
 	Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
     Call winhttp1.Open("GET", linkhub_ServiceURL + "/Time")
