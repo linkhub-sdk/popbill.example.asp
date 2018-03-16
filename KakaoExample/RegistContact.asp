@@ -16,7 +16,7 @@
 	' 팝빌회원 아이디 
 	UserID = "testkorea"				 
 
-	' 담당자 정보 객체 생성
+
 	Set contInfo = New ContactInfo
 
 	' 담당자 아이디, 6자이상 20자미만
