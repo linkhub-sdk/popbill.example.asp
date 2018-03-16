@@ -8,17 +8,17 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 검색조건을 사용하여 문자전송내역 목록을 조회합니다.
+	' 검색조건을 사용하여 카카오톡 전송내역 목록을 조회합니다.
 	'**************************************************************
 
 	'팝빌 회원 사업자번호, "-" 제외
 	testCorpNum = "1234567890"		
 
 	'시작일자
-	SDate = "20170601"
+	SDate = "20180101"
 
 	'종료일자
-	EDate = "20170731"					
+	EDate = "20180601"					
 	
 	'전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -29,12 +29,12 @@
 
 	'검색대상 배열, SMS., LMS, MMS
 	Dim Item(3)
-	Item(0) = "SMS"
-	Item(1) = "LMS"
-	Item(2) = "MMS"
+	Item(0) = "ATS"
+	Item(1) = "FTS"
+	Item(2) = "FMS"
 
 	' 예약전송여부
-	ReserveYN = False	
+	ReserveYN = ""	
 
 	' 개인조회여부 
 	SenderYN = False		
@@ -50,8 +50,8 @@
 	
 	On Error Resume Next
 
-	Set resultObj = m_MessageService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage)
-	
+	Set resultObj = m_KakaoService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage)
+
 	If Err.Number <> 0 then
 		code = Err.Number
 		message = Err.Description
@@ -67,36 +67,32 @@
 			<fieldset class="fieldset1">
 				<legend>카카오톡 전송내역 조회 </legend>
 				<ul>
-						<li> code : <%=resultObj.code%></li>
-						<li> total : <%=resultObj.total%></li>
-						<li> pageNum : <%=resultObj.pageNum%></li>
-						<li> perPage : <%=resultObj.perPage%></li>
-						<li> pageCount : <%=resultObj.pageCount%></li>
-						<li> message : <%=resultObj.message%></li>
+						<li> code (응답코드) : <%=resultObj.code%></li>
+						<li> message (응답메시지) : <%=resultObj.message%></li>
+						<li> total (총 검색결과 건수) : <%=resultObj.total%></li>
+						<li> pageNum (페이지 번호) : <%=resultObj.pageNum%></li>
+						<li> pageCount (페이지 개수) : <%=resultObj.pageCount%></li>
+						<li> perPage (페이지당 검색개수) : <%=resultObj.perPage%></li>
 				</ul>
 					<% If code = 0 Then
 						For i=0 To UBound(resultObj.list) -1
 					%>
 
 						<fieldset class="fieldset2">
-							<legend> 문자메시지 전송결과 [ <%=i+1%> / <%= UBound(resultObj.list)%> ] </legend>
+							<legend> 카카오톡 전송결과 [ <%=i+1%> / <%= UBound(resultObj.list)%> ] </legend>
 							<ul>
-								<li>state : <%=resultObj.list(i).state%> </li>
-
 								<li>state (전송상태 코드) : <%=resultObj.list(i).state%> </li>
+								<li>sendDT (전송일시) : <%=resultObj.list(i).sendDT%> </li>
 								<li>result (전송결과 코드) : <%=resultObj.list(i).result%> </li>
-								<li>subject (메시지 제목) : <%=resultObj.list(i).subject%> </li>
-								<li>content (메시지 내용) : <%=resultObj.list(i).content%> </li>
-								<li>type (메시지 유형) : <%=resultObj.list(i).msgType%> </li>
-								<li>sendnum (발신번호) : <%=resultObj.list(i).sendnum%> </li>
-								<li>senderName (발신자명) : <%=resultObj.list(i).senderName%> </li>
+								<li>resultDT (전송결과 수신일시) : <%=resultObj.list(i).resultDT%> </li>
+								<li>contentType (카카오톡 유형) : <%=resultObj.list(i).contentType%> </li>
 								<li>receiveNum (수신번호) : <%=resultObj.list(i).receiveNum%> </li>
 								<li>receiveName (수신자명) : <%=resultObj.list(i).receiveName%> </li>
-								<li>receiptDT (접수일시) : <%=resultObj.list(i).receiptDT%> </li>
-								<li>sendDT (전송일시) : <%=resultObj.list(i).sendDT%> </li>
-								<li>resultDT (전송결과 수신일시) : <%=resultObj.list(i).resultDT%> </li>
-								<li>reserveDT (예약일시) : <%=resultObj.list(i).reserveDT%> </li>
-								<li>tranNet (전송처리 이동통신사명) : <%=resultObj.list(i).tranNet%> </li>
+								<li>content (알림톡/친구톡 내용) : <%=resultObj.list(i).content%> </li>
+								<li>altContentType (대체문자 전송타입) : <%=resultObj.list(i).altContentType%> </li>
+								<li>altSendDT (대체문자 전송일시) : <%=resultObj.list(i).altSendDT%> </li>
+								<li>altResult (대체문자 전송결과 코드) : <%=resultObj.list(i).altResult%> </li>
+								<li>altResultDT (대체문자 전송결과 수신일시) : <%=resultObj.list(i).altResultDT%> </li>
 							</ul>
 						</fieldset>
 

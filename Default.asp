@@ -17,6 +17,7 @@
 						<li><a href="StatementExample">StatementService</a> - 전자명세서 API</li>
 						<li><a href="MessageExample">MessageService</a> - 문자메시지 API</li>
 						<li><a href="FaxExample">FaxService</a> - 팩스 API</li>
+						<li><a href="KakaoExample">KakaoService</a> -  카카오톡 API</li>
 						<li><a href="HTTaxinvoiceExample">HometaxTaxinvoiceService</a>  - 홈택스 전자세금계산서 연계 API</li>
 						<li><a href="HTCashbillExample">HometaxCashbillService</a>  - 홈택스 현금영수증 연계 API</li>
 						<li><a href="ClosedownExample">ClosedownService</a> - 휴폐업조회 API</li>
