@@ -24,7 +24,7 @@ Public Sub Class_Initialize
 End Sub
 
 Public Sub Class_Terminate
-	m_sha1 = Nothing 
+	Set m_sha1 = Nothing 
 End Sub 
 
 Public function getTime
