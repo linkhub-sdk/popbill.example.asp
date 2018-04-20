@@ -41,6 +41,10 @@ Public Sub Class_Initialize
 	
 End Sub
 
+Public Sub Class_Terminate
+	Set m_Linkhub = Nothing 
+End Sub 
+
 Private Property Get m_scope
 	m_scope = Application("LINKHUB_TOKEN_SCOPE_POPBILL")
 End Property
