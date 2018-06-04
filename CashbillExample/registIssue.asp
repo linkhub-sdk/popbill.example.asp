@@ -64,7 +64,7 @@
 	CashbillObj.identityNum = "0101112222"
 
     '거래유형, [소득공제용, 지출증빙용] 중 기재
-	CashbillObj.tradeUsage = "소득공제용"
+	CashbillObj.tradeUsage = "P
     
     '과세형태, [과세, 비과세] 중 기재
 	CashbillObj.taxationType = "과세" 

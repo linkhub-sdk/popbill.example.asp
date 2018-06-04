@@ -23,13 +23,13 @@
 	Set receivers(0) = New FaxReceiver
 
 	'수신번호
-	receivers(0).receiverNum = "07043042999"
+	receivers(0).receiverNum = "070111222"
 
 	'수신자명
 	receivers(0).receiverName = "수신자 명칭"
 
-	'팩스전송할 파일
-	FilePaths = Array("C:\popbill.example.asp\대한민국헌법.doc")
+	'팩스전송할 파일 (최대 20개)
+	FilePaths = Array("C:\popbill.example.asp\대한민국헌법.doc","C:\popbill.example.asp\test.jpg")
 
 
 	'광고팩스 전송여부
