@@ -24,7 +24,7 @@
 
 
 	' 문서관리번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-	mgtKey = "20170718-04"
+	mgtKey = "20180607-01"
 
 	' 메모
 	memo = "즉시발행 메모"
@@ -35,10 +35,10 @@
     CashbillObj.mgtKey = mgtKey
 
     '현금영수증 형태, [승인거래, 취소거래] 중 기재
-    CashbillObj.tradeType = "취소거래"
+    CashbillObj.tradeType = "승인거래"
 
 	'[취소거래시 필수] 원본 현금영수증 국세청승인번호
-	CashbillObj.orgConfirmNum = "820116333"
+	CashbillObj.orgConfirmNum = ""
 
 	'[취소거래시 필수] 원본 현금영수증 거래일자
 	CashbillObj.orgTradeDate = ""
@@ -64,7 +64,7 @@
 	CashbillObj.identityNum = "0101112222"
 
     '거래유형, [소득공제용, 지출증빙용] 중 기재
-	CashbillObj.tradeUsage = "소득공제용""
+	CashbillObj.tradeUsage = "소득공제용"
 
     '과세형태, [과세, 비과세] 중 기재
 	CashbillObj.taxationType = "과세"
