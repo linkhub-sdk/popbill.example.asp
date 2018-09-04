@@ -238,8 +238,43 @@ Public Function httpGET(url , BearerToken , UserID )
 
 End Function
 
-Public Function httpPOST(url , BearerToken , override , postdata ,  UserID )
+
+Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
     
+    Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
+    Call winhttp1.Open("POST", IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL) + url)
+    Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
+    Call winhttp1.setRequestHeader("Content-Type", "Application/json")
+    
+    If BearerToken <> "" Then
+        Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
+    End If
+    
+    If override <> "" Then
+        Call winhttp1.setRequestHeader("X-HTTP-Method-Override", override)
+    End If
+    
+    If UserID <> "" Then
+        Call winhttp1.setRequestHeader("x-pb-userid", UserID)
+    End If
+
+    winhttp1.Send (postdata)
+    winhttp1.WaitForResponse
+    result = winhttp1.responseText
+    
+    If winhttp1.Status <> 200 Then
+        Set winhttp1 = Nothing
+		Set parsedDic = m_Linkhub.parse(result)
+        Err.raise parsedDic.code, "POPBILL", parsedDic.message
+    End If
+    
+    Set winhttp1 = Nothing
+    Set httpPOST = m_Linkhub.parse(result)
+
+End Function
+
+
+Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , UserID, ContentsType)
     Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
     Call winhttp1.Open("POST", IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL) + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
@@ -256,9 +291,13 @@ Public Function httpPOST(url , BearerToken , override , postdata ,  UserID )
     If UserID <> "" Then
         Call winhttp1.setRequestHeader("x-pb-userid", UserID)
     End If
-    
-    Call winhttp1.setRequestHeader("Content-Type", "Application/json")
-    
+
+	If ContentsType <> "" Then
+		Call winhttp1.setRequestHeader("Content-Type", ContentsType)
+    Else
+		Call winhttp1.setRequestHeader("Content-Type", "Application/json")
+	End If
+
     winhttp1.Send (postdata)
     winhttp1.WaitForResponse
     result = winhttp1.responseText
@@ -270,9 +309,10 @@ Public Function httpPOST(url , BearerToken , override , postdata ,  UserID )
     End If
     
     Set winhttp1 = Nothing
-    Set httpPOST = m_Linkhub.parse(result)
-
+    Set httpPOST_ContentsType = m_Linkhub.parse(result)
 End Function
+
+
 
 Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
      
@@ -479,6 +519,7 @@ Class ContactInfo
 	Public fax
 	Public mgrYN
 	Public regDT
+	Public state
 	
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -492,6 +533,7 @@ Class ContactInfo
 		fax = jsonInfo.fax
 		mgrYN = jsonInfo.mgrYN
 		regDT = jsonInfo.regDT
+		State = jsonInfo.state
 
 		On Error GoTo 0
 	End Sub

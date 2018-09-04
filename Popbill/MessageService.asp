@@ -202,6 +202,35 @@ Public Function GetMessages(CorpNum, ReceiptNum, UserID)
 
 End Function 
 
+
+'전송내역 요약정보 확인
+Public Function GetStates(CorpNum, ReceiptNumList, UserID)
+	If IsNull(ReceiptNumList) Then 
+		Err.Raise -99999999, "POPBILL", "접수번호가 입력되지 않았습니다"
+	End If
+
+	Set tmp = JSON.parse("[]")
+
+	For i=0 To UBound(ReceiptNumList) - 1
+		tmp.Set i, ReceiptNumList(i)
+	Next
+
+	postdata = m_PopbillBase.toString(tmp)
+	
+	Set result = m_PopbillBase.httpPost("/Message/States", m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+	
+	Set infoObj = CreateObject("Scripting.Dictionary")
+
+	For i=0 To result.length-1
+		Set infoTmp = New MessageBriefInfo
+		infoTmp.fromJsonInfo result.Get(i)
+		infoObj.Add i, infoTmp
+	Next
+
+	Set GetStates = infoObj
+
+End Function 
+
 '문자전송내역 조회 
 Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage)
 	If SDate = "" Then
@@ -269,71 +298,97 @@ End Function
 
 End Class
 
+
+
 Class Messages
-Public sender
-Public senderName
-Public receiver
-Public receiverName
-Public content
-Public subject
+	Public sender
+	Public senderName
+	Public receiver
+	Public receiverName
+	Public content
+	Public subject
 
-Public Sub setValue(msgList)
-	sender = msgList.sender
-	senderName = msgList.senderName
-	receiver = msgList.receiver
-	receiverName = msgList.receiverName
-	content = msgList.content
-	subject = msgList.subject
-End Sub
+	Public Sub setValue(msgList)
+		sender = msgList.sender
+		senderName = msgList.senderName
+		receiver = msgList.receiver
+		receiverName = msgList.receiverName
+		content = msgList.content
+		subject = msgList.subject
+	End Sub
 
-Public Function toJsonInfo()
-	Set toJsonInfo = JSON.parse("{}")
-	toJsonInfo.set "rcv", receiver
-	If sender <> "" Then  toJsonInfo.set "snd", sender
-	If senderName <> "" Then  toJsonInfo.set "sndnm", senderName
-	If receiverName <> "" Then toJsonInfo.set "rcvnm", receiverName
-	If content <> "" Then toJsonInfo.set "msg", content
-	If subject <> "" Then toJsonInfo.set "sjt", subject
-End Function
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.set "rcv", receiver
+		If sender <> "" Then  toJsonInfo.set "snd", sender
+		If senderName <> "" Then  toJsonInfo.set "sndnm", senderName
+		If receiverName <> "" Then toJsonInfo.set "rcvnm", receiverName
+		If content <> "" Then toJsonInfo.set "msg", content
+		If subject <> "" Then toJsonInfo.set "sjt", subject
+	End Function
 
 End Class
 
-Class MessageInfo
-Public state
-Public result
-Public subject
-Public msgType
-Public content
-Public sendNum
-Public senderName
-Public receiveNum
-Public receiveName
-Public reserveDT
-Public sendDT
-Public resultDT
-Public sendResult
-Public tranNet
-Public receiptDT
 
-Public Sub fromJsonInfo(msgInfo)
-	On Error Resume Next
-	state = msgInfo.state
-	result = msgInfo.result
-	subject = msgInfo.subject
-	msgType = msgInfo.type
-	content = msgInfo.content
-	sendNum = msgInfo.sendNum
-	senderName = msgInfo.senderName
-	receiveNum = msgInfo.receiveNum
-	receiveName = msgInfo.receiveName
-	reserveDT = msgInfo.reserveDT
-	sendDT = msgInfo.sendDT
-	resultDT = msgInfo.resultDT
-	sendResult = msgInfo.sendResult
-	tranNet = msgInfo.tranNet
-	receiptDT = msgInfo.receiptDT
-	On Error GoTo 0
-End Sub
+Class MessageBriefInfo
+	Public sn
+	Public rNum
+	Public stat
+	Public sDT
+	Public rDT
+	Public rlt
+	Public net
+	
+	Public Sub fromJsonInfo(briefInfo)
+		On Error Resume Next
+		sn = briefInfo.sn
+		rNum = briefInfo.rNum
+		stat = briefInfo.stat
+		sDT = briefInfo.sDT
+		rDT = briefInfo.rDT
+		rlt = briefInfo.rlt
+		net = briefInfo.net
+		On Error GoTo 0
+	End Sub
+End Class
+
+
+Class MessageInfo
+	Public state
+	Public result
+	Public subject
+	Public msgType
+	Public content
+	Public sendNum
+	Public senderName
+	Public receiveNum
+	Public receiveName
+	Public reserveDT
+	Public sendDT
+	Public resultDT
+	Public sendResult
+	Public tranNet
+	Public receiptDT
+
+	Public Sub fromJsonInfo(msgInfo)
+		On Error Resume Next
+		state = msgInfo.state
+		result = msgInfo.result
+		subject = msgInfo.subject
+		msgType = msgInfo.type
+		content = msgInfo.content
+		sendNum = msgInfo.sendNum
+		senderName = msgInfo.senderName
+		receiveNum = msgInfo.receiveNum
+		receiveName = msgInfo.receiveName
+		reserveDT = msgInfo.reserveDT
+		sendDT = msgInfo.sendDT
+		resultDT = msgInfo.resultDT
+		sendResult = msgInfo.sendResult
+		tranNet = msgInfo.tranNet
+		receiptDT = msgInfo.receiptDT
+		On Error GoTo 0
+	End Sub
 End Class
 
 

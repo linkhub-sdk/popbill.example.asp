@@ -77,7 +77,8 @@
 					<legend>전송결과/예약취소</legend>
 					<ul>
 						<li><a href="search.asp">search</a> - 문자메시지 전송내역 목록 조회</li>
-						<li><a href="getMessages.asp">getMessages</a> - 접수번호에 해당하는 문자메시지 전송결과 확인</li>
+						<li><a href="getMessages.asp">getMessages</a> - 문자메세지 전송결과 확인</li>
+						<li><a href="getStates.asp">getStates</a> - 문자메세지 전송요약정보 확인</li>
 						<li><a href="cancelReserve.asp">cancelReserve</a> - 예약문자메시지 예약 취소</li>
 					</ul>
 				</fieldset>

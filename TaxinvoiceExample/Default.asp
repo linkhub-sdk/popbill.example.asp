@@ -83,6 +83,7 @@
 						<li><a href="sendFAX.asp">sendFAX</a> - 세금계산서 팩스 전송</li>
 						<li><a href="attachStatement.asp">attachStatement</a> - 전자명세서 첨부</li>
 						<li><a href="detachStatement.asp">detachStatement</a> - 전자명세서 첨부해제</li>
+						<li><a href="assignMgtKey.asp">assignMgtKey</a> - 관리번호 할당 </li>
 					</ul>
 				</fieldset>
 				

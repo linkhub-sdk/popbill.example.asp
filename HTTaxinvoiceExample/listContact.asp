@@ -50,6 +50,7 @@
 										<li> fax : <%=result.Item(i).fax%></li>
 										<li> mgrYN : <%=result.Item(i).mgrYN%></li>
 										<li> regDT : <%=result.Item(i).regDT%></li>
+										<li> state : <%=result.Item(i).state%></li>
 									</ul>
 								</fieldset>
 				<%

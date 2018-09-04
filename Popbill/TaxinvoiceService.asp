@@ -696,6 +696,15 @@ Public Function DetachStatement(CorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey
 									m_PopbillBase.getSession_token(CorpNum), "", postdata, "")
 End Function
 
+
+'문서관리번호 할당
+Public Function AssignMgtKey(CorpNum, MgtKeyType, ItemKey, MgtKey)
+
+	Set AssignMgtKey = m_PopbillBase.httpPOST_ContentsType("/Taxinvoice/" & ItemKey & "/" & MgtKeyType,  _
+								m_PopbillBase.getSession_token(CorpNum), "", "MgtKey="+MgtKey, "", "application/x-www-form-urlencoded; charset=utf-8")
+	
+End Function
+
 End Class
 
 'Taxinvoice Class
