@@ -705,6 +705,46 @@ Public Function AssignMgtKey(CorpNum, MgtKeyType, ItemKey, MgtKey)
 	
 End Function
 
+
+'알림메일 전송목록 조회
+Public Function listEmailConfig(CorpNum, UserID)
+	If CorpNum = "" Or isEmpty(CorpNum) Then 
+		Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
+	End If
+
+	
+
+	Set result = m_PopbillBase.httpGet("/Taxinvoice/EmailSendConfig", m_PopbillBase.getSession_token(CorpNum), UserID)
+	
+	Set tmpDic = CreateObject("Scripting.Dictionary")
+
+	For i=0 To result.length-1
+		Set emailObj = New EmailSendConfig	
+		emailObj.fromJsonInfo result.Get(i)
+		tmpDic.Add i, emailObj
+	Next
+	
+	Set listEmailConfig = tmpDic
+End Function 
+
+'알림메일 전송설정 수정
+Public Function updateEmailConfig(CorpNum, mailType, sendYN, UserID)
+	If CorpNum = "" Or isEmpty(CorpNum) Then 
+		Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
+	End If
+
+	If mailType = "" Or isEmpty(mailType) Then 
+		Err.Raise -99999999, "POPBILL", "메일전송 타입이 입력되지 않았습니다."
+	End If
+
+	If sendYN = "" Or isEmpty(sendYN) Then 
+		Err.Raise -99999999, "POPBILL", "메일전송 여부 항목이 입력되지 않았습니다."
+	End If
+
+	Set updateEmailConfig = m_PopbillBase.httpPOST("/Taxinvoice/EmailSendConfig?EmailType="+mailType+"&SendYN="+sendYN, m_PopbillBase.getSession_token(CorpNum), "", "", UserID)
+End Function
+
+
 End Class
 
 'Taxinvoice Class
@@ -1241,5 +1281,21 @@ Class TISearchResult
 	End Sub
 End Class
 
+Class EmailSendConfig
+	Public emailType
+	Public sendYN
 
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		emailType = jsonInfo.emailType
+		sendYN = jsonInfo.sendYN
+		On Error GoTo 0 
+	End Sub 
+
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.Set "emailType", emailType
+		toJsonInfo.Set "sendYN", sendYN
+	End Function 
+End Class
 %>

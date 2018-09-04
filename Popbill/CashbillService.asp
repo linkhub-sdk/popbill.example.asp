@@ -477,201 +477,237 @@ Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsag
 	Set Search = searchResult
 End Function
 
+'알림메일 전송목록 조회
+Public Function listEmailConfig(CorpNum, UserID)
+	If CorpNum = "" Or isEmpty(CorpNum) Then 
+		Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
+	End If
+
+	Set result = m_PopbillBase.httpGet("/Cashbill/EmailSendConfig", m_PopbillBase.getSession_token(CorpNum), UserID)
+	
+	Set tmpDic = CreateObject("Scripting.Dictionary")
+
+	For i=0 To result.length-1
+		Set emailObj = New EmailSendConfig	
+		emailObj.fromJsonInfo result.Get(i)
+		tmpDic.Add i, emailObj
+	Next
+	
+	Set listEmailConfig = tmpDic
+End Function 
+
+'알림메일 전송설정 수정
+Public Function updateEmailConfig(CorpNum, mailType, sendYN, UserID)
+	If CorpNum = "" Or isEmpty(CorpNum) Then 
+		Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
+	End If
+
+	If mailType = "" Or isEmpty(mailType) Then 
+		Err.Raise -99999999, "POPBILL", "메일전송 타입이 입력되지 않았습니다."
+	End If
+
+	If sendYN = "" Or isEmpty(sendYN) Then 
+		Err.Raise -99999999, "POPBILL", "메일전송 여부 항목이 입력되지 않았습니다."
+	End If
+
+	Set updateEmailConfig = m_PopbillBase.httpPOST("/Cashbill/EmailSendConfig?EmailType="+mailType+"&SendYN="+sendYN, m_PopbillBase.getSession_token(CorpNum), "", "", UserID)
+End Function
+
 End Class
 
 Class Cashbill
-Public mgtKey
-Public tradeDate
-Public tradeUsage
-Public tradeType
-Public taxationType
-Public supplyCost
-Public tax
-Public serviceFee
-Public totalAmount
+	Public mgtKey
+	Public tradeDate
+	Public tradeUsage
+	Public tradeType
+	Public taxationType
+	Public supplyCost
+	Public tax
+	Public serviceFee
+	Public totalAmount
 
-Public franchiseCorpNum
-Public franchiseCorpName
-Public franchiseCEOName
-Public franchiseAddr
-Public franchiseTEL
+	Public franchiseCorpNum
+	Public franchiseCorpName
+	Public franchiseCEOName
+	Public franchiseAddr
+	Public franchiseTEL
 
-Public identityNum
-Public customerName
-Public itemName
-Public orderNumber
+	Public identityNum
+	Public customerName
+	Public itemName
+	Public orderNumber
 
-Public email
-Public hp
-Public fax
-Public smssendYN
-Public faxsendYN
+	Public email
+	Public hp
+	Public fax
+	Public smssendYN
+	Public faxsendYN
 
-Public confirmNum
+	Public confirmNum
 
-Public orgConfirmNum
-Public orgTradeDate
-Public cancelType
+	Public orgConfirmNum
+	Public orgTradeDate
+	Public cancelType
 
-Public Sub fromJsonInfo(jsonInfo)
-	On Error Resume Next
-	mgtKey = jsonInfo.mgtKey
-	tradeDate = jsonInfo.tradeDate
-	tradeUsage = jsonInfo.tradeUsage
-	tradeType = jsonInfo.tradeType
-	taxationType = jsonInfo.taxationType
-	supplyCost = jsonInfo.supplyCost
-	tax = jsonInfo.tax
-	serviceFee = jsonInfo.serviceFee
-	totalAmount = jsonInfo.totalAmount
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		mgtKey = jsonInfo.mgtKey
+		tradeDate = jsonInfo.tradeDate
+		tradeUsage = jsonInfo.tradeUsage
+		tradeType = jsonInfo.tradeType
+		taxationType = jsonInfo.taxationType
+		supplyCost = jsonInfo.supplyCost
+		tax = jsonInfo.tax
+		serviceFee = jsonInfo.serviceFee
+		totalAmount = jsonInfo.totalAmount
 
-	franchiseCorpNum = jsonInfo.franchiseCorpNum
-	franchiseCorpName = jsonInfo.franchiseCorpName
-	franchiseCEOName = jsonInfo.franchiseCEOName
-	franchiseAddr = jsonInfo.franchiseAddr
-	franchiseTEL = jsonInfo.franchiseTEL
+		franchiseCorpNum = jsonInfo.franchiseCorpNum
+		franchiseCorpName = jsonInfo.franchiseCorpName
+		franchiseCEOName = jsonInfo.franchiseCEOName
+		franchiseAddr = jsonInfo.franchiseAddr
+		franchiseTEL = jsonInfo.franchiseTEL
 
-	identityNum = jsonInfo.identityNum
-	customerName = jsonInfo.customerName
-	itemName = jsonInfo.itemName
-	orderNumber = jsonInfo.orderNumber
+		identityNum = jsonInfo.identityNum
+		customerName = jsonInfo.customerName
+		itemName = jsonInfo.itemName
+		orderNumber = jsonInfo.orderNumber
 
-	email = jsonInfo.email
-	hp = jsonInfo.hp
-	fax = jsonInfo.fax
-	smssendYN = jsonInfo.smssendYN
-	faxsendYN = jsonInfo.faxsendYN
+		email = jsonInfo.email
+		hp = jsonInfo.hp
+		fax = jsonInfo.fax
+		smssendYN = jsonInfo.smssendYN
+		faxsendYN = jsonInfo.faxsendYN
 
-	confirmNum = jsonInfo.confirmNum
+		confirmNum = jsonInfo.confirmNum
 
-	orgConfirmNum = jsonInfo.orgConfirmNum
-	orgTradeDate = jsonInfo.orgTradeDate
+		orgConfirmNum = jsonInfo.orgConfirmNum
+		orgTradeDate = jsonInfo.orgTradeDate
 
-	cancelType = jsonInfo.cancelType
+		cancelType = jsonInfo.cancelType
 
-	On Error GoTo 0 
-End Sub 
+		On Error GoTo 0 
+	End Sub 
 
-Public Function toJsonInfo()
-	Set toJsonInfo = JSON.parse("{}")
-	toJsonInfo.Set "mgtKey", mgtKey
-	toJsonInfo.Set "tradeDate", tradeDate
-	toJsonInfo.Set "tradeUsage", tradeUsage
-	toJsonInfo.Set "tradeType", tradeType
-	toJsonInfo.Set "taxationType", taxationType
-	toJsonInfo.Set "supplyCost", supplyCost
-	toJsonInfo.Set "tax", tax
-	toJsonInfo.Set "serviceFee", serviceFee
-	toJsonInfo.Set "totalAmount", totalAmount
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.Set "mgtKey", mgtKey
+		toJsonInfo.Set "tradeDate", tradeDate
+		toJsonInfo.Set "tradeUsage", tradeUsage
+		toJsonInfo.Set "tradeType", tradeType
+		toJsonInfo.Set "taxationType", taxationType
+		toJsonInfo.Set "supplyCost", supplyCost
+		toJsonInfo.Set "tax", tax
+		toJsonInfo.Set "serviceFee", serviceFee
+		toJsonInfo.Set "totalAmount", totalAmount
 
-	toJsonInfo.Set "franchiseCorpNum", franchiseCorpNum
-	toJsonInfo.Set "franchiseCorpName", franchiseCorpName
-	toJsonInfo.Set "franchiseCEOName", franchiseCEOName
-	toJsonInfo.Set "franchiseAddr", franchiseAddr
-	toJsonInfo.Set "franchiseTEL", franchiseTEL
+		toJsonInfo.Set "franchiseCorpNum", franchiseCorpNum
+		toJsonInfo.Set "franchiseCorpName", franchiseCorpName
+		toJsonInfo.Set "franchiseCEOName", franchiseCEOName
+		toJsonInfo.Set "franchiseAddr", franchiseAddr
+		toJsonInfo.Set "franchiseTEL", franchiseTEL
 
-	toJsonInfo.Set "identityNum", identityNum
-	toJsonInfo.Set "customerName", customerName
-	toJsonInfo.Set "itemName", itemName
-	toJsonInfo.Set "orderNumber", orderNumber
+		toJsonInfo.Set "identityNum", identityNum
+		toJsonInfo.Set "customerName", customerName
+		toJsonInfo.Set "itemName", itemName
+		toJsonInfo.Set "orderNumber", orderNumber
 
-	toJsonInfo.Set "email", email
-	toJsonInfo.Set "hp", hp
-	toJsonInfo.Set "fax", fax
-	toJsonInfo.Set "smssendYN", smssendYN
-	toJsonInfo.Set "faxsendYN", faxsendYN
+		toJsonInfo.Set "email", email
+		toJsonInfo.Set "hp", hp
+		toJsonInfo.Set "fax", fax
+		toJsonInfo.Set "smssendYN", smssendYN
+		toJsonInfo.Set "faxsendYN", faxsendYN
 
-	toJsonInfo.Set "confirmNum", confirmNum
+		toJsonInfo.Set "confirmNum", confirmNum
 
-	toJsonInfo.Set "orgConfirmNum", orgConfirmNum
-	toJsonInfo.Set "orgTradeDate", orgTradeDate
-	toJsonInfo.Set "cancelType", cancelType
-End Function 
+		toJsonInfo.Set "orgConfirmNum", orgConfirmNum
+		toJsonInfo.Set "orgTradeDate", orgTradeDate
+		toJsonInfo.Set "cancelType", cancelType
+	End Function 
 End Class
 
 
 Class CashbillLog
-Public docLogType
-Public log
-Public procType
-Public procMemo
-Public procCorpName
-Public regDT
-Public ip
+	Public docLogType
+	Public log
+	Public procType
+	Public procMemo
+	Public procCorpName
+	Public regDT
+	Public ip
 
-Public Sub fromJsonInfo(jsonInfo)
-	On Error Resume Next
-	docLogType = jsonInfo.docLogType
-	log = jsonInfo.log
-	procType = jsonInfo.procType
-	procMemo = jsonInfo.procMemo
-	procCorpName = jsonInfo.procCorpName
-	regDT = jsonInfo.regDT
-	ip = jsonInfo.ip
-	On Error GoTo 0 
-End Sub 
-End Class
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		docLogType = jsonInfo.docLogType
+		log = jsonInfo.log
+		procType = jsonInfo.procType
+		procMemo = jsonInfo.procMemo
+		procCorpName = jsonInfo.procCorpName
+		regDT = jsonInfo.regDT
+		ip = jsonInfo.ip
+		On Error GoTo 0 
+	End Sub 
+	End Class
 
 Class CashbillInfo
-Public itemKey 
-Public mgtKey 
-Public tradeDate 
-Public issueDT 
-Public customerName 
-Public itemName 
-Public identityNum 
-Public taxationType 
+	Public itemKey 
+	Public mgtKey 
+	Public tradeDate 
+	Public issueDT 
+	Public customerName 
+	Public itemName 
+	Public identityNum 
+	Public taxationType 
 
-Public totalAmount 
-Public tradeUsage 
-Public tradeType 
-Public stateCode 
-Public stateDT 
-Public printYN 
+	Public totalAmount 
+	Public tradeUsage 
+	Public tradeType 
+	Public stateCode 
+	Public stateDT 
+	Public printYN 
 
-Public confirmNum 
-Public orgTradeDate 
-Public orgConfirmNum 
+	Public confirmNum 
+	Public orgTradeDate 
+	Public orgConfirmNum 
 
-Public ntssendDT 
-Public ntsresult 
-Public ntsresultDT 
-Public ntsresultCode 
-Public ntsresultMessage 
+	Public ntssendDT 
+	Public ntsresult 
+	Public ntsresultDT 
+	Public ntsresultCode 
+	Public ntsresultMessage 
 
-Public regDT 
+	Public regDT 
 
-Public Sub fromJsonInfo(jsonInfo)
-	On Error Resume Next
-	itemKey = jsonInfo.itemKey 
-	mgtKey = jsonInfo.mgtKey 
-	tradeDate = jsonInfo.mgtKey
-	issueDT = jsonInfo.issueDT
-	customerName = jsonInfo.customerName 
-	itemName = jsonInfo.itemName 
-	identityNum = jsonInfo.identityNum 
-	taxationType = jsonInfo.taxationType 
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		itemKey = jsonInfo.itemKey 
+		mgtKey = jsonInfo.mgtKey 
+		tradeDate = jsonInfo.mgtKey
+		issueDT = jsonInfo.issueDT
+		customerName = jsonInfo.customerName 
+		itemName = jsonInfo.itemName 
+		identityNum = jsonInfo.identityNum 
+		taxationType = jsonInfo.taxationType 
 
-	totalAmount = jsonInfo.totalAmount 
-	tradeUsage = jsonInfo.tradeUsage 
-	tradeType = jsonInfo.tradeType 
-	stateCode = jsonInfo.stateCode
-	stateDT = jsonInfo.stateDT 
-	printYN = jsonInfo.printYN 
+		totalAmount = jsonInfo.totalAmount 
+		tradeUsage = jsonInfo.tradeUsage 
+		tradeType = jsonInfo.tradeType 
+		stateCode = jsonInfo.stateCode
+		stateDT = jsonInfo.stateDT 
+		printYN = jsonInfo.printYN 
 
-	confirmNum = jsonInfo.confirmNum 
-	orgTradeDate = jsonInfo.orgTradeDate 
-	orgConfirmNum = jsonInfo.orgConfirmNum 
+		confirmNum = jsonInfo.confirmNum 
+		orgTradeDate = jsonInfo.orgTradeDate 
+		orgConfirmNum = jsonInfo.orgConfirmNum 
 
-	ntssendDT = jsonInfo.ntssendDT 
-	ntsresult = jsonInfo.ntsresult 
-	ntsresultDT = jsonInfo.ntsresultDT 
-	ntsresultCode = jsonInfo.ntsresultCode 
-	ntsresultMessage = jsonInfo.ntsresultMessage 
+		ntssendDT = jsonInfo.ntssendDT 
+		ntsresult = jsonInfo.ntsresult 
+		ntsresultDT = jsonInfo.ntsresultDT 
+		ntsresultCode = jsonInfo.ntsresultCode 
+		ntsresultMessage = jsonInfo.ntsresultMessage 
 
-	regDT = jsonInfo.regDT
-	On Error GoTo 0
-End Sub
+		regDT = jsonInfo.regDT
+		On Error GoTo 0
+	End Sub
 End Class
 
 Class CBSearchResult
@@ -707,4 +743,23 @@ Class CBSearchResult
 	End Sub
 End Class
 
+
+
+Class EmailSendConfig
+	Public emailType
+	Public sendYN
+
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		emailType = jsonInfo.emailType
+		sendYN = jsonInfo.sendYN
+		On Error GoTo 0 
+	End Sub 
+
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.Set "emailType", emailType
+		toJsonInfo.Set "sendYN", sendYN
+	End Function 
+End Class
 %>
