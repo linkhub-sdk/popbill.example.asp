@@ -140,7 +140,7 @@ Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
 End Function
 
 '알림톡 전송
-Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, UserID)
+Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, requestNum, UserID)
 	If templateCode = "" Or IsNull(templateCode) Then 
 		Err.Raise -99999999, "POPBILL", "알림톡 템플릿 코드(TemplateCode)가 입력되지 않았습니다"
 	End If
@@ -153,6 +153,7 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
     If altContent <> "" Then tmp.Set "altContent", altContent
     If altSendType <> "" Then tmp.Set "altSendType", altSendType
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
+	If requestNum <> "" Then tmp.Set "requestNum", requestNum
 
 	Set msgs = JSON.parse("[]")
 
@@ -172,7 +173,7 @@ End Function
 
 
 '친구톡 텍스트 전송
-Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, UserID)
+Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, requestNum, UserID)
 
 	If plusFriendID = "" Or IsNull(plusFriendID) Then 
 		Err.Raise -99999999, "POPBILL", "친구톡 플러스친구 아이디(plusFriendID)가 입력되지 않았습니다"
@@ -187,6 +188,7 @@ Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSend
     If altSendType <> "" Then tmp.Set "altSendType", altSendType
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
 	If adsYN Then tmp.Set "adsYN", adsYN
+	If requestNum <> "" Then tmp.Set "requestNum", requestNum
 
 	Set msgs = JSON.parse("[]")
 
@@ -216,7 +218,7 @@ End Function
 
 
 '친구톡 이미지 전송
-Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, filePath, imageURL, UserID)
+Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, filePath, imageURL, requestNum, UserID)
 
 	If plusFriendID = "" Or IsNull(plusFriendID) Then 
 		Err.Raise -99999999, "POPBILL", "친구톡 플러스친구 아이디(plusFriendID)가 입력되지 않았습니다"
@@ -232,6 +234,7 @@ Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSend
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
     If imageURL <> "" Then tmp.Set "imgeaURL", imageURL
 	If adsYN Then tmp.Set "adsYN", adsYN
+	If requestNum <> "" Then tmp.Set "requestNum", requestNum
 
 	Set msgs = JSON.parse("[]")
 

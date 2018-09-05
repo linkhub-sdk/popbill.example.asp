@@ -18,12 +18,13 @@
 	userID = "testkorea"			
 	
 	'팩스 접수번호 
-	receiptNum = "017071710020700004"
+	receiptNum = "018090513215700001"
 	
 	'발신자 번호
 	sendNum = "07043042991"
 	
-	sendName = "발신자명9999"
+	'발신자명
+	sendName = "발신자명"
 
 	'전송예약시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
 	reserveDT = ""	
@@ -45,9 +46,13 @@
 	'수신자명
 '	receivers(0).receiverName = "수신자 명칭"
 
+	'전송요청번호 (팝빌 회원별 비중복 번호 할당)
+	'영문,숫자,'-','_' 조합, 최대 36자
+	requestNum = ""		
+
 	On Error Resume Next
 
-	url = m_FaxService.ResendFAX(testCorpNum, receiptNum, sendNum, senderName, receivers, reserveDT , userID, title)
+	url = m_FaxService.ResendFAX(testCorpNum, receiptNum, sendNum, senderName, receivers, reserveDT , userID, title, requestNum)
 
 	If Err.Number <> 0 then
 		code = Err.Number

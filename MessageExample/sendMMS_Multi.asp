@@ -25,7 +25,7 @@
 	For i =0 To 99
 		Set message = New Messages
 		'발신번호
-		message.sender = "07043402991"
+		message.sender = "07043042991"
 
 		'발신자명
 		message.senderName = "발신자명"
@@ -48,9 +48,13 @@
 	'포토메시지 이미지파일, 300Kbyte JPEG 포맷 전송가능
 	FilePaths = Array("C:\popbill.example.asp\test.jpg")
 
+	'전송요청번호 (팝빌 회원별 비중복 번호 할당)
+	'영문,숫자,'-','_' 조합, 최대 36자
+	requestNum = ""	
+
 	On Error Resume Next
 
-	receiptNum = m_MessageService.SendMMS(testCorpNum, "", "", "", msgList, FilePaths, reserveDT, adsYN, userID)
+	receiptNum = m_MessageService.SendMMS(testCorpNum, "", "", "", msgList, FilePaths, reserveDT, adsYN, requestNum, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

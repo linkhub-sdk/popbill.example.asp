@@ -37,9 +37,13 @@
 	'팩스제목
 	title = "팩스 동보전송 제목"
 
+	'전송요청번호 (팝빌 회원별 비중복 번호 할당)
+	'영문,숫자,'-','_' 조합, 최대 36자
+	requestNum = ""		
+
 	On Error Resume Next
 
-	url = m_FaxService.SendFAX(testCorpNum, sendNum, receivers, FilePaths, reserveDT, userID, adsYN, title)
+	url = m_FaxService.SendFAX(testCorpNum, sendNum, receivers, FilePaths, reserveDT, userID, adsYN, title, requestNum)
 
 	If Err.Number <> 0 then
 		code = Err.Number

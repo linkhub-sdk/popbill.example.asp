@@ -16,7 +16,7 @@
 	plusFriendID = "@팝빌"
 
 	'팝빌에 사전 등록된 발신번호
-	senderNum = "07043042993"
+	senderNum = "07043042992"
 
 	'친구톡 내용, 최대 1000자
 	content = "친구톡 메시지 내용입니다"
@@ -69,10 +69,14 @@
 	btnInfo.t = "MD"		
 	btnList.Add 1, btnInfo
 	
+	'전송요청번호 (팝빌 회원별 비중복 번호 할당)
+	'영문,숫자,'-','_' 조합, 최대 36자
+	requestNum = ""	
+
 	On Error Resume Next
 
 	receiptNum = m_KakaoService.SendFMS(testCorpNum, plusFriendID, senderNum, content, _
-		altContent, altSendType, reserveDT, adsYN, receiverList, btnList, filePaths, imageURL, testUserID)
+		altContent, altSendType, reserveDT, adsYN, receiverList, btnList, filePaths, imageURL, requestNum, testUserID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

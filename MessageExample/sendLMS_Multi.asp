@@ -47,10 +47,14 @@
 		msgList.Add i, message
 	
 	Next
-	
+
+	'전송요청번호 (팝빌 회원별 비중복 번호 할당)
+	'영문,숫자,'-','_' 조합, 최대 36자
+	requestNum = ""	
+
 	On Error Resume Next
 
-	receiptNum = m_MessageService.SendLMS(testCorpNum, "", "","", msgList, reserveDT, adsYN, userID)
+	receiptNum = m_MessageService.SendLMS(testCorpNum, "", "","", msgList, reserveDT, adsYN, requestNum, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

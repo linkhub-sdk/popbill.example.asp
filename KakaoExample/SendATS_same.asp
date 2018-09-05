@@ -13,10 +13,10 @@
 	testUserID = "testkorea"					
 
 	'알림톡 템플릿 코드 - 템플릿 목록 조회 (ListATSTemplate API)의 반환항목 확인
-	templateCode = "018020000001"
+	templateCode = "018080000079"
 
 	'팝빌에 사전 등록된 발신번호
-	senderNum = "07043042993"
+	senderNum = "07043042992"
 
 	'알림톡 내용, 최대 1000자
 	content = "[테스트] 테스트 템플릿입니다."
@@ -47,7 +47,11 @@
 	
 	On Error Resume Next
 	
-	receiptNum = m_KakaoService.SendATS(testCorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, testUserID)
+	'전송요청번호 (팝빌 회원별 비중복 번호 할당)
+	'영문,숫자,'-','_' 조합, 최대 36자
+	requestNum = ""	
+
+	receiptNum = m_KakaoService.SendATS(testCorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, requestNum, testUserID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

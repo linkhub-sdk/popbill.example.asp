@@ -7,8 +7,10 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 팩스를 재전송합니다.
-	' - 전송일로 180일이 경과되지 않은 건만 재전송 가능합니다.
+	' 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
+    ' - 전송일로부터 180일이 경과된 경우 재전송할 수 없습니다.
+	' - 팩스 재전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
+	' - 팩스전송 문서 파일포맷 안내 : http://blog.linkhub.co.kr/2561
 	'**************************************************************
 
 	'팝빌 회원 사업자번호, "-" 제외
@@ -17,8 +19,8 @@
 	'팝빌 회원 아이디
 	userID = "testkorea"			
 	
-	'팩스 접수번호 
-	receiptNum = "018090513215700001"
+	'원본 팩스 전송시 할당한 전송요청번호(requestNum)
+	orgRequestNum = "1"
 	
 	'발신자 번호
 	sendNum = "07043042991"		
@@ -33,18 +35,18 @@
 	title = "팩스 동보 재전송"
 	
 	'수신정보가 기존전송정보와 동일한 경우
-	ReDim receivers(-1)
+'	ReDim receivers(-1)
 	
 
 	'수신정보가 기존전송정보 다를 경우 아래 코드 참조	
-'	Dim receivers(1)
-'	Set receivers(0) = New FaxReceiver
-'	receivers(0).receiverNum = "010111222"
-'	receivers(0).receiverName = "수신자 명칭"
+	Dim receivers(1)
+	Set receivers(0) = New FaxReceiver
+	receivers(0).receiverNum = "010111222"
+	receivers(0).receiverName = "수신자 명칭"
 
-'	Set receivers(1) = New FaxReceiver
-'	receivers(1).receiverNum = "000111222"
-'	receivers(1).receiverName = "수신자 명칭"
+	Set receivers(1) = New FaxReceiver
+	receivers(1).receiverNum = "000111222"
+	receivers(1).receiverName = "수신자 명칭"
 	
 	'전송요청번호 (팝빌 회원별 비중복 번호 할당)
 	'영문,숫자,'-','_' 조합, 최대 36자
@@ -52,7 +54,7 @@
 
 	On Error Resume Next
 
-	url = m_FaxService.ResendFAX(testCorpNum, receiptNum, sendNum, sendName, receivers, reserveDT, userID, title, requestNum)
+	url = m_FaxService.ResendFAXRN(testCorpNum, orgRequestNum, sendNum, sendName, receivers, reserveDT, userID, title, requestNum)
 
 	If Err.Number <> 0 then
 		code = Err.Number
