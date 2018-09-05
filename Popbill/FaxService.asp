@@ -97,6 +97,15 @@ Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
     Set CancelReserve = m_PopbillBase.httpGET("/FAX/"&ReceiptNum&"/Cancel", m_PopbillBase.getSession_token(CorpNum),UserID)
 End Function
 
+'예약 전송취소 (요청번호 할당)
+Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
+	If RequestNum = "" Or IsNull(RequestNum) Then 
+		Err.Raise -99999999, "POPBILL", "요청번호가 입력되지 않았습니다"
+	End If
+	
+	Set CancelReserveRN = m_PopbillBase.httpGet("/FAX/Cancel/"&RequestNum, m_PopbillBase.getSession_token(CorpNum), UserID)
+End Function
+
 '팩스 전송
 Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT , UserID, adsYN, title)
 	If isNull(receivers) Or IsEmpty(receivers) Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
@@ -182,6 +191,28 @@ Public Function GetFaxDetail(CorpNum, receiptNum, UserID)
 	Set GetFaxDetail = tmp
 
 End Function 
+
+
+'팩스 전송내역 확인 (요청번호 할당)
+Public Function GetFaxDetailRN(CorpNum, RequestNum, UserID)
+	If RequestNum = "" Or IsNull(RequestNum) Then 
+		Err.Raise -99999999, "POPBILL", "요청번호가 입력되지 않았습니다"
+	End If
+	
+	Set result = m_PopbillBase.httpGet("/FAX/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
+	
+	Set tmp = CreateObject("Scripting.Dictionary")
+
+	For i=0 To result.length-1
+		Set faxInfo = New FaxState
+		faxInfo.fromJsonInfo result.Get(i)
+		tmp.Add i, faxInfo
+	Next
+
+	Set GetFaxDetailRN = tmp
+
+End Function 
+
 
 '팩스 목록 조회
 Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Order, Page, PerPage)

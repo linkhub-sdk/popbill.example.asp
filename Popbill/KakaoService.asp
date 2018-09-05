@@ -130,6 +130,15 @@ Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
 End Function
 
 
+'예약 전송취소 (요청번호 할당)
+Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
+	If RequestNum = "" Or IsNull(RequestNum) Then 
+		Err.Raise -99999999, "POPBILL", "요청번호가 입력되지 않았습니다"
+	End If
+	
+	Set CancelReserveRN = m_PopbillBase.httpGet("/KakaoTalk/Cancel/"&RequestNum, m_PopbillBase.getSession_token(CorpNum), UserID)
+End Function
+
 '알림톡 전송
 Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, UserID)
 	If templateCode = "" Or IsNull(templateCode) Then 
@@ -265,6 +274,22 @@ Public Function GetMessages(CorpNum, ReceiptNum, UserID)
 	resultObj.fromJsonInfo result
 
 	Set GetMessages = resultObj
+End Function 
+
+'카카오톡 전송내역 확인 (요청번호 할당)
+Public Function GetMessagesRN(CorpNum, RequestNum, UserID)
+	If RequestNum = "" Or IsNull(RequestNum) Then 
+		Err.Raise -99999999, "POPBILL", "요청번호가 입력되지 않았습니다"
+	End If
+	
+	Set result = m_PopbillBase.httpGet("/KakaoTalk/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
+	
+	Set resultObj = New KakaoSentResult
+
+	resultObj.fromJsonInfo result
+
+	Set GetMessagesRN = resultObj
+
 End Function 
 
 

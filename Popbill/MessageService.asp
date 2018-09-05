@@ -175,6 +175,15 @@ Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
 	Set CancelReserve = m_PopbillBase.httpGet("/Message/"&ReceiptNum&"/Cancel",m_PopbillBase.getSession_token(CorpNum),UserID)
 End Function
 
+'예약문자 전송취소 (요청번호 할당)
+Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
+	If RequestNum = "" Or IsNull(RequestNum) Then 
+		Err.Raise -99999999, "POPBILL", "요청번호가 입력되지 않았습니다"
+	End If
+	
+	Set CancelReservRN = m_PopbillBase.httpGet("/Message/Cancel/"&RequestNum, m_PopbillBase.getSession_token(CorpNum), UserID)
+End Function
+
 '문자 관련 URL
 Public Function GetURL(CorpNum, UserID, TOGO)
 	Set result = m_PopbillBase.httpGet("/Message/?TG="+TOGO,m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -202,6 +211,26 @@ Public Function GetMessages(CorpNum, ReceiptNum, UserID)
 
 End Function 
 
+
+'문자 전송내역 확인 (요청번호 할당)
+Public Function GetMessagesRN(CorpNum, RequestNum, UserID)
+	If RequestNum = "" Or IsNull(RequestNum) Then 
+		Err.Raise -99999999, "POPBILL", "요청번호가 입력되지 않았습니다"
+	End If
+	
+	Set result = m_PopbillBase.httpGet("/Message/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
+	
+	Set tmp = CreateObject("Scripting.Dictionary")
+
+	For i=0 To result.length-1
+		Set msgInfo = New MessageInfo
+		msgInfo.fromJsonInfo result.Get(i)
+		tmp.Add i, msgInfo
+	Next
+
+	Set GetMessagesRN = tmp
+
+End Function 
 
 '전송내역 요약정보 확인
 Public Function GetStates(CorpNum, ReceiptNumList, UserID)

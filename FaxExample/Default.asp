@@ -46,20 +46,37 @@
 					<ul>
 						<li><a href="sendFAX.asp">sendFAX</a> - 팩스 전송. 1파일 1건 전송</li>
 						<li><a href="sendFAX_MULTI.asp">sendFAX_Multi</a> - 팩스 전송. 1파일 동보 전송(수신번호 최대 1000개)</li>
+
+					</ul>
+				</fieldset>
+				
+				<fieldset class="fieldset2">
+					<legend>팩스전송 목록조회</legend>
+					<ul>
+						<li><a href="search.asp">search</a> - 팩스전송내역 조회</li>
+					</ul>
+				</fieldset>
+
+				<fieldset class="fieldset2">
+					<legend>접수번호 관련 기능(요청번호 미할당)</legend>
+					<ul>
+						<li><a href="getFaxResult.asp">getFaxResult</a> - 팩스전송 결과 확인</li>
+						<li><a href="cancelReserve.asp">cancelReserve</a> - 팩스 예약전송 취소</li>
 						<li><a href="resendFAX.asp">resendFAX</a> - 팩스 재전송</li>
 						<li><a href="resendFAX_MULTI.asp">resendFAX_Multi</a> - 팩스 동보 재전송</li>
 					</ul>
 				</fieldset>
 				
 				<fieldset class="fieldset2">
-					<legend>전송결과/예약취소</legend>
+					<legend>요청번호 할당 전송건 관련 기능</legend>
 					<ul>
-						<li><a href="search.asp">search</a> - 팩스전송내역 조회</li>
-						<li><a href="getFaxResult.asp">getFaxResult</a> - 팩스전송 결과 확인</li>
-						<li><a href="cancelReserve.asp">cancelReserve</a> - 팩스 예약전송 취소</li>
+						<li><a href="getFaxResultRN.asp">getFaxResultRN</a> - 팩스전송 결과 확인</li>
+						<li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 팩스 예약전송 취소</li>
+						<li><a href="resendFAXRN.asp">resendFAXRN</a> - 팩스 재전송</li>
+						<li><a href="resendFAXRN_MULTI.asp">resendFAXRN_Multi</a> - 팩스 동보 재전송</li>
 					</ul>
 				</fieldset>
-				
+
 				<fieldset class="fieldset2">
 					<legend>기타</legend>
 					<ul>
