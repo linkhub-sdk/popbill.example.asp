@@ -85,7 +85,7 @@
 						<li><a href="detachStatement.asp">detachStatement</a> - 전자명세서 첨부해제</li>
 						<li><a href="assignMgtKey.asp">assignMgtKey</a> - 관리번호 할당 </li>
 						<li><a href="listEmailConfig.asp">listEmailConfig</a> - 세금계산서 알림메일 전송목록 조회 </li>
-						<li><a href="updateEmailConfig.asp">updateEmialConfig</a> - 세금계산서 알림메일 전송 설정 수정 </li>
+						<li><a href="updateEmailConfig.asp">updateEmailConfig</a> - 세금계산서 알림메일 전송 설정 수정 </li>
 					</ul>
 				</fieldset>
 				
