@@ -503,8 +503,6 @@ Public Function listEmailConfig(CorpNum, UserID)
 		Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
 	End If
 
-	
-
 	Set result = m_PopbillBase.httpGet("/Statement/EmailSendConfig", m_PopbillBase.getSession_token(CorpNum), UserID)
 	
 	Set tmpDic = CreateObject("Scripting.Dictionary")
