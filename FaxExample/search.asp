@@ -15,10 +15,10 @@
 	testCorpNum = "1234567890"		
 
 	'시작일자, yyyyMMdd
-	SDate = "20170601"					
+	SDate = "20180601"					
 
 	'종료일자, yyyyMMdd
-	EDate = "20170730"					
+	EDate = "20180730"					
 	
 	' 전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
