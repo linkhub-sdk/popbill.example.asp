@@ -48,7 +48,7 @@
 
 	'전송요청번호 (팝빌 회원별 비중복 번호 할당)
 	'영문,숫자,'-','_' 조합, 최대 36자
-	requestNum = ""	
+	requestNum = "1"	
 
 	On Error Resume Next
 

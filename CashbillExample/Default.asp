@@ -97,7 +97,7 @@
 					<ul>
 						<li><a href="getUnitCost.asp">getUnitCost</a> - 현금영수증 발행단가 확인</li>
 						<li><a href="listEmailConfig.asp">listEmailConfig</a> - 현금영수증 알림메일 전송목록 조회 </li>
-						<li><a href="updateEmailConfig.asp">updateEmialConfig</a> - 현금영수증 알림메일 전송 설정 수정 </li>
+						<li><a href="updateEmailConfig.asp">updateEmailConfig</a> - 현금영수증 알림메일 전송 설정 수정 </li>
 					</ul>
 				</fieldset>
 			</fieldset>

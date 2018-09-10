@@ -699,6 +699,17 @@ End Function
 
 '문서관리번호 할당
 Public Function AssignMgtKey(CorpNum, MgtKeyType, ItemKey, MgtKey)
+	If ItemKey = "" Or isEmpty(ItemKey) Then 
+		Err.Raise -99999999, "POPBILL", "아이템키가 입력되지 않았습니다."
+	End If
+	
+	If MgtKeyType = "" Or isEmpty(MgtKeyType) Then 
+		Err.Raise -99999999, "POPBILL", "세금계산서 발행유형 입력되지 않았습니다"
+	End If
+
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+    End If
 
 	Set AssignMgtKey = m_PopbillBase.httpPOST_ContentsType("/Taxinvoice/" & ItemKey & "/" & MgtKeyType,  _
 								m_PopbillBase.getSession_token(CorpNum), "", "MgtKey="+MgtKey, "", "application/x-www-form-urlencoded; charset=utf-8")
