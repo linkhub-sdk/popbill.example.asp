@@ -707,7 +707,7 @@ Public Function AssignMgtKey(CorpNum, MgtKeyType, ItemKey, MgtKey)
 		Err.Raise -99999999, "POPBILL", "세금계산서 발행유형 입력되지 않았습니다"
 	End If
 
-    If MgtKey = "" Then
+    If MgtKey = "" Or isEmpty(MgtKey) Then
         Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
     End If
 
