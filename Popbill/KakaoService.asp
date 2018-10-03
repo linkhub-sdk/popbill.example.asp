@@ -297,7 +297,7 @@ End Function
 
 
 '카카오톡 전송내역 목록 조회 
-Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage)
+Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
 	If SDate = "" Then
         Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
 	End If
@@ -339,6 +339,7 @@ Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, 
 	uri = uri & "&Order=" & Order
 	uri = uri & "&Page=" & CStr(Page)
 	uri = uri & "&PerPage=" & CStr(PerPage)
+	uri = uri & "&QString=" & QString
 	
 	Set searchResult = New KakaoSearchResult
 	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
@@ -369,6 +370,8 @@ Class KakaoSentDetail
 	Public altSendDT
 	Public altResult
 	Public altResultDT
+	Public requestNum
+	Public receiptNum
 
 	Public Sub fromJsonInfo(detailInfo)
 		On Error Resume Next
@@ -385,6 +388,8 @@ Class KakaoSentDetail
 			altSendDT = detailInfo.altSendDT
 			altResult = detailInfo.altResult
 			altResultDT = detailInfo.altResultDT
+			requestNum = detailInfo.requestNum
+			receiptNum = detailInfo.receiptNum
 		on Error GoTo 0 
 	End Sub
 End Class  ' end of KakaoSentDetail Class

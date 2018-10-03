@@ -9,21 +9,22 @@
 <%
 	'**************************************************************
 	' 검색조건을 사용하여 카카오톡 전송내역 목록을 조회합니다.
+	' - 최대 검색기간 : 6개월 이내
 	'**************************************************************
 
 	'팝빌 회원 사업자번호, "-" 제외
 	testCorpNum = "1234567890"		
 
 	'시작일자
-	SDate = "20180101"
+	SDate = "20180910"
 
 	'종료일자
-	EDate = "20180601"					
+	EDate = "20181002"					
 	
 	'전송상태값 배열, 0-대기, 1-전송중, 2-성공, 3-대체, 4-실패, 5-취소
 	Dim State(6)
 	State(0) = "0"
-	State(1) = "2"
+	State(1) = "1"
 	State(2) = "2"
 	State(3) = "3"
 	State(4) = "4"
@@ -47,12 +48,16 @@
 	' 페이지 번호 
 	Page = 1					
 
-	' 페이지당 검색개수 
 	PerPage = 30			
-	
+
+	'조회 검색어.
+	'카카오톡 전송시 입력한 발신자명 또는 수신자명 기재.
+	'조회 검색어를 포함한 발신자명 또는 수신자명을 검색합니다.
+	QString = ""
+
 	On Error Resume Next
 
-	Set resultObj = m_KakaoService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage)
+	Set resultObj = m_KakaoService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -95,6 +100,8 @@
 								<li>altSendDT (대체문자 전송일시) : <%=resultObj.list(i).altSendDT%> </li>
 								<li>altResult (대체문자 전송결과 코드) : <%=resultObj.list(i).altResult%> </li>
 								<li>altResultDT (대체문자 전송결과 수신일시) : <%=resultObj.list(i).altResultDT%> </li>
+								<li>receiptNum (접수번호) : <%=resultObj.list(i).receiptNum%> </li>
+								<li>requestNum (요청번호) : <%=resultObj.list(i).requestNum%> </li>
 							</ul>
 						</fieldset>
 

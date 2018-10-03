@@ -93,6 +93,8 @@
 								<li>altSendDT (대체문자 전송일시) : <%=result.msgs(i).altSendDT%> </li>
 								<li>altResult (대체문자 전송결과 코드) : <%=result.msgs(i).altResult%> </li>
 								<li>altResultDT (대체문자 전송결과 수신일시) : <%=result.msgs(i).altResultDT%> </li>
+								<li>receiptNum (접수번호) : <%=result.msgs(i).receiptNum%> </li>
+								<li>requestNum (요청번호) : <%=result.msgs(i).requestNum%> </li>
 							</ul>
 						</fieldset>
 					<% 
