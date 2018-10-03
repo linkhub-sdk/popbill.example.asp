@@ -753,6 +753,17 @@ Public Function updateEmailConfig(CorpNum, mailType, sendYN, UserID)
 	Set updateEmailConfig = m_PopbillBase.httpPOST("/Taxinvoice/EmailSendConfig?EmailType="+mailType+"&SendYN="+sendYN, m_PopbillBase.getSession_token(CorpNum), "", "", UserID)
 End Function
 
+'공인인증 유효성 확인
+Public Function checkCertValidation(CorpNum, UserID)
+	If CorpNum = "" Or isEmpty(CorpNum) Then 
+		Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
+	End If
+
+    Set checkCertValidation = m_PopbillBase.httpGET("/Taxinvoice/CertCheck", _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+
+End Function
+
 
 End Class
 

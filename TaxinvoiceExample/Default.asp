@@ -106,6 +106,7 @@
 					<ul>
 						<li><a href="getUnitCost.asp">getUnitCost</a> - 세금계산서 발행단가 확인</li>
 						<li><a href="getCertificateExpireDate.asp">getCertificateExpireDate</a> - 공인인증서 만료일시 확인</li>
+						<li><a href="checkCertValidation.asp">checkCertValidation</a> - 공인인증서 유효성 확인</li>
 						<li><a href="getEmailPublicKeys.asp">getEmailPublicKeys</a> - 대용량 연계사업자 이메일 목록 확인</li>
 					</ul>
 				</fieldset>
