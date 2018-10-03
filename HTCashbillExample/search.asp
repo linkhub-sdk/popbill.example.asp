@@ -13,13 +13,13 @@
 	'**************************************************************
 
 	'팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"		
+	testCorpNum = "6798700433"		
 
 	'팝빌회원 아이디
 	UserID = ""
 	
 	'수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
-	JobID = "017082913000000002"
+	JobID = "018100317000000001"
 
 	'현금영수증 배열 N-일반현금영수증, C-취소현금영수증
 	Dim TradeType(2) 
@@ -77,20 +77,19 @@
 						<legend>ListActiveJob [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
 							<ul>										
 								<li> ntsconfirmNum (국세청승인번호) : <%= result.list(i).ntsconfirmNum %></li>
+								<li> tradeDT (거래일자) : <%= result.list(i).tradeDT %></li>
 								<li> tradeDT (거래일시) : <%= result.list(i).tradeDT %></li>
-								<li> tradeUsage (거래유형) : <%= result.list(i).tradeUsage %></li>
-								<li> tradeType (현금영수증 형태) : <%= result.list(i).tradeType %></li>
-								<li> invoiceType (매입/매출) : <%= result.list(i).invoiceType %></li>
-								<li> supplyCost (공급가액) : <%= result.list(i).supplyCost %></li>
-								<li> tax (세액) : <%= result.list(i).tax %></li>
-								<li> serviceFee (봉사료) : <%= result.list(i).serviceFee %></li>
+								<li> tradeType (문서형태) : <%= result.list(i).tradeType %></li>
+								<li> tradeUsage (거래구분) : <%= result.list(i).tradeUsage %></li>
 								<li> totalAmount (거래금액) : <%= result.list(i).totalAmount %></li>
-
+								<li> supplyCost (공급가액) : <%= result.list(i).supplyCost %></li>
+								<li> tax (부가세) : <%= result.list(i).tax %></li>
+								<li> serviceFee (봉사료) : <%= result.list(i).serviceFee %></li>
+								<li> invoiceType (매입/매출) : <%= result.list(i).invoiceType %></li>
 								<li> franchiseCorpNum (발행자 사업자번호) : <%= result.list(i).franchiseCorpNum %></li>
 								<li> franchiseCorpName (발행자 상호) : <%= result.list(i).franchiseCorpName %></li>
 								<li> franchiseCorpType (발행자 사업자유형) : <%= result.list(i).franchiseCorpType %></li>
-
-								<li> identityNum (거래처 식별번호) : <%= result.list(i).identityNum %></li>
+								<li> identityNum (식별번호) : <%= result.list(i).identityNum %></li>
 								<li> identityNumType (식별번호유형) : <%= result.list(i).identityNumType %></li>
 								<li> customerName (고객명) : <%= result.list(i).customerName %></li>
 								<li> cardOwnerName (카드소유자명) : <%= result.list(i).cardOwnerName %></li>

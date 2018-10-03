@@ -304,6 +304,7 @@ End Class
 
 Class HTCashbill
 	Public ntsconfirmNum
+	Public tradeData
 	Public tradeDT
 	Public tradeUsage
 	Public tradeType
@@ -328,6 +329,7 @@ Class HTCashbill
 	Public Sub fromJsonInfo ( jsonInfo )
 		On Error Resume Next
 		ntsconfirmNum = jsonInfo.ntsconfirmNum
+		tradeDate = jsonInfo.tradeDate
 		tradeDT = jsonInfo.tradeDT
 		tradeUsage = jsonInfo.tradeUsage
 		tradeType = jsonInfo.tradeType
