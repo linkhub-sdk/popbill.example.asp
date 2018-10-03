@@ -59,6 +59,7 @@
 						<li><a href="summary.asp">summary</a> - 수집 결과 요약정보 조회</li>
 						<li><a href="getTaxinvoice.asp">getTaxinvoice</a> - 상세정보 확인</li>
 						<li><a href="getXML.asp">getXML</a> - 상세정보 확인 (XML)</li>
+						<li><a href="getPopUpURL.asp">getPopUpURL</a> - 홈택스 전자세금계산서 보기 팝업 URL</li>
 					</ul>
 				</fieldset>
 				

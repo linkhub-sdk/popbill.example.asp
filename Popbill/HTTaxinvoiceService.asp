@@ -285,6 +285,18 @@ Class HTTaxinvoiceService
 		GetCertificateExpireDate = result.certificateExpiration
 	End Function 
 
+	'홈택스 전자세금계산서 보기 팝업 URL
+	Public Function GetPopUpURL ( CorpNum, NTSConfirmNum, UserID )
+		If Not ( Len ( NTSConfirmNum ) = 24 ) Then
+			Err.Raise -99999999, "POPBILL", "국세청승인번호가 올바르지 않습니다."
+		End If
+		
+		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNum & "/PopUp", _
+								m_PopbillBase.getSession_token(CorpNum), UserID)
+
+		GetPopUpURL = result.url
+	End Function
+
 
 ''End Of Class HTTaxinvoiceService
 End Class
