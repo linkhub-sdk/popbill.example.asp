@@ -19,7 +19,7 @@
 	userID = "testkorea"					
 
 	'팩스전송 요청시 할당한 전송요청번호
-	requestNum = "20180905112858" 
+	requestNum = "20180928140835" 
  
 	On Error Resume Next
 
@@ -64,6 +64,11 @@
 								<li>sendDT (발송시간) : <%=result.Item(i).sendDT%></li>
 								<li>receiptDT (전송 접수시간) : <%=result.Item(i).receiptDT%></li>
 								<li>fileNames (전송파일명 배열) : <%=result.Item(i).fileNames%></li>
+								<li>receiptNum (접수번호) : <%=result.Item(i).receiptNum%> </li>
+								<li>requestNum (요청번호) : <%=result.Item(i).requestNum%> </li>
+								<li>chargePageCnt (과금 페이지수) : <%=result.Item(i).chargePageCnt%> </li>
+								<li>tiffFileSize (변환파일용량 (단위 : byte)) : <%=result.Item(i).tiffFileSize%> </li>							
+							</ul>
 							</ul>
 						</fieldset>
 				<%	

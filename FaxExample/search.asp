@@ -9,16 +9,17 @@
 <%
 	'**************************************************************
 	' 검색조건을 사용하여 팩스전송 내역을 조회합니다.
+	' - 최대 검색기간 : 6개월 이내
 	'**************************************************************
 
 	'팝빌 회원 사업자번호, "-" 제외
 	testCorpNum = "1234567890"		
 
 	'시작일자, yyyyMMdd
-	SDate = "20180601"					
+	SDate = "20180920"					
 
 	'종료일자, yyyyMMdd
-	EDate = "20180730"					
+	EDate = "20181002"					
 	
 	' 전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -42,9 +43,14 @@
 	'페이지당 검색개수
 	PerPage = 20
 	
+	'조회 검색어.
+	'팩스 전송시 입력한 발신자명 또는 수신자명 기재.
+	'조회 검색어를 포함한 발신자명 또는 수신자명을 검색합니다.
+	QString = ""
+
 	On Error Resume Next
 
-	Set result = m_FaxService.Search(testCorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Order, Page, PerPage)
+	Set result = m_FaxService.Search(testCorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Order, Page, PerPage, QString)
 	
 	If Err.Number <> 0 Then
 		code = Err.Number
@@ -93,6 +99,10 @@
 								<li>sendDT (발송시간) : <%=result.list(i).sendDT%></li>
 								<li>receiptDT (전송 접수시간) : <%=result.list(i).receiptDT%></li>
 								<li>fileNames (전송파일명 배열) : <%=result.list(i).fileNames%></li>
+								<li>receiptNum (접수번호) : <%=result.list(i).receiptNum%> </li>
+								<li>requestNum (요청번호) : <%=result.list(i).requestNum%> </li>
+								<li>chargePageCnt (과금 페이지수) : <%=result.list(i).chargePageCnt%> </li>
+								<li>tiffFileSize (변환파일용량 (단위 : byte)) : <%=result.list(i).tiffFileSize%> </li>
 							</ul>
 						</fieldset>
 				<%	

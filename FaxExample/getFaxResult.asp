@@ -18,7 +18,7 @@
 	userID = "testkorea"					
 
 	'팩스 전송시 발급받은 전송번호
-	receiptNum = "017071717172000001" 
+	receiptNum = "018092811205600001" 
  
 	On Error Resume Next
 
@@ -63,6 +63,10 @@
 								<li>sendDT (발송시간) : <%=result.Item(i).sendDT%></li>
 								<li>receiptDT (전송 접수시간) : <%=result.Item(i).receiptDT%></li>
 								<li>fileNames (전송파일명 배열) : <%=result.Item(i).fileNames%></li>
+								<li>receiptNum (접수번호) : <%=result.Item(i).receiptNum%> </li>
+								<li>requestNum (요청번호) : <%=result.Item(i).requestNum%> </li>
+								<li>chargePageCnt (과금 페이지수) : <%=result.Item(i).chargePageCnt%> </li>
+								<li>tiffFileSize (변환파일용량 (단위 : byte)) : <%=result.Item(i).tiffFileSize%> </li>							
 							</ul>
 						</fieldset>
 				<%	

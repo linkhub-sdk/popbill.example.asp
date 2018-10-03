@@ -247,7 +247,7 @@ End Function
 
 
 '팩스 목록 조회
-Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Order, Page, PerPage)
+Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Order, Page, PerPage, QString)
 	If SDate = "" Then
         Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
 	End If
@@ -274,6 +274,7 @@ Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Or
 	uri = uri & "&Order=" & Order
 	uri = uri & "&Page=" & CStr(Page)
 	uri = uri & "&PerPage=" & CStr(PerPage)
+	uri = uri & "&QString=" & QString
 	
 	Set searchResult = New FAXSearchResult
 	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
@@ -295,7 +296,6 @@ Class FaxState
 Public state
 Public result
 Public title 
-
 Public sendState
 Public convState
 Public sendNum
@@ -313,6 +313,10 @@ Public resultDT
 Public sendResult
 Public receiptDT
 Public fileNames
+Public requestNum
+Public receiptNum
+Public chargePageCnt
+Public tiffFileSize
 
 Public Sub fromJsonInfo(jsonInfo)
 	On Error Resume Next
@@ -338,6 +342,10 @@ Public Sub fromJsonInfo(jsonInfo)
 	sendResult = jsonInfo.sendResult
 	receiptDT = jsonInfo.receiptDT
 	fileNames = jsonInfo.fileNames
+	requestNum = jsonInfo.requestNum
+	receiptNum = jsonInfo.receiptNum
+	chargePageCnt = jsonInfo.chargePageCnt
+	tiffFileSize = jsonInfo.tiffFileSize
 
 	On Error GoTo 0
 End Sub
