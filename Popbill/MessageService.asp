@@ -264,7 +264,7 @@ Public Function GetStates(CorpNum, ReceiptNumList, UserID)
 End Function 
 
 '문자전송내역 조회 
-Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage)
+Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
 	If SDate = "" Then
         Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
 	End If
@@ -309,7 +309,9 @@ Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, 
 	uri = uri & "&Order=" & Order
 	uri = uri & "&Page=" & CStr(Page)
 	uri = uri & "&PerPage=" & CStr(PerPage)
-	
+	uri = uri & "&QString=" & QString
+
+
 	Set searchResult = New MSGSearchResult
 	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
 
@@ -370,6 +372,7 @@ Class MessageBriefInfo
 	Public rDT
 	Public rlt
 	Public net
+	Public srt
 	
 	Public Sub fromJsonInfo(briefInfo)
 		On Error Resume Next
@@ -380,6 +383,7 @@ Class MessageBriefInfo
 		rDT = briefInfo.rDT
 		rlt = briefInfo.rlt
 		net = briefInfo.net
+		srt = briefInfo.srt
 		On Error GoTo 0
 	End Sub
 End Class
@@ -401,6 +405,8 @@ Class MessageInfo
 	Public sendResult
 	Public tranNet
 	Public receiptDT
+	Public requestNum
+	Public receiptNum
 
 	Public Sub fromJsonInfo(msgInfo)
 		On Error Resume Next
@@ -419,6 +425,8 @@ Class MessageInfo
 		sendResult = msgInfo.sendResult
 		tranNet = msgInfo.tranNet
 		receiptDT = msgInfo.receiptDT
+		requestNum = msgInfo.requestNum
+		receiptNum = msgInfo.receiptNum
 		On Error GoTo 0
 	End Sub
 End Class

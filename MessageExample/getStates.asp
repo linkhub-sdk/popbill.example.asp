@@ -53,6 +53,7 @@
 								<li>sDT (전송일시) : <%=result.Item(i).sDT%> </li>
 								<li>rDT (결과코드 수신일시) : <%=result.Item(i).rDT%> </li>
 								<li>net (전송 이동통신사명) : <%=result.Item(i).net%> </li>
+								<li>srt (구 전송결과 코드) : <%=result.Item(i).srt%> </li>
 							</ul>
 						</fieldset>
 					<% 

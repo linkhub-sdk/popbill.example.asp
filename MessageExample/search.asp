@@ -9,16 +9,17 @@
 <%
 	'**************************************************************
 	' 검색조건을 사용하여 문자전송내역 목록을 조회합니다.
+	' - 최대 검색기간 : 6개월 이내
 	'**************************************************************
 
 	'팝빌 회원 사업자번호, "-" 제외
 	testCorpNum = "1234567890"		
 
 	'시작일자
-	SDate = "20180601"
+	SDate = "20180910"
 
 	'종료일자
-	EDate = "20180731"					
+	EDate = "20181002"					
 	
 	'전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -48,9 +49,14 @@
 	' 페이지당 검색개수 
 	PerPage = 30			
 	
+	'조회 검색어.
+	'문자 전송시 입력한 발신자명 또는 수신자명 기재.
+	'조회 검색어를 포함한 발신자명 또는 수신자명을 검색합니다.
+	QString = ""
+	
 	On Error Resume Next
 
-	Set resultObj = m_MessageService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage)
+	Set resultObj = m_MessageService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
 	
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -65,7 +71,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>카카오톡 전송내역 조회 </legend>
+				<legend>문자메세지 전송내역 조회 </legend>
 				<ul>
 						<li> code : <%=resultObj.code%></li>
 						<li> total : <%=resultObj.total%></li>
@@ -97,6 +103,8 @@
 								<li>resultDT (전송결과 수신일시) : <%=resultObj.list(i).resultDT%> </li>
 								<li>reserveDT (예약일시) : <%=resultObj.list(i).reserveDT%> </li>
 								<li>tranNet (전송처리 이동통신사명) : <%=resultObj.list(i).tranNet%> </li>
+								<li>receiptNum (접수번호) : <%=resultObj.list(i).receiptNum%> </li>
+								<li>requestNum (요청번호) : <%=resultObj.list(i).requestNum%> </li>
 							</ul>
 						</fieldset>
 
