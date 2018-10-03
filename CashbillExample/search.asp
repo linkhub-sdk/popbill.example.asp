@@ -20,10 +20,10 @@
 	DType = "T"						
 	
 	'시작일자, yyyyMMdd
-	SDate = "20170601"				
+	SDate = "20180901"				
 
 	'종료일자, yyyyMMdd
-	EDate = "20170731"				
+	EDate = "20181030"				
 
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(3)
@@ -31,15 +31,21 @@
 	State(1) = "3**"
 	State(2) = "4**"
 	
-	'현금영수증 형태, N-일반현금영수증, C-취소현금영수증
+	'문서형태, N-일반현금영수증, C-취소현금영수증
 	Dim TradeType(2)			
 	TradeType(0) = "N"
 	TradeType(1) = "C"
 
-	'거래용도 배열, P-소득공제용, C-지출증빙용
+	'거래구분, P-소득공제용, C-지출증빙용
 	Dim TradeUsage(2)		
 	TradeUsage(0) = "P"
 	TradeUsage(1) = "C"
+
+	'거래유형, N-일반, B-도서공연, T-대중교통
+	Dim TradeOpt(3)		
+	TradeOpt(0) = "N"
+	TradeOpt(1) = "B"
+	TradeOpt(2) = "T"
 
 	'과세형태 배열, T-과세,  N-비과세
 	Dim TaxationType(2)		
@@ -61,7 +67,7 @@
 
 	On Error Resume Next
 	
-	Set SearchResult = m_CashbillService.Search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TaxationType, Order, Page, PerPage, QString)
+	Set SearchResult = m_CashbillService.Search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt, TaxationType, Order, Page, PerPage, QString)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -91,31 +97,29 @@
 							<legend> 현금영수증 조회 결과 [<%= i+1 %> / <%= SearchResult.total %>]</legend>
 							<ul>
 								<li>itemKey (현금영수증 아이템키) : <%=SearchResult.list(i).itemKey%></li>
+								<li>confirmNum (국세청 승인번호) : <%=SearchResult.list(i).confirmNum%></li>
 								<li>mgtKey (문서관리번호) : <%=SearchResult.list(i).mgtKey%></li>
 								<li>tradeDate (거래일자) : <%=SearchResult.list(i).tradeDate%></li>
 								<li>issueDT (발행일시) : <%=SearchResult.list(i).issueDT%></li>
 								<li>regDT (등록일시) : <%=SearchResult.list(i).regDT%></li>
-
 								<li>taxationType (과세형태) : <%=SearchResult.list(i).taxationType%></li>
 								<li>totalAmount (거래금액) : <%=SearchResult.list(i).totalAmount%></li>
-								<li>tradeUsage (거래용도) : <%=SearchResult.list(i).tradeUsage%></li>
-								<li>tradeType (현금영수증 형태) : <%=SearchResult.list(i).tradeType%></li>
+								<li>tradeUsage (거래구분) : <%=SearchResult.list(i).tradeUsage%></li>
+								<li>tradeOpt (거래유형) : <%=SearchResult.list(i).tradeOpt%></li>
+								<li>tradeType (문서형태) : <%=SearchResult.list(i).tradeType%></li>
 								<li>stateCode (상태코드) : <%=SearchResult.list(i).stateCode%></li>
 								<li>stateDT (상태변경일시) : <%=SearchResult.list(i).stateDT%></li>
-
+								<li>stateMemo (상태메모) : <%=SearchResult.list(i).stateMemo%></li>
 								<li>identityNum (거래처 식별번호) : <%=SearchResult.list(i).identityNum%></li>
-								<li>customerName (고객명) : <%=SearchResult.list(i).customerName%></li>
 								<li>itemName (상품명) : <%=SearchResult.list(i).itemName%></li>
-
-								<li>confirmNum (국세청 승인번호) : <%=SearchResult.list(i).confirmNum%></li>
-								<li>orgConfirmNum (원본 현금영수증 국세청승인번호) : <%=SearchResult.list(i).orgConfirmNum%></li>
-								<li>orgTradeDate (원본 현금영수증 거래일자) : <%=SearchResult.list(i).orgTradeDate%></li>
+								<li>customerName (고객명) : <%=SearchResult.list(i).customerName%></li>
 								<li>ntssendDT (국세청 전송일시) : <%=SearchResult.list(i).ntssendDT%></li>
 								<li>ntsresultDT (국세청 처리결과 수신일시) : <%=SearchResult.list(i).ntsResultDT%></li>
 								<li>ntsresultCode (국세청 처리결과 상태코드) : <%=SearchResult.list(i).ntsResultCode%></li>
 								<li>ntsresultMessage (국세청 처리결과 메시지) : <%=SearchResult.list(i).ntsResultMessage%></li>
-
-								<li>printYN : <%=SearchResult.list(i).printYN%></li>
+								<li>orgConfirmNum (원본 현금영수증 국세청승인번호) : <%=SearchResult.list(i).orgConfirmNum%></li>
+								<li>orgTradeDate (원본 현금영수증 거래일자) : <%=SearchResult.list(i).orgTradeDate%></li>
+								<li>printYN (인쇄여부) : <%=SearchResult.list(i).printYN%></li>
 							</ul>
 						</fieldset>
 					<%	Next

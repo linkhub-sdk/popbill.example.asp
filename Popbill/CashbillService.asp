@@ -413,7 +413,7 @@ End Function
 
 
 '현금영수증 목록 조회
-Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TaxationType, Order, Page, PerPage, QString)
+Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt, TaxationType, Order, Page, PerPage, QString)
     If DType = "" Then
         Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
 	End If
@@ -453,6 +453,15 @@ Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsag
 			uri = uri & TradeUsage(i)
 		Else
 			uri = uri & TradeUsage(i) & ","
+		End If
+	Next
+
+	uri = uri & "&TradeOpt="
+	For i=0 To UBound(TradeOpt) -1	
+		If i = UBound(TradeOpt) -1 then
+			uri = uri & TradeOpt(i)
+		Else
+			uri = uri & TradeOpt(i) & ","
 		End If
 	Next
 
@@ -520,6 +529,7 @@ Class Cashbill
 	Public tradeDate
 	Public tradeUsage
 	Public tradeType
+	Public tradeOpt
 	Public taxationType
 	Public supplyCost
 	Public tax
@@ -554,6 +564,7 @@ Class Cashbill
 		mgtKey = jsonInfo.mgtKey
 		tradeDate = jsonInfo.tradeDate
 		tradeUsage = jsonInfo.tradeUsage
+		tradeOpt = jsonInfo.tradeOpt
 		tradeType = jsonInfo.tradeType
 		taxationType = jsonInfo.taxationType
 		supplyCost = jsonInfo.supplyCost
@@ -593,6 +604,7 @@ Class Cashbill
 		toJsonInfo.Set "mgtKey", mgtKey
 		toJsonInfo.Set "tradeDate", tradeDate
 		toJsonInfo.Set "tradeUsage", tradeUsage
+		toJsonInfo.Set "tradeOpt", tradeOpt	
 		toJsonInfo.Set "tradeType", tradeType
 		toJsonInfo.Set "taxationType", taxationType
 		toJsonInfo.Set "supplyCost", supplyCost
@@ -657,11 +669,13 @@ Class CashbillInfo
 	Public itemName 
 	Public identityNum 
 	Public taxationType 
+	Public tradeOpt
 
 	Public totalAmount 
 	Public tradeUsage 
 	Public tradeType 
 	Public stateCode 
+	Public stateMemo
 	Public stateDT 
 	Public printYN 
 
@@ -687,11 +701,13 @@ Class CashbillInfo
 		itemName = jsonInfo.itemName 
 		identityNum = jsonInfo.identityNum 
 		taxationType = jsonInfo.taxationType 
+		tradeOpt = jsonInfo.tradeOpt
 
 		totalAmount = jsonInfo.totalAmount 
 		tradeUsage = jsonInfo.tradeUsage 
 		tradeType = jsonInfo.tradeType 
 		stateCode = jsonInfo.stateCode
+		stateMemo = jsonInfo.stateMemo
 		stateDT = jsonInfo.stateDT 
 		printYN = jsonInfo.printYN 
 
