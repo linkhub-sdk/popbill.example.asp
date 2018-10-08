@@ -695,7 +695,7 @@ Class CashbillInfo
 		On Error Resume Next
 		itemKey = jsonInfo.itemKey 
 		mgtKey = jsonInfo.mgtKey 
-		tradeDate = jsonInfo.mgtKey
+		tradeDate = jsonInfo.tradeDate
 		issueDT = jsonInfo.issueDT
 		customerName = jsonInfo.customerName 
 		itemName = jsonInfo.itemName 

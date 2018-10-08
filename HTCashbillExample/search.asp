@@ -13,13 +13,13 @@
 	'**************************************************************
 
 	'팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "6798700433"		
+	testCorpNum = "1234567890"		
 
 	'팝빌회원 아이디
 	UserID = ""
 	
 	'수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
-	JobID = "018100317000000001"
+	JobID = "018100815000000002"
 
 	'현금영수증 배열 N-일반현금영수증, C-취소현금영수증
 	Dim TradeType(2) 
@@ -77,7 +77,7 @@
 						<legend>ListActiveJob [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
 							<ul>										
 								<li> ntsconfirmNum (국세청승인번호) : <%= result.list(i).ntsconfirmNum %></li>
-								<li> tradeDT (거래일자) : <%= result.list(i).tradeDT %></li>
+								<li> tradeDate (거래일자) : <%= result.list(i).tradeDate %></li>
 								<li> tradeDT (거래일시) : <%= result.list(i).tradeDT %></li>
 								<li> tradeType (문서형태) : <%= result.list(i).tradeType %></li>
 								<li> tradeUsage (거래구분) : <%= result.list(i).tradeUsage %></li>

@@ -222,6 +222,48 @@ Class HTCashbillService
 		GetCertificateExpireDate = result.certificateExpiration
 	End Function 
 
+	'홈택스 공인인증서 로그인 테스트
+	Public Function CheckCertValidation ( CorpNum, UserID )
+		Set CheckCertValidation = m_PopbillBase.httpGET("/HomeTax/Cashbill/CertCheck", m_PopbillBase.getSession_token(CorpNum), UserID)
+	End Function
+
+
+
+	'부서사용자 계정등록
+	Public Function RegistDeptUser ( CorpNum, DeptUserID, DeptUserPWD, UserID )
+		If DeptUserID = "" Then
+			Err.Raise -99999999, "POPBILL", "홈택스 부서사용자 계정 아이디가 입력되지 않았습니다."
+		End If
+		If DeptUserPWD = "" Then
+			Err.Raise -99999999, "POPBILL", "홈택스 부서사용자 계정 비밀번호가 입력되지 않았습니다."
+		End If
+
+		Set tmp = JSON.parse("{}")
+		tmp.Set "id", DeptUserID
+		tmp.Set "pwd", DeptUserPWD
+		
+		postdata = m_PopbillBase.toString(tmp)
+
+		Set RegistDeptUser = m_PopbillBase.httpPOST("/HomeTax/Cashbill/DeptUser", m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
+	End Function
+
+	'부서사용자 등록정보 확인
+	Public Function CheckDeptUser ( CorpNum, UserID )
+		Set CheckDeptUser = m_PopbillBase.httpGET("/HomeTax/Cashbill/DeptUser", m_PopbillBase.getSession_token(CorpNum), UserID)
+	End Function
+
+
+	'부서사용자 로그인 테스트
+	Public Function CheckLoginDeptUser ( CorpNum, UserID )
+		Set CheckLoginDeptUser = m_PopbillBase.httpGET("/HomeTax/Cashbill/DeptUser/Check", m_PopbillBase.getSession_token(CorpNum), UserID)
+	End Function
+
+	'부서사용자 등록정보 삭제
+	Public Function DeleteDeptUser ( CorpNum, UserID )
+		Set DeleteDeptUser = m_PopbillBase.httpPOST("/HomeTax/Cashbill/DeptUser", m_PopbillBase.getSession_token(CorpNum),"DELETE", "", UserID)
+	End Function
+
+
 'End Of Class HTCashbillService
 End Class
 
@@ -304,7 +346,7 @@ End Class
 
 Class HTCashbill
 	Public ntsconfirmNum
-	Public tradeData
+	Public tradeDate
 	Public tradeDT
 	Public tradeUsage
 	Public tradeType

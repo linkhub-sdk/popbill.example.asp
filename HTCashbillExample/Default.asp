@@ -65,10 +65,23 @@
 					<ul>
 						<li><a href="getFlatRatePopUpURL.asp">getFlatRatePopUpURL</a> - 정액제 서비스 신청 URL</li>
 						<li><a href="getFlatRateState.asp">getFlatRateState</a> - 정액제 서비스 상태 확인</li>
+					</ul>
+				</fieldset>		
+				
+
+				<fieldset class="fieldset2">
+					<legend>홈택스 인증관련 기능</legend>
+					<ul>
 						<li><a href="getCertificatePopUpURL.asp">getCertificatePopUpURL</a> - 홈택스연동 인증관리 팝업 URL</li>
 						<li><a href="getCertificateExpireDate.asp">getCertificateExpireDate</a> - 홈택스연동 공인인증서 만료일자 확인</li>
+						<li><a href="checkCertValidation.asp">checkCertValidation</a> - 홈택스 공인인증서 로그인 테스트</li>
+						<li><a href="registDeptUser.asp">registDeptUser</a> - 홈택스 현금영수증 부서사용자 계정등록</li>
+						<li><a href="checkDeptUser.asp">checkDeptUser</a> - 홈택스 부서사용자 등록정보 확인</li>
+						<li><a href="checkLoginDeptUser.asp">checkLoginDeptUser</a> - 홈택스 부서사용자 로그인 테스트</li>
+						<li><a href="deleteDeptUser.asp">deleteDeptUser</a> - 홈택스 부서사용자 등록정보 삭제</li>
 					</ul>
-				</fieldset>				
+				</fieldset>
+
 			</fieldset>
 		 </div>
 	</body>
