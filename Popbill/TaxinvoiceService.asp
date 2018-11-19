@@ -39,6 +39,17 @@ End Function
 Public Function GetPopbillURL(CorpNum , UserID , TOGO )
 	GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 End Function
+
+'팝빌 로그인 URL
+Public Function GetAccessURL(CorpNum , UserID)
+    GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
+End Function
+
+'팝빌 연동회원 포인트 충전 URL
+Public Function GetChargeURL(CorpNum , UserID)
+    GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
+End Function
+
 '회원가입 여부
 Public Function CheckIsMember(CorpNum , linkID)
     Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
@@ -310,9 +321,6 @@ Public Function CancelRequest(CorpNum, KeyType, MgtKey, Memo, UserID)
 End Function
 
 
-
-
-
 '세금계산서 상태/요약 정보 다량(최대1000건) 확인
 Public Function GetInfos(CorpNum, KeyType, MgtKeyList, UserID)
     If isEmpty(MgtKeyList) Then
@@ -457,7 +465,21 @@ Public Function GetURL(CorpNum, UserID, TOGO)
 	GetURL = result.url
 End Function
 
-'세금계산서 보기 팝업 URL
+'팝빌 인감 및 첨부문서 등록  URL확인
+Public Function GetSealURL(CorpNum, UserID)
+	Set result = m_PopbillBase.httpGET("/?TG=SEAL", _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetSealURL = result.url
+End Function
+
+'세금계산서 URL확인
+Public Function GetTaxCertURL(CorpNum, UserID)
+	Set result = m_PopbillBase.httpGET("/?TG=CERT", _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetTaxCertURL = result.url
+End Function
+
+'공인인증서 등록 팝업 URL
 Public Function GetPopupURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
         Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."

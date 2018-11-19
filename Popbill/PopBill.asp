@@ -102,6 +102,7 @@ End Function
 Public Function GetBalance(CorpNum)
     GetBalance = m_Linkhub.GetBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL))
 End Function
+
 '파트너 잔액조회
 Public Function GetPartnerBalance(CorpNum)
     GetPartnerBalance = m_Linkhub.GetPartnerBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL))
@@ -113,22 +114,35 @@ Public Function GetPartnerURL(CorpNum, TOGO)
 End Function
 
 '팝빌 기본 URL
-Public Function GetPopbillURL(CorpNum , UserID , TOGO )
+Public Function GetPopbillURL(CorpNum , UserID , TOGO)
 
     Set result = httpGET("/?TG=" + TOGO, getSession_token(CorpNum), UserID)
     GetPopbillURL = result.url
 End Function
+
+'팝빌 로그인 URL
+Public Function GetAccessURL(CorpNum , UserID)
+
+    Set result = httpGET("/?TG=LOGIN", getSession_token(CorpNum), UserID)
+    GetAccessURL = result.url
+End Function
+
+'팝빌 연동회원 포인트 충전 URL
+Public Function GetChargeURL(CorpNum , UserID)
+
+    Set result = httpGET("/?TG=CHRG", getSession_token(CorpNum), UserID)
+    GetChargeURL = result.url
+End Function
+
+
 '회원가입 여부
 Public Function CheckIsMember(CorpNum , linkID)
-    
     Set CheckIsMember = httpGET("/Join?CorpNum=" + CorpNum + "&LID=" + linkID, "","")
-
 End Function
+
 '회원가입
 Public Function JoinMember(JoinInfo)
-   
     Set tmp = JSON.parse("{}")
-    
     tmp.set "LinkID", JoinInfo.linkID
     tmp.set "CorpNum", JoinInfo.CorpNum
     tmp.set "CorpName", JoinInfo.CorpName
@@ -144,21 +158,15 @@ Public Function JoinMember(JoinInfo)
     tmp.set "ContactTEL", JoinInfo.ContactTEL
     tmp.set "ID", JoinInfo.ID
     tmp.set "PWD", JoinInfo.PWD
-    
     postdata = m_Linkhub.toString(tmp)
-   
     Set JoinMember = httpPOST("/Join", "", "", postdata, "")
-
-
 End Function
 
 ' 담당자 목록조회
 Public Function ListContact(CorpNum, UserID)
-
 	Set result = httpGET("/IDs",getSession_token(CorpNum), UserID)
 
 	Set infoObj = CreateObject("Scripting.Dictionary")
-
 	For i = 0 To result.length - 1
 		Set contInfo = New ContactInfo
 		contInfo.fromJsonInfo result.Get(i)

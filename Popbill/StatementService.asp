@@ -40,6 +40,15 @@ End Function
 Public Function GetPopbillURL(CorpNum , UserID , TOGO )
 	GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 End Function
+'팝빌 로그인 URL
+Public Function GetAccessURL(CorpNum , UserID)
+    GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
+End Function
+
+'팝빌 연동회원 포인트 충전 URL
+Public Function GetChargeURL(CorpNum , UserID)
+    GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
+End Function
 '회원가입 여부
 Public Function CheckIsMember(CorpNum , linkID)
     Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)

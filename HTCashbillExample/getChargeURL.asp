@@ -7,29 +7,26 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 팝빌 관련 팝업 URL을 반환합니다.
+	' 팝빌 연동회원 포인트 충전 URL을 반환합니다.
 	' - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
 	'**************************************************************
 
-	'팝빌회원 사업자번호, "-" 제외 10자리
+	' 팝빌회원 사업자번호, "-" 제외
 	testCorpNum = "1234567890"	 
 
-	'팝빌회원 아이디
-	userID = "testkorea"		 
-
-	'LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 
-	TOGO = "LOGIN"				 
+	' 팝빌회원 아이디
+	userID = "testkorea"
 
 	On Error Resume Next
 
-	url = m_ClosedownService.GetPopbillURL(testCorpNum, userID, TOGO)
-	
+	url = m_HTCashbillService.GetChargeURL(testCorpNum, userID)
+
 	If Err.Number <> 0 then
 		code = Err.Number
 		message =  Err.Description
 		Err.Clears
 	End If
-	
+
 	On Error GoTo 0
 %>
 	<body>
@@ -37,7 +34,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>팝빌 SSO URL 요청</legend>
+				<legend>팝빌 연동회원 포인트 충전 팝업 URL</legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li>URL : <%=CStr(url)%> </li>

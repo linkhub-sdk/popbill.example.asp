@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 플러스친구 계정관리 팝업 URL을 반환합니다.
+	' 카카오톡 전송내역 팝업 URL을 반환합니다.
 	' - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
 	'**************************************************************
 
@@ -17,12 +17,9 @@
 	'팝빌 회원 아이디
 	userID = "testkorea"
 
-	'PLUSFRIEND(플러스친구 계정관리)
-	TOGO = "PLUSFRIEND"
-
 	On Error Resume Next
 
-	url = m_KakaoService.GetURL(testCorpNum, userID, TOGO)
+	url = m_KakaoService.GetSentListURL(testCorpNum, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -38,7 +35,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>플러스친구 계정관리 팝업 URL</legend>
+				<legend>카카오톡 전송내역 팝업 URL</legend>
 				<ul>
 					<% If code = 0 Then %>
 						<li>URL : <%=url%> </li>

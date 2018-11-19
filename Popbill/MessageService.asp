@@ -31,7 +31,15 @@ End Function
 Public Function GetPopbillURL(CorpNum , UserID , TOGO)
 	GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 End Function
+'팝빌 로그인 URL
+Public Function GetAccessURL(CorpNum , UserID)
+    GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
+End Function
 
+'팝빌 연동회원 포인트 충전 URL
+Public Function GetChargeURL(CorpNum , UserID)
+    GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
+End Function
 '파트너 포인트 충전 팝업 URL - 2017/08/29 추가
 Public Function GetPartnerURL(CorpNum, TOGO)
     GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
@@ -192,6 +200,19 @@ Public Function GetURL(CorpNum, UserID, TOGO)
 	Set result = m_PopbillBase.httpGet("/Message/?TG="+TOGO,m_PopbillBase.getSession_token(CorpNum), UserID)
 	GetURL = result.url
 End Function
+
+'문자 전송내역 팝업 URL
+Public Function GetSentListURL(CorpNum, UserID)
+	Set result = m_PopbillBase.httpGet("/Message/?TG=BOX",m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetSentListURL = result.url
+End Function
+
+'발신번호 관리 팝업 URL
+Public Function GetSenderNumberMgtURL(CorpNum, UserID)
+	Set result = m_PopbillBase.httpGet("/Message/?TG=SENDER",m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetSenderNumberMgtURL = result.url
+End Function
+
 
 
 '문자 전송내역 확인

@@ -7,30 +7,26 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 팝빌 관련 기본 팝업 URL을 반환합니다.
+	' 알림톡 템플릿 관리 팝업 URL을 반환합니다.
 	' - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
 	'**************************************************************
 
-	' 팝빌회원 사업자번호, "-" 제외
-	testCorpNum = "1234567890"	 
+	'팝빌 회원 사업자번호, "-" 제외
+	testCorpNum = "1234567890"
 
-	' 팝빌회원 아이디
+	'팝빌 회원 아이디
 	userID = "testkorea"
-
-	' LOGIN = 팝빌로그인 / CHRG : 포인트충전 팝업 
-	' CERT : 공인인증서 등록 팝업 / SEAL : 인감 및 첨부문서 등록 URL
-	TOGO = "CHRG"
 
 	On Error Resume Next
 
-	url = m_TaxinvoiceService.GetPopbillURL(testCorpNum, userID, TOGO)
+	url = m_KakaoService.GetATSTemplateMgtURL(testCorpNum, userID)
 
 	If Err.Number <> 0 then
 		code = Err.Number
-		message =  Err.Description
+		message = Err.Description
 		Err.Clears
 	End If
-
+	
 	On Error GoTo 0
 %>
 	<body>
@@ -38,17 +34,15 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>팝빌 기본 팝업 URL</legend>
-				<% If code = 0 Then %>
-					<ul>
-						<li>URL : <%=CStr(url)%> </li>
-					</ul>
-				<%	Else  %>
-					<ul>
-						<li>Response.code: <%=code%> </li>
-						<li>Response.message: <%=message%> </li>
-					</ul>	
-				<%	End If	%>
+				<legend>알림톡 템플릿 관리 팝업 URL</legend>
+				<ul>
+					<% If code = 0 Then %>
+						<li>URL : <%=url%> </li>
+					<% Else %>
+						<li>Response.code : <%=code%> </li>
+						<li>Response.message : <%=message%> </li>
+					<% End If %>
+				</ul>
 			</fieldset>
 		 </div>
 	</body>
