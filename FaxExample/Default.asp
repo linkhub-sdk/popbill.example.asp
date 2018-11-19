@@ -27,7 +27,7 @@
     <fieldset class="fieldset1">
         <legend>접수번호 관련 기능 (요청번호 미할당)</legend>
         <ul>
-            <li><a href="getFaxDetail.asp">getFaxDetail</a> - 전송내역 및 전송상태 확인</li>
+            <li><a href="getFaxResult.asp">getFaxResult</a> - 전송내역 및 전송상태 확인</li>
             <li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소</li>
             <li><a href="resendFAX.asp">resendFAX</a> - 팩스 재전송</li>
             <li><a href="resendFAX_Multi.asp">resendFAX</a> - 팩스 동보재전송</li>
@@ -37,7 +37,7 @@
     <fieldset class="fieldset1">
         <legend>요청번호 할당 전송건 관련 기능</legend>
         <ul>
-            <li><a href="getFaxDetailRN.asp">getFaxDetailRN</a> - 전송내역 및 전송상태 확인</li>
+            <li><a href="getFaxResultRN.asp">getFaxResultRN</a> - 전송내역 및 전송상태 확인</li>
             <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 취소</li>
             <li><a href="resendFAXRN.asp">resendFAX</a> - 팩스 재전송</li>
             <li><a href="resendFAXRN_multi.asp">resendFAX</a> - 팩스 동보재전송</li>

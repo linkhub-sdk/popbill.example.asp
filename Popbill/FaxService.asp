@@ -110,7 +110,11 @@ Public Function GetSenderNumberMgtURL(CorpNum, UserID)
 	GetSenderNumberMgtURL = result.url
 End Function
 
-
+'팩스 미리보기 URL
+Public Function GetPreviewURL(CorpNum, ReceiptNum, UserID)
+    Set result = m_PopbillBase.httpGET("/FAX/Preview/"+ReceiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
+	GetPreviewURL = result.url
+End Function
 
 '팩스 예약전송 취소
 Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
