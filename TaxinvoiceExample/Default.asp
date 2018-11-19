@@ -1,116 +1,117 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
-		<link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-		
-		<title>팝빌 SDK ASP Example.</title>
-	</head>
-
-	<body>
-		<div id="content">
-			<p class="heading1">팝빌 세금계산서 SDK ASP Example.</p>			
-			<br/>
-
-			<fieldset class="fieldset1">
-				<legend>팝빌 기본 API</legend>
-
-				<fieldset class="fieldset2">
-					<legend>회원 정보</legend>
-					<ul>					
-						<li><a href="checkIsMember.asp">checkIsMember</a> - 연동회원 가입여부</li>
-						<li><a href="checkID.asp">checkID</a> - 아이디 중복확인</li>
-						<li><a href="joinMember.asp">joinMember</a> - 연동회원 가입 요청</li>
-						<li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
-						<li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
-						<li><a href="getPopbillURL.asp">getPopbillURL</a> - 팝빌 SSO URL 요청 (로그인/포인트충전/공인인증서 등록)</li>
-						<li><a href="getPartnerBalance.asp">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
-						<li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트 충전 URL 확인</li>
-						<li><a href="listContact.asp">listContact</a> - 담당자 목록 조회</li>
-						<li><a href="updateContact.asp">updateContact</a> - 담당자 정보 수정</li>
-						<li><a href="registContact.asp">registContact</a> - 담당자 추가</li>
-						<li><a href="updateCorpInfo.asp">updateCorpInfo</a> - 회사정보 수정</li>
-						<li><a href="getCorpInfo.asp">getCorpInfo</a> - 회사정보 확인</li>
-					</ul>
-				</fieldset>
-
-			</fieldset>
-			
-			<br />
-			
-			<fieldset class="fieldset1">
-				<legend>전자세금계산서 관련 API</legend>
-				
-				<fieldset class="fieldset2">
-					<legend>등록/수정/확인/삭제</legend>
-					<ul>
-						<li><a href="checkMgtKeyInUse.asp">checkMgtKeyInUse</a> - 문서관리번호 사용여부 확인</li>
-						<li><a href="registIssue.asp">registIssue</a> - 세금계산서 즉시발행</li>
-						<li><a href="register.asp">register</a> - 세금계산서 임시저장</li>
-						<li><a href="update.asp">update</a> - 세금계산서 수정</li>
-						<li><a href="search.asp">search</a> - 세금계산서 목록 조회</li>
-						<li><a href="getInfo.asp">getInfo</a> - 세금계산서 상태/요약 정보 확인</li>
-						<li><a href="getInfos.asp">getInfos</a> - 세금계산서 상태/요약 정보 확인 - 대량</li>
-						<li><a href="getDetailInfo.asp">getDetailInfo</a> - 세금계산서 상세 정보 확인</li>
-						<li><a href="delete.asp">delete</a> - 세금계산서 삭제</li>
-						<li><a href="getLogs.asp">getLogs</a> - 세금계산서 상태정보 변경이력 확인</li>
-						<li><a href="attachFile.asp">attachFile</a> - 첨부파일 추가</li>
-						<li><a href="getFiles.asp">getFiles</a> - 세금계산서 첨부파일 목록확인</li>
-						<li><a href="deleteFile.asp">deleteFile</a> - 첨부파일 삭제</li>
-					</ul>
-				</fieldset>
-				
-				<fieldset class="fieldset2">
-					<legend>처리 프로세스</legend>
-					<ul>
-						<li><a href="send.asp">send</a> - 세금계산서 발행예정</li>
-						<li><a href="cancelSend.asp">cancelSend</a> - 세금계산서 발행예정 취소</li>
-						<li><a href="accept.asp">accept</a> - 세금계산서 발행예정 승인</li>
-						<li><a href="deny.asp">deny</a> - 세금계산서 발행예정 거부 </li>
-						<li><a href="issue.asp">issue</a> - 세금계산서 발행</li>
-						<li><a href="cancelIssue.asp">cancelIssue</a> - 세금계산서 발행취소</li>
-						<li><a href="request.asp">request</a> - 세금계산서 역발행요청</li>
-						<li><a href="cancelRequest.asp">cancelRequest</a> - 세금계산서 역발행요청 취소</li>
-						<li><a href="refuse.asp">refuse</a> - 세금계산서 역발행요청 거부</li>
-						<li><a href="sendToNTS.asp">sendToNTS</a> - 세금계산서 국세청 즉시전송</li>
-					</ul>
-				</fieldset>
-				
-				<fieldset class="fieldset2">
-					<legend>부가 기능</legend>
-					<ul>
-						<li><a href="sendEmail.asp">sendEmail</a> - 발행 안내메일 전송</li>
-						<li><a href="sendSMS.asp">sendSMS</a> - 안내문자 메시지 전송</li>
-						<li><a href="sendFAX.asp">sendFAX</a> - 세금계산서 팩스 전송</li>
-						<li><a href="attachStatement.asp">attachStatement</a> - 전자명세서 첨부</li>
-						<li><a href="detachStatement.asp">detachStatement</a> - 전자명세서 첨부해제</li>
-						<li><a href="assignMgtKey.asp">assignMgtKey</a> - 관리번호 할당 </li>
-						<li><a href="listEmailConfig.asp">listEmailConfig</a> - 세금계산서 알림메일 전송목록 조회 </li>
-						<li><a href="updateEmailConfig.asp">updateEmailConfig</a> - 세금계산서 알림메일 전송 설정 수정 </li>
-					</ul>
-				</fieldset>
-				
-				<fieldset class="fieldset2">
-					<legend>팝빌 세금계산서 SSO URL 기능</legend>
-					<ul>
-						<li><a href="getURL.asp">getURL</a> - 세금계산서 관련 SSO URL 확인</li>
-						<li><a href="getPopUpURL.asp">getPopUpURL</a> - 세금계산서 보기 팝업 URL</li>
-						<li><a href="getPrintURL.asp">getPrintURL</a> - 세금계산서 인쇄 팝업 URL</li>
-						<li><a href="getMassPrintURL.asp">getMassPrintURL</a> - 세금계산서 인쇄 팝업 URL - 대량</li>
-						<li><a href="getEPrintURL.asp">getEPrintURL</a> - 세금계산서 인쇄 팝업 URL - 공급받는자용</li>
-						<li><a href="getMailURL.asp">getMailURL</a> - 세금계산서 메일링크 URL</li>
-					</ul>
-				</fieldset>
-				
-				<fieldset class="fieldset2">
-					<legend>기타</legend>
-					<ul>
-						<li><a href="getUnitCost.asp">getUnitCost</a> - 세금계산서 발행단가 확인</li>
-						<li><a href="getCertificateExpireDate.asp">getCertificateExpireDate</a> - 공인인증서 만료일시 확인</li>
-						<li><a href="checkCertValidation.asp">checkCertValidation</a> - 공인인증서 유효성 확인</li>
-						<li><a href="getEmailPublicKeys.asp">getEmailPublicKeys</a> - 대용량 연계사업자 이메일 목록 확인</li>
-					</ul>
-				</fieldset>
-			</fieldset>
-		 </div>
-	</body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+    <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
+    <title>팝빌 SDK ASP Example.</title>
+</head>
+<body>
+<div id="content">
+    <p class="heading1">팝빌 세금계산서 SDK ASP Example.</p>
+    <br/>
+    <fieldset class="fieldset1">
+        <legend>정방행/역발행/위수탁발행</legend>
+        <ul>
+            <li><a href="checkMgtKeyInUse.asp">CheckMgtKeyInUse</a> - 관리번호 확인</li>
+            <li><a href="registIssue.asp">RegistIssue</a> - 즉시 발행</li>
+            <li><a href="register.asp">Register</a> - 임시저장</li>
+            <li><a href="update.asp">Update</a> - 수정</li>
+            <li><a href="issue.asp">Issue</a> - 발행</li>
+            <li><a href="cancelIssue.asp">CancelIssue</a> - 발행취소</li>
+            <li><a href="send.asp">Send</a> - [발행예정]</li>
+            <li><a href="cancelSend.asp">CancelSend</a> - [발행예정] 취소</li>
+            <li><a href="accept.asp">Accept</a> - [발행예정] 승인</li>
+            <li><a href="deny.asp">Deny</a> - [발행예정] 거부</li>
+            <li><a href="delete.asp">Delete</a> - 삭제</li>
+            <li><a href="registRequest.asp">RegistRequest</a> - [역발행] 즉시 요청</li>
+            <li><a href="request.asp">Request</a> - 역발행요청</li>
+            <li><a href="cancelRequest.asp">CancelRequest</a> - 역발행요청 취소</li>
+            <li><a href="refuse.asp">Refuse</a> - 역발행요청 거부</li>
+        </ul>
+    </fieldset>
+    <br/>
+    <fieldset class="fieldset1">
+        <legend>국세청 즉시 전송</legend>
+        <ul>
+            <li><a href="sendToNTS.asp">SendToNTS</a> - 국세청 즉시전송</li>
+        </ul>
+    </fieldset>
+    <br/>
+    <fieldset class="fieldset1">
+        <legend>세금계산서 정보확인</legend>
+        <ul>
+            <li><a href="getInfo.asp">GetInfo</a> - 상태 확인</li>
+            <li><a href="getInfos.asp">GetInfos</a> - 상태 대량 확인</li>
+            <li><a href="getDetailInfo.asp">GetDetailInfo</a> - 상세정보 확인</li>
+            <li><a href="search.asp">Search</a> - 목록 조회</li>
+            <li><a href="getLogs.asp">GetLogs</a> - 상태 변경이력 확인</li>
+            <li><a href="getURL.asp">GetURL</a> - 세금계산서 문서함 관련 URL</li>
+        </ul>
+    </fieldset>
+    <fieldset class="fieldset1">
+        <legend>세금계산서 보기/인쇄</legend>
+        <ul>
+            <li><a href="getPopUpURL.asp">GetPopUpURL</a> - 세금계산서 보기 URL</li>
+            <li><a href="getPrintURL.asp">GetPrintURL</a> - 세금계산서 인쇄 [공급자/공급받는자] URL</li>
+            <li><a href="getEPrintURL.asp">GetEPrintURL</a> - 세금계산서 인쇄 [공급받는자용] URL</li>
+            <li><a href="getMassPrintURL.asp">GetMassPrintURL</a> - (세금계산서 대량 인쇄 URL</li>
+            <li><a href="getMailURL.asp">GetMailURL</a> - 세금계산서 메일링크 URL</li>
+        </ul>
+    </fieldset>
+    <br/>
+    <fieldset class="fieldset1">
+        <legend>부가기능</legend>
+        <ul>
+            <li><a href="getAccessURL.asp">GetAccessURL</a> - 팝빌 로그인 URL</li>
+            <li><a href="getSealURL.asp"> GetSealURL</a> - 인감 및 첨부문서 등록 URL</li>
+            <li><a href="attachFile.asp">AttachFile</a> - 첨부파일 추가</li>
+            <li><a href="deleteFile.asp">DeleteFile</a> - 첨부파일 삭제</li>
+            <li><a href="getFiles.asp">GetFiles</a> - 첨부파일 목록 확인</li>
+            <li><a href="sendEmail.asp">SendEmail</a> - 메일 전송</li>
+            <li><a href="sendSMS.asp">SendSMS</a> - 문자 전송</li>
+            <li><a href="sendFAX.asp">SendFAX</a> - 팩스 전송</li>
+            <li><a href="attachStatement.asp">AttachStatement</a> - 전자명세서 첨부</li>
+            <li><a href="detachStatement.asp">DetachStatement</a> - 전자명세서 첨부해제</li>
+            <li><a href="getEmailPublicKeys.asp">GetEmailPublicKeys</a> - 유통사업자 메일 목록 확인</li>
+            <li><a href="assignMgtKey.asp">AssignMgtKey</a> - 관리번호 할당</li>
+            <li><a href="listEmailConfig.asp">ListEmailConfig</a> - 세금계산서 알림메일 전송목록 조회</li>
+            <li><a href="updateEmailConfig.asp">UpdateEmailConfig</a> - 세금계산서 알림메일 전송설정 수정</li>
+        </ul>
+    </fieldset>
+    <br/>
+    <fieldset class="fieldset1">
+        <legend>공인인증서 관리</legend>
+        <ul>
+            <li><a href="getTaxCertURL.asp">GetTaxCertURL</a> - 공인인증서 등록 URL</li>
+            <li><a href="getCertificateExpireDate.asp">GetCertificateExpireDate</a> - 공인인증서 만료일 확인</li>
+            <li><a href="checkCertValidation.asp">CheckCertValidation</a> - 공인인증서 유효성 확인</li>
+        </ul>
+    </fieldset>
+    <br/>
+    <fieldset class="fieldset1">
+        <legend>포인트 관리</legend>
+        <ul>
+            <li><a href="getBalance.asp">GetBalance</a> - 연동회원 잔여포인트 확인</li>
+            <li><a href="getChargeURL.asp">GetChargeURL</a> - 연동회원 포인트충전 URL</li>
+            <li><a href="getPartnerBalance.asp">GetPartnerBalance</a> - 파트너 잔여포인트 확인</li>
+            <li><a href="getPartnerURL.asp">GetPartnerURL</a> - 파트너 포인트충전 URL</li>
+            <li><a href="getUnitCost.asp">GetUnitCost</a> - 발행 단가 확인</li>
+            <li><a href="getChargeInfo.asp">GetChargeInfo</a> - 과금정보 확인</li>
+        </ul>
+    </fieldset>
+    <br/>
+    <fieldset class="fieldset1">
+        <legend>회원정보</legend>
+        <ul>
+            <li><a href="checkIsMember.asp">CheckIsMember</a> - 연동회원 가입여부 확인</li>
+            <li><a href="checkID.asp">CheckID</a> - 아이디 중복 확인</li>
+            <li><a href="joinMember.asp">JoinMember</a> - 연동회원 신규가입</li>
+            <li><a href="getCorpInfo.asp">GetCorpInfo</a> - 회사정보 확인</li>
+            <li><a href="updateCorpInfo.asp">UpdateCorpInfo</a> - 회사정보 수정</li>
+            <li><a href="registContact.asp">RegistContact</a> - 담당자 등록</li>
+            <li><a href="listContact.asp">ListContact</a> - 담당자 목록 확인</li>
+            <li><a href="updateContact.asp">UpdateContact</a> - 담당자 정보 수정</li>
+        </ul>
+    </fieldset>
+</div>
+</body>
 </html>
