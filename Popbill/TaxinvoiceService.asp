@@ -274,6 +274,23 @@ Public Function CancelIssue(CorpNum, KeyType, MgtKey, Memo, UserID)
 End Function
 
 
+'즉시요청
+Public Function RegistRequest(CorpNum, ByRef TI, Memo, UserID)
+	If TI Is Nothing Then Err.raise -99999999,"POPBILL","등록할 세금계산서 정보가 입력되지 않았습니다."
+
+    Set tmpDic = TI.toJsonInfo
+
+	If Memo <> "" Then
+		tmpDic.Set "memo", Memo
+	End If
+
+	postdata = m_PopbillBase.toString(tmpDic)
+
+	Set RegistRequest = m_PopbillBase.httpPOST("/Taxinvoice", m_PopbillBase.getSession_token(CorpNum), _
+							"REQUEST", postdata, UserID)
+End Function
+
+
 '역)발행요청 처리.
 Public Function Request(CorpNum, KeyType, MgtKey, Memo, UserID)
     If MgtKey = "" Then
@@ -661,6 +678,7 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
 	Set Search = searchResult
 End Function
 
+'즉시발행
 Public Function RegistIssue(CorpNum, ByRef TI, WriteSpecification, DealInvoiceMgtKey, ForceIssue, Memo, EmailSubject, UserID)
 	If TI Is Nothing Then Err.raise -99999999,"POPBILL","등록할 세금계산서 정보가 입력되지 않았습니다."
 
