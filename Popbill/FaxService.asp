@@ -112,6 +112,10 @@ End Function
 
 '팩스 미리보기 URL
 Public Function GetPreviewURL(CorpNum, ReceiptNum, UserID)
+	If Len(ReceiptNum ) <> 18 Or IsNull(ReceiptNum) Then 
+		Err.Raise -99999999, "POPBILL", "접수번호가 올바르지 않습니다"
+	End If
+
     Set result = m_PopbillBase.httpGET("/FAX/Preview/"+ReceiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
 	GetPreviewURL = result.url
 End Function
