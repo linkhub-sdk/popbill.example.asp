@@ -17,7 +17,7 @@
 	' 팝빌 회원 아이디
 	userID = "testkorea"				
 
-	' 팩스 전송시 발급받은 접수번호
+	' 팩스 전송시 발급받은 접수번호(receiptNum)
 	receiptNum = "015012713201000001"   
 
 	On Error Resume Next
