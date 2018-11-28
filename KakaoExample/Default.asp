@@ -89,7 +89,7 @@
             <li><a href="getUnitCost.asp">getUnitCost</a> - 전송단가 확인</li>
             <li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
             <li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
-            <li><a href="getChargeURL.asp">getChargeURL</a> (연동회원 포인트충전 URL)</li>
+            <li><a href="getChargeURL.asp">getChargeURL</a> 연동회원 포인트충전 URL</li>
             <li><a href="getPartnerBalance.asp">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트충전 URL</li>
         </ul>
@@ -101,7 +101,7 @@
             <li><a href="checkIsMember.asp">checkIsMember</a> - 연동회원 가입여부 확인</li>
             <li><a href="checkID.asp">checkID</a> - 연동회원 아이디 중복 확인</li>
             <li><a href="joinMember.asp">joinMember</a> - 연동회원사 신규가입</li>
-            <li><a href="getAccessURL.asp">getAccessURL</a> (팝빌 로그인 URL)</li>
+            <li><a href="getAccessURL.asp">getAccessURL</a> 팝빌 로그인 URL</li>
             <li><a href="registContact.asp">registContact</a> - 담당자 추가</li>
             <li><a href="listContact.asp">listContact</a> - 담당자 목록 확인</li>
             <li><a href="updateContact.asp">updateContact</a> - 담당자 정보 수정</li>
