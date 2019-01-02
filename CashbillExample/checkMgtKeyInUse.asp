@@ -15,7 +15,7 @@
 	testCorpNum = "1234567890"	
 	
 	'문서관리번호
-	mgtKey = "20161114-04"		
+	mgtKey = "20190103-001"		
 		
 	On Error Resume Next
 

@@ -17,7 +17,7 @@
 	userID = "testkorea"		 
 
 	'문서관리번호	
-	mgtKey = "20161114-01"		 
+	mgtKey = "20190103-001"		 
 
 	'수신 메일주소
 	receiver = "test@test.com"		

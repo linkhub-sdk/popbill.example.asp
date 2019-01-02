@@ -20,7 +20,7 @@
 	userID = "testkorea"		 
 
 	'문서관리번호
-	mgtKey = "20161114-01"		 
+	mgtKey = "20190103-001"		 
 
 	On Error Resume Next
 	
@@ -46,12 +46,12 @@
 					%>
 						<fieldset class="fieldset2">
 							 <ul>
-								<li>docLogType : <%=Presponse.Item(i).docLogType%></li>
-								<li>log : <%=Presponse.Item(i).log%></li>
-								<li>procType : <%=Presponse.Item(i).procType%></li>
-								<li>procMemo : <%=Presponse.Item(i).procMemo%></li>
-								<li>regDT : <%=Presponse.Item(i).regDT%></li>
-								<li>ip : <%=Presponse.Item(i).ip%></li>
+								<li>docLogType(로그타입) : <%=Presponse.Item(i).docLogType%></li>
+								<li>log(이력정보) : <%=Presponse.Item(i).log%></li>
+								<li>procType(처리형태) : <%=Presponse.Item(i).procType%></li>
+								<li>procMemo(처리메모) : <%=Presponse.Item(i).procMemo%></li>
+								<li>regDT(등록일시) : <%=Presponse.Item(i).regDT%></li>
+								<li>ip(아이피) : <%=Presponse.Item(i).ip%></li>
 							</ul>
 						</fieldset>
 					<%	

@@ -41,16 +41,16 @@
 							<fieldset class="fieldset2">					
 								<legend> 담당자 정보 [ <%=i+1%> / <%=result.Count%> ] </legend>
 									<ul>
-										<li> id : <%=result.Item(i).id%></li>
-										<li> email : <%=result.Item(i).email%></li>
-										<li> hp : <%=result.Item(i).hp%></li>
-										<li> personName : <%=result.Item(i).personName%></li>
-										<li> searchAllAllowYN : <%=result.Item(i).searchAllAllowYN%></li>
-										<li> tel : <%=result.Item(i).tel%></li>
-										<li> fax : <%=result.Item(i).fax%></li>
-										<li> mgrYN : <%=result.Item(i).mgrYN%></li>
-										<li> regDT : <%=result.Item(i).regDT%></li>
-										<li> state : <%=result.Item(i).state%></li>
+										<li> id(아이디) : <%=result.Item(i).id%></li>
+										<li> personName(담당자 성명) : <%=result.Item(i).personName%></li>
+										<li> email(담당자 이메일) : <%=result.Item(i).email%></li>
+										<li> hp(담당자 휴대폰번호) : <%=result.Item(i).hp%></li>
+										<li> fax(담당자 팩스번호) : <%=result.Item(i).fax%></li>
+										<li> tel(담당자 연락처) : <%=result.Item(i).tel%></li>
+										<li> regDT(등록일시) : <%=result.Item(i).regDT%></li>
+										<li> searchAllAllowYN(회사 조회권한) : <%=result.Item(i).searchAllAllowYN%></li>								
+										<li> mgrYN(관리자 여부) : <%=result.Item(i).mgrYN%></li>
+										<li> state(상태) : <%=result.Item(i).state%></li>
 									</ul>
 								</fieldset>
 				<%
