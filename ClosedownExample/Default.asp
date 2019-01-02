@@ -15,7 +15,6 @@
             <li><a href="checkCorpNums.asp">checkCorpNums</a> - 휴폐업 대량조회</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>포인트 관리</legend>
         <ul>
@@ -27,7 +26,6 @@
             <li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트충전 URL</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>회원정보</legend>
         <ul>

@@ -15,44 +15,29 @@
             <li><a href="getSenderNumberList.asp">getSenderNumberList</a> - 발신번호 목록 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>팩스 전송</legend>
         <ul>
             <li><a href="sendFAX.asp">sendFAX</a> - 팩스 전송</li>
             <li><a href="sendFAX_Multi.asp">sendFAX</a> - 팩스 동보전송</li>
-        </ul>
-    </fieldset>
-    <br/>
-    <fieldset class="fieldset1">
-        <legend>접수번호 관련 기능 (요청번호 미할당)</legend>
-        <ul>
-            <li><a href="getFaxResult.asp">getFaxResult</a> - 전송내역 및 전송상태 확인</li>
-            <li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소</li>
-            <li><a href="resendFAX.asp">resendFAX</a> - 팩스 재전송</li>
+			<li><a href="resendFAX.asp">resendFAX</a> - 팩스 재전송</li>
+			<li><a href="resendFAXRN.asp">resendFAX</a> - 팩스 재전송 (요청번호 할당)</li>
             <li><a href="resendFAX_Multi.asp">resendFAX</a> - 팩스 동보재전송</li>
+            <li><a href="resendFAXRN_multi.asp">resendFAX</a> - 팩스 동보재전송 (요청번호 할당)</li>
+            <li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소</li>
+            <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 취소 (요청번호 할당)</li>
         </ul>
     </fieldset>
-    <br/>
-    <fieldset class="fieldset1">
-        <legend>요청번호 할당 전송건 관련 기능</legend>
-        <ul>
-            <li><a href="getFaxResultRN.asp">getFaxResultRN</a> - 전송내역 및 전송상태 확인</li>
-            <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 취소</li>
-            <li><a href="resendFAXRN.asp">resendFAX</a> - 팩스 재전송</li>
-            <li><a href="resendFAXRN_multi.asp">resendFAX</a> - 팩스 동보재전송</li>
-        </ul>
-    </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>팩스전송 목록조회</legend>
         <ul>
+		    <li><a href="getFaxResult.asp">getFaxResult</a> - 전송내역 및 전송상태 확인</li>
+            <li><a href="getFaxResultRN.asp">getFaxResultRN</a> - 전송내역 및 전송상태 확인 (요청번호 할당)</li>
             <li><a href="Search.asp">search</a> - 전송내역 목록 조회</li>
             <li><a href="getSentListURL.asp">getSentListURL</a> - 팩스 전송내역 팝업 URL</li>
             <li><a href="getPreviewURL.asp">getPreviewURL</a> - 팩스 미리보기 팝업 URL</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>포인트 관리</legend>
         <ul>
@@ -64,7 +49,6 @@
             <li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트충전 URL</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>회원정보</legend>
         <ul>

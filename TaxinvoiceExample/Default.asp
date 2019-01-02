@@ -28,14 +28,12 @@
             <li><a href="refuse.asp">Refuse</a> - 역발행요청 거부</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>국세청 즉시 전송</legend>
         <ul>
             <li><a href="sendToNTS.asp">SendToNTS</a> - 국세청 즉시전송</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>세금계산서 정보확인</legend>
         <ul>
@@ -57,7 +55,6 @@
             <li><a href="getMailURL.asp">GetMailURL</a> - 세금계산서 메일링크 URL</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>부가기능</legend>
         <ul>
@@ -77,7 +74,6 @@
             <li><a href="updateEmailConfig.asp">UpdateEmailConfig</a> - 세금계산서 알림메일 전송설정 수정</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>공인인증서 관리</legend>
         <ul>
@@ -86,7 +82,6 @@
             <li><a href="checkCertValidation.asp">CheckCertValidation</a> - 공인인증서 유효성 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>포인트 관리</legend>
         <ul>
@@ -98,7 +93,6 @@
             <li><a href="getChargeInfo.asp">GetChargeInfo</a> - 과금정보 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>회원정보</legend>
         <ul>

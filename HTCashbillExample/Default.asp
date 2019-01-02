@@ -16,7 +16,6 @@
             <li><a href="listActiveJob.asp">listActiveJob</a> - 수집 상태 목록 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>홈택스 현금영수증 매입/매출 내역 수집 결과 조회</legend>
         <ul>
@@ -24,7 +23,6 @@
             <li><a href="summary.asp">summary</a> - 수집 결과 요약정보 조회</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>홈택스연동 인증 관리</legend>
         <ul>
@@ -37,7 +35,6 @@
             <li><a href="deleteDeptUser.asp">deleteDeptUser</a> - 부서사용자 등록정보 삭제</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>포인트 관리 / 정액제 신청</legend>
         <ul>
@@ -50,7 +47,6 @@
             <li><a href="getFlatRateState.asp">getFlatRateState</a> - 정액제 서비스 상태 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>회원정보</legend>
         <ul>

@@ -15,7 +15,6 @@
             <li><a href="getSenderNumberList.asp">getSenderNumberList</a> - 발신번호 목록 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>문자 전송</legend>
         <ul>
@@ -27,35 +26,21 @@
             <li><a href="sendMMS_Multi.asp">sendMMS</a> - 포토 전송 [대량]</li>
             <li><a href="sendXMS.asp">sendXMS</a> - 단문/장문 자동인식 전송</li>
             <li><a href="sendXMS_Multi.asp">sendXMS</a> - 단문/장문 자동인식 전송 [대량]</li>
+			<li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소</li>
+			<li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 취소 (요청번호 할당)</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
-        <legend>전송내역조회/요약정보확인</legend>
+        <legend>정보확인</legend>
         <ul>
+			<li><a href="getMessages.asp">getMessages</a> - 전송내역 확인</li>
+			<li><a href="getMessagesRN.asp">getMessagesRN</a> - 전송내역 확인 (요청번호 할당)</li>
             <li><a href="search.asp">search</a> - 전송내역 목록 조회</li>
             <li><a href="getStates.asp">getStates</a> - 문자메세지 전송요약정보 확인</li>
             <li><a href="getSentListURL.asp">getSentListURL</a> - 문자 전송내역 팝업 URL</li>
             <li><a href="getAutoDenyList.asp">getAutoDenyList</a> - 080 수신거부 목록 확인</li>
         </ul>
     </fieldset>
-    <br/>
-    <fieldset class="fieldset1">
-        <legend>접수번호 관련 기능 (요청번호 미할당</legend>
-        <ul>
-            <li><a href="getMessages.asp">getMessages</a> - 전송내역 확인</li>
-            <li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소</li>
-        </ul>
-    </fieldset>
-    <br/>
-    <fieldset class="fieldset1">
-        <legend>요청번호 할당 전송건 관련 기능</legend>
-        <ul>
-            <li><a href="getMessagesRN.asp">getMessagesRN</a> - 전송내역 확인</li>
-            <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 취소</li>
-        </ul>
-    </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>포인트 관리</legend>
         <ul>
@@ -67,7 +52,6 @@
             <li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트충전 URL</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>회원정보</legend>
         <ul>

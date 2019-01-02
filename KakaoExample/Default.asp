@@ -15,7 +15,6 @@
             <li><a href="listPlusFriendID.asp">listPlusFriendID</a> - 플러스친구 목록 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>발신번호 관리</legend>
         <ul>
@@ -23,7 +22,6 @@
             <li><a href="getSenderNumberList.asp">getSenderNumberList</a> - 발신번호 목록 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>알림톡 템플릿 관리</legend>
         <ul>
@@ -31,58 +29,49 @@
             <li><a href="listATSTemplate.asp">listATSTemplate</a> - 알림톡 템플릿 목록 확인</li>
         </ul>
     </fieldset>
-    <br/>
-    <fieldset class="fieldset1">
-        <legend>알림톡 전송</legend>
-        <ul>
-            <li><a href="sendATS_one.asp">sendATS</a> - 알림톡 단건 전송</li>
-            <li><a href="sendATS_same.asp">sendATS</a> - 알림톡 동일내용 대량 전송</li>
-            <li><a href="sendATS_multi.asp">sendATS</a> - 알림톡 개별내용 대량 전송</li>
-        </ul>
-    </fieldset>
-    <br/>
-    <fieldset class="fieldset1">
-        <legend>친구톡 텍스트 전송</legend>
-        <ul>
-            <li><a href="sendFTS_one.asp">sendFTS</a> - 친구톡 텍스트 단건 전송</li>
-            <li><a href="sendFTS_same.asp">sendFTS</a> - 친구톡 텍스트 동일내용 대량전송</li>
-            <li><a href="sendFTS_multi.asp">sendFTS</a> - 친구톡 텍스트 개별내용 대량전송</li>
-        </ul>
-    </fieldset>
-    <br/>
-    <fieldset class="fieldset1">
-        <legend>친구톡 이미지 전송</legend>
-        <ul>
-            <li><a href="sendFMS_one.asp">sendFMS</a> - 친구톡 이미지 단건 전송</li>
-            <li><a href="sendFMS_same.asp">sendFMS</a> - 친구톡 이미지 동일내용 대량전송</li>
-            <li><a href="sendFMS_multi.asp">sendFMS</a> - 친구톡 이미지 개별내용 대량전송</li>
-        </ul>
-    </fieldset>
-    <br/>
+	 <fieldset class="fieldset1">
+		<legend>알림톡 / 친구톡 전송</legend>
+		<fieldset class="fieldset2">
+			<legend>알림톡 전송</legend>
+			<ul>
+				<li><a href="sendATS_one.asp">sendATS</a> - 알림톡 단건 전송</li>
+				<li><a href="sendATS_same.asp">sendATS</a> - 알림톡 동일내용 대량 전송</li>
+				<li><a href="sendATS_multi.asp">sendATS</a> - 알림톡 개별내용 대량 전송</li>
+			</ul>
+		</fieldset>
+		<fieldset class="fieldset2">
+			<legend>친구톡 텍스트 전송</legend>
+			<ul>
+				<li><a href="sendFTS_one.asp">sendFTS</a> - 친구톡 텍스트 단건 전송</li>
+				<li><a href="sendFTS_same.asp">sendFTS</a> - 친구톡 텍스트 동일내용 대량전송</li>
+				<li><a href="sendFTS_multi.asp">sendFTS</a> - 친구톡 텍스트 개별내용 대량전송</li>
+			</ul>
+		</fieldset>
+		<fieldset class="fieldset2">
+			<legend>친구톡 이미지 전송</legend>
+			<ul>
+				<li><a href="sendFMS_one.asp">sendFMS</a> - 친구톡 이미지 단건 전송</li>
+				<li><a href="sendFMS_same.asp">sendFMS</a> - 친구톡 이미지 동일내용 대량전송</li>
+				<li><a href="sendFMS_multi.asp">sendFMS</a> - 친구톡 이미지 개별내용 대량전송</li>
+			</ul>
+		</fieldset>
+		<fieldset class="fieldset2">
+			<legend>예약전송 취소</legend>
+			<ul>
+				<li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소</li>
+			    <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 취소 (요청번호 할당)</li>
+			</ul>
+		</fieldset>
+	 </fieldset>
     <fieldset class="fieldset1">
         <legend>정보확인</legend>
         <ul>
+		    <li><a href="getMessages.asp">getMessages</a> - 알림톡/친구톡 전송내역 확인</li>
+            <li><a href="getMessagesRN.asp">getMessagesRN</a> - 알림톡/친구톡 전송내역 확인 (요청번호 할당)</li>
             <li><a href="search.asp">search</a> - 전송내역 목록 조회</li>
             <li><a href="getSentListURL.asp">getSentListURL</a> - 카카오톡 전송내역 팝업 URL</li>
         </ul>
     </fieldset>
-    <br/>
-    <fieldset class="fieldset1">
-        <legend>접수번호 관련 기능 (요청번호 미할당)</legend>
-        <ul>
-            <li><a href="getMessages.asp">getMessages</a> - 알림톡/친구톡 전송내역 확인</li>
-            <li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소</li>
-        </ul>
-    </fieldset>
-    <br/>
-    <fieldset class="fieldset1">
-        <legend>요청번호 할당 전송건 관련 기능</legend>
-        <ul>
-            <li><a href="getMessagesRN.asp">getMessagesRN</a> - 알림톡/친구톡 전송내역 확인</li>
-            <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 취소</li>
-        </ul>
-    </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>포인트관리</legend>
         <ul>
