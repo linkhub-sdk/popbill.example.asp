@@ -33,7 +33,6 @@
 			<br/>
 			<fieldset class="fieldset1">
 				<legend>대용량 연계사업자 이메일 목록 확인 </legend>
-				<fieldset class="filedset2">
 				<ul>
 				<%
 					For i=0 To Presponse.length -1
@@ -43,7 +42,6 @@
 					Next
 				%>
 				</ul>
-			</fieldset>
 		 </div>
 	</body>
 </html>

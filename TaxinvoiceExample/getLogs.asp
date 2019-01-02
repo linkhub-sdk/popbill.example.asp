@@ -9,8 +9,7 @@
 	'**************************************************************
 	' 세금계산서 상태 변경이력을 확인합니다.
 	' - 상태 변경이력 확인(GetLogs API) 응답항목에 대한 자세한 정보는
-	'   "[전자세금계산서 API 연동매뉴얼] > 3.6.4 상태 변경이력 확인"
-	'   을 참조하시기 바랍니다.
+	'   "[전자세금계산서 API 연동매뉴얼] > 3.5.5 상태 변경이력 확인" 을 참조하시기 바랍니다.
 	'**************************************************************
 
 	'  팝빌회원 사업자번호, "-" 제외
@@ -20,7 +19,7 @@
 	KeyType= "SELL"             
 
 	' 문서관리번호 
-	MgtKey = "20161114-02"
+	MgtKey = "20190103-001"
 
 	On Error Resume Next
 
@@ -45,12 +44,14 @@
 						For i=0 To result.Count -1 %>
 						 <fieldset class="fieldset2">
 							<ul>
-								<li> DocLogType :  <%=result.Item(i).DocLogType%> </li>
-								<li> Log : <%=result.Item(i).Log %> </li>
-								<li> ProcType : <%=result.Item(i).ProcType%> </li>
-								<li> ProcCorpName : <%=result.Item(i).ProcCorpName%></li>
-								<li> ProcMemo : <%=result.Item(i).ProcMemo %></li>
-								<li> regDT : <%=result.Item(i).regDT %></li>
+								<li> DocLogType(로그타입) :  <%=result.Item(i).DocLogType%> </li>
+								<li> Log(이력정보) : <%=result.Item(i).Log %> </li>
+								<li> ProcType(처리형태) : <%=result.Item(i).ProcType%> </li>
+								<li> ProcCorpName(처리회사명) : <%=result.Item(i).ProcCorpName%></li>
+								<li> procContactName(처리담당자) : <%=result.Item(i).procContactName%></li>
+								<li> ProcMemo(처리메모) : <%=result.Item(i).ProcMemo %></li>
+								<li> regDT(등록일시) : <%=result.Item(i).regDT %></li>
+								<li> ip(아이피) : <%=result.Item(i).ip %></li>
 							</ul>
 						</fieldset>
 				<%

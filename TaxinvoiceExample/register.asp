@@ -22,12 +22,11 @@
 	' 팝빌회원 아이디
 	userID = "testkorea"
 	
-
 	' 세금계산서 정보 객체 생성
 	Set newTaxinvoice = New Taxinvoice
 
 	' [필수] 작성일자, 날짜형식(yyyyMMdd)
-	newTaxinvoice.writeDate = "20161114"
+	newTaxinvoice.writeDate = "20190103"
 
 	' [필수] {정과금, 역과금} 중 기재, '역과금'은 역발행 프로세스에서만 이용가능
     newTaxinvoice.chargeDirection = "정과금"
@@ -62,7 +61,7 @@
 
     '[필수] 공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
     '사업자 별로 중복되지 않도록 구성
-    newTaxinvoice.invoicerMgtKey = "20161114-02"
+    newTaxinvoice.invoicerMgtKey = "20190103-001"
 
 	'[필수] 공급자 대표자 성명
     newTaxinvoice.invoicerCEOName = "공급자 대표자 성명"
@@ -207,7 +206,7 @@
 	'**************************************************************
     Set newDetail = New TaxinvoiceDetail
     newDetail.serialNum = 1             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20161110"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20190103"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명1번"
     newDetail.spec = "규격"
     newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능
@@ -220,7 +219,7 @@
 
     Set newDetail = New TaxinvoiceDetail
     newDetail.serialNum = 2             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20161110"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20190103"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명2번"
     newDetail.spec = "규격"
     newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능

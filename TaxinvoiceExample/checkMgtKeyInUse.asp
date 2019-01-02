@@ -18,7 +18,7 @@
 	testUserID = "testkorea"
 
 	' 문서관리번호
-	mgtKey = "20161114-01"
+	mgtKey = "20190103-001"
 
 	' 발행형태, (SELL-매출) (BUY-매입) (TRUSTEE-위수탁)
 	keyType = "SELL"

@@ -22,11 +22,10 @@
 	keyType = "SELL"				
 
 	'문서관리번호
-	mgtKey = "20161114-02"		
+	mgtKey = "20190103-001"		
 	
 	'거래명세서 동시작성여부
 	writeSpecificationYN = False	
-
 
 
 	' 세금계산서 정보 객체 생성

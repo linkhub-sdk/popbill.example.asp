@@ -23,7 +23,7 @@
 	KeyType= "SELL"
 
 	' 세금계산서 문서관리번호 
-	MgtKey = "20161114-02"
+	MgtKey = "20190103-001"
 
 	On Error Resume Next
 

@@ -22,7 +22,7 @@
 	KeyType = "SELL"
 
 	' 문서관리번호 
-	MgtKey = "20161114-02"
+	MgtKey = "20190103-001"
 
 	' 파일아이디, 첨부파일 목록(getFiles) AttachedFile 값 참조. 
 	FileID = "18CAA3E1-A9F9-40FE-B327-B024FA404208.PBF"

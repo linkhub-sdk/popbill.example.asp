@@ -22,8 +22,7 @@
 	KeyType = "SELL"
 
 	' 문서관리번호 
-	MgtKey = "20161114-02"
-
+	MgtKey = "20190103-001"
 
 	On Error Resume Next
 	
@@ -50,10 +49,10 @@
 							<fieldset class="filedset2">
 							<legend> 첨부파일 : <%=i+1%> </legend>
 								<ul>
-									<li> serialNum : <%=Presponse.Get(i).serialNum%></li>
-									<li> AttachedFile : <%=Presponse.Get(i).AttachedFile%></li>
-									<li> DisplayName : <%=Presponse.Get(i).DisplayName%></li>
-									<li> regDT : <%=Presponse.Get(i).regDT%></li>
+									<li> serialNum(순번) : <%=Presponse.Get(i).serialNum%></li>
+									<li> AttachedFile(파일명) : <%=Presponse.Get(i).AttachedFile%></li>
+									<li> DisplayName(파일아이디) : <%=Presponse.Get(i).DisplayName%></li>
+									<li> regDT(등록일시) : <%=Presponse.Get(i).regDT%></li>
 								</ul>
 							</fieldset>
 					<%

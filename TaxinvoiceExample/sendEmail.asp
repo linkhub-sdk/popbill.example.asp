@@ -22,7 +22,7 @@
 	KeyType = "SELL"
 
 	' 문서관리번호 
-	MgtKey = "20161114-02"      
+	MgtKey = "20190103-001"      
 
 	'이메일주소
 	Receiver = "test@test.com"

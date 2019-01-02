@@ -1130,8 +1130,10 @@ Public DocLogType
 Public Log
 Public ProcType
 Public ProcCorpName
+Public ProcContactName
 Public ProcMemo
 Public regDT
+Public Ip
 
 Public Sub fromJsonInfo(jsonInfo)
 	On Error Resume Next
@@ -1139,8 +1141,10 @@ Public Sub fromJsonInfo(jsonInfo)
 	Log = jsonInfo.Log
 	ProcType = jsonInfo.ProcType
 	ProcCorpName = jsonInfo.ProcCorpName
+	ProcContactName = jsonInfo.ProcContactName
 	ProcMemo = jsonInfo.ProcMemo
 	regDT = jsonInfo.regDT
+	Ip = jsonInfo.Ip
 	On Error GoTo 0
 End Sub
 End Class
