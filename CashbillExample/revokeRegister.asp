@@ -23,13 +23,13 @@
 	userID = "testkorea"				 
 
 	' 문서관리번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-	mgtKey = "20170817-27"
+	mgtKey = "20190103-001"
 
 	' 원본 현금영수증 국세청승인번호
 	orgConfirmNum = "820116333"
 
 	' 원본 현금영수증 거래일자
-	orgTradeDate = "20170711"
+	orgTradeDate = "20181231"
 
 	' 발행안내 문자 전송여부
 	smssendYN = False

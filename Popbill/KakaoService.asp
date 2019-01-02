@@ -265,7 +265,7 @@ Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSend
     If altContent <> "" Then tmp.Set "altContent", altContent
     If altSendType <> "" Then tmp.Set "altSendType", altSendType
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
-    If imageURL <> "" Then tmp.Set "imgeaURL", imageURL
+    If imageURL <> "" Then tmp.Set "imageURL", imageURL
 	If adsYN Then tmp.Set "adsYN", adsYN
 	If requestNum <> "" Then tmp.Set "requestNum", requestNum
 

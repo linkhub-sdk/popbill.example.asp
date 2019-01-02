@@ -54,7 +54,7 @@
 
 	On Error Resume Next
 
-	Set Presponse = m_CashbillService.RevokeRegister(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, userID, _
+	Set Presponse = m_CashbillService.RevokeRegister_Part(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, userID, _
 		isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount)
 
 	If Err.Number <> 0 then
