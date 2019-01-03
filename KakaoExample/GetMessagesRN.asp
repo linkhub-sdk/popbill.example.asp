@@ -37,11 +37,9 @@
 			<br/>
 			<fieldset class="fieldset1">
 				<legend>카카오톡 전송결과 확인</legend>
-				<ul>
 					<%
 						If code = 0 Then
 					%>
-					<legend>전송결과 요약정보 </legend>
 					<ul>
 						<li>contentType (카카오톡 유형) : <%=result.contentType%></li>
 						<li>templateCode (알림톡 템플릿 코드) : <%=result.templateCode%></li>
@@ -107,7 +105,6 @@
 						<li>Response.code : <%=code%> </li>
 						<li>Response.message : <%=message%> </li>
 					<% End If %>
-				</ul>
 			</fieldset>
 		 </div>
 	</body>
