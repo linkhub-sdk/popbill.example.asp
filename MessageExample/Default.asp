@@ -44,12 +44,12 @@
     <fieldset class="fieldset1">
         <legend>포인트 관리</legend>
         <ul>
+		    <li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
             <li><a href="getChargeURL.asp">getChargeURL</a> - 연동회원 포인트충전 URL</li>
-            <li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
-            <li><a href="getUnitCost.asp">getUnitCost</a> - 전송 단가 확인</li>
-            <li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
             <li><a href="getPartnerBalance.asp">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트충전 URL</li>
+			<li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
+            <li><a href="getUnitCost.asp">getUnitCost</a> - 전송 단가 확인</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

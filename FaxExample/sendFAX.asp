@@ -31,7 +31,6 @@
 	'팩스전송할 파일 (최대 20개)
 	FilePaths = Array("C:\popbill.example.asp\대한민국헌법.doc","C:\popbill.example.asp\test.jpg")
 
-
 	'광고팩스 전송여부
 	adsYN = False
 

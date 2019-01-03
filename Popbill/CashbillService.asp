@@ -430,7 +430,7 @@ Public Function RevokeRegistIssue_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeD
 
 	postdata = m_PopbillBase.toString(tmp)
 	
-	Set RevokeRegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postdata, UserID)
+	Set RevokeRegistIssue_Part = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postdata, UserID)
 End Function 
 
 '부분취소 현금영수증 임시저장
@@ -452,7 +452,7 @@ Public Function RevokeRegister_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate
 
 	postdata = m_PopbillBase.toString(tmp)
 	
-	Set RevokeRegister = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postdata, UserID)
+	Set RevokeRegister_Part = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postdata, UserID)
 End Function 
 
 

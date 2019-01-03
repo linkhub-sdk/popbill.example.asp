@@ -17,7 +17,7 @@
 	userID = "testkorea"
 
 	'카카오톡 전송시 발급받은 접수번호(ReceiptNum)
-	ReceiptNum = "019010312045600001"
+	ReceiptNum = "019010314321000001"
 	
 	On Error Resume Next
 

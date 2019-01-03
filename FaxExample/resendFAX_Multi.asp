@@ -20,7 +20,7 @@
 	userID = "testkorea"			
 	
 	'팩스 접수번호 
-	receiptNum = "018090513215700001"
+	receiptNum = "019010315075200001"
 	
 	'발신자 번호
 	sendNum = "07043042991"		

@@ -21,7 +21,6 @@
 	'국세청승인번호 
 	NTSConfirmNum = "201611104100020300000cb2"
 	
-	
 	On Error Resume Next
 
 	Set result = m_HTTaxinvoiceService.GetXML ( testCorpNum, NTSConfirmNum, UserID )
@@ -44,7 +43,7 @@
 					If code = 0 Then
 				%>
 					<ul>
-						<li> ResultCode (상태코드) : <%=result.ResultCode%></li>
+						<li> ResultCode (요청에 대한 응답 상태코드) : <%=result.ResultCode%></li>
 						<li> Message (국세청승인번호) : <%=result.Message%></li>
 						<li> retObject (전자세금계산서 XML 문서) : <%=Replace(result.retObject, "<" ,"&lt")%></li>
 					</ul>

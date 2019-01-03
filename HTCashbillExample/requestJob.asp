@@ -26,7 +26,7 @@
 	EDate =	"20190101"					
 
 	'ÆËºôÈ¸¿ø ¾ÆÀÌµð
-	testUserID = "testkorea_linkhub"			
+	testUserID = "testkorea"			
 	
 	On Error Resume Next
 

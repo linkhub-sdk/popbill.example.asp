@@ -21,7 +21,6 @@
 	' 전자세금계산서 국세청승인번호 
 	NTSConfirmNum = "201611104100020300000cb2"
 	
-	
 	On Error Resume Next
 
 	Set result = m_HTTaxinvoiceService.GetTaxinvoice(testCorpNum, NTSConfirmNUm, UserID)

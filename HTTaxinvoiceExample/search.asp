@@ -91,7 +91,7 @@
 					For i=0 To UBound(result.list) -1 
 				%>
 					<fieldset class="fieldset2">					
-						<legend>ListActiveJob [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
+						<legend>세금계산서 정보 [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
 							<ul>
 											
 								<li> ntsconfirmNum (국세청승인번호) : <%= result.list(i).ntsconfirmNum %></li>

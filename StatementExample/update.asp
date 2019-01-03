@@ -23,7 +23,6 @@
 	'문서관리번호
 	mgtKey = "20190103-001"
 
-
 	'전자명세서 객체 생성
 	Set newStatement = New Statement
 
@@ -46,75 +45,71 @@
     newStatement.mgtKey = mgtKey
     
 
-
 	'**************************************************************
-    '				                              공급자 정보
+    '				                              발신자 정보
 	'**************************************************************
 
-    '공급자 사업자번호, '-' 제외 10자리
+    '발신자 사업자번호, '-' 제외 10자리
     newStatement.senderCorpNum = testCorpNum
 
-    '공급자 종사업장 식별번호, 필요시 기재, 형식은 숫자 4자리
+    '발신자 종사업장 식별번호, 필요시 기재, 형식은 숫자 4자리
     newStatement.senderTaxRegID = ""
 
-	'공급자 상호
-    newStatement.senderCorpName = "공급자 상호_수정"
+	'발신자 상호
+    newStatement.senderCorpName = "발신자 상호_수정"
 
-    '공급자 대표자성명
-    newStatement.senderCEOName = "공급자"" 대표자 성명_수정"
+    '발신자 대표자성명
+    newStatement.senderCEOName = "발신자"" 대표자 성명_수정"
 
-	'공급자 주소
-    newStatement.senderAddr = "공급자 주소"
+	'발신자 주소
+    newStatement.senderAddr = "발신자 주소"
 
-	'공급자 종목
-    newStatement.senderBizClass = "공급자 종목"
+	'발신자 종목
+    newStatement.senderBizClass = "발신자 종목"
 
-	'공급자 업태
-    newStatement.senderBizType = "공급자 업태,업태2"
+	'발신자 업태
+    newStatement.senderBizType = "발신자 업태,업태2"
 
-	'공급자 담당자 성명
-    newStatement.senderContactName = "공급자 담당자명"
+	'발신자 담당자 성명
+    newStatement.senderContactName = "발신자 담당자명"
 
-	'공급자 메일주소
+	'발신자 메일주소
     newStatement.senderEmail = "test@test.com"
 
-	'공급자 연락처
+	'발신자 연락처
     newStatement.senderTEL = "070-7070-0707"
 
-	'공급자 휴대폰번호
+	'발신자 휴대폰번호
     newStatement.senderHP = "010-000-2222"
 
 
-
 	'**************************************************************
-    '				                      공급받는자 정보
+    '				                      수신자 정보
 	'**************************************************************
     
-    '공급받는자 사업자번호, '-' 제외 10자리
+    '수신자 사업자번호, '-' 제외 10자리
     newStatement.receiverCorpNum = "8888888888"
 
-    '공급받는자 상호
-    newStatement.receiverCorpName = "공급받는자 상호"
+    '수신자 상호
+    newStatement.receiverCorpName = "수신자 상호"
 
-    '공급받는자 대표자 성명
-    newStatement.receiverCEOName = "공급받는자 대표자 성명"
+    '수신자 대표자 성명
+    newStatement.receiverCEOName = "수신자 대표자 성명"
 
-    '공급받는자 주소
-    newStatement.receiverAddr = "공급받는자 주소"
+    '수신자 주소
+    newStatement.receiverAddr = "수신자 주소"
 
-    '공급받는자 종목
-    newStatement.receiverBizClass = "공급받는자 종목"
+    '수신자 종목
+    newStatement.receiverBizClass = "수신자 종목"
 
-    '공급받는자 업태
-    newStatement.receiverBizType = "공급받는자 업태"
+    '수신자 업태
+    newStatement.receiverBizType = "수신자 업태"
 
-    '공급받는자 담당자명
-    newStatement.receiverContactName = "공급받는자 담당자명"
+    '수신자 담당자명
+    newStatement.receiverContactName = "수신자 담당자명"
 
-    '공급받는자 메일주소
-
+    '수신자 메일주소
     newStatement.receiverEmail = "test@receiver.com"
-
 
 
 	'**************************************************************
@@ -138,7 +133,6 @@
     newStatement.remark2 = "비고2"
     newStatement.remark3 = "비고3"
     
-			
 	'사업자등록증 이미지 첨부여부
     newStatement.businessLicenseYN = False 
 
@@ -148,9 +142,6 @@
 	'발행시 알림문자 전송여부
     newStatement.smssendYN = True 
 	
-
-
-
 
 	'**************************************************************
     '				                      전자명세서 상세(품목)

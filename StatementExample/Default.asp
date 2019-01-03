@@ -82,25 +82,6 @@
             <li><a href="updateContact.asp">updateContact</a> - 담당자 정보 수정</li>
         </ul>
     </fieldset>
-    <fieldset class="fieldset1">
-		<legend>회원 정보</legend>
-		<ul>
-			<li><a href="checkIsMember.asp">checkIsMember</a> - 연동회원 가입여부 확인</li>
-			<li><a href="joinMember.asp">joinMember</a> - 연동회원 가입 요청</li>
-			<li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
-			<li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
-			<li><a href="GetAccessURL.asp">getAccessURL</a> - 팝빌 로그인 URL</li>
-			<li><a href="GetChargeURL.asp">getChargeURL</a> - 팝빌 연동회원 포인트 충전 URL</li>
-			<li><a href="getPartnerBalance.asp">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
-			<li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트충전 URL 확인</li>
-			<li><a href="listContact.asp">listContact</a> - 담당자 목록 확인</li>
-			<li><a href="updateContact.asp">updateContact</a> - 담당자 정보 수정</li>
-			<li><a href="registContact.asp">registContact</a> - 담당자 추가</li>
-			<li><a href="checkID.asp">checkID</a> - 아이디 중복확인</li>
-			<li><a href="getCorpInfo.asp">getCorpInfo</a> - 회사정보 확인</li>
-			<li><a href="updateCorpInfo.asp">updateCorpInfo</a> - 회사정보 수정</li>
-		</ul>
-    </fieldset>
 </div>
 </body>
 </html>
