@@ -36,8 +36,8 @@
 				%>
 				<fieldset class="fieldset2">
 				<ul>
-					<li>number : <%=Presponse.Get(i).number%> </li>
-					<li>regDT : <%=Presponse.Get(i).regDT%> </li>
+					<li>number(수신거부번호) : <%=Presponse.Get(i).number%> </li>
+					<li>regDT(등록일시) : <%=Presponse.Get(i).regDT%> </li>
 				</ul>
 				</fieldset>
 				<%

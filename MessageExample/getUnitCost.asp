@@ -17,7 +17,7 @@
 	userID = "testkorea"
 
 	'전송유형 (SMS - 단문, LMS - 장문, MMS)
-	sendType = "MMS"
+	sendType = "SMS"
 
 	On Error Resume Next
 
@@ -36,7 +36,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>팝빌 SSO URL 요청</legend>
+				<legend>문자메시지 전송단가 확인</legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li><%=sendType%> 전송단가 : <%=CInt(unitCost)%> </li>

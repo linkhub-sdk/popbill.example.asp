@@ -14,7 +14,7 @@
 	testCorpNum = "1234567890"		
 
 	'전송유형 (SMS - 단문, LMS - 장문, MMS-포토)
-	sendType = "MMS"					 
+	sendType = "SMS"					 
 
 	'팝빌회원 아이디
 	UserID = "testkorea"					

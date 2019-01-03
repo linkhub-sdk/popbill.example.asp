@@ -19,7 +19,7 @@
 	userID = "testkorea"
 
 	' 문자전송 요청 시 할당한 전송요청번호(requestNum)
-	requestNum = "20180905"
+	requestNum = "20190103-001"
 	
 	On Error Resume Next
 

@@ -16,10 +16,10 @@
 	testCorpNum = "1234567890"		
 
 	'시작일자
-	SDate = "20180910"
+	SDate = "20181201"
 
 	'종료일자
-	EDate = "20181002"					
+	EDate = "20190103"					
 	
 	'전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -73,12 +73,12 @@
 			<fieldset class="fieldset1">
 				<legend>문자메세지 전송내역 조회 </legend>
 				<ul>
-						<li> code : <%=resultObj.code%></li>
-						<li> total : <%=resultObj.total%></li>
-						<li> pageNum : <%=resultObj.pageNum%></li>
-						<li> perPage : <%=resultObj.perPage%></li>
-						<li> pageCount : <%=resultObj.pageCount%></li>
-						<li> message : <%=resultObj.message%></li>
+						<li> code (응답코드) : <%=resultObj.code%></li>
+						<li> total (총 검색결과 건수) : <%=resultObj.total%></li>
+						<li> pageNum (페이지 번호) : <%=resultObj.pageNum%></li>
+						<li> perPage (페이지당 목록개수) : <%=resultObj.perPage%></li>
+						<li> pageCount (페이지 개수) : <%=resultObj.pageCount%></li>
+						<li> message (응답메시지) : <%=resultObj.message%></li>
 				</ul>
 					<% If code = 0 Then
 						For i=0 To UBound(resultObj.list) -1
@@ -87,7 +87,6 @@
 						<fieldset class="fieldset2">
 							<legend> 문자메시지 전송결과 [ <%=i+1%> / <%= UBound(resultObj.list)%> ] </legend>
 							<ul>
-								<li>state : <%=resultObj.list(i).state%> </li>
 
 								<li>state (전송상태 코드) : <%=resultObj.list(i).state%> </li>
 								<li>result (전송결과 코드) : <%=resultObj.list(i).result%> </li>
