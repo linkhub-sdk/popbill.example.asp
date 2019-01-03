@@ -17,7 +17,7 @@
 	userID = "testkorea"
 
 	' 문서관리번호, 1~24자리 숫자, 영문, '-', '_' 조합으로 사업자별로 중복되지 않도록 구성
-	mgtKey = "20161114-10"
+	mgtKey = "20190103-001"
 
 	' 메모 
 	memo = "즉시발행 메모"
@@ -28,7 +28,7 @@
 	Set newStatement = New Statement
 
     '[필수] 기재상 작성일자, 날짜형식(yyyyMMdd)
-    newStatement.writeDate = "20161114"
+    newStatement.writeDate = "20190103"
 
 	'[필수] {영수, 청구} 중 기재
     newStatement.purposeType = "영수"
@@ -164,7 +164,7 @@
 	Set newDetail = New StatementDetail
 
     newDetail.serialNum = "1"             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20161110"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20190103"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명"
     newDetail.spec = "규격"
     newDetail.unit = "단위"
@@ -184,7 +184,7 @@
 	Set newDetail = New StatementDetail
 
     newDetail.serialNum = "2"             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20161110"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20190103"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명"
     newDetail.spec = "규격"
     newDetail.unit = "단위"

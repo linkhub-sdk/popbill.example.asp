@@ -25,16 +25,15 @@
 	'수신팩스번호
 	receiveNum = "010111222"
 
-	'팩스전송파일명 
-	mgtKey = "20161114-09"
+	'문서관리번호 
+	mgtKey = "20190103-001"
 	
-
 
 	'전자명세서 객체 생성
 	Set newStatement = New Statement
 
     '[필수] 기재상 작성일자, 날짜형식(yyyyMMdd)
-    newStatement.writeDate = "20161110"  
+    newStatement.writeDate = "2018"  
 
 	'[필수] {영수, 청구} 중 기재
     newStatement.purposeType = "영수"

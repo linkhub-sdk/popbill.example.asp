@@ -22,7 +22,7 @@
 	itemCode = "121"					
 
 	'문서관리번호
-	mgtKey = "20161114-10"				
+	mgtKey = "20190103-001"				
 
 	On Error Resume Next
 
@@ -44,24 +44,26 @@
 				<legend>전자명세서 상태/요약 정보확인</legend>
 				<ul>
 					<% If code = 0 Then %>
-						<li>itemKey : <%=result.itemKey%> </li>
-						<li>stateCode : <%=result.stateCode%> </li>
-						<li>taxType : <%=result.taxType%> </li>
-						<li>purposeType : <%=result.purposeType%> </li>
-						<li>writeDate : <%=result.writeDate%> </li>
-						<li>senderCorpName : <%=result.senderCorpName%> </li>
-						<li>senderCorpNum : <%=result.senderCorpNum%> </li>
-						<li>senderPrintYN : <%=result.senderPrintYN%> </li>
-						<li>receiverCorpName : <%=result.receiverCorpName%> </li>
-						<li>receiverCorpNum : <%=result.receiverCorpNum%> </li>
-						<li>receiverPrintYN : <%=result.receiverPrintYN%> </li>
-						<li>supplyCostTotal : <%=result.supplyCostTotal%> </li>
-						<li>taxTotal : <%=result.taxTotal%> </li>
-						<li>issueDT : <%=result.issueDT%> </li>
-						<li>stateDT : <%=result.stateDT%> </li>
-						<li>openYN : <%=result.openYN%> </li>
-						<li>stateMemo : <%=result.stateMemo%> </li>
-						<li>regDT : <%=result.regDT%> </li>
+						<li> itemKey(아이템키) : <%=result.itemKey %></li>
+						<li> itemCode(문서종류코드) : <%=result.itemCode %></li>
+						<li> stateCode(상태코드) : <%=result.stateCode %></li>
+						<li> taxType(세금형태) : <%=result.taxType %></li>
+						<li> purposeType(영수/청구) : <%=result.purposeType %></li>
+						<li> writeDate(작성일자) : <%=result.writeDate %></li>
+						<li> senderCorpName(발신자 상호) : <%=result.senderCorpName %></li>
+						<li> senderCorpNum(발신자 사업자번호) : <%=result.senderCorpNum %></li>
+						<li> senderPrintYN(발신자 인쇄여부) : <%=result.senderPrintYN %></li>
+						<li> receiverCorpName(수신자 상호) : <%=result.receiverCorpName %></li>
+						<li> receiverCorpNum(수신자 사업자번호) : <%=result.receiverCorpNum %></li>
+						<li> receiverPrintYN(수신자 인쇄여부) : <%=result.receiverPrintYN %></li>
+						<li> supplyCostTotal(공급가액 합계) : <%=result.supplyCostTotal %></li>
+						<li> taxTotal(세액 합계) : <%=result.taxTotal %></li>
+						<li> issueDT(발행일시) : <%=result.issueDT %></li>
+						<li> stateDT(상태 변경일시) : <%=result.stateDT %></li>
+						<li> openYN(메일 개봉 여부) : <%=result.openYN %></li>
+						<li> openDT(개봉 일시) : <%=result.openDT %></li>
+						<li> stateMemo(상태메모) : <%=result.stateMemo %></li>
+						<li> regDT(등록일시) : <%=result.regDT %></li>
 					<% Else %>
 						<li>Response.code : <%=code%> </li>
 						<li>Response.message: <%=message%> </li>

@@ -19,11 +19,11 @@
 	'팝빌 회원 아이디
 	userID = "testkorea"				
 
-	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
+	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
 	itemCode = "121"					
 
 	'문서관리번호
-	mgtKey = "20161114-06"				
+	mgtKey = "20190103-001"				
 
 	On Error Resume Next
 
@@ -49,13 +49,12 @@
 						<fieldset class="fieldset2">
 						<legend> 전자명세서 상태변경 이력 [<%=i+1%>]</legend>
 							<ul>
-								<li>docLogType : <%=result.Item(i).docLogType%> </li>
-								<li>log : <%=result.Item(i).log%> </li>
-								<li>procType : <%=result.Item(i).procType%> </li>
-								<li>procCorpName : <%=result.Item(i).procCorpName%> </li>
-								<li>procMemo : <%=result.Item(i).procMemo%> </li>
-								<li>regDT : <%=result.Item(i).regDT%> </li>
-								<li>ip : <%=result.Item(i).ip%> </li>
+								<li>docLogType(로그타입) : <%=result.Item(i).docLogType%> </li>
+								<li>log(이력정보) : <%=result.Item(i).log%> </li>
+								<li>procType(처리형태) : <%=result.Item(i).procType%> </li>
+								<li>procMemo(처리메모) : <%=result.Item(i).procMemo%> </li>
+								<li>regDT(등록일시) : <%=result.Item(i).regDT%> </li>
+								<li>ip(아이피) : <%=result.Item(i).ip%> </li>
 							</ul>
 						</fieldset>
 					<%

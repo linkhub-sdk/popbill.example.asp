@@ -19,10 +19,10 @@
 	DType = "W"
 
 	'시작일자, yyyyMMdd
-	SDate = "20160901"				
+	SDate = "20181201"				
 
 	'종료일자, yyyyMMdd
-	EDate = "20161131"				
+	EDate = "20190103"				
 
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(2)
@@ -71,12 +71,12 @@
 				<legend>전자명세서 목록조회</legend>
 					<% If code = 0 Then %>
 					<ul>
-						<li> code : <%=result.code%></li>
-						<li> total : <%=result.total%></li>
-						<li> pageNum : <%=result.pageNum%></li>
-						<li> perPage : <%=result.perPage%></li>
-						<li> pageCount : <%=result.pageCount%></li>
-						<li> message : <%=result.message%></li>
+						<li> code(읃답 상태코드) : <%=result.code%></li>
+						<li> total(총 검색결과 건수) : <%=result.total%></li>
+						<li> pageNum(페이지 번호) : <%=result.pageNum%></li>
+						<li> perPage(페이지당 검색개수) : <%=result.perPage%></li>
+						<li> pageCount(페이지 개수) : <%=result.pageCount%></li>
+						<li> message(응답 메시지) : <%=result.message%></li>
 					</ul>
 					
 					<% For i=0 To UBound(result.list)-1 %>
@@ -84,24 +84,26 @@
 						<fieldset class="fieldset2">
 							<legend> 전자명세서 조회결과 [ <%=i+1%> / <%=UBound(result.list)%> ] </legend>
 							<ul>
-								<li>itemKey : <%=result.list(i).itemKey%> </li>
-								<li>stateCode : <%=result.list(i).stateCode%> </li>
-								<li>taxType : <%=result.list(i).taxType%> </li>
-								<li>purposeType : <%=result.list(i).purposeType%> </li>
-								<li>writeDate : <%=result.list(i).writeDate%> </li>
-								<li>senderCorpName : <%=result.list(i).senderCorpName%> </li>
-								<li>senderCorpNum : <%=result.list(i).senderCorpNum%> </li>
-								<li>senderPrintYN : <%=result.list(i).senderPrintYN%> </li>
-								<li>receiverCorpName : <%=result.list(i).receiverCorpName%> </li>
-								<li>receiverCorpNum : <%=result.list(i).receiverCorpNum%> </li>
-								<li>receiverPrintYN : <%=result.list(i).receiverPrintYN%> </li>
-								<li>supplyCostTotal : <%=result.list(i).supplyCostTotal%> </li>
-								<li>taxTotal : <%=result.list(i).taxTotal%> </li>
-								<li>issueDT : <%=result.list(i).issueDT%> </li>
-								<li>stateDT : <%=result.list(i).stateDT%> </li>
-								<li>openYN : <%=result.list(i).openYN%> </li>
-								<li>stateMemo : <%=result.list(i).stateMemo%> </li>
-								<li>regDT : <%=result.list(i).regDT%> </li>
+								<li> itemKey(아이템키) : <%=result.list(i).itemKey%></li>
+								<li> itemCode(문서종류코드) : <%=result.list(i).itemCode%></li>
+								<li> stateCode(상태코드) : <%=result.list(i).stateCode%></li>
+								<li> taxType(세금형태) : <%=result.list(i).taxType%></li>
+								<li> purposeType(영수/청구) : <%=result.list(i).purposeType%></li>
+								<li> writeDate(작성일자) : <%=result.list(i).writeDate%></li>
+								<li> senderCorpName(발신자 상호) : <%=result.list(i).senderCorpName%></li>
+								<li> senderCorpNum(발신자 사업자번호) : <%=result.list(i).senderCorpNum%></li>
+								<li> senderPrintYN(발신자 인쇄여부) : <%=result.list(i).senderPrintYN%></li>
+								<li> receiverCorpName(수신자 상호) : <%=result.list(i).receiverCorpName%></li>
+								<li> receiverCorpNum(수신자 사업자번호) : <%=result.list(i).receiverCorpNum%></li>
+								<li> receiverPrintYN(수신자 인쇄여부) : <%=result.list(i).receiverPrintYN%></li>
+								<li> supplyCostTotal(공급가액 합계) : <%=result.list(i).supplyCostTotal%></li>
+								<li> taxTotal(세액 합계) : <%=result.list(i).taxTotal%></li>
+								<li> issueDT(발행일시) : <%=result.list(i).issueDT%></li>
+								<li> stateDT(상태 변경일시) : <%=result.list(i).stateDT%></li>
+								<li> openYN(메일 개봉 여부) : <%=result.list(i).openYN%></li>
+								<li> openDT(개봉 일시) : <%=result.list(i).openDT%></li>
+								<li> stateMemo(상태메모) : <%=result.list(i).stateMemo%></li>
+								<li> regDT(등록일시) : <%=result.list(i).regDT%></li>
 							</ul>
 						</fieldset>
 					<% 

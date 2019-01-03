@@ -18,11 +18,11 @@
 	'팝빌 회원 아이디
 	userID = "testkorea"				
 
-	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
+	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
 	itemCode = "121"					
 
 	'문서관리번호
-	mgtKey = "20161114-06"				
+	mgtKey = "20190103-001"				
 
 	On Error Resume Next
 
@@ -49,10 +49,10 @@
 						<fieldset class="fieldset2">
 							<legend>첨부파일 [<%=i+1%>] </legend>
 							<ul>
-								<li>SerialNum : <%=result.Get(i).SerialNum%></li>
-								<li>AttachedFile : <%=result.Get(i).AttachedFile%></li>
-								<li>DisplayName : <%=result.Get(i).DisplayName%></li>
-								<li>regDT : <%=result.Get(i).regDT%></li>
+								<li>serialNum(첨부파일 일련번호) : <%=result.Get(i).serialNum%></li>
+								<li>attachedFile(파일아이디-첨부파일 삭제시 사용) : <%=result.Get(i).attachedFile%></li>
+								<li>displayName(첨부파일명) : <%=result.Get(i).displayName%></li>
+								<li>regDT(첨부일시) : <%=result.Get(i).regDT%></li>
 							</ul>
 						</fieldset>
 					<% 

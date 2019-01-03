@@ -17,18 +17,18 @@
 	'팝빌 회원 아이디
 	userID = "testkorea"
 
-	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
+	'명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
 	itemCode = "121"
 
 	'문서관리번호
-	mgtKey = "20161114-04"
+	mgtKey = "20190103-001"
 
 
 	'전자명세서 객체 생성
 	Set newStatement = New Statement
 
     '[필수] 기재상 작성일자, 날짜형식(yyyyMMdd)
-    newStatement.writeDate = "20161114"
+    newStatement.writeDate = "20190103"
 
 	'[필수] {영수, 청구} 중 기재
     newStatement.purposeType = "영수"
@@ -39,7 +39,7 @@
     '맞춤양식코드, 공백처리시 기본양식으로 작성
     newStatement.formCode = ""
 	
-	'[필수] 명세서 종류코드 - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
+	'[필수] 명세서 종류코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
     newStatement.itemCode = "121"
 
     '[필수] 문서관리번호, 숫자, 영문, '-', '_' 조합 (최대24자리)으로 사업자별로 중복되지 않도록 구성   
@@ -159,7 +159,7 @@
 	Set newDetail = New StatementDetail
 
     newDetail.serialNum = "1"             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20161110"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20190103"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명"
     newDetail.spec = "규격"
     newDetail.unit = "단위"
@@ -179,7 +179,7 @@
 	Set newDetail = New StatementDetail
 
     newDetail.serialNum = "2"             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20161110"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20190103"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명"
     newDetail.spec = "규격"
     newDetail.unit = "단위"

@@ -570,6 +570,7 @@ End Class
 Class StatementInfo
 Public itemKey
 Public stateCode
+Public itemCode
 Public taxType
 Public purposeType
 Public writeDate
@@ -592,6 +593,7 @@ Public Sub fromJsonInfo(jsonInfo)
 	On Error Resume Next
 	itemKey = jsonInfo.itemKey
 	stateCode = jsonInfo.stateCode
+	itemCode = jsonInfo.itemCode
 	taxType = jsonInfo.taxType
 	purposeType = jsonInfo.purposeType
 	writeDate = jsonInfo.writeDate
