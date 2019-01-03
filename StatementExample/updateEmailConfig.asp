@@ -27,7 +27,7 @@
 	emailType = "SMT_ISSUE"
 
 	'전송 여부 (true = 전송, false = 미전송)
-	sendYN = "true"
+	sendYN = true
 
 	On Error Resume Next
 

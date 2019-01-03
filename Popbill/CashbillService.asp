@@ -565,7 +565,15 @@ Public Function updateEmailConfig(CorpNum, mailType, sendYN, UserID)
 		Err.Raise -99999999, "POPBILL", "메일전송 여부 항목이 입력되지 않았습니다."
 	End If
 
-	Set updateEmailConfig = m_PopbillBase.httpPOST("/Cashbill/EmailSendConfig?EmailType="+mailType+"&SendYN="+sendYN, m_PopbillBase.getSession_token(CorpNum), "", "", UserID)
+	If (sendYN) Then
+		sendYN="true"
+	Else
+		SendYN="false"
+	End If
+	
+	uri = "/Cashbill/EmailSendConfig?EmailType="+mailType+"&SendYN="+sendYN
+
+	Set updateEmailConfig = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", "", UserID)
 End Function
 
 End Class
