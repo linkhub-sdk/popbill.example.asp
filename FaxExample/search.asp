@@ -16,10 +16,10 @@
 	testCorpNum = "1234567890"		
 
 	'시작일자, yyyyMMdd
-	SDate = "20180920"					
+	SDate = "20181201"					
 
 	'종료일자, yyyyMMdd
-	EDate = "20181002"					
+	EDate = "20190103"					
 	
 	' 전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -70,12 +70,12 @@
 			<fieldset class="fieldset1">
 				<legend>팩스전송 전송내역 조회 </legend>
 					<ul>
-						<li> code : <%=result.code%></li>
-						<li> total : <%=result.total%></li>
-						<li> pageNum : <%=result.pageNum%></li>
-						<li> perPage : <%=result.perPage%></li>
-						<li> pageCount : <%=result.pageCount%></li>
-						<li> message : <%=result.message%></li>
+						<li> code (응답코드) : <%=result.code%></li>
+						<li> total (총 검색결과 건수) : <%=result.total%></li>
+						<li> pageNum (페이지 번호) : <%=result.pageNum%></li>
+						<li> perPage (페이지당 목록개수) : <%=result.perPage%></li>
+						<li> pageCount (페이지 개수) : <%=result.pageCount%></li>
+						<li> message (응답메시지) : <%=result.message%></li>
 					</ul>
 				<% If code = 0 Then 
 						For i=0 To UBound(result.list)-1
