@@ -83,7 +83,6 @@
             <li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>회원관리</legend>
         <ul>
