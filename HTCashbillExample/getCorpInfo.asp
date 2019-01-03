@@ -37,17 +37,13 @@
 				<%
 					If code = 0 Then
 				%>
-					<fieldset class="fieldset2">					
-						<legend> CorpInfo </legend>
-							<ul>
-								<li> ceoname (대표자명) : <%=result.ceoname%></li>
-								<li> corpName (상호) : <%=result.corpName%></li>
-								<li> addr (주소) : <%=result.addr%></li>
-								<li> bizType (업태) : <%=result.bizType%></li>
-								<li> bizClass (종목) : <%=result.bizClass%></li>
-
-							</ul>
-						</fieldset>
+						<ul>
+							<li> ceoname (대표자명) : <%=result.ceoname%></li>
+							<li> corpName (상호) : <%=result.corpName%></li>
+							<li> addr (주소) : <%=result.addr%></li>
+							<li> bizType (업태) : <%=result.bizType%></li>
+							<li> bizClass (종목) : <%=result.bizClass%></li>
+						</ul>
 				<%
 					Else
 				%>
