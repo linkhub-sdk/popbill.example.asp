@@ -173,7 +173,7 @@ Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
 End Function
 
 '알림톡 전송
-Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, requestNum, UserID)
+Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, requestNum, UserID, btnList)
 	If templateCode = "" Or IsNull(templateCode) Then 
 		Err.Raise -99999999, "POPBILL", "알림톡 템플릿 코드(TemplateCode)가 입력되지 않았습니다"
 	End If
@@ -197,6 +197,17 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
 	Next
 
 	tmp.Set "msgs", msgs
+
+	If False = IsNull(btnList)  Then 
+		Set btns = JSON.parse("[]")
+		For i=0 To btnList.Count -1
+			Set btnObj = New KakaoButton
+			btnObj.setValue btnList.Item(i)
+			btns.Set i, btnObj.toJsonInfo
+		Next
+
+		tmp.Set "btns", btns 
+	End If 
 
 	postdata = m_PopbillBase.toString(tmp)
 

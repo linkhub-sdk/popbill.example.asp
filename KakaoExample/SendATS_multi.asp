@@ -18,7 +18,15 @@
 	testUserID = "testkorea"					
 
 	'알림톡 템플릿 코드 - 템플릿 목록 조회 (ListATSTemplate API)의 반환항목 확인
-	templateCode = "018080000079"
+	templateCode = "019020000163"
+
+	'알림톡 내용, 최대 1000자
+	content = "[ 팝빌 ]" & vbCrLf
+	content = content + "신청하신 #{템플릿코드}에 대한 심사가 완료되어 승인 처리되었습니다." & vbCrLf
+	content = content + "해당 템플릿으로 전송 가능합니다." & vbCrLf & vbCrLf
+	content = content + "문의사항 있으시면 파트너센터로 편하게 연락주시기 바랍니다. " & vbCrLf & vbCrLf
+	content = content + "팝빌 파트너센터 : 1600-8536" & vbCrLf
+	content = content + "support@linkhub.co.kr"
 
 	'팝빌에 사전 등록된 발신번호
 	senderNum = "07043042992"
@@ -42,7 +50,7 @@
 		rcvInfo.rcvnm = " 수신자이름"
 
 		'알림톡 내용, 최대 1000자
-		rcvInfo.msg = "[테스트] 테스트 템플릿입니다." +CStr(i)
+		rcvInfo.msg = content
 		
 		'대체문자 메시지 내용
 		rcvInfo.altmsg = "대체문자 메시지 내용" +CStr(i)
@@ -54,9 +62,20 @@
 	'영문,숫자,'-','_' 조합, 최대 36자
 	requestNum = ""		
 
+	' 알림톡 버튼정보를 템플릿 신청시 기재한 버튼정보와 동일하게 전송하는 경우 btnList를 선언만 하고 함수호출.
+	Set btnList = CreateObject("Scripting.Dictionary")
+	
+	'알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
+	'Set btnInfo = New KakaoButton
+	'btnInfo.n = "템플릿 안내"			
+	'btnInfo.t = "WL"		
+	'btnInfo.u1 = "https://www.popbil.com"
+	'btnInfo.u2 = "http://www.llinkhub.co.kr"
+	'btnList.Add 0, btnInfo
+
 	On Error Resume Next
 	
-	receiptNum = m_KakaoService.SendATS(testCorpNum, templateCode, senderNum, "", "", altSendType, reserveDT, receiverList, requestNum, testUserID)
+	receiptNum = m_KakaoService.SendATS(testCorpNum, templateCode, senderNum, "", "", altSendType, reserveDT, receiverList, requestNum, testUserID, btnList)
 
 	If Err.Number <> 0 then
 		code = Err.Number
