@@ -17,10 +17,6 @@
             <li><a href="update.asp">Update</a> - 수정</li>
             <li><a href="issue.asp">Issue</a> - 발행</li>
             <li><a href="cancelIssue.asp">CancelIssue</a> - 발행취소</li>
-            <li><a href="send.asp">Send</a> - [발행예정]</li>
-            <li><a href="cancelSend.asp">CancelSend</a> - [발행예정] 취소</li>
-            <li><a href="accept.asp">Accept</a> - [발행예정] 승인</li>
-            <li><a href="deny.asp">Deny</a> - [발행예정] 거부</li>
             <li><a href="delete.asp">Delete</a> - 삭제</li>
             <li><a href="registRequest.asp">RegistRequest</a> - [역발행] 즉시 요청</li>
             <li><a href="request.asp">Request</a> - 역발행요청</li>
@@ -49,6 +45,7 @@
         <legend>세금계산서 보기/인쇄</legend>
         <ul>
             <li><a href="getPopUpURL.asp">GetPopUpURL</a> - 세금계산서 보기 URL</li>
+            <li><a href="getViewURL.asp">GetViewURL</a> - 세금계산서 보기 URL - 메뉴/버튼 제외</li>
             <li><a href="getPrintURL.asp">GetPrintURL</a> - 세금계산서 인쇄 [공급자/공급받는자] URL</li>
             <li><a href="getEPrintURL.asp">GetEPrintURL</a> - 세금계산서 인쇄 [공급받는자용] URL</li>
             <li><a href="getMassPrintURL.asp">GetMassPrintURL</a> - 세금계산서 대량 인쇄 URL</li>

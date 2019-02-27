@@ -496,7 +496,7 @@ Public Function GetTaxCertURL(CorpNum, UserID)
 	GetTaxCertURL = result.url
 End Function
 
-'공인인증서 등록 팝업 URL
+'보기 팝업 URL
 Public Function GetPopupURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
         Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
@@ -505,6 +505,17 @@ Public Function GetPopupURL(CorpNum, KeyType, MgtKey, UserID)
 	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=POPUP" , _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 	GetPopupURL = result.url
+End Function
+
+'보기 팝업 URL
+Public Function GetViewURL(CorpNum, KeyType, MgtKey, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+
+	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=VIEW" , _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetViewURL = result.url
 End Function
 
 '인쇄 URL확인

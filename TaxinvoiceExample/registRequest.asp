@@ -228,26 +228,6 @@
     
     newTaxinvoice.AddDetail newDetail
  
-
-
-	'**************************************************************
-    '			                            추가담당자 정보
-    ' - 세금계산서 발행안내 메일을 수신받을 공급받는자 담당자가 다수인 경우
-    '   담당자 정보를 추가하여 발행안내메일을 다수에게 전송할 수 있습니다.
-	'**************************************************************
-
-    set newContact = New Contact
-	newContact.serialNum = 1
-    newContact.contactName = "담당자1 성명"
-    newContact.email = "test1@test.com"   
-    newTaxinvoice.AddContact newContact
-
-    set newContact = New Contact
-	newContact.serialNum = 2
-    newContact.contactName = "담당자2 성명"
-    newContact.email = "test2@test.com"
-    newTaxinvoice.AddContact newContact
-
 	' 즉시요청 메모
 	memo = "즉시요청 메모"
 

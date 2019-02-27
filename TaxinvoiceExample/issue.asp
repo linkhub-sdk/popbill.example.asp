@@ -28,7 +28,7 @@
 	KeyType= "SELL"
 
 	' 문서관리번호 
-	MgtKey = "20190103-001"
+	MgtKey = "20190227-023"
 	
 	' 메모
 	Memo = "발행 메모"
@@ -49,10 +49,12 @@
 	If Err.Number <> 0 Then
 		code = Err.Number
 		message = Err.Description
+		ntsConfirmNum = ""
 		Err.Clears
 	Else 
 		code = Presponse.code
 		message = Presponse.message
+		ntsConfirmNum = Presponse.ntsConfirmNum
 	End If
 
 	On Error GoTo 0
@@ -64,8 +66,11 @@
 			<fieldset class="fieldset1">
 				<legend>세금계산서 발행</legend>
 				<ul>
-					<li>Response.code : <%=code%> </li>
-					<li>Response.message : <%=message%> </li>
+					<li>응답코드 (Response.code) : <%=code%> </li>
+					<li>응답메시지 (Response.message) : <%=message%> </li>
+					<% If ntsConfirmNum <> "" Then %>
+					<li>국세청승인번호 (Response.ntsConfirmNum) : <%=ntsConfirmNum%> </li>
+					<% End If %>
 				</ul>
 			</fieldset>
 		 </div>

@@ -7,38 +7,32 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 발행예정 세금계산서를 [취소] 처리 합니다.
-	' - [취소]된 세금계산서를 삭제(Delete API)하면 등록된 문서관리번호를
-	'   재사용할 수 있습니다.
+	' 1건의 전자세금계산서 보기 팝업 URL을 반환합니다. (메뉴/버튼 제외)
+	' - 보안정책으로 인해 반환된 URL의 유효시간은 30초입니다.
 	'**************************************************************
 
-	' 팝빌회원 사업자번호, "-" 제외
+	' 팝빌회원 사업자번호, "-" 제외 10자리
 	testCorpNum = "1234567890"
 
 	' 팝빌회원 아이디
-	testUserID = "testkorea"
-	
+	userID = "testkorea"
+
 	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
-	KeyType= "SELL"
+	KeyType = "SELL"
 
 	' 문서관리번호 
-	MgtKey = "20190103-001"
-
-	' 메모
-	Memo = "발행예정취소 메모"
-
+	MgtKey = "20190227-001"
+	
 	On Error Resume Next
-	
-	Set Presponse = m_TaxinvoiceService.CancelSend(testCorpNum, KeyType ,MgtKey, Memo ,testUserID)
-	
-	If Err.Number <> 0 Then
+
+	url = m_TaxinvoiceService.GetViewURL(testCorpNum, KeyType, MgtKey, userID)
+
+	If Err.Number <> 0 then
 		code = Err.Number
 		message = Err.Description
 		Err.Clears
-	Else 
-		code = Presponse.code
-		message = Presponse.message
 	End If
+
 	On Error GoTo 0
 %>
 	<body>
@@ -46,11 +40,19 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>세금계산서 발행예정 취소 </legend>
-				<ul>
-					<li>Response.code : <%=code%> </li>
-					<li>Response.message : <%=message%> </li>
-				</ul>
+				<legend>세금계산서 보기 팝업 URL</legend>
+				<% 
+					If code = 0 Then
+				%>
+					<ul>
+						<li>URL : <%=url%> </li>
+					</ul>
+				<% Else %>
+					<ul>
+						<li> Response.code : <%=code%> </li>
+						<li> Response.message : <%=message%> </li>
+					</ul>
+				<% End If %>
 			</fieldset>
 		 </div>
 	</body>

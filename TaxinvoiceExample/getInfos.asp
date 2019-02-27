@@ -76,7 +76,7 @@
 										<li> supplyCostTotal (공급가액 합계) :  <%=result.Item(i).supplyCostTotal%> </li>
 										<li> taxTotal (세액 합계) :  <%=result.Item(i).taxTotal%> </li>
 										<li> issueDT (발행 일시) :  <%=result.Item(i).issueDT%> </li>
-										<li> preIssueDT (발행예정 일시) :  <%=result.Item(i).preIssueDT%> </li>
+
 										<li> stateDT (상태 변경일시) :  <%=result.Item(i).stateDT%> </li>
 										<li> openYN (개봉 여부) :  <%=result.Item(i).openYN%> </li>
 										<li> openDT (개봉 일시) :  <%=result.Item(i).openDT%> </li>

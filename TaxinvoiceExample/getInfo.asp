@@ -71,7 +71,7 @@
 						<li> supplyCostTotal (공급가액 합계) :  <%=result.supplyCostTotal%> </li>
 						<li> taxTotal (세액 합계) :  <%=result.taxTotal%> </li>
 						<li> issueDT (발행일시) :  <%=result.issueDT%> </li>
-						<li> preIssueDT (발행예정일시) :  <%=result.preIssueDT%> </li>
+
 						<li> stateDT (상태 변경일시) :  <%=result.stateDT%> </li>
 						<li> openYN (개봉 여부) :  <%=result.openYN%> </li>
 						<li> openDT (개봉 일시) :  <%=result.openDT%> </li>
