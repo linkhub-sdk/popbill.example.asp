@@ -45,7 +45,7 @@ Public function getTime
     getTime = result
 End Function
 
-public function getToken(serviceID , access_id, Scope)
+public function getToken(serviceID , access_id, Scope, forwardIP)
 
 	Set postObject = JSON.parse("{}")
     postObject.set "access_id", access_id
@@ -58,6 +58,9 @@ public function getToken(serviceID , access_id, Scope)
 	Call winhttp1.Open("POST", linkhub_ServiceURL + "/" + serviceID + "/Token")
 	Call winhttp1.setRequestHeader("x-lh-date", xdate)
 	Call winhttp1.setRequestHeader("x-lh-version", "1.0")
+    If forwardIP <> "" Then 
+			Call winhttp1.setRequestHeader("x-lh-forwarded", forwardIP)
+	End If 
 
 	target = "POST" + Chr(10)
 	target = target + m_sha1.b64_md5(postData) + Chr(10)

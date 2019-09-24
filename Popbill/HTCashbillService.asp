@@ -11,6 +11,10 @@ Class HTCashbillService
 		m_PopbillBase.IsTest = value
 	End Property
 
+	Public Property Let IPRestrictOnOff(ByVal value)
+		m_PopbillBase.IPRestrictOnOff = value
+	End Property
+
 	Public Sub Class_Initialize
 		Set m_PopbillBase = New PopbillBase
 		m_PopbillBase.AddScope("141")

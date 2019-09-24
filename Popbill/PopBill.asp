@@ -15,10 +15,15 @@ Class PopbillBase
 Private m_IsTest
 Private m_TokenDic
 Private m_Linkhub
+Private m_IPRestrictOnOff
 
 '테스트 플래그
 Public Property Let IsTest(ByVal value)
     m_IsTest = value
+End Property
+
+Public Property Let IPRestrictOnOff(ByVal value)
+    m_IPRestrictOnOff = value
 End Property
 
 
@@ -36,6 +41,7 @@ Public Sub Class_Initialize
 	End If
 	
 	m_IsTest = False
+	m_IPRestrictOnOff = True
     Set m_Linkhub = New Linkhub
 
 	
@@ -89,7 +95,7 @@ Public Function getSession_token(CorpNum)
     
     If refresh Then
 		If m_TokenDic.Exists(CorpNum) Then m_TokenDic.remove CorpNum
-        Set m_Token = m_Linkhub.getToken(IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), CorpNum, m_scope)
+        Set m_Token = m_Linkhub.getToken(IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), CorpNum, m_scope, IIf(m_IPRestrictOnOff, "", "*"))
 		m_Token.set "strScope", Join(m_scope,"|")
 		m_TokenDic.Add CorpNum, m_Token
 	End If
