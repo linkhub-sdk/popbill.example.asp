@@ -137,7 +137,7 @@ Class HTTaxinvoiceService
 	End Function
 
 	'수집 결과 조회
-	Public Function Search ( CorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, Page, PerPage, Order, UserID )
+	Public Function Search ( CorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, Page, PerPage, Order, UserID, SearchString )
 		If  Not ( Len ( JobID ) = 18 )  Then
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If 
@@ -177,6 +177,11 @@ Class HTTaxinvoiceService
 		uri = uri & "&TaxRegIDType=" & TaxRegIDType
 		
 		uri = uri & "&TaxRegID=" & TaxRegID
+
+		If SearchString <> "" Then
+			uri = uri & "&SearchString=" & SearchString
+		End If 
+
 		uri = uri & "&Page=" & CStr(Page)
 		uri = uri & "&PerPage=" & CStr(PerPage)
 		uri = uri & "&Order=" & Order
@@ -190,7 +195,7 @@ Class HTTaxinvoiceService
 	End Function 
 
 	'수집 결과 요약정보 조회
-	Public Function Summary ( CorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, UserID )
+	Public Function Summary ( CorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, UserID, SearchString )
 		If Not ( Len ( JobID ) = 18 ) Then
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If 
@@ -230,6 +235,10 @@ Class HTTaxinvoiceService
 		End If 
 		
 		uri = uri & "&TaxRegID=" & TaxRegID
+
+		If SearchString <> "" Then
+			uri = uri & "&SearchString=" & SearchString
+		End If 
 
 		Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 	

@@ -16,10 +16,10 @@
 	testCorpNum = "1234567890"	
 
 	'팝빌회원 아이디
-	UserID = ""
+	UserID = "testkorea"
 	
 	'수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
-	JobID = "017082913000000001"
+	JobID = "019102415000000014"
 
 	'문서형태 배열, N-일반 전자세금계산서, M-수정 전자세금계산서 
 	Dim TIType(2) 
@@ -56,10 +56,13 @@
 	'정렬방항, D-내림차순, A-오름차순
 	Order = "D"
 
+	'조회 검색어, 거래처 사업자번호 또는 거래처명 like 검색
+	SearchString = ""
+
 	On Error Resume Next
 
 	Set result = m_HTTaxinvoiceService.Search(testCorpNum, JobID, TIType, TaxType, PurposeType, _	
-								TaxRegIDYN, TaxRegIDType, TaxRegID, Page, PerPage, Order, UserID)
+								TaxRegIDYN, TaxRegIDType, TaxRegID, Page, PerPage, Order, UserID, SearchString)
 
 	If Err.Number <> 0 Then
 		code = Err.Number

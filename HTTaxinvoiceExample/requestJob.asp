@@ -17,19 +17,19 @@
 	testCorpNum = "1234567890"	
 
 	'팝빌회원 아이디
-	testUserID = "testkorea"		
+	testUserID = ""		
 
 	'발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
 	KeyType= SELL					
 
 	'검색 일자유형, W-작성일자, I-발행일자, S-전송일자
-	DType = "W"						
+	DType = "S"						
 
 	'시작일자, 표시형식(yyyyMMdd)
-	SDate = "20181201"			
+	SDate = "20190901"			
 	
 	'종료일자, 표시형식(yyyyMMdd)
-	EDate =	"20190101"				
+	EDate =	"20191231"				
 
 	
 	On Error Resume Next
