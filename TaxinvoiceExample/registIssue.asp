@@ -38,7 +38,7 @@
 	Set newTaxinvoice = New Taxinvoice
 
 	' [필수] 작성일자, 날짜형식(yyyyMMdd)
-	newTaxinvoice.writeDate = "20190227"
+	newTaxinvoice.writeDate = "20191024"
 
 	' [필수] {정과금, 역과금} 중 기재, '역과금'은 역발행 프로세스에서만 이용가능
     newTaxinvoice.chargeDirection = "정과금"
@@ -73,7 +73,7 @@
 
     '[필수] 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
     '사업자 별로 중복되지 않도록 구성
-    newTaxinvoice.invoicerMgtKey = "20190227-022"
+    newTaxinvoice.invoicerMgtKey = "20191024-022"
 
 	'[필수] 공급자 대표자 성명
     newTaxinvoice.invoicerCEOName = "공급자 대표자 성명"
@@ -205,14 +205,14 @@
 	'**************************************************************
     '         수정세금계산서 정보 (수정세금계산서 작성시에만 기재
     ' - 수정세금계산서 관련 정보는 연동매뉴얼 또는 개발가이드 링크 참조
-    ' - [참고] 수정세금계산서 작성방법 안내 - http://blog.linkhub.co.kr/650
+    ' - [참고] 수정세금계산서 작성방법 안내 - https://docs.popbill.com/taxinvoice/modify?lang=asp
 	'**************************************************************
 
-	' 수정사유코드, 수정사유에 따라 1~6중 선택기재
+	' [수정세금계산서 발행시 필수] 수정사유코드, 수정사유에 따라 1~6중 선택기재
     newTaxinvoice.modifyCode = ""
 
-	' 원본세금계산서의 ItemKey, 문서확인 (GetInfo API)의 응답결과(ItemKey 항목) 확인
-    newTaxinvoice.originalTaxinvoiceKey = ""
+	' [수정세금계산서 발행시 필수] 원본세금계산서의 국세청 승인번호 기재
+    newTaxinvoice.orgNTSConfirmNum = ""
 
 
 	'**************************************************************
