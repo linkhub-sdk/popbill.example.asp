@@ -17,18 +17,20 @@
 	userID = "testkorea"
 
 	' 문서관리번호, 1~24자리 숫자, 영문, '-', '_' 조합으로 사업자별로 중복되지 않도록 구성
-	mgtKey = "20190103-001"
+	mgtKey = "20191024-021"
 
 	' 메모 
 	memo = "즉시발행 메모"
 
+	' 안내메일 제목, 공백 기재시 기본양식으로 전송
+	emailSubject = ""
 
 
 	'전자명세서 객체 생성
 	Set newStatement = New Statement
 
     '[필수] 기재상 작성일자, 날짜형식(yyyyMMdd)
-    newStatement.writeDate = "20190103"
+    newStatement.writeDate = "20191024"
 
 	'[필수] {영수, 청구} 중 기재
     newStatement.purposeType = "영수"
@@ -112,7 +114,7 @@
     newStatement.receiverContactName = "수신자 담당자명"
 
     '수신자 메일주소
-    newStatement.receiverEmail = "test@receiver.com"
+    newStatement.receiverEmail = "code@linkhub.co.kr"
 
 	'수신자 연락처
 	newStatement.receiverTEL = "070-4304-2991"
@@ -214,7 +216,7 @@
 
 	On Error Resume Next
 
-	Set result = m_StatementService.RegistIssue(testCorpNum, newStatement, memo, userID)
+	Set result = m_StatementService.RegistIssue(testCorpNum, newStatement, memo, userID, emailSubject)
 
 	If Err.Number <> 0 Then
 		code = Err.Number

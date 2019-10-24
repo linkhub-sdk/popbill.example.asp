@@ -23,10 +23,13 @@
 	userID = "testkorea"
 
 	' 문서관리번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-	mgtKey = "20190103-001"
+	mgtKey = "20191024-011"
 
 	' 메모
 	memo = "즉시발행 메모"
+
+	'안내메일 제목, 공백 기재시 기본양식으로 전송
+	emailSubject = "발행 안내 메일 제목"
 
 	' 현금영수증 객체 생성
 	Set CashbillObj = New CashBill
@@ -110,7 +113,7 @@
 
 	On Error Resume Next
 
-	Set Presponse = m_CashbillService.RegistIssue(testCorpNum, CashbillObj, memo, userID)
+	Set Presponse = m_CashbillService.RegistIssue(testCorpNum, CashbillObj, memo, userID, emailSubject)
 
 	If Err.Number <> 0 then
 		code = Err.Number

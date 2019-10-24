@@ -405,7 +405,7 @@ Public Function GetMassPrintURL(CorpNum, itemCode, mgtKeyList, UserID)
 End Function
 
 '전자명세서 즉시발행
-Public Function RegistIssue(CorpNum, ByRef statement, Memo, UserID)
+Public Function RegistIssue(CorpNum, ByRef statement, Memo, UserID, EmailSubject)
 	If statement Is Nothing Then Err.raise -99999999,"POPBILL","등록할 전자명세서 정보가 입력되지 않았습니다."
 
     Set tmpDic = statement.toJsonInfo
@@ -413,6 +413,11 @@ Public Function RegistIssue(CorpNum, ByRef statement, Memo, UserID)
 	If Memo <> "" Then
 		tmpDic.Set "memo", Memo
 	End If
+
+	If EmailSubject <> "" Then
+		tmpDic.Set "emailSubject", EmailSubject
+	End If
+
 
 	postdata = m_PopbillBase.toString(tmpDic)
 
