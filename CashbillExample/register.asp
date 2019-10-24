@@ -93,6 +93,8 @@
 	CashbillObj.orderNumber = "주문번호"
 
 	'이메일
+	'팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
+	'실제 거래처의 메일주소가 기재되지 않도록 주의
 	CashbillObj.email = "test@test.com"
 
 	'휴대폰

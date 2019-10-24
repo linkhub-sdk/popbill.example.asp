@@ -26,7 +26,7 @@
 	Set newTaxinvoice = New Taxinvoice
 
 	' [필수] 작성일자, 날짜형식(yyyyMMdd)
-	newTaxinvoice.writeDate = "20190227"
+	newTaxinvoice.writeDate = "20191024"
 
 	' [필수] {정과금, 역과금} 중 기재, '역과금'은 역발행 프로세스에서만 이용가능
     newTaxinvoice.chargeDirection = "정과금"
@@ -128,6 +128,8 @@
 	newTaxinvoice.invoiceeContactName1 = "공급받는자 담당자명"
     
 	'공급받는자 담당자 메일주소
+	'팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
+	'실제 거래처의 메일주소가 기재되지 않도록 주의
 	newTaxinvoice.invoiceeEmail1 = "test@invoicee.com"
 	
 	'공급받는자 연락처
