@@ -126,12 +126,12 @@
 
 										<li> invoicerCorpName (공급자 상호) :  <%=result.list(i).invoicerCorpName%> </li>
 										<li> invoicerCorpNum (공급자 사업자번호) :  <%=result.list(i).invoicerCorpNum%> </li>
-										<li> invoicerMgtKey (공급자 문서관리번호) :  <%=result.list(i).invoicerMgtKey%> </li>
+										<li> invoicerMgtKey (공급자 문서번호) :  <%=result.list(i).invoicerMgtKey%> </li>
 										<li> invoicerPrintYN (공급자 인쇄여부) :  <%=result.list(i).invoicerPrintYN%> </li>
 										
 										<li> invoiceeCorpName (공급받는자 상호) :  <%=result.list(i).invoiceeCorpName%> </li>
 										<li> invoiceeCorpNum (공급받는자 사업자번호) :  <%=result.list(i).invoiceeCorpNum%> </li>
-										<li> invoiceeMgtKey (공급받는자 문서관리번호) :  <%=result.list(i).invoiceeMgtKey%> </li>
+										<li> invoiceeMgtKey (공급받는자 문서번호) :  <%=result.list(i).invoiceeMgtKey%> </li>
 										<li> invoiceePrintYN (공급받는자 인쇄여부) :  <%=result.list(i).invoiceePrintYN%> </li>
 										<li> closeDownState (공급받는자 휴폐업상태) :  <%=result.list(i).closeDownState%> </li>
 										<li> closeDownStateDate (공급받는자 휴폐업일자) :  <%=result.list(i).closeDownStateDate%> </li>

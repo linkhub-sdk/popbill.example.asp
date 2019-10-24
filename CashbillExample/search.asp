@@ -98,7 +98,7 @@
 							<ul>
 								<li>itemKey (현금영수증 아이템키) : <%=SearchResult.list(i).itemKey%></li>
 								<li>confirmNum (국세청 승인번호) : <%=SearchResult.list(i).confirmNum%></li>
-								<li>mgtKey (문서관리번호) : <%=SearchResult.list(i).mgtKey%></li>
+								<li>mgtKey (문서번호) : <%=SearchResult.list(i).mgtKey%></li>
 								<li>tradeDate (거래일자) : <%=SearchResult.list(i).tradeDate%></li>
 								<li>issueDT (발행일시) : <%=SearchResult.list(i).issueDT%></li>
 								<li>regDT (등록일시) : <%=SearchResult.list(i).regDT%></li>

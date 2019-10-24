@@ -17,7 +17,7 @@
 	testCorpNum = "1234567890"	
 
 	'팝빌회원 아이디
-	testUserID = ""		
+	testUserID = "testkorea"		
 
 	'발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
 	KeyType= SELL					

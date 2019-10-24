@@ -21,7 +21,7 @@
 	' 세금계산서 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
 	KeyType = "SELL"
 
-	' 문서관리번호 
+	' 문서번호 
 	MgtKey = "20190103-001"
 
 	On Error Resume Next

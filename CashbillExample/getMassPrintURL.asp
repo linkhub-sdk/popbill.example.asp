@@ -17,7 +17,7 @@
 	'팝빌 회원 아이디
 	userID = "testkorea"		 
 
-	'현금영수증 문서관리번호, 최대 100건
+	'현금영수증 문서번호, 최대 100건
 	Dim mgtKeyList(2)			
 	mgtKeyList(0) = "20190103-001"	     
 	mgtKeyList(1) = "20190103-002"

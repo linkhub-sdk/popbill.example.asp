@@ -57,7 +57,7 @@
     '[필수] 공급자 상호
 	newTaxinvoice.invoicerCorpName = "공급자 상호"
 
-    '공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
+    '공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
     '사업자 별로 중복되지 않도록 구성
     newTaxinvoice.invoicerMgtKey = ""
 
@@ -107,7 +107,7 @@
 	'[필수] 공급자받는자 상호
 	newTaxinvoice.invoiceeCorpName = "공급받는자 상호"
 
-    '[역발행시 필수] 공급받는자 문서관리번호(역발행시 필수)
+    '[역발행시 필수] 공급받는자 문서번호(역발행시 필수)
     newTaxinvoice.invoiceeMgtKey = "20190103-001"
 
 	'[필수] 공급받는자 대표자 성명

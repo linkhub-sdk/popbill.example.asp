@@ -25,7 +25,7 @@
 	Dim TIType(2) 
 	TIType(0) = "N"
 	TIType(1) = "M"
-
+s
 	'과세형태 배열,  T-과세, N-면세, Z-영세
 	Dim TaxType(3)
 	TaxType(0) = "T"

@@ -18,7 +18,7 @@
 	' 세금계산서 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
 	KeyType = "SELL"
 
-	' 문서관리번호
+	' 문서번호
 	MgtKey = "20191015-002"
 
 	On Error Resume Next
@@ -62,7 +62,7 @@
 					<li>remark3 (비고3) : <%=taxInfo.remark3%></li>
 
 					<li>invoicerCorpNum (공급자 사업자번호) : <%=taxInfo.invoicerCorpNum%> </li>
-					<li>invoicerMgtKey (공급자 문서관리번호) : <%=taxInfo.invoicerMgtKey%></li>
+					<li>invoicerMgtKey (공급자 문서번호) : <%=taxInfo.invoicerMgtKey%></li>
 					<li>invoicerTaxRegID (공급자 종사업장 식별번호) : <%=taxInfo.invoicerTaxRegID%></li>
 					<li>invoicerCorpName (공급자 상호) : <%=taxInfo.invoicerCorpName%></li>
 					<li>invoicerCEOName (공급자 대표자명) : <%=taxInfo.invoicerCEOName%></li>
@@ -77,7 +77,7 @@
 
 					<li>invoiceeType (공급받는자 구분) : <%=taxInfo.invoiceeType%></li>
 					<li>invoiceeCorpNum (공급받는자 사업자번호) : <%=taxInfo.invoiceeCorpNum%></li>
-					<li>invoiceeMgtKey (공급받는자 문서관리번호) : <%=taxInfo.invoiceeMgtKey%></li>
+					<li>invoiceeMgtKey (공급받는자 문서번호) : <%=taxInfo.invoiceeMgtKey%></li>
 					<li>invoiceeTaxRegID (공급받는자 종사업장 식별번호) : <%=taxInfo.invoiceeTaxRegID%></li>
 					<li>invoiceeCorpName (공급받는자 상호) : <%=taxInfo.invoiceeCorpName%></li>
 					<li>invoiceeCEOName (공급받는자 대표자명) : <%=taxInfo.invoiceeCEOName%></li>

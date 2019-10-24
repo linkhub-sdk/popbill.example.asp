@@ -19,7 +19,7 @@
 	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
 	KeyType= "SELL"
 
-	' 문서관리번호 
+	' 문서번호 
 	MgtKey = "20190103-001"
 
 	' 팝빌회원아이디
@@ -57,12 +57,12 @@
 
 						<li> invoicerCorpName (공급자 상호) :  <%=result.invoicerCorpName%> </li>
 						<li> invoicerCorpNum (공급자 사업자번호) :  <%=result.invoicerCorpNum%> </li>
-						<li> invoicerMgtKey (공급자 문서관리번호) :  <%=result.invoicerMgtKey%> </li>
+						<li> invoicerMgtKey (공급자 문서번호) :  <%=result.invoicerMgtKey%> </li>
 						<li> invoicerPrintYN (공급자 인쇄여부) :  <%=result.invoicerPrintYN%> </li>
 
 						<li> invoiceeCorpName (공급받는자 상호) :  <%=result.invoiceeCorpName%> </li>
 						<li> invoiceeCorpNum (공급받는자 사업자번호) :  <%=result.invoiceeCorpNum%> </li>
-						<li> invoiceeMgtKey (공급받는자 문서관리번호) :  <%=result.invoiceeMgtKey%> </li>
+						<li> invoiceeMgtKey (공급받는자 문서번호) :  <%=result.invoiceeMgtKey%> </li>
 						<li> invoiceePrintYN (공급받는자 인쇄여부) :  <%=result.invoiceePrintYN%> </li>
 						<li> closeDownState (공급받는자 휴폐업상태) :  <%=result.closeDownState%> </li>
 						<li> closeDownStateDate (공급받는자 휴폐업일자) :  <%=result.closeDownStateDate%> </li>

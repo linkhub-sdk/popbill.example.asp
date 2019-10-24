@@ -18,7 +18,7 @@
 	'팝빌 회원 아이디
 	userID = "testkorea"		 
 	
-	'문서관리번호
+	'문서번호
 	mgtKey = "20190103-001"
 
 	On Error Resume Next
@@ -43,7 +43,7 @@
 					<% If code = 0 Then %>
 						<li>itemKey (현금영수증 아이템키) : <%=Presponse.itemKey%></li>
 						<li>confirmNum (국세청 승인번호) : <%=Presponse.confirmNum%></li>
-						<li>mgtKey (문서관리번호) : <%=Presponse.mgtKey%></li>
+						<li>mgtKey (문서번호) : <%=Presponse.mgtKey%></li>
 						<li>tradeDate (거래일자) : <%=Presponse.tradeDate%></li>
 						<li>issueDT (발행일시) : <%=Presponse.issueDT%></li>
 						<li>regDT (등록일시) : <%=Presponse.regDT%></li>

@@ -11,7 +11,7 @@
     <fieldset class="fieldset1">
         <legend>현금영수증 발행</legend>
         <ul>
-            <li><a href="checkMgtKeyInUse.asp">checkMgtKeyInUse</a> -관리번호 확인</li>
+            <li><a href="checkMgtKeyInUse.asp">checkMgtKeyInUse</a> -문서번호 확인</li>
             <li><a href="registIssue.asp">registIssue</a> -즉시발행</li>
             <li><a href="register.asp">register</a> -임시저장</li>
             <li><a href="update.asp">update</a> -수정</li>

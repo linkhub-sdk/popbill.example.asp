@@ -17,7 +17,7 @@
 	'팝빌 회원 아이디
 	userID = "testkorea"
 
-	'현금영수증 문서관리번호
+	'현금영수증 문서번호
 	mgtKey = "20190103-001"
 
 	On Error Resume Next

@@ -22,7 +22,7 @@
 	' 팝빌회원 아이디
 	UserID = "testkorea"
 
-	' 세금계산서 문서관리번호 배열, 최대 1000건
+	' 세금계산서 문서번호 배열, 최대 1000건
 	Dim MgtKeyList(3) 
 	MgtKeyList(0) = "20190103-001"
 	MgtKeyList(1) = "20190103-002"
@@ -62,12 +62,12 @@
 
 										<li> invoicerCorpName (공급자 상호) :  <%=result.Item(i).invoicerCorpName%> </li>
 										<li> invoicerCorpNum (공급자 사업자번호) :  <%=result.Item(i).invoicerCorpNum%> </li>
-										<li> invoicerMgtKey (공급자 문서관리번호) :  <%=result.Item(i).invoicerMgtKey%> </li>
+										<li> invoicerMgtKey (공급자 문서번호) :  <%=result.Item(i).invoicerMgtKey%> </li>
 										<li> invoicerPrintYN (공급자 인쇄여부) :  <%=result.Item(i).invoicerPrintYN%> </li>
 
 										<li> invoiceeCorpName (공급받는자 상호) :  <%=result.Item(i).invoiceeCorpName%> </li>
 										<li> invoiceeCorpNum (공급받는자 사업자번호) :  <%=result.Item(i).invoiceeCorpNum%> </li>
-										<li> invoiceeMgtKey (공급받는자 문서관리번호) :  <%=result.Item(i).invoiceeMgtKey%> </li>
+										<li> invoiceeMgtKey (공급받는자 문서번호) :  <%=result.Item(i).invoiceeMgtKey%> </li>
 										<li> invoiceePrintYN (공급받는자 인쇄여부) :  <%=result.Item(i).invoiceePrintYN%> </li>
 										<li> closeDownState (공급받는자 휴폐업상태) :  <%=result.Item(i).closeDownState%> </li>
 										<li> closeDownStateDate (공급받는자 휴폐업일시) :  <%=result.Item(i).closeDownStateDate%> </li>

@@ -18,7 +18,7 @@
 	'팝빌 회원 아이디
 	userID = "testkorea"		 
 
-	'조회할 현금영수증 문서관리번호 배열, 최대 1000건
+	'조회할 현금영수증 문서번호 배열, 최대 1000건
 	Dim mgtKeyList(3) 
 	MgtKeyList(0) = "20190103-001"
 	MgtKeyList(1) = "20190103-002"
@@ -50,7 +50,7 @@
 							<ul>
 								<li>itemKey (현금영수증 아이템키) : <%=Presponse.Item(i).itemKey%></li>
 								<li>confirmNum (국세청 승인번호) : <%=Presponse.Item(i).confirmNum%></li>
-								<li>mgtKey (문서관리번호) : <%=Presponse.Item(i).mgtKey%></li>
+								<li>mgtKey (문서번호) : <%=Presponse.Item(i).mgtKey%></li>
 								<li>tradeDate (거래일자) : <%=Presponse.Item(i).tradeDate%></li>
 								<li>issueDT (발행일시) : <%=Presponse.Item(i).issueDT%></li>
 								<li>regDT (등록일시) : <%=Presponse.Item(i).regDT%></li>

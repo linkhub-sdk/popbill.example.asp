@@ -14,7 +14,7 @@
 	'팝빌 회원 사업자번호, "-" 제외 10자리
 	testCorpNum = "1234567890"	
 	
-	'문서관리번호
+	'문서번호
 	mgtKey = "20190103-001"		
 		
 	On Error Resume Next
@@ -42,7 +42,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>문서관리번호 사용여부 확인</legend>
+				<legend>문서번호 사용여부 확인</legend>
 				<ul>
 					<li>Response.code : <%=code%> </li>
 					<li>Response.message : <%=message%> </li>

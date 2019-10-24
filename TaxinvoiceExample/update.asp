@@ -21,7 +21,7 @@
 	'발행유형
 	keyType = "SELL"				
 
-	'문서관리번호
+	'문서번호
 	mgtKey = "20190103-001"		
 	
 	'거래명세서 동시작성여부
@@ -65,7 +65,7 @@
     '[필수] 공급자 상호
 	newTaxinvoice.invoicerCorpName = "공급자 상호_수정"
 
-    '[필수] 공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
+    '[필수] 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
     '사업자 별로 중복되지 않도록 구성
     newTaxinvoice.invoicerMgtKey = mgtKey		
 
@@ -115,7 +115,7 @@
 	'[필수] 공급자받는자 상호
 	newTaxinvoice.invoiceeCorpName = "공급받는자 상호"
 
-    '[역발행시 필수] 공급받는자 문서관리번호(역발행시 필수)
+    '[역발행시 필수] 공급받는자 문서번호(역발행시 필수)
     newTaxinvoice.invoiceeMgtKey = ""
 
 	'[필수] 공급받는자 대표자 성명

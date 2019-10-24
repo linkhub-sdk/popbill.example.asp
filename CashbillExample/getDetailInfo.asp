@@ -18,7 +18,7 @@
 	'팝빌 회원 아이디
 	userID = "testkorea"		 
 
-	'문서관리번호
+	'문서번호
 	mgtKey = "20190103-001"       
 
 	On Error Resume Next
@@ -43,7 +43,7 @@
 					<% If code = 0 Then %>
 						<fieldset class="fieldset2">
 							<ul>
-									<li>mgtKey (문서관리번호) : <%=Presponse.mgtKey%></li>
+									<li>mgtKey (문서번호) : <%=Presponse.mgtKey%></li>
 									<li>confirmNum (국세청승인번호) : <%=Presponse.confirmNum%></li>
 									<li>orgConfirmNum (원본 현금영수증 국세청승인번호) : <%=Presponse.orgConfirmNum%></li>
 									<li>orgTradeDate (원본 현금영수증 거래일자) : <%=Presponse.orgTradeDate%></li>

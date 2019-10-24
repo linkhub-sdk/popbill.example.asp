@@ -20,7 +20,7 @@
 	' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
 	KeyType= "SELL"
 	
-	' 인쇄할 세금계산서 문서관리번호 배열, 최대 100건
+	' 인쇄할 세금계산서 문서번호 배열, 최대 100건
 	Dim MgtKeyList(3) 
 	MgtKeyList(0) = "20190103-001"
 	MgtKeyList(1) = "20190103-002"
