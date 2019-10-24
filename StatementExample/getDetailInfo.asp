@@ -22,7 +22,7 @@
 	itemCode = "121"					
 
 	'문서번호
-	mgtKey = "20190103-001"				
+	mgtKey = "20191024-023"				
 
 	On Error Resume Next
 	
@@ -113,6 +113,21 @@
 										<li> spare3(여분3) : <%=result.detailList(i).spare3%> </li>
 										<li> spare4(여분4) : <%=result.detailList(i).spare4%> </li>
 										<li> spare5(여분5) : <%=result.detailList(i).spare5%> </li>
+										<li> spare6(여분6) : <%=result.detailList(i).spare6%> </li>
+										<li> spare7(여분7) : <%=result.detailList(i).spare7%> </li>
+										<li> spare8(여분8) : <%=result.detailList(i).spare8%> </li>
+										<li> spare9(여분9) : <%=result.detailList(i).spare9%> </li>
+										<li> spare10(여분10) : <%=result.detailList(i).spare10%> </li>
+										<li> spare11(여분11) : <%=result.detailList(i).spare11%> </li>
+										<li> spare12(여분12) : <%=result.detailList(i).spare12%> </li>
+										<li> spare13(여분13) : <%=result.detailList(i).spare13%> </li>
+										<li> spare14(여분14) : <%=result.detailList(i).spare14%> </li>
+										<li> spare15(여분15) : <%=result.detailList(i).spare15%> </li>
+										<li> spare16(여분16) : <%=result.detailList(i).spare16%> </li>
+										<li> spare17(여분17) : <%=result.detailList(i).spare17%> </li>
+										<li> spare18(여분18) : <%=result.detailList(i).spare18%> </li>
+										<li> spare19(여분19) : <%=result.detailList(i).spare19%> </li>
+										<li> spare20(여분20) : <%=result.detailList(i).spare20%> </li>
 									</ul>
 								</fieldset>
 							<% 

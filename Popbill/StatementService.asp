@@ -841,6 +841,21 @@ Public spare2
 Public spare3
 Public spare4
 Public spare5
+Public spare6
+Public spare7
+Public spare8
+Public spare9
+Public spare10
+Public spare11
+Public spare12
+Public spare13
+Public spare14
+Public spare15
+Public spare16
+Public spare17
+Public spare18
+Public spare19
+Public spare20
 
 Public Function toJsonInfo()
     Set toJsonInfo = JSON.parse("{}")
@@ -859,6 +874,23 @@ Public Function toJsonInfo()
 	toJsonInfo.Set "spare3", spare3
 	toJsonInfo.Set "spare4", spare4
 	toJsonInfo.Set "spare5", spare5
+	toJsonInfo.Set "spare6", spare6
+	toJsonInfo.Set "spare7", spare7
+	toJsonInfo.Set "spare8", spare8
+	toJsonInfo.Set "spare9", spare9
+	toJsonInfo.Set "spare10", spare10
+	toJsonInfo.Set "spare11", spare11
+	toJsonInfo.Set "spare12", spare12
+	toJsonInfo.Set "spare13", spare13
+	toJsonInfo.Set "spare14", spare14
+	toJsonInfo.Set "spare15", spare15
+	toJsonInfo.Set "spare16", spare16
+	toJsonInfo.Set "spare17", spare17
+	toJsonInfo.Set "spare18", spare18
+	toJsonInfo.Set "spare19", spare19
+	toJsonInfo.Set "spare20", spare20
+
+
 End Function
 
 Public Sub fromJsonInfo(jsonInfo)
@@ -878,6 +910,21 @@ Public Sub fromJsonInfo(jsonInfo)
     spare3 = jsonInfo.spare3
     spare4 = jsonInfo.spare4
     spare5 = jsonInfo.spare5
+	spare6 = jsonInfo.spare6
+	spare7 = jsonInfo.spare7
+	spare8 = jsonInfo.spare8
+	spare9 = jsonInfo.spare9
+	spare10 = jsonInfo.spare10
+	spare11 = jsonInfo.spare11
+	spare12 = jsonInfo.spare12
+	spare13 = jsonInfo.spare13
+	spare14 = jsonInfo.spare14
+	spare15 = jsonInfo.spare15
+	spare16 = jsonInfo.spare16
+	spare17 = jsonInfo.spare17
+	spare18 = jsonInfo.spare18
+	spare19 = jsonInfo.spare19
+	spare20 = jsonInfo.spare20
 	On Error GoTo 0 
 End Sub
 End Class

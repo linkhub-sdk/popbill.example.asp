@@ -18,7 +18,7 @@
 	userID = "testkorea"
 
 	' 문서번호, 1~24자리 숫자, 영문, '-', '_' 조합으로 사업자별로 중복되지 않도록 구성
-	mgtKey = "20191024-021"
+	mgtKey = "20191024-023"
 
 	' 메모 
 	memo = "즉시발행 메모"
@@ -117,7 +117,7 @@
     '수신자 메일주소
 	'팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
 	'실제 거래처의 메일주소가 기재되지 않도록 주의
-    newStatement.receiverEmail = "code@linkhub.co.kr"
+    newStatement.receiverEmail = "test@test.com"
 
 	'수신자 연락처
 	newStatement.receiverTEL = "070-4304-2991"
@@ -183,6 +183,22 @@
     newDetail.spare3 = "spare3"
     newDetail.spare4 = "spare4"
     newDetail.spare5 = "spare5"
+	newDetail.spare6 = "spare6"
+	newDetail.spare7 = "spare7"
+	newDetail.spare8 = "spare8"
+	newDetail.spare9 = "spare9"
+	newDetail.spare10 = "spare10"
+	newDetail.spare11 = "spare11"
+	newDetail.spare12 = "spare12"
+	newDetail.spare13 = "spare13"
+	newDetail.spare14 = "spare14"
+	newDetail.spare15 = "spare15"
+	newDetail.spare16 = "spare16"
+	newDetail.spare17 = "spare17"
+	newDetail.spare18 = "spare18"
+	newDetail.spare19 = "spare19"
+	newDetail.spare20 = "spare20"
+
 
 	newStatement.AddDetail newDetail
 	
