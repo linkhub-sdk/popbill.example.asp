@@ -24,6 +24,7 @@
             <li><a href="getTaxinvoice.asp">getTaxinvoice</a> - 상세정보 확인 - JSON</li>
             <li><a href="getXML.asp">getXML</a> - 상세정보 확인 - XML</li>
             <li><a href="getPopUpURL.asp">getPopUpURL</a> - 홈택스 전자세금계산서 보기 팝업 URL</li>
+            <li><a href="getPrintURl.asp">getPrintURL</a> - 홈택스 전자세금계산서 인쇄 팝업 URL</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

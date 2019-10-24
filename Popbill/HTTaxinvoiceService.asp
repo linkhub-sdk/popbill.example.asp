@@ -310,6 +310,19 @@ Class HTTaxinvoiceService
 		GetPopUpURL = result.url
 	End Function
 
+	'홈택스 전자세금계산서 인쇄 팝업 URL
+	Public Function GetPrintURL ( CorpNum, NTSConfirmNum, UserID )
+		If Not ( Len ( NTSConfirmNum ) = 24 ) Then
+			Err.Raise -99999999, "POPBILL", "국세청승인번호가 올바르지 않습니다."
+		End If
+		
+		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNum & "/Print", _
+								m_PopbillBase.getSession_token(CorpNum), UserID)
+
+		GetPrintURL = result.url
+	End Function
+
+
 	'홈택스 공인인증서 로그인 테스트
 	Public Function CheckCertValidation ( CorpNum, UserID )
 		Set CheckCertValidation = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/CertCheck", m_PopbillBase.getSession_token(CorpNum), UserID)
