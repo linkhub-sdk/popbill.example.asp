@@ -2,7 +2,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
 		<link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-		
 		<title>팝빌 SDK ASP Example.</title>
 	</head>
 	<body>
@@ -15,12 +14,15 @@
 						<li><a href="TaxinvoiceExample">TaxinvoiceService</a> - 전자세금계산서 API</li>
 						<li><a href="CashbillExample">CashbillService</a> - 현금영수증 API</li>
 						<li><a href="StatementExample">StatementService</a> - 전자명세서 API</li>
-						<li><a href="MessageExample">MessageService</a> - 문자메시지 API</li>
-						<li><a href="FaxExample">FaxService</a> - 팩스 API</li>
-						<li><a href="KakaoExample">KakaoService</a> -  카카오톡 API</li>
+
 						<li><a href="HTTaxinvoiceExample">HometaxTaxinvoiceService</a>  - 홈택스연동(전자세금계산서) API</li>
 						<li><a href="HTCashbillExample">HometaxCashbillService</a>  - 홈택스연동(현금영수증) API</li>
 						<li><a href="ClosedownExample">ClosedownService</a> - 휴폐업조회 API</li>
+						<li><a href="EasyFinBankExample">EasyFinBankService</a> - 계좌조회 API</li>
+
+						<li><a href="MessageExample">MessageService</a> - 문자메시지 API</li>
+						<li><a href="FaxExample">FaxService</a> - 팩스 API</li>
+						<li><a href="KakaoExample">KakaoService</a> -  카카오톡 API</li>
 					</ul>
 			</fieldset>
 		 </div>
