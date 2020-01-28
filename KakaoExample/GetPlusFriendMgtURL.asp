@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 플러스친구 계정관리 팝업 URL을 반환합니다.
+	' 카카오톡 채널 계정관리 팝업 URL을 반환합니다.
 	' - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
 	' - https://docs.popbill.com/kakao/asp/api#GetPlusFriendMgtURL
 	'**************************************************************
@@ -36,7 +36,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>플러스친구 계정관리 팝업 URL</legend>
+				<legend>카카오톡 채널 계정관리 팝업 URL</legend>
 				<ul>
 					<% If code = 0 Then %>
 						<li>URL : <%=url%> </li>

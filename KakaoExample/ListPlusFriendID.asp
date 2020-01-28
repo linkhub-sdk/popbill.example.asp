@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 카카오톡 플러스친구 계정 목록을 확인합니다.
+	' 카카오톡 채널 계정 목록을 확인합니다.
 	' - https://docs.popbill.com/kakao/asp/api#ListPlusFriendID
 	'**************************************************************
 
@@ -31,14 +31,14 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>카카오톡 플러스친구 계정 목록 확인</legend>
+				<legend>카카오톡 채널 계정 목록 확인</legend>
 				<%
 					For i=0 To Presponse.length -1
 				%>
 				<fieldset class="fieldset2">
 				<ul>
-					<li>플러스친구 아이디 (plusFriendID) : <%=Presponse.Get(i).plusFriendID%> </li>
-					<li>플러스친구 이름(plusFriendName) : <%=Presponse.Get(i).plusFriendName%> </li>
+					<li>카카오톡 채널 아이디 (plusFriendID) : <%=Presponse.Get(i).plusFriendID%> </li>
+					<li>카카오톡 채널 이름(plusFriendName) : <%=Presponse.Get(i).plusFriendName%> </li>
 					<li>등록일시(regDT) : <%=Presponse.Get(i).regDT%> </li>
 				</ul>
 				</fieldset>
