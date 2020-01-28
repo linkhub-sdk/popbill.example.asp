@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="content">
-    <p class="heading1">팝빌 문자메시지 SDK ASP Example.</p>
+    <p class="heading1">팝빌 문자 API SDK ASP Example.</p>
     <br/>
     <fieldset class="fieldset1">
         <legend>발신번호 사전등록</legend>

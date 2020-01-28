@@ -5,7 +5,7 @@
 	'**************************************************************'
 	' 팝빌 홈택스 전자세금계산서 연동 API ASP SDK Example
 	'
-	' - 업데이트 일자 : 2019-10-24
+	' - 업데이트 일자 : 2020-01-28
 	' - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991
 	' - 연동 기술지원 이메일 : code@linkhub.co.kr
 	'
@@ -26,6 +26,7 @@
 	SecretKey ="SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I="
 
 	set m_HTTaxinvoiceService = new HTTaxinvoiceService
+
 	m_HTTaxinvoiceService.Initialize LinkID, SecretKey
 
 	'연동환경 설정값, 개발용(True), 상업용(False)

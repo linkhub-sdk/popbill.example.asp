@@ -11,8 +11,8 @@
     <fieldset class="fieldset1">
         <legend>플리스친구 계정관리</legend>
         <ul>
-            <li><a href="getPlusFriendMgtURL.asp">getPlusFriendMgtURL</a> - 플러스친구 계정관리 팝업 URL</li>
-            <li><a href="listPlusFriendID.asp">listPlusFriendID</a> - 플러스친구 목록 확인</li>
+            <li><a href="getPlusFriendMgtURL.asp">getPlusFriendMgtURL</a> - 카카오톡 채널 계정관리 팝업 URL</li>
+            <li><a href="listPlusFriendID.asp">listPlusFriendID</a> - 카카오톡 채널 목록 확인</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

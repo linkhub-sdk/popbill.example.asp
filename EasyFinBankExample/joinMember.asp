@@ -7,6 +7,12 @@
 <!--#include file="common.asp"--> 
 
 <%
+
+	'**************************************************************	
+	' 사업자의 연동회원 가입처리를 요청합니다.
+	' - https://docs.popbill.com/easyfinbank/asp/api#JoinMember
+	'**************************************************************
+
 	' 회원정보 객체 생성
 	Set joinInfo = New JoinForm
 
