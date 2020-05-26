@@ -65,6 +65,9 @@ public function getToken(serviceID , access_id, Scope, forwardIP)
 	target = "POST" + Chr(10)
 	target = target + m_sha1.b64_md5(postData) + Chr(10)
 	target = target + xDate + Chr(10)
+    If forwardIP <> "" Then 
+		target = target + forwardIP + Chr(10)			
+	End If 
 	target = target + "1.0" + Chr(10)
 	target = target + "/" + serviceID + "/Token"
 
