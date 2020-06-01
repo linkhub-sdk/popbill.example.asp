@@ -49,6 +49,16 @@
 										<li> state (정액제 상태) : <%=result.Item(i).state%></li>
 										<li> regDT (등록일시) : <%=result.Item(i).regDT%></li>
 										<li> memo (메모) : <%=result.Item(i).memo%></li>
+
+										<li>contractDT (정액제 서비스 시작일시) : <%=result.Item(i).contractDT %> </li>
+										<li>useEndDate (정액제 서비스 종료일) : <%=result.Item(i).useEndDate %> </li>
+										<li>baseDate (자동연장 결제일) : <%=result.Item(i).baseDate %> </li>
+										<li>contractState (정액제 서비스 상태) : <%=result.Item(i).contractState%> </li>
+										<li>closeRequestYN (정액제 서비스 해지신청 여부) : <%=result.Item(i).closeRequestYN%> </li>
+										<li>useRestrictYN (정액제 서비스 사용제한 여부) : <%=result.Item(i).useRestrictYN%> </li>
+										<li>closeOnExpired (정액제 서비스 만료 시 해지 여부) : <%=result.Item(i).closeOnExpired %> </li>
+										<li>unPaidYN (미수금 보유 여부) : <%=result.Item(i).unPaidYN %> </li>
+
 									</ul>
 								</fieldset>
 				<%

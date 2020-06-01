@@ -102,11 +102,71 @@ Class EasyFinBankSErvice
 
 	'''''''''''''  End of PopbillBase
 
+	
+	Public Function RegistBankAccount(CorpNum, BankInfoObj, UserID)
+
+		uri = "/EasyFin/Bank/BankAccount/Regist"
+		uri = uri + "?UsePeriod=" & BankInfoObj.UsePeriod
+
+		Set tmp = BankInfoObj.toJsonInfo
+		postdata = m_PopbillBase.toString(tmp)
+
+		Set RegistBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+	End Function
+
+	Public Function UpdateBankAccount(CorpNum, BankInfoObj, UserID)
+
+		uri = "/EasyFin/Bank/BankAccount/"+BankInfoObj.BankCode+"/"+BankInfoObj.AccountNumber+"/Update"
+
+		Set tmp = BankInfoObj.toJsonInfo
+		postdata = m_PopbillBase.toString(tmp)
+
+		Set UpdateBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+	End Function
+
+
+	Public Function CloseBankAccount(CorpNum, BankCode, AccountNumber, CloseType, UserID)
+	
+		uri = "/EasyFin/Bank/BankAccount/Close"
+		uri = uri + "?BankCode=" & BankCode
+		uri = uri + "&AccountNumber=" & AccountNumber
+		uri = uri + "&CloseType=" & CloseType
+
+		Set CloseBankAccount = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
+
+	End Function
+	
+	Public Function RevokeCloseBankAccount(CorpNum, BankCode, AccountNumber, UserID)
+	
+		uri = "/EasyFin/Bank/BankAccount/RevokeClose"
+		uri = uri + "?BankCode=" & BankCode
+		uri = uri + "&AccountNumber=" & AccountNumber
+
+		Set RevokeCloseBankAccount = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
+
+	End function
+
+
 	Public Function GetBankAccountMgtURL ( CorpNum, UserID )
 		Set result = m_PopbillBase.httpGET("/EasyFin/Bank?TG=BankAccount", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetBankAccountMgtURL = result.url
 	End Function
+
+
+	Public Function GetBankAccountInfo(CorpNum, BankCode, AccountNumber, UserID)
+
+		uri = "/EasyFin/Bank/BankAccount/" & BankCode & "/" & AccountNumber
+
+		Set result = m_PopbillBase.httpGET(uri, _
+						m_PopbillBase.getSession_token(CorpNum), UserID)
+
+		Set infoObj = New EasyFinBankAccount
+		infoObj.fromJsonInfo result
+		
+		Set GetBankAccountInfo = infoObj	
+	End Function 
+
 
 	Public Function ListBankAccount(CorpNum, UserID)
 		Set result = m_PopbillBase.httpGET("/EasyFin/Bank/ListBankAccount", _
@@ -401,6 +461,36 @@ Class EasyFinJobState
 	End sub
 End Class
 
+Class EasyFinBankAccountForm
+	public BankCode
+	public AccountNumber
+	public AccountPWD
+	public AccountType
+	public IdentityNumber
+	public AccountName
+	public BankID
+	public FastID
+	public FastPWD
+	public UsePeriod
+	public Memo
+		
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.set "BankCode", BankCode
+		toJsonInfo.set "AccountNumber", AccountNumber
+		toJsonInfo.set "AccountPWD", AccountPWD
+		toJsonInfo.set "AccountType", AccountType
+		toJsonInfo.set "IdentityNumber", IdentityNumber
+		toJsonInfo.set "AccountName", AccountName
+		toJsonInfo.set "BankID", BankID
+		toJsonInfo.set "FastID", FastID
+		toJsonInfo.set "FastPWD", FastPWD
+		toJsonInfo.set "Memo", Memo
+	End Function
+
+End Class
+
+
 Class EasyFinBankAccount
 
 	Public accountNumber
@@ -411,8 +501,18 @@ Class EasyFinBankAccount
 	Public regDT
 	Public memo
 
+	Public contractDT
+	Public useEndDate
+	Public baseDate
+	Public contractState
+	Public closeRequestYN
+	Public useRestrictYN
+	Public closeOnExpired
+	Public unPaidYN
+
 	Public Sub fromJsonInfo ( jsonInfo )
 		On Error Resume Next
+
 			accountNumber = jsonInfo.accountNumber
 			bankCode = jsonInfo.bankCode
 			accountName = jsonInfo.accountName
@@ -420,6 +520,17 @@ Class EasyFinBankAccount
 			state = jsonInfo.state
 			regDT = jsonInfo.regDT
 			memo = jsonInfo.memo
+
+			contractDT = jsonInfo.contractDT
+			useEndDate = jsonInfo.useEndDate
+			baseDate = jsonInfo.baseDate
+			contractState = jsonInfo.contractState
+			closeRequestYN = jsonInfo.closeRequestYN
+			useRestrictYN = jsonInfo.useRestrictYN
+			closeOnExpired = jsonInfo.closeOnExpired
+			unPaidYN = jsonInfo.unPaidYN
+
+
 		On Error GoTo 0 
 	End sub
 End Class

@@ -11,8 +11,14 @@
     <fieldset class="fieldset1">
         <legend>계좌 관리</legend>
         <ul>
-            <li><a href="getBankAccountMgtURL.asp">getBankAccountMgtURL</a> - 계좌 관리 팝업 URL</li>
-            <li><a href="listBankAccount.asp">listBankAccount</a> - 계좌 목록 확인</li>
+			<li><a href="registBankAccount.asp">registBankAccount</a> - 계좌 등록</li>
+			<li><a href="updateBankAccount.asp">updateBankAccount</a> - 계좌 수정</li>
+			<li><a href="getBankAccountInfo.asp">getBankAccountInfo</a> - 계좌정보 확인</li>
+			<li><a href="listBankAccount.asp">listBankAccount</a> - 계좌 목록 확인</li>
+			<li><a href="getBankAccountMgtURL.asp">getBankAccountMgtURL</a> - 계좌 관리 팝업 URL</li>
+			<li><a href="closeBankAccount.asp">closeBankAccount</a> - 계좌 정액제 해지신청</li>
+			<li><a href="revokeCloseBankAccount.asp">revokeCloseBankAccount</a> - 계좌 정액제 해지신청 취소</li>
+            
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
