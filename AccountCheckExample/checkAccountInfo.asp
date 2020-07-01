@@ -19,7 +19,7 @@
 		BankCode = "0004"
 
 		'°èÁÂ¹øÈ£
-		AccountNumber = "94324511758"
+		AccountNumber = "94324511758125"
 
 		On Error Resume Next
 			Set result = m_AccountCheckService.checkAccountInfo(CorpNum, BankCode, AccountNumber, UserID)
