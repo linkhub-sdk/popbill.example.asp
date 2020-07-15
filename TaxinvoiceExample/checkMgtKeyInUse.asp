@@ -24,7 +24,6 @@
 	keyType = "SELL"
 
 	On Error Resume Next
-
 	checkMgtKeyInUse = m_TaxinvoiceService.CheckMgtKeyInUse(testCorpNum, keyType, mgtKey)
 
 	If Err.Number <> 0 Then

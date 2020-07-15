@@ -21,6 +21,10 @@ Public Sub Initialize(linkID, SecretKey )
 	m_PopbillBase.Initialize linkID,SecretKey
 End Sub
 
+Public Property Let UseStaticIP(ByVal value)
+    m_PopbillBase.UseStaticIP = value
+End Property
+
 '회원잔액조회
 Public Function GetBalance(CorpNum)
     GetBalance = m_PopbillBase.GetBalance(CorpNum)

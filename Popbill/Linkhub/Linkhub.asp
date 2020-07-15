@@ -1,6 +1,7 @@
 <!--#include file="json2.asp"--> 
 <%
 Const linkhub_ServiceURL = "https://auth.linkhub.co.kr"
+Const linkhub_ServiceURL_GA = "https://ga-auth.linkhub.co.kr"
 
 class Linkhub
 
@@ -27,9 +28,10 @@ Public Sub Class_Terminate
 	Set m_sha1 = Nothing 
 End Sub 
 
-Public function getTime
+Public function getTime(useStaticIP)
 	Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    Call winhttp1.Open("GET", linkhub_ServiceURL + "/Time")
+
+    Call winhttp1.Open("GET", IIf(useStaticIP, linkhub_ServiceURL_GA, linkhub_ServiceURL) + "/Time")
     
     winhttp1.send
 	winhttp1.WaitForResponse
@@ -45,7 +47,7 @@ Public function getTime
     getTime = result
 End Function
 
-public function getToken(serviceID , access_id, Scope, forwardIP)
+public function getToken(serviceID , access_id, Scope, forwardIP, useStaticIP)
 
 	Set postObject = JSON.parse("{}")
     postObject.set "access_id", access_id
@@ -53,9 +55,10 @@ public function getToken(serviceID , access_id, Scope, forwardIP)
 
 	postData = toString(postObject)
 
-	xDate = getTime
+	xDate = getTime(useStaticIP)
 	Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-	Call winhttp1.Open("POST", linkhub_ServiceURL + "/" + serviceID + "/Token")
+
+	Call winhttp1.Open("POST", IIf(useStaticIP, linkhub_ServiceURL_GA, linkhub_ServiceURL) + "/" + serviceID + "/Token")
 	Call winhttp1.setRequestHeader("x-lh-date", xdate)
 	Call winhttp1.setRequestHeader("x-lh-version", "1.0")
     If forwardIP <> "" Then 
@@ -90,10 +93,11 @@ public function getToken(serviceID , access_id, Scope, forwardIP)
 
 end function
 
-Public Function GetBalance(BearerToken, serviceID )
+Public Function GetBalance(BearerToken, serviceID, useStaticIP )
 
     Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    Call winhttp1.Open("GET", linkhub_ServiceURL + "/" + serviceID + "/Point")
+
+    Call winhttp1.Open("GET", IIf(useStaticIP, linkhub_ServiceURL_GA, linkhub_ServiceURL) + "/" + serviceID + "/Point")
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     
     winhttp1.send
@@ -112,10 +116,10 @@ Public Function GetBalance(BearerToken, serviceID )
 
 End Function
 
-Public Function GetPartnerBalance(BearerToken, serviceID)
+Public Function GetPartnerBalance(BearerToken, serviceID, useStaticIP)
 
     Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    Call winhttp1.Open("GET", linkhub_ServiceURL + "/" + serviceID + "/PartnerPoint")
+    Call winhttp1.Open("GET", IIf(useStaticIP, linkhub_ServiceURL_GA, linkhub_ServiceURL) + "/" + serviceID + "/PartnerPoint")
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     
     winhttp1.send
@@ -134,10 +138,10 @@ Public Function GetPartnerBalance(BearerToken, serviceID)
 End Function
 
 ' 파트너 포인트 충전 팝업 URL - 2017/08/29 추가
-Public Function GetPartnerURL(BearerToken, serviceID, TOGO)
+Public Function GetPartnerURL(BearerToken, serviceID, TOGO, useStaticIP)
 
     Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    Call winhttp1.Open("GET", linkhub_ServiceURL + "/" + serviceID + "/URL?TG=" + TOGO)
+    Call winhttp1.Open("GET", IIf(useStaticIP, linkhub_ServiceURL_GA, linkhub_ServiceURL) + "/" + serviceID + "/URL?TG=" + TOGO)
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     
     winhttp1.send
@@ -153,6 +157,14 @@ Public Function GetPartnerURL(BearerToken, serviceID, TOGO)
     Set parsedDic = parse(result)
     GetPartnerURL = parsedDic.url
 
+End Function
+
+Private Function IIf(condition , trueState,falseState)
+	If condition Then 
+		IIf = trueState
+	Else
+		IIf = falseState
+	End if
 End Function
 
 public Function toString(object)

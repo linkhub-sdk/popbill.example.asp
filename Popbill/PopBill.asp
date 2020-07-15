@@ -6,6 +6,9 @@ Const ServiceID_REAL = "POPBILL"
 Const ServiceID_TEST = "POPBILL_TEST"
 Const ServiceURL_REAL = "https://popbill.linkhub.co.kr"
 Const ServiceURL_TEST = "https://popbill-test.linkhub.co.kr"
+Const ServiceURL_GA_REAL = "https://ga-popbill.linkhub.co.kr"
+Const ServiceURL_GA_TEST = "https://ga-popbill-test.linkhub.co.kr"
+
 Const APIVersion = "1.0"
 Const adTypeBinary = 1
 Const adTypeText = 2
@@ -16,6 +19,7 @@ Private m_IsTest
 Private m_TokenDic
 Private m_Linkhub
 Private m_IPRestrictOnOff
+Private m_UseStaticIP
 
 '테스트 플래그
 Public Property Let IsTest(ByVal value)
@@ -26,6 +30,9 @@ Public Property Let IPRestrictOnOff(ByVal value)
     m_IPRestrictOnOff = value
 End Property
 
+Public Property Let UseStaticIP(ByVal value)
+    m_UseStaticIP = value
+End Property
 
 Public Sub Class_Initialize
 	On Error Resume next
@@ -42,6 +49,7 @@ Public Sub Class_Initialize
 	
 	m_IsTest = False
 	m_IPRestrictOnOff = True
+	m_UseStaticIP = False
     Set m_Linkhub = New Linkhub
 
 	
@@ -88,14 +96,14 @@ Public Function getSession_token(CorpNum)
 		Next
 		If refresh = False then
 			Dim utcnow
-			utcnow = CDate(Replace(left(m_linkhub.getTime,19),"T" , " " ))
+			utcnow = CDate(Replace(left(m_linkhub.getTime(m_UseStaticIP),19),"T" , " " ))
 			refresh = CDate(Replace(left(m_Token.expiration,19),"T" , " " )) < utcnow
 		End if
     End If
     
     If refresh Then
 		If m_TokenDic.Exists(CorpNum) Then m_TokenDic.remove CorpNum
-        Set m_Token = m_Linkhub.getToken(IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), CorpNum, m_scope, IIf(m_IPRestrictOnOff, "", "*"))
+        Set m_Token = m_Linkhub.getToken(IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), CorpNum, m_scope, IIf(m_IPRestrictOnOff, "", "*"), m_UseStaticIP)
 		m_Token.set "strScope", Join(m_scope,"|")
 		m_TokenDic.Add CorpNum, m_Token
 	End If
@@ -106,17 +114,17 @@ End Function
 
 '회원잔액조회
 Public Function GetBalance(CorpNum)
-    GetBalance = m_Linkhub.GetBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL))
+    GetBalance = m_Linkhub.GetBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), m_UseStaticIP)
 End Function
 
 '파트너 잔액조회
 Public Function GetPartnerBalance(CorpNum)
-    GetPartnerBalance = m_Linkhub.GetPartnerBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL))
+    GetPartnerBalance = m_Linkhub.GetPartnerBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), m_UseStaticIP)
 End Function
 
 '파트너 포인트 충전 URL - 2017/08/29 추가
 Public Function GetPartnerURL(CorpNum, TOGO)
-    GetPartnerURL = m_Linkhub.GetPartnerURL(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), TOGO)
+    GetPartnerURL = m_Linkhub.GetPartnerURL(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), TOGO, m_UseStaticIP)
 End Function
 
 '팝빌 기본 URL
@@ -227,7 +235,14 @@ End Function
 Public Function httpGET(url , BearerToken , UserID )
 
     Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    Call winhttp1.Open("GET", IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL) + url, false)
+	
+	If m_UseStaticIP Then
+		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+	Else
+		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+	End If 
+
+    Call winhttp1.Open("GET", targetURL + url, false)
     
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
@@ -256,7 +271,14 @@ End Function
 Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
     
     Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    Call winhttp1.Open("POST", IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL) + url)
+
+	If m_UseStaticIP Then
+		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+	Else
+		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+	End If 
+
+    Call winhttp1.Open("POST", targetURL + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     Call winhttp1.setRequestHeader("Content-Type", "Application/json")
     
@@ -290,7 +312,15 @@ End Function
 
 Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , UserID, ContentsType)
     Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    Call winhttp1.Open("POST", IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL) + url)
+
+	If m_UseStaticIP Then
+		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+	Else
+		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+	End If 
+
+
+    Call winhttp1.Open("POST", targetURL + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     
     
@@ -333,7 +363,14 @@ Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
     boundary = "---------------------popbill"
     
     Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    Call winhttp1.Open("POST", IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL) + url)
+	
+	If m_UseStaticIP Then
+		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+	Else
+		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+	End If 
+
+    Call winhttp1.Open("POST", targetURL + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     
     
@@ -388,7 +425,15 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
     boundary = "---------------------popbill"
     
     Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    Call winhttp1.Open("POST", IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL) + url)
+
+	If m_UseStaticIP Then
+		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+	Else
+		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+	End If
+
+
+    Call winhttp1.Open("POST", targetURL + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     
     
