@@ -24,10 +24,10 @@
 	DType = "W"
 	
 	' [필수] 시작일자, yyyyMMdd
-	SDate = "20181201"
+	SDate = "20200701"
 
 	' [필수] 종료일자, yyyyMMdd
-	EDate = "20190103"
+	EDate = "20200731"
 	
 	' 전송상태값 배열, 미기지새 전체조회, 문서상태값 3자리 배열, 2,3번째 자리 와일드카드 사용가능
 	Dim State(2)
@@ -51,6 +51,11 @@
 	IssueType(0) = "N"
 	IssueType(1) = "R"
 	IssueType(2) = "T"
+
+	' 등록형태 배열, P-팝빌 등록, H-홈택스,외부 ASP를 통해 등록
+	Dim RegType(2)
+	RegType(0) = "P"
+	RegType(1) = "H"
 
 	' 지연발행여부,  null- 전체조회, False-정상발행분 조회, True-지연발행분 조회
 	LateOnly = null		
@@ -82,7 +87,7 @@
 	On Error Resume Next
 
 	Set result = m_TaxinvoiceService.Search(testCorpNum, KeyType, DType, SDate, EDate, State, _ 
-						TIType, TaxType, IssueType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, _
+						TIType, TaxType, IssueType, RegType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, _
 						TaxRegID, QString, InterOPYN, UsreID)
 
 	If Err.Number <> 0 Then
