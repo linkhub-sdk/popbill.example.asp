@@ -357,6 +357,15 @@ Public Function GetPopUpURL(CorpNum, itemCode, mgtKey, UserID)
 	GetPopUpURL = result.url
 End Function 
 
+'전자명세서 보기 URL
+Public Function GetViewURL(CorpNum, itemCode, mgtKey, UserID)
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then 
+		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+	End If
+	
+	Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?TG=VIEW", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetViewURL = result.url
+End Function 
 
 '인쇄 URL 호출
 Public Function GetPrintURL(CorpNum, itemCode, mgtKey, UserID)

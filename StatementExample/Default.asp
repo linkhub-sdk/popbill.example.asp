@@ -35,6 +35,7 @@
         <legend>전자명세서 보기/인쇄</legend>
         <ul>
             <li><a href="getPopUpURL.asp">getPopUpURL</a> - 전자명세서 보기 URL</li>
+            <li><a href="getViewURL.asp">getViewURL</a> - 전자명세서 보기 URL(메뉴/버튼 제외)</li>
             <li><a href="getPrintURL.asp">getPrintURL</a> - 전자명세서 인쇄 [공급자] URL</li>
             <li><a href="getEPrintURL.asp">getEPrintURL</a> - 전자명세서 인쇄 [공급받는자용] URL</li>
             <li><a href="getMassPrintURL.asp">getMassPrintURL</a> - (전자명세서 대량 인쇄 URL</li>
