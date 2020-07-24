@@ -47,7 +47,6 @@
 					<li>writeDate (작성일자) : <%=taxInfo.writeDate%></li>
 					<li>chargeDirection (과금방향) : <%=taxInfo.chargeDirection%></li>
 					<li>issueType (발행형태) : <%=taxInfo.issueType%></li>
-					<li>issueTiming (발행시점) : <%=taxInfo.issueTiming%></li>
 					<li>taxType (과세형태) : <%=taxInfo.taxType%></li>
 					<li>supplyCostTotal (공급가액 합계) : <%=taxInfo.supplyCostTotal%></li>
 					<li>taxTotal (세액 합계) : <%=taxInfo.taxTotal%></li>
