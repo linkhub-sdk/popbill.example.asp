@@ -50,6 +50,7 @@
             <li><a href="getEPrintURL.asp">GetEPrintURL</a> - 세금계산서 인쇄 [공급받는자용] URL</li>
             <li><a href="getMassPrintURL.asp">GetMassPrintURL</a> - 세금계산서 대량 인쇄 URL</li>
             <li><a href="getMailURL.asp">GetMailURL</a> - 세금계산서 메일링크 URL</li>
+			<li><a href="getPDFURL.asp">GetPDFURL</a> - 세금계산서 PDF 다운로드 URL</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

@@ -99,10 +99,10 @@ Public Function GetUnitCost(CorpNum)
     GetUnitCost = result.unitCost
 End Function
 
-'연동관리번호 사용여부 확인
+'연동문서번호 사용여부 확인
 Public Function CheckMgtKeyInUse(CorpNum, mgtKey) 
 	If mgtKey = "" Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	On Error Resume Next
@@ -128,18 +128,27 @@ End Function
 '현금영수증 보기 URL
 Public Function GetPopUpURL(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=POPUP", m_PopbillBase.getSession_token(CorpNum), UserID)
 	GetPopUpURL = result.url
 End Function 
 
+'현금영수증 인쇄 URL
+Public Function GetPDFURL(CorpNum, mgtKey, UserID)
+	If mgtKey = "" Or isEmpty(mgtKey) Then 
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
+
+	Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=PDF", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetPDFURL = result.url
+End Function 
 
 '현금영수증 인쇄 URL
 Public Function GetPrintURL(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=PRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -150,7 +159,7 @@ End Function
 '현금영수증 인쇄 URL - 공급받는자
 Public Function GetEPrintURL(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=EPRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -161,7 +170,7 @@ End Function
 '현금영수증 이메일 링크 URL
 Public Function GetMailURL(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=MAIL", m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -172,7 +181,7 @@ End Function
 '다량 현금영수증 인쇄 URL 
 Public Function GetMassPrintURL(CorpNum, mgtKeyList, UserID)
 	If isEmpty(mgtKeyList) Or isNull(mgtKeyList) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set tmp = JSON.parse("[]")
@@ -209,7 +218,7 @@ End Function
 '현금영수증 발행
 Public Function Issue(CorpNum, mgtKey, Memo, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set tmp = JSON.parse("{}")
@@ -223,7 +232,7 @@ End Function
 '현금영수증 발행취소
 Public Function CancelIssue(CorpNum, mgtKey, Memo, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set tmp = JSON.parse("{}")
@@ -237,7 +246,7 @@ End Function
 '현금영수증 삭제
 Public Function Delete(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set Delete = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "DELETE", "", UserID)
@@ -247,7 +256,7 @@ End Function
 '현금영수증 상태정보 조회
 Public Function GetInfo(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -261,7 +270,7 @@ End Function
 '다량 현금영수증 상태정보 조회
 Public Function GetInfos(CorpNum, mgtKeyList, UserID)
 	If isNull(mgtKeyList) Or isEmpty(mgtKeyList) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 	
 	Set tmp = JSON.parse("[]")
@@ -289,7 +298,7 @@ End Function
 '현금영수증 이력확인
 Public Function GetLogs(CorpNum, mgtKey, UserID)
 	If isNull(mgtKey) Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 	
 	Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey+"/Logs", m_PopbillBase.getSession_token(CorpNum),UserID)
@@ -309,7 +318,7 @@ End Function
 '상세정보 확인
 Public Function GetDetailInfo(CorpNum, mgtKey, UserID)
 	If isNull(mgtKey) Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey+"?Detail", m_PopbillBase.getSession_token(CorpNum),UserID)
@@ -325,7 +334,7 @@ End Function
 '알림메일 재전송
 Public Function SendEmail(CorpNum, mgtKey, Receiver, UsrID)
 	If isNull(mgtKey) Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set tmp = JSON.parse("{}")
@@ -340,7 +349,7 @@ End Function
 '알림문자 전송
 Public Function SendSMS(CorpNum, mgtKey, Sender, Receiver, Contents, UserID)
 	If isNull(mgtKey) Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set tmp = JSON.parse("{}")
@@ -357,7 +366,7 @@ End Function
 '팩스 전송
 Public Function SendFAX(CorpNum, mgtKey, Sender, Receiver, UserID)
 	If isNull(mgtKey) Or isEmpty(mgtKey) Then 
-		Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set tmp = JSON.parse("{}")

@@ -122,7 +122,7 @@ Public Function Update(CorpNum, KeyType, MgtKey, ByRef TI, writeSpecification, U
 	If TI Is Nothing Then Err.raise -99999999,"POPBILL","수정할 세금계산서 정보가 입력되지 않았습니다."
 
 	If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
 
     Set tmpDic = TI.toJsonInfo
@@ -135,10 +135,10 @@ Public Function Update(CorpNum, KeyType, MgtKey, ByRef TI, writeSpecification, U
     Set Update = m_PopbillBase.httpPOST("/Taxinvoice/"+ KeyType +"/" + MgtKey, m_PopbillBase.getSession_token(CorpNum),"PATCH", postdata, UserID)
 End Function 
 
-'연동관리번호 사용여부 확인
+'연동문서번호 사용여부 확인
 Public Function CheckMgtKeyInUse(CorpNum, KeyType, MgtKey)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
 		
 	On Error Resume Next
@@ -158,7 +158,7 @@ End Function
 '파일 첨부
 Public Function AttachFile(CorpNum, KeyType, MgtKey, FilePath, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
     
     Set AttachFile = m_PopbillBase.httpPOST_File("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files", m_PopbillBase.getSession_token(CorpNum), FilePath, UserID)
@@ -167,7 +167,7 @@ End Function
 '세금계산서 첨부파일 1개 삭제 
 Public Function DeleteFile(CorpNum , KeyType , MgtKey , FileID,  UserID )
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
 
 	
@@ -179,7 +179,7 @@ End Function
 '세금계산서 첨부파일 목록확인 
 Public Function GetFiles(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
     
     Set GetFiles = m_PopbillBase.httpGET("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files", _
@@ -189,7 +189,7 @@ End Function
 '발행예정 처리 
 Public Function Send(CorpNum, KeyType, MgtKey, Memo, EmailSubject, UserID)
 	If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
     
 	Set tmp = JSON.parse("{}")
@@ -206,7 +206,7 @@ End Function
 '발행예정 취소 처리 
 Public Function CancelSend(CorpNum, KeyType, MgtKey, Memo, UserID)
 	If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
     
 	Set tmp = JSON.parse("{}")
@@ -222,7 +222,7 @@ End Function
 '발헁예정 승인
 Public Function Accept(CorpNum, KeyType, MgtKey, Memo, UserID)
 	If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
     
 	Set tmp = JSON.parse("{}")
@@ -237,7 +237,7 @@ End Function
 '발헁예정 거부
 Public Function Deny(CorpNum, KeyType, MgtKey, Memo, UserID)
 	If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
 
 	Set tmp = JSON.parse("{}")
@@ -253,7 +253,7 @@ End Function
 '발헁
 Public Function Issue(CorpNum, KeyType, MgtKey, Memo, EmailSubject, ForceIssue, UserID)
 	If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
     
 	Set tmp = JSON.parse("{}")
@@ -270,7 +270,7 @@ End Function
 '발헁 취소 처리
 Public Function CancelIssue(CorpNum, KeyType, MgtKey, Memo, UserID)
 	If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
     
 	Set tmp = JSON.parse("{}")
@@ -302,7 +302,7 @@ End Function
 '역)발행요청 처리.
 Public Function Request(CorpNum, KeyType, MgtKey, Memo, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set tmp = JSON.parse("{}")
@@ -318,7 +318,7 @@ End Function
 '역)발행요청 발행거부 처리.
 Public Function Refuse(CorpNum, KeyType, MgtKey, Memo, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set tmp = JSON.parse("{}")
@@ -333,7 +333,7 @@ End Function
 '세금계산서 역)발행요청 취소 처리
 Public Function CancelRequest(CorpNum, KeyType, MgtKey, Memo, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set tmp = JSON.parse("{}")
@@ -349,7 +349,7 @@ End Function
 '세금계산서 상태/요약 정보 다량(최대1000건) 확인
 Public Function GetInfos(CorpNum, KeyType, MgtKeyList, UserID)
     If isEmpty(MgtKeyList) Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set tmp = JSON.parse("[]")
@@ -380,7 +380,7 @@ End Function
 '문서이력확인 
 Public Function GetLogs(CorpNum, KeyType, MgtKey)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGET("/Taxinvoice/" +KeyType+ "/"+ MgtKey+"/Logs", _
@@ -400,7 +400,7 @@ End Function
 '세금계산서 상태/요약 정보 확인
 Public Function GetInfo(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set infoTmp = New TaxinvoiceInfo
@@ -417,7 +417,7 @@ End Function
 '세금계산서 삭제
 Public Function Delete(CorpNum , KeyType , MgtKey , UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
     
     Set Delete = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, m_PopbillBase.getSession_token(CorpNum), "DELETE", "", UserID)
@@ -426,7 +426,7 @@ End Function
 '국세청 전송
 Public Function SendToNTS(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
     Set SendToNTS = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
@@ -437,7 +437,7 @@ End Function
 '이메일 재전송
 Public Function SendEmail(CorpNum, KeyType, MgtKey, Receiver, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set tmp = JSON.parse("{}")
@@ -452,7 +452,7 @@ End Function
 '문자 재전송
 Public Function SendSMS(CorpNum, KeyType, MgtKey, Sender, Receiver, Contents, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 	
 	Set tmp = JSON.parse("{}")
@@ -469,7 +469,7 @@ End Function
 '팩스 재전송
 Public Function SendFAX(CorpNum, KeyType, MgtKey, Sender, Receiver, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 	
 	Set tmp = JSON.parse("{}")
@@ -507,7 +507,7 @@ End Function
 '보기 팝업 URL
 Public Function GetPopupURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=POPUP" , _
@@ -518,7 +518,7 @@ End Function
 '보기 팝업 URL
 Public Function GetViewURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=VIEW" , _
@@ -526,10 +526,21 @@ Public Function GetViewURL(CorpNum, KeyType, MgtKey, UserID)
 	GetViewURL = result.url
 End Function
 
+'PDF 다운로드 URL확인
+Public Function GetPDFURL(CorpNum, KeyType, MgtKey, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
+
+	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=PDF" , _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetPDFURL = result.url
+End Function
+
 '인쇄 URL확인
 Public Function GetPrintURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=PRINT" , _
@@ -540,7 +551,7 @@ End Function
 '다량 인쇄 URL확인
 Public Function GetMassPrintURL(CorpNum, KeyType, mgtKeyList, UserID)
     If isNull(mgtKeyList) Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 	
 	Set tmp = JSON.parse("[]")
@@ -560,7 +571,7 @@ End Function
 '인쇄 URL확인(공급받는자)
 Public Function GetEPrintURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=EPRINT" , _
@@ -571,7 +582,7 @@ End Function
 '메일 URL확인
 Public Function GetMailURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
 	End If
 
 	Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=MAIL" , _
@@ -582,7 +593,7 @@ End Function
 '상세정보 확인
 Public Function GetDetailInfo(CorpNum , KeyType, MgtKey )
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
 	
 	Set detailTmp = New Taxinvoice
@@ -786,7 +797,7 @@ Public Function DetachStatement(CorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey
 End Function
 
 
-'문서관리번호 할당
+'문서번호 할당
 Public Function AssignMgtKey(CorpNum, MgtKeyType, ItemKey, MgtKey)
 	If ItemKey = "" Or isEmpty(ItemKey) Then 
 		Err.Raise -99999999, "POPBILL", "아이템키가 입력되지 않았습니다."
@@ -797,7 +808,7 @@ Public Function AssignMgtKey(CorpNum, MgtKeyType, ItemKey, MgtKey)
 	End If
 
     If MgtKey = "" Or isEmpty(MgtKey) Then
-        Err.Raise -99999999, "POPBILL", "관리번호가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
 
 	Set AssignMgtKey = m_PopbillBase.httpPOST_ContentsType("/Taxinvoice/" & ItemKey & "/" & MgtKeyType,  _
