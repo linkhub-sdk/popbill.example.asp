@@ -57,6 +57,14 @@
 	RegType(0) = "P"
 	RegType(1) = "H"
 
+	' 공급받는자 휴폐업상태 배열, N-미확인, 0-미등록, 1-사업중, 2-폐업, 3-휴업
+	Dim CloseDownState(5)
+	CloseDownState(0) = "N"
+	CloseDownState(1) = "0"
+	CloseDownState(2) = "1"
+	CloseDownState(3) = "2"
+	CloseDownState(4) = "3"
+
 	' 지연발행여부,  null- 전체조회, False-정상발행분 조회, True-지연발행분 조회
 	LateOnly = null		
 
@@ -81,14 +89,17 @@
 	'거래처 정보, 거래처 상호 또는 사업자등록번호 기재, 공백처리시 전체조회
 	QString = ""
 
+	'전자세금계산서 문서번호 또는 국세청승인번호 기재, 공백 처리시 전체조회
+	MgtKey = ""
+
 	'연동문서 조회여부, 공백-전체조회, 0-일반문서 조회, 1-연동문서 조회
 	InterOPYN = ""
 
 	On Error Resume Next
 
-	Set result = m_TaxinvoiceService.Search(testCorpNum, KeyType, DType, SDate, EDate, State, _ 
-						TIType, TaxType, IssueType, RegType, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, _
-						TaxRegID, QString, InterOPYN, UsreID)
+	Set result = m_TaxinvoiceService.Search(testCorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, _
+						IssueType, RegType, CloseDownState, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, _
+						TaxRegID, QString, MgtKey, InterOPYN, UsreID)
 
 	If Err.Number <> 0 Then
 		code = Err.Number
