@@ -22,7 +22,7 @@
 	templateCode = "019020000163"
 
 	'팝빌에 사전 등록된 발신번호
-	senderNum = "07043042992"
+	senderNum = "01043245117"
 
 	'알림톡 내용, 최대 1000자
 	content = "[ 팝빌 ]" & vbCrLf
@@ -52,6 +52,9 @@
 
 		'수신자명
 		rcvInfo.rcvnm = " 수신자이름"
+
+		'파트너 지정키, 수신자 구별용 메모, 미사용시 공백처리
+		rcvInfo.interOPRefKey = "20200724-" +CStr(i)
 
 		receiverList.Add i, rcvInfo
 	Next 

@@ -424,6 +424,7 @@ Class KakaoSentDetail
 	Public altResultDT
 	Public requestNum
 	Public receiptNum
+	Public interOPRefKey
 
 	Public Sub fromJsonInfo(detailInfo)
 		On Error Resume Next
@@ -442,6 +443,7 @@ Class KakaoSentDetail
 			altResultDT = detailInfo.altResultDT
 			requestNum = detailInfo.requestNum
 			receiptNum = detailInfo.receiptNum
+			interOPRefKey = detailInfo.interOPRefKey
 		on Error GoTo 0 
 	End Sub
 End Class  ' end of KakaoSentDetail Class
@@ -541,6 +543,7 @@ Class KakaoReceiver
 	Public rcvnm
 	Public msg
 	Public altmsg
+	Public interOPRefKey
 
 	Public Function toJsonInfo()
 		Set toJsonInfo = JSON.parse("{}")
@@ -548,6 +551,7 @@ Class KakaoReceiver
 		If rcvnm <> "" Then toJsonInfo.Set "rcvnm", rcvnm
 		If msg <> "" Then toJsonInfo.Set "msg", msg
 		If altmsg <> "" Then toJsonInfo.Set "altmsg", altmsg
+		If interOPRefKey <> "" Then toJsonInfo.Set "interOPRefKey", interOPRefKey
 	End Function 
 
 	Public Sub setValue(msgList)
@@ -555,6 +559,7 @@ Class KakaoReceiver
 		rcvnm = msgList.rcvnm
 		msg = msgList.msg
 		altmsg = msgList.altmsg
+		interOPRefKey = msgList.interOPRefKey
 	End Sub
 End Class  ' End of KakaoReceiver class
 

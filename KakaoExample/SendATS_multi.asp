@@ -56,6 +56,9 @@
 		'대체문자 메시지 내용
 		rcvInfo.altmsg = "대체문자 메시지 내용" +CStr(i)
 
+		'파트너 지정키, 수신자 구별용 메모, 미사용시 공백처리
+		rcvInfo.interOPRefKey = "20200724-" +CStr(i)
+
 		receiverList.Add i, rcvInfo
 	Next 
 	

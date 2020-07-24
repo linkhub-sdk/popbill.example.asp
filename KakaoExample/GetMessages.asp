@@ -18,7 +18,7 @@
 	userID = "testkorea"
 
 	'카카오톡 전송시 발급받은 접수번호(ReceiptNum)
-	ReceiptNum = "019010314321000001"
+	ReceiptNum = "020072416331800001"
 	
 	On Error Resume Next
 
@@ -94,6 +94,7 @@
 								<li>altResultDT (대체문자 전송결과 수신일시) : <%=result.msgs(i).altResultDT%> </li>
 								<li>receiptNum (접수번호) : <%=result.msgs(i).receiptNum%> </li>
 								<li>requestNum (요청번호) : <%=result.msgs(i).requestNum%> </li>
+								<li>interOPRefKey (파트너 지정키) : <%=result.msgs(i).interOPRefKey%> </li>
 							</ul>
 						</fieldset>
 					<% 
