@@ -378,6 +378,7 @@ Class EasyFinBankSearchResult
 	Public perPage
 	Public pageNum
 	Public pageCount
+	Public lastScrapDT
 	Public list()
 	
 	Public Sub classs_initialize
@@ -392,6 +393,7 @@ Class EasyFinBankSearchResult
 		perPage = jsonInfo.perPage
 		pageNum = jsonInfo.pageNum
 		pageCount = jsonInfo.pageCount
+		lastScrapDT = jsonInfo.lastScrapDT
 		
 		ReDim list ( jsonInfo.list.length )
 		For i = 0 To jsonInfo.list.length -1

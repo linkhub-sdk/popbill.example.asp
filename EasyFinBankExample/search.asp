@@ -18,7 +18,7 @@
 	UserID = "testkorea"
 	
 	'수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
-	JobID = "019123114000000010"
+	JobID = "020072416000000002"
 
 	'거래유형 배열, I-입금, O-출금
 	Dim TradeType(2) 
@@ -66,6 +66,7 @@
 						<li> perPage (페이지당 검색개수) : <%=result.perPage%> </li>
 						<li> pageNum (페이지 번호) : <%=result.pageNum%> </li>
 						<li> pageCount (페이지 개수) : <%=result.pageCount%> </li>
+						<li> lastScrapDT (최종 조회일시) : <%=result.lastScrapDT%> </li>
 					</ul>
 
 				<%
