@@ -59,6 +59,7 @@
             <li><a href="sendFAX.asp">sendFAX</a> -팩스 전송</li>
             <li><a href="listEmailConfig.asp">listEmailConfig</a> -현금영수증 알림메일 전송목록 조회</li>
             <li><a href="updateEmailConfig.asp">updateEmailConfig</a> -현금영수증 알림메일 전송설정 수정</li>
+			<li><a href="assignMgtKey.asp">assignMgtKey</a> -현금영수증 문서번호 할당</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

@@ -196,6 +196,19 @@ Public Function GetMassPrintURL(CorpNum, mgtKeyList, UserID)
 	GetMassPrintURL = result.url
 End Function 
 
+Public Function AssignMgtKey(CorpNum, ItemKey, MgtKey)
+	If ItemKey = "" Or isEmpty(ItemKey) Then 
+		Err.Raise -99999999, "POPBILL", "아이템키가 입력되지 않았습니다."
+	End If
+
+    If MgtKey = "" Or isEmpty(MgtKey) Then
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+    End If
+
+	Set AssignMgtKey = m_PopbillBase.httpPOST_ContentsType("/Cashbill/" & ItemKey,  _
+								m_PopbillBase.getSession_token(CorpNum), "", "MgtKey="+MgtKey, "", "application/x-www-form-urlencoded; charset=utf-8")
+	
+End Function
 
 '현금영수증 임시저장
 Public Function Register(CorpNum, ByRef Cashbill, UserID)
