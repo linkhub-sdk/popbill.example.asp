@@ -40,6 +40,7 @@
 					<li>발신번호 (number) : <%=Presponse.Get(i).number %> </li>
 					<li>등록상태 (state) : <%=Presponse.Get(i).state %> </li>
 					<li>대표번호 지정여부 (representYN) : <%=Presponse.Get(i).representYN %> </li>
+					<li>메모 (memo) : <%=Presponse.Get(i).memo %> </li>
 				</ul>
 				</fieldset>
 				<%
