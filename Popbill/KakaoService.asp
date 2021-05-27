@@ -87,9 +87,9 @@ End Function
 
 '과금정보 확인
 Public Function GetChargeInfo ( CorpNum, KType, UserID )
-	Set result = m_PopbillBase.httpGET ( "/KakaoTalk/ChargeInfo?Type=" &KType, m_PopbillBase.getSession_token(CorpNum), UserID )
+	Dim result : Set result = m_PopbillBase.httpGET ( "/KakaoTalk/ChargeInfo?Type=" &KType, m_PopbillBase.getSession_token(CorpNum), UserID )
 
-	Set chrgInfo = New ChargeInfo
+	Dim chrgInfo : Set chrgInfo = New ChargeInfo
 	chrgInfo.fromJsonInfo result
 	
 	Set GetChargeInfo = chrgInfo
@@ -98,6 +98,7 @@ End Function
 
 '카카오톡 관련 URL
 Public Function GetURL(CorpNum, UserID, TOGO)
+	Dim result
 	If TOGO = "SENDER" Then
 		Set result = m_PopbillBase.httpGet("/Message/?TG="+TOGO, m_PopbillBase.getSession_token(CorpNum), UserID)
 	Else
@@ -143,18 +144,19 @@ End Function
 
 '단가확인
 Public Function GetUnitCost(CorpNum, KType)
-    Set result = m_PopbillBase.httpGET("/KakaoTalk/UnitCost?Type="&KType, m_PopbillBase.getSession_token(CorpNum),"")
+    Dim result : Set result = m_PopbillBase.httpGET("/KakaoTalk/UnitCost?Type="&KType, m_PopbillBase.getSession_token(CorpNum),"")
     GetUnitCost = result.unitCost
 End Function
 
 '알림톡 템플릿 목록 확인
 Public Function ListATSTemplate(CorpNum)
-	Set result = m_PopbillBase.httpGET("/KakaoTalk/ListATSTemplate", m_PopbillBase.getSession_token(CorpNum), "")
+	Dim result : Set result = m_PopbillBase.httpGET("/KakaoTalk/ListATSTemplate", m_PopbillBase.getSession_token(CorpNum), "")
 
-	Set tmp = CreateObject("Scripting.Dictionary")
+	Dim tmp : Set tmp = CreateObject("Scripting.Dictionary")
 
+	Dim i
 	For i=0 To result.length-1
-		Set atsList = New KakaoATSTemplate
+		Dim atsList : Set atsList = New KakaoATSTemplate
 		atsList.fromJsonInfo result.Get(i)
 		tmp.Add i, atsList
 	Next
@@ -186,7 +188,7 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
 		Err.Raise -99999999, "POPBILL", "알림톡 템플릿 코드(TemplateCode)가 입력되지 않았습니다"
 	End If
 
-	Set tmp = JSON.parse("{}")
+	Dim tmp : Set tmp = JSON.parse("{}")
 	    
     If templateCode <> "" Then tmp.Set "templateCode", templateCode
     If senderNum <> "" Then tmp.Set "snd", senderNum
@@ -196,10 +198,11 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
 	If requestNum <> "" Then tmp.Set "requestNum", requestNum
 
-	Set msgs = JSON.parse("[]")
+	Dim msgs : Set msgs = JSON.parse("[]")
 
+	Dim i
 	For i=0 To receiverList.Count-1
-		Set msgObj = New KakaoReceiver
+		Dim msgObj : Set msgObj = New KakaoReceiver
 		msgObj.setValue receiverList.Item(i)
 		msgs.Set i, msgObj.toJsonInfo
 	Next
@@ -207,9 +210,9 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
 	tmp.Set "msgs", msgs
 
 	If False = IsNull(btnList)  Then 
-		Set btns = JSON.parse("[]")
+		Dim btns : Set btns = JSON.parse("[]")
 		For i=0 To btnList.Count -1
-			Set btnObj = New KakaoButton
+			Dim btnObj : Set btnObj = New KakaoButton
 			btnObj.setValue btnList.Item(i)
 			btns.Set i, btnObj.toJsonInfo
 		Next
@@ -217,9 +220,9 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
 		tmp.Set "btns", btns 
 	End If 
 
-	postdata = m_PopbillBase.toString(tmp)
+	Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
-	Set result = m_PopbillBase.httpPost("/ATS", m_PopbillBase.getSession_Token(CorpNum), "", postdata, UserID)
+	Dim result : Set result = m_PopbillBase.httpPost("/ATS", m_PopbillBase.getSession_Token(CorpNum), "", postdata, UserID)
 	SendATS = result.receiptNum
 End Function
 
@@ -231,7 +234,7 @@ Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSend
 		Err.Raise -99999999, "POPBILL", "친구톡 플러스친구 아이디(plusFriendID)가 입력되지 않았습니다"
 	End If
 
-	Set tmp = JSON.parse("{}")
+	Dim tmp : Set tmp = JSON.parse("{}")
 	    
     If plusFriendID <> "" Then tmp.Set "plusFriendID", plusFriendID
     If senderNum <> "" Then tmp.Set "snd", senderNum
@@ -242,29 +245,30 @@ Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSend
 	If adsYN Then tmp.Set "adsYN", adsYN
 	If requestNum <> "" Then tmp.Set "requestNum", requestNum
 
-	Set msgs = JSON.parse("[]")
+	Dim msgs : Set msgs = JSON.parse("[]")
 
+	Dim i
 	For i=0 To receiverList.Count-1
-		Set msgObj = New KakaoReceiver
+		Dim msgObj : Set msgObj = New KakaoReceiver
 		msgObj.setValue receiverList.Item(i)
 		msgs.Set i, msgObj.toJsonInfo
 	Next
 
 	tmp.Set "msgs", msgs
 
-	Set btns = JSON.parse("[]")
+	Dim btns : Set btns = JSON.parse("[]")
 
 	For i=0 To btnList.Count -1
-		Set btnObj = New KakaoButton
+		Dim btnObj : Set btnObj = New KakaoButton
 		btnObj.setValue btnList.Item(i)
 		btns.Set i, btnObj.toJsonInfo
 	Next
 
 	tmp.Set "btns", btns 
 
-	postdata = m_PopbillBase.toString(tmp)
+	Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
-	Set result = m_PopbillBase.httpPost("/FTS", m_PopbillBase.getSession_Token(CorpNum), "", postdata, UserID)
+	Dim result : Set result = m_PopbillBase.httpPost("/FTS", m_PopbillBase.getSession_Token(CorpNum), "", postdata, UserID)
 	SendFTS = result.receiptNum
 End Function 
 
@@ -276,7 +280,7 @@ Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSend
 		Err.Raise -99999999, "POPBILL", "친구톡 플러스친구 아이디(plusFriendID)가 입력되지 않았습니다"
 	End If
 
-	Set tmp = JSON.parse("{}")
+	Dim tmp : Set tmp = JSON.parse("{}")
 	    
     If plusFriendID <> "" Then tmp.Set "plusFriendID", plusFriendID
     If senderNum <> "" Then tmp.Set "snd", senderNum
@@ -288,32 +292,31 @@ Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSend
 	If adsYN Then tmp.Set "adsYN", adsYN
 	If requestNum <> "" Then tmp.Set "requestNum", requestNum
 
-	Set msgs = JSON.parse("[]")
+	Dim msgs : Set msgs = JSON.parse("[]")
 
+	Dim i
 	For i=0 To receiverList.Count-1
-		Set msgObj = New KakaoReceiver
+		Dim msgObj : Set msgObj = New KakaoReceiver
 		msgObj.setValue receiverList.Item(i)
 		msgs.Set i, msgObj.toJsonInfo
 	Next
 
 	tmp.Set "msgs", msgs
 
-	Set btns = JSON.parse("[]")
+	Dim btns : Set btns = JSON.parse("[]")
 
 	For i=0 To btnList.Count -1
-		Set btnObj = New KakaoButton
+		Dim btnObj : Set btnObj = New KakaoButton
 		btnObj.setValue btnList.Item(i)
 		btns.Set i, btnObj.toJsonInfo
 	Next
 
 	tmp.Set "btns", btns
 
-	postdata = m_PopbillBase.toString(tmp)
-	Set result = m_PopbillBase.httpPost_Files("/FMS", m_PopbillBase.getSession_Token(CorpNum), postdata, filePath, UserID)
+	Dim postdata : postdata = m_PopbillBase.toString(tmp)
+	Dim result : Set result = m_PopbillBase.httpPost_Files("/FMS", m_PopbillBase.getSession_Token(CorpNum), postdata, filePath, UserID)
 	SendFMS = result.receiptNum
 End Function 
-
-
 
 
 '카카오톡 전송내역 확인
@@ -322,9 +325,9 @@ Public Function GetMessages(CorpNum, ReceiptNum, UserID)
 		Err.Raise -99999999, "POPBILL", "접수번호가 입력되지 않았습니다"
 	End If
 	
-	Set result = m_PopbillBase.httpGet("/KakaoTalk/"&ReceiptNum,m_PopbillBase.getSession_token(CorpNum),UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/KakaoTalk/"&ReceiptNum,m_PopbillBase.getSession_token(CorpNum),UserID)
 
-	Set resultObj = New KakaoSentResult
+	Dim resultObj : Set resultObj = New KakaoSentResult
 
 	resultObj.fromJsonInfo result
 
@@ -337,9 +340,9 @@ Public Function GetMessagesRN(CorpNum, RequestNum, UserID)
 		Err.Raise -99999999, "POPBILL", "요청번호가 입력되지 않았습니다"
 	End If
 	
-	Set result = m_PopbillBase.httpGet("/KakaoTalk/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/KakaoTalk/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
 	
-	Set resultObj = New KakaoSentResult
+	Dim resultObj : Set resultObj = New KakaoSentResult
 
 	resultObj.fromJsonInfo result
 
@@ -357,10 +360,12 @@ Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, 
         Err.Raise -99999999, "POPBILL", "종료일자가 이력되지 않았습니다."
 	End If
 
+	Dim uri
 	uri = "/KakaoTalk/Search"
 	uri = uri & "?SDate=" & SDate
 	uri = uri & "&EDate=" & EDate
 
+	Dim i
 	uri = uri & "&State="
 	For i=0 To UBound(State) -1	
 		If i = UBound(State) -1 then
@@ -393,10 +398,9 @@ Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, 
 	uri = uri & "&PerPage=" & CStr(PerPage)
 	uri = uri & "&QString=" & QString
 	
-	Set searchResult = New KakaoSearchResult
-	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
+	Dim searchResult : Set searchResult = New KakaoSearchResult
+	Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
 	
-
 	searchResult.fromJsonInfo tmpObj
 	
 	Set Search = searchResult
@@ -463,19 +467,22 @@ Class KakaoSearchResult
 	End Sub
 
 	Public Sub fromJsonInfo(jsonInfo)
-		code = jsonInfo.code
-		message = jsonInfo.message
-		total = jsonInfo.total
-		perPage = jsonInfo.perPage
-		pageNum = jsonInfo.pageNum
-		pageCount = jsonInfo.pageCount
+		On Error Resume Next
+			code = jsonInfo.code
+			message = jsonInfo.message
+			total = jsonInfo.total
+			perPage = jsonInfo.perPage
+			pageNum = jsonInfo.pageNum
+			pageCount = jsonInfo.pageCount
 
-		ReDim list(jsonInfo.list.length)
-		For i = 0 To jsonInfo.list.length-1
-			Set tmpObj = New KakaoSentDetail
-			tmpObj.fromJsonInfo jsonInfo.list.Get(i)
-			Set list(i) = tmpObj
-		Next
+			ReDim list(jsonInfo.list.length)
+			Dim i
+			For i = 0 To jsonInfo.list.length-1
+				Dim tmpObj : Set tmpObj = New KakaoSentDetail
+				tmpObj.fromJsonInfo jsonInfo.list.Get(i)
+				Set list(i) = tmpObj
+			Next
+		On Error GoTo 0
 	End Sub
 End Class ' End of KakaoSearchResult 
 
@@ -521,15 +528,16 @@ Class KakaoSentResult
 			cancelCnt = detailInfo.cancelCnt
 		
 			ReDim btns(detailInfo.btns.length)
+			Dim i, tmpObj
 			For i = 0 To detailInfo.btns.length -1
-				Set tmpObj = New KakaoButton
+				tmpObj : Set tmpObj = New KakaoButton
 				tmpObj.fromJsonInfo detailInfo.btns.Get(i)
 				Set btns(i) = tmpObj
 			Next
 
 			ReDim msgs(detailInfo.msgs.length)
 			For i = 0 To detailInfo.msgs.length -1
-				Set tmpObj = New KakaoSentDetail
+				tmpObj : Set tmpObj = New KakaoSentDetail
 				tmpObj.fromJsonInfo detailInfo.msgs.Get(i)
 				Set msgs(i) = tmpObj
 			Next
@@ -613,8 +621,9 @@ Class KakaoATSTemplate
 			plusFriendID = atsInfo.plusFriendID
 		
 			ReDim btns(atsInfo.btns.length)
+			Dim i
 			For i = 0 To atsInfo.btns.length -1
-				Set tmpObj = New KakaoButton
+				Dim tmpObj : Set tmpObj = New KakaoButton
 				tmpObj.fromJsonInfo atsInfo.btns.Get(i)
 				Set btns(i) = tmpObj
 			Next

@@ -88,9 +88,9 @@ Class HTCashbillService
 
 	'과금정보 확인
 	Public Function GetChargeInfo ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set chrgInfo = New ChargeInfo
+		Dim chrgInfo : Set chrgInfo = New ChargeInfo
 		chrgInfo.fromJsonInfo result
 		
 		Set GetChargeInfo = chrgInfo
@@ -99,10 +99,11 @@ Class HTCashbillService
 
 	'수집요청
 	Public Function RequestJob(CorpNum , KeyType, SDate, Edate, UserID)
+		Dim uri
 		uri = "/HomeTax/Cashbill/" & KeyType
 		uri = uri + "?SDate=" & SDate
 		uri = uri + "&EDate=" & EDate
-		Set result = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
+		Dim result : Set result = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
 
 		RequestJob = result.jobID
 	End Function
@@ -113,23 +114,24 @@ Class HTCashbillService
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If
 
-		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/" & JobID & "/State", _
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/" & JobID & "/State", _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set jobInfo = New HTCBJobState	
+		Dim jobInfo : Set jobInfo = New HTCBJobState	
 		jobInfo.fromJsonInfo result
 		Set GetJobState = jobInfo
 	End Function
 
 	'수집 상태 목록 확인
 	Public Function ListActiveJob(CorpNum, UserID)
-		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/JobList", _
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/JobList", _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
 		
-		Set jobList = CreateObject("Scripting.Dictionary")
+		Dim jobList : Set jobList = CreateObject("Scripting.Dictionary")
 
+		Dim i
 		For i=0 To result.length-1
-			Set jobInfo = New HTCBJobState
+			Dim jobInfo : Set jobInfo = New HTCBJobState
 			jobInfo.fromJsonInfo result.Get(i)
 			jobList.Add i, jobInfo
 		Next
@@ -143,7 +145,10 @@ Class HTCashbillService
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If 
 
+		Dim uri
 		uri = "/HomeTax/Cashbill/" & JobID
+
+		Dim i
 		uri = uri & "?TradeType="
 		For i = 0 To UBound(TradeType) -1 
 			If i = UBound(TradeType) -1 Then
@@ -166,9 +171,9 @@ Class HTCashbillService
 		uri = uri & "&PerPage=" & CStr(PerPage)
 		uri = uri & "&Order=" & Order
 
-		Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set searchResult = New HTCashbillSearch
+		Dim searchResult : Set searchResult = New HTCashbillSearch
 		searchResult.fromJsonInfo result
 		Set Search = searchResult
 
@@ -180,7 +185,10 @@ Class HTCashbillService
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If 
 
+		Dim uri
 		uri = "/HomeTax/Cashbill/" & JobID & "/Summary"
+
+		Dim i
 		uri = uri & "?TradeType="
 		For i = 0 To UBound(TradeType) -1 
 			If i = UBound(TradeType) -1 Then
@@ -199,9 +207,9 @@ Class HTCashbillService
 			End if
 		Next
 		
-		Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 	
-		Set summaryResult = New HTCashbillSummary
+		Dim summaryResult : Set summaryResult = New HTCashbillSummary
 		summaryResult.fromJsonInfo result
 		Set Summary = summaryResult
 
@@ -209,31 +217,31 @@ Class HTCashbillService
 	
 	'정액제 신청 URL
 	Public Function GetFlatRatePopUpURL ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill?TG=CHRG", _
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill?TG=CHRG", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetFlatRatePopUpURL = result.url
 	End Function
 		
 	'정액제 상태 확인
 	Public Function GetFlatRateState ( CorpNum, UserID ) 
-		Set responseObj = m_PopbillBase.httpGET("/HomeTax/Cashbill/Contract", _
+		Dim responseObj : Set responseObj = m_PopbillBase.httpGET("/HomeTax/Cashbill/Contract", _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set flatRateObj = New HTCBFlatRate
+		Dim flatRateObj : Set flatRateObj = New HTCBFlatRate
 		flatRateObj.fromJsonInfo responseObj
 		Set GetFlatRateState = flatrateObj
 	End Function 
 
 	'공인인증서 등록 URL
 	Public Function GetCertificatePopUpURL ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill?TG=CERT", _
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill?TG=CERT", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetCertificatePopUpURL = result.url
 	End Function 
 
 	'공인인증서 만료일자 확인
 	Public Function GetCertificateExpireDate ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/CertInfo", _
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/CertInfo", _
 					m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetCertificateExpireDate = result.certificateExpiration
 	End Function 
@@ -254,11 +262,11 @@ Class HTCashbillService
 			Err.Raise -99999999, "POPBILL", "홈택스 부서사용자 계정 비밀번호가 입력되지 않았습니다."
 		End If
 
-		Set tmp = JSON.parse("{}")
+		Dim tmp : Set tmp = JSON.parse("{}")
 		tmp.Set "id", DeptUserID
 		tmp.Set "pwd", DeptUserPWD
 		
-		postdata = m_PopbillBase.toString(tmp)
+		Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
 		Set RegistDeptUser = m_PopbillBase.httpPOST("/HomeTax/Cashbill/DeptUser", m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
 	End Function
@@ -350,8 +358,9 @@ Class HTCashbillSearch
 		pageCount = jsonInfo.pageCount
 		
 		ReDim list ( jsonInfo.list.length )
+		Dim i
 		For i = 0 To jsonInfo.list.length -1
-			Set tmpObj = New HTCashbill
+			Dim tmpObj : Set tmpObj = New HTCashbill
 			tmpObj.fromJsonInfo jsonInfo.list.Get(i)
 			Set list(i) = tmpObj
 		next

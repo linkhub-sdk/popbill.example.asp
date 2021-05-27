@@ -84,9 +84,9 @@ Public Function CheckID(id)
 End Function
 '과금정보 확인
 Public Function GetChargeInfo ( CorpNum, UserID )
-	Set result = m_PopbillBase.httpGET("/CloseDown/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGET("/CloseDown/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
 
-	Set chrgInfo = New ChargeInfo
+	Dim chrgInfo : Set chrgInfo = New ChargeInfo
 	chrgInfo.fromJsonInfo result
 	
 	Set GetChargeInfo = chrgInfo
@@ -95,7 +95,7 @@ End Function
 
 '조회단가확인
 Public Function GetUnitCost(CorpNum)
-    Set result = m_PopbillBase.httpGET("/CloseDown/UnitCost", m_PopbillBase.getSession_token(CorpNum),"")
+    Dim result : Set result = m_PopbillBase.httpGET("/CloseDown/UnitCost", m_PopbillBase.getSession_token(CorpNum),"")
     GetUnitCost = result.unitCost
 End Function
 
@@ -111,9 +111,9 @@ Public Function CheckCorpNum(MemberCorpNum, CorpNum)
 
 	On Error Resume Next
 	
-	Set result = m_PopbillBase.httpGet("/CloseDown?CN="+CorpNum, m_PopbillBase.getSession_token(MemberCorpNum),"")
+	Dim result : Set result = m_PopbillBase.httpGet("/CloseDown?CN="+CorpNum, m_PopbillBase.getSession_token(MemberCorpNum),"")
 	
-	Set stateObj = New CorpState
+	Dim stateObj : Set stateObj = New CorpState
 	stateObj.fromJsonInfo result
 	Set CheckCorpNum = stateObj
 	
@@ -130,21 +130,21 @@ Public Function CheckCorpNums(MemberCorpNum, CorpNumList)
 		Err.Raise -99999999, "POPBILL", "조회할 사업자번호 배열이 입력되지 않았습니다."
 	End If
 
-	Set tmp = JSON.parse("[]")
+	Dim tmp : Set tmp = JSON.parse("[]")
 
+	Dim i
 	For i=0 To UBound(CorpNumList)-1
 		tmp.Set i, CorpNumList(i)
 	Next
 
-	postdata = m_PopbillBase.toString(tmp)
+	Dim postdata : postdata = m_PopbillBase.toString(tmp)
 	
-	Set result = m_PopbillBase.httpPOST("/CloseDown", m_PopbillBase.getSession_token(MemberCorpNum), "", postdata, "")
+	Dim result : Set result = m_PopbillBase.httpPOST("/CloseDown", m_PopbillBase.getSession_token(MemberCorpNum), "", postdata, "")
 
-	Set tmpDic = CreateObject("Scripting.Dictionary")
-
+	Dim tmpDic : Set tmpDic = CreateObject("Scripting.Dictionary")
 
 	For i=0 To result.length-1
-		Set stateObj = New CorpState 
+		Dim stateObj : Set stateObj = New CorpState 
 		stateObj.fromJsonInfo result.Get(i)
 		tmpDic.Add i, stateObj
 	Next

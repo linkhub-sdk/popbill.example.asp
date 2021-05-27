@@ -87,9 +87,9 @@ End Function
 
 '과금정보 확인
 Public Function GetChargeInfo ( CorpNum, MType, UserID )
-	Set result = m_PopbillBase.httpGET ( "/Message/ChargeInfo?Type=" &MType, m_PopbillBase.getSession_token(CorpNum), UserID )
+	Dim result : Set result = m_PopbillBase.httpGET ( "/Message/ChargeInfo?Type=" &MType, m_PopbillBase.getSession_token(CorpNum), UserID )
 
-	Set chrgInfo = New ChargeInfo
+	Dim chrgInfo : Set chrgInfo = New ChargeInfo
 	chrgInfo.fromJsonInfo result
 	
 	Set GetChargeInfo = chrgInfo
@@ -98,7 +98,7 @@ End Function
 
 ''단가확인
 Public Function GetUnitCost(CorpNum, MType)
-    Set result = m_PopbillBase.httpGET("/Message/UnitCost?Type="&MType, m_PopbillBase.getSession_token(CorpNum),"")
+    Dim result : Set result = m_PopbillBase.httpGET("/Message/UnitCost?Type="&MType, m_PopbillBase.getSession_token(CorpNum),"")
     GetUnitCost = result.unitCost
 End Function
 
@@ -126,7 +126,7 @@ Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, 
 
 	If isNull(FilePaths) Then Err.Raise -99999999, "POPBILL", "전송할 파일경로가 입력되지 않았습니다."
 
-	Set tmp = JSON.parse("{}")
+	Dim tmp : Set tmp = JSON.parse("{}")
 	    
     If sender <> "" Then tmp.Set "snd", sender
     If Contents <> "" Then tmp.Set "content", Contents
@@ -135,19 +135,20 @@ Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, 
 	If adsYN <> "" Then tmp.Set "adsYN", adsYN
 	If requestNum <> "" Then tmp.Set "requestNum", requestNum
 
-	Set msgs = JSON.parse("[]")
+	Dim msgs : Set msgs = JSON.parse("[]")
 
+	Dim i
 	For i=0 To msgList.Count-1
-		Set msgObj = New Messages
+		Dim msgObj : Set msgObj = New Messages
 		msgObj.setValue msgList.Item(i)
 		msgs.Set i, msgObj.toJsonInfo
 	Next
 
 	tmp.Set "msgs", msgs
 
-	postdata = m_PopbillBase.toString(tmp)
+	Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
-	Set result = m_PopbillBase.httpPost_Files("/MMS", m_PopbillBase.getSession_Token(CorpNum), postdata, FilePaths, UserID)
+	Dim result : Set result = m_PopbillBase.httpPost_Files("/MMS", m_PopbillBase.getSession_Token(CorpNum), postdata, FilePaths, UserID)
 	SendMMS = result.receiptNum
 End Function
 
@@ -158,7 +159,7 @@ Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList,
 		Err.raise -99999999, "POPBILL", "전송할 메시지가 입력되지 않았습니다."
 	End If
 
-	Set tmp = JSON.parse("{}")
+	Dim tmp : Set tmp = JSON.parse("{}")
 	    
     If sender <> "" Then tmp.Set "snd", sender
     If Contents <> "" Then tmp.Set "content", Contents
@@ -168,17 +169,18 @@ Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList,
 	If adsYN Then tmp.Set "adsYN", adsYN
 
 
-	Set msgs = JSON.parse("[]")
+	Dim msgs : Set msgs = JSON.parse("[]")
 
+	Dim i
 	For i=0 To msgList.Count-1
-		Set msgObj = New Messages
+		Dim msgObj : Set msgObj = New Messages
 		msgObj.setValue msgList.Item(i)
 		msgs.Set i, msgObj.toJsonInfo
 	Next
 
 	tmp.Set "msgs", msgs
 
-	postdata = m_PopbillBase.toString(tmp)
+	Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
 	Set result = m_PopbillBase.httpPost("/"&MType, m_PopbillBase.getSession_Token(CorpNum), "", postdata, UserID)
 	SendMessage = result.receiptNum
@@ -205,19 +207,19 @@ End Function
 
 '문자 관련 URL
 Public Function GetURL(CorpNum, UserID, TOGO)
-	Set result = m_PopbillBase.httpGet("/Message/?TG="+TOGO,m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/Message/?TG="+TOGO,m_PopbillBase.getSession_token(CorpNum), UserID)
 	GetURL = result.url
 End Function
 
 '문자 전송내역 팝업 URL
 Public Function GetSentListURL(CorpNum, UserID)
-	Set result = m_PopbillBase.httpGet("/Message/?TG=BOX",m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/Message/?TG=BOX",m_PopbillBase.getSession_token(CorpNum), UserID)
 	GetSentListURL = result.url
 End Function
 
 '발신번호 관리 팝업 URL
 Public Function GetSenderNumberMgtURL(CorpNum, UserID)
-	Set result = m_PopbillBase.httpGet("/Message/?TG=SENDER",m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/Message/?TG=SENDER",m_PopbillBase.getSession_token(CorpNum), UserID)
 	GetSenderNumberMgtURL = result.url
 End Function
 
@@ -229,12 +231,13 @@ Public Function GetMessages(CorpNum, ReceiptNum, UserID)
 		Err.Raise -99999999, "POPBILL", "접수번호가 입력되지 않았습니다"
 	End If
 	
-	Set result = m_PopbillBase.httpGet("/Message/"&ReceiptNum,m_PopbillBase.getSession_token(CorpNum),UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/Message/"&ReceiptNum,m_PopbillBase.getSession_token(CorpNum),UserID)
 	
-	Set tmp = CreateObject("Scripting.Dictionary")
+	Dim tmp : Set tmp = CreateObject("Scripting.Dictionary")
 
+	Dim i
 	For i=0 To result.length-1
-		Set msgInfo = New MessageInfo
+		Dim msgInfo : Set msgInfo = New MessageInfo
 		msgInfo.fromJsonInfo result.Get(i)
 		tmp.Add i, msgInfo
 	Next
@@ -250,12 +253,13 @@ Public Function GetMessagesRN(CorpNum, RequestNum, UserID)
 		Err.Raise -99999999, "POPBILL", "요청번호가 입력되지 않았습니다"
 	End If
 	
-	Set result = m_PopbillBase.httpGet("/Message/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/Message/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
 	
-	Set tmp = CreateObject("Scripting.Dictionary")
+	Dim tmp : Set tmp = CreateObject("Scripting.Dictionary")
 
+	Dim i
 	For i=0 To result.length-1
-		Set msgInfo = New MessageInfo
+		Dim msgInfo : Set msgInfo = New MessageInfo
 		msgInfo.fromJsonInfo result.Get(i)
 		tmp.Add i, msgInfo
 	Next
@@ -270,20 +274,21 @@ Public Function GetStates(CorpNum, ReceiptNumList, UserID)
 		Err.Raise -99999999, "POPBILL", "접수번호가 입력되지 않았습니다"
 	End If
 
-	Set tmp = JSON.parse("[]")
+	Dim tmp : Set tmp = JSON.parse("[]")
 
+	Dim i 
 	For i=0 To UBound(ReceiptNumList) - 1
 		tmp.Set i, ReceiptNumList(i)
 	Next
 
-	postdata = m_PopbillBase.toString(tmp)
+	Dim postdata : postdata = m_PopbillBase.toString(tmp)
 	
-	Set result = m_PopbillBase.httpPost("/Message/States", m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+	Dim result : Set result = m_PopbillBase.httpPost("/Message/States", m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
 	
-	Set infoObj = CreateObject("Scripting.Dictionary")
+	Dim infoObj : Set infoObj = CreateObject("Scripting.Dictionary")
 
 	For i=0 To result.length-1
-		Set infoTmp = New MessageBriefInfo
+		Dim infoTmp : Set infoTmp = New MessageBriefInfo
 		infoTmp.fromJsonInfo result.Get(i)
 		infoObj.Add i, infoTmp
 	Next
@@ -300,11 +305,12 @@ Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, 
 	If EDate = "" Then
         Err.Raise -99999999, "POPBILL", "종료일자가 이력되지 않았습니다."
 	End If
-
+	Dim uri
 	uri = "/Message/Search"
 	uri = uri & "?SDate=" & SDate
 	uri = uri & "&EDate=" & EDate
 
+	Dim i
 	uri = uri & "&State="
 	For i=0 To UBound(State) -1	
 		If i = UBound(State) -1 then
@@ -340,9 +346,8 @@ Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, 
 	uri = uri & "&PerPage=" & CStr(PerPage)
 	uri = uri & "&QString=" & QString
 
-
-	Set searchResult = New MSGSearchResult
-	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
+	Dim searchResult : Set searchResult = New MSGSearchResult
+	Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
 
 	searchResult.fromJsonInfo tmpObj
 	
@@ -484,8 +489,9 @@ Class MSGSearchResult
 		message = jsonInfo.message
 		
 		ReDim list(jsonInfo.list.length)
+		Dim i
 		For i = 0 To jsonInfo.list.length -1
-			Set tmpObj = New MessageInfo
+			Dim tmpObj : Set tmpObj = New MessageInfo
 			tmpObj.fromJsonInfo jsonInfo.list.Get(i)
 			Set list(i) = tmpObj
 		Next

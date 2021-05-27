@@ -90,9 +90,9 @@ Class HTTaxinvoiceService
 
 	'과금정보 확인
 	Public Function GetChargeInfo ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set chrgInfo = New ChargeInfo
+		Dim chrgInfo : Set chrgInfo = New ChargeInfo
 		chrgInfo.fromJsonInfo result
 		
 		Set GetChargeInfo = chrgInfo
@@ -101,11 +101,12 @@ Class HTTaxinvoiceService
 
 	'수집요청
 	Public Function RequestJob(CorpNum , KeyType, DType, SDate, Edate, UserID)
+		Dim uri
 		uri = "/HomeTax/Taxinvoice/" & KeyType
 		uri = uri + "?DType=" & DType
 		uri = uri + "&SDate=" & SDate
 		uri = uri + "&EDate=" & EDate
-		Set result = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
+		Dim result : Set result = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
 
 		RequestJob = result.jobID
 	End Function
@@ -116,23 +117,24 @@ Class HTTaxinvoiceService
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If
 
-		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & JobID & "/State", _
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & JobID & "/State", _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set jobInfo = New HTTIJobState	
+		Dim jobInfo : Set jobInfo = New HTTIJobState	
 		jobInfo.fromJsonInfo result
 		Set GetJobState = jobInfo
 	End Function
 
 	'수집 상태 목록 확인
 	Public Function ListActiveJob(CorpNum, UserID)
-		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/JobList", _
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/JobList", _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
 		
-		Set jobList = CreateObject("Scripting.Dictionary")
+		Dim jobList : Set jobList = CreateObject("Scripting.Dictionary")
 
+		Dim i
 		For i=0 To result.length-1
-			Set jobInfo = New HTTIJobState
+			Dim jobInfo : Set jobInfo = New HTTIJobState
 			jobInfo.fromJsonInfo result.Get(i)
 			jobList.Add i, jobInfo
 		Next
@@ -145,8 +147,10 @@ Class HTTaxinvoiceService
 		If  Not ( Len ( JobID ) = 18 )  Then
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If 
-
+		Dim uri
 		uri = "/HomeTax/Taxinvoice/" & JobID
+
+		Dim i
 		uri = uri & "?Type="
 		For i = 0 To UBound(TIType) -1 
 			If i = UBound(TIType) -1 Then
@@ -190,9 +194,9 @@ Class HTTaxinvoiceService
 		uri = uri & "&PerPage=" & CStr(PerPage)
 		uri = uri & "&Order=" & Order
 
-		Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set searchResult = New HTTaxinvoiceSerach
+		Dim searchResult : Set searchResult = New HTTaxinvoiceSerach
 		searchResult.fromJsonInfo result
 		Set Search = searchResult 
 
@@ -203,8 +207,10 @@ Class HTTaxinvoiceService
 		If Not ( Len ( JobID ) = 18 ) Then
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If 
-
+		Dim uri
 		uri = "/HomeTax/Taxinvoice/" & JobID & "/Summary"
+		
+		Dim i
 		uri = uri & "?Type="
 		For i = 0 To UBound(TIType) -1 
 			If i = UBound(TIType) -1 Then
@@ -244,9 +250,9 @@ Class HTTaxinvoiceService
 			uri = uri & "&SearchString=" & SearchString
 		End If 
 
-		Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 	
-		Set summaryResult = New HTTaxinvoiceSummary
+		Dim summaryResult : Set summaryResult = New HTTaxinvoiceSummary
 		summaryResult.fromJsonInfo result
 		Set Summary = summaryResult
 
@@ -258,10 +264,10 @@ Class HTTaxinvoiceService
 			Err.Raise -99999999, "POPBILL", "국세청승인번호가 올바르지 않습니다."
 		End If
 
-		Set responseObj = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNUm, _
+		Dim responseObj : Set responseObj = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNUm, _
 								m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set taxinvoiceDetail = New HTTaxinvoice
+		Dim taxinvoiceDetail : Set taxinvoiceDetail = New HTTaxinvoice
 		taxinvoiceDetail.fromJsonInfo responseObj
 		Set GetTaxinvoice = taxinvoiceDetail
 	End Function
@@ -272,41 +278,41 @@ Class HTTaxinvoiceService
 			Err.Raise -99999999, "POPBILL", "국세청승인번호가 올바르지 않습니다."
 		End If
 		
-		Set responseObj = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNum & "?T=xml", _
+		Dim responseObj : Set responseObj = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNum & "?T=xml", _
 								m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set taxinvoiceXML = New HTTaxinvoiceXML 
+		Dim taxinvoiceXML : Set taxinvoiceXML = New HTTaxinvoiceXML 
 		taxinvoiceXML.fromJsonInfo responseObj
 		Set GetXML = taxinvoiceXML
 	End Function
 	
 	'정액제 신청 팝업 URL
 	Public Function GetFlatRatePopUpURL ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice?TG=CHRG", _
-                        m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice?TG=CHRG", _
+                        	m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetFlatRatePopUpURL = result.url
 	End Function
 	
 	'정액제 상태 확인
 	Public Function GetFlatRateState ( CorpNum, UserID ) 
-		Set responseObj = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/Contract", _
-						m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim responseObj : Set responseObj = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/Contract", _
+							m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set flatRateObj = New HTTIFlatRate
+		Dim flatRateObj : Set flatRateObj = New HTTIFlatRate
 		flatRateObj.fromJsonInfo responseObj
 		Set GetFlatRateState = flatrateObj
 	End Function 
 
 	'공인인증서 등록 URL
 	Public Function GetCertificatePopUpURL ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice?TG=CERT", _
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice?TG=CERT", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetCertificatePopUpURL = result.url
 	End Function 
 
 	'공인인증서 만료일자 확인 
 	Public Function GetCertificateExpireDate ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/CertInfo", _
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/CertInfo", _
 					m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetCertificateExpireDate = result.certificateExpiration
 	End Function 
@@ -317,7 +323,7 @@ Class HTTaxinvoiceService
 			Err.Raise -99999999, "POPBILL", "국세청승인번호가 올바르지 않습니다."
 		End If
 		
-		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNum & "/PopUp", _
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNum & "/PopUp", _
 								m_PopbillBase.getSession_token(CorpNum), UserID)
 
 		GetPopUpURL = result.url
@@ -329,7 +335,7 @@ Class HTTaxinvoiceService
 			Err.Raise -99999999, "POPBILL", "국세청승인번호가 올바르지 않습니다."
 		End If
 		
-		Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNum & "/Print", _
+		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNum & "/Print", _
 								m_PopbillBase.getSession_token(CorpNum), UserID)
 
 		GetPrintURL = result.url
@@ -350,11 +356,11 @@ Class HTTaxinvoiceService
 			Err.Raise -99999999, "POPBILL", "홈택스 부서사용자 계정 비밀번호가 입력되지 않았습니다."
 		End If
 
-		Set tmp = JSON.parse("{}")
+		Dim tmp : Set tmp = JSON.parse("{}")
 		tmp.Set "id", DeptUserID
 		tmp.Set "pwd", DeptUserPWD
 		
-		postdata = m_PopbillBase.toString(tmp)
+		Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
 		Set RegistDeptUser = m_PopbillBase.httpPOST("/HomeTax/Taxinvoice/DeptUser", m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
 	End Function
@@ -554,8 +560,9 @@ Class HTTaxinvoice
 			trusteeEmail = jsonInfo.trusteeEmail
 
 			ReDim detailList(jsonInfo.detailList.length)
+			Dim i
 			For i = 0 To jsonInfo.detailList.length -1 
-				Set tmpDetail = New HTTaxinvoiceDetail
+				Dim tmpDetail : Set tmpDetail = New HTTaxinvoiceDetail
 				tmpDetail.FromJsonInfo jsonInfo.detailList.Get(i)
 				Set detailList(i) = tmpDetail
 			Next
@@ -631,8 +638,9 @@ Class HTTaxinvoiceSerach
 		pageCount = jsonInfo.pageCount
 		
 		ReDim list ( jsonInfo.list.length )
+		Dim i
 		For i = 0 To jsonInfo.list.length -1
-			Set tmpObj = New HTTaxinvoiceAbbr
+			Dim tmpObj : Set tmpObj = New HTTaxinvoiceAbbr
 			tmpObj.fromJsonInfo jsonInfo.list.Get(i)
 			Set list(i) = tmpObj
 		next

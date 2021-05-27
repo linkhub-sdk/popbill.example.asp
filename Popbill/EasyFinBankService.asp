@@ -97,8 +97,8 @@ Class EasyFinBankSErvice
 
 	'과금정보 확인
 	Public Function GetChargeInfo ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/EasyFin/Bank/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
-		Set chrgInfo = New ChargeInfo
+		Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/Bank/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim chrgInfo : Set chrgInfo = New ChargeInfo
 		chrgInfo.fromJsonInfo result
 		
 		Set GetChargeInfo = chrgInfo
@@ -108,29 +108,29 @@ Class EasyFinBankSErvice
 
 	
 	Public Function RegistBankAccount(CorpNum, BankInfoObj, UserID)
-
+		Dim uri
 		uri = "/EasyFin/Bank/BankAccount/Regist"
 		uri = uri + "?UsePeriod=" & BankInfoObj.UsePeriod
 
-		Set tmp = BankInfoObj.toJsonInfo
-		postdata = m_PopbillBase.toString(tmp)
+		Dim tmp : Set tmp = BankInfoObj.toJsonInfo
+		Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
 		Set RegistBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
 	End Function
 
 	Public Function UpdateBankAccount(CorpNum, BankInfoObj, UserID)
 
-		uri = "/EasyFin/Bank/BankAccount/"+BankInfoObj.BankCode+"/"+BankInfoObj.AccountNumber+"/Update"
+		Dim uri : uri = "/EasyFin/Bank/BankAccount/"+BankInfoObj.BankCode+"/"+BankInfoObj.AccountNumber+"/Update"
 
-		Set tmp = BankInfoObj.toJsonInfo
-		postdata = m_PopbillBase.toString(tmp)
+		Dim tmp : Set tmp = BankInfoObj.toJsonInfo
+		Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
 		Set UpdateBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
 	End Function
 
 
 	Public Function CloseBankAccount(CorpNum, BankCode, AccountNumber, CloseType, UserID)
-	
+		Dim uri
 		uri = "/EasyFin/Bank/BankAccount/Close"
 		uri = uri + "?BankCode=" & BankCode
 		uri = uri + "&AccountNumber=" & AccountNumber
@@ -141,7 +141,7 @@ Class EasyFinBankSErvice
 	End Function
 	
 	Public Function RevokeCloseBankAccount(CorpNum, BankCode, AccountNumber, UserID)
-	
+		Dim uri
 		uri = "/EasyFin/Bank/BankAccount/RevokeClose"
 		uri = uri + "?BankCode=" & BankCode
 		uri = uri + "&AccountNumber=" & AccountNumber
@@ -152,7 +152,7 @@ Class EasyFinBankSErvice
 
 
 	Public Function GetBankAccountMgtURL ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/EasyFin/Bank?TG=BankAccount", _
+		Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/Bank?TG=BankAccount", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetBankAccountMgtURL = result.url
 	End Function
@@ -160,12 +160,12 @@ Class EasyFinBankSErvice
 
 	Public Function GetBankAccountInfo(CorpNum, BankCode, AccountNumber, UserID)
 
-		uri = "/EasyFin/Bank/BankAccount/" & BankCode & "/" & AccountNumber
+		Dim uri : uri = "/EasyFin/Bank/BankAccount/" & BankCode & "/" & AccountNumber
 
-		Set result = m_PopbillBase.httpGET(uri, _
+		Dim result : Set result = m_PopbillBase.httpGET(uri, _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set infoObj = New EasyFinBankAccount
+		Dim infoObj : Set infoObj = New EasyFinBankAccount
 		infoObj.fromJsonInfo result
 		
 		Set GetBankAccountInfo = infoObj	
@@ -173,12 +173,13 @@ Class EasyFinBankSErvice
 
 
 	Public Function ListBankAccount(CorpNum, UserID)
-		Set result = m_PopbillBase.httpGET("/EasyFin/Bank/ListBankAccount", _
+		Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/Bank/ListBankAccount", _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
 		
-		Set bankAccountList = CreateObject("Scripting.Dictionary")
+		Dim bankAccountList : Set bankAccountList = CreateObject("Scripting.Dictionary")
+		Dim i
 		For i=0 To result.length-1
-			Set tmpInfo = New EasyFinBankAccount
+			Dim tmpInfo : Set tmpInfo = New EasyFinBankAccount
 			tmpInfo.fromJsonInfo result.Get(i)
 			bankAccountList.Add i, tmpInfo
 		Next
@@ -186,12 +187,14 @@ Class EasyFinBankSErvice
 	End Function
 
 	Public Function RequestJob(CorpNum , BankCode, AccountNumber, SDate, EDate, UserID)
+		Dim uri
 		uri = "/EasyFin/Bank/BankAccount"
 		uri = uri + "?BankCode=" & BankCode
 		uri = uri + "&AccountNumber=" & AccountNumber
 		uri = uri + "&SDate=" & SDate
 		uri = uri + "&EDate=" & EDate
-		Set result = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
+
+		Dim result : Set result = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
 
 		RequestJob = result.jobID
 	End Function
@@ -201,22 +204,23 @@ Class EasyFinBankSErvice
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If
 
-		Set result = m_PopbillBase.httpGET("/EasyFin/Bank/" & JobID & "/State", _
+		Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/Bank/" & JobID & "/State", _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set jobInfo = New EasyFinJobState	
+		Dim jobInfo : Set jobInfo = New EasyFinJobState	
 		jobInfo.fromJsonInfo result
 		Set GetJobState = jobInfo
 	End Function
 
 	Public Function ListActiveJob(CorpNum, UserID)
-		Set result = m_PopbillBase.httpGET("/EasyFin/Bank/JobList", _
+		Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/Bank/JobList", _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
 		
-		Set jobList = CreateObject("Scripting.Dictionary")
+		Dim jobList : Set jobList = CreateObject("Scripting.Dictionary")
 
+		Dim i
 		For i=0 To result.length-1
-			Set jobInfo = New EasyFinJobState
+			Dim jobInfo : Set jobInfo = New EasyFinJobState
 			jobInfo.fromJsonInfo result.Get(i)
 			jobList.Add i, jobInfo
 		Next
@@ -230,7 +234,10 @@ Class EasyFinBankSErvice
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If 
 
+		Dim uri
 		uri = "/EasyFin/Bank/" & JobID
+
+		Dim i
 		uri = uri & "?TradeType="
 		For i = 0 To UBound(TradeType) -1 
 			If i = UBound(TradeType) -1 Then
@@ -248,9 +255,9 @@ Class EasyFinBankSErvice
 		uri = uri & "&PerPage=" & CStr(PerPage)
 		uri = uri & "&Order=" & Order
 
-		Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set searchResult = New EasyFinBankSearchResult
+		Dim searchResult : Set searchResult = New EasyFinBankSearchResult
 		searchResult.fromJsonInfo result
 		Set Search = searchResult 
 
@@ -262,10 +269,11 @@ Class EasyFinBankSErvice
 			Err.Raise -99999999, "POPBILL", "작업아이디가 올바르지 않습니다."
 		End If 
 
+		Dim uri
 		uri = "/EasyFin/Bank/" & JobID & "/Summary"
 
+		Dim i
 		uri = uri & "?TradeType="
-
 		For i = 0 To UBound(TradeType) -1 
 			If i = UBound(TradeType) -1 Then
 				uri = uri & TradeType(i)
@@ -278,9 +286,9 @@ Class EasyFinBankSErvice
 			uri = uri & "&SearchString=" & SearchString
 		End If 
 
-		Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 	
-		Set summaryResult = New EasyFinBankSummaryResult
+		Dim summaryResult : Set summaryResult = New EasyFinBankSummaryResult
 		summaryResult.fromJsonInfo result
 		Set Summary = summaryResult
 
@@ -292,6 +300,7 @@ Class EasyFinBankSErvice
 			Err.Raise -99999999, "POPBILL", "거래내역 아이디가 입력되지 않았습니다."
 		End If
 
+		Dim uri
 		uri = "/EasyFin/Bank/SaveMemo"
 		uri = uri + "?TID=" & TID
 		uri = uri + "&Memo=" & Memo
@@ -301,7 +310,7 @@ Class EasyFinBankSErvice
 
 	Public Function GetFlatRatePopUpURL ( CorpNum, UserID )
 
-		Set result = m_PopbillBase.httpGET("/EasyFin/Bank?TG=CHRG", m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/Bank?TG=CHRG", m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetFlatRatePopUpURL = result.url
 
 	End Function
@@ -315,7 +324,7 @@ Class EasyFinBankSErvice
 			Err.Raise -99999999, "POPBILL", "계좌번호가 입력되지 않았습니다."
 		End If
 
-		Set responseObj = m_PopbillBase.httpGET("/EasyFin/Bank/Contract/" & BankCode & "/" & AccountNumber, _
+		Dim responseObj : Set responseObj = m_PopbillBase.httpGET("/EasyFin/Bank/Contract/" & BankCode & "/" & AccountNumber, _
 						m_PopbillBase.getSession_token(CorpNum), UserID)
 
 		Set flatRateObj = New EasyFinBankFlatRate
@@ -396,8 +405,9 @@ Class EasyFinBankSearchResult
 		lastScrapDT = jsonInfo.lastScrapDT
 		
 		ReDim list ( jsonInfo.list.length )
+		Dim i
 		For i = 0 To jsonInfo.list.length -1
-			Set tmpObj = New EasyFinSearchDetail
+			Dim tmpObj : Set tmpObj = New EasyFinSearchDetail
 			tmpObj.fromJsonInfo jsonInfo.list.Get(i)
 			Set list(i) = tmpObj
 		next

@@ -84,9 +84,9 @@ Public Function CheckID(id)
 End Function
 '과금정보 확인
 Public Function GetChargeInfo ( CorpNum, UserID )
-	Set result = m_PopbillBase.httpGET("/FAX/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGET("/FAX/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
 
-	Set chrgInfo = New ChargeInfo
+	Dim chrgInfo : Set chrgInfo = New ChargeInfo
 	chrgInfo.fromJsonInfo result
 	
 	Set GetChargeInfo = chrgInfo
@@ -95,26 +95,26 @@ End Function
 
 ''단가확인
 Public Function GetUnitCost(CorpNum)
-    Set result = m_PopbillBase.httpGET("/FAX/UnitCost", m_PopbillBase.getSession_token(CorpNum),"")
+    Dim result : Set result = m_PopbillBase.httpGET("/FAX/UnitCost", m_PopbillBase.getSession_token(CorpNum),"")
     GetUnitCost = result.unitCost
 End Function
 
 '팩스 전송내역조회 URL
 Public Function GetURL(CorpNum, UserID, TOGO)
-    Set result = m_PopbillBase.httpGET("/FAX/?TG="+TOGO, m_PopbillBase.getSession_token(CorpNum),UserID)
+    Dim result : Set result = m_PopbillBase.httpGET("/FAX/?TG="+TOGO, m_PopbillBase.getSession_token(CorpNum),UserID)
 	GetURL = result.url
 End Function
 
 
 '팩스 전송내역 팝업 URL
 Public Function GetSentListURL(CorpNum, UserID)
-	Set result = m_PopbillBase.httpGet("/FAX/?TG=BOX",m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/FAX/?TG=BOX",m_PopbillBase.getSession_token(CorpNum), UserID)
 	GetSentListURL = result.url
 End Function
 
 '발신번호 관리 팝업 URL
 Public Function GetSenderNumberMgtURL(CorpNum, UserID)
-	Set result = m_PopbillBase.httpGet("/FAX/?TG=SENDER",m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/FAX/?TG=SENDER",m_PopbillBase.getSession_token(CorpNum), UserID)
 	GetSenderNumberMgtURL = result.url
 End Function
 
@@ -124,7 +124,7 @@ Public Function GetPreviewURL(CorpNum, ReceiptNum, UserID)
 		Err.Raise -99999999, "POPBILL", "접수번호가 올바르지 않습니다"
 	End If
 
-    Set result = m_PopbillBase.httpGET("/FAX/Preview/"+ReceiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
+    Dim result : Set result = m_PopbillBase.httpGET("/FAX/Preview/"+ReceiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
 	GetPreviewURL = result.url
 End Function
 
@@ -152,7 +152,7 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
     If UBound(FilePaths) < 0 Then Err.Raise -99999999, "POPBILL", "전송할 파일경로가 입력되지 않았습니다."
     If UBound(FilePaths) >= 5 Then Err.Raise -99999999, "POPBILL", "1회 전송 가능한 파일갯수는 5개입니다."
   
-    Set Form = JSON.parse("{}")
+    Dim Form : Set Form = JSON.parse("{}")
     
     Form.set "snd", sendNum
     If reserveDT <> "" Then Form.set "sndDT", reserveDT
@@ -163,6 +163,7 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
     Form.set "fCnt", UBound(FilePaths) + 1
     
 	Dim tmpArray() : ReDim tmpArray(UBound(receivers))
+	Dim i
 	For i = 0 to UBound(receivers)
 		If  isNull(receivers(i)) Or IsEmpty(receivers(i)) Then
 			Err.Raise -99999999, "POPBILL", CStr(i+1) & " 번째 수신자 정보가 기재되지 않았습니다."
@@ -173,8 +174,8 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
     
     Form.set "rcvs", tmpArray
     
-    postdata = m_PopbillBase.toString(Form)
-    Set result = m_PopbillBase.httpPOST_Files("/FAX", m_PopbillBase.getSession_token(CorpNum), postdata, FilePaths, UserID)
+    Dim postdata : postdata = m_PopbillBase.toString(Form)
+    Dim result : Set result = m_PopbillBase.httpPOST_Files("/FAX", m_PopbillBase.getSession_token(CorpNum), postdata, FilePaths, UserID)
     
     SendFAX = result.receiptNum
 End Function
@@ -184,7 +185,7 @@ End Function
 Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  reserveDT , UserID, title, requestNum)
     If isNull(receiptNum) Or IsEmpty(receiptNum) Then Err.Raise -99999999, "POPBILL", "팩스 접수번호(receiptNum)가 입력되지 않았습니다."
 
-    Set Form = JSON.parse("{}")
+    Dim Form : Set Form = JSON.parse("{}")
     
 	If sendNum <> "" Then Form.set "snd", sendNum
 	If senderName <> "" Then Form.set "sndnm", senderName
@@ -195,6 +196,7 @@ Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  
 
 	If UBound(receivers) >= 0 Then 
 		Dim tmpArray() : ReDim tmpArray(UBound(receivers))
+		Dim i
 		For i = 0 to UBound(receivers)
 			If  isNull(receivers(i)) Or IsEmpty(receivers(i)) Then
 				Err.Raise -99999999, "POPBILL", CStr(i+1) & " 번째 수신자 정보가 기재되지 않았습니다."
@@ -205,8 +207,8 @@ Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  
 		Form.set "rcvs", tmpArray
 	End If 
 	
-    postdata = m_PopbillBase.toString(Form)
-    Set result = m_PopbillBase.httpPOST("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    Dim postdata : postdata = m_PopbillBase.toString(Form)
+    Dim result : Set result = m_PopbillBase.httpPOST("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
 
     ResendFAX = result.receiptNum
 End Function
@@ -215,7 +217,7 @@ End Function
 '팩스 재전송 (요청번호 할당)
 Public Function ResendFAXRN(CorpNum, orgRequestNum, sendNum, senderName, receivers,  reserveDT , UserID, title, requestNum)
     If isNull(orgRequestNum) Or IsEmpty(orgRequestNum) Then Err.Raise -99999999, "POPBILL", "원본 팩스 요청번호가 입력되지 않았습니다."
-    Set Form = JSON.parse("{}")
+    Dim Form : Set Form = JSON.parse("{}")
     
 	If sendNum <> "" Then Form.set "snd", sendNum
 	If senderName <> "" Then Form.set "sndnm", senderName
@@ -225,6 +227,7 @@ Public Function ResendFAXRN(CorpNum, orgRequestNum, sendNum, senderName, receive
 
 	If UBound(receivers) >= 0 Then 
 		Dim tmpArray() : ReDim tmpArray(UBound(receivers))
+		Dim i
 		For i = 0 to UBound(receivers)
 			If  isNull(receivers(i)) Or IsEmpty(receivers(i)) Then
 				Err.Raise -99999999, "POPBILL", CStr(i+1) & " 번째 수신자 정보가 기재되지 않았습니다."
@@ -235,8 +238,8 @@ Public Function ResendFAXRN(CorpNum, orgRequestNum, sendNum, senderName, receive
 		Form.set "rcvs", tmpArray
 	End If 
 	
-    postdata = m_PopbillBase.toString(Form)
-    Set result = m_PopbillBase.httpPOST("/FAX/Resend/"&orgRequestNum, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    Dim postdata : postdata = m_PopbillBase.toString(Form)
+    Dim result : Set result = m_PopbillBase.httpPOST("/FAX/Resend/"&orgRequestNum, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
 
     ResendFAXRN = result.receiptNum
 End Function
@@ -248,12 +251,13 @@ Public Function GetFaxDetail(CorpNum, receiptNum, UserID)
 			Err.Raise -99999999, "POPBILL", "팩스 접수번호(receiptNum)가 입력되지 않았습니다."
 	End If
 
-	Set result = m_PopbillBase.httpGET("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
+	Dim result : Set result = m_PopbillBase.httpGET("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
 		
-	Set tmp = CreateObject("Scripting.Dictionary")
+	Dim tmp : Set tmp = CreateObject("Scripting.Dictionary")
 
+	Dim i
 	For i=0 To result.length-1
-		Set faxInfo = New FaxState
+		Dim faxInfo : Set faxInfo = New FaxState
 		faxInfo.fromJsonInfo result.Get(i)
 		tmp.Add i, faxInfo
 	Next
@@ -269,12 +273,13 @@ Public Function GetFaxDetailRN(CorpNum, RequestNum, UserID)
 		Err.Raise -99999999, "POPBILL", "요청번호가 입력되지 않았습니다"
 	End If
 	
-	Set result = m_PopbillBase.httpGet("/FAX/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/FAX/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
 	
-	Set tmp = CreateObject("Scripting.Dictionary")
+	Dim tmp : Set tmp = CreateObject("Scripting.Dictionary")
 
+	Dim i
 	For i=0 To result.length-1
-		Set faxInfo = New FaxState
+		Dim faxInfo : Set faxInfo = New FaxState
 		faxInfo.fromJsonInfo result.Get(i)
 		tmp.Add i, faxInfo
 	Next
@@ -293,10 +298,12 @@ Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Or
         Err.Raise -99999999, "POPBILL", "종료일자가 이력되지 않았습니다."
 	End If
 
+	Dim uri 
 	uri = "/FAX/Search"
 	uri = uri & "?SDate=" & SDate
 	uri = uri & "&EDate=" & EDate
 
+	Dim i
 	uri = uri & "&State="
 	For i=0 To UBound(State) -1	
 		If i = UBound(State) -1 then
@@ -314,8 +321,8 @@ Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Or
 	uri = uri & "&PerPage=" & CStr(PerPage)
 	uri = uri & "&QString=" & QString
 	
-	Set searchResult = New FAXSearchResult
-	Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
+	Dim searchResult : Set searchResult = New FAXSearchResult
+	Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
 
 	searchResult.fromJsonInfo tmpObj
 	
@@ -424,8 +431,9 @@ Class FAXSearchResult
 		message = jsonInfo.message
 		
 		ReDim list(jsonInfo.list.length)
+		Dim i
 		For i = 0 To jsonInfo.list.length -1
-			Set tmpObj = New FaxState
+			Dim tmpObj : Set tmpObj = New FaxState
 			tmpObj.fromJsonInfo jsonInfo.list.Get(i)
 			Set list(i) = tmpObj
 		Next

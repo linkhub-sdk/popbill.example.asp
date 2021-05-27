@@ -85,9 +85,9 @@ Class AccountCheckService
 	End Function
 	'과금정보 확인
 	Public Function GetChargeInfo ( CorpNum, UserID )
-		Set result = m_PopbillBase.httpGET("/EasyFin/AccountCheck/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
+		Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/AccountCheck/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
 
-		Set chrgInfo = New ChargeInfo
+		Dim chrgInfo : Set chrgInfo = New ChargeInfo
 		chrgInfo.fromJsonInfo result
 		
 		Set GetChargeInfo = chrgInfo
@@ -96,7 +96,7 @@ Class AccountCheckService
 
 	'조회단가확인
 	Public Function GetUnitCost(CorpNum)
-		Set result = m_PopbillBase.httpGET("/EasyFin/AccountCheck/UnitCost", m_PopbillBase.getSession_token(CorpNum),"")
+		Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/AccountCheck/UnitCost", m_PopbillBase.getSession_token(CorpNum),"")
 		GetUnitCost = result.unitCost
 	End Function
 
@@ -110,17 +110,17 @@ Class AccountCheckService
 			Err.Raise -99999999, "POPBILL", "계좌번호가 입력되지 않았습니다."
 		End If
 
+		Dim uri
 		uri = "/EasyFin/AccountCheck"
 		uri = uri + "?c=" & BankCode
 		uri = uri + "&n=" & AccountNumber
 	
 
-		Set result = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
+		Dim result : Set result = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
 
-		Set infoObj = New AccountCheckInfo
+		Dim infoObj : Set infoObj = New AccountCheckInfo
 		infoObj.fromJsonInfo result
 		Set CheckAccountInfo = infoObj
-
 
 	End Function
 

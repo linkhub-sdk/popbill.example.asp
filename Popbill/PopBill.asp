@@ -64,7 +64,7 @@ Private Property Get m_scope
 End Property
 
 Public Sub AddScope(scope)
-	t = Application("LINKHUB_TOKEN_SCOPE_POPBILL")
+	Dim t : t = Application("LINKHUB_TOKEN_SCOPE_POPBILL")
 	ReDim Preserve t(Ubound(t)+1)
 	t(Ubound(t)) = scope
 	Application("LINKHUB_TOKEN_SCOPE_POPBILL") = t
@@ -77,8 +77,8 @@ Public Sub Initialize(linkID, SecretKey )
 End Sub
 
 Public Function getSession_token(CorpNum)
-    refresh = False
-    Set m_Token = Nothing
+    Dim refresh :  refresh = False
+    Dim m_Token : Set m_Token = Nothing
 	
 	If m_TokenDic.Exists(CorpNum) Then 
 		Set m_Token = m_TokenDic.Item(CorpNum)
@@ -88,6 +88,7 @@ Public Function getSession_token(CorpNum)
         refresh = True
     Else
 		'CheckScope
+		Dim scope
 		For Each scope In m_scope
 			If InStr(m_Token.strScope,scope) = 0 Then
 				refresh = True
@@ -95,8 +96,8 @@ Public Function getSession_token(CorpNum)
 			End if
 		Next
 		If refresh = False then
-			Dim utcnow
-			utcnow = CDate(Replace(left(m_linkhub.getTime(m_UseStaticIP),19),"T" , " " ))
+			
+			Dim utcnow : utcnow = CDate(Replace(left(m_linkhub.getTime(m_UseStaticIP),19),"T" , " " ))
 			refresh = CDate(Replace(left(m_Token.expiration,19),"T" , " " )) < utcnow
 		End if
     End If
@@ -130,21 +131,21 @@ End Function
 '팝빌 기본 URL
 Public Function GetPopbillURL(CorpNum , UserID , TOGO)
 
-    Set result = httpGET("/?TG=" + TOGO, getSession_token(CorpNum), UserID)
+    Dim result : Set result = httpGET("/?TG=" + TOGO, getSession_token(CorpNum), UserID)
     GetPopbillURL = result.url
 End Function
 
 '팝빌 로그인 URL
 Public Function GetAccessURL(CorpNum , UserID)
 
-    Set result = httpGET("/?TG=LOGIN", getSession_token(CorpNum), UserID)
+    Dim result : Set result = httpGET("/?TG=LOGIN", getSession_token(CorpNum), UserID)
     GetAccessURL = result.url
 End Function
 
 '팝빌 연동회원 포인트 충전 URL
 Public Function GetChargeURL(CorpNum , UserID)
 
-    Set result = httpGET("/?TG=CHRG", getSession_token(CorpNum), UserID)
+    Dim result : Set result = httpGET("/?TG=CHRG", getSession_token(CorpNum), UserID)
     GetChargeURL = result.url
 End Function
 
@@ -156,7 +157,7 @@ End Function
 
 '회원가입
 Public Function JoinMember(JoinInfo)
-    Set tmp = JSON.parse("{}")
+    Dim tmp : Set tmp = JSON.parse("{}")
     tmp.set "LinkID", JoinInfo.linkID
     tmp.set "CorpNum", JoinInfo.CorpNum
     tmp.set "CorpName", JoinInfo.CorpName
@@ -172,17 +173,18 @@ Public Function JoinMember(JoinInfo)
     tmp.set "ContactTEL", JoinInfo.ContactTEL
     tmp.set "ID", JoinInfo.ID
     tmp.set "PWD", JoinInfo.PWD
-    postdata = m_Linkhub.toString(tmp)
+    Dim postdata : postdata = m_Linkhub.toString(tmp)
     Set JoinMember = httpPOST("/Join", "", "", postdata, "")
 End Function
 
 ' 담당자 목록조회
 Public Function ListContact(CorpNum, UserID)
-	Set result = httpGET("/IDs",getSession_token(CorpNum), UserID)
+	Dim result : Set result = httpGET("/IDs",getSession_token(CorpNum), UserID)
 
-	Set infoObj = CreateObject("Scripting.Dictionary")
+	Dim infoObj : Set infoObj = CreateObject("Scripting.Dictionary")
+	Dim i
 	For i = 0 To result.length - 1
-		Set contInfo = New ContactInfo
+		Dim contInfo : Set contInfo = New ContactInfo
 		contInfo.fromJsonInfo result.Get(i)
 		infoObj.Add i, contInfo
 	Next
@@ -192,25 +194,25 @@ End Function
 
 '담당자 수정 
 Public Function UpdateContact(CorpNum, ContactInfo, UserID)
-	Set tmp = ContactInfo.toJsonInfo
-	postdata = m_Linkhub.toString(tmp)
+	Dim tmp : Set tmp = ContactInfo.toJsonInfo
+	Dim postdata : postdata = m_Linkhub.toString(tmp)
 
 	Set UpdateContact = httpPOST("/IDs", getSession_token(CorpNum), "", postdata, UserID)
 End Function
 
 '담당자 추가
 Public Function RegistContact(CorpNum, ContactInfo, UserId)
-	Set tmp = ContactInfo.toJsonInfo
-	postdata = m_Linkhub.toString(tmp)
+	Dim tmp : Set tmp = ContactInfo.toJsonInfo
+	Dim postdata : postdata = m_Linkhub.toString(tmp)
 	
 	Set RegistContact = httpPOST("/IDs/New", getSession_token(CorpNum), "", postdata, UserId)
 End Function 
 
 '회사정보 확인
 Public Function GetCorpInfo(CorpNum, UserID)
-	Set result = httpGET("/CorpInfo",getSession_token(CorpNum), UserID)
+	Dim result : Set result = httpGET("/CorpInfo",getSession_token(CorpNum), UserID)
 
-	Set infoObj = New CorpInfo
+	Dim infoObj : Set infoObj = New CorpInfo
 	infoObj.fromJsonInfo result
 	
 	Set GetCorpInfo = infoObj
@@ -218,8 +220,8 @@ End Function
 
 '회사정보 수정
 Public Function UpdateCorpInfo(CorpNum, CorpInfo, UserID)
-	Set tmp = CorpInfo.toJsonInfo
-	postdata = m_Linkhub.toString(tmp)
+	Dim tmp : Set tmp = CorpInfo.toJsonInfo
+	Dim postdata : postdata = m_Linkhub.toString(tmp)
 
 	Set UpdateCorpInfo = httpPOST("/CorpInfo", getSession_token(CorpNum), "", postdata, UserId)
 End Function
@@ -234,8 +236,8 @@ End Function
 'Private Functions
 Public Function httpGET(url , BearerToken , UserID )
 
-    Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-	
+    Dim winhttp1: Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
+	Dim targetURL
 	If m_UseStaticIP Then
 		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
 	Else
@@ -253,11 +255,11 @@ Public Function httpGET(url , BearerToken , UserID )
 
 	winhttp1.Send
     winhttp1.WaitForResponse
-	result = winhttp1.responseText
+	Dim result : result = winhttp1.responseText
 
 	If winhttp1.Status <> 200 Then
 		Set winhttp1 = Nothing
-        Set parsedDic = m_Linkhub.parse(result)
+        Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
         Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
@@ -270,8 +272,9 @@ End Function
 
 Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
     
-    Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-
+    Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
+	
+	Dim targetURL
 	If m_UseStaticIP Then
 		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
 	Else
@@ -296,11 +299,11 @@ Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
 
     winhttp1.Send (postdata)
     winhttp1.WaitForResponse
-    result = winhttp1.responseText
+    Dim result : result = winhttp1.responseText
     
     If winhttp1.Status <> 200 Then
         Set winhttp1 = Nothing
-		Set parsedDic = m_Linkhub.parse(result)
+		Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
         Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
@@ -311,18 +314,17 @@ End Function
 
 
 Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , UserID, ContentsType)
-    Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
+    Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
+	Dim targetURL
 	If m_UseStaticIP Then
 		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
 	Else
 		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
 	End If 
 
-
     Call winhttp1.Open("POST", targetURL + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
-    
     
     If BearerToken <> "" Then
         Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
@@ -344,11 +346,11 @@ Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , 
 
     winhttp1.Send (postdata)
     winhttp1.WaitForResponse
-    result = winhttp1.responseText
+    Dim result : result = winhttp1.responseText
     
     If winhttp1.Status <> 200 Then
         Set winhttp1 = Nothing
-		Set parsedDic = m_Linkhub.parse(result)
+		Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
         Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
@@ -360,10 +362,11 @@ End Function
 
 Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
      
-    boundary = "---------------------popbill"
+    Dim boundary : boundary = "---------------------popbill"
     
-    Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
+    Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 	
+	Dim targetURL
 	If m_UseStaticIP Then
 		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
 	Else
@@ -372,7 +375,6 @@ Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
 
     Call winhttp1.Open("POST", targetURL + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
-    
     
     If BearerToken <> "" Then
         Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
@@ -388,28 +390,28 @@ Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
 	Stream.Type = adTypeBinary
 	Stream.Open
 	
-    fileHead = vbCrLf & "--" & boundary & vbCrLf & _
+    Dim fileHead : fileHead = vbCrLf & "--" & boundary & vbCrLf & _
            "Content-Disposition: form-data; name=""Filedata""; filename=""" & GetOnlyFileName(FilePath) & """" + vbCrLf & _
            "Content-Type: application/octet-stream" & vbCrLf & vbCrLf
 	Stream.Write StringToBytes(fileHead)
 	Stream.Write GetFile(FilePath)
            
-    tail = vbCrLf & "--" & boundary & "--" & vbCrLf
+    Dim tail : tail = vbCrLf & "--" & boundary & "--" & vbCrLf
 	Stream.Write  StringToBytes(tail)
 
 	Stream.Flush
 	Stream.Position = 0
-	postData = Stream.Read
+	Dim postData : postData = Stream.Read
 	Stream.Close : Set Stream = Nothing
 	
     winhttp1.Send (postData)
 	winhttp1.WaitForResponse
     
-    result = winhttp1.responseText
+    Dim result : result = winhttp1.responseText
        
     If winhttp1.Status <> 200 Then
         Set winhttp1 = Nothing
-		Set parsedDic = m_Linkhub.parse(result)
+		Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
         Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
@@ -422,20 +424,19 @@ End Function
 
 Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
      
-    boundary = "---------------------popbill"
+    Dim boundary : boundary = "---------------------popbill"
     
-    Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
+    Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
+	Dim targetURL
 	If m_UseStaticIP Then
 		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
 	Else
 		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
 	End If
 
-
     Call winhttp1.Open("POST", targetURL + url)
-    Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
-    
+    Call winhttp1.setRequestHeader("x-pb-version", APIVersion)    
     
     If BearerToken <> "" Then
         Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
@@ -452,15 +453,16 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
 	Stream.Open
 	
 	If postdata <> "" Then
-        applicationform = vbCrLf & "--" & boundary & vbCrLf & _
+        Dim applicationform : applicationform = vbCrLf & "--" & boundary & vbCrLf & _
                           "Content-Disposition: form-data; name=""form""" & vbCrLf & _
                           "Content-Type: Application/json" & vbCrLf & vbCrLf & _
 						  postdata
         Stream.Write StringToBytes(applicationform)
     End If
-	
+
+	Dim FilePath
 	For Each FilePath In FilePaths
-		fileHead = vbCrLf & "--" & boundary & vbCrLf & _
+		Dim fileHead : fileHead = vbCrLf & "--" & boundary & vbCrLf & _
 			   "Content-Disposition: form-data; name=""file""; filename=""" & GetOnlyFileName(FilePath) & """" + vbCrLf & _
 			   "Content-Type: application/octet-stream" & vbCrLf & vbCrLf
 
@@ -468,22 +470,22 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
 		Stream.Write GetFile(FilePath)
     Next
     
-    tail = vbCrLf & "--" & boundary & "--" & vbCrLf
+    Dim tail : tail = vbCrLf & "--" & boundary & "--" & vbCrLf
 	Stream.Write  StringToBytes(tail)
 
 	Stream.Flush
 	Stream.Position = 0
-	btPostData = Stream.Read
+	Dim btPostData : btPostData = Stream.Read
 	Stream.Close : Set Stream = Nothing
 	
     winhttp1.Send (btPostData)
 	winhttp1.WaitForResponse
     
-    result = winhttp1.responseText
+    Dim result : result = winhttp1.responseText
        
     If winhttp1.Status <> 200 Then
         Set winhttp1 = Nothing
-		Set parsedDic = m_Linkhub.parse(result)
+		Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
         Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
@@ -494,7 +496,8 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
 End Function
 
 Private Function StringToBytes(Str)
-  Dim Stream : Set Stream = Server.CreateObject("ADODB.Stream")
+  Dim Stream
+  Set Stream = Server.CreateObject("ADODB.Stream")
   Stream.Type = adTypeText
   Stream.Charset = "UTF-8"
   Stream.Open
@@ -502,7 +505,7 @@ Private Function StringToBytes(Str)
   Stream.Flush
   Stream.Position = 0
   Stream.Type = adTypeBinary
-  buffer= Stream.Read
+  Dim buffer : buffer= Stream.Read
   Stream.Close
   'Remove BOM.
   Set Stream = Server.CreateObject("ADODB.Stream")
@@ -518,7 +521,7 @@ Private Function StringToBytes(Str)
 End Function
 
 Private Function GetFile(FileName)
-	Dim Stream: Set Stream = CreateObject("ADODB.Stream")
+	Dim Stream : Set Stream = CreateObject("ADODB.Stream")
 	Stream.Type = adTypeBinary
 	Stream.Open
 	Stream.LoadFromFile FileName
@@ -527,7 +530,7 @@ Private Function GetFile(FileName)
 End Function
 
 Private Function GetOnlyFileName(ByVal FilePath ) 
-     Temp = Split(FilePath, "\")
+     Dim Temp : Temp = Split(FilePath, "\")
      GetOnlyFileName = Split(FilePath, "\")(UBound(Temp))
 End Function
 
