@@ -28,26 +28,37 @@ Public Sub Class_Terminate
 	Set m_sha1 = Nothing 
 End Sub 
 
-Public function getTime(useStaticIP)
-	Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-
-    Call winhttp1.Open("GET", IIf(useStaticIP, linkhub_ServiceURL_GA, linkhub_ServiceURL) + "/Time")
-    
-    winhttp1.send
-	winhttp1.WaitForResponse
-    Dim result : result = winhttp1.responseText
-       
-    If winhttp1.Status <> 200 Then
-		Dim er : Set er = parse(result)
-		Err.raise er.code , "LINKHUB", er.message
-    End If
-
-    Set winhttp1 = Nothing
-       
-    getTime = result
+Function b64sha1(d)
+    b64sha1 = m_sha1.b64_sha1(d)
 End Function
 
-public function getToken(serviceID , access_id, Scope, forwardIP, useStaticIP)
+Public function getTime(useStaticIP, useLocalTimeYN)
+    Dim result
+
+    If useLocalTimeYN Then 
+        result = m_sha1.getLocalTime()
+    Else   
+        Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
+
+        Call winhttp1.Open("GET", IIf(useStaticIP, linkhub_ServiceURL_GA, linkhub_ServiceURL) + "/Time")
+        
+        winhttp1.send
+        winhttp1.WaitForResponse
+        result = winhttp1.responseText
+        
+        If winhttp1.Status <> 200 Then
+            Dim er : Set er = parse(result)
+            Err.raise er.code , "LINKHUB", er.message
+        End If
+
+         Set winhttp1 = Nothing
+    End If
+
+    getTime = result
+
+End Function
+
+public function getToken(serviceID , access_id, Scope, forwardIP, useStaticIP, useLocalTimeYN)
 
 	Dim postObject : Set postObject = JSON.parse("{}")
     postObject.set "access_id", access_id
@@ -55,28 +66,28 @@ public function getToken(serviceID , access_id, Scope, forwardIP, useStaticIP)
 
 	Dim postData : postData = toString(postObject)
 
-	Dim xDate : xDate = getTime(useStaticIP)
+	Dim xDate : xDate = getTime(useStaticIP, useLocalTimeYN)
 	Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
 	Call winhttp1.Open("POST", IIf(useStaticIP, linkhub_ServiceURL_GA, linkhub_ServiceURL) + "/" + serviceID + "/Token")
 	Call winhttp1.setRequestHeader("x-lh-date", xdate)
-	Call winhttp1.setRequestHeader("x-lh-version", "1.0")
+	Call winhttp1.setRequestHeader("x-lh-version", "2.0")
     If forwardIP <> "" Then 
 			Call winhttp1.setRequestHeader("x-lh-forwarded", forwardIP)
 	End If 
 
 	Dim target
     target = "POST" + Chr(10)
-	target = target + m_sha1.b64_md5(postData) + Chr(10)
+	target = target + m_sha1.b64_sha256(postdata) + Chr(10)
 	target = target + xDate + Chr(10)
     If forwardIP <> "" Then 
-		target = target + forwardIP + Chr(10)			
+		target = target + forwardIP + Chr(10)
 	End If 
-	target = target + "1.0" + Chr(10)
+	target = target + "2.0" + Chr(10)
 	target = target + "/" + serviceID + "/Token"
 
-	Dim Bearer : Bearer =  m_sha1.b64_hmac_sha1(m_secretKey,target)
-
+	Dim Bearer : Bearer =  m_sha1.b64_hmac_sha256(m_secretKey,target)
+    
 	Call winhttp1.setRequestHeader("Authorization", "LINKHUB " + m_linkID + " " + Bearer)
 
 	winhttp1.send (postData)
