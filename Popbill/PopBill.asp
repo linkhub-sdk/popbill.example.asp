@@ -20,6 +20,7 @@ Private m_TokenDic
 Private m_Linkhub
 Private m_IPRestrictOnOff
 Private m_UseStaticIP
+Private m_UseLocalTimeYN
 
 '테스트 플래그
 Public Property Let IsTest(ByVal value)
@@ -34,40 +35,45 @@ Public Property Let UseStaticIP(ByVal value)
     m_UseStaticIP = value
 End Property
 
-Public Sub Class_Initialize
-	On Error Resume next
-	If  Not(POPBILL_TOKEN_CACHE Is Nothing) Then
-		Set m_TokenDic = POPBILL_TOKEN_CACHE
-	Else
-		Set m_TokenDic = server.CreateObject("Scripting.Dictionary")
-	End If
-	On Error GoTo 0
+Public Property Let UseLocalTimeYN(ByVal value)
+    m_UseLocalTimeYN = value
+End Property
 
-	If isEmpty( m_TokenDic) Then
-		Set m_TokenDic = server.CreateObject("Scripting.Dictionary")
-	End If
-	
-	m_IsTest = False
-	m_IPRestrictOnOff = True
-	m_UseStaticIP = False
+Public Sub Class_Initialize
+    On Error Resume next
+    If  Not(POPBILL_TOKEN_CACHE Is Nothing) Then
+        Set m_TokenDic = POPBILL_TOKEN_CACHE
+    Else
+        Set m_TokenDic = server.CreateObject("Scripting.Dictionary")
+    End If
+    On Error GoTo 0
+
+    If isEmpty( m_TokenDic) Then
+        Set m_TokenDic = server.CreateObject("Scripting.Dictionary")
+    End If
+    
+    m_IsTest = False
+    m_IPRestrictOnOff = True
+    m_UseStaticIP = False
+    m_UseLocalTimeYN = True
     Set m_Linkhub = New Linkhub
 
-	
+    
 End Sub
 
 Public Sub Class_Terminate
-	Set m_Linkhub = Nothing 
+    Set m_Linkhub = Nothing 
 End Sub 
 
 Private Property Get m_scope
-	m_scope = Application("LINKHUB_TOKEN_SCOPE_POPBILL")
+    m_scope = Application("LINKHUB_TOKEN_SCOPE_POPBILL")
 End Property
 
 Public Sub AddScope(scope)
-	Dim t : t = Application("LINKHUB_TOKEN_SCOPE_POPBILL")
-	ReDim Preserve t(Ubound(t)+1)
-	t(Ubound(t)) = scope
-	Application("LINKHUB_TOKEN_SCOPE_POPBILL") = t
+    Dim t : t = Application("LINKHUB_TOKEN_SCOPE_POPBILL")
+    ReDim Preserve t(Ubound(t)+1)
+    t(Ubound(t)) = scope
+    Application("LINKHUB_TOKEN_SCOPE_POPBILL") = t
 End Sub
 
 
@@ -79,35 +85,34 @@ End Sub
 Public Function getSession_token(CorpNum)
     Dim refresh :  refresh = False
     Dim m_Token : Set m_Token = Nothing
-	
-	If m_TokenDic.Exists(CorpNum) Then 
-		Set m_Token = m_TokenDic.Item(CorpNum)
-	End If
-	
+    
+    If m_TokenDic.Exists(CorpNum) Then 
+        Set m_Token = m_TokenDic.Item(CorpNum)
+    End If
+    
     If m_Token Is Nothing Then
         refresh = True
     Else
-		'CheckScope
-		Dim scope
-		For Each scope In m_scope
-			If InStr(m_Token.strScope,scope) = 0 Then
-				refresh = True
-				Exit for
-			End if
-		Next
-		If refresh = False then
-			
-			Dim utcnow : utcnow = CDate(Replace(left(m_linkhub.getTime(m_UseStaticIP),19),"T" , " " ))
-			refresh = CDate(Replace(left(m_Token.expiration,19),"T" , " " )) < utcnow
-		End if
+        'CheckScope
+        Dim scope
+        For Each scope In m_scope
+            If InStr(m_Token.strScope,scope) = 0 Then
+                refresh = True
+                Exit for
+            End if
+        Next
+        If refresh = False then
+            Dim utcnow : utcnow = CDate(Replace(left(m_linkhub.getTime(m_UseStaticIP, m_UseLocalTimeYN),19),"T" , " " ))
+            refresh = CDate(Replace(left(m_Token.expiration,19),"T" , " " )) < utcnow
+        End if
     End If
     
     If refresh Then
-		If m_TokenDic.Exists(CorpNum) Then m_TokenDic.remove CorpNum
-        Set m_Token = m_Linkhub.getToken(IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), CorpNum, m_scope, IIf(m_IPRestrictOnOff, "", "*"), m_UseStaticIP)
-		m_Token.set "strScope", Join(m_scope,"|")
-		m_TokenDic.Add CorpNum, m_Token
-	End If
+        If m_TokenDic.Exists(CorpNum) Then m_TokenDic.remove CorpNum
+        Set m_Token = m_Linkhub.getToken(IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), CorpNum, m_scope, IIf(m_IPRestrictOnOff, "", "*"), m_UseStaticIP, m_UseLocalTimeYN)
+        m_Token.set "strScope", Join(m_scope,"|")
+        m_TokenDic.Add CorpNum, m_Token
+    End If
     
     getSession_token = m_Token.session_token
 
@@ -179,56 +184,56 @@ End Function
 
 ' 담당자 목록조회
 Public Function ListContact(CorpNum, UserID)
-	Dim result : Set result = httpGET("/IDs",getSession_token(CorpNum), UserID)
+    Dim result : Set result = httpGET("/IDs",getSession_token(CorpNum), UserID)
 
-	Dim infoObj : Set infoObj = CreateObject("Scripting.Dictionary")
-	Dim i
-	For i = 0 To result.length - 1
-		Dim contInfo : Set contInfo = New ContactInfo
-		contInfo.fromJsonInfo result.Get(i)
-		infoObj.Add i, contInfo
-	Next
+    Dim infoObj : Set infoObj = CreateObject("Scripting.Dictionary")
+    Dim i
+    For i = 0 To result.length - 1
+        Dim contInfo : Set contInfo = New ContactInfo
+        contInfo.fromJsonInfo result.Get(i)
+        infoObj.Add i, contInfo
+    Next
 
-	Set ListContact = infoObj
+    Set ListContact = infoObj
 End Function
 
 '담당자 수정 
 Public Function UpdateContact(CorpNum, ContactInfo, UserID)
-	Dim tmp : Set tmp = ContactInfo.toJsonInfo
-	Dim postdata : postdata = m_Linkhub.toString(tmp)
+    Dim tmp : Set tmp = ContactInfo.toJsonInfo
+    Dim postdata : postdata = m_Linkhub.toString(tmp)
 
-	Set UpdateContact = httpPOST("/IDs", getSession_token(CorpNum), "", postdata, UserID)
+    Set UpdateContact = httpPOST("/IDs", getSession_token(CorpNum), "", postdata, UserID)
 End Function
 
 '담당자 추가
 Public Function RegistContact(CorpNum, ContactInfo, UserId)
-	Dim tmp : Set tmp = ContactInfo.toJsonInfo
-	Dim postdata : postdata = m_Linkhub.toString(tmp)
-	
-	Set RegistContact = httpPOST("/IDs/New", getSession_token(CorpNum), "", postdata, UserId)
+    Dim tmp : Set tmp = ContactInfo.toJsonInfo
+    Dim postdata : postdata = m_Linkhub.toString(tmp)
+    
+    Set RegistContact = httpPOST("/IDs/New", getSession_token(CorpNum), "", postdata, UserId)
 End Function 
 
 '회사정보 확인
 Public Function GetCorpInfo(CorpNum, UserID)
-	Dim result : Set result = httpGET("/CorpInfo",getSession_token(CorpNum), UserID)
+    Dim result : Set result = httpGET("/CorpInfo",getSession_token(CorpNum), UserID)
 
-	Dim infoObj : Set infoObj = New CorpInfo
-	infoObj.fromJsonInfo result
-	
-	Set GetCorpInfo = infoObj
+    Dim infoObj : Set infoObj = New CorpInfo
+    infoObj.fromJsonInfo result
+    
+    Set GetCorpInfo = infoObj
 End Function
 
 '회사정보 수정
 Public Function UpdateCorpInfo(CorpNum, CorpInfo, UserID)
-	Dim tmp : Set tmp = CorpInfo.toJsonInfo
-	Dim postdata : postdata = m_Linkhub.toString(tmp)
+    Dim tmp : Set tmp = CorpInfo.toJsonInfo
+    Dim postdata : postdata = m_Linkhub.toString(tmp)
 
-	Set UpdateCorpInfo = httpPOST("/CorpInfo", getSession_token(CorpNum), "", postdata, UserId)
+    Set UpdateCorpInfo = httpPOST("/CorpInfo", getSession_token(CorpNum), "", postdata, UserId)
 End Function
 
 '아이디 중복확인
 Public Function CheckID(id)
-	Set CheckID = httpGET("/IDCheck?ID="+id, "", "")
+    Set CheckID = httpGET("/IDCheck?ID="+id, "", "")
 End Function
 
 '''''''''''''  End of PopbillBase
@@ -237,28 +242,28 @@ End Function
 Public Function httpGET(url , BearerToken , UserID )
 
     Dim winhttp1: Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-	Dim targetURL
-	If m_UseStaticIP Then
-		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
-	Else
-		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
-	End If 
+    Dim targetURL
+    If m_UseStaticIP Then
+        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+    Else
+        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+    End If 
 
     Call winhttp1.Open("GET", targetURL + url, false)
     
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
-	
+    
     If UserID <> "" Then
         Call winhttp1.setRequestHeader("x-pb-userid", UserID)
     End If
 
-	winhttp1.Send
+    winhttp1.Send
     winhttp1.WaitForResponse
-	Dim result : result = winhttp1.responseText
+    Dim result : result = winhttp1.responseText
 
-	If winhttp1.Status <> 200 Then
-		Set winhttp1 = Nothing
+    If winhttp1.Status <> 200 Then
+        Set winhttp1 = Nothing
         Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
         Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
@@ -273,13 +278,13 @@ End Function
 Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
     
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-	
-	Dim targetURL
-	If m_UseStaticIP Then
-		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
-	Else
-		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
-	End If 
+    
+    Dim targetURL
+    If m_UseStaticIP Then
+        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+    Else
+        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+    End If 
 
     Call winhttp1.Open("POST", targetURL + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
@@ -303,7 +308,7 @@ Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
     
     If winhttp1.Status <> 200 Then
         Set winhttp1 = Nothing
-		Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
+        Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
         Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
@@ -312,16 +317,60 @@ Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
 
 End Function
 
+Public Function httpBulkPOST(url, BearerToken, override, SubmitID, postdata, userID)
+    
+    Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
+    
+    Dim targetURL
+    If m_UseStaticIP Then
+        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+    Else
+        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+    End If 
 
+    Call winhttp1.Open("POST", targetURL + url)
+    Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
+    Call winhttp1.setRequestHeader("Content-Type", "Application/json")
+    Call winhttp1.setRequestHeader("x-pb-message-digest", m_linkhub.b64sha1(postdata))
+    If BearerToken <> "" Then
+        Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
+    End If
+
+    If SubmitID <> "" Then
+        Call winhttp1.setRequestHeader("x-pb-submit-id", SubmitID)
+    End If
+
+    If override <> "" Then
+        Call winhttp1.setRequestHeader("X-HTTP-Method-Override", override)
+    End If
+    
+    If UserID <> "" Then
+        Call winhttp1.setRequestHeader("x-pb-userid", UserID)
+    End If
+
+    winhttp1.Send (postdata)
+    winhttp1.WaitForResponse
+    Dim result : result = winhttp1.responseText
+
+    If winhttp1.Status <> 200 Then
+        Set winhttp1 = Nothing
+        Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
+        Err.raise parsedDic.code, "POPBILL", parsedDic.message
+    End If
+    
+    Set winhttp1 = Nothing
+    Set httpBulkPOST = m_Linkhub.parse(result)
+
+End Function
 Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , UserID, ContentsType)
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
-	Dim targetURL
-	If m_UseStaticIP Then
-		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
-	Else
-		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
-	End If 
+    Dim targetURL
+    If m_UseStaticIP Then
+        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+    Else
+        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+    End If 
 
     Call winhttp1.Open("POST", targetURL + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
@@ -338,11 +387,11 @@ Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , 
         Call winhttp1.setRequestHeader("x-pb-userid", UserID)
     End If
 
-	If ContentsType <> "" Then
-		Call winhttp1.setRequestHeader("Content-Type", ContentsType)
+    If ContentsType <> "" Then
+        Call winhttp1.setRequestHeader("Content-Type", ContentsType)
     Else
-		Call winhttp1.setRequestHeader("Content-Type", "Application/json")
-	End If
+        Call winhttp1.setRequestHeader("Content-Type", "Application/json")
+    End If
 
     winhttp1.Send (postdata)
     winhttp1.WaitForResponse
@@ -350,7 +399,7 @@ Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , 
     
     If winhttp1.Status <> 200 Then
         Set winhttp1 = Nothing
-		Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
+        Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
         Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
@@ -365,13 +414,13 @@ Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
     Dim boundary : boundary = "---------------------popbill"
     
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-	
-	Dim targetURL
-	If m_UseStaticIP Then
-		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
-	Else
-		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
-	End If 
+    
+    Dim targetURL
+    If m_UseStaticIP Then
+        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+    Else
+        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+    End If 
 
     Call winhttp1.Open("POST", targetURL + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
@@ -387,31 +436,31 @@ Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
     Call winhttp1.setRequestHeader("Content-Type", "multipart/form-data; boundary=" + boundary)
     
     Dim Stream : Set Stream = Server.CreateObject("ADODB.Stream")
-	Stream.Type = adTypeBinary
-	Stream.Open
-	
+    Stream.Type = adTypeBinary
+    Stream.Open
+    
     Dim fileHead : fileHead = vbCrLf & "--" & boundary & vbCrLf & _
            "Content-Disposition: form-data; name=""Filedata""; filename=""" & GetOnlyFileName(FilePath) & """" + vbCrLf & _
            "Content-Type: application/octet-stream" & vbCrLf & vbCrLf
-	Stream.Write StringToBytes(fileHead)
-	Stream.Write GetFile(FilePath)
+    Stream.Write StringToBytes(fileHead)
+    Stream.Write GetFile(FilePath)
            
     Dim tail : tail = vbCrLf & "--" & boundary & "--" & vbCrLf
-	Stream.Write  StringToBytes(tail)
+    Stream.Write  StringToBytes(tail)
 
-	Stream.Flush
-	Stream.Position = 0
-	Dim postData : postData = Stream.Read
-	Stream.Close : Set Stream = Nothing
-	
+    Stream.Flush
+    Stream.Position = 0
+    Dim postData : postData = Stream.Read
+    Stream.Close : Set Stream = Nothing
+    
     winhttp1.Send (postData)
-	winhttp1.WaitForResponse
+    winhttp1.WaitForResponse
     
     Dim result : result = winhttp1.responseText
        
     If winhttp1.Status <> 200 Then
         Set winhttp1 = Nothing
-		Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
+        Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
         Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
@@ -428,12 +477,12 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
     
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
-	Dim targetURL
-	If m_UseStaticIP Then
-		targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
-	Else
-		targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
-	End If
+    Dim targetURL
+    If m_UseStaticIP Then
+        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+    Else
+        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+    End If
 
     Call winhttp1.Open("POST", targetURL + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)    
@@ -449,43 +498,43 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
     Call winhttp1.setRequestHeader("Content-Type", "multipart/form-data; boundary=" + boundary)
     
     Dim Stream : Set Stream = Server.CreateObject("ADODB.Stream")
-	Stream.Type = adTypeBinary
-	Stream.Open
-	
-	If postdata <> "" Then
+    Stream.Type = adTypeBinary
+    Stream.Open
+    
+    If postdata <> "" Then
         Dim applicationform : applicationform = vbCrLf & "--" & boundary & vbCrLf & _
                           "Content-Disposition: form-data; name=""form""" & vbCrLf & _
                           "Content-Type: Application/json" & vbCrLf & vbCrLf & _
-						  postdata
+                          postdata
         Stream.Write StringToBytes(applicationform)
     End If
 
-	Dim FilePath
-	For Each FilePath In FilePaths
-		Dim fileHead : fileHead = vbCrLf & "--" & boundary & vbCrLf & _
-			   "Content-Disposition: form-data; name=""file""; filename=""" & GetOnlyFileName(FilePath) & """" + vbCrLf & _
-			   "Content-Type: application/octet-stream" & vbCrLf & vbCrLf
+    Dim FilePath
+    For Each FilePath In FilePaths
+        Dim fileHead : fileHead = vbCrLf & "--" & boundary & vbCrLf & _
+               "Content-Disposition: form-data; name=""file""; filename=""" & GetOnlyFileName(FilePath) & """" + vbCrLf & _
+               "Content-Type: application/octet-stream" & vbCrLf & vbCrLf
 
-		Stream.Write StringToBytes(fileHead)
-		Stream.Write GetFile(FilePath)
+        Stream.Write StringToBytes(fileHead)
+        Stream.Write GetFile(FilePath)
     Next
     
     Dim tail : tail = vbCrLf & "--" & boundary & "--" & vbCrLf
-	Stream.Write  StringToBytes(tail)
+    Stream.Write  StringToBytes(tail)
 
-	Stream.Flush
-	Stream.Position = 0
-	Dim btPostData : btPostData = Stream.Read
-	Stream.Close : Set Stream = Nothing
-	
+    Stream.Flush
+    Stream.Position = 0
+    Dim btPostData : btPostData = Stream.Read
+    Stream.Close : Set Stream = Nothing
+    
     winhttp1.Send (btPostData)
-	winhttp1.WaitForResponse
+    winhttp1.WaitForResponse
     
     Dim result : result = winhttp1.responseText
        
     If winhttp1.Status <> 200 Then
         Set winhttp1 = Nothing
-		Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
+        Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
         Err.raise parsedDic.code, "POPBILL", parsedDic.message
     End If
     
@@ -521,12 +570,12 @@ Private Function StringToBytes(Str)
 End Function
 
 Private Function GetFile(FileName)
-	Dim Stream : Set Stream = CreateObject("ADODB.Stream")
-	Stream.Type = adTypeBinary
-	Stream.Open
-	Stream.LoadFromFile FileName
-	GetFile = Stream.Read
-	Stream.Close
+    Dim Stream : Set Stream = CreateObject("ADODB.Stream")
+    Stream.Type = adTypeBinary
+    Stream.Open
+    Stream.LoadFromFile FileName
+    GetFile = Stream.Read
+    Stream.Close
 End Function
 
 Private Function GetOnlyFileName(ByVal FilePath ) 
@@ -535,18 +584,18 @@ Private Function GetOnlyFileName(ByVal FilePath )
 End Function
 
 Private Function IIf(condition , trueState,falseState)
-	If condition Then 
-		IIf = trueState
-	Else
-		IIf = falseState
-	End if
+    If condition Then 
+        IIf = trueState
+    Else
+        IIf = falseState
+    End if
 End Function
 public Function toString(object)
-	toString = m_Linkhub.toString(object)
+    toString = m_Linkhub.toString(object)
 End Function
 
 Public Function parse(jsonString)
-	Set parse = m_Linkhub.parse(jsonString)
+    Set parse = m_Linkhub.parse(jsonString)
 End Function
 End Class
 
@@ -571,92 +620,92 @@ End Class
 
 '담당자 정보
 Class ContactInfo
-	Public id
-	Public pwd
-	Public email
-	Public hp
-	Public personName
-	Public searchAllAllowYN
-	Public tel
-	Public fax
-	Public mgrYN
-	Public regDT
-	Public state
-	
-	Public Sub fromJsonInfo(jsonInfo)
-		On Error Resume Next
-			
-		id = jsonInfo.id
-		email = jsonInfo.email
-		hp = jsonInfo.hp
-		personName = jsonInfo.personName
-		searchAllAllowYN = jsonInfo.searchAllAllowYN
-		tel = jsonInfo.tel
-		fax = jsonInfo.fax
-		mgrYN = jsonInfo.mgrYN
-		regDT = jsonInfo.regDT
-		State = jsonInfo.state
+    Public id
+    Public pwd
+    Public email
+    Public hp
+    Public personName
+    Public searchAllAllowYN
+    Public tel
+    Public fax
+    Public mgrYN
+    Public regDT
+    Public state
+    
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+            
+        id = jsonInfo.id
+        email = jsonInfo.email
+        hp = jsonInfo.hp
+        personName = jsonInfo.personName
+        searchAllAllowYN = jsonInfo.searchAllAllowYN
+        tel = jsonInfo.tel
+        fax = jsonInfo.fax
+        mgrYN = jsonInfo.mgrYN
+        regDT = jsonInfo.regDT
+        State = jsonInfo.state
 
-		On Error GoTo 0
-	End Sub
+        On Error GoTo 0
+    End Sub
 
-	Public Function toJsonInfo()
-		Set toJsonInfo = JSON.parse("{}")
-		toJsonInfo.set "id", id
-		toJsonInfo.set "pwd", pwd
-		toJsonInfo.set "email", email
-		toJsonInfo.set "hp", hp
-		toJsonInfo.set "personName", personName
-		toJsonInfo.set "searchAllAllowYN", searchAllAllowYN
-		toJsonInfo.set "tel", tel
-		toJsonInfo.set "fax", fax
-		toJsonInfo.set "mgrYN", mgrYN
-	End Function
+    Public Function toJsonInfo()
+        Set toJsonInfo = JSON.parse("{}")
+        toJsonInfo.set "id", id
+        toJsonInfo.set "pwd", pwd
+        toJsonInfo.set "email", email
+        toJsonInfo.set "hp", hp
+        toJsonInfo.set "personName", personName
+        toJsonInfo.set "searchAllAllowYN", searchAllAllowYN
+        toJsonInfo.set "tel", tel
+        toJsonInfo.set "fax", fax
+        toJsonInfo.set "mgrYN", mgrYN
+    End Function
 
 End Class
 
 '회사정보 
 Class CorpInfo
-	Public ceoname
-	Public corpName
-	Public addr
-	Public bizType
-	Public bizClass
+    Public ceoname
+    Public corpName
+    Public addr
+    Public bizType
+    Public bizClass
 
-	Public Sub fromJsonInfo(jsonInfo)
-		On Error Resume Next
-		ceoname = jsonInfo.ceoname
-		corpName = jsonInfo.corpName
-		addr = jsonInfo.addr
-		bizType = jsonInfo.bizType
-		bizClass = jsonInfo.bizClass
-		On Error GoTo 0
-	End Sub
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+        ceoname = jsonInfo.ceoname
+        corpName = jsonInfo.corpName
+        addr = jsonInfo.addr
+        bizType = jsonInfo.bizType
+        bizClass = jsonInfo.bizClass
+        On Error GoTo 0
+    End Sub
 
-	Public Function toJsonINfo()
-		Set toJsonInfo = JSON.parse("{}")
-		toJsonInfo.Set "ceoname", ceoname
-		toJsonInfo.Set "corpName", corpName
-		toJsonInfo.Set "addr", addr
-		toJsonInfo.Set "bizType", bizType
-		toJsonInfo.Set "bizClass", bizClass
-	End Function
+    Public Function toJsonINfo()
+        Set toJsonInfo = JSON.parse("{}")
+        toJsonInfo.Set "ceoname", ceoname
+        toJsonInfo.Set "corpName", corpName
+        toJsonInfo.Set "addr", addr
+        toJsonInfo.Set "bizType", bizType
+        toJsonInfo.Set "bizClass", bizClass
+    End Function
 
 End Class
 
 '과금정보
 Class ChargeInfo
-	Public unitCost
-	Public chargeMethod
-	Public rateSystem
+    Public unitCost
+    Public chargeMethod
+    Public rateSystem
 
-	Public Sub fromJsonInfo ( jsonInfo )
-		On Error Resume Next
-		unitCost = jsonInfo.unitCost
-		chargeMethod = jsonInfo.chargeMethod
-		rateSystem = jsonInfo.rateSystem
-		On Error GoTo 0
-	End Sub 
+    Public Sub fromJsonInfo ( jsonInfo )
+        On Error Resume Next
+        unitCost = jsonInfo.unitCost
+        chargeMethod = jsonInfo.chargeMethod
+        rateSystem = jsonInfo.rateSystem
+        On Error GoTo 0
+    End Sub 
 
 End Class
 %>
