@@ -898,16 +898,16 @@ Public Function checkCertValidation(CorpNum, UserID)
 End Function
 
 ' 국세청 전송 설정 확인
-Public Function getSendToNTSConfig(CorpNum)
+Public Function GetSendToNTSConfig(CorpNum)
 
     Dim sendToNTSConfig : Set sendToNTSConfig = m_PopbillBase.httpGET("/Taxinvoice/SendToNTSConfig",_
                         m_PopbillBase.getSession_token(CorpNum), "")
-    getSendToNTSConfig = sendToNTSConfig.sendToNTS
+    GetSendToNTSConfig = sendToNTSConfig.sendToNTS
 
 End Function
 
 ' 전자세금계산서 초대량 발행 접수
-Public Function bulkSubmit(CorpNum, SubmitID, taxinvoiceList, ForceIssue, UserID)
+Public Function BulkSubmit(CorpNum, SubmitID, taxinvoiceList, ForceIssue, UserID)
 
     If SubmitID = "" Or isEmpty(SubmitID) Then 
         Err.Raise -99999999, "POPBILL", "제출아이디가 입력되지 않았습니다."
@@ -934,11 +934,12 @@ Public Function bulkSubmit(CorpNum, SubmitID, taxinvoiceList, ForceIssue, UserID
 
     Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Set bulkSubmit = m_PopbillBase.httpBulkPOST("/Taxinvoice", m_PopbillBase.getSession_token(CorpNum), "BULKISSUE", SubmitID, postData, UserID)
+    Set BulkSubmit = m_PopbillBase.httpBulkPOST("/Taxinvoice", m_PopbillBase.getSession_token(CorpNum), "BULKISSUE", SubmitID, postData, UserID)
 
 End Function
 
-Public Function getBulkResult(CorpNum, SubmitID, UserID)
+' 초대량 접수 결과 확인
+Public Function GetBulkResult(CorpNum, SubmitID, UserID)
 
     If SubmitID = "" Or isEmpty(SubmitID) Then
         Err.Raise -99999999, "POPBILL", "제출아이디가 입력되지 않았습니다."
@@ -950,7 +951,7 @@ Public Function getBulkResult(CorpNum, SubmitID, UserID)
     
     btResult.fromJsonInfo result
 
-    Set getBulkResult = btResult
+    Set GetBulkResult = btResult
     
 End Function 
 
