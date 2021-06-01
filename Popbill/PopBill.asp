@@ -651,6 +651,7 @@ End Class
 Class ContactInfo
     Public id
     Public pwd
+    Public Password
     Public email
     Public hp
     Public personName
@@ -684,6 +685,7 @@ Class ContactInfo
         Set toJsonInfo = JSON.parse("{}")
         toJsonInfo.set "id", id
         toJsonInfo.set "pwd", pwd
+        toJsonInfo.set "Password", Password
         toJsonInfo.set "email", email
         toJsonInfo.set "hp", hp
         toJsonInfo.set "personName", personName
