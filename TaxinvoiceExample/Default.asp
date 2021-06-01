@@ -104,6 +104,7 @@
             <li><a href="getCorpInfo.asp">GetCorpInfo</a> - 회사정보 확인</li>
             <li><a href="updateCorpInfo.asp">UpdateCorpInfo</a> - 회사정보 수정</li>
             <li><a href="registContact.asp">RegistContact</a> - 담당자 등록</li>
+            <li><a href="getContactInfo.asp">getContactInfo</a> - 담당자 정보 확인</li>
             <li><a href="listContact.asp">ListContact</a> - 담당자 목록 확인</li>
             <li><a href="updateContact.asp">UpdateContact</a> - 담당자 정보 수정</li>
         </ul>
