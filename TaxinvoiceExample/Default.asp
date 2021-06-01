@@ -89,6 +89,8 @@
         <ul>
             <li><a href="getBalance.asp">GetBalance</a> - 연동회원 잔여포인트 확인</li>
             <li><a href="getChargeURL.asp">GetChargeURL</a> - 연동회원 포인트충전 URL</li>
+            <li><a href="getPaymentURL.asp">GetPaymentURL</a> - 연동회원 포인트 결재내역 URL</li>
+            <li><a href="getUseHistoryURL.asp">GetUseHistoryURL</a> - 연동회원 포인트 사용내역 URL</li>
             <li><a href="getPartnerBalance.asp">GetPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="getPartnerURL.asp">GetPartnerURL</a> - 파트너 포인트충전 URL</li>
             <li><a href="getUnitCost.asp">GetUnitCost</a> - 발행 단가 확인</li>

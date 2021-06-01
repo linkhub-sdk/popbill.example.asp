@@ -40,6 +40,8 @@
         <ul>
             <li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
             <li><a href="getChargeURL.asp">getChargeURL</a> - 연동회원 포인트충전 URL</li>
+            <li><a href="getPaymentURL.asp">GetPaymentURL</a> - 연동회원 포인트 결재내역 URL</li>
+            <li><a href="getUseHistoryURL.asp">GetUseHistoryURL</a> - 연동회원 포인트 사용내역 URL</li>
             <li><a href="getPartnerBalance.asp">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트충전 URL</li>
             <li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
@@ -53,7 +55,7 @@
             <li><a href="checkIsMember.asp">checkIsMember</a> - 연동회원 가입여부 확인</li>
             <li><a href="checkID.asp">checkID</a> - 아이디 중복 확인</li>
             <li><a href="joinMember.asp">joinMember</a> - 연동회원 신규가입</li>
-			<li><a href="getAccessURL.asp">getAccessURL</a> - 팝빌 로그인 URL</li>
+            <li><a href="getAccessURL.asp">getAccessURL</a> - 팝빌 로그인 URL</li>
             <li><a href="getCorpInfo.asp">getCorpInfo</a> - 회사정보 확인</li>
             <li><a href="updateCorpInfo.asp">updateCorpInfo</a> - 회사정보 수정</li>
             <li><a href="registContact.asp">registContact</a> - 담당자 등록</li>
