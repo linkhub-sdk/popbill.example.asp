@@ -41,7 +41,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>세금계산서 보기 팝업 URL</legend>
+                <legend>세금계산서 (구)양식 인쇄 URL </legend>
                 <% 
                     If code = 0 Then
                 %>

@@ -71,6 +71,7 @@
             <li><a href="assignMgtKey.asp">AssignMgtKey</a> - 문서번호 할당</li>
             <li><a href="listEmailConfig.asp">ListEmailConfig</a> - 세금계산서 알림메일 전송목록 조회</li>
             <li><a href="updateEmailConfig.asp">UpdateEmailConfig</a> - 세금계산서 알림메일 전송설정 수정</li>
+            <li><a href="getSendToNTSConfig.asp">getSendToNTSConfig</a> - 국세청 전송 설정 확인</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
