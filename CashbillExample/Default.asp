@@ -44,10 +44,11 @@
         <legend>현금영수증 보기/인쇄</legend>
         <ul>
             <li><a href="getPopUpURL.asp">getPopUpURL</a> -현금영수증 보기 URL</li>
+            <li><a href="getViewURL.asp">getViewURL</a> -현금영수증 보기 URL (메뉴/버튼 제외)</li>
             <li><a href="getPrintURL.asp">getPrintURL</a> -현금영수증 인쇄 URL</li>
             <li><a href="getMassPrintURL.asp">getMassPrintURL</a> -현금영수증 대량 인쇄 URL</li>
             <li><a href="getMailURL.asp">getMailURL</a> -현금영수증 메일링크 URL</li>
-			<li><a href="getPDFURL.asp">getPDFURL</a> -현금영수증 PDF 다운로드 URL</li>
+            <li><a href="getPDFURL.asp">getPDFURL</a> -현금영수증 PDF 다운로드 URL</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
@@ -59,7 +60,7 @@
             <li><a href="sendFAX.asp">sendFAX</a> -팩스 전송</li>
             <li><a href="listEmailConfig.asp">listEmailConfig</a> -현금영수증 알림메일 전송목록 조회</li>
             <li><a href="updateEmailConfig.asp">updateEmailConfig</a> -현금영수증 알림메일 전송설정 수정</li>
-			<li><a href="assignMgtKey.asp">assignMgtKey</a> -현금영수증 문서번호 할당</li>
+            <li><a href="assignMgtKey.asp">assignMgtKey</a> -현금영수증 문서번호 할당</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
