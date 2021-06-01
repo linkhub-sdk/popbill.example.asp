@@ -11,14 +11,14 @@
     <fieldset class="fieldset1">
         <legend>계좌 관리</legend>
         <ul>
-			<li><a href="registBankAccount.asp">registBankAccount</a> - 계좌 등록</li>
-			<li><a href="updateBankAccount.asp">updateBankAccount</a> - 계좌 수정</li>
-			<li><a href="getBankAccountInfo.asp">getBankAccountInfo</a> - 계좌정보 확인</li>
-			<li><a href="listBankAccount.asp">listBankAccount</a> - 계좌 목록 확인</li>
-			<li><a href="getBankAccountMgtURL.asp">getBankAccountMgtURL</a> - 계좌 관리 팝업 URL</li>
-			<li><a href="closeBankAccount.asp">closeBankAccount</a> - 계좌 정액제 해지신청</li>
-			<li><a href="revokeCloseBankAccount.asp">revokeCloseBankAccount</a> - 계좌 정액제 해지신청 취소</li>
-            
+            <li><a href="registBankAccount.asp">registBankAccount</a> - 계좌 등록</li>
+            <li><a href="updateBankAccount.asp">updateBankAccount</a> - 계좌 수정</li>
+            <li><a href="getBankAccountInfo.asp">getBankAccountInfo</a> - 계좌정보 확인</li>
+            <li><a href="listBankAccount.asp">listBankAccount</a> - 계좌 목록 확인</li>
+            <li><a href="getBankAccountMgtURL.asp">getBankAccountMgtURL</a> - 계좌 관리 팝업 URL</li>
+            <li><a href="closeBankAccount.asp">closeBankAccount</a> - 계좌 정액제 해지신청</li>
+            <li><a href="revokeCloseBankAccount.asp">revokeCloseBankAccount</a> - 계좌 정액제 해지신청 취소</li>
+            <li><a href="deleteBankAccount.asp">deleteBankAccount</a> - 종량제 계좌 삭제</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
@@ -44,7 +44,7 @@
         <ul>
             <li><a href="getFlatRatePopUpURL.asp">getFlatRatePopUpURL</a> - 정액제 서비스 신청 URL</li>
             <li><a href="getFlatRateState.asp">getFlatRateState</a> - 정액제 서비스 상태 확인</li>
-			<li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
+            <li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
             <li><a href="getChargeURL.asp">getChargeURL</a> - 연동회원 포인트충전 URL</li>
             <li><a href="getPartnerBalance.asp">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트충전 URL</li>
@@ -57,7 +57,7 @@
             <li><a href="checkIsMember.asp">checkIsMember</a> - 연동회원 가입여부 확인</li>
             <li><a href="checkID.asp">checkID</a> - 아이디 중복 확인</li>
             <li><a href="joinMember.asp">joinMember</a> - 연동회원 신규가입</li>
-			<li><a href="getAccessURL.asp">getAccessURL</a> - 팝빌 로그인 URL</li>
+            <li><a href="getAccessURL.asp">getAccessURL</a> - 팝빌 로그인 URL</li>
             <li><a href="getCorpInfo.asp">getCorpInfo</a> - 회사정보 확인</li>
             <li><a href="updateCorpInfo.asp">updateCorpInfo</a> - 회사정보 수정</li>
             <li><a href="registContact.asp">registContact</a> - 담당자 등록</li>
