@@ -191,7 +191,9 @@ Public Function JoinMember(JoinInfo)
     tmp.set "ContactTEL", JoinInfo.ContactTEL
     tmp.set "ID", JoinInfo.ID
     tmp.set "PWD", JoinInfo.PWD
+    tmp.set "Password", JoinInfo.Password
     Dim postdata : postdata = m_Linkhub.toString(tmp)
+
     Set JoinMember = httpPOST("/Join", "", "", postdata, "")
 End Function
 
@@ -613,23 +615,24 @@ Public Function parse(jsonString)
 End Function
 End Class
 
-''회원가입 정보
+'회원가입 정보
 Class JoinForm
-Public LinkID          
-Public CorpNum         
-Public CEOName         
-Public CorpName        
-Public Addr            
-Public ZipCode         
-Public BizType         
-Public BizClass        
-Public ID              
-Public PWD             
-Public ContactName     
-Public ContactTEL      
-Public ContactHP       
-Public ContactFAX      
-Public ContactEmail    
+    Public LinkID
+    Public CorpNum
+    Public CEOName
+    Public CorpName
+    Public Addr
+    Public ZipCode
+    Public BizType
+    Public BizClass
+    Public ID
+    Public PWD
+    Public Password
+    Public ContactName
+    Public ContactTEL
+    Public ContactHP
+    Public ContactFAX
+    Public ContactEmail
 End Class
 
 '담당자 정보
