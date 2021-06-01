@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
+        <title>팝빌 SDK ASP Example.</title>
+    </head>
+<!--#include file="common.asp"--> 
+<%
+    '**************************************************************
+    ' 초대량 접수결과를 확인합니다.
+    ' - https://docs.popbill.com/taxinvoice/asp/api#GetBulkResult
+    '**************************************************************
+
+    ' 팝빌회원 사업자번호, "-" 제외
+    testCorpNum = "1234567890"
+
+    ' 제출 아이디
+    SubmitID = "ASP-BULK-TEST102"
+
+    ' 팝빌회원아이디
+    UserID = "testkorea"
+
+    On Error Resume Next
+
+    Set result = m_TaxinvoiceService.GetBulkResult(testCorpNum, SubmitID, UserID)
+
+    If Err.Number <> 0 Then
+        code = Err.Number
+        message = Err.Description
+        Err.Clears
+    End If	
+
+    On Error GoTo 0 
+%>
+    <body>
+        <div id="content">
+            <p class="heading1">Response</p>
+            <br/>
+            <fieldset class="fieldset1">
+                <legend>초대량 접수 결과 확인</legend>
+                <% 
+                    If code = 0 Then 
+                %>
+                    <ul>
+                        <li> code (응답코드) :  <%=result.code%> </li>
+                        <li> message (응답메시지) :  <%=result.message%> </li>
+                        <li> submitID (제출아이디) :  <%=result.submitID%> </li>
+                        <li> submitCount (세금계산서 접수 건수) :  <%=result.submitCount%> </li>
+                        <li> successCount (세금계산서 발행 성공 건수) : <%=result.successCount%></li> 
+                        <li> failCount (세금계산서 발행 실패 건수) :  <%=result.failCount %> </li>
+                        <li> txState (접수상태코드) :  <%=result.txState%> </li>
+                        <li> txResultCode (접수 결과코드) :  <%=result.txResultCode%> </li>
+                        <li> txStartDT (발행처리 시작일시) :  <%=result.txStartDT%> </li>
+                        <li> txEndDT (발행처리 완료일시	) :  <%=result.txEndDT%> </li>
+                        <li> receiptDT (접수일시) :  <%=result.receiptDT%> </li>
+                        <li> receiptID (접수아이디) :  <%=result.receiptID%> </li>
+                        <li> issueResult (공급받는자 사업자번호) :  <%=result.issueResult(0).invoicerMgtKey%> </li>
+                    </ul>
+                    <%   Dim i
+                        For i=0 To UBound(result.issueResult) -1
+                     %>	
+                     <fieldset class="fieldset2">					
+                        <legend>  세금계산서 발행 결과 [ <%=i+1%> / <%=UBound(result.issueResult)%> ]</legend>
+                        <ul>
+                            <li> invoicerMgtKey (공급자 문서번호) : <%=result.issueResult(i).invoicerMgtKey %>
+                            <li> trusteeMgtKey (수탁자 문서번호	) : <%=result.issueResult(i).trusteeMgtKey %>
+                            <li> code (응답코드) : <%=result.issueResult(i).code %>
+                            <li> ntsconfirmNum (국세청승인번호) : <%=result.issueResult(i).ntsconfirmNum %>
+                            <li> issueDT (발행일시) : <%=result.issueResult(i).issueDT %>
+                        </ul>
+                    </fieldset>
+                     <% Next %>
+                    <%	
+                        Else
+                    %>
+                        <ul>
+                            <li>Response.code: <%=code%> </li>
+                            <li>Response.message: <%=message%> </li>
+                        </ul>	
+                    <%	
+                        End If
+                    %>
+            </fieldset>
+         </div>
+    </body>
+</html>

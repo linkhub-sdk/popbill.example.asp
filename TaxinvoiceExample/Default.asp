@@ -13,6 +13,8 @@
         <ul>
             <li><a href="checkMgtKeyInUse.asp">CheckMgtKeyInUse</a> - 문서번호 확인</li>
             <li><a href="registIssue.asp">RegistIssue</a> - 즉시 발행</li>
+            <li><a href="bulkSubmit.asp">bulkSubmit</a> -  초대량 발행 접수</li>
+            <li><a href="getBulkResult.asp">getBulkResult</a> -  초대량 접수 결과 확인</li>
             <li><a href="register.asp">Register</a> - 임시저장</li>
             <li><a href="update.asp">Update</a> - 수정</li>
             <li><a href="issue.asp">Issue</a> - 발행</li>
