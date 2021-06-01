@@ -197,6 +197,18 @@ Public Function JoinMember(JoinInfo)
     Set JoinMember = httpPOST("/Join", "", "", postdata, "")
 End Function
 
+Public Function GetContactInfo(CorpNum, ContactID, UserID)
+    
+    postdata = "{'id':" + "'" + ContactID  +"'}"
+
+    Dim contInfo : Set contInfo = New ContactInfo
+    Dim result : Set result = httpPOST("/Contact", getSession_token(CorpNum), "", postdata, UserID)
+
+    contInfo.fromJsonInfo result
+
+    Set GetContactInfo = contInfo
+End Function
+
 ' 담당자 목록조회
 Public Function ListContact(CorpNum, UserID)
     Dim result : Set result = httpGET("/IDs",getSession_token(CorpNum), UserID)
@@ -643,6 +655,7 @@ Class ContactInfo
     Public hp
     Public personName
     Public searchAllAllowYN
+    Public SearchRole
     Public tel
     Public fax
     Public mgrYN
@@ -657,6 +670,7 @@ Class ContactInfo
         hp = jsonInfo.hp
         personName = jsonInfo.personName
         searchAllAllowYN = jsonInfo.searchAllAllowYN
+        SearchRole = jsonInfo.SearchRole
         tel = jsonInfo.tel
         fax = jsonInfo.fax
         mgrYN = jsonInfo.mgrYN
@@ -674,6 +688,7 @@ Class ContactInfo
         toJsonInfo.set "hp", hp
         toJsonInfo.set "personName", personName
         toJsonInfo.set "searchAllAllowYN", searchAllAllowYN
+        toJsonInfo.set "SearchRole", SearchRole
         toJsonInfo.set "tel", tel
         toJsonInfo.set "fax", fax
         toJsonInfo.set "mgrYN", mgrYN

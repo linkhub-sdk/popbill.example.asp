@@ -70,6 +70,10 @@ End Function
 Public Function JoinMember(JoinInfo)
     Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
+'담당자 정보 확인
+Public Function GetContactInfo(CorpNum, ContactID, UserID)
+    Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
+End Function 
 '담당자 목록조회
 Public Function ListContact(CorpNum, UserID)
     Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
