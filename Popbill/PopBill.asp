@@ -154,7 +154,7 @@ Public Function GetChargeURL(CorpNum , UserID)
     GetChargeURL = result.url
 End Function
 
-'팝빌 연동회원 포인트 충전내역 URL
+'팝빌 연동회원 포인트 결제내역 URL
 Public Function GetPaymentURL(CorpNum, UserID)
 
     Dim result : Set result = httpGET("/?TG=PAYMENT", getSession_token(CorpNum), UserID)
