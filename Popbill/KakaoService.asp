@@ -48,6 +48,17 @@ End Function
 Public Function GetChargeURL(CorpNum , UserID)
     GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
 End Function
+
+'팝빌 연동회원 포인트 충전내역 URL
+Public Function GetPaymentURL(CorpNum, UserID)
+    GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
+End Function
+
+'팝빌 연동회원 포인트 사용내역 URL
+Public Function GetUseHistoryURL(CorpNum, UserID)
+    GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
+End Function
+
 '파트너 포인트 충전 팝업 URL - 2017/08/29 추가
 Public Function GetPartnerURL(CorpNum, TOGO)
     GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)

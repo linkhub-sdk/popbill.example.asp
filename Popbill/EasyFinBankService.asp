@@ -56,6 +56,16 @@ Class EasyFinBankSErvice
         GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
     End Function
 
+    '팝빌 연동회원 포인트 충전내역 URL
+    Public Function GetPaymentURL(CorpNum, UserID)
+        GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
+    End Function
+
+    '팝빌 연동회원 포인트 사용내역 URL
+    Public Function GetUseHistoryURL(CorpNum, UserID)
+        GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
+    End Function
+
     '회원가입 여부
     Public Function CheckIsMember(CorpNum , linkID)
         Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)

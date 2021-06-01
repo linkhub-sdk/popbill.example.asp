@@ -154,6 +154,19 @@ Public Function GetChargeURL(CorpNum , UserID)
     GetChargeURL = result.url
 End Function
 
+'팝빌 연동회원 포인트 충전내역 URL
+Public Function GetPaymentURL(CorpNum, UserID)
+
+    Dim result : Set result = httpGET("/?TG=PAYMENT", getSession_token(CorpNum), UserID)
+    GetPaymentURL = result.url
+End Function
+
+'팝빌 연동회원 포인트 사용내역 URL
+Public Function GetUseHistoryURL(CorpNum, UserID)
+
+    Dim result : Set result = httpGET("/?TG=USEHISTORY", getSession_token(CorpNum), UserID)
+    GetUseHistoryURL = result.url
+End Function
 
 '회원가입 여부
 Public Function CheckIsMember(CorpNum , linkID)
@@ -362,6 +375,7 @@ Public Function httpBulkPOST(url, BearerToken, override, SubmitID, postdata, use
     Set httpBulkPOST = m_Linkhub.parse(result)
 
 End Function
+
 Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , UserID, ContentsType)
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
