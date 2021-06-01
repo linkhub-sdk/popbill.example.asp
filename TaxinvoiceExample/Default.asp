@@ -47,10 +47,11 @@
             <li><a href="getPopUpURL.asp">GetPopUpURL</a> - 세금계산서 보기 URL</li>
             <li><a href="getViewURL.asp">GetViewURL</a> - 세금계산서 보기 URL - 메뉴/버튼 제외</li>
             <li><a href="getPrintURL.asp">GetPrintURL</a> - 세금계산서 인쇄 [공급자/공급받는자] URL</li>
+            <li><a href="getOldPrintURL.asp">getOldPrintURL</a> - 세금계산서 (구)인쇄 [공급자/공급받는자] URL</li>
             <li><a href="getEPrintURL.asp">GetEPrintURL</a> - 세금계산서 인쇄 [공급받는자용] URL</li>
             <li><a href="getMassPrintURL.asp">GetMassPrintURL</a> - 세금계산서 대량 인쇄 URL</li>
             <li><a href="getMailURL.asp">GetMailURL</a> - 세금계산서 메일링크 URL</li>
-			<li><a href="getPDFURL.asp">GetPDFURL</a> - 세금계산서 PDF 다운로드 URL</li>
+            <li><a href="getPDFURL.asp">GetPDFURL</a> - 세금계산서 PDF 다운로드 URL</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
