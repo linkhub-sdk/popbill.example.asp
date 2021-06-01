@@ -12,6 +12,10 @@ Public Property Let IPRestrictOnOff(ByVal value)
     m_PopbillBase.IPRestrictOnOff = value
 End Property
 
+Public Property Let UseLocalTimeYN(ByVal value)
+    m_PopbillBase.UseLocalTimeYN = value
+End Property
+
 Public Sub Class_Initialize
     Set m_PopbillBase = New PopbillBase
     m_PopbillBase.AddScope("160")

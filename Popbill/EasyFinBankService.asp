@@ -16,6 +16,10 @@ Class EasyFinBankSErvice
     Public Property Let UseStaticIP(ByVal value)
         m_PopbillBase.UseStaticIP = value
     End Property
+
+    Public Property Let UseLocalTimeYN(ByVal value)
+        m_PopbillBase.UseLocalTimeYN = value
+    End Property
     
     Public Sub Class_Initialize
         Set m_PopbillBase = New PopbillBase
@@ -80,7 +84,7 @@ Class EasyFinBankSErvice
     Public Function GetContactInfo(CorpNum, ContactID, UserID)
         Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
     End Function 
-    
+
     '담당자 목록조회
     Public Function ListContact(CorpNum, UserID)
         Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
