@@ -16,21 +16,9 @@
 
     ' 제출아이디
     SubmitID = "ASP-BULK-TEST102"
-    
-    ' 거래명세서 동시작성여부
-    writeSpecificationYN = False
-
-    ' 거래명세서 동시작성시, 거래명세서 관리번호
-    dealInvoiceMgtKey = ""
 
     ' 지연발행 강제여부
     forceIssue = False
-
-    ' 즉시발행 메모
-    memo = "즉시발행 메모"
-
-    ' 발행 안내메일 제목
-    emailSubject = ""
 
     ' 팝빌회원 아이디
     userID = "testkorea"
