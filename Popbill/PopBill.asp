@@ -236,7 +236,7 @@ End Function
 Public Function RegistContact(CorpNum, ContactInfo, UserId)
     Dim tmp : Set tmp = ContactInfo.toJsonInfo
     Dim postdata : postdata = m_Linkhub.toString(tmp)
-    
+
     Set RegistContact = httpPOST("/IDs/New", getSession_token(CorpNum), "", postdata, UserId)
 End Function 
 
@@ -656,7 +656,7 @@ Class ContactInfo
     Public hp
     Public personName
     Public searchAllAllowYN
-    Public SearchRole
+    Public searchRole
     Public tel
     Public fax
     Public mgrYN
@@ -671,13 +671,13 @@ Class ContactInfo
         hp = jsonInfo.hp
         personName = jsonInfo.personName
         searchAllAllowYN = jsonInfo.searchAllAllowYN
-        SearchRole = jsonInfo.SearchRole
+        searchRole = jsonInfo.searchRole
         tel = jsonInfo.tel
         fax = jsonInfo.fax
         mgrYN = jsonInfo.mgrYN
         regDT = jsonInfo.regDT
         State = jsonInfo.state
-
+        
         On Error GoTo 0
     End Sub
 
@@ -690,7 +690,7 @@ Class ContactInfo
         toJsonInfo.set "hp", hp
         toJsonInfo.set "personName", personName
         toJsonInfo.set "searchAllAllowYN", searchAllAllowYN
-        toJsonInfo.set "SearchRole", SearchRole
+        toJsonInfo.set "searchRole", searchRole
         toJsonInfo.set "tel", tel
         toJsonInfo.set "fax", fax
         toJsonInfo.set "mgrYN", mgrYN
