@@ -54,13 +54,12 @@
                         <li> txEndDT (발행처리 완료일시	) :  <%=result.txEndDT%> </li>
                         <li> receiptDT (접수일시) :  <%=result.receiptDT%> </li>
                         <li> receiptID (접수아이디) :  <%=result.receiptID%> </li>
-                        <li> issueResult (공급받는자 사업자번호) :  <%=result.issueResult(0).invoicerMgtKey%> </li>
                     </ul>
                     <%   Dim i
                         For i=0 To UBound(result.issueResult) -1
                      %>	
                      <fieldset class="fieldset2">					
-                        <legend>  세금계산서 발행 결과 [ <%=i+1%> / <%=UBound(result.issueResult)%> ]</legend>
+                        <legend>  issueResult (발행 결과) [ <%=i+1%> / <%=UBound(result.issueResult)%> ]</legend>
                         <ul>
                             <li> invoicerMgtKey (공급자 문서번호) : <%=result.issueResult(i).invoicerMgtKey %>
                             <li> trusteeMgtKey (수탁자 문서번호	) : <%=result.issueResult(i).trusteeMgtKey %>
