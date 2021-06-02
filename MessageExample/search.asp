@@ -17,10 +17,10 @@
 	testCorpNum = "1234567890"		
 
 	'시작일자
-	SDate = "20181201"
+	SDate = "20210501"
 
 	'종료일자
-	EDate = "20190103"					
+	EDate = "20210601"					
 	
 	'전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
 	Dim State(4)
@@ -55,9 +55,9 @@
 	'조회 검색어를 포함한 발신자명 또는 수신자명을 검색합니다.
 	QString = ""
 	
-	On Error Resume Next
+	' On Error Resume Next
 
-	Set resultObj = m_MessageService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
+	Set resultObj = m_MessageService.Search(testCorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
 	
 	If Err.Number <> 0 then
 		code = Err.Number

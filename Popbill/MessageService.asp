@@ -319,7 +319,7 @@ Public Function GetStates(CorpNum, ReceiptNumList, UserID)
 End Function 
 
 '문자전송내역 조회 
-Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
+Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
     If SDate = "" Then
         Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
     End If
@@ -333,7 +333,7 @@ Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, 
 
     Dim i
     uri = uri & "&State="
-    For i=0 To UBound(State) -1	
+    For i=0 To UBound(State) -1
         If i = UBound(State) -1 then
             uri = uri & State(i)
         Else
@@ -366,7 +366,7 @@ Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, 
     uri = uri & "&Page=" & CStr(Page)
     uri = uri & "&PerPage=" & CStr(PerPage)
     uri = uri & "&QString=" & QString
-
+    Response.Write(uri)
     Dim searchResult : Set searchResult = New MSGSearchResult
     Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
 
