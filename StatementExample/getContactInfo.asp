@@ -37,7 +37,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>팝빌 연동회원 포인트 충전 팝업 URL</legend>
+                <legend>담당자 정보 확인</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li> id(아이디) : <%=conInfo.id%></li>
