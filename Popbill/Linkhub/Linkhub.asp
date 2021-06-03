@@ -64,40 +64,14 @@ Public function getTime(useStaticIP, useLocalTimeYN)
         Dim dateTime : Set dateTime = CreateObject("WbemScripting.SwbemDateTime")
 
         dateTime.SetVarDate(now())
+        leftTime = left(Cstr(dateTime.GetVarDate(False)), 10) + "T"
+        rightTime = LTrim(right(Cstr(dateTime.GetVarDate(False)), 8)) + "Z"
+        If Len(rightTime) <> 9 Then
+            rightTime = "0" + rightTime
+        End IF
 
-        localTime = Cstr(dateTime.Year) + "-"
-
-        If Cstr(dateTime.Month) < 10 Then
-            localTime = localTime + "0" + Cstr(dateTime.Month) + "-"
-        Else
-            localTime = localTime + Cstr(dateTime.Month) + "-"
-        End If
-
-        If Cstr(dateTime.Day) < 10 Then
-            localTime = localTime + "0" + Cstr(dateTime.Day) + "T"
-        Else
-            localTime = localTime + Cstr(dateTime.Day) + "T"
-        End If
-
-        If Cstr(dateTime.Hours) < 10 Then
-            localTime = localTime + "0" + Cstr(dateTime.Hours) + ":"
-        Else
-            localTime = localTime + Cstr(dateTime.Hours) + ":"
-        End If
-        
-        If Cstr(dateTime.Minutes) < 10 Then
-            localTime = localTime + "0" + Cstr(dateTime.Minutes) + ":"
-        Else
-            localTime = localTime + Cstr(dateTime.Minutes) + ":"
-        End If
-
-        If Cstr(dateTime.Seconds) < 10 Then
-            localTime = localTime + "0" + Cstr(dateTime.Seconds) + "Z"
-        Else
-            localTime = localTime + Cstr(dateTime.Seconds) + "Z"
-        End If
-
-        result = localTime
+        result = leftTime + rightTime
+        Response.Write(result)
         Set dateTime = Nothing
     Else   
         Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
