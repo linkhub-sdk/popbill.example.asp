@@ -32,12 +32,20 @@ Public Function b64md5(postData)
     b64md5 = m_sha1.b64_md5(postData)
 End Function
 
-Public Function b64hmacsha1(secretkey, target)
-    b64hmacsha1 = m_sha1.b64_hmac_sha1(secretkey, target)
-End Function
-
 Function b64sha1(d)
     b64sha1 = m_sha1.b64_sha1(d)
+End Function
+
+Public Function b64_sha256(postData)
+    b64_sha256 = m_sha1.b64_sha256(postData)
+End Function
+
+Public Function b64hmacsha1(secretkey, target)
+    b64hmacsha1 = m_sha1.b64_sha256(secretkey, target)
+End Function
+
+Public Function b64_hmac_sha256(secretkey, target)
+    b64_hmac_sha256 = m_sha1.b64_hmac_sha256(secretkey, target)
 End Function
 
 Public Sub Class_Initialize
@@ -52,7 +60,45 @@ Public function getTime(useStaticIP, useLocalTimeYN)
     Dim result
 
     If useLocalTimeYN Then 
-        result = m_sha1.getLocalTime()
+        Dim localTime
+        Dim dateTime : Set dateTime = CreateObject("WbemScripting.SwbemDateTime")
+
+        dateTime.SetVarDate(now())
+
+        localTime = Cstr(dateTime.Year) + "-"
+
+        If Cstr(dateTime.Month) < 10 Then
+            localTime = localTime + "0" + Cstr(dateTime.Month) + "-"
+        Else
+            localTime = localTime + Cstr(dateTime.Month) + "-"
+        End If
+
+        If Cstr(dateTime.Day) < 10 Then
+            localTime = localTime + "0" + Cstr(dateTime.Day) + "T"
+        Else
+            localTime = localTime + Cstr(dateTime.Day) + "T"
+        End If
+
+        If Cstr(dateTime.Hours) < 10 Then
+            localTime = localTime + "0" + Cstr(dateTime.Hours) + ":"
+        Else
+            localTime = localTime + Cstr(dateTime.Hours) + ":"
+        End If
+        
+        If Cstr(dateTime.Minutes) < 10 Then
+            localTime = localTime + "0" + Cstr(dateTime.Minutes) + ":"
+        Else
+            localTime = localTime + Cstr(dateTime.Minutes) + ":"
+        End If
+
+        If Cstr(dateTime.Seconds) < 10 Then
+            localTime = localTime + "0" + Cstr(dateTime.Seconds) + "Z"
+        Else
+            localTime = localTime + Cstr(dateTime.Seconds) + "Z"
+        End If
+
+        result = localTime
+        Set dateTime = Nothing
     Else   
         Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
