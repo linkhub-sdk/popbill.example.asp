@@ -71,7 +71,7 @@ Public function getTime(useStaticIP, useLocalTimeYN)
         End IF
 
         result = leftTime + rightTime
-        Response.Write(result)
+
         Set dateTime = Nothing
     Else   
         Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
