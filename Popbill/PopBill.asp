@@ -197,6 +197,7 @@ Public Function JoinMember(JoinInfo)
     Set JoinMember = httpPOST("/Join", "", "", postdata, "")
 End Function
 
+'담당자 정보 확인
 Public Function GetContactInfo(CorpNum, ContactID, UserID)
     
     postdata = "{'id':" + "'" + ContactID  +"'}"
