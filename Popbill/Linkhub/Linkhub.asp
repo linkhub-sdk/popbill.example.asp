@@ -16,9 +16,29 @@ Public Property Let LinkID(ByVal value)
     m_linkID = value
 End Property
 
+Public Property Get LinkID()
+    LinkID = m_linkID
+End Property
+
 Public Property Let SecretKey(ByVal value)
     m_secretKey = value
 End Property
+
+Public Property Get SecretKey()
+    SecretKey = m_secretKey
+End Property
+
+Public Function b64md5(postData)
+    b64md5 = m_sha1.b64_md5(postData)
+End Function
+
+Public Function b64hmacsha1(secretkey, target)
+    b64hmacsha1 = m_sha1.b64_hmac_sha1(secretkey, target)
+End Function
+
+Function b64sha1(d)
+    b64sha1 = m_sha1.b64_sha1(d)
+End Function
 
 Public Sub Class_Initialize
     Set m_sha1 = GetObject( "script:" & Request.ServerVariables("APPL_PHYSICAL_PATH") + "Popbill\Linkhub" & "\sha1.wsc" )
@@ -28,16 +48,12 @@ Public Sub Class_Terminate
     Set m_sha1 = Nothing 
 End Sub 
 
-Function b64sha1(d)
-    b64sha1 = m_sha1.b64_sha1(d)
-End Function
-
 Public function getTime(useStaticIP, useLocalTimeYN)
     Dim result
 
     If useLocalTimeYN Then 
         result = m_sha1.getLocalTime()
-    Else
+    Else   
         Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
         Call winhttp1.Open("GET", IIf(useStaticIP, linkhub_ServiceURL_GA, linkhub_ServiceURL) + "/Time")
