@@ -60,19 +60,7 @@ Public function getTime(useStaticIP, useLocalTimeYN)
     Dim result
 
     If useLocalTimeYN Then 
-        Dim localTime
-        Dim dateTime : Set dateTime = CreateObject("WbemScripting.SwbemDateTime")
-
-        dateTime.SetVarDate(now())
-        leftTime = left(Cstr(dateTime.GetVarDate(False)), 10) + "T"
-        rightTime = LTrim(right(Cstr(dateTime.GetVarDate(False)), 8)) + "Z"
-        If Len(rightTime) <> 9 Then
-            rightTime = "0" + rightTime
-        End IF
-
-        result = leftTime + rightTime
-
-        Set dateTime = Nothing
+        result = m_sha1.getLocalTime()
     Else   
         Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
