@@ -387,7 +387,7 @@ End Function
 
 
 '카카오톡 전송내역 목록 조회 
-Public Function Search(CorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
+Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
     If SDate = "" Then
         Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
     End If

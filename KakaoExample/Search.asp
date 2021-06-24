@@ -17,10 +17,10 @@
 	testCorpNum = "1234567890"		
 
 	'시작일자
-	SDate = "20181201"
+	SDate = "20210601"
 
 	'종료일자
-	EDate = "20190103"					
+	EDate = "20210624"					
 	
 	'전송상태값 배열, 0-대기, 1-전송중, 2-성공, 3-대체, 4-실패, 5-취소
 	Dim State(6)
@@ -58,7 +58,7 @@
 
 	On Error Resume Next
 
-	Set resultObj = m_KakaoService.Search(testCorpNum, SDate, EDate, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
+	Set resultObj = m_KakaoService.Search(testCorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
 
 	If Err.Number <> 0 then
 		code = Err.Number
@@ -73,46 +73,46 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>카카오톡 전송내역 조회 </legend>
-				<ul>
-						<li> code (응답코드) : <%=resultObj.code%></li>
-						<li> message (응답메시지) : <%=resultObj.message%></li>
-						<li> total (총 검색결과 건수) : <%=resultObj.total%></li>
-						<li> pageNum (페이지 번호) : <%=resultObj.pageNum%></li>
-						<li> pageCount (페이지 개수) : <%=resultObj.pageCount%></li>
-						<li> perPage (페이지당 검색개수) : <%=resultObj.perPage%></li>
-				</ul>
-					<% If code = 0 Then
-						For i=0 To UBound(resultObj.list) -1
-					%>
-
-						<fieldset class="fieldset2">
-							<legend> 카카오톡 전송결과 [ <%=i+1%> / <%= UBound(resultObj.list)%> ] </legend>
-							<ul>
-								<li>state (전송상태 코드) : <%=resultObj.list(i).state%> </li>
-								<li>sendDT (전송일시) : <%=resultObj.list(i).sendDT%> </li>
-								<li>result (전송결과 코드) : <%=resultObj.list(i).result%> </li>
-								<li>resultDT (전송결과 수신일시) : <%=resultObj.list(i).resultDT%> </li>
-								<li>contentType (카카오톡 유형) : <%=resultObj.list(i).contentType%> </li>
-								<li>receiveNum (수신번호) : <%=resultObj.list(i).receiveNum%> </li>
-								<li>receiveName (수신자명) : <%=resultObj.list(i).receiveName%> </li>
-								<li>content (알림톡/친구톡 내용) : <%=resultObj.list(i).content%> </li>
-								<li>altContentType (대체문자 전송타입) : <%=resultObj.list(i).altContentType%> </li>
-								<li>altSendDT (대체문자 전송일시) : <%=resultObj.list(i).altSendDT%> </li>
-								<li>altResult (대체문자 전송결과 코드) : <%=resultObj.list(i).altResult%> </li>
-								<li>altResultDT (대체문자 전송결과 수신일시) : <%=resultObj.list(i).altResultDT%> </li>
-								<li>receiptNum (접수번호) : <%=resultObj.list(i).receiptNum%> </li>
-								<li>requestNum (요청번호) : <%=resultObj.list(i).requestNum%> </li>
-							</ul>
-						</fieldset>
-
-					<% 
-						Next
-						Else
-					%>
+				
+					<legend>카카오톡 전송내역 조회 </legend>
+					<ul>
+				<% If code <> 0 Then %>
 						<li>Response.code : <%=code%> </li>
-						<li>Response.message : <%=message%> </li>
-					<% End If %>
+						<li>Response.message : <%=message%> </li>	
+				<% Else %>
+							<li> code (응답코드) : <%=resultObj.code%></li>
+							<li> message (응답메시지) : <%=resultObj.message%></li>
+							<li> total (총 검색결과 건수) : <%=resultObj.total%></li>
+							<li> pageNum (페이지 번호) : <%=resultObj.pageNum%></li>
+							<li> pageCount (페이지 개수) : <%=resultObj.pageCount%></li>
+							<li> perPage (페이지당 검색개수) : <%=resultObj.perPage%></li>
+					</ul>
+						<% 
+							For i=0 To UBound(resultObj.list) -1
+						%>
+							<fieldset class="fieldset2">
+								<legend> 카카오톡 전송결과 [ <%=i+1%> / <%= UBound(resultObj.list)%> ] </legend>
+								<ul>
+									<li>state (전송상태 코드) : <%=resultObj.list(i).state%> </li>
+									<li>sendDT (전송일시) : <%=resultObj.list(i).sendDT%> </li>
+									<li>result (전송결과 코드) : <%=resultObj.list(i).result%> </li>
+									<li>resultDT (전송결과 수신일시) : <%=resultObj.list(i).resultDT%> </li>
+									<li>contentType (카카오톡 유형) : <%=resultObj.list(i).contentType%> </li>
+									<li>receiveNum (수신번호) : <%=resultObj.list(i).receiveNum%> </li>
+									<li>receiveName (수신자명) : <%=resultObj.list(i).receiveName%> </li>
+									<li>content (알림톡/친구톡 내용) : <%=resultObj.list(i).content%> </li>
+									<li>altContentType (대체문자 전송타입) : <%=resultObj.list(i).altContentType%> </li>
+									<li>altSendDT (대체문자 전송일시) : <%=resultObj.list(i).altSendDT%> </li>
+									<li>altResult (대체문자 전송결과 코드) : <%=resultObj.list(i).altResult%> </li>
+									<li>altResultDT (대체문자 전송결과 수신일시) : <%=resultObj.list(i).altResultDT%> </li>
+									<li>receiptNum (접수번호) : <%=resultObj.list(i).receiptNum%> </li>
+									<li>requestNum (요청번호) : <%=resultObj.list(i).requestNum%> </li>
+								</ul>
+							</fieldset>
+						<% 
+							Next
+						%>
+				<% End If %>
 
 			</fieldset>
 		 </div>
