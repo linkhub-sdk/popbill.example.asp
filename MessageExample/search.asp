@@ -55,7 +55,7 @@
 	'조회 검색어를 포함한 발신자명 또는 수신자명을 검색합니다.
 	QString = ""
 	
-	' On Error Resume Next
+	On Error Resume Next
 
 	Set resultObj = m_MessageService.Search(testCorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
 	
@@ -74,6 +74,7 @@
 			<fieldset class="fieldset1">
 				<legend>문자메세지 전송내역 조회 </legend>
 				<ul>
+				<% If code = 0 Then %>
 						<li> code (응답코드) : <%=resultObj.code%></li>
 						<li> total (총 검색결과 건수) : <%=resultObj.total%></li>
 						<li> pageNum (페이지 번호) : <%=resultObj.pageNum%></li>
@@ -81,7 +82,7 @@
 						<li> pageCount (페이지 개수) : <%=resultObj.pageCount%></li>
 						<li> message (응답메시지) : <%=resultObj.message%></li>
 				</ul>
-					<% If code = 0 Then
+					<% 
 						For i=0 To UBound(resultObj.list) -1
 					%>
 
@@ -110,11 +111,11 @@
 
 					<% 
 						Next
-						Else
+					Else
 					%>
 						<li>Response.code : <%=code%> </li>
 						<li>Response.message : <%=message%> </li>
-					<% End If %>
+				<% End If %>
 
 			</fieldset>
 		 </div>

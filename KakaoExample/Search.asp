@@ -76,10 +76,7 @@
 				
 					<legend>카카오톡 전송내역 조회 </legend>
 					<ul>
-				<% If code <> 0 Then %>
-						<li>Response.code : <%=code%> </li>
-						<li>Response.message : <%=message%> </li>	
-				<% Else %>
+				<% If code = 0 Then %>
 							<li> code (응답코드) : <%=resultObj.code%></li>
 							<li> message (응답메시지) : <%=resultObj.message%></li>
 							<li> total (총 검색결과 건수) : <%=resultObj.total%></li>
@@ -112,6 +109,9 @@
 						<% 
 							Next
 						%>
+				<% Else %>
+						<li>Response.code : <%=code%> </li>
+						<li>Response.message : <%=message%> </li>	
 				<% End If %>
 
 			</fieldset>
