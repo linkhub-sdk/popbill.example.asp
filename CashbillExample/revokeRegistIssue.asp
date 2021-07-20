@@ -8,7 +8,8 @@
 <%
 	'**************************************************************
 	' 1건의 취소현금영수증을 즉시발행합니다.
-    ' - https://docs.popbill.com/cashbill/asp/api#RevokeRegistIssue
+	' - 현금영수증 국세청 전송 정책 : https://docs.popbill.com/cashbill/ntsSendPolicy?lang=asp
+	' - https://docs.popbill.com/cashbill/asp/api#RevokeRegistIssue
 	'**************************************************************
 
 	' 팝빌 회원 사업자번호, "-" 제외
