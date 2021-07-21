@@ -175,7 +175,8 @@ End Class
 Class CorpState
 Public corpNum
 Public state
-Public ctype
+Public cstype
+Public taxType
 Public stateDate
 Public checkDate
 Public typeDate '과세유형 변경일자 추가 2017/08/17
@@ -187,6 +188,9 @@ Public Sub fromJsonInfo(jsonInfo)
         End If 
         If Not isEmpty(jsonInfo.type) Then
             ctype = jsonInfo.type
+        End If 
+		If Not isEmpty(jsonInfo.taxType) Then
+            taxType = jsonInfo.taxType
         End If 
         If Not isEmpty(jsonInfo.state) Then
             state = jsonInfo.state
