@@ -63,11 +63,11 @@
 					<legend>휴폐업조회 - 단건</legend>
 					<br/>
 					<p class="info">> state (휴폐업상태) : null-알수없음, 0-등록되지 않은 사업자번호, 1-사업중, 2-폐업, 3-휴업</p>
-					<p class="info">> type (사업 유형) : null-알수없음, 1-일반과세자, 2-면세과세자, 3-간이과세자, 4-비영리법인, 국가기관</p>
+					<p class="info">> taxType (사업 유형) : null-알수없음, 10-일반과세자, 20-면세과세자, 30-간이과세자, 31-간이과세자(세금계산서 발급사업자), 40-비영리법인, 국가기관</p>
 					<ul>
 						<li>사업자번호(corpNum) : <%= result.corpNum%></li>		
 						<li>휴폐업상태(state) : <%= result.state%></li>
-						<li>사업자유형(type) : <%= result.ctype%></li>	
+						<li>사업자유형(taxType) : <%= result.taxType%></li>	
 						<li>휴폐업일자(stateDate) : <%= result.stateDate%></li>	
 						<li>과세유형 전환일자(typeDate) : <%= result.typeDate%></li>	
 						<li>국세청 확일일자(checkDate) : <%= result.checkDate%></li>	
