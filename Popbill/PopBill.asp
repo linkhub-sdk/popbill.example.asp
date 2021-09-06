@@ -6,6 +6,10 @@ Const ServiceID_REAL = "POPBILL"
 Const ServiceID_TEST = "POPBILL_TEST"
 Const ServiceURL_REAL = "https://popbill.linkhub.co.kr"
 Const ServiceURL_TEST = "https://popbill-test.linkhub.co.kr"
+
+Const ServiceURL_Static_REAL = "https://static-popbill.linkhub.co.kr"
+Const ServiceURL_Static_TEST = "https://static-popbill-test.linkhub.co.kr"
+
 Const ServiceURL_GA_REAL = "https://ga-popbill.linkhub.co.kr"
 Const ServiceURL_GA_TEST = "https://ga-popbill-test.linkhub.co.kr"
 
@@ -20,6 +24,7 @@ Private m_TokenDic
 Private m_Linkhub
 Private m_IPRestrictOnOff
 Private m_UseStaticIP
+Private m_UseGAIP
 Private m_UseLocalTimeYN
 
 '테스트 플래그
@@ -33,6 +38,10 @@ End Property
 
 Public Property Let UseStaticIP(ByVal value)
     m_UseStaticIP = value
+End Property
+
+Public Property Let UseGAIP(ByVal value)
+    m_UseGAIP = value
 End Property
 
 Public Property Let UseLocalTimeYN(ByVal value)
@@ -55,10 +64,9 @@ Public Sub Class_Initialize
     m_IsTest = False
     m_IPRestrictOnOff = True
     m_UseStaticIP = False
+    m_UseGAIP = False
     m_UseLocalTimeYN = True
     Set m_Linkhub = New Linkhub
-
-    
 End Sub
 
 Public Sub Class_Terminate
@@ -102,14 +110,14 @@ Public Function getSession_token(CorpNum)
             End if
         Next
         If refresh = False then
-            Dim utcnow : utcnow = CDate(Replace(left(m_linkhub.getTime(m_UseStaticIP, m_UseLocalTimeYN),19),"T" , " " ))
+            Dim utcnow : utcnow = CDate(Replace(left(m_linkhub.getTime(m_UseStaticIP, m_UseLocalTimeYN, m_UseGAIP),19),"T" , " " ))
             refresh = CDate(Replace(left(m_Token.expiration,19),"T" , " " )) < utcnow
         End if
     End If
     
     If refresh Then
         If m_TokenDic.Exists(CorpNum) Then m_TokenDic.remove CorpNum
-        Set m_Token = m_Linkhub.getToken(IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), CorpNum, m_scope, IIf(m_IPRestrictOnOff, "", "*"), m_UseStaticIP, m_UseLocalTimeYN)
+        Set m_Token = m_Linkhub.getToken(IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), CorpNum, m_scope, IIf(m_IPRestrictOnOff, "", "*"), m_UseStaticIP, m_UseLocalTimeYN, m_UseGAIP)
         m_Token.set "strScope", Join(m_scope,"|")
         m_TokenDic.Add CorpNum, m_Token
     End If
@@ -120,17 +128,17 @@ End Function
 
 '회원잔액조회
 Public Function GetBalance(CorpNum)
-    GetBalance = m_Linkhub.GetBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), m_UseStaticIP)
+    GetBalance = m_Linkhub.GetBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), m_UseStaticIP, m_UseGAIP)
 End Function
 
 '파트너 잔액조회
 Public Function GetPartnerBalance(CorpNum)
-    GetPartnerBalance = m_Linkhub.GetPartnerBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), m_UseStaticIP)
+    GetPartnerBalance = m_Linkhub.GetPartnerBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), m_UseStaticIP, m_UseGAIP)
 End Function
 
 '파트너 포인트 충전 URL - 2017/08/29 추가
 Public Function GetPartnerURL(CorpNum, TOGO)
-    GetPartnerURL = m_Linkhub.GetPartnerURL(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), TOGO, m_UseStaticIP)
+    GetPartnerURL = m_Linkhub.GetPartnerURL(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), TOGO, m_UseStaticIP, m_UseGAIP)
 End Function
 
 '팝빌 기본 URL
@@ -256,7 +264,7 @@ Public Function UpdateCorpInfo(CorpNum, CorpInfo, UserID)
     Dim tmp : Set tmp = CorpInfo.toJsonInfo
     Dim postdata : postdata = m_Linkhub.toString(tmp)
 
-    Set UpdateCorpInfo = httpPOST("/CorpInfo", getSession_token(CorpNum), "", postdata, UserId)
+    Set UpdateCorpInfo = httpPOST("/CorpInfo", getSession_token(CorpNum), "", postdata, UserID)
 End Function
 
 '아이디 중복확인
@@ -270,14 +278,8 @@ End Function
 Public Function httpGET(url , BearerToken , UserID )
 
     Dim winhttp1: Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    Dim targetURL
-    If m_UseStaticIP Then
-        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
-    Else
-        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
-    End If 
 
-    Call winhttp1.Open("GET", targetURL + url, false)
+    Call winhttp1.Open("GET", getTargetURL() + url, false)
     
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
@@ -306,15 +308,8 @@ End Function
 Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
     
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    
-    Dim targetURL
-    If m_UseStaticIP Then
-        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
-    Else
-        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
-    End If 
 
-    Call winhttp1.Open("POST", targetURL + url)
+    Call winhttp1.Open("POST", getTargetURL() + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     Call winhttp1.setRequestHeader("Content-Type", "Application/json")
     
@@ -348,15 +343,8 @@ End Function
 Public Function httpBulkPOST(url, BearerToken, override, SubmitID, postdata, userID)
     
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    
-    Dim targetURL
-    If m_UseStaticIP Then
-        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
-    Else
-        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
-    End If 
 
-    Call winhttp1.Open("POST", targetURL + url)
+    Call winhttp1.Open("POST", getTargetURL() + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     Call winhttp1.setRequestHeader("Content-Type", "Application/json")
     Call winhttp1.setRequestHeader("x-pb-message-digest", m_linkhub.b64sha1(postdata))
@@ -394,14 +382,7 @@ End Function
 Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , UserID, ContentsType)
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
-    Dim targetURL
-    If m_UseStaticIP Then
-        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
-    Else
-        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
-    End If 
-
-    Call winhttp1.Open("POST", targetURL + url)
+    Call winhttp1.Open("POST", getTargetURL() + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     
     If BearerToken <> "" Then
@@ -443,15 +424,8 @@ Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
     Dim boundary : boundary = "---------------------popbill"
     
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-    
-    Dim targetURL
-    If m_UseStaticIP Then
-        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
-    Else
-        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
-    End If 
 
-    Call winhttp1.Open("POST", targetURL + url)
+    Call winhttp1.Open("POST", getTargetURL() + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     
     If BearerToken <> "" Then
@@ -506,14 +480,7 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
     
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
-    Dim targetURL
-    If m_UseStaticIP Then
-        targetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
-    Else
-        targetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
-    End If
-
-    Call winhttp1.Open("POST", targetURL + url)
+    Call winhttp1.Open("POST", getTargetURL() + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)    
     
     If BearerToken <> "" Then
@@ -571,6 +538,16 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
     
     Set httpPOST_Files = m_Linkhub.parse(Result)
 
+End Function
+
+Private Function getTargetURL() 
+    If m_UseGAIP Then
+        getTargetURL = IIf(m_IsTest, ServiceURL_GA_TEST, ServiceURL_GA_REAL)
+    ElseIf m_UseStaticIP Then
+        getTargetURL = IIf(m_IsTest, ServiceURL_Static_TEST, ServiceURL_Static_REAL)
+    Else
+        getTargetURL = IIf(m_IsTest, ServiceURL_TEST, ServiceURL_REAL)
+    End If
 End Function
 
 Private Function StringToBytes(Str)

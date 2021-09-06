@@ -20,6 +20,10 @@ Class HTTaxinvoiceService
         m_PopbillBase.UseStaticIP = value
     End Property
 
+    Public Property Let UseGAIP(ByVal value)
+        m_PopbillBase.UseGAIP = value
+    End Property
+
     Public Property Let UseLocalTimeYN(ByVal value)
         m_PopbillBase.UseLocalTimeYN = value
     End Property
