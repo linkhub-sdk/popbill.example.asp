@@ -35,7 +35,7 @@
     ' 인증토큰 IP제한기능 사용여부, 권장(True)
     m_HTTaxinvoiceService.IPRestrictOnOff = True
 
-    ' 팝빌 API 서비스 고정 IP 사용여부(GA), Ture-사용, False-미사용, 기본값(False)
+    ' 팝빌 API 서비스 고정 IP 사용여부, Ture-사용, False-미사용, 기본값(False)
     m_HTTaxinvoiceService.UseStaticIP = False
 
     ' 로컬시스템 시간 사용여부 True-사용(기본값-권장), false-미사용
