@@ -20,7 +20,7 @@
     userID = "testkorea"
 
     ' 문서번호, 가맹점 사업자단위 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-    mgtKey = "20211201-011"
+    mgtKey = "20211224-ASP004"
 
     ' 메모
     memo = "즉시발행 메모"
@@ -121,6 +121,8 @@
     Else
         code = Presponse.code
         message = Presponse.message
+        confirmNum = Presponse.confirmNum
+        tradeDate = Presponse.tradeDate
     End If
 
     On Error GoTo 0
@@ -135,6 +137,8 @@
                 <ul>
                     <li> Response.code : <%=code%> </li>
                     <li> Response.message : <%=message%> </li>
+                    <li> Response.confirmNum : <%=confirmNum%> </li>
+                    <li> Response.tradeDate : <%=tradeDate%> </li>
                 </ul>
             </fieldset>
          </div>

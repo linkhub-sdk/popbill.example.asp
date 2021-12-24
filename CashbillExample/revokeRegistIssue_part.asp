@@ -63,6 +63,8 @@
 	Else 
 		code = Presponse.code
 		message = Presponse.message
+		confirmNum = Presponse.confirmNum
+		tradeDate = Presponse.tradeDate		
 	End If
 
 	On Error GoTo 0 
@@ -77,6 +79,8 @@
 				<ul>
 					<li> Response.code : <%=code%> </li>
 					<li> Response.message : <%=message%> </li>
+					<li> Response.confirmNum : <%=confirmNum%> </li>
+					<li> Response.tradeDate : <%=tradeDate%> </li>
 				</ul>
 			</fieldset>
 		 </div>

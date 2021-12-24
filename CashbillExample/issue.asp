@@ -21,7 +21,7 @@
 	userID = "testkorea"			 
 
 	'문서번호
-	mgtKey = "20211201-001"			 
+	mgtKey = "20211224-ASPR001"			 
 
 	'메모 
 	memo = "현금영수증 발행메모"	 
@@ -37,6 +37,8 @@
 	Else 
 		code = Presponse.code
 		message = Presponse.message
+		confirmNum = Presponse.confirmNum
+		tradeDate = Presponse.tradeDate
 	End If
 
 	On Error GoTo 0 
@@ -51,6 +53,8 @@
 				<ul>
 					<li> Response.code : <%=code%> </li>
 					<li> Response.message : <%=message%> </li>
+					<li> Response.confirmNum : <%=confirmNum%> </li>
+					<li> Response.tradeDate : <%=tradeDate%> </li>
 				</ul>
 			</fieldset>
 		 </div>
