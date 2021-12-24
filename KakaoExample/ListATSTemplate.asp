@@ -44,6 +44,8 @@
 								<li> templateName : <%=resultObj(i).templateName%></li>
 								<li> template : <%=resultObj(i).template%></li>
 								<li> plusFriendID : <%=resultObj(i).plusFriendID%></li>
+								<li> ads : <%=resultObj(i).ads%></li>
+								<li> appendix : <%=resultObj(i).appendix%></li>
 							</ul>
 						<%
 							For j=0 To UBound(resultObj(i).btns) -1

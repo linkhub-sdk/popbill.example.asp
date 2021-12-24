@@ -8,7 +8,7 @@
 <!--#include file="common.asp"--> 
 <%
 '**************************************************************
-' (주)카카오로부터 승인된 알림톡 템플릿 정보를 확인합니다.
+' 승인된 알림톡 템플릿 정보를 확인합니다.
 ' - https://docs.popbill.com/kakao/asp/api#GetATSTemplate
 '**************************************************************
 
@@ -16,7 +16,7 @@
 testCorpNum = "1234567890"		
 
 '템플릿 코드
-templateCode = "019070000283"
+templateCode = "021120000347"
 
 '팝빌 회원 아이디
 UserID = "testkorea"
@@ -49,6 +49,8 @@ On Error GoTo 0
                             <li> templateName : <%=resultObj.templateName%></li>
                             <li> template : <%=resultObj.template%></li>
                             <li> plusFriendID : <%=resultObj.plusFriendID%></li>
+                            <li> ads : <%=resultObj.ads%></li>
+                            <li> appendix : <%=resultObj.appendix%></li>
                         </ul>
                     <%
                         For i=0 To UBound(resultObj.btns) -1
