@@ -220,6 +220,13 @@ Public Function Delete(CorpNum, itemCode, mgtKey, UserID)
 End Function
 
 
+'ÆËºô ÀÎ°¨ ¹× Ã·ºÎ¹®¼­ µî·Ï  URLÈ®ÀÎ
+Public Function GetSealURL(CorpNum, UserID)
+    Dim result : Set result = m_PopbillBase.httpGET("/?TG=SEAL", _
+                        m_PopbillBase.getSession_token(CorpNum), UserID)
+    GetSealURL = result.url
+End Function
+
 'ÆÄÀÏ Ã·ºÎ
 Public Function AttachFile(CorpNum, itemCode, mgtKey, filePath, UserID)
     If mgtKey = "" Or isEmpty(mgtKey) Then 

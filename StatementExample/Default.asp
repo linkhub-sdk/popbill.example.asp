@@ -46,6 +46,7 @@
         <legend>부가기능</legend>
         <ul>
             <li><a href="getAccessURL.asp">getAccessURL</a> - 팝빌 로그인 URL</li>
+            <li><a href="getSealURL.asp"> GetSealURL</a> - 인감 및 첨부문서 등록 URL</li>
             <li><a href="attachFile.asp">attachFile</a> - 첨부파일 추가</li>
             <li><a href="deleteFile.asp">deleteFile</a> - 첨부파일 삭제</li>
             <li><a href="getFiles.asp">getFiles</a> - 첨부파일 목록 확인</li>
