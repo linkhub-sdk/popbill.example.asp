@@ -22,13 +22,13 @@
 	itemCode = "121"
 
 	'문서번호
-	mgtKey = "20190103-001"
+	mgtKey = "20211201-001"
 
 	'전자명세서 객체 생성
 	Set newStatement = New Statement
 
     '[필수] 기재상 작성일자, 날짜형식(yyyyMMdd)
-    newStatement.writeDate = "20190103"
+    newStatement.writeDate = "20211201"
 
 	'[필수] {영수, 청구} 중 기재
     newStatement.purposeType = "영수"
@@ -153,7 +153,7 @@
 	Set newDetail = New StatementDetail
 
     newDetail.serialNum = "1"             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20190103"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20211201"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명"
     newDetail.spec = "규격"
     newDetail.unit = "단위"
@@ -173,7 +173,7 @@
 	Set newDetail = New StatementDetail
 
     newDetail.serialNum = "2"             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20190103"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20211201"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명"
     newDetail.spec = "규격"
     newDetail.unit = "단위"

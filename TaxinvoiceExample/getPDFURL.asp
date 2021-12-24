@@ -22,7 +22,7 @@
 	KeyType= "SELL"             
 
 	' 문서번호 
-	MgtKey = "20200722-01"      
+	MgtKey = "20211201-01"      
 
 	On Error Resume Next
 

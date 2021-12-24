@@ -23,7 +23,7 @@
 	itemCode = "121"
 
 	'문서관리번호
-	mgtKey = "20190103-001"
+	mgtKey = "20211201-001"
 
 	'첨부 파일 경로
 	filePath = "C:\popbill.example.asp\Popbill\로고.gif"

@@ -19,7 +19,7 @@
 	userID = "testkorea"		 
 
 	'문서번호, 가맹점사업자 단위 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-	mgtKey = "20190103-001"		 
+	mgtKey = "20211201-001"		 
 
 	' 현금영수증 객체 생성
 	Set CashbillObj = New CashBill

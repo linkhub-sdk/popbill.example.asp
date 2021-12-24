@@ -18,7 +18,7 @@
 	userID = "testkorea"		 
 
 	'현금영수증 문서번호
-	mgtKey = "20200722-01"	     
+	mgtKey = "20211201-01"	     
 
 	On Error Resume Next
 

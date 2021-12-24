@@ -26,10 +26,10 @@
 	AccountNumber = "2070064402404"		
 
 	'시작일자, 표시형식(yyyyMMdd)
-	SDate = "20200701"			
+	SDate = "20211201"			
 	
 	'종료일자, 표시형식(yyyyMMdd)
-	EDate =	"20200724"				
+	EDate =	"20211231"				
 
 	
 	On Error Resume Next

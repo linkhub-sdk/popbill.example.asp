@@ -19,7 +19,7 @@
 	userID = "testkorea"		 
 
 	'문서번호	
-	mgtKey = "20190103-001"		 
+	mgtKey = "20211201-001"		 
 
 	'발신번호	
 	sender = "07043242991"	

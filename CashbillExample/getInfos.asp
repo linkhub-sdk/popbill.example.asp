@@ -19,9 +19,9 @@
 
 	'조회할 현금영수증 문서번호 배열, 최대 1000건
 	Dim mgtKeyList(3) 
-	MgtKeyList(0) = "20190103-001"
-	MgtKeyList(1) = "20190103-002"
-	MgtKeyList(2) = "20190103-003"
+	MgtKeyList(0) = "20211201-001"
+	MgtKeyList(1) = "20211201-002"
+	MgtKeyList(2) = "20211201-003"
 
 	On Error Resume Next
 	

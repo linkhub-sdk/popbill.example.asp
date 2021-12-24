@@ -23,7 +23,7 @@
 	itemCode = "121"					
 
 	'문서번호
-	mgtKey = "20190103-001"				
+	mgtKey = "20211201-001"				
 
 	On Error Resume Next
 

@@ -37,7 +37,7 @@
 	Set newTaxinvoice = New Taxinvoice
 
 	' [필수] 작성일자, 날짜형식(yyyyMMdd)
-	newTaxinvoice.writeDate = "20200724"
+	newTaxinvoice.writeDate = "20211201"
 
 	' [필수] {정과금, 역과금} 중 기재, '역과금'은 역발행 프로세스에서만 이용가능
     newTaxinvoice.chargeDirection = "정과금"
@@ -68,7 +68,7 @@
 
     '[필수] 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
     '사업자 별로 중복되지 않도록 구성
-    newTaxinvoice.invoicerMgtKey = "20200724-022"
+    newTaxinvoice.invoicerMgtKey = "20211201-022"
 
 	'[필수] 공급자 대표자 성명
     newTaxinvoice.invoicerCEOName = "공급자 대표자 성명"
@@ -215,7 +215,7 @@
 	'**************************************************************
     Set newDetail = New TaxinvoiceDetail
     newDetail.serialNum = 1             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20190103"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20211201"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명1번"
     newDetail.spec = "규격"
     newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능
@@ -228,7 +228,7 @@
 
     Set newDetail = New TaxinvoiceDetail
     newDetail.serialNum = 2             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20190103"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20211201"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명2번"
     newDetail.spec = "규격"
     newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능

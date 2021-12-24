@@ -19,7 +19,7 @@
 	userID = "testkorea"			   
 
 	'예약문자전송 요청시 할당한 전송요청번호
-	requestNum = "20190103-001"  
+	requestNum = "20211201-001"  
 
 	On Error Resume Next
 

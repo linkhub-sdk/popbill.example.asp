@@ -21,7 +21,7 @@
 	keyType = "SELL"				
 
 	'문서번호
-	mgtKey = "20190103-001"		
+	mgtKey = "20211201-001"		
 	
 	'거래명세서 동시작성여부
 	writeSpecificationYN = False	
