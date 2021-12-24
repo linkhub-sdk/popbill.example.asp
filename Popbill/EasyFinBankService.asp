@@ -174,11 +174,15 @@ Class EasyFinBankSErvice
     End function
 
     '종량제 계좌 삭제
-    Public Function DeleteBankAccount (CorpNum, BankInfoObj, UserID)
+    Public Function DeleteBankAccount (CorpNum, BankCode, AccountNumber, UserID)
 
-         Dim uri : uri = "/EasyFin/Bank/BankAccount/Delete"
+        Dim uri : uri = "/EasyFin/Bank/BankAccount/Delete"
 
-        Dim tmp : Set tmp = BankInfoObj.toJsonInfo
+        Set infoObj = New EasyFinBankAccountForm
+        infoObj.BankCode = BankCode
+        infoObj.AccountNumber = AccountNumber
+
+        Dim tmp : Set tmp = infoObj.toJsonInfo
         Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
         Set DeleteBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
