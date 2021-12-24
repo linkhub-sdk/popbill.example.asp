@@ -18,7 +18,7 @@
 	userID = "testkorea"					
 
 	'팩스전송 요청시 할당한 전송요청번호
-	requestNum = "20180928140835" 
+	requestNum = "20211224_TEST001" 
  
 	On Error Resume Next
 
@@ -52,6 +52,7 @@
 								<li>sendNum (발신번호) : <%=result.Item(i).sendNum%> </li>
 								<li>senderName (발신자명) : <%=result.Item(i).senderName%> </li>
 								<li>receiveNum (수신번호) : <%=result.Item(i).receiveNum%> </li>
+								<li>receiveNumType (수신번호 유형) : <%=result.Item(i).receiveNumType%> </li>
 								<li>receiveName (수신자명) : <%=result.Item(i).receiveName%> </li>
 								<li>title (팩스 제목) : <%=result.Item(i).title %> </li>
 								<li>sendPageCnt (페이지수) : <%=result.Item(i).sendPageCnt%></li>

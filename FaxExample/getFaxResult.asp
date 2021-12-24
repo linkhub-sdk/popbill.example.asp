@@ -8,7 +8,7 @@
 <%
 	'**************************************************************
     ' 팩스전송요청시 발급받은 접수번호(receiptNum)로 전송결과를 확인합니다
-     ' - https://docs.popbill.com/fax/asp/api#GetFaxDetail
+    ' - https://docs.popbill.com/fax/asp/api#GetFaxDetail
 	'**************************************************************
 	
 	'팝빌 회원 사업자번호, "-" 제외
@@ -18,7 +18,7 @@
 	userID = "testkorea"					
 
 	'팩스 전송시 발급받은 접수번호(receiptNum)
-	receiptNum = "018092811205600001" 
+	receiptNum = "021122409581300002" 
  
 	On Error Resume Next
 
@@ -52,6 +52,7 @@
 								<li>sendNum (발신번호) : <%=result.Item(i).sendNum%> </li>
 								<li>senderName (발신자명) : <%=result.Item(i).senderName%> </li>
 								<li>receiveNum (수신번호) : <%=result.Item(i).receiveNum%> </li>
+								<li>receiveNumType (수신번호 유형) : <%=result.Item(i).receiveNumType%> </li>
 								<li>receiveName (수신자명) : <%=result.Item(i).receiveName%> </li>
 								<li>title (팩스 제목) : <%=result.Item(i).title %> </li>
 								<li>sendPageCnt (페이지수) : <%=result.Item(i).sendPageCnt%></li>

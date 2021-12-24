@@ -369,6 +369,7 @@ Public convState
 Public sendNum
 Public senderName
 Public receiveNum
+Public receiveNumType
 Public receiveName
 Public sendPageCnt
 Public successPageCnt
@@ -397,6 +398,7 @@ Public Sub fromJsonInfo(jsonInfo)
     sendNum = jsonInfo.sendNum
     senderName = jsonInfo.senderName
     receiveNum = jsonInfo.receiveNum
+    receiveNum = jsonInfo.receiveNumType
     receiveName = jsonInfo.receiveName
     sendPageCnt = jsonInfo.sendPageCnt
     successPageCnt = jsonInfo.successPageCnt
