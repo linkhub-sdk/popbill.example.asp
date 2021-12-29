@@ -43,7 +43,7 @@
 								<legend>ListBankAccount [ <%=i+1%> / <%=result.Count%> ] </legend>
 									<ul>
 										<li> accountNumber (계좌번호) : <%=result.Item(i).accountNumber%></li>
-										<li> bankCode (은행코드) : <%=result.Item(i).bankCode%></li>
+										<li> bankCode (기관코드) : <%=result.Item(i).bankCode%></li>
 										<li> accountName (계좌 별칭) : <%=result.Item(i).accountName%></li>
 										<li> accountType (계좌유형) : <%=result.Item(i).accountType%></li>
 										<li> state (정액제 상태) : <%=result.Item(i).state%></li>

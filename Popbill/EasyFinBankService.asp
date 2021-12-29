@@ -356,7 +356,7 @@ Class EasyFinBankSErvice
     Public Function GetFlatRateState ( CorpNum, BankCode, AccountNumber, UserID ) 
 
         If BankCode = "" Then
-            Err.Raise -99999999, "POPBILL", "은행코드가 입력되지 않았습니다."
+            Err.Raise -99999999, "POPBILL", "기관코드가 입력되지 않았습니다."
         End If
         If AccountNumber = "" Then
             Err.Raise -99999999, "POPBILL", "계좌번호가 입력되지 않았습니다."
