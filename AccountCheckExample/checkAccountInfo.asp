@@ -39,7 +39,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>예금주조회</legend>
+                <legend>계좌성명조회</legend>
             <%
                 If Not IsEmpty(result) Then  
 
