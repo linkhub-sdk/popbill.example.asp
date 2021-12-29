@@ -64,9 +64,13 @@
 	'식별번호 기재, 공백처리시 전체조회
 	QString = ""		
 
+	'가맹점 종사업장 번호
+	'└ 다수건 검색시 콤마(",")로 구분. 예) 1234,1000
+	FranchiseTaxRegID = ""
+
 	On Error Resume Next
 	
-	Set SearchResult = m_CashbillService.Search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt, TaxationType, Order, Page, PerPage, QString)
+	Set SearchResult = m_CashbillService.Search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt, TaxationType, Order, Page, PerPage, QString, FranchiseTaxRegID)
 
 	If Err.Number <> 0 then
 		code = Err.Number

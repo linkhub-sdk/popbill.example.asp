@@ -529,7 +529,7 @@ End Function
 
 
 '현금영수증 목록 조회
-Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt, TaxationType, Order, Page, PerPage, QString)
+Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt, TaxationType, Order, Page, PerPage, QString, FranchiseTaxRegID)
     If DType = "" Then
         Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
     End If
@@ -594,6 +594,7 @@ Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsag
     uri = uri & "&Order=" & Order
     uri = uri & "&Page=" & CStr(Page)
     uri = uri & "&PerPage=" & CStr(PerPage)
+    uri = uri & "&FranchiseTaxRegID=" & FranchiseTaxRegID
     
     Dim searchResult : Set searchResult = New CBSearchResult
     Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
@@ -663,6 +664,7 @@ Class Cashbill
     Public totalAmount
 
     Public franchiseCorpNum
+    Public franchiseTaxRegID
     Public franchiseCorpName
     Public franchiseCEOName
     Public franchiseAddr
@@ -699,6 +701,7 @@ Class Cashbill
         totalAmount = jsonInfo.totalAmount
 
         franchiseCorpNum = jsonInfo.franchiseCorpNum
+        franchiseTaxRegID = jsonInfo.franchiseTaxRegID
         franchiseCorpName = jsonInfo.franchiseCorpName
         franchiseCEOName = jsonInfo.franchiseCEOName
         franchiseAddr = jsonInfo.franchiseAddr
@@ -739,6 +742,7 @@ Class Cashbill
         toJsonInfo.Set "totalAmount", totalAmount
 
         toJsonInfo.Set "franchiseCorpNum", franchiseCorpNum
+        toJsonInfo.Set "franchiseTaxRegID", franchiseTaxRegID
         toJsonInfo.Set "franchiseCorpName", franchiseCorpName
         toJsonInfo.Set "franchiseCEOName", franchiseCEOName
         toJsonInfo.Set "franchiseAddr", franchiseAddr

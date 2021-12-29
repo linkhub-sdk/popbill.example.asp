@@ -20,7 +20,7 @@
     userID = "testkorea"
 
     ' 문서번호, 가맹점 사업자단위 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-    mgtKey = "20211224-ASP004"
+    mgtKey = "20211229-ASP001"
 
     ' 메모
     memo = "즉시발행 메모"
@@ -67,6 +67,9 @@
     '가맹점 사업자번호, "-" 제외 10자리
     CashbillObj.franchiseCorpNum = testCorpNum
 
+    '가맹점 종사업장 식별번호
+    CashbillObj.franchiseTaxRegID = ""
+
     '가맹점 상호
     CashbillObj.franchiseCorpName = "가맹점 상호"
 
@@ -104,7 +107,6 @@
 
     '팩스
     CashbillObj.fax = "777-444-3333"
-
 
     '발행안내문자 전송여부
     '안내문자 전송시 포인트가 차감되며, 전송실패시 환불처리됩니다.

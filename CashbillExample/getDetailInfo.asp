@@ -12,13 +12,13 @@
 	'**************************************************************
 
 	'ÆËºô È¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-	testCorpNum = "1234567890"	 
+	testCorpNum = "1234567890"
 
 	'ÆËºô È¸¿ø ¾ÆÀÌµð
-	userID = "testkorea"		 
+	userID = "testkorea"
 
 	'¹®¼­¹øÈ£
-	mgtKey = "20211201-001"       
+	mgtKey = "20211229-ASP001"
 
 	On Error Resume Next
 
@@ -56,6 +56,7 @@
 									<li>tax (ºÎ°¡¼¼) : <%=Presponse.tax %></li>
 									<li>serviceFee (ºÀ»ç·á) : <%=Presponse.serviceFee%></li>
 									<li>franchiseCorpNum (°¡¸ÍÁ¡ »ç¾÷ÀÚ¹øÈ£) : <%=Presponse.franchiseCorpNum%></li>
+									<li>franchiseTaxRegID (°¡¸ÍÁ¡ Á¾»ç¾÷Àå ½Äº°¹øÈ£) : <%=Presponse.franchiseTaxRegID%></li>
 									<li>franchiseCorpName (°¡¸ÍÁ¡ »óÈ£) : <%=Presponse.franchiseCorpName%></li>
 									<li>franchiseCEOName (°¡¸ÍÁ¡ ´ëÇ¥ÀÚ¸í) : <%=Presponse.franchiseCEOName%></li>
 									<li>franchiseAddr (°¡¸ÍÁ¡ ÁÖ¼Ò) : <%=Presponse.franchiseAddr%></li>
