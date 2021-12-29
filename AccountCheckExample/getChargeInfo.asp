@@ -15,11 +15,14 @@
 	testCorpNum = "1234567890"		
 
 	'팝빌회원 아이디
-	UserID = "testkorea"					
+	UserID = "testkorea"
+
+	'서비스 유형, 성명 / 실명 중 택 1
+	serviceType = ""
 	
 	On Error Resume Next
 
-	Set result = m_AccountCheckService.GetChargeInfo ( testCorpNum, UserID )
+	Set result = m_AccountCheckService.GetChargeInfo(testCorpNum, UserID, serviceType)
 
 	If Err.Number <> 0 Then
 		code = Err.Number

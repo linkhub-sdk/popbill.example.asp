@@ -11,7 +11,8 @@
     <fieldset class="fieldset1">
         <legend>예금주조회</legend>
         <ul>
-            <li><a href="checkAccountInfo.asp">checkAccountInfo</a> - 예금주성명 조회</li>
+            <li><a href="checkAccountInfo.asp">checkAccountInfo</a> - 계좌성명조회</li>
+            <li><a href="checkDepositorInfo.asp">checkDepositorInfo</a> - 계좌실명조회</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

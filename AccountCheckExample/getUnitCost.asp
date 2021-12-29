@@ -14,9 +14,15 @@
 	'팝빌회원 사업자번호, "-" 제외
 	testCorpNum = "1234567890"	 
 	
+	'팝빌회원 아이디
+	UserID = "testkorea"
+	
+	'서비스 유형, 성명 / 실명 중 택 1	
+	serviceType = ""
+
 	On Error Resume Next
 	
-	unitCost = m_AccountCheckService.GetUnitCost(testCorpNum)
+	unitCost = m_AccountCheckService.GetUnitCost(testCorpNum, serviceType, UserID)
 	
 	If Err.Number <> 0 then
 		code = Err.Number

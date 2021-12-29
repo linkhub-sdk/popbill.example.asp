@@ -28,6 +28,7 @@ Class AccountCheckService
     Public Sub Class_Initialize
         Set m_PopbillBase = New PopbillBase
         m_PopbillBase.AddScope("182")
+        m_PopbillBase.AddScope("183")
     End Sub
 
     Public Sub Initialize(linkID, SecretKey )
@@ -107,8 +108,11 @@ Class AccountCheckService
         Set CheckID = m_popbillBase.CheckID(id)
     End Function
     '과금정보 확인
-    Public Function GetChargeInfo ( CorpNum, UserID )
-        Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/AccountCheck/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
+    Public Function GetChargeInfo(CorpNum, UserID, ServiceType)
+
+        Dim uri : uri = "/EasyFin/AccountCheck/ChargeInfo?serviceType=" & ServiceType
+
+        Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 
         Dim chrgInfo : Set chrgInfo = New ChargeInfo
         chrgInfo.fromJsonInfo result
@@ -118,8 +122,11 @@ Class AccountCheckService
     '''''''''''''  End of PopbillBase
 
     '조회단가확인
-    Public Function GetUnitCost(CorpNum)
-        Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/AccountCheck/UnitCost", m_PopbillBase.getSession_token(CorpNum),"")
+    Public Function GetUnitCost(CorpNum, ServiceType, UserID)
+
+        Dim uri : uri = "/EasyFin/AccountCheck/UnitCost?serviceType=" & ServiceType
+
+        Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum),"")
         GetUnitCost = result.unitCost
     End Function
 
@@ -147,12 +154,57 @@ Class AccountCheckService
 
     End Function
 
+    Public Function CheckDepositorInfo(CorpNum , BankCode, AccountNumber, IdentityNumType, IdentityNum, UserID)
+        
+        If BankCode = "" Then
+            Err.Raise -99999999, "POPBILL", "기관코드가 입력되지 않았습니다."
+        End If
+
+        If AccountNumber = "" Then
+            Err.Raise -99999999, "POPBILL", "계좌번호가 입력되지 않았습니다."
+        End If
+
+        If IdentityNumType = "" Then
+            Err.Raise -99999999, "POPBILL", "등록번호 유형이 입력되지 않았습니다."
+        End If
+
+        Dim regEx : Set regEx = new RegExp
+        regEx.Pattern = "^[PB]$"
+        If regEx.Test(IdentityNumType) = False Then
+            Err.Raise -99999999, "POPBILL", "등록번호 유형이 유효하지 않습니다."
+        End If
+
+        If IdentityNum = "" Then
+            Err.Raise -99999999, "POPBILL", "등록번호가 입력되지 않았습니다."
+        End If
+
+        regEx.Pattern = "^\d+$"
+        If regEx.Test(IdentityNum) = False Then
+            Err.Raise -99999999, "POPBILL", "등록번호가 유효하지 않습니다."
+        End If
+
+        Dim uri
+        uri = "/EasyFin/DepositorCheck"
+        uri = uri + "?c=" & BankCode
+        uri = uri + "&n=" & AccountNumber
+        uri = uri + "&t=" & IdentityNumType
+        uri = uri + "&p=" & IdentityNum
+
+        Dim result : Set result = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
+
+        Dim infoObj : Set infoObj = New DepositorCheckInfo
+        infoObj.fromJsonInfo result
+        Set CheckDepositorInfo = infoObj
+
+    End Function
+
 
 End Class
 
 Class AccountCheckInfo
 
     Public resultCode
+    Public result
     Public resultMessage
     Public bankCode
     Public accountNumber
@@ -163,6 +215,10 @@ Class AccountCheckInfo
         On Error Resume Next
             If Not isEmpty(jsonInfo.resultCode) Then
                 resultCode = jsonInfo.resultCode
+            End If 
+
+            If Not isEmpty(jsonInfo.result) Then
+                result = jsonInfo.result
             End If 
 
             If Not isEmpty(jsonInfo.resultMessage) Then
@@ -183,6 +239,55 @@ Class AccountCheckInfo
 
             If Not isEmpty(jsonInfo.checkDate) Then
                 checkDate = jsonInfo.checkDate
+            End If 
+            
+        On Error GoTo 0
+    End Sub
+End Class
+
+Class DepositorCheckInfo
+
+    Public result
+    Public resultMessage
+    Public bankCode
+    Public accountNumber
+    Public accountName
+    Public checkDate
+    Public identityNumType
+    Public identityNum
+
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+            If Not isEmpty(jsonInfo.result) Then
+                result = jsonInfo.result
+            End If 
+
+            If Not isEmpty(jsonInfo.resultMessage) Then
+                resultMessage = jsonInfo.resultMessage
+            End If 
+
+            If Not isEmpty(jsonInfo.bankCode) Then
+                bankCode = jsonInfo.bankCode
+            End If 
+
+            If Not isEmpty(jsonInfo.accountNumber) Then
+                accountNumber = jsonInfo.accountNumber
+            End If 
+
+            If Not isEmpty(jsonInfo.accountName) Then
+                accountName = jsonInfo.accountName
+            End If 
+
+            If Not isEmpty(jsonInfo.checkDate) Then
+                checkDate = jsonInfo.checkDate
+            End If 
+
+            If Not isEmpty(jsonInfo.identityNumType) Then
+                identityNumType = jsonInfo.identityNumType
+            End If 
+
+            If Not isEmpty(jsonInfo.identityNum) Then
+                identityNum = jsonInfo.identityNum
             End If 
             
         On Error GoTo 0
