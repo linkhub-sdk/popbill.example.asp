@@ -38,7 +38,7 @@ On Error GoTo 0
         <p class="heading1">Response</p>
         <br/>
         <fieldset class="fieldset1">
-            <legend>알림톡 템플릿 목록 조회 </legend>
+            <legend>알림톡 템플릿 정보 확인 </legend>
                 <% 
                     If code = 0 Then
                 %>
