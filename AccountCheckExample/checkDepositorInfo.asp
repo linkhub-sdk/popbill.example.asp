@@ -46,12 +46,12 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>계좌성명조회</legend>
+                <legend>계좌실명조회</legend>
             <%
                 If Not IsEmpty(result) Then  
             %>
                 <ul>
-                    <li>bankCode (기관코드) : <%= result.bankCode%></li>	
+                    <li>bankCode (기관코드) : <%= result.bankCode%></li>
                     <li>accountNumber (계좌번호) : <%= result.accountNumber%></li>	
                     <li>accountName (예금주 성명) : <%= result.accountName%></li>	
                     <li>checkDate (확인일시) : <%= result.checkDate%></li>	
