@@ -89,6 +89,7 @@
                                 <li>sendNum (발신번호) : <%=result.list(i).sendNum%> </li>
                                 <li>senderName (발신자명) : <%=result.list(i).senderName%> </li>
                                 <li>receiveNum (수신번호) : <%=result.list(i).receiveNum%> </li>
+                                <li>receiveNumType (수신번호 유형) : <%=result.list(i).receiveNumType%> </li>
                                 <li>receiveName (수신자명) : <%=result.list(i).receiveName%> </li>
                                 <li>title (팩스 제목) : <%=result.list(i).title %> </li>
                                 <li>sendPageCnt (페이지수) : <%=result.list(i).sendPageCnt%></li>
