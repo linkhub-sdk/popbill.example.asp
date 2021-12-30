@@ -26,15 +26,15 @@
             <li><a href="sendMMS_Multi.asp">sendMMS</a> - 포토 전송 [대량]</li>
             <li><a href="sendXMS.asp">sendXMS</a> - 단문/장문 자동인식 전송</li>
             <li><a href="sendXMS_Multi.asp">sendXMS</a> - 단문/장문 자동인식 전송 [대량]</li>
-			<li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소</li>
-			<li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 취소 (요청번호 할당)</li>
+            <li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소</li>
+            <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 취소 (요청번호 할당)</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
         <legend>정보확인</legend>
         <ul>
-			<li><a href="getMessages.asp">getMessages</a> - 전송내역 확인</li>
-			<li><a href="getMessagesRN.asp">getMessagesRN</a> - 전송내역 확인 (요청번호 할당)</li>
+            <li><a href="getMessages.asp">getMessages</a> - 전송내역 확인</li>
+            <li><a href="getMessagesRN.asp">getMessagesRN</a> - 전송내역 확인 (요청번호 할당)</li>
             <li><a href="search.asp">search</a> - 전송내역 목록 조회</li>
             <li><a href="getStates.asp">getStates</a> - 문자메세지 전송요약정보 확인</li>
             <li><a href="getSentListURL.asp">getSentListURL</a> - 문자 전송내역 팝업 URL</li>
@@ -44,13 +44,13 @@
     <fieldset class="fieldset1">
         <legend>포인트 관리</legend>
         <ul>
-		    <li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
+            <li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
             <li><a href="getChargeURL.asp">getChargeURL</a> - 연동회원 포인트충전 URL</li>
             <li><a href="getPaymentURL.asp">GetPaymentURL</a> - 연동회원 포인트 결재내역 URL</li>
             <li><a href="getUseHistoryURL.asp">GetUseHistoryURL</a> - 연동회원 포인트 사용내역 URL</li>
             <li><a href="getPartnerBalance.asp">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트충전 URL</li>
-			<li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
+            <li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
             <li><a href="getUnitCost.asp">getUnitCost</a> - 전송 단가 확인</li>
         </ul>
     </fieldset>

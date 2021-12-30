@@ -2,103 +2,103 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-    <title>íŒë¹Œ ì¹´ì¹´ì˜¤í†¡ API SDK ASP Example.</title>
+    <title>ÆËºô Ä«Ä«¿ÀÅå API SDK ASP Example.</title>
 </head>
 <body>
 <div id="content">
-    <p class="heading1">íŒë¹Œ ì¹´ì¹´ì˜¤í†¡ API SDK ASP Example.</p>
+    <p class="heading1">ÆËºô Ä«Ä«¿ÀÅå API SDK ASP Example.</p>
     <br/>
     <fieldset class="fieldset1">
-        <legend>ì¹´ì¹´ì˜¤í†¡ ì±„ë„ ê³„ì •ê´€ë¦¬</legend>
+        <legend>Ä«Ä«¿ÀÅå Ã¤³Î °èÁ¤°ü¸®</legend>
         <ul>
-            <li><a href="getPlusFriendMgtURL.asp">getPlusFriendMgtURL</a> - ì¹´ì¹´ì˜¤í†¡ ì±„ë„ ê³„ì •ê´€ë¦¬ íŒì—… URL</li>
-            <li><a href="listPlusFriendID.asp">listPlusFriendID</a> - ì¹´ì¹´ì˜¤í†¡ ì±„ë„ ëª©ë¡ í™•ì¸</li>
+            <li><a href="getPlusFriendMgtURL.asp">getPlusFriendMgtURL</a> - Ä«Ä«¿ÀÅå Ã¤³Î °èÁ¤°ü¸® ÆË¾÷ URL</li>
+            <li><a href="listPlusFriendID.asp">listPlusFriendID</a> - Ä«Ä«¿ÀÅå Ã¤³Î ¸ñ·Ï È®ÀÎ</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>ë°œì‹ ë²ˆí˜¸ ê´€ë¦¬</legend>
+        <legend>¹ß½Å¹øÈ£ °ü¸®</legend>
         <ul>
-            <li><a href="getSenderNumberMgtURL.asp">getSenderNumberMgtURL</a> - ë°œì‹ ë²ˆí˜¸ ê´€ë¦¬ íŒì—… URL</li>
-            <li><a href="getSenderNumberList.asp">getSenderNumberList</a> - ë°œì‹ ë²ˆí˜¸ ëª©ë¡ í™•ì¸</li>
+            <li><a href="getSenderNumberMgtURL.asp">getSenderNumberMgtURL</a> - ¹ß½Å¹øÈ£ °ü¸® ÆË¾÷ URL</li>
+            <li><a href="getSenderNumberList.asp">getSenderNumberList</a> - ¹ß½Å¹øÈ£ ¸ñ·Ï È®ÀÎ</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>ì•Œë¦¼í†¡ í…œí”Œë¦¿ ê´€ë¦¬</legend>
+        <legend>¾Ë¸²Åå ÅÛÇÃ¸´ °ü¸®</legend>
         <ul>
-            <li><a href="getATSTemplateMgtURL.asp">getATSTemplateMgtURL</a> - ì•Œë¦¼í†¡ í…œí”Œë¦¿ê´€ë¦¬ íŒì—… URL</li>
-            <li><a href="GetATSTemplate.asp">GetATSTemplate</a> - ì•Œë¦¼í†¡ í…œí”Œë¦¿ ì •ë³´ í™•ì¸</li>
-            <li><a href="listATSTemplate.asp">listATSTemplate</a> - ì•Œë¦¼í†¡ í…œí”Œë¦¿ ëª©ë¡ í™•ì¸</li>
+            <li><a href="getATSTemplateMgtURL.asp">getATSTemplateMgtURL</a> - ¾Ë¸²Åå ÅÛÇÃ¸´°ü¸® ÆË¾÷ URL</li>
+            <li><a href="GetATSTemplate.asp">GetATSTemplate</a> - ¾Ë¸²Åå ÅÛÇÃ¸´ Á¤º¸ È®ÀÎ</li>
+            <li><a href="listATSTemplate.asp">listATSTemplate</a> - ¾Ë¸²Åå ÅÛÇÃ¸´ ¸ñ·Ï È®ÀÎ</li>
         </ul>
     </fieldset>
      <fieldset class="fieldset1">
-        <legend>ì•Œë¦¼í†¡ / ì¹œêµ¬í†¡ ì „ì†¡</legend>
+        <legend>¾Ë¸²Åå / Ä£±¸Åå Àü¼Û</legend>
         <fieldset class="fieldset2">
-            <legend>ì•Œë¦¼í†¡ ì „ì†¡</legend>
+            <legend>¾Ë¸²Åå Àü¼Û</legend>
             <ul>
-                <li><a href="sendATS_one.asp">sendATS</a> - ì•Œë¦¼í†¡ ë‹¨ê±´ ì „ì†¡</li>
-                <li><a href="sendATS_same.asp">sendATS</a> - ì•Œë¦¼í†¡ ë™ì¼ë‚´ìš© ëŒ€ëŸ‰ ì „ì†¡</li>
-                <li><a href="sendATS_multi.asp">sendATS</a> - ì•Œë¦¼í†¡ ê°œë³„ë‚´ìš© ëŒ€ëŸ‰ ì „ì†¡</li>
+                <li><a href="sendATS_one.asp">sendATS</a> - ¾Ë¸²Åå ´Ü°Ç Àü¼Û</li>
+                <li><a href="sendATS_same.asp">sendATS</a> - ¾Ë¸²Åå µ¿ÀÏ³»¿ë ´ë·® Àü¼Û</li>
+                <li><a href="sendATS_multi.asp">sendATS</a> - ¾Ë¸²Åå °³º°³»¿ë ´ë·® Àü¼Û</li>
             </ul>
         </fieldset>
         <fieldset class="fieldset2">
-            <legend>ì¹œêµ¬í†¡ í…ìŠ¤íŠ¸ ì „ì†¡</legend>
+            <legend>Ä£±¸Åå ÅØ½ºÆ® Àü¼Û</legend>
             <ul>
-                <li><a href="sendFTS_one.asp">sendFTS</a> - ì¹œêµ¬í†¡ í…ìŠ¤íŠ¸ ë‹¨ê±´ ì „ì†¡</li>
-                <li><a href="sendFTS_same.asp">sendFTS</a> - ì¹œêµ¬í†¡ í…ìŠ¤íŠ¸ ë™ì¼ë‚´ìš© ëŒ€ëŸ‰ì „ì†¡</li>
-                <li><a href="sendFTS_multi.asp">sendFTS</a> - ì¹œêµ¬í†¡ í…ìŠ¤íŠ¸ ê°œë³„ë‚´ìš© ëŒ€ëŸ‰ì „ì†¡</li>
+                <li><a href="sendFTS_one.asp">sendFTS</a> - Ä£±¸Åå ÅØ½ºÆ® ´Ü°Ç Àü¼Û</li>
+                <li><a href="sendFTS_same.asp">sendFTS</a> - Ä£±¸Åå ÅØ½ºÆ® µ¿ÀÏ³»¿ë ´ë·®Àü¼Û</li>
+                <li><a href="sendFTS_multi.asp">sendFTS</a> - Ä£±¸Åå ÅØ½ºÆ® °³º°³»¿ë ´ë·®Àü¼Û</li>
             </ul>
         </fieldset>
         <fieldset class="fieldset2">
-            <legend>ì¹œêµ¬í†¡ ì´ë¯¸ì§€ ì „ì†¡</legend>
+            <legend>Ä£±¸Åå ÀÌ¹ÌÁö Àü¼Û</legend>
             <ul>
-                <li><a href="sendFMS_one.asp">sendFMS</a> - ì¹œêµ¬í†¡ ì´ë¯¸ì§€ ë‹¨ê±´ ì „ì†¡</li>
-                <li><a href="sendFMS_same.asp">sendFMS</a> - ì¹œêµ¬í†¡ ì´ë¯¸ì§€ ë™ì¼ë‚´ìš© ëŒ€ëŸ‰ì „ì†¡</li>
-                <li><a href="sendFMS_multi.asp">sendFMS</a> - ì¹œêµ¬í†¡ ì´ë¯¸ì§€ ê°œë³„ë‚´ìš© ëŒ€ëŸ‰ì „ì†¡</li>
+                <li><a href="sendFMS_one.asp">sendFMS</a> - Ä£±¸Åå ÀÌ¹ÌÁö ´Ü°Ç Àü¼Û</li>
+                <li><a href="sendFMS_same.asp">sendFMS</a> - Ä£±¸Åå ÀÌ¹ÌÁö µ¿ÀÏ³»¿ë ´ë·®Àü¼Û</li>
+                <li><a href="sendFMS_multi.asp">sendFMS</a> - Ä£±¸Åå ÀÌ¹ÌÁö °³º°³»¿ë ´ë·®Àü¼Û</li>
             </ul>
         </fieldset>
         <fieldset class="fieldset2">
-            <legend>ì˜ˆì•½ì „ì†¡ ì·¨ì†Œ</legend>
+            <legend>¿¹¾àÀü¼Û Ãë¼Ò</legend>
             <ul>
-                <li><a href="cancelReserve.asp">cancelReserve</a> - ì˜ˆì•½ì „ì†¡ ì·¨ì†Œ</li>
-                <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - ì˜ˆì•½ì „ì†¡ ì·¨ì†Œ (ìš”ì²­ë²ˆí˜¸ í• ë‹¹)</li>
+                <li><a href="cancelReserve.asp">cancelReserve</a> - ¿¹¾àÀü¼Û Ãë¼Ò</li>
+                <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - ¿¹¾àÀü¼Û Ãë¼Ò (¿äÃ»¹øÈ£ ÇÒ´ç)</li>
             </ul>
         </fieldset>
      </fieldset>
     <fieldset class="fieldset1">
-        <legend>ì •ë³´í™•ì¸</legend>
+        <legend>Á¤º¸È®ÀÎ</legend>
         <ul>
-            <li><a href="getMessages.asp">getMessages</a> - ì•Œë¦¼í†¡/ì¹œêµ¬í†¡ ì „ì†¡ë‚´ì—­ í™•ì¸</li>
-            <li><a href="getMessagesRN.asp">getMessagesRN</a> - ì•Œë¦¼í†¡/ì¹œêµ¬í†¡ ì „ì†¡ë‚´ì—­ í™•ì¸ (ìš”ì²­ë²ˆí˜¸ í• ë‹¹)</li>
-            <li><a href="search.asp">search</a> - ì „ì†¡ë‚´ì—­ ëª©ë¡ ì¡°íšŒ</li>
-            <li><a href="getSentListURL.asp">getSentListURL</a> - ì¹´ì¹´ì˜¤í†¡ ì „ì†¡ë‚´ì—­ íŒì—… URL</li>
+            <li><a href="getMessages.asp">getMessages</a> - ¾Ë¸²Åå/Ä£±¸Åå Àü¼Û³»¿ª È®ÀÎ</li>
+            <li><a href="getMessagesRN.asp">getMessagesRN</a> - ¾Ë¸²Åå/Ä£±¸Åå Àü¼Û³»¿ª È®ÀÎ (¿äÃ»¹øÈ£ ÇÒ´ç)</li>
+            <li><a href="search.asp">search</a> - Àü¼Û³»¿ª ¸ñ·Ï Á¶È¸</li>
+            <li><a href="getSentListURL.asp">getSentListURL</a> - Ä«Ä«¿ÀÅå Àü¼Û³»¿ª ÆË¾÷ URL</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>í¬ì¸íŠ¸ê´€ë¦¬</legend>
+        <legend>Æ÷ÀÎÆ®°ü¸®</legend>
         <ul>
-            <li><a href="getBalance.asp">getBalance</a> - ì—°ë™íšŒì› ìž”ì—¬í¬ì¸íŠ¸ í™•ì¸</li>
-            <li><a href="getChargeURL.asp">getChargeURL</a> - ì—°ë™íšŒì› í¬ì¸íŠ¸ì¶©ì „ URL</li>
-            <li><a href="getPaymentURL.asp">GetPaymentURL</a> - ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ìž¬ë‚´ì—­ URL</li>
-            <li><a href="getUseHistoryURL.asp">GetUseHistoryURL</a> - ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL</li>
-            <li><a href="getPartnerBalance.asp">getPartnerBalance</a> - íŒŒíŠ¸ë„ˆ ìž”ì—¬í¬ì¸íŠ¸ í™•ì¸</li>
-            <li><a href="getPartnerURL.asp">getPartnerURL</a> - íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ì¶©ì „ URL</li>
-            <li><a href="getUnitCost.asp">getUnitCost</a> - ì „ì†¡ë‹¨ê°€ í™•ì¸</li>
-            <li><a href="getChargeInfo.asp">getChargeInfo</a> - ê³¼ê¸ˆì •ë³´ í™•ì¸</li>
+            <li><a href="getBalance.asp">getBalance</a> - ¿¬µ¿È¸¿ø ÀÜ¿©Æ÷ÀÎÆ® È®ÀÎ</li>
+            <li><a href="getChargeURL.asp">getChargeURL</a> - ¿¬µ¿È¸¿ø Æ÷ÀÎÆ®ÃæÀü URL</li>
+            <li><a href="getPaymentURL.asp">GetPaymentURL</a> - ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÀç³»¿ª URL</li>
+            <li><a href="getUseHistoryURL.asp">GetUseHistoryURL</a> - ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL</li>
+            <li><a href="getPartnerBalance.asp">getPartnerBalance</a> - ÆÄÆ®³Ê ÀÜ¿©Æ÷ÀÎÆ® È®ÀÎ</li>
+            <li><a href="getPartnerURL.asp">getPartnerURL</a> - ÆÄÆ®³Ê Æ÷ÀÎÆ®ÃæÀü URL</li>
+            <li><a href="getUnitCost.asp">getUnitCost</a> - Àü¼Û´Ü°¡ È®ÀÎ</li>
+            <li><a href="getChargeInfo.asp">getChargeInfo</a> - °ú±ÝÁ¤º¸ È®ÀÎ</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>íšŒì›ê´€ë¦¬</legend>
+        <legend>È¸¿ø°ü¸®</legend>
         <ul>
-            <li><a href="checkIsMember.asp">checkIsMember</a> - ì—°ë™íšŒì› ê°€ìž…ì—¬ë¶€ í™•ì¸</li>
-            <li><a href="checkID.asp">checkID</a> - ì—°ë™íšŒì› ì•„ì´ë”” ì¤‘ë³µ í™•ì¸</li>
-            <li><a href="joinMember.asp">joinMember</a> - ì—°ë™íšŒì›ì‚¬ ì‹ ê·œê°€ìž…</li>
-            <li><a href="getAccessURL.asp">getAccessURL</a> - íŒë¹Œ ë¡œê·¸ì¸ URL</li>
-            <li><a href="registContact.asp">registContact</a> - ë‹´ë‹¹ìž ì¶”ê°€</li>
-            <li><a href="getContactInfo.asp">getContactInfo</a> - ë‹´ë‹¹ìž ì •ë³´ í™•ì¸</li>
-            <li><a href="listContact.asp">listContact</a> - ë‹´ë‹¹ìž ëª©ë¡ í™•ì¸</li>
-            <li><a href="updateContact.asp">updateContact</a> - ë‹´ë‹¹ìž ì •ë³´ ìˆ˜ì •</li>
-            <li><a href="getCorpInfo.asp">getCorpInfo</a> - íšŒì‚¬ì •ë³´ í™•ì¸</li>
-            <li><a href="updateCorpInfo.asp">updateCorpInfo</a> - íšŒì‚¬ì •ë³´ ìˆ˜ì •</li>
+            <li><a href="checkIsMember.asp">checkIsMember</a> - ¿¬µ¿È¸¿ø °¡ÀÔ¿©ºÎ È®ÀÎ</li>
+            <li><a href="checkID.asp">checkID</a> - ¿¬µ¿È¸¿ø ¾ÆÀÌµð Áßº¹ È®ÀÎ</li>
+            <li><a href="joinMember.asp">joinMember</a> - ¿¬µ¿È¸¿ø»ç ½Å±Ô°¡ÀÔ</li>
+            <li><a href="getAccessURL.asp">getAccessURL</a> - ÆËºô ·Î±×ÀÎ URL</li>
+            <li><a href="registContact.asp">registContact</a> - ´ã´çÀÚ Ãß°¡</li>
+            <li><a href="getContactInfo.asp">getContactInfo</a> - ´ã´çÀÚ Á¤º¸ È®ÀÎ</li>
+            <li><a href="listContact.asp">listContact</a> - ´ã´çÀÚ ¸ñ·Ï È®ÀÎ</li>
+            <li><a href="updateContact.asp">updateContact</a> - ´ã´çÀÚ Á¤º¸ ¼öÁ¤</li>
+            <li><a href="getCorpInfo.asp">getCorpInfo</a> - È¸»çÁ¤º¸ È®ÀÎ</li>
+            <li><a href="updateCorpInfo.asp">updateCorpInfo</a> - È¸»çÁ¤º¸ ¼öÁ¤</li>
         </ul>
     </fieldset>
 </div>
