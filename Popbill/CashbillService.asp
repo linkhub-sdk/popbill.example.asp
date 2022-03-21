@@ -441,6 +441,49 @@ Public Function RegistIssue(CorpNum, ByRef Cashbill, Memo, UserID, EmailSubject)
     Set RegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "ISSUE", postdata, UserID)
 End Function 
 
+' 현금영수증 초대량 발행 접수
+Public Function BulkSubmit(CorpNum, SubmitID, cashbillList, UserID)
+
+    If SubmitID = "" Or isEmpty(SubmitID) Then 
+        Err.Raise -99999999, "POPBILL", "제출아이디가 입력되지 않았습니다."
+    End If
+
+    If Ubound(cashbillList) = "" Or isEmpty(cashbillList) Then 
+        Err.Raise -99999999, "POPBILL", "현금영수증 정보가 입력되지 않았습니다."
+    End If
+
+    Dim bulkCashbillSubmit : Set bulkCashbillSubmit = new BulkCashbillSubmit
+
+    Dim cashbill
+
+    For Each cashbill In cashbillList
+        bulkCashbillSubmit.AddCashbill cashbill
+    Next
+
+    Dim tmpDic : Set tmpDic = bulkCashbillSubmit.toJsonInfo
+
+    Dim postData : postData = m_PopbillBase.toString(tmpDic)
+
+    Set BulkSubmit = m_PopbillBase.httpBulkPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "BULKISSUE", SubmitID, postData, UserID)
+
+End Function
+
+' 초대량 접수 결과 확인
+Public Function GetBulkResult(CorpNum, SubmitID, UserID)
+
+    If SubmitID = "" Or isEmpty(SubmitID) Then
+        Err.Raise -99999999, "POPBILL", "제출아이디가 입력되지 않았습니다."
+    End If
+
+    Dim btResult : Set btResult = new BulkCashbillResult
+
+    Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/BULK/" + SubmitID + "/State", m_PopbillBase.getSession_token(CorpNum), UserID)
+    
+    btResult.fromJsonInfo result
+
+    Set GetBulkResult = btResult
+    
+End Function 
 
 '취소현금영수증 즉시발행. 2017/08/17 추가
 Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID)
@@ -908,5 +951,89 @@ Class EmailSendConfig
         toJsonInfo.Set "emailType", emailType
         toJsonInfo.Set "sendYN", sendYN
     End Function 
+End Class
+
+Class BulkCashbillSubmit
+    Public cashbills()
+
+    Public Sub Class_Initialize
+        ReDim cashbills(-1)
+    End Sub
+
+    Function toJsonInfo()
+        Set toJsonInfo = JSON.parse("{}")
+
+        Dim cashbillsJsonInfo() : Redim cashbillsJsonInfo(UBound(cashbills))
+        Dim i, cashbill
+        i = 0
+        For Each cashbill In cashbills
+            Set cashbillsJsonInfo(i) = cashbills(i).toJsonInfo
+            i = i + 1
+        next
+        toJsonInfo.set "cashbills", cashbillsJsonInfo
+    End Function 
+   
+    Public Sub AddCashbill(Cashbill)
+        ReDim Preserve cashbills(UBound(cashbills) + 1)
+        
+        Set cashbills(Ubound(cashbills)) = Cashbill
+    End Sub
+End Class
+
+Class BulkCashbillResult
+    Public code
+    Public message
+    Public submitID
+    Public submitCount
+    Public successCount
+    Public failCount
+    Public txState
+    Public txResultCode
+    Public txStartDT
+    Public txEndDT
+    Public receiptDT
+    Public receiptID
+    Public issueResult()
+
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+        code = jsonInfo.code
+        message = jsonInfo.message
+        submitID = jsonInfo.submitID
+        submitCount = jsonInfo.submitCount
+        successCount = jsonInfo.successCount
+        failCount = jsonInfo.failCount
+        txState = jsonInfo.txState
+        txResultCode = jsonInfo.txResultCode
+        txStartDT = jsonInfo.txStartDT
+        txEndDT = jsonInfo.txEndDT
+        receiptDT = jsonInfo.receiptDT
+        receiptID = jsonInfo.receiptID
+
+        ReDim issueResult(jsonInfo.issueResult.length)
+        Dim i
+        For i = 0 To jsonInfo.issueResult.length -1
+            Dim tmpObj : Set tmpObj = New BulkCashbillissueResult
+            tmpObj.fromJsonInfo jsonInfo.issueResult.Get(i)
+            Set issueResult(i) = tmpObj
+        Next
+        On Error GoTo 0
+    End Sub
+End Class
+
+Class BulkCashbillissueResult
+    Public mgtKey
+    Public code
+    Public confirmNum
+    Public tradeDate
+    
+    Function fromJsonInfo(jsonInfo)
+        On Error Resume Next
+            mgtKey = jsonInfo.mgtKey
+            code = jsonInfo.code
+            confirmNum = jsonInfo.confirmNum
+            tradeDate = jsonInfo.tradeDate
+        On Error GoTo 0 
+    End Function
 End Class
 %>
