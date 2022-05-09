@@ -5,7 +5,7 @@
     ' 팝빌 팩스 API ASP SDK Example
     '
     ' ASP SDK 연동환경 설정방법 안내 : https://docs.popbill.com/fax/tutorial/asp
-    ' - 업데이트 일자 : 2021-12-29
+    ' - 업데이트 일자 : 2022-05-09
     ' - 연동 기술지원 연락처 : 1600-9854
     ' - 연동 기술지원 이메일 : code@linkhubcorp.com
     '
