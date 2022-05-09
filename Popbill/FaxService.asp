@@ -173,7 +173,6 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
     If UBound(receivers) < 0 Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
     If isNull(FilePaths) Or IsEmpty(FilePaths) Then Err.Raise -99999999, "POPBILL", "전송할 파일경로가 입력되지 않았습니다."
     If UBound(FilePaths) < 0 Then Err.Raise -99999999, "POPBILL", "전송할 파일경로가 입력되지 않았습니다."
-    If UBound(FilePaths) >= 5 Then Err.Raise -99999999, "POPBILL", "1회 전송 가능한 파일갯수는 5개입니다."
   
     Dim Form : Set Form = JSON.parse("{}")
     
