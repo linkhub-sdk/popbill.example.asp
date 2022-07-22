@@ -7,49 +7,51 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' [대량전송] SMS(단문)를 전송합니다.
+    ' 최대 90byte의 단문(SMS) 메시지 1건 전송을 팝빌에 접수하며, 수신자 별로 개별 내용을 전송합니다. (최대 1,000건)
     '  - 메시지 내용이 90Byte 초과시 메시지 내용은 자동으로 제거됩니다.
     '  - https://docs.popbill.com/message/asp/api#SendSMS
     '**************************************************************
 
-    '팝빌 회원 사업자번호, "-" 제외
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"		
 
-    '팝빌 회원 아이디
+    ' 팝빌회원 아이디
     userID = "testkorea"					
 
-    '광고문자 전송여부
+    ' 광고성 메시지 여부 ( true , false 중 택 1)
+    ' └ true = 광고 , false = 일반
     adsYN = False							
 
-    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+    ' 예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
     reserveDT = ""
     
-    '전송정보 배열, 최대 1000건
+    ' 전송정보 배열, 최대 1000건
     Set msgList = CreateObject("Scripting.Dictionary")
 
     For i=0 To 99
         Set message = New Messages
 
-        '발신번호
-        message.sender = "07043042991"
+        ' 발신번호
+        message.sender = ""
 
-        '발신자명
+        ' 발신자명
         message.senderName = "발신자명"
 
-        '수신번호
-        message.receiver = "000111222"
+        ' 수신번호
+        message.receiver = ""
 
-        '수신자명
+        ' 수신자명
         message.receivername = " 수신자이름"+CStr(i)
 
-        '메시지내용, 최대 90byte초과시 길이가 조정되어 전송됨
+        ' 메시지내용, 최대 90byte초과시 길이가 조정되어 전송됨
         message.content = "This is Message 메시지 테스트중"
 
         msgList.Add i, message
     Next
     
-    '전송요청번호 (팝빌 회원별 비중복 번호 할당)
-    '영문,숫자,'-','_' 조합, 최대 36자
+    ' 전송요청번호
+    ' 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
+    ' 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
     requestNum = ""	
 
     On Error Resume Next

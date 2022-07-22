@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 연동회원의 담당자를 신규로 등록합니다.
+    ' 연동회원 사업자번호에 담당자(팝빌 로그인 계정)를 추가합니다.
     ' - https://docs.popbill.com/statement/asp/api#RegistContact
     '**************************************************************
 
@@ -30,16 +30,10 @@
     contInfo.personName = "ASPTest"
 
     ' 담당자 연락처
-    contInfo.tel = "010-1234-1234"
-    
-    ' 담당자 휴대폰번호
-    contInfo.hp = "010-1234-1234"
+    contInfo.tel = ""
 
     ' 담당자 메일주소
-    contInfo.email = "code@linkhub.co.kr"
-
-    ' 담당자 팩스번호
-    contInfo.fax = "070111222"
+    contInfo.email = ""
     
     ' 담당자 조회권한 1 - 개인권한 / 2 - 읽기권한  / 3 - 회사권한
     contInfo.searchRole = 3

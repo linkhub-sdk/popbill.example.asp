@@ -7,11 +7,12 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 1건의 세금계산서를 임시저장 합니다.
-    ' - 세금계산서 임시저장(Register API) 호출후에는 발행(Issue API)을 호출해야만
-    '   국세청으로 전송됩니다.
-    ' - 임시저장과 발행을 한번의 호출로 처리하는 즉시발행(RegistIssue API) 프로세스
-    '   연동을 권장합니다.
+    ' 작성된 세금계산서 데이터를 팝빌에 저장합니다.
+    ' - "임시저장" 상태의 세금계산서는 발행(Issue) 함수를 호출하여 "발행완료" 처리한 경우에만 국세청으로 전송됩니다.
+    ' - 정발행 시 임시저장(Register)과 발행(Issue)을 한번의 호출로 처리하는 즉시발행(RegistIssue API) 프로세스 연동을 권장합니다.
+    ' - 역발행 시 임시저장(Register)과 역발행요청(Request)을 한번의 호출로 처리하는 즉시요청(RegistRequest API) 프로세스 연동을 권장합니다.
+    ' - 세금계산서 파일첨부 기능을 구현하는 경우, 임시저장(Register API) -> 파일첨부(AttachFile API) -> 발행(Issue API) 함수를 차례로 호출합니다.
+    ' - 임시저장된 세금계산서는 팝빌 사이트 '임시문서함'에서 확인 가능합니다.
     ' - https://docs.popbill.com/taxinvoice/asp/api#Register
     '**************************************************************
 
@@ -24,19 +25,19 @@
     ' 세금계산서 정보 객체 생성
     Set newTaxinvoice = New Taxinvoice
 
-    ' [필수] 작성일자, 날짜형식(yyyyMMdd)
+    ' 작성일자, 날짜형식(yyyyMMdd)
     newTaxinvoice.writeDate = "20211201"
 
-    ' [필수] {정과금, 역과금} 중 기재, '역과금'은 역발행 프로세스에서만 이용가능
+    ' {정과금, 역과금} 중 기재, '역과금'은 역발행 프로세스에서만 이용가능
     newTaxinvoice.chargeDirection = "정과금"
     
-    ' [필수] 발행형태, {정발행, 역발행, 위수탁} 중 기재
+    ' 발행형태, {정발행, 역발행, 위수탁} 중 기재
     newTaxinvoice.issueType = "정발행"
 
-    ' [필수] {영수, 청구} 중 기재 
+    ' {영수, 청구, 없음} 중 기재 
     newTaxinvoice.purposeType = "영수"
     
-    ' [필수] 과세형태,  {과세, 영세, 면세} 중 기재 
+    ' 과세형태, {과세, 영세, 면세} 중 기재 
     newTaxinvoice.taxType = "과세"
     
     
@@ -45,20 +46,20 @@
     '                       공급자 정보
     '**************************************************************
 
-    '[필수] 공급자 사업자번호, '-' 제외 10자리
+    ' 공급자 사업자번호, '-' 제외 10자리
     newTaxinvoice.invoicerCorpNum = "1234567890"
 
-    '[필수] 공급자 종사업자 식별번호. 필요시 숫자 4자리 기재
+    ' 공급자 종사업자 식별번호. 필요시 숫자 4자리 기재
     newTaxinvoice.invoicerTaxRegID = ""	
 
-    '[필수] 공급자 상호
+    ' 공급자 상호
     newTaxinvoice.invoicerCorpName = "공급자 상호"
 
-    '[필수] 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
-    '사업자 별로 중복되지 않도록 구성
+    ' 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
+    ' 사업자 별로 중복되지 않도록 구성
     newTaxinvoice.invoicerMgtKey = "20211201-023"
 
-    '[필수] 공급자 대표자 성명
+    ' 공급자 대표자 성명
     newTaxinvoice.invoicerCEOName = "공급자 대표자 성명"
     
     ' 공급자 주소
@@ -74,66 +75,71 @@
     newTaxinvoice.invoicerContactName = "공급자 담당자명"
     
     ' 공급자 담당자 메일주소 
-    newTaxinvoice.invoicerEmail = "test@test.com"
+    newTaxinvoice.invoicerEmail = ""
     
     ' 공급자 담당자 연락처 
-    newTaxinvoice.invoicerTEL = "070-7070-0707"
+    newTaxinvoice.invoicerTEL = ""
     
     ' 공급자 담당자 휴대폰번호
-    newTaxinvoice.invoicerHP = "010-000-2222"
+    newTaxinvoice.invoicerHP = ""
 
-    '정발행시 공급받는자에게 발행안내문자 전송여부
-    '- 안내문자 전송기능 이용시 포인트가 차감됩니다.	
+    ' 발행 안내 문자 전송여부 (true / false 중 택 1)
+    ' └ true = 전송 , false = 미전송
+    ' └ 공급받는자 (주)담당자 휴대폰번호 {invoiceeHP1} 값으로 문자 전송
+    ' - 전송 시 포인트 차감되며, 전송실패시 환불처리
     newTaxinvoice.invoicerSMSSendYN = False
-    
+
 
 
     '**************************************************************
     '                        공급받는자 정보
     '**************************************************************
 
-    '[필수] 공급받는자 구분, [사업자, 개인, 외국인] 중 기재
+    ' 공급받는자 구분, [사업자, 개인, 외국인] 중 기재
     newTaxinvoice.invoiceeType = "사업자"
 
-    '[필수] 공급받는자 사업자번호, '-' 제외 10자리
+    ' 공급받는자 사업자번호
+    ' - {invoiceeType}이 "사업자" 인 경우, 사업자번호 (하이픈 ('-') 제외 10자리)
+    ' - {invoiceeType}이 "개인" 인 경우, 주민등록번호 (하이픈 ('-') 제외 13자리)
+    ' - {invoiceeType}이 "외국인" 인 경우, "9999999999999" (하이픈 ('-') 제외 13자리)
     newTaxinvoice.invoiceeCorpNum = "8888888888"
 
-    '[필수] 공급받는자 종사업자 식별번호. 필요시 숫자 4자리 기재	
+    ' 공급받는자 종사업자 식별번호. 필요시 숫자 4자리 기재	
     newTaxinvoice.invoiceeTaxRegID = ""
     
-    '[필수] 공급자받는자 상호
+    ' 공급자받는자 상호
     newTaxinvoice.invoiceeCorpName = "공급받는자 상호"
 
-    '[역발행시 필수] 공급받는자 문서번호(역발행시 필수)
+    ' [역발행시 필수] 공급받는자 문서번호(역발행시 필수)
     newTaxinvoice.invoiceeMgtKey = ""
 
-    '[필수] 공급받는자 대표자 성명
+    ' 공급받는자 대표자 성명
     newTaxinvoice.invoiceeCEOName = "공급받는자 대표자 성명"
     
-    '공급받는자 주소
+    ' 공급받는자 주소
     newTaxinvoice.invoiceeAddr = "공급받는자 주소"
     
-    '공급받는자 종목
+    ' 공급받는자 종목
     newTaxinvoice.invoiceeBizClass = "공급받는자 종목"
     
-    '공급받는자 업태
+    ' 공급받는자 업태
     newTaxinvoice.invoiceeBizType = "공급받는자 업태"
     
-    '공급받는자 담당자명
+    ' 공급받는자 담당자명
     newTaxinvoice.invoiceeContactName1 = "공급받는자 담당자명"
     
-    '공급받는자 담당자 메일주소
-    '팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
-    '실제 거래처의 메일주소가 기재되지 않도록 주의
-    newTaxinvoice.invoiceeEmail1 = "test@invoicee.com"
+    ' 공급받는자 담당자 메일주소
+    ' 팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
+    ' 실제 거래처의 메일주소가 기재되지 않도록 주의
+    newTaxinvoice.invoiceeEmail1 = ""
     
-    '공급받는자 연락처
-    newTaxinvoice.invoiceeTEL1 = "070-111-222"
+    ' 공급받는자 연락처
+    newTaxinvoice.invoiceeTEL1 = ""
     
-    '공급받는자 휴대폰번호
-    newTaxinvoice.invoiceeHP1 = "010-111-222"
+    ' 공급받는자 휴대폰번호
+    newTaxinvoice.invoiceeHP1 = ""
 
-    '역발행시 공급자에게 발행안내문자 전송여부
+    ' 역발행시 공급자에게 발행안내문자 전송여부
     newTaxinvoice.invoiceeSMSSendYN = False
 
 
@@ -142,46 +148,53 @@
     '                        세금계산서 정보
     '**************************************************************
 
-    '[필수] 공급가액 합계
+    ' 공급가액 합계
     newTaxinvoice.supplyCostTotal = "100000"
 
-    '[필수] 세액 합계
+    ' 세액 합계
     newTaxinvoice.taxTotal = "10000"
 
-    '[필수] 합계금액, 공급가액 합계 + 세액합계
+    ' 합계금액, 공급가액 합계 + 세액합계
     newTaxinvoice.totalAmount = "110000"             
     
-    '기재 상 '일련번호' 항목
+    ' 기재 상 '일련번호' 항목
     newTaxinvoice.serialNum = "123"
 
-    '기재 상 '권' 항목, 최대값 32767
+    ' 기재 상 '권' 항목, 최대값 32767
     newTaxinvoice.kwon = "1"
 
-    '기재 상 '호' 항목, 최대값 32767
+    ' 기재 상 '호' 항목, 최대값 32767
     newTaxinvoice.ho = "1"
 
-    '기재 상 '현금' 항목
+    ' 기재 상 '현금' 항목
     newTaxinvoice.cash = ""
     
-    '기재 상 '수표' 항목
+    ' 기재 상 '수표' 항목
     newTaxinvoice.chkBill = ""
 
-    '기재 상 '어음' 항목
+    ' 기재 상 '어음' 항목
     newTaxinvoice.note = ""
     
-    '기재 상 '외상미수금' 항목
+    ' 기재 상 '외상미수금' 항목
     newTaxinvoice.credit = ""
 
-    '기재 상 '비고'항목
+    ' 비고
+    ' {invoiceeType}이 "외국인" 이면 remark1 필수
+    ' - 외국인 등록번호 또는 여권번호 입력
     newTaxinvoice.remark1 = "비고1"
     newTaxinvoice.remark2 = "비고2"
     newTaxinvoice.remark3 = "비고3"
 
-    '사업자등록증 이미지 첨부여부
+    ' 사업자등록증 이미지 첨부여부  (true / false 중 택 1)
+    ' └ true = 첨부 , false = 미첨부(기본값)
+    ' - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
     newTaxinvoice.businessLicenseYN = False 
 
-    ' 통장사본 이미지 첨부여부
-    newTaxinvoice.bankBookYN = False         
+    ' 통장사본 이미지 첨부여부  (true / false 중 택 1)
+    ' └ true = 첨부 , false = 미첨부(기본값)
+    ' - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
+    newTaxinvoice.bankBookYN = False    
+
   
     
     
@@ -238,13 +251,13 @@
     set newContact = New Contact
     newContact.serialNum = 1
     newContact.contactName = "담당자1 성명"
-    newContact.email = "test1@test.com"   
+    newContact.email = ""   
     newTaxinvoice.AddContact newContact
 
     set newContact = New Contact
     newContact.serialNum = 2
     newContact.contactName = "담당자2 성명"
-    newContact.email = "test2@test.com"
+    newContact.email = ""
     newTaxinvoice.AddContact newContact
 
 

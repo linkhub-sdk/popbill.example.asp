@@ -7,44 +7,44 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' [동보전송] XMS(단문/장문 자동인식)를 전송합니다.
-    ' - 메시지 내용의 길이(90byte)에 따라 SMS/LMS(단문/장문)를 자동인식하여 전송합니다.
-    ' - 90byte 초과시 LMS(장문)으로 인식 합니다.
+    ' 메시지 크기(90byte)에 따라 단문/장문(SMS/LMS)을 자동으로 인식하여 1건의 메시지를 전송을 팝빌에 접수하며, 모든 수신자에게 동일 내용을 전송합니다. (최대 1,000건)
+    ' - 단문(SMS) = 90byte 이하의 메시지, 장문(LMS) = 2000byte 이하의 메시지.
     ' - https://docs.popbill.com/message/asp/api#SendXMS
     '**************************************************************
 
-    '팝빌 회원 사업자번호, "-" 제외
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"		
 
-    '팝빌 회원 아이디
+    ' 팝빌회원 아이디
     userID = "testkorea"					
 
-    '광고문자 전송여부
+    ' 광고성 메시지 여부 ( true , false 중 택 1)
+    ' └ true = 광고 , false = 일반
     adsYN = False							
 
-    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+    ' 예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
     reserveDT = ""
 
-    '발신번호
-    senderNum = "07043042991"
+    ' 발신번호
+    senderNum = ""
 
-    '메시지 제목
+    ' 메시지 제목
     subject = "문자전송 제목"
 
-    '메시지 내용, 90byte 기준으로 단/장문 메시지가 자동인식되어 전송
+    ' 메시지 내용, 90byte 기준으로 단/장문 메시지가 자동인식되어 전송
     content = "문자전송 내용, 90Byte초과시 LMS(장문) 메시지로 전송됨" 
 
 
-    '수신정보 배열, 최대 1000건	
+    ' 수신정보 배열, 최대 1000건	
     Set msgList = CreateObject("Scripting.Dictionary")
     
     For i =0 To 49
         Set message = New Messages
 
-        '수신번호
+        ' 수신번호
         message.receiver = "000111222"
 
-        '수신자명
+        ' 수신자명
         message.receivername = " 수신자이름"+CStr(i)
 
         msgList.Add i, message
@@ -53,17 +53,18 @@
     For i =50 To 99
         Set message = New Messages
 
-        '수신번호
+        ' 수신번호
         message.receiver = "000111222"
 
-        '수신자명
+        ' 수신자명
         message.receivername = " 수신자이름"+CStr(i)
 
         msgList.Add i, message
     Next
     
-    '전송요청번호 (팝빌 회원별 비중복 번호 할당)
-    '영문,숫자,'-','_' 조합, 최대 36자
+    ' 전송요청번호
+    ' 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
+    ' 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
     requestNum = ""	
 
     On Error Resume Next

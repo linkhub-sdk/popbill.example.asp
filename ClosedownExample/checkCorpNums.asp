@@ -7,14 +7,14 @@
     <!--#include file="common.asp"--> 
     <%
         '**************************************************************
-        ' 다수의 사업자에 대한 휴폐업여부를 조회합니다. (최대 1000건)
+        ' 다수건의 사업자번호에 대한 휴폐업정보를 확인합니다. (최대 1,000건)
         ' - https://docs.popbill.com/closedown/asp/api#CheckCorpNums
         '**************************************************************
 
-        '팝빌회원 사업자번호
+        ' 팝빌회원 사업자번호
         UserCorpNum = "1234567890"		
 
-        '조회할 사업자번호 배열, 최대 1000건
+        ' 조회할 사업자번호 배열, 최대 1000건
         Dim CorpNumList(3)
         CorpNumList(0) = "1234567890"
         CorpNumList(1) = "6798700433"
@@ -50,12 +50,12 @@
                     <fieldset class="fieldset2">
                         <legend>휴폐업정보 [<%=i+1 %>]</legend>
                         <ul>
-                                <li>사업자번호(corpNum) : <%= result.Item(i).corpNum%></li>		
-                                <li>휴폐업상태(state) : <%= result.Item(i).state%></li>
-                                <li>사업자유형(taxType) : <%= result.Item(i).taxType%></li>	
-                                <li>휴폐업일자(stateDate) : <%= result.Item(i).stateDate%></li>	
-                                <li>과세유형 전환일자(typeDate) : <%= result.Item(i).typeDate%></li>	
-                                <li>국세청 확일일자(checkDate) : <%= result.Item(i).checkDate%></li>	
+                                <li>사업자번호 (corpNum) : <%= result.Item(i).corpNum%></li>		
+                                <li>휴폐업상태 (state) : <%= result.Item(i).state%></li>
+                                <li>사업자유형 (taxType) : <%= result.Item(i).taxType%></li>	
+                                <li>휴폐업일자 (stateDate) : <%= result.Item(i).stateDate%></li>	
+                                <li>과세유형 전환일자 (typeDate) : <%= result.Item(i).typeDate%></li>	
+                                <li>국세청 확인일자 (checkDate) : <%= result.Item(i).checkDate%></li>	
                         </ul>
                     </fieldset>
             <%

@@ -7,22 +7,22 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 팩스전송요청시 할당한 전송요청번호(requestNum)으로 전송결과를 확인합니다
-    ' - https://docs.popbill.com/fax/asp/api#GetFaxDetailRN
+    ' 팝빌에서 반환 받은 접수번호를 통해 팩스 전송상태 및 결과를 확인합니다.
+    ' - https://docs.popbill.com/fax/asp/api#GetFaxDetail
     '**************************************************************
     
-    '팝빌 회원 사업자번호, "-" 제외
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"		
 
-    '팝빌 회원 아이디
+    ' 팝빌회원 아이디
     userID = "testkorea"					
 
-    '팩스전송 요청시 할당한 전송요청번호
-    requestNum = "20211224_TEST001" 
+    ' 팩스 전송시 발급받은 접수번호(receiptNum)
+    receiptNum = "021122409581300002" 
  
     On Error Resume Next
 
-    Set result = m_FaxService.GetFaxDetailRN(testCorpNum, requestNum, userID)
+    Set result = m_FaxService.GetFaxDetail(testCorpNum, receiptNum, userID)
     
     If Err.Number <> 0 Then
         code = Err.Number
@@ -68,7 +68,6 @@
                                 <li>requestNum (요청번호) : <%=result.Item(i).requestNum%> </li>
                                 <li>chargePageCnt (과금 페이지수) : <%=result.Item(i).chargePageCnt%> </li>
                                 <li>tiffFileSize (변환파일용량 (단위 : byte)) : <%=result.Item(i).tiffFileSize%> </li>							
-                            </ul>
                             </ul>
                         </fieldset>
                 <%	

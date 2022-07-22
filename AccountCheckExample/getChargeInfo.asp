@@ -11,13 +11,13 @@
     ' - https://docs.popbill.com/accountcheck/asp/api#GetChargeInfo
     '**************************************************************
 
-    '팝빌회원 사업자번호, "-" 제외
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"		
 
-    '팝빌회원 아이디
+    ' 팝빌회원 아이디
     UserID = "testkorea"
-
-    '서비스 유형, 성명 / 실명 중 택 1
+    
+    ' 서비스 유형 ("성명" / "실명" 중 택 1 , 성명 = 예금주성명조회, 실명 = 예금주실명조회)
     serviceType = ""
     
     On Error Resume Next

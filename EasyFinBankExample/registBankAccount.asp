@@ -1,4 +1,4 @@
-<html xmlns="http:'www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 계좌조회 서비스를 이용할 은행계좌를 등록합니다.
+    ' 계좌조회 서비스를 이용할 계좌를 팝빌에 등록합니다.
     ' - https://docs.popbill.com/easyfinbank/asp/api#GetBankAccountInfo
     '**************************************************************
 
@@ -20,24 +20,24 @@
     ' 계좌정보 객체 생성
     Set infoObj = New EasyFinBankAccountForm
     
-    ' [필수] 기관코드
+    ' 기관코드
     ' 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
     ' SC은행-0023 / 대구은행-0031 / 부산은행-0032 / 광주은행-0034 / 제주은행-0035 / 전북은행-0037
     ' 경남은행-0039 / 새마을금고-0045 / 신협은행-0048 / 우체국-0071 / KEB하나은행-0081 / 신한은행-0088 /씨티은행-0027
     infoObj.BankCode = ""
 
-    ' [필수] 계좌번호 하이픈('-') 제외
+    ' 계좌번호 하이픈('-') 제외
     infoObj.AccountNumber = ""
 
-    ' [필수] 계좌비밀번호
+    ' 계좌비밀번호
     infoObj.AccountPWD = ""
 
-    ' [필수] 계좌유형, "법인" 또는 "개인" 입력
+    ' 계좌유형, "법인" 또는 "개인" 입력
     infoObj.AccountType = ""
 
-    ' [필수] 예금주 식별정보 (‘-‘ 제외)
-    ' 계좌유형이 “법인”인 경우 : 사업자번호(10자리)
-    ' 계좌유형이 “개인”인 경우 : 예금주 생년월일 (6자리-YYMMDD)
+    ' 예금주 식별정보 (‘-‘ 제외)
+    ' 계좌유형이 "법인"인 경우 : 사업자번호(10자리)
+    ' 계좌유형이 "개인"인 경우 : 예금주 생년월일 (6자리-YYMMDD)
     infoObj.IdentityNumber = ""
 
     ' 계좌 별칭

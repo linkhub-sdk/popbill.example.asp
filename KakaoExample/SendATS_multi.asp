@@ -7,21 +7,25 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' [대량전송] 알림톡 전송을 요청합니다.
+    ' 승인된 템플릿의 내용을 작성하여 다수건의 알림톡 전송을 팝빌에 접수하며, 수신자 별로 개별 내용을 전송합니다. (최대 1,000건)
     ' - 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
+    ' - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
     ' - https://docs.popbill.com/kakao/asp/api#SendATS
     '**************************************************************
 
-    '팝빌 회원 사업자번호, "-" 제외
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"		
 
-    '팝빌 회원 아이디
+    ' 팝빌회원 아이디
     testUserID = "testkorea"					
 
-    '알림톡 템플릿 코드 - 템플릿 목록 조회 (ListATSTemplate API)의 반환항목 확인
+    ' 승인된 알림톡 템플릿코드
+    ' └ 알림톡 템플릿 관리 팝업 URL(GetATSTemplateMgtURL API) 함수, 알림톡 템플릿 목록 확인(ListATStemplate API) 함수를 호출하거나
+    '   팝빌사이트에서 승인된 알림톡 템플릿 코드를  확인 가능.
     templateCode = "019020000163"
 
-    '알림톡 내용, 최대 1000자
+    ' 알림톡 내용, 최대 1000자
+    ' 사전에 승인받은 템플릿 내용과 다를 경우 전송실패 처리
     content = "[ 팝빌 ]" & vbCrLf
     content = content + "신청하신 #{템플릿코드}에 대한 심사가 완료되어 승인 처리되었습니다." & vbCrLf
     content = content + "해당 템플릿으로 전송 가능합니다." & vbCrLf & vbCrLf
@@ -29,18 +33,19 @@
     content = content + "팝빌 파트너센터 : 1600-8536" & vbCrLf
     content = content + "support@linkhub.co.kr"
 
-    '팝빌에 사전 등록된 발신번호
-    senderNum = "01068444508"
+    ' 팝빌에 사전 등록된 발신번호
+    senderNum = ""
 
-    '대체문자 전송유형 공백-미전송, A-대체문자내용 전송, C-알림톡내용 전송
+    ' 대체문자 유형 (null , "C" , "A" 중 택 1)
+    ' null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
     altSendType = "C"
 
-    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+    ' 예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
     reserveDT = ""
 
     Set receiverList = CreateObject("Scripting.Dictionary")
 
-    '수신정보 배열, 최대 1000건
+    ' 수신정보 배열, 최대 1000건
     For i =0 To 9
         Set rcvInfo = New KakaoReceiver
 
@@ -78,15 +83,16 @@
         receiverList.Add i, rcvInfo
     Next 
     
-    '전송요청번호 (팝빌 회원별 비중복 번호 할당)
-    '영문,숫자,'-','_' 조합, 최대 36자
+    ' 전송요청번호
+    ' 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
+    ' 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
     requestNum = ""		
 
     ' 알림톡 버튼정보를 템플릿 신청시 기재한 버튼정보와 동일하게 전송하거나,
     ' 수신자별 개별 버튼 사용하는 경우 btnList를 선언만 하고 함수호출.
     Set btnList = CreateObject("Scripting.Dictionary")
     
-    '알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
+    ' 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
     'Set btnInfo = New KakaoButton
     'btnInfo.n = "템플릿 안내"			
     'btnInfo.t = "WL"		

@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 1건의 세금계산서 상세항목을 확인합니다.
+    ' 세금계산서 1건의 상세정보를 확인합니다.
     ' - https://docs.popbill.com/taxinvoice/asp/api#GetDetailInfo
     '**************************************************************
     
@@ -44,10 +44,14 @@
                 %>
                 <ul>
                     <li>ntsconfirmNum (국세청 승인번호) : <%=taxInfo.ntsconfirmNum%></li>
-                    <li>writeDate (작성일자) : <%=taxInfo.writeDate%></li>
-                    <li>chargeDirection (과금방향) : <%=taxInfo.chargeDirection%></li>
                     <li>issueType (발행형태) : <%=taxInfo.issueType%></li>
                     <li>taxType (과세형태) : <%=taxInfo.taxType%></li>
+                    <li>chargeDirection (과금방향) : <%=taxInfo.chargeDirection%></li>
+                    <li>serialNum (일련번호) : <%=taxInfo.serialNum%></li>
+                    <li>kwon (권) : <%=taxInfo.kwon%></li>
+                    <li>ho (호) : <%=taxInfo.ho%></li>
+                    <li>writeDate (작성일자) : <%=taxInfo.writeDate%></li>
+                    <li>purposeType (영수/청구) : <%=taxInfo.purposeType%></li>
                     <li>supplyCostTotal (공급가액 합계) : <%=taxInfo.supplyCostTotal%></li>
                     <li>taxTotal (세액 합계) : <%=taxInfo.taxTotal%></li>
                     <li>totalAmount (합계금액) : <%=taxInfo.totalAmount%></li>
@@ -59,32 +63,38 @@
                     <li>remark2 (비고2) : <%=taxInfo.remark2%></li>
                     <li>remark3 (비고3) : <%=taxInfo.remark3%></li>
 
-                    <li>invoicerCorpNum (공급자 사업자번호) : <%=taxInfo.invoicerCorpNum%> </li>
                     <li>invoicerMgtKey (공급자 문서번호) : <%=taxInfo.invoicerMgtKey%></li>
+                    <li>invoicerCorpNum (공급자 사업자번호) : <%=taxInfo.invoicerCorpNum%> </li>
                     <li>invoicerTaxRegID (공급자 종사업장 식별번호) : <%=taxInfo.invoicerTaxRegID%></li>
                     <li>invoicerCorpName (공급자 상호) : <%=taxInfo.invoicerCorpName%></li>
                     <li>invoicerCEOName (공급자 대표자명) : <%=taxInfo.invoicerCEOName%></li>
                     <li>invoicerAddr (공급자 주소) : <%=taxInfo.invoicerAddr%></li>
-                    <li>invoicerBizClass (공급자 종목) : <%=taxInfo.invoicerBizClass%></li>
                     <li>invoicerBizType (공급자 업태) : <%=taxInfo.invoicerBizType%></li>
+                    <li>invoicerBizClass (공급자 종목) : <%=taxInfo.invoicerBizClass%></li>
                     <li>invoicerContactName (공급자 담당자명) : <%=taxInfo.invoicerContactName%></li>
+                    <li>invoicerDeptName (공급자 담당자 부서명) : <%=taxInfo.invoicerDeptName%></li>
                     <li>invoicerTEL (공급자 연락처) : <%=taxInfo.invoicerTEL%></li>
                     <li>invoicerHP (공급자 휴대폰번호) : <%=taxInfo.invoicerHP%></li>
                     <li>invoicerEmail (공급자 메일) : <%=taxInfo.invoicerEmail%></li>
                     <li>invoicerSMSSendYN (알림문자 전송여부) : <%=taxInfo.invoicerSMSSendYN%></li>
 
+                    <li>invoiceeMgtKey (공급받는자 문서번호) : <%=taxInfo.invoiceeMgtKey%></li>
                     <li>invoiceeType (공급받는자 구분) : <%=taxInfo.invoiceeType%></li>
                     <li>invoiceeCorpNum (공급받는자 사업자번호) : <%=taxInfo.invoiceeCorpNum%></li>
-                    <li>invoiceeMgtKey (공급받는자 문서번호) : <%=taxInfo.invoiceeMgtKey%></li>
                     <li>invoiceeTaxRegID (공급받는자 종사업장 식별번호) : <%=taxInfo.invoiceeTaxRegID%></li>
                     <li>invoiceeCorpName (공급받는자 상호) : <%=taxInfo.invoiceeCorpName%></li>
                     <li>invoiceeCEOName (공급받는자 대표자명) : <%=taxInfo.invoiceeCEOName%></li>
                     <li>invoiceeAddr (공급받는자 주소) : <%=taxInfo.invoiceeAddr%></li>
-                    <li>invoiceeBizClass (공급받는자 종목) : <%=taxInfo.invoiceeBizClass%></li>
                     <li>invoiceeBizType (공급받는자 업태) : <%=taxInfo.invoiceeBizType%></li>
-                    <li>invoiceeContactName1 (공급받는자 담당자명) : <%=taxInfo.invoiceeContactName1%></li>
+                    <li>invoiceeBizClass (공급받는자 종목) : <%=taxInfo.invoiceeBizClass%></li>
                     <li>closeDownState (공급받는자 휴폐업상태) : <%=taxInfo.closeDownState%></li>
                     <li>closeDownStateDate (공급받는자 휴폐업일자) : <%=taxInfo.closeDownStateDate%></li>
+                    <li>invoiceeContactName1 (공급받는자 담당자명) : <%=taxInfo.invoiceeContactName1%></li>
+                    <li>invoiceeDeptName1 (공급받는자 부서명) : <%=taxInfo.invoiceeDeptName1%></li>
+                    <li>invoiceeTEL1 (공급받는자 담당자 연락처) : <%=taxInfo.invoiceeTEL1%></li>
+                    <li>invoiceeHP1 (공급받는자 담당자 휴대폰) : <%=taxInfo.invoiceeHP1%></li>
+                    <li>invoiceeEmail1 (공급받는자 담당자 이메일) : <%=taxInfo.invoiceeEmail1%></li>
+                    <li>invoiceeSMSSendYN (역발행안내문자 전송여부) : <%=taxInfo.invoiceeSMSSendYN%></li>
 
                     <%
                         For i=0 To UBound(taxInfo.detailList)-1

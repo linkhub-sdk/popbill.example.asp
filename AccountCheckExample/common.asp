@@ -5,7 +5,7 @@
     ' 팝빌 예금주조회 API ASP SDK Example
     '
     ' ASP SDK 연동환경 설정방법 안내 : https://docs.popbill.com/accountcheck/tutorial/asp
-    ' - 업데이트 일자 : 2021-12-29
+    ' - 업데이트 일자 : 2022-07-20
     ' - 연동 기술지원 연락처 : 1600-9854
     ' - 연동 기술지원 이메일 : code@linkhubcorp.com
     '
@@ -24,15 +24,15 @@
 
     m_AccountCheckService.Initialize LinkID, SecretKey
 
-    '연동환경 설정값, Ture-사용, False-미사용
+    ' 연동환경 설정값, True-개발용, false-상업용
     m_AccountCheckService.IsTest = True
 
-    '인증토큰 IP제한기능 사용여부, Ture-사용, False-미사용, 기본값(True)
+    ' 인증토큰 발급 IP 제한 On/Off, True-사용, false-미사용, 기본값(True)
     m_AccountCheckService.IPRestrictOnOff = True
 
-    '팝빌 API 서비스 고정 IP 사용여부, Ture-사용, False-미사용, 기본값(False)
+    ' 팝빌 API 서비스 고정 IP 사용여부, True-사용, false-미사용, 기본값(false)
     m_AccountCheckService.UseStaticIP = False
     
-    '로컬시스템 시간 사용여부 Ture-사용, False-미사용, 기본값(True)
+    ' 로컬시스템 시간 사용여부 Ture-사용, False-미사용, 기본값(True)
     m_AccountCheckService.UseLocalTimeYN = True
 %>

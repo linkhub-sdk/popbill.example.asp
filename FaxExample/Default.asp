@@ -31,8 +31,8 @@
     <fieldset class="fieldset1">
         <legend>정보확인</legend>
         <ul>
-            <li><a href="getFaxResult.asp">getFaxResult</a> - 전송내역 및 전송상태 확인</li>
-            <li><a href="getFaxResultRN.asp">getFaxResultRN</a> - 전송내역 및 전송상태 확인 (요청번호 할당)</li>
+            <li><a href="getFaxDetail.asp">getFaxDetail</a> - 전송내역 및 전송상태 확인</li>
+            <li><a href="getFaxDetailRN.asp">getFaxDetailRN</a> - 전송내역 및 전송상태 확인 (요청번호 할당)</li>
             <li><a href="search.asp">search</a> - 전송내역 목록 조회</li>
             <li><a href="getSentListURL.asp">getSentListURL</a> - 팩스 전송내역 팝업 URL</li>
             <li><a href="getPreviewURL.asp">getPreviewURL</a> - 팩스 미리보기 팝업 URL</li>

@@ -7,15 +7,15 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 수집 요청한 작업 목록을 확인합니다.
-    ' - 수집 요청 작업아이디(JobID)의 유효시간은 1시간 입니다.
+    ' 수집 요청(RequestJob API) 함수를 통해 반환 받은 작업아이디의 목록을 확인합니다.
+    ' - 수집 요청 후 1시간이 경과한 수집 요청건은 상태정보가 반환되지 않습니다.
     ' - https://docs.popbill.com/easyfinbank/asp/api#ListActiveJob
     '**************************************************************
 
-    ''팝빌회원 사업자번호, "-" 제외
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    '팝빌회원 아이디
+    ' 팝빌회원 아이디
     UserID = "testkorea"
     
     On Error Resume Next
@@ -44,6 +44,7 @@
                                 <legend>ListActiveJob [ <%=i+1%> / <%=result.Count%> ] </legend>
                                     <ul>
                                         <li> jobID (작업아이디) : <%=result.Item(i).jobID%></li>
+                                        <li> jobState (수집상태) : <%=result.Item(i).jobState%></li>
                                         <li> startDate (시작일자) : <%=result.Item(i).startDate%></li>
                                         <li> endDate (종료일자) : <%=result.Item(i).endDate%></li>
                                         <li> errorCode (오류코드) : <%=result.Item(i).errorCode%></li>

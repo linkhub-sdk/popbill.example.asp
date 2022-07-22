@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 팝빌 연동회원 가입을 요청합니다.
+    ' 사용자를 연동회원으로 가입처리합니다.
     ' - https://docs.popbill.com/kakao/asp/api#JoinMember
     '**************************************************************
 
@@ -44,13 +44,10 @@
     joinInfo.ContactName = "담당자명"    
 
     '담당자연락처
-    joinInfo.ContactTEL = "02-999-9999"   
-
-    '담당자 휴대폰번호
-    joinInfo.ContactHP = "010-1234-5678"	
+    joinInfo.ContactTEL = " "
 
     '담당자 이메일
-    joinInfo.ContactEmail = "test@test.com" '
+    joinInfo.ContactEmail = ""
 
 
     On Error Resume Next

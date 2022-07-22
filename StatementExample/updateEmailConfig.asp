@@ -18,16 +18,16 @@
     ' SMT_CANCEL_ISSUE : 공급받는자에게 전자명세서가 발행취소 되었음을 알려주는 메일입니다.
     '**************************************************************
     
-    '팝빌회원 사업자번호, "-" 제외
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"	 
 
-    '팝빌회원 아이디
+    ' 팝빌회원 아이디
     userID = "testkorea"		 
 
-    '메일 전송 유형
+    ' 메일 전송 유형
     emailType = "SMT_ISSUE"
 
-    '전송 여부 (true = 전송, false = 미전송)
+    ' 전송 여부 (true = 전송, false = 미전송)
     sendYN = true
 
     On Error Resume Next

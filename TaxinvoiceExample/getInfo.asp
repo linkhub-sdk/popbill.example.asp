@@ -7,7 +7,9 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    '1건의 세금계산서 상태/요약 정보를 확인합니다.
+    ' 세금계산서 1건의 상태 및 요약정보를 확인합니다.
+    ' - 리턴값 'TaxinvoiceInfo'의 변수 'stateCode'를 통해 세금계산서의 상태코드를 확인합니다.
+    ' - 세금계산서 상태코드 [https://docs.popbill.com/taxinvoice/stateCode?lang=asp]
     ' - https://docs.popbill.com/taxinvoice/asp/api#GetInfo
     '**************************************************************
 
@@ -46,41 +48,39 @@
                 %>
                     <ul>
                         <li> itemKey (세금계산서 아이템키) :  <%=result.itemKey%> </li>
-                        <li> stateCode (상태코드) :  <%=result.stateCode%> </li>
                         <li> taxType (과세형태) :  <%=result.taxType%> </li>
-                        <li> purposeType (영수/청구) :  <%=result.purposeType%> </li>
-                        <li> modifyCode (수정사유코드) : <%=result.modifyCode%></li> 
-                        <li> issueType (발행형태) :  <%=result.issueType %> </li>
                         <li> writeDate (작성일자) :  <%=result.writeDate%> </li>
-
+                        <li> regDT (임시저장 일자) :  <%=result.regDT%> </li>
+                        <li> issueType (발행형태) :  <%=result.issueType %> </li>
+                        <li> supplyCostTotal (공급가액 합계) :  <%=result.supplyCostTotal%> </li>
+                        <li> taxTotal (세액 합계) :  <%=result.taxTotal%> </li>
+                        <li> purposeType (영수/청구) :  <%=result.purposeType%> </li>
+                        <li> issueDT (발행일시) :  <%=result.issueDT%> </li>
+                        <li> lateIssueYN (지연발행 여부) :  <%=result.lateIssueYN%> </li>
+                        <li> preIssueDT (발행예정일시) :  <%=result.preIssueDT%> </li>
+                        <li> openYN (개봉 여부) :  <%=result.openYN%> </li>
+                        <li> openDT (개봉일시) :  <%=result.openDT%> </li>
+                        <li> stateMemo (상태메모) :  <%=result.stateMemo%> </li>
+                        <li> stateCode (상태코드) :  <%=result.stateCode%> </li>
+                        <li> stateDT (상태 변경일시) :  <%=result.stateDT%> </li>
+                        <li> ntsconfirmNum (국세청 승인번호) :  <%=result.ntsconfirmNum %> </li>
+                        <li> ntsresult (국세청 전송결과) :  <%=result.ntsresult%> </li>
+                        <li> ntssendDT (국세청 전송일시) :  <%=result.ntssendDT%> </li>
+                        <li> ntsresultDT  (국세청 결과 수신일시) :  <%=result.ntsresultDT%> </li>
+                        <li> ntssendErrCode (전송실패 사유코드) :  <%=result.ntssendErrCode%> </li>
+                        <li> modifyCode (수정사유코드) : <%=result.modifyCode%></li> 
+                        <li> interOPYN (연동문서여부) :  <%=result.interOPYN%> </li>
                         <li> invoicerCorpName (공급자 상호) :  <%=result.invoicerCorpName%> </li>
                         <li> invoicerCorpNum (공급자 사업자번호) :  <%=result.invoicerCorpNum%> </li>
                         <li> invoicerMgtKey (공급자 문서번호) :  <%=result.invoicerMgtKey%> </li>
                         <li> invoicerPrintYN (공급자 인쇄여부) :  <%=result.invoicerPrintYN%> </li>
-
                         <li> invoiceeCorpName (공급받는자 상호) :  <%=result.invoiceeCorpName%> </li>
                         <li> invoiceeCorpNum (공급받는자 사업자번호) :  <%=result.invoiceeCorpNum%> </li>
                         <li> invoiceeMgtKey (공급받는자 문서번호) :  <%=result.invoiceeMgtKey%> </li>
                         <li> invoiceePrintYN (공급받는자 인쇄여부) :  <%=result.invoiceePrintYN%> </li>
                         <li> closeDownState (공급받는자 휴폐업상태) :  <%=result.closeDownState%> </li>
                         <li> closeDownStateDate (공급받는자 휴폐업일자) :  <%=result.closeDownStateDate%> </li>
-                        <li> interOPYN (연동문서여부) :  <%=result.interOPYN%> </li>
                         
-                        <li> supplyCostTotal (공급가액 합계) :  <%=result.supplyCostTotal%> </li>
-                        <li> taxTotal (세액 합계) :  <%=result.taxTotal%> </li>
-                        <li> issueDT (발행일시) :  <%=result.issueDT%> </li>
-
-                        <li> stateDT (상태 변경일시) :  <%=result.stateDT%> </li>
-                        <li> openYN (개봉 여부) :  <%=result.openYN%> </li>
-                        <li> openDT (개봉 일시) :  <%=result.openDT%> </li>
-                        <li> ntsresult (국세청 전송결과) :  <%=result.ntsresult%> </li>
-                        <li> ntsconfirmNum (국세청 승인번호) :  <%=result.ntsconfirmNum %> </li>
-                        <li> ntssendDT (국세청 전송일시) :  <%=result.ntssendDT%> </li>
-                        <li> ntsresultDT  (국세청 결과 수신일시) :  <%=result.ntsresultDT%> </li>
-                        <li> ntssendErrCode (전송실패 사유코드) :  <%=result.ntssendErrCode%> </li>
-                        <li> stateMemo (상태메모) :  <%=result.stateMemo%> </li>
-                        <li> regDT (임시저장 일자) :  <%=result.regDT%> </li>
-                        <li> lateIssueYN (지연발행 여부) :  <%=result.lateIssueYN%> </li>
                     </ul>	
                     <%	
                         Else

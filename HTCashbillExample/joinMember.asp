@@ -7,54 +7,48 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 팝빌 연동회원 가입을 요청합니다.
+    ' 사용자를 연동회원으로 가입처리합니다.
     ' - https://docs.popbill.com/htcashbill/asp/api#JoinMember
     '**************************************************************
 
     ' 회원정보 객체 생성
     Set joinInfo = New JoinForm
 
-    '링크아이디 
+    ' 링크아이디 
     joinInfo.LinkID = "TESTER"		   
 
-    '사업자번호, "-"제외 10자리
+    ' 사업자번호, "-"제외 10자리
     joinInfo.CorpNum = "1234567890"    
 
-    '대표자성명
+    ' 대표자성명
     joinInfo.CEOName = "대표자성명"	
     
-    '상호명
+    ' 상호명
     joinInfo.CorpName =  "상호"	
     
-    '주소
+    ' 주소
     joinInfo.Addr =   "주소"		   
 
-    '업태
+    ' 업태
     joinInfo.BizType =  "업태"		   
 
-    '종목
+    ' 종목
     joinInfo.BizClass = "종목"
 
-    '아이디 (6자 이상 20자 미만)
+    ' 아이디 (6자 이상 20자 미만)
     joinInfo.ID =  "userid"
 
-    '비밀번호 (8자 이상 20자 이하) 영문, 숫자 ,특수문자 조합
+    ' 비밀번호 (8자 이상 20자 이하) 영문, 숫자 ,특수문자 조합
     joinInfo.Password =  "asdf1234!@#$"
 
-    '담당자명
+    ' 담당자명
     joinInfo.ContactName = "담당자명"    
 
-    '담당자연락처
-    joinInfo.ContactTEL = "02-999-9999"   
+    ' 담당자연락처
+    joinInfo.ContactTEL = ""	
 
-    '담당자 휴대폰번호
-    joinInfo.ContactHP = "010-1234-5678"	
-
-    '팩스번호
-    joinInfo.ContactFAX = "02-999-9999"		
-
-    '담당자 이메일
-    joinInfo.ContactEmail = "test@test.com" '
+    ' 담당자 이메일
+    joinInfo.ContactEmail = ""
 
     On Error Resume Next
 

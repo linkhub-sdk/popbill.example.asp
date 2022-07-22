@@ -21,19 +21,19 @@
     ' 회사정보 객체 생성
     Set infoObj = New CorpInfo
     
-    '대표자명
+    ' 대표자명
     infoObj.ceoname = "링크허브 대표자"
 
-    '상호
+    ' 상호
     infoObj.corpName = "링크허브"
 
-    '주소
+    ' 주소
     infoObj.addr	= "주소수정"
 
-    '업태
+    ' 업태
     infoObj.bizType = "업태정보"
     
-    '종목
+    ' 종목
     infoObj.bizClass = "종목"
     
     On Error Resume Next

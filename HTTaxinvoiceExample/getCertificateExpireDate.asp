@@ -7,14 +7,14 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 등록된 홈택스 공인인증서의 만료일자를 확인합니다.
+    ' 팝빌에 등록된 인증서 만료일자를 확인합니다.
     ' - https://docs.popbill.com/httaxinvoice/asp/api#GetCertificateExpireDate
     '**************************************************************
     
-    '팝빌회원 사업자번호, "-" 제외
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"		
 
-    '팝빌회원 아이디 
+    ' 팝빌회원 아이디 
     UserID = "testkorea"					
 
     On Error Resume Next

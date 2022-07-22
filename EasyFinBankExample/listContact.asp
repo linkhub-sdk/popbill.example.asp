@@ -7,14 +7,14 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 연동회원의 담당자 목록을 확인합니다.
+    ' 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 목록을 확인합니다.
     ' - https://docs.popbill.com/easyfinbank/asp/api#ListContact
     '**************************************************************
 
-    '팝빌회원 사업자번호, "-" 제외
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"	
     
-    '팝빌회원 아이디
+    ' 팝빌회원 아이디
     UserID = "testkorea"				
     
     On Error Resume Next
@@ -42,8 +42,6 @@
                                         <li> id(아이디) : <%=result.Item(i).id%></li>
                                         <li> personName(담당자 성명) : <%=result.Item(i).personName%></li>
                                         <li> email(담당자 이메일) : <%=result.Item(i).email%></li>
-                                        <li> hp(담당자 휴대폰번호) : <%=result.Item(i).hp%></li>
-                                        <li> fax(담당자 팩스번호) : <%=result.Item(i).fax%></li>
                                         <li> tel(담당자 연락처) : <%=result.Item(i).tel%></li>
                                         <li> regDT(등록일시) : <%=result.Item(i).regDT%></li>
                                         <li> searchRole(담당자 조회권한) : <%=result.Item(i).searchRole%></li>

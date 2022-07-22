@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 대용량 연계사업자 메일주소 목록을 반환합니다.
+    ' 전자세금계산서 유통사업자의 메일 목록을 확인합니다.
     ' - https://docs.popbill.com/taxinvoice/asp/api#GetEmailPublicKeys
     '**************************************************************
 
@@ -33,7 +33,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>대용량 연계사업자 이메일 목록 확인 </legend>
+                <legend>유통사업자 이메일 목록 확인 </legend>
                 <ul>
                 <%
                     For i=0 To Presponse.length -1

@@ -17,10 +17,10 @@
         UserID = "testkorea"
         
         '기관코드
-        BankCode = "0004"
+        BankCode = ""
 
         '계좌번호
-        AccountNumber = "0358020432314"
+        AccountNumber = ""
 
         On Error Resume Next
             Set result = m_AccountCheckService.checkAccountInfo(CorpNum, BankCode, AccountNumber, UserID)

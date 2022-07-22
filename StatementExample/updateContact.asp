@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 연동회원의 담당자 정보를 수정합니다.
+    ' 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 정보를 수정합니다.
     ' - https://docs.popbill.com/statement/asp/api#UpdateContact
     '**************************************************************
 
@@ -17,27 +17,20 @@
     ' 팝빌회원 아이디 
     UserID = "testkorea"				 
 
-
-    '담당자 정보 객체 생성
+    ' 담당자 정보 객체 생성
     Set contInfo = New ContactInfo
 
     ' 담당자 아이디 
     contInfo.id = UserID
         
-    '담당자명
+    ' 담당자명
     contInfo.personName = "담당자명"
 
-    '연락처
-    contInfo.tel = "070-4304-2991"
+    ' 연락처
+    contInfo.tel = ""
 
-    '휴대폰번호
-    contInfo.hp = "010-1234-1234"
-
-    '메일주소
-    contInfo.email = "dev@linkhub.co.kr"
-
-    '팩스번호
-    contInfo.fax = "070-111-222"
+    ' 메일주소
+    contInfo.email = ""
 
     ' 담당자 조회권한 1 - 개인권한 / 2 - 읽기권한  / 3 - 회사권한
     contInfo.searchRole = 3

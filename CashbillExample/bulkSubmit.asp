@@ -27,81 +27,80 @@
 
         CashbillObj.mgtKey = SubmitID + CStr(i)
 
-        '문서형태, [승인거래, 취소거래] 중 기재
+        ' 문서형태, [승인거래, 취소거래] 중 기재
         CashbillObj.tradeType = "승인거래"
 
-        '[취소거래시 필수] 원본 현금영수증 국세청승인번호
+        ' [취소거래시 필수] 원본 현금영수증 국세청승인번호
         CashbillObj.orgConfirmNum = ""
 
-        '[취소거래시 필수] 원본 현금영수증 거래일자
+        ' [취소거래시 필수] 원본 현금영수증 거래일자
         CashbillObj.orgTradeDate = ""
 
-        '거래구분, [소득공제용, 지출증빙용] 중 기재
+        ' 거래구분, [소득공제용, 지출증빙용] 중 기재
         CashbillObj.tradeUsage = "소득공제용"
 
-        '거래유형, [일반, 도서공연, 대중교통] 중 기재
+        ' 거래유형, [일반, 도서공연, 대중교통] 중 기재
+        ' 미입력시 기본값 '일반' 처리
         CashbillObj.tradeOpt = "일반"
 
-        '과세형태, [과세, 비과세] 중 기재
+        ' 과세형태, [과세, 비과세] 중 기재
         CashbillObj.taxationType = "과세"
 
-        '공급가액
+        ' 공급가액
         CashbillObj.supplyCost = "10000"
 
-        '부가세
+        ' 부가세
         CashbillObj.tax = "1000"
 
-        '봉사료
+        ' 봉사료
         CashbillObj.serviceFee = "0"
 
-        '합계금액, 공급가액 + 봉사료 + 세액
+        ' 합계금액, 공급가액 + 봉사료 + 세액
         CashbillObj.totalAmount = "11000"
 
-        '가맹점 사업자번호, "-" 제외 10자리
+        ' 가맹점 사업자번호, "-" 제외 10자리
         CashbillObj.franchiseCorpNum = testCorpNum
 
-        '가맹점 종사업장 식별번호
+        ' 가맹점 종사업장 식별번호
         CashbillObj.franchiseTaxRegID = ""
 
-        '가맹점 상호
+        ' 가맹점 상호
         CashbillObj.franchiseCorpName = "가맹점 상호"
 
-        '가맹점 대표자 성명
+        ' 가맹점 대표자 성명
         CashbillObj.franchiseCEOName = "가맹점 대표자"
 
-        '가맹점 주소
+        ' 가맹점 주소
         CashbillObj.franchiseAddr = "가맹점 주소"
 
-        '가맹점 전화번호
+        ' 가맹점 전화번호
         CashbillObj.franchiseTEL = "070-1234-1234"
 
-        '거래처 식별번호, 거래유형에 따라 작성
-        '소득공제용 - 주민등록/휴대폰/카드번호 기재가능
-        '지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능
+        ' 식별번호, 거래구분에 따라 작성
+        ' └ 소득공제용 - 주민등록/휴대폰/카드번호(현금영수증 카드)/자진발급용 번호(010-000-1234) 기재가능
+        ' └ 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호(현금영수증 카드) 기재가능
+        ' └ 주민등록번호 13자리, 휴대폰번호 10~11자리, 카드번호 13~19자리, 사업자번호 10자리 입력 가능
         CashbillObj.identityNum = "0101112222"
 
-        '주문고객명
+        ' 주문고객명
         CashbillObj.customerName = "고객명"
 
-        '주문상품명
+        ' 주문상품명
         CashbillObj.itemName = "상품명"
 
-        '주문번호
+        ' 주문번호
         CashbillObj.orderNumber = "주문번호"
 
-        '이메일
-        '팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
-        '실제 거래처의 메일주소가 기재되지 않도록 주의
-        CashbillObj.email = "test@test.com"
+        ' 이메일
+        ' 팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
+        ' 실제 거래처의 메일주소가 기재되지 않도록 주의
+        CashbillObj.email = ""
 
-        '휴대폰
-        CashbillObj.hp = "111-1234-1234"
+        ' 휴대폰
+        CashbillObj.hp = ""
 
-        '팩스
-        CashbillObj.fax = "777-444-3333"
-
-        '발행안내문자 전송여부
-        '안내문자 전송시 포인트가 차감되며, 전송실패시 환불처리됩니다.
+        ' 발행안내문자 전송여부
+        ' 안내문자 전송시 포인트가 차감되며, 전송실패시 환불처리됩니다.
         CashbillObj.smssendYN = False
         
         Set cashbillList(i) =  CashbillObj

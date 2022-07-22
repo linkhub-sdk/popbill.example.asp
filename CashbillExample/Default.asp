@@ -15,9 +15,6 @@
             <li><a href="registIssue.asp">registIssue</a> -즉시발행</li>
             <li><a href="bulkSubmit.asp">bulkSubmit</a> -  초대량 발행 접수</li>
             <li><a href="getBulkResult.asp">getBulkResult</a> -  초대량 접수 결과 확인</li>
-            <li><a href="register.asp">register</a> -임시저장</li>
-            <li><a href="update.asp">update</a> -수정</li>
-            <li><a href="issue.asp">issue</a> -발행</li>
             <li><a href="cancelIssue.asp">cancelIssue</a> -발행취소</li>
             <li><a href="delete.asp">delete</a> -삭제</li>
         </ul>
@@ -27,8 +24,6 @@
         <ul>
             <li><a href="revokeRegistIssue.asp">revokeRegistIssue</a> -즉시발행</li>
             <li><a href="revokeRegistIssue_part.asp">revokeRegistIssue_part</a> -부분) 즉시발행</li>
-            <li><a href="revokeRegister.asp">revokeRegister</a> -임시저장</li>
-            <li><a href="revokeRegister_part.asp">revokeRegister_part</a> -부분) 임시저장</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
@@ -60,9 +55,9 @@
             <li><a href="sendEmail.asp">sendEmail</a> -메일 전송</li>
             <li><a href="sendSMS.asp">sendSMS</a> -문자 전송</li>
             <li><a href="sendFAX.asp">sendFAX</a> -팩스 전송</li>
+            <li><a href="assignMgtKey.asp">assignMgtKey</a> -현금영수증 문서번호 할당</li>
             <li><a href="listEmailConfig.asp">listEmailConfig</a> -현금영수증 알림메일 전송목록 조회</li>
             <li><a href="updateEmailConfig.asp">updateEmailConfig</a> -현금영수증 알림메일 전송설정 수정</li>
-            <li><a href="assignMgtKey.asp">assignMgtKey</a> -현금영수증 문서번호 할당</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

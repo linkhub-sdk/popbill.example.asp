@@ -8,43 +8,46 @@
 <%
 
     '**************************************************************
-    ' 팩스를 전송합니다.
+    ' 동일한 팩스파일을 다수의 수신자에게 전송하기 위해 팝빌에 접수합니다. (최대 전송파일 개수 : 20개) (최대 1,000건)
     ' - https://docs.popbill.com/fax/asp/api#SendFAX
     '**************************************************************
 
-    '팝빌 회원 사업자번호, "-" 제외
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"		
 
-    '팝빌 회원 아이디
+    ' 팝빌회원 아이디
     userID = "testkorea"			
 
-    '발신자 번호
-    sendNum = "07043042991"			
+    ' 발신번호
+    sendNum = ""			
 
-    '전송예약시간 yyyyMMddHHmmss, reserveDT값이 null 경우 즉시전송
+    ' 전송예약시간 yyyyMMddHHmmss, reserveDT값이 null 경우 즉시전송
     reserveDT = ""
     
-    '수신정보 배열 최대 1000건
+    ' 수신정보 배열 최대 1000건
     Dim receivers(1)
     Set receivers(0) = New FaxReceiver
-    receivers(0).receiverNum = "010111222"
+    receivers(0).receiverNum = ""
     receivers(0).receiverName = "수신자 명칭"
 
     Set receivers(1) = New FaxReceiver
-    receivers(1).receiverNum = "000111222"
+    receivers(1).receiverNum = ""
     receivers(1).receiverName = "수신자 명칭"
     
-    '팩스전송할 파일 (최대 20개)
+    ' 팩스전송할 파일 (최대 20개)
     FilePaths = Array("C:\popbill.example.asp\대한민국헌법.doc","C:\popbill.example.asp\test.jpg")
     
-    '광고팩스 전송여부
+    ' 광고팩스 전송여부 , true / false 중 택 1
+    ' └ true = 광고 , false = 일반
+    ' └ 미입력 시 기본값 false 처리
     adsYN = False
 
-    '팩스제목
+    ' 팩스제목
     title = "팩스 동보전송 제목"
 
-    '전송요청번호 (팝빌 회원별 비중복 번호 할당)
-    '영문,숫자,'-','_' 조합, 최대 36자
+    ' 전송요청번호
+    ' 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+    ' 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
     requestNum = ""		
 
     On Error Resume Next

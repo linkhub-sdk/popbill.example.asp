@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 카카오톡 채널 계정 목록을 확인합니다.
+    ' 팝빌에 등록한 연동회원의 카카오톡 채널 목록을 확인합니다.
     ' - https://docs.popbill.com/kakao/asp/api#ListPlusFriendID
     '**************************************************************
 
@@ -37,9 +37,9 @@
                 %>
                 <fieldset class="fieldset2">
                 <ul>
-                    <li>카카오톡 채널 아이디 (plusFriendID) : <%=Presponse.Get(i).plusFriendID%> </li>
-                    <li>카카오톡 채널 이름(plusFriendName) : <%=Presponse.Get(i).plusFriendName%> </li>
-                    <li>등록일시(regDT) : <%=Presponse.Get(i).regDT%> </li>
+                    <li>카카오톡 검색용 아이디 (plusFriendID) : <%=Presponse.Get(i).plusFriendID%> </li>
+                    <li>카카오톡 채널 이름 (plusFriendName) : <%=Presponse.Get(i).plusFriendName%> </li>
+                    <li>등록일시 (regDT) : <%=Presponse.Get(i).regDT%> </li>
                 </ul>
                 </fieldset>
                 <%

@@ -7,14 +7,14 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 담당자 정보를 확인합니다.
+    ' 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 정보를 확인합니다.
     ' - https://docs.popbill.com/closedown/asp/api#GetContactInfo
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"	 
 
-    '확인할 담당자 아이디
+    ' 확인할 담당자 아이디
     contactID = "testID"
 
     ' 팝빌회원 아이디
@@ -43,8 +43,6 @@
                         <li> id(아이디) : <%=conInfo.id%></li>
                         <li> personName(담당자 성명) : <%=conInfo.personName%></li>
                         <li> email(담당자 이메일) : <%=conInfo.email%></li>
-                        <li> hp(담당자 휴대폰번호) : <%=conInfo.hp%></li>
-                        <li> fax(담당자 팩스번호) : <%=conInfo.fax%></li>
                         <li> tel(담당자 연락처) : <%=conInfo.tel%></li>
                         <li> regDT(등록일시) : <%=conInfo.regDT%></li>
                         <li> SearchRole(담당자 조회권한) : <%=conInfo.SearchRole%></li>

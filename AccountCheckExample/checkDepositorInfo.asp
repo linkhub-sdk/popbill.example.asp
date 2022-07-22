@@ -17,10 +17,10 @@
         UserID = "testkorea"
         
         '기관코드
-        BankCode = "0004"
+        BankCode = ""
 
         '계좌번호
-        AccountNumber = "035821302044"
+        AccountNumber = ""
         
         ' 등록번호 유형 ( P / B 중 택 1 ,  P = 개인, B = 사업자)
         identityNumType = ""

@@ -7,7 +7,7 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 정액제 서비스 상태를 확인합니다.
+    ' 계좌조회 정액제 서비스 상태를 확인합니다.
     ' - https://docs.popbill.com/easyfinbank/asp/api#GetFlatRateState
     '**************************************************************
     
@@ -15,10 +15,10 @@
     testCorpNum = "1234567890"		
 
     '기관코드
-    BankCode = "0048"
+    BankCode = ""
 
     '계좌번호
-    AccountNumber = "131020538645"		
+    AccountNumber = ""		
     
     ' 팝빌회원 아이디
     UserID = "testkorea"					

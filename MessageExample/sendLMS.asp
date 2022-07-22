@@ -7,50 +7,51 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' LMS(장문)를 전송합니다.
-    ' - 메시지 내용이 2,000Byte 초과시 메시지 내용은 자동으로 제거됩니다.
+    ' 최대 2,000byte의 장문(LMS) 메시지 1건 전송을 팝빌에 접수합니다.
     ' - https://docs.popbill.com/message/asp/api#SendLMS
     '**************************************************************
 
-    '팝빌 회원 사업자번호, "-" 제외
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"		
 
-    '팝빌 회원 아이디
+    ' 팝빌회원 아이디
     userID = "testkorea"					
 
-    '광고문자 전송여부
+    ' 광고성 메시지 여부 ( true , false 중 택 1)
+    ' └ true = 광고 , false = 일반
     adsYN = False							
 
-    '예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
-'	reserveDT = "20150128200000"    
+    ' 예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
+	'reserveDT = "20150128200000"    
 
     Set msgList = CreateObject("Scripting.Dictionary")
     
-    '문자전송정보
+    ' 문자전송정보
     Set message = New Messages
     
-    '발신번호
+    ' 발신번호
     message.sender = "07043042991"
 
-    '발신자명
+    ' 발신자명
     message.senderName = "발신자명"
 
-    '수신번호
-    message.receiver = "010111222"
+    ' 수신번호
+    message.receiver = "01042847884"
 
-    '수신자명
+    ' 수신자명
     message.receivername = " 수신자이름"
 
-    '메시지내용, 2000byte초과시 길이가 조정되어 전송됨
-    message.content = "발신 내용. 장문은 2000Byte로 길이가 조정되어 전송됩니다. This is Message 메시지 테스트중"
+    ' 메시지내용, 2000byte초과시 길이가 조정되어 전송됨
+    message.content = "발신 내용. 장문"
 
-    '메시지제목
-    message.subject = "장문 제목입니다"
+    ' 메시지제목
+    message.subject = ""
 
     msgList.Add 0, message
 
-    '전송요청번호 (팝빌 회원별 비중복 번호 할당)
-    '영문,숫자,'-','_' 조합, 최대 36자
+    ' 전송요청번호
+    ' 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
+    ' 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
     requestNum = ""		
     
     On Error Resume Next

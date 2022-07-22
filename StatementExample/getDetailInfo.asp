@@ -7,20 +7,20 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 전자명세서 1건의 상세정보를 조회합니다.
+    ' 전자명세서 1건의 상세정보 확인합니다.
     ' - https://docs.popbill.com/statement/asp/api#GetDetailInfo
     '**************************************************************
 
-    '팝빌 회원 사업자번호, "-"제외 10자리
+    ' 팝빌회원 사업자번호, "-"제외 10자리
     testCorpNum = "1234567890"
 
-    '팝빌 회원 아이디
+    ' 팝빌회원 아이디
     userID = "testkorea"
 
-    '명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
+    ' 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
     itemCode = "121"					
 
-    '문서번호
+    ' 문서번호
     mgtKey = "20211201-023"				
 
     On Error Resume Next
@@ -43,12 +43,20 @@
                 <legend>전자명세서 상세정보</legend>
                 <ul>
                     <% If code = 0 Then %>
-                         <li> itemCode(문서종류코드) : <%=result.itemCode%> </li>
-                        <li> mgtKey(관리번호) : <%=result.mgtKey%> </li>
-                        <li> invoiceNum(팝빌부여 문서고유번호) : <%=result.invoiceNum%> </li>
+                        <li> itemCode(명세서 코드) : <%=result.itemCode%> </li>
+                        <li> mgtKey(문서번호) : <%=result.mgtKey%> </li>
+                        <li> invoiceNum(팝빌 승인번호) : <%=result.invoiceNum%> </li>
                         <li> formCode(맞춤양식 코드) : <%=result.formCode%> </li>
                         <li> writeDate(작성일자) : <%=result.writeDate%> </li>
-                        <li> taxType(세금형태) : <%=result.taxType %> </li>
+                        <li> taxType(과세형태) : <%=result.taxType %> </li>
+                        <li> purposeType(영수/청구) : <%=result.purposeType%> </li>
+                        <li> serialNum(기재상 일련번호) : <%=result.serialNum%> </li>
+                        <li> taxTotal(세액 합계) : <%=result.taxTotal%> </li>
+                        <li> supplyCostTotal(공급가액 합계) : <%=result.supplyCostTotal%> </li>
+                        <li> totalAmount(합계금액) : <%=result.totalAmount%> </li>
+                        <li> remark1(비고1) : <%=result.remark1%> </li>
+                        <li> remark2(비고2) : <%=result.remark2%> </li>
+                        <li> remark3(비고3) : <%=result.remark3%> </li>
                         <li> senderCorpNum(발신자 사업자번호) : <%=result.senderCorpNum%> </li>
                         <li> senderTaxRegID(발신자 종사업장번호) : <%=result.senderTaxRegID%> </li>
                         <li> senderCorpName(발신자 상호) : <%=result.senderCEOName%> </li>
@@ -71,14 +79,6 @@
                         <li> receiverTEL(수신자 연락처) : <%=result.receiverTEL%> </li>
                         <li> receiverHP(수신자 휴대폰번호) : <%=result.receiverHP%> </li>
                         <li> receiverEmail(수신자 메일주소) : <%=result.receiverEmail%> </li>
-                        <li> totalAmount(합계금액) : <%=result.totalAmount%> </li>
-                        <li> supplyCostTotal(공급가액 합계) : <%=result.supplyCostTotal%> </li>
-                        <li> taxTotal(세액 합계) : <%=result.taxTotal%> </li>
-                        <li> purposeType(영수/청구) : <%=result.purposeType%> </li>
-                        <li> serialNum(기재상 일련번호) : <%=result.serialNum%> </li>
-                        <li> remark1(비고1) : <%=result.remark1%> </li>
-                        <li> remark2(비고2) : <%=result.remark2%> </li>
-                        <li> remark3(비고3) : <%=result.remark3%> </li>
                         <li> businessLicenseYN(사업자등록증 첨부여부) : <%=result.businessLicenseYN%> </li>
                         <li> bankBookYN(통장사본 첨부여부) : <%=result.bankBookYN%> </li>
                         <li> smssendYN(알림문자 전송여부) : <%=result.smssendYN%> </li>

@@ -1,4 +1,3 @@
-
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
@@ -13,7 +12,7 @@
     ' - https://docs.popbill.com/fax/asp/api#Search
     '**************************************************************
 
-    '팝빌 회원 사업자번호, "-" 제외
+    '팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"		
 
     '시작일자, yyyyMMdd
@@ -22,17 +21,24 @@
     '종료일자, yyyyMMdd
     EDate = "20211230"					
     
-    ' 전송상태값 배열, 1-대기, 2-성공, 3-실패, 4-취소
+    ' 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
+    ' └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소
+    ' - 미입력 시 전체조회
     Dim State(4)
     State(0) = "1"
     State(1) = "2"
     State(2) = "3"
     State(3) = "4"
     
-    '예약전송 검색여부
+    ' 예약여부 (false , true 중 택 1)
+    ' false = 전체조회, true = 예약전송건 조회
+    ' 미입력시 기본값 false 처리
     ReserveYN = False
     
-    '개인조회 여부
+    ' 개인조회 여부 (false , true 중 택 1)
+    ' false = 접수한 팩스 전체 조회 (관리자권한)
+    ' true = 해당 담당자 계정으로 접수한 팩스만 조회 (개인권한)
+    ' 미입력시 기본값 false 처리
     SenderOnlyYN = False
 
     '정렬발향, A-오름차순, D-내림차순
@@ -44,9 +50,8 @@
     '페이지당 검색개수
     PerPage = 20
     
-    '조회 검색어.
-    '팩스 전송시 입력한 발신자명 또는 수신자명 기재.
-    '조회 검색어를 포함한 발신자명 또는 수신자명을 검색합니다.
+    ' 조회하고자 하는 발신자명 또는 수신자명
+    ' - 미입력시 전체조회
     QString = ""
 
     On Error Resume Next

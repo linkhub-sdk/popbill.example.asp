@@ -7,12 +7,11 @@
 <!--#include file="common.asp"--> 
 <%
     '**************************************************************
-    ' 해당 사업자의 파트너 연동회원 가입여부를 확인합니다.
-    ' - LinkID는 인증정보로 설정되어 있는 링크아이디 값입니다.
+    ' 사업자번호를 조회하여 연동회원 가입여부를 확인합니다.
     ' - https://docs.popbill.com/message/asp/api#CheckIsMember
     '**************************************************************
 
-    '사업자번호 ("-"제외)
+    ' 사업자번호 ("-"제외)
     testCorpNum = "1234567890"		
         
     On Error Resume Next
@@ -36,7 +35,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>연동회원사 가입여부 확인</legend>
+                <legend>연동회원 가입여부 확인</legend>
                 <ul>
                     <li>Response.code : <%=code%></li>
                     <li>Response.message : <%=message%></li>
