@@ -160,9 +160,18 @@ Public Function ListPlusFriendID(CorpNum)
     Set ListPlusFriendID = m_PopbillBase.httpGET("/KakaoTalk/ListPlusFriendID", m_PopbillBase.getSession_token(CorpNum), "")
 End Function
 
-' 발신번호 목록 확인
+'발신번호 목록 확인
 Public Function GetSenderNumberList(CorpNum)
     Set GetSenderNumberList = m_PopbillBase.httpGET("/Message/SenderNumber", m_PopbillBase.getSession_token(CorpNum), "")
+End Function
+
+'발신번호 등록여부 확인
+Public Function CheckSenderNumber(CorpNum, SenderNumber, UserID)
+    If SenderNumber = "" Or IsNull(SenderNumber) Then 
+        Err.Raise -99999999, "POPBILL", "발신번호가 입력되지 않았습니다."
+    End If
+    
+    Set CheckSenderNumber = m_PopbillBase.httpGET("/KakaoTalk/CheckSenderNumber/"&SenderNumber,m_PopbillBase.getSession_token(CorpNum),UserID)
 End Function
 
 '단가확인

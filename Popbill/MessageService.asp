@@ -127,6 +127,14 @@ Public Function GetUnitCost(CorpNum, MType)
     GetUnitCost = result.unitCost
 End Function
 
+'발신번호 등록여부 확인
+Public Function CheckSenderNumber(CorpNum, SenderNumber, UserID)
+    If SenderNumber = "" Or IsNull(SenderNumber) Then 
+        Err.Raise -99999999, "POPBILL", "발신번호가 입력되지 않았습니다."
+    End If
+    
+    Set CheckSenderNumber = m_PopbillBase.httpGET("/Message/CheckSenderNumber/"&SenderNumber,m_PopbillBase.getSession_token(CorpNum),UserID)
+End Function
 
 '단문 메시지 전송 (requestNum)
 Public Function SendSMS(CorpNum, sender, Contents, Messages, reserveDT, adsYN, requestNum, UserID)
