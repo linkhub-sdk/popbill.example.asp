@@ -40,6 +40,8 @@
                     <li>카카오톡 검색용 아이디 (plusFriendID) : <%=Presponse.Get(i).plusFriendID%> </li>
                     <li>카카오톡 채널 이름 (plusFriendName) : <%=Presponse.Get(i).plusFriendName%> </li>
                     <li>등록일시 (regDT) : <%=Presponse.Get(i).regDT%> </li>
+                    <li>채널 상태 (state) : <%=Presponse.Get(i).state%> </li>
+                    <li>채널 상태 일시 (stateDT) : <%=Presponse.Get(i).stateDT%> </li>
                 </ul>
                 </fieldset>
                 <%
