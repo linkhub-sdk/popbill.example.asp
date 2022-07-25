@@ -82,6 +82,7 @@
             <li><a href="getTaxCertURL.asp">GetTaxCertURL</a> - 공인인증서 등록 URL</li>
             <li><a href="getCertificateExpireDate.asp">GetCertificateExpireDate</a> - 공인인증서 만료일 확인</li>
             <li><a href="checkCertValidation.asp">CheckCertValidation</a> - 공인인증서 유효성 확인</li>
+            <li><a href="getTaxCertInfo.asp">GetTaxCertInfo</a> - 공인인증서 정보 확인</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

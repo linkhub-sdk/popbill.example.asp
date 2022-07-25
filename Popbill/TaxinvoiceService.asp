@@ -1,4 +1,3 @@
-
 <%
 
 Const SELL = "SELL"
@@ -659,6 +658,17 @@ Public Function GetCertificateExpireDate(CorpNum)
     GetCertificateExpireDate = result.certificateExpiration
 End Function
 
+'공인인증서의 정보 확인
+Public Function GetTaxCertInfo(CorpNum)
+    Dim certificate : Set certificate = New TaxinvoiceCertificate
+        
+    Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/Certificate", m_PopbillBase.getSession_token(CorpNum), "")
+    
+    certificate.fromJsonInfo result
+    
+    Set GetTaxCertInfo = certificate
+End Function
+
 '대용량 연계사업자 이메일 목록 확인 
 Public Function GetEmailPublicKeys(CorpNum)
     Set GetEmailPublicKeys = m_PopbillBase.httpGET("/Taxinvoice/EmailPublicKeys", _
@@ -1317,6 +1327,30 @@ Public Sub fromJsonInfo(jsonInfo)
     ProcMemo = jsonInfo.ProcMemo
     regDT = jsonInfo.regDT
     Ip = jsonInfo.Ip
+    On Error GoTo 0
+End Sub
+End Class
+
+Class TaxinvoiceCertificate
+Public regDT
+Public expireDT
+Public issuerDN
+Public subjectDN
+Public issuerName
+Public oid
+Public regContactName
+Public regContactID
+
+Public Sub fromJsonInfo(jsonInfo)
+    On Error Resume Next
+    regDT = jsonInfo.regDT
+    expireDT = jsonInfo.expireDT
+    issuerDN = jsonInfo.issuerDN
+    subjectDN = jsonInfo.subjectDN
+    issuerName = jsonInfo.issuerName
+    oid = jsonInfo.oid
+    regContactName = jsonInfo.regContactName
+    regContactID = jsonInfo.regContactID
     On Error GoTo 0
 End Sub
 End Class
