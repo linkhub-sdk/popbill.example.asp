@@ -531,7 +531,7 @@ Public Function Search(CorpNum, DType, SDate, EDate, State, ItemCode, Order, Pag
         End If
     Next
 
-    uri = uri & "&QString=" & QString
+    uri = uri & "&QString=" & Server.URLEncode(QString)
     uri = uri & "&Order=" & Order
     uri = uri & "&Page=" & CStr(Page)
     uri = uri & "&PerPage=" & CStr(PerPage)

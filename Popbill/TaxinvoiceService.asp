@@ -766,12 +766,12 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
 
     uri = uri & "&TaxRegIDType=" & TaxRegIDType	
     uri = uri & "&TaxRegID=" & TaxRegID
-    uri = uri & "&QString=" & QString
+    uri = uri & "&QString=" & Server.URLEncode(QString)
 
     uri = uri & "&Order=" & Order
     uri = uri & "&Page=" & CStr(Page)
     uri = uri & "&PerPage=" & CStr(PerPage)
-    uri = uri & "&InterOPYN=" & InterOPYN	
+    uri = uri & "&InterOPYN=" & InterOPYN
 
     Dim searchResult : Set searchResult = New TISearchResult
     Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)

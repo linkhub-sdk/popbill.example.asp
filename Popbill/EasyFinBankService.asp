@@ -286,7 +286,7 @@ Class EasyFinBankSErvice
         Next
         
         If SearchString <> "" Then
-            uri = uri & "&SearchString=" & SearchString
+            uri = uri & "&SearchString=" & Server.URLEncode(SearchString)
         End If 
 
         uri = uri & "&Page=" & CStr(Page)
@@ -321,7 +321,7 @@ Class EasyFinBankSErvice
         Next
         
         If SearchString <> "" Then
-            uri = uri & "&SearchString=" & SearchString
+            uri = uri & "&SearchString=" & Server.URLEncode(SearchString)
         End If 
 
         Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -341,7 +341,7 @@ Class EasyFinBankSErvice
         Dim uri
         uri = "/EasyFin/Bank/SaveMemo"
         uri = uri + "?TID=" & TID
-        uri = uri + "&Memo=" & Memo
+        uri = uri + "&Memo=" & Server.URLEncode(Memo)
         Set SaveMemo = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
 
     End Function

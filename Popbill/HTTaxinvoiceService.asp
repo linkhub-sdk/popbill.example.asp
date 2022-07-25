@@ -212,7 +212,7 @@ Class HTTaxinvoiceService
         uri = uri & "&TaxRegID=" & TaxRegID
 
         If SearchString <> "" Then
-            uri = uri & "&SearchString=" & SearchString
+            uri = uri & "&SearchString=" & Server.URLEncode(SearchString)
         End If 
 
         uri = uri & "&Page=" & CStr(Page)
@@ -272,7 +272,7 @@ Class HTTaxinvoiceService
         uri = uri & "&TaxRegID=" & TaxRegID
 
         If SearchString <> "" Then
-            uri = uri & "&SearchString=" & SearchString
+            uri = uri & "&SearchString=" & Server.URLEncode(SearchString)
         End If 
 
         Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)

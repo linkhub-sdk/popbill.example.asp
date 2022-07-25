@@ -341,7 +341,7 @@ Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Or
     uri = uri & "&Order=" & Order
     uri = uri & "&Page=" & CStr(Page)
     uri = uri & "&PerPage=" & CStr(PerPage)
-    uri = uri & "&QString=" & QString
+    uri = uri & "&QString=" & Server.URLEncode(QString)
     
     Dim searchResult : Set searchResult = New FAXSearchResult
     Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
