@@ -645,6 +645,21 @@ Public Function GetDetailInfo(CorpNum , KeyType, MgtKey )
     Set GetDetailInfo = detailTmp
 End Function
 
+'상세정보 확인 (XML)
+Public Function GetXML(CorpNum , KeyType, MgtKey )
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+    End If
+    
+    Dim xmlTmp : Set xmlTmp = New TaxinvoiceXML
+        
+    Dim tmp : Set tmp = m_PopbillBase.httpGET("/Taxinvoice/" + KeyType + "/" + MgtKey + "?XML", _
+                                m_PopbillBase.getSession_token(CorpNum), "")
+
+    xmlTmp.fromJsonInfo tmp
+    Set GetXML = xmlTmp
+End Function
+
 '세금계산서 발행 단가 확인 
 Public Function GetUnitCost(CorpNum)
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice?cfg=UNITCOST", m_PopbillBase.getSession_token(CorpNum), "")
@@ -1392,6 +1407,21 @@ Public Sub fromJsonInfo(jsonInfo)
     supplyCost = jsonInfo.supplyCost
     tax = jsonInfo.tax
     remark = jsonInfo.remark
+    On Error GoTo 0
+End Sub
+End Class
+
+Class TaxinvoiceXML
+
+Public code
+Public message
+Public retObject
+
+Public Sub fromJsonInfo(jsonInfo)
+    On Error Resume Next
+    code = jsonInfo.code
+    message = jsonInfo.message
+    retObject = jsonInfo.retObject
     On Error GoTo 0
 End Sub
 End Class

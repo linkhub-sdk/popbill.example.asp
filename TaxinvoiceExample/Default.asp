@@ -38,6 +38,7 @@
             <li><a href="getInfo.asp">GetInfo</a> - 상태 확인</li>
             <li><a href="getInfos.asp">GetInfos</a> - 상태 대량 확인</li>
             <li><a href="getDetailInfo.asp">GetDetailInfo</a> - 상세정보 확인</li>
+            <li><a href="getXML.asp">getXML</a> - 상세정보 확인 (XML)</li>
             <li><a href="search.asp">Search</a> - 목록 조회</li>
             <li><a href="getLogs.asp">GetLogs</a> - 상태 변경이력 확인</li>
             <li><a href="getURL.asp">GetURL</a> - 세금계산서 문서함 관련 URL</li>
