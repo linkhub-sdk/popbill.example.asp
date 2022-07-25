@@ -18,7 +18,7 @@
     ' 팝빌회원 아이디
     userID = "testkorea"
 
-    ' TBOX(임시문서함), SBOX(매출문서함), PBOX(매입문서함)
+    ' TBOX(임시문서함), SBOX(매출문서함), PBOX(매입문서함), SWBOX(매출 발행 대기함), PWBOX(매입 발행 대기함)
     TOGO = "SBOX"
 
     On Error Resume Next
