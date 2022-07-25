@@ -231,7 +231,7 @@ Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
 End Function
 
 '알림톡 전송
-Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, requestNum, UserID, btnList)
+Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, requestNum, UserID, btnList, altSubject)
     If templateCode = "" Or IsNull(templateCode) Then 
         Err.Raise -99999999, "POPBILL", "알림톡 템플릿 코드(TemplateCode)가 입력되지 않았습니다"
     End If
@@ -245,6 +245,7 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
     If altSendType <> "" Then tmp.Set "altSendType", altSendType
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
     If requestNum <> "" Then tmp.Set "requestNum", requestNum
+    If altSubject <> "" Then tmp.Set "altSubject", altSubject
 
     Dim msgs : Set msgs = JSON.parse("[]")
 
@@ -276,7 +277,7 @@ End Function
 
 
 '친구톡 텍스트 전송
-Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, requestNum, UserID)
+Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, requestNum, UserID, altSubject)
 
     If plusFriendID = "" Or IsNull(plusFriendID) Then 
         Err.Raise -99999999, "POPBILL", "친구톡 플러스친구 아이디(plusFriendID)가 입력되지 않았습니다"
@@ -292,6 +293,7 @@ Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSend
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
     If adsYN Then tmp.Set "adsYN", adsYN
     If requestNum <> "" Then tmp.Set "requestNum", requestNum
+    If altSubject <> "" Then tmp.Set "altSubject", altSubject
 
     Dim msgs : Set msgs = JSON.parse("[]")
 
@@ -322,7 +324,7 @@ End Function
 
 
 '친구톡 이미지 전송
-Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, filePath, imageURL, requestNum, UserID)
+Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, filePath, imageURL, requestNum, UserID, altSubject)
 
     If plusFriendID = "" Or IsNull(plusFriendID) Then 
         Err.Raise -99999999, "POPBILL", "친구톡 플러스친구 아이디(plusFriendID)가 입력되지 않았습니다"
@@ -339,6 +341,7 @@ Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSend
     If imageURL <> "" Then tmp.Set "imageURL", imageURL
     If adsYN Then tmp.Set "adsYN", adsYN
     If requestNum <> "" Then tmp.Set "requestNum", requestNum
+    If altSubject <> "" Then tmp.Set "altSubject", altSubject
 
     Dim msgs : Set msgs = JSON.parse("[]")
 
@@ -469,6 +472,7 @@ Class KakaoSentDetail
     Public content
     Public result
     Public resultDT
+    Public altSubject
     Public altContent
     Public altContentType
     Public altSendDT
@@ -488,6 +492,7 @@ Class KakaoSentDetail
             content = detailInfo.content
             result = detailInfo.result
             resultDT = detailInfo.resultDT
+            altSubject = detailInfo.altSubject
             altContent = detailInfo.altContent
             altContentType = detailInfo.altContentType
             altSendDT = detailInfo.altSendDT
@@ -539,6 +544,7 @@ Class KakaoSentResult
     Public templateCode
     Public plusFriendID
     Public sendNum
+    Public altSubject
     Public altContent
     Public altSendType
     Public reserveDT
@@ -564,6 +570,7 @@ Class KakaoSentResult
             templateCode = detailInfo.templateCode
             plusFriendID = detailInfo.plusFriendID
             sendNum = detailInfo.sendNum
+            altSubject = detailInfo.altSubject
             altContent = detailInfo.altContent
             altSendType = detailInfo.altSendType
             reserveDT = detailInfo.reserveDT
@@ -598,6 +605,7 @@ Class KakaoReceiver
     Public rcv
     Public rcvnm
     Public msg
+    Public altsjt
     Public altmsg
     Public interOPRefKey
     Public btns()
@@ -612,6 +620,7 @@ Class KakaoReceiver
         If rcv <> "" Then toJsonInfo.Set "rcv", rcv
         If rcvnm <> "" Then toJsonInfo.Set "rcvnm", rcvnm
         If msg <> "" Then toJsonInfo.Set "msg", msg
+        If altsjt <> "" Then toJsonInfo.Set "altsjt", altsjt
         If altmsg <> "" Then toJsonInfo.Set "altmsg", altmsg
         If interOPRefKey <> "" Then toJsonInfo.Set "interOPRefKey", interOPRefKey
         IF Ubound(btns) >= -1 Then
@@ -632,6 +641,7 @@ Class KakaoReceiver
         rcv = msgList.rcv
         rcvnm = msgList.rcvnm
         msg = msgList.msg
+        altsjt = msgList.altsjt
         altmsg = msgList.altmsg
         interOPRefKey = msgList.interOPRefKey
 

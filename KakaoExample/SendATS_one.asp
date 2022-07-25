@@ -35,13 +35,17 @@
     content = content + "팝빌 파트너센터 : 1600-8536" & vbCrLf
     content = content + "support@linkhub.co.kr"
 
+    ' 대체문자 제목
+    ' - 메시지 길이(90byte)에 따라 장문(LMS)인 경우에만 적용.
+    altSubject = "대체문자 제목";
+
     ' 대체문자 유형(altSendType)이 "A"일 경우, 대체문자로 전송할 내용 (최대 2000byte)
     ' └ 팝빌이 메시지 길이에 따라 단문(90byte 이하) 또는 장문(90byte 초과)으로 전송처리
-    altContent = "대체문자 메시지 내용"
+    altContent = "대체문자 메시지 내용이 장문입니다. 내용이 90byte를 넘어서 LMS 로 전송될 예정입니다. 대체문자 제목이 반영되는지 확인 부탁드립니다."
 
     ' 대체문자 유형 (null , "C" , "A" 중 택 1)
     ' null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
-    altSendType = "C"
+    altSendType = "A"
 
     ' 예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
     reserveDT = ""
@@ -78,7 +82,7 @@
     On Error Resume Next
     
     receiptNum = m_KakaoService.SendATS(testCorpNum, templateCode, senderNum,  _
-        content, altContent, altSendType, reserveDT, receiverList, requestNum, testUserID, btnList)
+        content, altContent, altSendType, reserveDT, receiverList, requestNum, testUserID, btnList, altSubject)
 
     If Err.Number <> 0 then
         code = Err.Number

@@ -106,12 +106,15 @@
                                     <li>receiveNum (수신번호) : <%=resultObj.list(i).receiveNum%> </li>
                                     <li>receiveName (수신자명) : <%=resultObj.list(i).receiveName%> </li>
                                     <li>content (알림톡/친구톡 내용) : <%=resultObj.list(i).content%> </li>
+                                    <li>altSubject (대체문자 제목) : <%=resultObj.list(i).altSubject%></li>
+                                    <li>altContent (대체문자 내용) : <%=resultObj.list(i).altContent%></li>
                                     <li>altContentType (대체문자 전송타입) : <%=resultObj.list(i).altContentType%> </li>
                                     <li>altSendDT (대체문자 전송일시) : <%=resultObj.list(i).altSendDT%> </li>
                                     <li>altResult (대체문자 전송결과 코드) : <%=resultObj.list(i).altResult%> </li>
                                     <li>altResultDT (대체문자 전송결과 수신일시) : <%=resultObj.list(i).altResultDT%> </li>
                                     <li>receiptNum (접수번호) : <%=resultObj.list(i).receiptNum%> </li>
                                     <li>requestNum (요청번호) : <%=resultObj.list(i).requestNum%> </li>
+                                    <li>interOPRefKey (파트너 지정키) : <%=resultObj.list(i).interOPRefKey%> </li>
                                 </ul>
                             </fieldset>
                         <% 

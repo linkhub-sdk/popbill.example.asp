@@ -40,6 +40,12 @@
     ' null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
     altSendType = "C"
 
+    ' 대체문자 제목
+    ' - 메시지 길이(90byte)에 따라 장문(LMS)인 경우에만 적용.
+    ' - 수신정보 배열에 대체문자 제목이 입력되지 않은 경우 적용.
+    ' - 모든 수신자에게 다른 제목을 보낼 경우 68번 라인에 있는 altsjt 를 이용.
+    altSubject = "대체문자 제목"
+
     ' 예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
     reserveDT = ""
 
@@ -57,6 +63,9 @@
 
         '알림톡 내용, 최대 1000자
         rcvInfo.msg = content
+
+        '대체문자 메시지 제목
+        rcvInfo.altsjt = "대체문자 메시지 제목" +CStr(i)
         
         '대체문자 메시지 내용
         rcvInfo.altmsg = "대체문자 메시지 내용" +CStr(i)
@@ -102,7 +111,7 @@
 
     On Error Resume Next
     
-    receiptNum = m_KakaoService.SendATS(testCorpNum, templateCode, senderNum, "", "", altSendType, reserveDT, receiverList, requestNum, testUserID, btnList)
+    receiptNum = m_KakaoService.SendATS(testCorpNum, templateCode, senderNum, "", "", altSendType, reserveDT, receiverList, requestNum, testUserID, btnList, altSubject)
 
     If Err.Number <> 0 then
         code = Err.Number
