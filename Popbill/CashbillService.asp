@@ -1024,6 +1024,7 @@ End Class
 Class BulkCashbillissueResult
     Public mgtKey
     Public code
+    Public message
     Public confirmNum
     Public tradeDate
     
@@ -1031,6 +1032,7 @@ Class BulkCashbillissueResult
         On Error Resume Next
             mgtKey = jsonInfo.mgtKey
             code = jsonInfo.code
+            message = jsonInfo.message
             confirmNum = jsonInfo.confirmNum
             tradeDate = jsonInfo.tradeDate
         On Error GoTo 0 

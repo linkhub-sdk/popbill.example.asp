@@ -1674,6 +1674,7 @@ Class BulkTaxinvoiceissueResult
     Public invoicerMgtKey
     Public trusteeMgtKey
     Public code
+    Public message
     Public ntsconfirmNum
     Public issueDT
     
@@ -1682,6 +1683,7 @@ Class BulkTaxinvoiceissueResult
             invoicerMgtKey = jsonInfo.invoicerMgtKey
             trusteeMgtKey = jsonInfo.trusteeMgtKey
             code = jsonInfo.code
+            message = jsonInfo.message
             ntsconfirmNum = jsonInfo.ntsconfirmNum
             issueDT = jsonInfo.issueDT
         On Error GoTo 0 

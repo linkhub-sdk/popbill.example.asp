@@ -64,6 +64,7 @@
                         <ul>
                             <li> mgtKey (문서번호) : <%=result.issueResult(i).mgtKey %>
                             <li> code (응답코드) : <%=result.issueResult(i).code %>
+                            <li> message (응답메시지) : <%=result.issueResult(i).message %>
                             <li> confirmNum (국세청승인번호) : <%=result.issueResult(i).confirmNum %>
                             <li> tradeDate (거래일자) : <%=result.issueResult(i).tradeDate %>
                         </ul>

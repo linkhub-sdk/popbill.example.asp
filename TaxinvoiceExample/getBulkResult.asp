@@ -65,6 +65,7 @@
                             <li> invoicerMgtKey (공급자 문서번호) : <%=result.issueResult(i).invoicerMgtKey %>
                             <li> trusteeMgtKey (수탁자 문서번호	) : <%=result.issueResult(i).trusteeMgtKey %>
                             <li> code (응답코드) : <%=result.issueResult(i).code %>
+                            <li> message (응답메시지) : <%=result.issueResult(i).message %>
                             <li> ntsconfirmNum (국세청승인번호) : <%=result.issueResult(i).ntsconfirmNum %>
                             <li> issueDT (발행일시) : <%=result.issueResult(i).issueDT %>
                         </ul>
