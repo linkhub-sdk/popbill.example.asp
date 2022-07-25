@@ -28,7 +28,7 @@
     ' 문자전송정보 배열, 최대 1000건
     Set msgList = CreateObject("Scripting.Dictionary")
 
-    For i =0 To 99
+    For i =0 To 9
         Set message = New Messages
         ' 발신번호
         message.sender = "07043042991"
@@ -47,6 +47,9 @@
         
         ' 메시지 제목
         message.subject = "MMS 메시지 제목"
+
+        ' 파트너 지정키, 수신자 구별용 메모
+        message.interOPRefKey = "20220725-00"+CStr(i)
     
         msgList.Add i, message
     Next

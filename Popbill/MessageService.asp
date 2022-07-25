@@ -474,6 +474,7 @@ Class MessageInfo
     Public receiptDT
     Public requestNum
     Public receiptNum
+    Public interOPRefKey
 
     Public Sub fromJsonInfo(msgInfo)
         On Error Resume Next
@@ -494,6 +495,7 @@ Class MessageInfo
         receiptDT = msgInfo.receiptDT
         requestNum = msgInfo.requestNum
         receiptNum = msgInfo.receiptNum
+        interOPRefKey = msgInfo.interOPRefKey
         On Error GoTo 0
     End Sub
 End Class

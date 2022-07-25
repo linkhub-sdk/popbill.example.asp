@@ -114,6 +114,7 @@
                                 <li>tranNet (전송처리 이동통신사명) : <%=resultObj.list(i).tranNet%> </li>
                                 <li>receiptNum (접수번호) : <%=resultObj.list(i).receiptNum%> </li>
                                 <li>requestNum (요청번호) : <%=resultObj.list(i).requestNum%> </li>
+                                <li>interOPRefKey (파트너 지정키) : <%=result.Item(i).interOPRefKey%> </li>
                             </ul>
                         </fieldset>
 

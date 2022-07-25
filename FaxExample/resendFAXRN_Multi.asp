@@ -42,12 +42,20 @@
     ' 수신정보가 기존전송정보 다를 경우 아래 코드 참조	
     Dim receivers(1)
     Set receivers(0) = New FaxReceiver
+    ' 팩스 수신번호
     receivers(0).receiverNum = "010111222"
+    ' 팩스 수신자명
     receivers(0).receiverName = "수신자 명칭"
+    ' 파트너 지정키, 수신자 구별용 메모
+    receivers(0).interOPRefKey = "20220725-002"
 
     Set receivers(1) = New FaxReceiver
-    receivers(1).receiverNum = "000111222"
+    ' 팩스 수신번호
+    receivers(1).receiverNum = "010111222"
+    ' 팩스 수신자명
     receivers(1).receiverName = "수신자 명칭"
+    ' 파트너 지정키, 수신자 구별용 메모
+    receivers(1).interOPRefKey = "20220725-002"
     
 
     ' 재전송 팩스의 전송요청번호

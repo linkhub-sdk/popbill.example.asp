@@ -392,6 +392,7 @@ Public receiptDT
 Public fileNames
 Public requestNum
 Public receiptNum
+Public interOPRefKey
 Public chargePageCnt
 Public tiffFileSize
 
@@ -422,6 +423,7 @@ Public Sub fromJsonInfo(jsonInfo)
     fileNames = jsonInfo.fileNames
     requestNum = jsonInfo.requestNum
     receiptNum = jsonInfo.receiptNum
+    interOPRefKey = jsonInfo.interOPRefKey
     chargePageCnt = jsonInfo.chargePageCnt
     tiffFileSize = jsonInfo.tiffFileSize
 

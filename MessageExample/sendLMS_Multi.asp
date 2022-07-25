@@ -27,7 +27,7 @@
     
     Set msgList = CreateObject("Scripting.Dictionary")
     
-    For i = 0 To 99
+    For i = 0 To 9
 
         ' 문자전송정보, 최대 1000건
         Set message = New Messages
@@ -49,6 +49,9 @@
         
         ' 메시지내용, 최대 2000byte 초과시 길이가 조정되어 전송됨.
         message.content = "발신 내용. 장문은 2000Byte로 길이가 조정되어 전송됩니다. This is Message 메시지 테스트중"
+
+        ' 파트너 지정키, 수신자 구별용 메모
+        message.interOPRefKey = "20220725-00"+CStr(i)
 
         msgList.Add i, message
     

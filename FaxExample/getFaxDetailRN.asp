@@ -58,7 +58,6 @@
                                 <li>sendPageCnt (페이지수) : <%=result.Item(i).sendPageCnt%></li>
                                 <li>successPageCnt (성공 페이지수) : <%=result.Item(i).successPageCnt%></li>
                                 <li>failPageCnt (실패 페이지수) : <%=result.Item(i).failPageCnt%></li>
-                                <li>refundPageCnt (환불 페이지수) : <%=result.Item(i).refundPageCnt%></li>
                                 <li>cancelPageCnt (취소 페이지수) : <%=result.Item(i).cancelPageCnt%></li>
                                 <li>reserveDT (예약시간) : <%=result.Item(i).reserveDT%></li>
                                 <li>sendDT (발송시간) : <%=result.Item(i).sendDT%></li>
@@ -66,7 +65,9 @@
                                 <li>fileNames (전송파일명 배열) : <%=result.Item(i).fileNames%></li>
                                 <li>receiptNum (접수번호) : <%=result.Item(i).receiptNum%> </li>
                                 <li>requestNum (요청번호) : <%=result.Item(i).requestNum%> </li>
+                                <li>interOPRefKey (파트너 지정키) : <%=result.Item(i).interOPRefKey%> </li>
                                 <li>chargePageCnt (과금 페이지수) : <%=result.Item(i).chargePageCnt%> </li>
+                                <li>refundPageCnt (환불 페이지수) : <%=result.Item(i).refundPageCnt%></li>
                                 <li>tiffFileSize (변환파일용량 (단위 : byte)) : <%=result.Item(i).tiffFileSize%> </li>							
                             </ul>
                             </ul>

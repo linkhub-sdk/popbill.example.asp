@@ -106,6 +106,7 @@
                                 <li>sendDT (발송시간) : <%=result.list(i).sendDT%></li>
                                 <li>receiptDT (전송 접수시간) : <%=result.list(i).receiptDT%></li>
                                 <li>fileNames (전송파일명 배열) : <%=result.list(i).fileNames%></li>
+                                <li>interOPRefKey (파트너 지정키) : <%=result.list(i).interOPRefKey%> </li>
                                 <li>receiptNum (접수번호) : <%=result.list(i).receiptNum%> </li>
                                 <li>requestNum (요청번호) : <%=result.list(i).requestNum%> </li>
                                 <li>chargePageCnt (과금 페이지수) : <%=result.list(i).chargePageCnt%> </li>
