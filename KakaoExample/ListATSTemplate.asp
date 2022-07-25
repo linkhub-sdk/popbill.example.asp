@@ -40,12 +40,15 @@
                         <fieldset class="fieldset2">
                             <legend>  템플릿 정보 [ <%=i+1%> / <%= resultObj.Count %> ] </legend>
                             <ul>
-                                <li> templateCode : <%=resultObj(i).templateCode%></li>
-                                <li> templateName : <%=resultObj(i).templateName%></li>
-                                <li> template : <%=resultObj(i).template%></li>
-                                <li> plusFriendID : <%=resultObj(i).plusFriendID%></li>
-                                <li> ads : <%=resultObj(i).ads%></li>
-                                <li> appendix : <%=resultObj(i).appendix%></li>
+                                <li> templateCode (템플릿 코드) : <%=resultObj(i).templateCode%></li>
+                                <li> templateName (템플릿 제목) : <%=resultObj(i).templateName%></li>
+                                <li> template (템플릿 내용) : <%=resultObj(i).template%></li>
+                                <li> plusFriendID (검색용 아이디) : <%=resultObj(i).plusFriendID%></li>
+                                <li> ads (광고메시지 내용) : <%=resultObj(i).ads%></li>
+                                <li> appendix (부가메시지 내용) : <%=resultObj(i).appendix%></li>
+                                <li> secureYN (보안템플릿 여부) : <%=resultObj(i).secureYN%></li>
+                                <li> state (템플릿 상태) : <%=resultObj(i).state%></li>
+                                <li> stateDT (템플릿 상태 일시) : <%=resultObj(i).stateDT%></li>
                             </ul>
                         <%
                             For j=0 To UBound(resultObj(i).btns) -1

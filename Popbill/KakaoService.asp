@@ -698,6 +698,9 @@ Class KakaoATSTemplate
     Public plusFriendID
     Public ads
     Public appendix
+    Public secureYN
+    Public state
+    Public stateDT
     Public btns()
 
     Public Sub Class_Initialize
@@ -712,6 +715,9 @@ Class KakaoATSTemplate
             plusFriendID = atsInfo.plusFriendID
             ads = atsInfo.ads
             appendix = atsInfo.appendix
+            secureYN = atsInfo.secureYN
+            state = atsInfo.state
+            stateDT = atsInfo.stateDT
    
             ReDim btns(atsInfo.btns.length)
             Dim i
