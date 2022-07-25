@@ -19,6 +19,7 @@ End Property
 Public Sub Class_Initialize
     Set m_PopbillBase = New PopbillBase
     m_PopbillBase.AddScope("160")
+    m_PopbillBase.AddScope("161")
 End Sub
 
 Public Sub Initialize(linkID, SecretKey )
@@ -106,8 +107,8 @@ Public Function CheckID(id)
     Set CheckID = m_popbillBase.CheckID(id)
 End Function
 '과금정보 확인
-Public Function GetChargeInfo ( CorpNum, UserID )
-    Dim result : Set result = m_PopbillBase.httpGET("/FAX/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
+Public Function GetChargeInfo ( CorpNum, UserID, ReceiveNumType )
+    Dim result : Set result = m_PopbillBase.httpGET("/FAX/ChargeInfo?receiveNumType=" & ReceiveNumType, m_PopbillBase.getSession_token(CorpNum), UserID)
 
     Dim chrgInfo : Set chrgInfo = New ChargeInfo
     chrgInfo.fromJsonInfo result
@@ -117,8 +118,8 @@ End Function
 '''''''''''''  End of PopbillBase
 
 ''단가확인
-Public Function GetUnitCost(CorpNum)
-    Dim result : Set result = m_PopbillBase.httpGET("/FAX/UnitCost", m_PopbillBase.getSession_token(CorpNum),"")
+Public Function GetUnitCost(CorpNum, ReceiveNumType)
+    Dim result : Set result = m_PopbillBase.httpGET("/FAX/UnitCost?receiveNumType=" & ReceiveNumType, m_PopbillBase.getSession_token(CorpNum),"")
     GetUnitCost = result.unitCost
 End Function
 
