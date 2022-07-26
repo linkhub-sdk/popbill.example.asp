@@ -19,10 +19,10 @@
     DType = "W"
 
     ' 시작일자, yyyyMMdd
-    SDate = "20211201"				
+    SDate = "20220701"				
 
     ' 종료일자, yyyyMMdd
-    EDate = "20211230"				
+    EDate = "20220720"				
 
     ' 전자명세서 상태코드 배열 (2,3번째 자리에 와일드카드(*) 사용 가능)
     ' - 미입력시 전체조회
@@ -74,12 +74,12 @@
                 <legend>전자명세서 목록조회</legend>
                     <% If code = 0 Then %>
                     <ul>
-                        <li> code(읃�?상태코드) : <%=result.code%></li>
-                        <li> total(총 검색결과 건수) : <%=result.total%></li>
-                        <li> pageNum(페이지 번호) : <%=result.pageNum%></li>
-                        <li> perPage(페이지당 검색개수) : <%=result.perPage%></li>
-                        <li> pageCount(페이지 개수) : <%=result.pageCount%></li>
+                        <li> code(응답 코드) : <%=result.code%></li>
                         <li> message(응답 메시지) : <%=result.message%></li>
+                        <li> total(총 검색결과 건수) : <%=result.total%></li>
+                        <li> perPage(페이지당 검색개수) : <%=result.perPage%></li>
+                        <li> pageNum(페이지 번호) : <%=result.pageNum%></li>
+                        <li> pageCount(페이지 개수) : <%=result.pageCount%></li>
                     </ul>
                     
                     <% For i=0 To UBound(result.list)-1 %>

@@ -18,7 +18,7 @@
     userID = "testkorea"		 
 
     ' 문서번호	
-    mgtKey = "20211201-001"		 
+    mgtKey = "20220720-ASP-001"		 
 
     ' 수신 메일주소
     receiver = ""		

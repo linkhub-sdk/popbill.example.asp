@@ -47,7 +47,7 @@
         message.content = "This is Message 메시지 테스트중"
 
         ' 파트너 지정키, 수신자 구별용 메모
-        message.interOPRefKey = "20220725-00"+CStr(i)
+        message.interOPRefKey = "20220720-00"+CStr(i)
 
         msgList.Add i, message
     Next

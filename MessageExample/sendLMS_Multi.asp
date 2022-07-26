@@ -33,13 +33,13 @@
         Set message = New Messages
         
         ' 발신번호
-        message.sender = "07043042991"
+        message.sender = ""
 
         ' 발신자명
         message.senderName = "발신자명"
 
         ' 수신번호
-        message.receiver = "0001111222"
+        message.receiver = ""
 
         ' 수신자명
         message.receivername = " 수신자이름"+CStr(i)
@@ -51,7 +51,7 @@
         message.content = "발신 내용. 장문은 2000Byte로 길이가 조정되어 전송됩니다. This is Message 메시지 테스트중"
 
         ' 파트너 지정키, 수신자 구별용 메모
-        message.interOPRefKey = "20220725-00"+CStr(i)
+        message.interOPRefKey = "20220720-00"+CStr(i)
 
         msgList.Add i, message
     

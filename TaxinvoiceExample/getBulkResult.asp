@@ -16,7 +16,7 @@
     testCorpNum = "1234567890"
 
     ' 제출아이디, 최대 36자리 (영문, 숫자, "-" 조합)
-    SubmitID = "ASP-BULK-TEST102"
+    SubmitID = "20220720-ASP-BULK001"
 
     ' 팝빌회원아이디
     UserID = "testkorea"

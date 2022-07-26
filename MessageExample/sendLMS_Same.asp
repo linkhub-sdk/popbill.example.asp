@@ -40,7 +40,7 @@
         Set message = New Messages
 
         ' 수신번호
-        message.receiver = "000111222"
+        message.receiver = ""
 
         ' 수신자명
         message.receivername = " 수신자이름"+CStr(i)

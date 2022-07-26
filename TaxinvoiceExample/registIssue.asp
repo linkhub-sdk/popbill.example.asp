@@ -41,7 +41,7 @@
     Set newTaxinvoice = New Taxinvoice
 
     ' 작성일자, 날짜형식(yyyyMMdd)
-    newTaxinvoice.writeDate = "20220721"
+    newTaxinvoice.writeDate = "20220720"
 
     ' {정과금} 기재
     newTaxinvoice.chargeDirection = "정과금"
@@ -65,14 +65,14 @@
     newTaxinvoice.invoicerCorpNum = "1234567890"
 
     ' 공급자 종사업자 식별번호. 필요시 숫자 4자리 기재
-    newTaxinvoice.invoicerTaxRegID = "0001"
+    newTaxinvoice.invoicerTaxRegID = ""
 
     ' 공급자 상호
     newTaxinvoice.invoicerCorpName = "공급자 상호"
 
     ' 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
     ' 사업자 별로 중복되지 않도록 구성
-    newTaxinvoice.invoicerMgtKey = "20220721-0005"
+    newTaxinvoice.invoicerMgtKey = "20220720-ASP-001"
 
     ' 공급자 대표자 성명
     newTaxinvoice.invoicerCEOName = "공급자 대표자 성명"
@@ -117,13 +117,13 @@
     ' - {invoiceeType}이 "사업자" 인 경우, 사업자번호 (하이픈 ('-') 제외 10자리)
     ' - {invoiceeType}이 "개인" 인 경우, 주민등록번호 (하이픈 ('-') 제외 13자리)
     ' - {invoiceeType}이 "외국인" 인 경우, "9999999999999" (하이픈 ('-') 제외 13자리)
-    newTaxinvoice.invoiceeCorpNum = "1234567890"
+    newTaxinvoice.invoiceeCorpNum = "8888888888"
 
     ' 공급받는자 종사업자 식별번호. 필요시 숫자 4자리 기재	
-    newTaxinvoice.invoiceeTaxRegID = "0002"
+    newTaxinvoice.invoiceeTaxRegID = ""
     
     ' 공급자받는자 상호
-    newTaxinvoice.invoiceeCorpName = "팝업버튼 테스트"
+    newTaxinvoice.invoiceeCorpName = "공급받는자"
 
     ' 공급받는자 대표자 성명
     newTaxinvoice.invoiceeCEOName = "공급받는자 대표자 성명"
@@ -224,7 +224,7 @@
     '**************************************************************
     Set newDetail = New TaxinvoiceDetail
     newDetail.serialNum = 1             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20211201"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20220720"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명1번"
     newDetail.spec = "규격"
     newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능
@@ -237,7 +237,7 @@
 
     Set newDetail = New TaxinvoiceDetail
     newDetail.serialNum = 2             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20211201"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20220720"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명2번"
     newDetail.spec = "규격"
     newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능
@@ -259,13 +259,13 @@
     set newContact = New Contact
     newContact.serialNum = 1
     newContact.contactName = "담당자1 성명"
-    newContact.email = "" 
+    newContact.email = "test@test.com" 
     newTaxinvoice.AddContact newContact
 
     set newContact = New Contact
     newContact.serialNum = 2
     newContact.contactName = "담당자2 성명"
-    newContact.email = ""
+    newContact.email = "test@test.com"
     newTaxinvoice.AddContact newContact
 
     On Error Resume Next

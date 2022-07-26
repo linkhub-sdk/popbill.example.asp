@@ -22,7 +22,7 @@
     adsYN = False							
 
     ' 예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
-	'reserveDT = "20150128200000"    
+	'reserveDT = "20220728200000"    
 
     Set msgList = CreateObject("Scripting.Dictionary")
     
@@ -30,13 +30,13 @@
     Set message = New Messages
     
     ' 발신번호
-    message.sender = "07043042991"
+    message.sender = ""
 
     ' 발신자명
     message.senderName = "발신자명"
 
     ' 수신번호
-    message.receiver = "01042847884"
+    message.receiver = ""
 
     ' 수신자명
     message.receivername = " 수신자이름"

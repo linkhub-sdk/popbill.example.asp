@@ -22,7 +22,7 @@
     itemCode = "121"
 
     ' 문서번호
-    mgtKey = "20211201-001"
+    mgtKey = "20220720-ASP-001"
 
     ' 파일아이디, 첨부파일목록(getFiles) API의 AttachedFile값
     FileID = "2556D18D-9380-4843-B748-5B8120C31BA5.PBF"

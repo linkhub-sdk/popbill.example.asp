@@ -18,7 +18,7 @@
     userID = "testkorea"
 
     ' 문서번호
-    mgtKey = "20211229-ASP001"
+    mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -61,7 +61,7 @@
                                 <li>franchiseCEOName (가맹점 대표자명) : <%=Presponse.franchiseCEOName%></li>
                                 <li>franchiseAddr (가맹점 주소) : <%=Presponse.franchiseAddr%></li>
                                 <li>franchiseTEL (가맹점 전화번호) : <%=Presponse.franchiseTEL %></li>
-                                <li>identityNum (거래처 식별번호) : <%=Presponse.identityNum%></li>
+                                <li>identityNum (식별번호) : <%=Presponse.identityNum%></li>
                                 <li>customerName (주문자명) : <%=Presponse.customerName%></li>
                                 <li>itemName (주문상품명) : <%=Presponse.itemName%></li>
                                 <li>orderNumber (주문번호) : <%=Presponse.orderNumber%></li>

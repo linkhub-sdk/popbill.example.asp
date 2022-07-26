@@ -1,4 +1,4 @@
-<%
+ <%
 
 Class EasyFinBankSErvice
     
@@ -341,7 +341,7 @@ Class EasyFinBankSErvice
         Dim uri
         uri = "/EasyFin/Bank/SaveMemo"
         uri = uri + "?TID=" & TID
-        uri = uri + "&Memo=" & Server.URLEncode(Memo)
+        uri = uri + "&Memo=" & Memo
         Set SaveMemo = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
 
     End Function

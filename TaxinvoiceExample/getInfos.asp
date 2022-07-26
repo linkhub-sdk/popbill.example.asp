@@ -24,9 +24,9 @@
 
     ' 세금계산서 문서번호 배열, 최대 1000건
     Dim MgtKeyList(3) 
-    MgtKeyList(0) = "20211201-001"
-    MgtKeyList(1) = "20211201-002"
-    MgtKeyList(2) = "20211201-003"
+    MgtKeyList(0) = "20220720-ASP-001"
+    MgtKeyList(1) = "20220720-ASP-002"
+    MgtKeyList(2) = "20220720-ASP-003"
     
     On Error Resume Next
 

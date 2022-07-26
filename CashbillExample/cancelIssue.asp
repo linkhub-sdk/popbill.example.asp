@@ -19,7 +19,7 @@
     userID = "testkorea"
 
     ' 문서번호
-    mgtKey = "20211201-001"				
+    mgtKey = "20220720-ASP-001"				
 
     ' 메모
     memo = "현금영수증 발행취소메모"	

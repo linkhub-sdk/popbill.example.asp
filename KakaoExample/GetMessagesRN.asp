@@ -18,7 +18,7 @@
     userID = "testkorea"
 
     ' 전송 요청시 할당한 전송요청번호(requestNum)
-    requestNum = "20180928111311"
+    requestNum = "20220720-0011"
     
     On Error Resume Next
 
@@ -100,12 +100,14 @@
                     <% 
                         Next
                     %>
-                        </fieldset>
+                        
                     <%
                         Else
                     %>
-                        <li>Response.code : <%=code%> </li>
-                        <li>Response.message : <%=message%> </li>
+                        <ul>
+                            <li>Response.code : <%=code%> </li>
+                            <li>Response.message : <%=message%> </li>
+                        </ul>
                     <% End If %>
             </fieldset>
          </div>

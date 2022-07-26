@@ -20,7 +20,7 @@
     userID = "testkorea"		 
     
     ' 문서번호
-    mgtKey = "20211201-001"
+    mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -55,7 +55,7 @@
                         <li>stateMemo (상태메모) : <%=Presponse.stateMemo%></li>
                         <li>stateCode (상태코드) : <%=Presponse.stateCode%></li>
                         <li>stateDT (상태변경일시) : <%=Presponse.stateDT%></li>
-                        <li>identityNum (거래처 식별번호) : <%=Presponse.identityNum%></li>
+                        <li>identityNum (식별번호) : <%=Presponse.identityNum%></li>
                         <li>itemName (상품명) : <%=Presponse.itemName%></li>
                         <li>customerName (고객명) : <%=Presponse.customerName%></li>
                         <li>confirmNum (국세청 승인번호) : <%=Presponse.confirmNum%></li>

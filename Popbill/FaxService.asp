@@ -435,11 +435,13 @@ End Class
 Class FaxReceiver
 Public receiverNum 
 Public receiverName 
+Public interOPRefKey
 
 Public Function toJsonInfo() 
     Set toJsonInfo = JSON.parse("{}")
     toJsonInfo.set "rcv", receiverNum
     toJsonInfo.set "rcvnm", receiverName
+    toJsonInfo.set "interOPRefKey", interOPRefKey
 End Function
 End Class
 

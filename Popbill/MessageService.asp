@@ -408,6 +408,7 @@ Class Messages
     Public receiverName
     Public content
     Public subject
+    Public interOPRefKey
 
     Public Sub setValue(msgList)
         sender = msgList.sender
@@ -416,6 +417,7 @@ Class Messages
         receiverName = msgList.receiverName
         content = msgList.content
         subject = msgList.subject
+        interOPRefKey = msgList.interOPRefKey
     End Sub
 
     Public Function toJsonInfo()
@@ -426,6 +428,7 @@ Class Messages
         If receiverName <> "" Then toJsonInfo.set "rcvnm", receiverName
         If content <> "" Then toJsonInfo.set "msg", content
         If subject <> "" Then toJsonInfo.set "sjt", subject
+        If interOPRefKey <> "" Then toJsonInfo.set "interOPRefKey", interOPRefKey
     End Function
 
 End Class

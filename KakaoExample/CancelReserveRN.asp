@@ -18,7 +18,7 @@
     userID = "testkorea"			   
 
     ' 예약전송 요청시 할당한 전송요청번호 (ReceiptNum)
-    requestNum = "20180905113954"  
+    requestNum = "20220720-001"  
 
     On Error Resume Next
 

@@ -21,9 +21,9 @@
 
     ' 조회할 현금영수증 문서번호 배열, 최대 1000건
     Dim mgtKeyList(3) 
-    MgtKeyList(0) = "20211201-001"
-    MgtKeyList(1) = "20211201-002"
-    MgtKeyList(2) = "20211201-003"
+    MgtKeyList(0) = "20220720-ASP-001"
+    MgtKeyList(1) = "20220720-ASP-002"
+    MgtKeyList(2) = "20220720-ASP-003"
 
     On Error Resume Next
     
@@ -62,7 +62,7 @@
                                 <li>stateMemo (상태메모) : <%=Presponse.Item(i).stateMemo%></li>
                                 <li>stateCode (상태코드) : <%=Presponse.Item(i).stateCode%></li>
                                 <li>stateDT (상태변경일시) : <%=Presponse.Item(i).stateDT%></li>
-                                <li>identityNum (거래처 식별번호) : <%=Presponse.Item(i).identityNum%></li>
+                                <li>identityNum (식별번호) : <%=Presponse.Item(i).identityNum%></li>
                                 <li>itemName (상품명) : <%=Presponse.Item(i).itemName%></li>
                                 <li>customerName (고객명) : <%=Presponse.Item(i).customerName%></li>
                                 <li>confirmNum (국세청 승인번호) : <%=Presponse.Item(i).confirmNum%></li>

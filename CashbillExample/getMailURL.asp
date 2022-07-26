@@ -19,7 +19,7 @@
     userID = "testkorea"		 
 
     ' 현금영수증 문서번호
-    mgtKey = "20211201-001"	     
+    mgtKey = "20220720-ASP-001"	     
 
     On Error Resume Next
 

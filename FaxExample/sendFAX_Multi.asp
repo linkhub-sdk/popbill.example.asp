@@ -28,19 +28,19 @@
     Dim receivers(1)
     Set receivers(0) = New FaxReceiver
     ' 팩스 수신번호
-    receivers(0).receiverNum = "010111222"
+    receivers(0).receiverNum = ""
     ' 팩스 수신자명
     receivers(0).receiverName = "수신자 명칭"
     ' 파트너 지정키, 수신자 구별용 메모
-    receivers(0).interOPRefKey = "20220725-002"
+    receivers(0).interOPRefKey = "20220720-001"
 
     Set receivers(1) = New FaxReceiver
     ' 팩스 수신번호
-    receivers(1).receiverNum = "010111222"
+    receivers(1).receiverNum = ""
     ' 팩스 수신자명
     receivers(1).receiverName = "수신자 명칭"
     ' 파트너 지정키, 수신자 구별용 메모
-    receivers(1).interOPRefKey = "20220725-002"
+    receivers(1).interOPRefKey = "20220720-002"
     
     ' 팩스전송할 파일 (최대 20개)
     FilePaths = Array("C:\popbill.example.asp\대한민국헌법.doc","C:\popbill.example.asp\test.jpg")

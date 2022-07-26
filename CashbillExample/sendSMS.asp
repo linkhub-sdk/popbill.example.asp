@@ -20,13 +20,13 @@
     userID = "testkorea"		 
 
     ' 문서번호	
-    mgtKey = "20211201-001"		 
+    mgtKey = "20220720-ASP-001"		 
 
     ' 발신번호	
-    sender = "07043242991"	
+    sender = ""	
     
     ' 수신번호
-    receiver = "010111222"		 
+    receiver = ""		 
 
     ' 메시지 내용, 90byte를 초과한 내용은 길이가 조정되어 전송됩니다.
     contents = "현금영수증 알림문자 테스트입니다"  

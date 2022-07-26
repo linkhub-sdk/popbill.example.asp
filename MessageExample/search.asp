@@ -17,10 +17,10 @@
     testCorpNum = "1234567890"		
 
     ' 시작일자
-    SDate = "20210501"
+    SDate = "20220701"
 
     ' 종료일자
-    EDate = "20210601"					
+    EDate = "20220720"					
     
     ' 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
     ' └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소
@@ -114,7 +114,7 @@
                                 <li>tranNet (전송처리 이동통신사명) : <%=resultObj.list(i).tranNet%> </li>
                                 <li>receiptNum (접수번호) : <%=resultObj.list(i).receiptNum%> </li>
                                 <li>requestNum (요청번호) : <%=resultObj.list(i).requestNum%> </li>
-                                <li>interOPRefKey (파트너 지정키) : <%=result.Item(i).interOPRefKey%> </li>
+                                <li>interOPRefKey (파트너 지정키) : <%=resultObj.list(i).interOPRefKey%> </li>
                             </ul>
                         </fieldset>
 

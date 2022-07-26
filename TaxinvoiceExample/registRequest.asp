@@ -80,7 +80,7 @@
     newTaxinvoice.invoicerTEL = ""
     
     ' 공급자 담당자 휴대폰번호
-    newTaxinvoice.invoicerHP = "
+    newTaxinvoice.invoicerHP = ""
 
     ' 발행 안내 문자 전송여부 (true / false 중 택 1)
     ' └ true = 전송 , false = 미전송
@@ -110,7 +110,7 @@
     newTaxinvoice.invoiceeCorpName = "공급받는자 상호"
 
     '[역발행시 필수] 공급받는자 문서번호(역발행시 필수)
-    newTaxinvoice.invoiceeMgtKey = "20211201-001"
+    newTaxinvoice.invoiceeMgtKey = "20220720-ASP-001"
 
     ' 공급받는자 대표자 성명
     newTaxinvoice.invoiceeCEOName = "공급받는자 대표자 성명"
@@ -200,7 +200,7 @@
     '**************************************************************
     Set newDetail = New TaxinvoiceDetail
     newDetail.serialNum = 1             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20211201"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20220720"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명1번"
     newDetail.spec = "규격"
     newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능
@@ -213,7 +213,7 @@
 
     Set newDetail = New TaxinvoiceDetail
     newDetail.serialNum = 2             '일련번호 1부터 순차 기재
-    newDetail.purchaseDT = "20211201"   '거래일자  yyyyMMdd
+    newDetail.purchaseDT = "20220720"   '거래일자  yyyyMMdd
     newDetail.itemName = "품명2번"
     newDetail.spec = "규격"
     newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능

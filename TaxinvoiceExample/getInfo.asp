@@ -20,7 +20,7 @@
     KeyType= "SELL"
 
     ' 문서번호 
-    MgtKey = "20211201-001"
+    MgtKey = "20220720-ASP-001"
 
     ' 팝빌회원아이디
     UserID = "testkorea"

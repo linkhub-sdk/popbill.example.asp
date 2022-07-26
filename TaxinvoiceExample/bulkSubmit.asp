@@ -17,7 +17,7 @@
     testCorpNum = "1234567890"
 
     ' 제출아이디, 최대 36자리 (영문, 숫자, "-" 조합)
-    SubmitID = "ASP-BULK-TEST102"
+    SubmitID = "20220720-ASP-BULK001"
 
     ' 지연발행 강제여부  (true / false 중 택 1)
     ' └ true = 가능 , false = 불가능
@@ -36,7 +36,7 @@
         Set newTaxinvoice = New Taxinvoice
 
         ' 작성일자, 날짜형식(yyyyMMdd)
-        newTaxinvoice.writeDate = "20210601"
+        newTaxinvoice.writeDate = "20220720"
 
         ' {정과금, 역과금} 중 기재, '역과금'은 역발행 프로세스에서만 이용가능
         newTaxinvoice.chargeDirection = "정과금"
@@ -66,7 +66,7 @@
 
         ' 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로
         ' 사업자 별로 중복되지 않도록 구성
-        newTaxinvoice.invoicerMgtKey = "20210601-ASP-Bulk0" + CStr(i)
+        newTaxinvoice.invoicerMgtKey = "20220720-ASP-BULK-" + CStr(i)
 
         ' 공급자 대표자 성명
         newTaxinvoice.invoicerCEOName = "공급자 대표자 성명"
@@ -223,7 +223,7 @@
         '**************************************************************
         Set newDetail = New TaxinvoiceDetail
         newDetail.serialNum = 1             '일련번호 1부터 순차 기재
-        newDetail.purchaseDT = "20210601"   '거래일자  yyyyMMdd
+        newDetail.purchaseDT = "20220720"   '거래일자  yyyyMMdd
         newDetail.itemName = "품명1번"
         newDetail.spec = "규격"
         newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능
@@ -236,7 +236,7 @@
 
         Set newDetail = New TaxinvoiceDetail
         newDetail.serialNum = 2             '일련번호 1부터 순차 기재
-        newDetail.purchaseDT = "20210601"   '거래일자  yyyyMMdd
+        newDetail.purchaseDT = "20220720"   '거래일자  yyyyMMdd
         newDetail.itemName = "품명2번"
         newDetail.spec = "규격"
         newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능
@@ -257,13 +257,13 @@
         set newContact = New Contact
         newContact.serialNum = 1
         newContact.contactName = "담당자1 성명"
-        newContact.email = ""   
+        newContact.email = "test@test.com"   
         newTaxinvoice.AddContact newContact
         
         set newContact = New Contact
         newContact.serialNum = 2
         newContact.contactName = "담당자2 성명"
-        newContact.email = ""
+        newContact.email = "test@test.com"
         newTaxinvoice.AddContact newContact
         
         Set taxinvoiceList(i) =  newTaxinvoice

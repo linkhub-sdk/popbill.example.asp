@@ -29,7 +29,7 @@
     ' 문자전송정보 배열, 최대 1000건
     Set msgList = CreateObject("Scripting.Dictionary")
     
-    For i = 0 To 9
+    For i = 0 To 5
         Set message = New Messages
 
         ' 발신번호
@@ -47,10 +47,13 @@
         ' 메시지내용, 90byte기준으로 단/장문 자동인식 전송
         message.content = "문자내용이 90byte 이하인경우 단문(sms)로 전송됩니다."
 
+        ' 파트너 지정키, 수신자 구별용 메모
+        message.interOPRefKey = "20220720-00"+CStr(i)
+
         msgList.Add i, message
     Next
 
-    For i = 50 To 99
+    For i = 6 To 9
         Set message = New Messages
 
         ' 발신번호
@@ -72,7 +75,7 @@
         message.subject = "장문 제목입니다"
 
         ' 파트너 지정키, 수신자 구별용 메모
-        message.interOPRefKey = "20220725-00"+CStr(i)
+        message.interOPRefKey = "20220720-00"+CStr(i)
 
         msgList.Add i, message
     Next

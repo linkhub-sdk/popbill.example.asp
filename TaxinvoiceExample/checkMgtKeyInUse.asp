@@ -19,7 +19,7 @@
     testUserID = "testkorea"
 
     ' 문서번호
-    mgtKey = "20211201-001"
+    mgtKey = "20220720-ASP-001"
 
     ' 발행형태, (SELL-매출) (BUY-매입) (TRUSTEE-위수탁)
     keyType = "SELL"

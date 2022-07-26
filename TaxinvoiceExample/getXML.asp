@@ -18,7 +18,7 @@
     KeyType = "SELL"
 
     ' 문서번호
-    MgtKey = "20220722-BULKK21"
+    MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 

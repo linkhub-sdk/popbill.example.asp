@@ -45,7 +45,7 @@
     joinInfo.ContactName = "담당자명"
 
     ' 담당자연락처
-    joinInfo.ContactTEL = "
+    joinInfo.ContactTEL = ""
 
     ' 담당자 이메일
     joinInfo.ContactEmail = ""

@@ -31,13 +31,13 @@
     For i =0 To 9
         Set message = New Messages
         ' 발신번호
-        message.sender = "07043042991"
+        message.sender = ""
 
         ' 발신자명
         message.senderName = "발신자명"
 
         ' 수신번호
-        message.receiver = "000111222"
+        message.receiver = ""
 
         ' 수신자명
         message.receivername = " 수신자이름"+CStr(i)
@@ -49,7 +49,7 @@
         message.subject = "MMS 메시지 제목"
 
         ' 파트너 지정키, 수신자 구별용 메모
-        message.interOPRefKey = "20220725-00"+CStr(i)
+        message.interOPRefKey = "20220720-00"+CStr(i)
     
         msgList.Add i, message
     Next

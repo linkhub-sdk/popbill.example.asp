@@ -26,7 +26,7 @@
     KeyType= "SELL"
 
     ' 문서번호 
-    MgtKey = "20211201-023"
+    MgtKey = "20220720-ASP-002"
     
     ' 메모
     Memo = "발행 메모"

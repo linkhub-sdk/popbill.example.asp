@@ -22,10 +22,10 @@
     KeyType = "SELL"
 
     ' 문서번호 
-    MgtKey = "20211201-001"
+    MgtKey = "20220720-ASP-002"
 
     ' 파일아이디, 첨부파일 목록(getFiles) AttachedFile 값 참조. 
-    FileID = "18CAA3E1-A9F9-40FE-B327-B024FA404208.PBF"
+    FileID = "7CB2F557-51F6-43A8-BECA-A856BDDB2CCB.PBF"
 
     On Error Resume Next
     

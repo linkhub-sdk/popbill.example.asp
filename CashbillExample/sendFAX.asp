@@ -19,13 +19,13 @@
     userID = "testkorea"		 
 
     '문서번호	
-    mgtKey = "20211201-001"		 
+    mgtKey = "20220720-ASP-001"		 
 
     '발신번호
-    sender = "07043042991"		 
+    sender = ""		 
 
     '수신팩스번호
-    receiver = "070111222"		 
+    receiver = ""		 
 
     On Error Resume Next 
 

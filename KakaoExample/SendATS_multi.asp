@@ -71,7 +71,7 @@
         rcvInfo.altmsg = "대체문자 메시지 내용" +CStr(i)
 
         '파트너 지정키, 수신자 구별용 메모, 미사용시 공백처리
-        rcvInfo.interOPRefKey = "20210601-" +CStr(i)
+        rcvInfo.interOPRefKey = "20220720-" +CStr(i)
         
         '수신자별 개별 버튼 내용 전송시 사용.
         '템플릿 신청시 기재한 버튼의 개수 만큼 사용가능.

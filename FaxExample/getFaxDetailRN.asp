@@ -18,7 +18,7 @@
     userID = "testkorea"					
 
     ' 팩스전송 요청시 할당한 전송요청번호
-    requestNum = "20211224_TEST001" 
+    requestNum = "" 
  
     On Error Resume Next
 

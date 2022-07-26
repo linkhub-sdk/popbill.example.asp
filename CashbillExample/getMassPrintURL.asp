@@ -20,8 +20,8 @@
 
     ' 현금영수증 문서번호, 최대 100건
     Dim mgtKeyList(2)			
-    mgtKeyList(0) = "20211201-001"	     
-    mgtKeyList(1) = "20211201-002"
+    mgtKeyList(0) = "20220720-ASP-001"	     
+    mgtKeyList(1) = "20220720-ASP-002"
 
     On Error Resume Next
 

@@ -18,7 +18,7 @@
     userID = "testkorea"				
 
     ' 예약팩스전송 요청시 할당한 전송요청번호
-    requestNum = "20211201-001"   
+    requestNum = "20220720-ASP-001"   
 
     On Error Resume Next
 

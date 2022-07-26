@@ -23,13 +23,13 @@
     KeyType = "SELL"
 
     ' 문서번호 
-    MgtKey = "20211201-001"
+    MgtKey = "20220720-ASP-001"
 
     ' 발신번호
-    Sender = "07043042991"
+    Sender = ""
 
     ' 수신번호
-    Receiver = "070111222"
+    Receiver = ""
     
     ' 메시지 내용, 90byte초과시 길이가 조정되어 전송됨
     Contents = "문자 테스트입니다 90Bytes를 초과한내용은 전송되지 않습니다" 

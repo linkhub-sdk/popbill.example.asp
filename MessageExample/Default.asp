@@ -37,7 +37,6 @@
             <li><a href="getMessages.asp">getMessages</a> - 전송내역 확인</li>
             <li><a href="getMessagesRN.asp">getMessagesRN</a> - 전송내역 확인 (요청번호 할당)</li>
             <li><a href="search.asp">search</a> - 전송내역 목록 조회</li>
-            <li><a href="getStates.asp">getStates</a> - 문자메세지 전송요약정보 확인</li>
             <li><a href="getSentListURL.asp">getSentListURL</a> - 문자 전송내역 팝업 URL</li>
             <li><a href="getAutoDenyList.asp">getAutoDenyList</a> - 080 수신거부 목록 확인</li>
         </ul>
@@ -62,12 +61,12 @@
             <li><a href="checkID.asp">checkID</a> - 아이디 중복 확인</li>
             <li><a href="joinMember.asp">joinMember</a> - 연동회원 신규가입</li>
             <li><a href="getAccessURL.asp">getAccessURL</a> - 팝빌 로그인 URL</li>
+            <li><a href="getCorpInfo.asp">getCorpInfo</a> - 회사정보 확인</li>
+            <li><a href="updateCorpInfo.asp">updateCorpInfo</a> - 회사정보 수정</li>
             <li><a href="registContact.asp">registContact</a> - 담당자 등록</li>
             <li><a href="getContactInfo.asp">getContactInfo</a> - 담당자 정보 확인</li>
             <li><a href="listContact.asp">listContact</a> - 담당자 목록 확인</li>
             <li><a href="updateContact.asp">updateContact</a> - 담당자 정보 수정</li>
-            <li><a href="getCorpInfo.asp">getCorpInfo</a> - 회사정보 확인</li>
-            <li><a href="updateCorpInfo.asp">updateCorpInfo</a> - 회사정보 수정</li>
         </ul>
     </fieldset>
 </div>

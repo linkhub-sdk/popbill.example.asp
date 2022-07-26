@@ -22,13 +22,13 @@
     userID = "testkorea"				 
 
     ' 문서번호, 가맹점 사업자번호 단위 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-    mgtKey = "20171115-01"
+    mgtKey = "20220720-ASP-003"
 
     ' 원본 현금영수증 국세청승인번호
-    orgConfirmNum = "820116333"
+    orgConfirmNum = "TB0000068"
 
     ' 원본 현금영수증 거래일자
-    orgTradeDate = "20170711"
+    orgTradeDate = "20220720"
 
     ' 안내 문자 전송여부 , true / false 중 택 1
     ' └ true = 전송 , false = 미전송

@@ -18,13 +18,13 @@
     itemCode = 121
 
     ' 문서관리번호
-    mgtKey = "20211201-001"
+    mgtKey = "20220720-ASP-001"
 
     ' 첨부할 명세서 코드
     subItemCode = 121
 
     ' 첨부할 명세서 관리번호 
-    subMgtKey ="20211201-100"
+    subMgtKey ="20220720-100"
 
     On Error Resume Next
 

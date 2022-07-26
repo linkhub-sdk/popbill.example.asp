@@ -18,10 +18,10 @@
     KeyType= "BUY"						
 
     '시작일자, 표시형식(yyyyMMdd)
-    SDate = "20211201"
+    SDate = "20220701"
 
     '종료일자, 표시형식(yyyyMMdd)
-    EDate =	"20211230"					
+    EDate =	"20220720"					
 
     '팝빌회원 아이디
     testUserID = "testkorea"			

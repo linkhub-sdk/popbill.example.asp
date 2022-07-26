@@ -47,7 +47,7 @@
     ' 팩스 수신자명
     receivers(0).receiverName = "수신자 명칭"
     ' 파트너 지정키, 수신자 구별용 메모
-    receivers(0).interOPRefKey = "20220725-002"
+    receivers(0).interOPRefKey = "20220720-001"
 
     Set receivers(1) = New FaxReceiver
     ' 팩스 수신번호
@@ -55,7 +55,7 @@
     ' 팩스 수신자명
     receivers(1).receiverName = "수신자 명칭"
     ' 파트너 지정키, 수신자 구별용 메모
-    receivers(1).interOPRefKey = "20220725-002"
+    receivers(1).interOPRefKey = "20220720-002"
     
 
     ' 재전송 팩스의 전송요청번호

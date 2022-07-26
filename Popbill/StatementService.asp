@@ -636,12 +636,13 @@ End Sub
 End Class
 
 Class StatementInfo
-Public itemKey
-Public stateCode
 Public itemCode
+Public itemKey
+Public invoiceNum
+Public mgtKey
 Public taxType
-Public purposeType
 Public writeDate
+Public regDT
 Public senderCorpName
 Public senderCorpNum
 Public senderPrintYN
@@ -650,21 +651,23 @@ Public receiverCorpNum
 Public receiverPrintYN
 Public supplyCostTotal
 Public taxTotal
+Public purposeType
 Public issueDT
+Public stateCode
 Public stateDT
+Public stateMemo
 Public openYN
 Public openDT
-Public stateMemo
-Public regDT
 
 Public Sub fromJsonInfo(jsonInfo)
     On Error Resume Next
-    itemKey = jsonInfo.itemKey
-    stateCode = jsonInfo.stateCode
     itemCode = jsonInfo.itemCode
+    itemKey = jsonInfo.itemKey
+    invoiceNum = jsonInfo.invoiceNum
+    mgtKey = jsonInfo.mgtKey
     taxType = jsonInfo.taxType
-    purposeType = jsonInfo.purposeType
     writeDate = jsonInfo.writeDate
+    regDT = jsonInfo.regDT
     senderCorpName = jsonInfo.senderCorpName
     senderCorpNum = jsonInfo.senderCorpNum
     senderPrintYN = jsonInfo.senderPrintYN
@@ -673,12 +676,13 @@ Public Sub fromJsonInfo(jsonInfo)
     receiverPrintYN = jsonInfo.receiverPrintYN
     supplyCostTotal = jsonInfo.supplyCostTotal
     taxTotal = jsonInfo.taxTotal
+    purposeType = jsonInfo.purposeType
     issueDT = jsonInfo.issueDT
+    stateCode = jsonInfo.stateCode
     stateDT = jsonInfo.stateDT
+    stateMemo = jsonInfo.stateMemo
     openYN = jsonInfo.openYN
     openDT = jsonInfo.openDT
-    stateMemo = jsonInfo.stateMemo
-    regDT = jsonInfo.regDT
     On Error GoTo 0
 End Sub
 
