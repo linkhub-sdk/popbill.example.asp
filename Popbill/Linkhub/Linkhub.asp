@@ -97,6 +97,7 @@ public function getToken(serviceID , access_id, Scope, forwardIP, useStaticIP, u
     Call winhttp1.Open("POST", getTargetURL(useStaticIP, useGAIP) + "/" + serviceID + "/Token")
     Call winhttp1.setRequestHeader("x-lh-date", xdate)
     Call winhttp1.setRequestHeader("x-lh-version", "2.0")
+    Call winhttp1.setRequestHeader("User-Agent", "Classic ASP LINKHUB SDK")
     If forwardIP <> "" Then 
             Call winhttp1.setRequestHeader("x-lh-forwarded", forwardIP)
     End If 
@@ -158,6 +159,7 @@ Public Function GetPartnerBalance(BearerToken, serviceID, useStaticIP, useGAIP)
 
     Call winhttp1.Open("GET", getTargetURL(useStaticIP, useGAIP) + "/" + serviceID + "/PartnerPoint")
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
+    Call winhttp1.setRequestHeader("User-Agent", "Classic ASP LINKHUB SDK")
     
     winhttp1.send
     winhttp1.WaitForResponse
@@ -181,6 +183,7 @@ Public Function GetPartnerURL(BearerToken, serviceID, TOGO, useStaticIP, useGAIP
 
     Call winhttp1.Open("GET", getTargetURL(useStaticIP, useGAIP) + "/" + serviceID + "/URL?TG=" + TOGO)
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
+    Call winhttp1.setRequestHeader("User-Agent", "Classic ASP LINKHUB SDK")
     
     winhttp1.send
     winhttp1.WaitForResponse

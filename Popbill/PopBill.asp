@@ -281,6 +281,7 @@ Public Function httpGET(url , BearerToken , UserID )
 
     Call winhttp1.Open("GET", getTargetURL() + url, false)
     
+    Call winhttp1.setRequestHeader("User-Agent", "Classic ASP POPBILL SDK")
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     
@@ -312,6 +313,7 @@ Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
     Call winhttp1.Open("POST", getTargetURL() + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     Call winhttp1.setRequestHeader("Content-Type", "Application/json")
+    Call winhttp1.setRequestHeader("User-Agent", "Classic ASP POPBILL SDK")
     
     If BearerToken <> "" Then
         Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
@@ -347,6 +349,7 @@ Public Function httpBulkPOST(url, BearerToken, override, SubmitID, postdata, use
     Call winhttp1.Open("POST", getTargetURL() + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     Call winhttp1.setRequestHeader("Content-Type", "Application/json")
+    Call winhttp1.setRequestHeader("User-Agent", "Classic ASP POPBILL SDK")
     Call winhttp1.setRequestHeader("x-pb-message-digest", m_linkhub.b64sha1(postdata))
     If BearerToken <> "" Then
         Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
@@ -384,6 +387,7 @@ Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , 
 
     Call winhttp1.Open("POST", getTargetURL() + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
+    Call winhttp1.setRequestHeader("User-Agent", "Classic ASP POPBILL SDK")
     
     If BearerToken <> "" Then
         Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
@@ -427,6 +431,7 @@ Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
 
     Call winhttp1.Open("POST", getTargetURL() + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
+    Call winhttp1.setRequestHeader("User-Agent", "Classic ASP POPBILL SDK")
     
     If BearerToken <> "" Then
         Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
@@ -482,6 +487,7 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
 
     Call winhttp1.Open("POST", getTargetURL() + url)
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)    
+    Call winhttp1.setRequestHeader("User-Agent", "Classic ASP POPBILL SDK")
     
     If BearerToken <> "" Then
         Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
