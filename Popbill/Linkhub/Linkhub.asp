@@ -64,7 +64,7 @@ Public function getTime(useStaticIP, useLocalTimeYN, useGAIP)
         result = m_sha1.getLocalTime()
     Else   
         Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-
+        Call winhttp1.setRequestHeader("User-Agent", "Classic ASP LINKHUB SDK")
         Call winhttp1.Open("GET", getTargetURL(useStaticIP, useGAIP) + "/Time")
         
         winhttp1.send
@@ -136,6 +136,7 @@ Public Function GetBalance(BearerToken, serviceID, useStaticIP, useGAIP)
 
     Call winhttp1.Open("GET", getTargetURL(useStaticIP, useGAIP) + "/" + serviceID + "/Point")
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
+    Call winhttp1.setRequestHeader("User-Agent", "Classic ASP LINKHUB SDK")
     
     winhttp1.send
     winhttp1.WaitForResponse
