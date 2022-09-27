@@ -16,8 +16,11 @@
         '조회할 사업자번호
         CorpNum = "6798700433"	
 
+        ' 팝빌회원 아이디
+        userID = "testkorea"	
+
         On Error Resume Next
-            Set result = m_BizInfoCheckService.checkBizInfo(tCorpNum, CorpNum )
+            Set result = m_BizInfoCheckService.checkBizInfo(tCorpNum, CorpNum, userID )
             
             If Err.Number <> 0 Then
                 code = Err.Number
