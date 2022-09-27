@@ -5,7 +5,7 @@
     ' 팝빌 기업정보조회 API ASP SDK Example
     '
     ' ASP SDK 연동환경 설정방법 안내 : https://docs.popbill.com/bizinfocheck/tutorial/asp
-    ' - 업데이트 일자 : 2022-07-20
+    ' - 업데이트 일자 : 2022-09-26
     ' - 연동 기술지원 연락처 : 1600-9854
     ' - 연동 기술지원 이메일 : code@linkhubcorp.com
     '
