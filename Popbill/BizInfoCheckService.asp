@@ -123,16 +123,16 @@ Public Function GetUnitCost(CorpNum)
 End Function
 
 '기업정보조회 단건
-Public Function CheckBizInfo(MemberCorpNum, CorpNum, UserID) 
+Public Function CheckBizInfo(MemberCorpNum, CheckCorpNum, UserID) 
     If MemberCorpNum = "" Or isEmpty(MemberCorpNum) Then 
         Err.Raise -99999999, "POPBILL", "팝빌회원 사업자번호가 입력되지 않았습니다."
     End If
 
-    If CorpNum = "" Or isEmpty(CorpNum) Then 
+    If CheckCorpNum = "" Or isEmpty(CheckCorpNum) Then 
         Err.Raise -99999999, "POPBILL", "조회할 사업자번호가 입력되지 않았습니다."
     End If
     
-    Dim result : Set result = m_PopbillBase.httpGet("/BizInfo/Check?CN="+CorpNum, m_PopbillBase.getSession_token(MemberCorpNum), UserID)
+    Dim result : Set result = m_PopbillBase.httpGet("/BizInfo/Check?CN="+CheckCorpNum, m_PopbillBase.getSession_token(MemberCorpNum), UserID)
     
     Dim stateObj : Set stateObj = New BizCheckInfo
     stateObj.fromJsonInfo result

@@ -11,16 +11,16 @@
         ' - https://docs.popbill.com/bizinfocheck/asp/api#CheckBizInfo
         '**************************************************************
         '팝빌회원 사업자번호
-        tCorpNum = "1234567890"	
+        MemberCorpNum = "1234567890"	
 
         '조회할 사업자번호
-        CorpNum = "6798700433"	
+        CheckCorpNum = "6798700433"	
 
         ' 팝빌회원 아이디
-        userID = "testkorea"	
+        UserID = "testkorea"	
 
         On Error Resume Next
-            Set result = m_BizInfoCheckService.checkBizInfo(tCorpNum, CorpNum, userID )
+            Set result = m_BizInfoCheckService.checkBizInfo(MemberCorpNum, CheckCorpNum, UserID )
             
             If Err.Number <> 0 Then
                 code = Err.Number
