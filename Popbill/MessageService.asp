@@ -222,7 +222,7 @@ End Function
 
 '예약문자 전송취소
 Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
-    If ReceiptNum = "" Or IsNull(ReceptNum) Then 
+    If ReceiptNum = "" Or IsNull(ReceiptNum) Then 
         Err.Raise -99999999, "POPBILL", "접수번호가 입력되지 않았습니다"
     End If
     
@@ -236,6 +236,34 @@ Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
     End If
     
     Set CancelReservRN = m_PopbillBase.httpGet("/Message/Cancel/"&RequestNum, m_PopbillBase.getSession_token(CorpNum), UserID)
+End Function
+
+'예약문자 전송취소 (접수번호, 수신번호)
+Public Function CancelReservebyRCV(CorpNum, ReceiptNum, ReceiveNum, UserID)
+    If ReceiptNum = "" Or IsNull(ReceiptNum) Then 
+        Err.Raise -99999999, "POPBILL", "접수번호가 입력되지 않았습니다"
+    End If
+    If ReceiveNum = "" Or IsNull(ReceiveNum) Then 
+        Err.Raise -99999999, "POPBILL", "수신번호가 입력되지 않았습니다"
+    End If
+
+    Dim postdata : postdata = m_PopbillBase.toString(ReceiveNum)
+
+    set CancelReservebyRCV = m_PopbillBase.httpPost("/Message/"&ReceiptNum&"/Cancel", m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+End Function
+    
+    '예약문자 전송취소 (요청번호, 수신번호)
+Public Function CancelReserveRNbyRCV(CorpNum, RequestNum, ReceiveNum, UserID)
+    If RequestNum = "" Or IsNull(RequestNum) Then 
+    Err.Raise -99999999, "POPBILL", "요청번호가 입력되지 않았습니다"
+    End If
+    If ReceiveNum = "" Or IsNull(ReceiveNum) Then 
+    Err.Raise -99999999, "POPBILL", "수신번호가 입력되지 않았습니다"
+    End If
+    
+    Dim postdata : postdata = m_PopbillBase.toString(ReceiveNum)
+    
+    Set CancelReserveRNbyRCV = m_PopbillBase.httpPost("/Message/Cancel/"&RequestNum, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
 End Function
 
 '문자 관련 URL

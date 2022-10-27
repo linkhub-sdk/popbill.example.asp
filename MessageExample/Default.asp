@@ -29,6 +29,8 @@
             <li><a href="sendXMS_Multi.asp">sendXMS</a> - 단문/장문 자동인식 전송 [대량]</li>
             <li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소</li>
             <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 취소 (요청번호 할당)</li>
+            <li><a href="cancelReservebyRCV.asp">cancelReservebyRCV</a> - 예약전송 취소 (접수번호, 수신번호)</li>
+            <li><a href="cancelReserveRNbyRCV.asp">cancelReserveRNbyRCV</a> - 예약전송 취소 (요청번호, 수신번호)</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
