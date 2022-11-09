@@ -15,7 +15,6 @@
             <li><a href="registIssue.asp">registIssue</a> -즉시발행</li>
             <li><a href="bulkSubmit.asp">bulkSubmit</a> -  초대량 발행 접수</li>
             <li><a href="getBulkResult.asp">getBulkResult</a> -  초대량 접수 결과 확인</li>
-            <li><a href="cancelIssue.asp">cancelIssue</a> -발행취소</li>
             <li><a href="delete.asp">delete</a> -삭제</li>
         </ul>
     </fieldset>
