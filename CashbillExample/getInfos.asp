@@ -52,6 +52,7 @@
                                 <li>itemKey (현금영수증 아이템키) : <%=Presponse.Item(i).itemKey%></li>
                                 <li>mgtKey (문서번호) : <%=Presponse.Item(i).mgtKey%></li>
                                 <li>tradeDate (거래일자) : <%=Presponse.Item(i).tradeDate%></li>
+                                <li>tradeDT (거래일시) : <%=Presponse.Item(i).tradeDT%></li>
                                 <li>tradeType (문서형태) : <%=Presponse.Item(i).tradeType%></li>
                                 <li>tradeUsage (거래구분) : <%=Presponse.Item(i).tradeUsage%></li>
                                 <li>tradeOpt (거래유형) : <%=Presponse.Item(i).tradeOpt%></li>

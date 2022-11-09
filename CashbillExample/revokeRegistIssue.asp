@@ -21,13 +21,13 @@
     userID = "testkorea"				 
 
     ' 문서번호, 가맹점 사업자번호 단위 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-    mgtKey = "20220720-ASP-002"
+    mgtKey = "20220720-ASP-102"
 
     ' 원본 현금영수증 국세청승인번호
-    orgConfirmNum = "TB0000067"
+    orgConfirmNum = "TB0000102"
 
     ' 원본 현금영수증 거래일자
-    orgTradeDate = "20220720"
+    orgTradeDate = "20221108"
 
     ' 발행안내 문자 전송여부
     smssendYN = False
@@ -47,7 +47,8 @@
         code = Presponse.code
         message = Presponse.message
         confirmNum = Presponse.confirmNum
-        tradeDate = Presponse.tradeDate	
+        tradeDate = Presponse.tradeDate
+        tradeDT = Presponse.tradeDT
     End If
 
     On Error GoTo 0 
@@ -67,6 +68,9 @@
                     <% End If %>
                     <% If tradeDate <> "" Then %>
                     <li> Response.tradeDate : <%=tradeDate%> </li>
+                    <% End If %>
+                    <% If tradeDT <> "" Then %>
+                    <li> Response.tradeDT : <%=tradeDT%> </li>
                     <% End If %>
                 </ul>
             </fieldset>

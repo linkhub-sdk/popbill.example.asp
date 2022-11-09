@@ -16,7 +16,7 @@
     testCorpNum = "1234567890"
 
     ' 제출아이디, 최대 36자리 (영문, 숫자, "-" 조합)
-    SubmitID = "20220720-ASP-BULK001"
+    SubmitID = "20221109-ASP-BULK001"
 
     ' 팝빌회원아이디
     UserID = "testkorea"
@@ -67,6 +67,7 @@
                             <li> message (응답메시지) : <%=result.issueResult(i).message %>
                             <li> confirmNum (국세청승인번호) : <%=result.issueResult(i).confirmNum %>
                             <li> tradeDate (거래일자) : <%=result.issueResult(i).tradeDate %>
+                            <li> tradeDT (거래일시) : <%=result.issueResult(i).tradeDT %>
                         </ul>
                     </fieldset>
                      <% Next %>

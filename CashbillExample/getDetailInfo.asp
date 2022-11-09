@@ -47,6 +47,7 @@
                                 <li>orgConfirmNum (원본 현금영수증 국세청승인번호) : <%=Presponse.orgConfirmNum%></li>
                                 <li>orgTradeDate (원본 현금영수증 거래일자) : <%=Presponse.orgTradeDate%></li>
                                 <li>tradeDate (거래일자) : <%=Presponse.tradeDate%></li>
+                                <li>tradeDT (거래일시) : <%=Presponse.tradeDT%></li>
                                 <li>tradeType (문서형태) : <%=Presponse.tradeType %></li>
                                 <li>tradeUsage (거래구분) : <%=Presponse.tradeUsage%></li>
                                 <li>tradeOpt (거래유형) : <%=Presponse.tradeOpt %></li>

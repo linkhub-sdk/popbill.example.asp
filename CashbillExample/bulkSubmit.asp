@@ -102,6 +102,10 @@
         ' 발행안내문자 전송여부
         ' 안내문자 전송시 포인트가 차감되며, 전송실패시 환불처리됩니다.
         CashbillObj.smssendYN = False
+
+        ' 거래일시, 날짜(yyyyMMddHHmmss)
+        ' 당일, 전일만 가능, 미입력시 기본값 발행일시 처리
+        CashbillObj.tradeDT = "20221108000000"
         
         Set cashbillList(i) =  CashbillObj
     Next

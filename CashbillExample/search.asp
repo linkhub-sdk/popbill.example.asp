@@ -111,6 +111,7 @@
                                 <li>itemKey (현금영수증 아이템키) : <%=SearchResult.list(i).itemKey%></li>
                                 <li>mgtKey (문서번호) : <%=SearchResult.list(i).mgtKey%></li>
                                 <li>tradeDate (거래일자) : <%=SearchResult.list(i).tradeDate%></li>
+                                <li>tradeDT (거래일시) : <%=SearchResult.list(i).tradeDT%></li>
                                 <li>tradeType (문서형태) : <%=SearchResult.list(i).tradeType%></li>
                                 <li>tradeUsage (거래구분) : <%=SearchResult.list(i).tradeUsage%></li>
                                 <li>tradeOpt (거래유형) : <%=SearchResult.list(i).tradeOpt%></li>

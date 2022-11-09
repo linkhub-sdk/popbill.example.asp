@@ -21,13 +21,13 @@
     userID = "testkorea"				 
 
     ' 문서번호, 가맹점 사업자번호 단위 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-    mgtKey = "20220720-ASP-003"
+    mgtKey = "20220720-ASP-005"
 
     ' 원본 현금영수증 국세청승인번호
-    orgConfirmNum = "TB0000068"
+    orgConfirmNum = "TB0000105"
 
     ' 원본 현금영수증 거래일자
-    orgTradeDate = "20220720"
+    orgTradeDate = "20221108"
 
     ' 안내 문자 전송여부 , true / false 중 택 1
     ' └ true = 전송 , false = 미전송
@@ -67,10 +67,17 @@
     ' - 현금영수증 취소유형이 false 인 경우 미입력
     totalAmount = "5500"
 
+    ' 안내메일 제목, 공백처리시 기본양식으로 전송
+    emailSubject = "메일제목 테스트"
+
+    ' 거래일시, 날짜(yyyyMMddHHmmss)
+    ' 당일, 전일만 가능, 미입력시 기본값 발행일시 처리
+    tradeDT = "20221108000000"
+
     On Error Resume Next
 
     Set Presponse = m_CashbillService.RevokeRegistIssue_Part(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID, _
-        isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount)
+        isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount, emailSubject, tradeDT)
 
     If Err.Number <> 0 then
         code = Err.Number
@@ -80,7 +87,8 @@
         code = Presponse.code
         message = Presponse.message
         confirmNum = Presponse.confirmNum
-        tradeDate = Presponse.tradeDate		
+        tradeDate = Presponse.tradeDate
+        tradeDT = Presponse.tradeDT
     End If
 
     On Error GoTo 0 
@@ -100,6 +108,9 @@
                     <% End If %>
                     <% If tradeDate <> "" Then %>
                     <li> Response.tradeDate : <%=tradeDate%> </li>
+                    <% End If %>
+                    <% If tradeDT <> "" Then %>
+                    <li> Response.tradeDT : <%=tradeDT%> </li>
                     <% End If %>
                 </ul>
             </fieldset>

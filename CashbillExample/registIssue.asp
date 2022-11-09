@@ -20,7 +20,7 @@
     userID = "testkorea"
 
     ' 문서번호, 가맹점 사업자단위 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
-    mgtKey = "20220720-ASP-001"
+    mgtKey = "20221109-ASP-001"
 
     ' 메모
     memo = "즉시발행 메모"
@@ -103,6 +103,10 @@
     ' 안내문자 전송시 포인트가 차감되며, 전송실패시 환불처리됩니다.
     CashbillObj.smssendYN = False
 
+    ' 거래일시, 날짜(yyyyMMddHHmmss)
+    ' 당일, 전일만 가능, 미입력시 기본값 발행일시 처리
+    CashbillObj.tradeDT = "20221108000000"
+
     On Error Resume Next
 
     Set Presponse = m_CashbillService.RegistIssue(testCorpNum, CashbillObj, memo, userID, emailSubject)
@@ -116,6 +120,7 @@
         message = Presponse.message
         confirmNum = Presponse.confirmNum
         tradeDate = Presponse.tradeDate
+        tradeDT = Presponse.tradeDT
     End If
 
     On Error GoTo 0
@@ -135,6 +140,9 @@
                     <% End If %>
                     <% If tradeDate <> "" Then %>
                     <li> Response.tradeDate : <%=tradeDate%> </li>
+                    <% End If %>
+                    <% If tradeDT <> "" Then %>
+                    <li> Response.tradeDT : <%=tradeDT%> </li>
                     <% End If %>
                 </ul>
             </fieldset>

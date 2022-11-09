@@ -522,7 +522,7 @@ Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, sms
 End Function 
 
 '부분취소 현금영수증 즉시발행
-Public Function RevokeRegistIssue_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount )
+Public Function RevokeRegistIssue_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount , emailSubject, tradeDT)
 
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "mgtKey", mgtKey
@@ -540,6 +540,8 @@ Public Function RevokeRegistIssue_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeD
     tmp.Set "tax", tax
     tmp.Set "serviceFee", serviceFee
     tmp.Set "totalAmount", totalAmount
+    tmp.Set "emailSubject", emailSubject
+    tmp.Set "tradeDT", tradeDT
 
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
     
@@ -697,6 +699,7 @@ End Class
 Class Cashbill
     Public mgtKey
     Public tradeDate
+    Public tradeDT
     Public tradeUsage
     Public tradeType
     Public tradeOpt
@@ -734,6 +737,7 @@ Class Cashbill
         On Error Resume Next
         mgtKey = jsonInfo.mgtKey
         tradeDate = jsonInfo.tradeDate
+        tradeDT = jsonInfo.tradeDT
         tradeUsage = jsonInfo.tradeUsage
         tradeOpt = jsonInfo.tradeOpt
         tradeType = jsonInfo.tradeType
@@ -775,6 +779,7 @@ Class Cashbill
         Set toJsonInfo = JSON.parse("{}")
         toJsonInfo.Set "mgtKey", mgtKey
         toJsonInfo.Set "tradeDate", tradeDate
+        toJsonInfo.Set "tradeDT", tradeDT
         toJsonInfo.Set "tradeUsage", tradeUsage
         toJsonInfo.Set "tradeOpt", tradeOpt	
         toJsonInfo.Set "tradeType", tradeType
@@ -837,6 +842,7 @@ Class CashbillInfo
     Public itemKey 
     Public mgtKey 
     Public tradeDate 
+    Public tradeDT 
     Public issueDT 
     Public customerName 
     Public itemName 
@@ -869,6 +875,7 @@ Class CashbillInfo
         itemKey = jsonInfo.itemKey 
         mgtKey = jsonInfo.mgtKey 
         tradeDate = jsonInfo.tradeDate
+        tradeDT = jsonInfo.tradeDT
         issueDT = jsonInfo.issueDT
         customerName = jsonInfo.customerName 
         itemName = jsonInfo.itemName 
@@ -1027,6 +1034,7 @@ Class BulkCashbillissueResult
     Public message
     Public confirmNum
     Public tradeDate
+    Public tradeDT
     
     Function fromJsonInfo(jsonInfo)
         On Error Resume Next
@@ -1035,6 +1043,7 @@ Class BulkCashbillissueResult
             message = jsonInfo.message
             confirmNum = jsonInfo.confirmNum
             tradeDate = jsonInfo.tradeDate
+            tradeDT = jsonInfo.tradeDT
         On Error GoTo 0 
     End Function
 End Class
