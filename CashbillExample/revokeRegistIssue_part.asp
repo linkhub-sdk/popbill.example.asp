@@ -68,16 +68,15 @@
     totalAmount = "5500"
 
     ' 안내메일 제목, 공백처리시 기본양식으로 전송
-    emailSubject = "메일제목 테스트"
+    emailSubject = ""
 
     ' 거래일시, 날짜(yyyyMMddHHmmss)
     ' 당일, 전일만 가능, 미입력시 기본값 발행일시 처리
-    tradeDT = "20221108000000"
+    tradeDT = ""
 
     On Error Resume Next
 
-    Set Presponse = m_CashbillService.RevokeRegistIssue_Part(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID, _
-        isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount, emailSubject, tradeDT)
+    Set Presponse = m_CashbillService.RevokeRegistIssue_Part(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount, emailSubject, tradeDT)
 
     If Err.Number <> 0 then
         code = Err.Number

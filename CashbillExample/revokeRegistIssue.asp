@@ -35,9 +35,16 @@
     ' 메모
     memo = "즉시발행 메모"
 
+    ' 안내메일 제목, 공백처리시 기본양식으로 전송
+    emailSubject = ""
+
+    ' 거래일시, 날짜(yyyyMMddHHmmss)
+    ' 당일, 전일만 가능, 미입력시 기본값 발행일시 처리
+    tradeDT = ""
+
     On Error Resume Next
 
-    Set Presponse = m_CashbillService.RevokeRegistIssue(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID)
+    Set Presponse = m_CashbillService.RevokeRegistIssue(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID, emailSubject, tradeDT)
 
     If Err.Number <> 0 then
         code = Err.Number
