@@ -1644,6 +1644,10 @@ Class BulkTaxinvoiceResult
     Public receiptID
     Public issueResult()
 
+    Public Sub Class_Initialize
+        ReDim issueResult(-1)
+    End Sub
+
     Public Sub fromJsonInfo(jsonInfo)
         On Error Resume Next
         code = jsonInfo.code
