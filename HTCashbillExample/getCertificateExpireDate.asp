@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 팝빌에 등록된 홈택스 공인인증서 만료일시를 확인합니다
-    ' - https://docs.popbill.com/htcashbill/asp/api#GetCertificateExpireDate
+    ' - https://developers.popbill.com/reference/htcashbill/asp/api/cert#GetCertificateExpireDate
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외

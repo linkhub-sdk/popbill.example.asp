@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 연동회원의 잔여포인트를 확인합니다.
-    ' - https://docs.popbill.com/accountcheck/asp/api#getBalance
+    ' - https://developers.popbill.com/reference/accountcheck/asp/api/point#GetBalance
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외

@@ -10,7 +10,7 @@
     ' 최대 100건의 세금계산서 발행을 한번의 요청으로 접수합니다.
     ' - 세금계산서 발행을 위해서 공급자의 인증서가 팝빌 인증서버에 사전등록 되어야 합니다.
     '   └ 위수탁발행의 경우, 수탁자의 인증서 등록이 필요합니다.
-    ' - https://docs.popbill.com/taxinvoice/asp/api#BulkSubmit
+    ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#BulkSubmit
     '**************************************************************
     
     ' 팝빌회원 사업자번호
@@ -208,7 +208,7 @@
         '**************************************************************
         '         수정세금계산서 정보 (수정세금계산서 작성시에만 기재
         ' - 수정세금계산서 관련 정보는 연동매뉴얼 또는 개발가이드 링크 참조
-        ' - [참고] 수정세금계산서 작성방법 안내 - https://docs.popbill.com/taxinvoice/modify?lang=asp
+        ' - [참고] 수정세금계산서 작성방법 안내 - https://developers.popbill.com/guide/taxinvoice/asp/introduction/modified-taxinvoice
         '**************************************************************
 
         ' [수정세금계산서 발행시 필수] 수정사유코드, 수정사유에 따라 1~6중 선택기재

@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 전자세금계산서 유통사업자의 메일 목록을 확인합니다.
-    ' - https://docs.popbill.com/taxinvoice/asp/api#GetEmailPublicKeys
+    ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#GetEmailPublicKeys
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외 10자리

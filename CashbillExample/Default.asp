@@ -32,7 +32,6 @@
             <li><a href="getInfos.asp">getInfos</a> -상태 대량 확인</li>
             <li><a href="getDetailInfo.asp">getDetailInfo</a> -상세정보 확인</li>
             <li><a href="search.asp">search</a> -목록 조회</li>
-            <li><a href="getLogs.asp">getLogs</a> -상태 변경이력 확인</li>
             <li><a href="getURL.asp">getURL</a> -현금영수증 문서함 관련 URL</li>
         </ul>
     </fieldset>

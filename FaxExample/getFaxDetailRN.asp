@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 파트너가 할당한 전송요청 번호를 통해 팩스 전송상태 및 결과를 확인합니다.
-    ' - https://docs.popbill.com/fax/asp/api#GetFaxDetailRN
+    ' - https://developers.popbill.com/reference/fax/asp/api/info#GetFaxResultRN
     '**************************************************************
     
     ' 팝빌회원 사업자번호, "-" 제외

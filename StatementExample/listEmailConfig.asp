@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 전자명세서 관련 메일 항목에 대한 발송설정을 확인합니다.
-    ' - https://docs.popbill.com/statement/asp/api#ListEmailConfig
+    ' - https://developers.popbill.com/reference/statement/asp/api/etc#ListEmailConfig
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외

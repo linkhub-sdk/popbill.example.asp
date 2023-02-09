@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' "임시저장" 상태의 전자명세서를 수정합니다.
-    ' - https://docs.popbill.com/statement/asp/api#Update
+    ' - https://developers.popbill.com/reference/statement/asp/api/issue#Update
     '**************************************************************
 
     ' 팝빌회원 사업자번호

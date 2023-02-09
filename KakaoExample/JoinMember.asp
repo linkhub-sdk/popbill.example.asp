@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 사용자를 연동회원으로 가입처리합니다.
-    ' - https://docs.popbill.com/kakao/asp/api#JoinMember
+    ' - https://developers.popbill.com/reference/kakaotalk/asp/api/member#JoinMember
     '**************************************************************
 
     Set joinInfo = New JoinForm

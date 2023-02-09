@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 팝빌에 등록된 인증서로 홈택스 로그인 가능 여부를 확인합니다.
-    ' - https://docs.popbill.com/htcashbill/asp/api#CheckCertValidation
+    ' - https://developers.popbill.com/reference/htcashbill/asp/api/cert#CheckCertValidation
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외

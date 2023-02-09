@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 신청한 정액제 해지요청을 취소합니다.
-    ' - https://docs.popbill.com/easyfinbank/asp/api#RevokeCloseBankAccount
+    ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#RevokeCloseBankAccount
     '**************************************************************
 
     ' 팝빌회원 사업자번호

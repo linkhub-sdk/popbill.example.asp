@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 세금계산서 1건의 상세정보를 확인합니다.
-    ' - https://docs.popbill.com/taxinvoice/asp/api#GetDetailInfo
+    ' - https://developers.popbill.com/reference/taxinvoice/asp/api/info#GetDetailInfo
     '**************************************************************
     
     ' 팝빌회원 사업자번호, "-" 제외 10자리

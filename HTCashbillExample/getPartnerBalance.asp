@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 파트너의 잔여포인트를 확인합니다.
-    ' - https://docs.popbill.com/htcashbill/asp/api#GetPartnerBalance
+    ' - https://developers.popbill.com/reference/htcashbill/asp/api/point#GetPartnerBalance
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외

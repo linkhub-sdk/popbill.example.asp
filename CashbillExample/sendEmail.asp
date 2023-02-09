@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 현금영수증과 관련된 안내 메일을 재전송 합니다.
-    ' - https://docs.popbill.com/cashbill/asp/api#SendEmail
+    ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#SendEmail
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외

@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 사업자번호를 조회하여 연동회원 가입여부를 확인합니다.
-    ' - https://docs.popbill.com/taxinvoice/asp/api#CheckIsMember
+    ' - https://developers.popbill.com/reference/taxinvoice/asp/api/member#CheckIsMember
     '**************************************************************
 
     '팝빌회원 사업자번호, "-"제외 10자리

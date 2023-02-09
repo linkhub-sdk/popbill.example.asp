@@ -8,7 +8,7 @@
     <%
         '**************************************************************
         ' 1건의 예금주실명을 조회합니다.
-        ' - https://docs.popbill.com/accountcheck/asp/api#checkDepositorInfo
+        ' - https://developers.popbill.com/reference/accountcheck/asp/api/check#CheckDepositorInfo
         '**************************************************************
         '팝빌회원 사업자번호
         CorpNum = "1234567890"	

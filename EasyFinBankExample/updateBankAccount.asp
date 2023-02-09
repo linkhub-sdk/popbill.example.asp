@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' ÆËºô¿¡ µî·ÏµÈ °èÁÂÁ¤º¸¸¦ ¼öÁ¤ÇÕ´Ï´Ù.
-    ' - https://docs.popbill.com/easyfinbank/asp/api#UpdateBankAccount
+    ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#UpdateBankAccount
     '**************************************************************
 
     ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£

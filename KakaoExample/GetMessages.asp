@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 팝빌에서 반환받은 접수번호를 통해 알림톡/친구톡 전송상태 및 결과를 확인합니다.
-    ' - https://docs.popbill.com/kakao/asp/api#GetMessages
+    ' - https://developers.popbill.com/reference/kakaotalk/asp/api/info#GetMessages
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외

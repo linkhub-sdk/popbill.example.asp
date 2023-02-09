@@ -8,7 +8,7 @@
     <%
         '**************************************************************
         ' 사업자번호 1건에 대한 기업정보를 확인합니다.
-        ' - https://docs.popbill.com/bizinfocheck/asp/api#CheckBizInfo
+        ' - https://developers.popbill.com/reference/bizinfocheck/asp/api/check#CheckBizInfo
         '**************************************************************
         '팝빌회원 사업자번호
         MemberCorpNum = "1234567890"	

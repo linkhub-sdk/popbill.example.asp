@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 팝빌 홈택스연동(현금) API 서비스 과금정보를 확인합니다.
-    ' - https://docs.popbill.com/htcashbill/asp/api#GetChargeInfo
+    ' - https://developers.popbill.com/reference/htcashbill/asp/api/point#GetChargeInfo
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외

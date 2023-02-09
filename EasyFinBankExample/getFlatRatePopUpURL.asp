@@ -9,7 +9,7 @@
     '**************************************************************
     ' 계좌조회 정액제 서비스 신청 페이지의 팝업 URL을 반환합니다.
     ' - 반환되는 URL은 보안정책상 30초의 유효시간을 갖으며, 이 시간 초과후에는 URL을 사용해도 정상적인 페이지에 접근할 수 없습니다.
-    ' - https://docs.popbill.com/easyfinbank/asp/api#GetFlatRatePopUpURL
+    ' - https://developers.popbill.com/reference/easyfinbank/asp/api/point#GetFlatRatePopUpURL
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외

@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 정보를 확인합니다.
-    ' - https://docs.popbill.com/statement/asp/api#GetContactInfo
+    ' - https://developers.popbill.com/reference/statement/asp/api/member#GetContactInfo
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외

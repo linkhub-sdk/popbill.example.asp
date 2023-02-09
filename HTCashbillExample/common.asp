@@ -5,7 +5,7 @@
     '**************************************************************'
     ' 팝빌 홈택스 현금영수증 연동 API ASP SDK Example
     '
-    ' ASP SDK 연동환경 설정방법 안내 : https://docs.popbill.com/httaxinvoice/tutorial/asp
+    ' ASP SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/httaxinvoice/asp/getting-started/environment-set-up
     ' - 업데이트 일자 : 2022-07-20
     ' - 연동 기술지원 연락처 : 1600-9854
     ' - 연동 기술지원 이메일 : code@linkhubcorp.com

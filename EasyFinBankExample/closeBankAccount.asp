@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 계좌의 정액제 해지를 요청합니다.
-    ' - https://docs.popbill.com/easyfinbank/asp/api#CloseBankAccount
+    ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#CloseBankAccount
     '**************************************************************
 
     ' 팝빌회원 사업자번호

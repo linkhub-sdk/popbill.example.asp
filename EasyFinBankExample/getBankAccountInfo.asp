@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 팝빌에 등록된 계좌 정보를 확인합니다.
-    ' - https://docs.popbill.com/easyfinbank/asp/api#GetBankAccountInfo
+    ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#GetBankAccountInfo
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외

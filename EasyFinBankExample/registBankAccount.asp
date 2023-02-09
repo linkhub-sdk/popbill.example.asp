@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' °èÁÂÁ¶È¸ ¼­ºñ½º¸¦ ÀÌ¿ëÇÒ °èÁÂ¸¦ ÆËºô¿¡ µî·ÏÇÕ´Ï´Ù.
-    ' - https://docs.popbill.com/easyfinbank/asp/api#GetBankAccountInfo
+    ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#GetBankAccountInfo
     '**************************************************************
 
     ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£

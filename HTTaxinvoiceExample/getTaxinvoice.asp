@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 국세청 승인번호를 통해 수집한 전자세금계산서 1건의 상세정보를 반환합니다.
-    ' - https://docs.popbill.com/httaxinvoice/asp/api#GetTaxinvoice
+    ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/search#GetTaxinvoice
     '**************************************************************
 
     ' 팝빌회원 사업자번호

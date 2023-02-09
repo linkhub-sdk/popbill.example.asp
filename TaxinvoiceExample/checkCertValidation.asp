@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 팝빌 인증서버에 등록된 인증서의 유효성을 확인합니다.
-    ' - https://docs.popbill.com/taxinvoice/asp/api#checkCertValidation
+    ' - https://developers.popbill.com/reference/taxinvoice/asp/api/cert#CheckCertValidation
     '**************************************************************
 
     ' 팝빌회원 사업자번호

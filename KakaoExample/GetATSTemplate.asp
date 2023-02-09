@@ -8,7 +8,7 @@
     <%
         '**************************************************************
         ' 승인된 알림톡 템플릿 정보를 확인합니다.
-        ' - https://docs.popbill.com/kakao/asp/api#GetATSTemplate
+        ' - https://developers.popbill.com/reference/kakaotalk/asp/api/template#GetATSTemplate
         '**************************************************************
 
         ' 팝빌회원 사업자번호, "-" 제외

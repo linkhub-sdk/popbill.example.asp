@@ -9,7 +9,7 @@
     '**************************************************************
     ' 최대 2,000byte의 메시지와 이미지로 구성된 포토문자(MMS) 1건 전송을 팝빌에 접수합니다.
     ' - 이미지 파일 포맷/규격 : 최대 300Kbyte(JPEG), 가로/세로 1,000px 이하 권장
-    ' - https://docs.popbill.com/message/asp/api#SendMMS
+    ' - https://developers.popbill.com/reference/sms/asp/api/send#SendMMS
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외

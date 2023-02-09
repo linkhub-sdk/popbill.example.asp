@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 하나의 전자명세서에 다른 전자명세서를 첨부합니다.
-    ' - https://docs.popbill.com/statement/asp/api#AttachStatement
+    ' - https://developers.popbill.com/reference/statement/asp/api/etc#AttachStatement
     '**************************************************************
 
     ' 팝빌회원 사업자번호

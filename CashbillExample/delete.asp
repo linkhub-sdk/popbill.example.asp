@@ -10,7 +10,7 @@
     ' 삭제 가능한 상태의 현금영수증을 삭제합니다.
     ' - ※ 삭제 가능한 상태: "전송실패"
     ' - 현금영수증을 삭제하면 사용된 문서번호(mgtKey)를 재사용할 수 있습니다.
-    ' - https://docs.popbill.com/cashbill/asp/api#Delete
+    ' - https://developers.popbill.com/reference/cashbill/asp/api/issue#Delete
     '**************************************************************
     
     ' 팝빌회원 사업자번호, "-" 제외

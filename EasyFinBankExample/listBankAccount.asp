@@ -8,7 +8,7 @@
 <%
     '**************************************************************
     ' 팝빌에 등록된 계좌정보 목록을 반환합니다.
-    ' - https://docs.popbill.com/easyfinbank/asp/api#ListBankAccount
+    ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#ListBankAccount
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
