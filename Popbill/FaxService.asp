@@ -3,7 +3,7 @@ Class FaxService
 
 Private m_PopbillBase
 
-'Å×½ºÆ® ÇÃ·¡±×
+'í…ŒìŠ¤íŠ¸ í”Œë˜ê·¸
 Public Property Let IsTest(ByVal value)
     m_PopbillBase.IsTest = value
 End Property
@@ -34,182 +34,182 @@ Public Property Let UseGAIP(ByVal value)
     m_PopbillBase.UseGAIP = value
 End Property
 
-'È¸¿øÀÜ¾×Á¶È¸
+'íšŒì›ì”ì•¡ì¡°íšŒ
 Public Function GetBalance(CorpNum)
     GetBalance = m_PopbillBase.GetBalance(CorpNum)
 End Function
-'ÆÄÆ®³Ê ÀÜ¾×Á¶È¸
+'íŒŒíŠ¸ë„ˆ ì”ì•¡ì¡°íšŒ
 Public Function GetPartnerBalance(CorpNum)
     GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
 End Function
-'ÆËºô ±âº» URL
+'íŒë¹Œ ê¸°ë³¸ URL
 Public Function GetPopbillURL(CorpNum , UserID , TOGO )
     GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 End Function
-'ÆËºô ·Î±×ÀÎ URL
+'íŒë¹Œ ë¡œê·¸ì¸ URL
 Public Function GetAccessURL(CorpNum , UserID)
     GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
 End Function
 
-'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀü URL
+'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì¶©ì „ URL
 Public Function GetChargeURL(CorpNum , UserID)
     GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
 End Function
 
-'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª URL
+'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ URL
 Public Function GetPaymentURL(CorpNum, UserID)
     GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
 End Function
 
-'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL
+'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL
 Public Function GetUseHistoryURL(CorpNum, UserID)
     GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
 End Function
 
-'ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL - 2017/08/29 Ãß°¡
+'íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ íŒì—… URL - 2017/08/29 ì¶”ê°€
 Public Function GetPartnerURL(CorpNum, TOGO)
     GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
 End Function
 
-'È¸¿ø°¡ÀÔ ¿©ºÎ
+'íšŒì›ê°€ì… ì—¬ë¶€
 Public Function CheckIsMember(CorpNum , linkID)
     Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
 End Function
-'È¸¿ø°¡ÀÔ
+'íšŒì›ê°€ì…
 Public Function JoinMember(JoinInfo)
     Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
-'´ã´çÀÚ Á¤º¸ È®ÀÎ
+'ë‹´ë‹¹ì ì •ë³´ í™•ì¸
 Public Function GetContactInfo(CorpNum, ContactID, UserID)
     Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
-End Function 
-'´ã´çÀÚ ¸ñ·ÏÁ¶È¸
+End Function
+'ë‹´ë‹¹ì ëª©ë¡ì¡°íšŒ
 Public Function ListContact(CorpNum, UserID)
     Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
 End Function
-'´ã´çÀÚ Á¤º¸¼öÁ¤
+'ë‹´ë‹¹ì ì •ë³´ìˆ˜ì •
 Public Function UpdateContact(CorpNum, contInfo, UserId)
     Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
 End Function
-'´ã´çÀÚ Ãß°¡ 
+'ë‹´ë‹¹ì ì¶”ê°€
 Public Function RegistContact(CorpNum, contInfo, UserId)
     Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
 End Function
-'È¸»çÁ¤º¸ ¼öÁ¤
+'íšŒì‚¬ì •ë³´ ìˆ˜ì •
 Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
     Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
 End Function
-'È¸»çÁ¤º¸ È®ÀÎ 
+'íšŒì‚¬ì •ë³´ í™•ì¸
 Public Function GetCorpInfo(CorpNum, UserId)
     Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
 End Function
 Public Function CheckID(id)
     Set CheckID = m_popbillBase.CheckID(id)
 End Function
-'°ú±İÁ¤º¸ È®ÀÎ
+'ê³¼ê¸ˆì •ë³´ í™•ì¸
 Public Function GetChargeInfo ( CorpNum, UserID, ReceiveNumType )
     Dim result : Set result = m_PopbillBase.httpGET("/FAX/ChargeInfo?receiveNumType=" & ReceiveNumType, m_PopbillBase.getSession_token(CorpNum), UserID)
 
     Dim chrgInfo : Set chrgInfo = New ChargeInfo
     chrgInfo.fromJsonInfo result
-    
+
     Set GetChargeInfo = chrgInfo
 End Function
 '''''''''''''  End of PopbillBase
 
-''´Ü°¡È®ÀÎ
+''ë‹¨ê°€í™•ì¸
 Public Function GetUnitCost(CorpNum, ReceiveNumType)
     Dim result : Set result = m_PopbillBase.httpGET("/FAX/UnitCost?receiveNumType=" & ReceiveNumType, m_PopbillBase.getSession_token(CorpNum),"")
     GetUnitCost = result.unitCost
 End Function
 
-'ÆÑ½º Àü¼Û³»¿ªÁ¶È¸ URL
+'íŒ©ìŠ¤ ì „ì†¡ë‚´ì—­ì¡°íšŒ URL
 Public Function GetURL(CorpNum, UserID, TOGO)
     Dim result : Set result = m_PopbillBase.httpGET("/FAX/?TG="+TOGO, m_PopbillBase.getSession_token(CorpNum),UserID)
     GetURL = result.url
 End Function
 
 
-'ÆÑ½º Àü¼Û³»¿ª ÆË¾÷ URL
+'íŒ©ìŠ¤ ì „ì†¡ë‚´ì—­ íŒì—… URL
 Public Function GetSentListURL(CorpNum, UserID)
     Dim result : Set result = m_PopbillBase.httpGet("/FAX/?TG=BOX",m_PopbillBase.getSession_token(CorpNum), UserID)
     GetSentListURL = result.url
 End Function
 
-'¹ß½Å¹øÈ£ °ü¸® ÆË¾÷ URL
+'ë°œì‹ ë²ˆí˜¸ ê´€ë¦¬ íŒì—… URL
 Public Function GetSenderNumberMgtURL(CorpNum, UserID)
     Dim result : Set result = m_PopbillBase.httpGet("/FAX/?TG=SENDER",m_PopbillBase.getSession_token(CorpNum), UserID)
     GetSenderNumberMgtURL = result.url
 End Function
 
-'ÆÑ½º ¹Ì¸®º¸±â URL
+'íŒ©ìŠ¤ ë¯¸ë¦¬ë³´ê¸° URL
 Public Function GetPreviewURL(CorpNum, ReceiptNum, UserID)
-    If Len(ReceiptNum ) <> 18 Or IsNull(ReceiptNum) Then 
-        Err.Raise -99999999, "POPBILL", "Á¢¼ö¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù"
+    If Len(ReceiptNum ) <> 18 Or IsNull(ReceiptNum) Then
+        Err.Raise -99999999, "POPBILL", "ì ‘ìˆ˜ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤"
     End If
 
     Dim result : Set result = m_PopbillBase.httpGET("/FAX/Preview/"+ReceiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
     GetPreviewURL = result.url
 End Function
 
-'ÆÑ½º ¿¹¾àÀü¼Û Ãë¼Ò
+'íŒ©ìŠ¤ ì˜ˆì•½ì „ì†¡ ì·¨ì†Œ
 Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
-    If isNull(ReceiptNum) Or IsEmpty(ReceiptNum) Then Err.Raise -99999999, "POPBILL", "Á¢¼ö¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If isNull(ReceiptNum) Or IsEmpty(ReceiptNum) Then Err.Raise -99999999, "POPBILL", "ì ‘ìˆ˜ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
 
     Set CancelReserve = m_PopbillBase.httpGET("/FAX/"&ReceiptNum&"/Cancel", m_PopbillBase.getSession_token(CorpNum),UserID)
 End Function
 
-'¿¹¾à Àü¼ÛÃë¼Ò (¿äÃ»¹øÈ£ ÇÒ´ç)
+'ì˜ˆì•½ ì „ì†¡ì·¨ì†Œ (ìš”ì²­ë²ˆí˜¸ í• ë‹¹)
 Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
-    If RequestNum = "" Or IsNull(RequestNum) Then 
-        Err.Raise -99999999, "POPBILL", "¿äÃ»¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
+    If RequestNum = "" Or IsNull(RequestNum) Then
+        Err.Raise -99999999, "POPBILL", "ìš”ì²­ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
     End If
-    
+
     Set CancelReserveRN = m_PopbillBase.httpGet("/FAX/Cancel/"&RequestNum, m_PopbillBase.getSession_token(CorpNum), UserID)
 End Function
 
-'ÆÑ½º Àü¼Û
+'íŒ©ìŠ¤ ì „ì†¡
 Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT , UserID, adsYN, title, requestNum)
-    If isNull(receivers) Or IsEmpty(receivers) Then Err.Raise -99999999, "POPBILL", "¼ö½ÅÀÚÁ¤º¸ °¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
-    If UBound(receivers) < 0 Then Err.Raise -99999999, "POPBILL", "¼ö½ÅÀÚÁ¤º¸ °¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
-    If isNull(FilePaths) Or IsEmpty(FilePaths) Then Err.Raise -99999999, "POPBILL", "Àü¼ÛÇÒ ÆÄÀÏ°æ·Î°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
-    If UBound(FilePaths) < 0 Then Err.Raise -99999999, "POPBILL", "Àü¼ÛÇÒ ÆÄÀÏ°æ·Î°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
-  
+    If isNull(receivers) Or IsEmpty(receivers) Then Err.Raise -99999999, "POPBILL", "ìˆ˜ì‹ ìì •ë³´ ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+    If UBound(receivers) < 0 Then Err.Raise -99999999, "POPBILL", "ìˆ˜ì‹ ìì •ë³´ ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+    If isNull(FilePaths) Or IsEmpty(FilePaths) Then Err.Raise -99999999, "POPBILL", "ì „ì†¡í•  íŒŒì¼ê²½ë¡œê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+    If UBound(FilePaths) < 0 Then Err.Raise -99999999, "POPBILL", "ì „ì†¡í•  íŒŒì¼ê²½ë¡œê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+
     Dim Form : Set Form = JSON.parse("{}")
-    
+
     Form.set "snd", sendNum
     If reserveDT <> "" Then Form.set "sndDT", reserveDT
-      If adsYN Then Form.Set "adsYN", adsYN  
+      If adsYN Then Form.Set "adsYN", adsYN
     If title <> "" Then Form.set "title", title
     If requestNum <> "" Then Form.set "requestNum", requestNum
 
     Form.set "fCnt", UBound(FilePaths) + 1
-    
+
     Dim tmpArray() : ReDim tmpArray(UBound(receivers))
     Dim i
     For i = 0 to UBound(receivers)
         If  isNull(receivers(i)) Or IsEmpty(receivers(i)) Then
-            Err.Raise -99999999, "POPBILL", CStr(i+1) & " ¹øÂ° ¼ö½ÅÀÚ Á¤º¸°¡ ±âÀçµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", CStr(i+1) & " ë²ˆì§¸ ìˆ˜ì‹ ì ì •ë³´ê°€ ê¸°ì¬ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         else
             Set tmpArray(i) =  receivers(i).toJsonInfo()
         End if
     Next
-    
+
     Form.set "rcvs", tmpArray
-    
+
     Dim postdata : postdata = m_PopbillBase.toString(Form)
     Dim result : Set result = m_PopbillBase.httpPOST_Files("/FAX", m_PopbillBase.getSession_token(CorpNum), postdata, FilePaths, UserID)
-    
+
     SendFAX = result.receiptNum
 End Function
 
 
-'ÆÑ½º ÀçÀü¼Û
+'íŒ©ìŠ¤ ì¬ì „ì†¡
 Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  reserveDT , UserID, title, requestNum)
-    If isNull(receiptNum) Or IsEmpty(receiptNum) Then Err.Raise -99999999, "POPBILL", "ÆÑ½º Á¢¼ö¹øÈ£(receiptNum)°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If isNull(receiptNum) Or IsEmpty(receiptNum) Then Err.Raise -99999999, "POPBILL", "íŒ©ìŠ¤ ì ‘ìˆ˜ë²ˆí˜¸(receiptNum)ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
 
     Dim Form : Set Form = JSON.parse("{}")
-    
+
     If sendNum <> "" Then Form.set "snd", sendNum
     If senderName <> "" Then Form.set "sndnm", senderName
     If reserveDT <> "" Then Form.set "sndDT", reserveDT
@@ -217,19 +217,19 @@ Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  
 
     If title <> "" Then Form.set "title", title
 
-    If UBound(receivers) >= 0 Then 
+    If UBound(receivers) >= 0 Then
         Dim tmpArray() : ReDim tmpArray(UBound(receivers))
         Dim i
         For i = 0 to UBound(receivers)
             If  isNull(receivers(i)) Or IsEmpty(receivers(i)) Then
-                Err.Raise -99999999, "POPBILL", CStr(i+1) & " ¹øÂ° ¼ö½ÅÀÚ Á¤º¸°¡ ±âÀçµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+                Err.Raise -99999999, "POPBILL", CStr(i+1) & " ë²ˆì§¸ ìˆ˜ì‹ ì ì •ë³´ê°€ ê¸°ì¬ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
             else
                 Set tmpArray(i) =  receivers(i).toJsonInfo()
             End if
         Next
         Form.set "rcvs", tmpArray
-    End If 
-    
+    End If
+
     Dim postdata : postdata = m_PopbillBase.toString(Form)
     Dim result : Set result = m_PopbillBase.httpPOST("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
 
@@ -237,30 +237,30 @@ Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  
 End Function
 
 
-'ÆÑ½º ÀçÀü¼Û (¿äÃ»¹øÈ£ ÇÒ´ç)
+'íŒ©ìŠ¤ ì¬ì „ì†¡ (ìš”ì²­ë²ˆí˜¸ í• ë‹¹)
 Public Function ResendFAXRN(CorpNum, orgRequestNum, sendNum, senderName, receivers,  reserveDT , UserID, title, requestNum)
-    If isNull(orgRequestNum) Or IsEmpty(orgRequestNum) Then Err.Raise -99999999, "POPBILL", "¿øº» ÆÑ½º ¿äÃ»¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If isNull(orgRequestNum) Or IsEmpty(orgRequestNum) Then Err.Raise -99999999, "POPBILL", "ì›ë³¸ íŒ©ìŠ¤ ìš”ì²­ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     Dim Form : Set Form = JSON.parse("{}")
-    
+
     If sendNum <> "" Then Form.set "snd", sendNum
     If senderName <> "" Then Form.set "sndnm", senderName
     If reserveDT <> "" Then Form.set "sndDT", reserveDT
     If requestNum <> "" Then Form.set "requestNum", requestNum
     If title <> "" Then Form.set "title", title
 
-    If UBound(receivers) >= 0 Then 
+    If UBound(receivers) >= 0 Then
         Dim tmpArray() : ReDim tmpArray(UBound(receivers))
         Dim i
         For i = 0 to UBound(receivers)
             If  isNull(receivers(i)) Or IsEmpty(receivers(i)) Then
-                Err.Raise -99999999, "POPBILL", CStr(i+1) & " ¹øÂ° ¼ö½ÅÀÚ Á¤º¸°¡ ±âÀçµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+                Err.Raise -99999999, "POPBILL", CStr(i+1) & " ë²ˆì§¸ ìˆ˜ì‹ ì ì •ë³´ê°€ ê¸°ì¬ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
             else
                 Set tmpArray(i) =  receivers(i).toJsonInfo()
             End if
         Next
         Form.set "rcvs", tmpArray
-    End If 
-    
+    End If
+
     Dim postdata : postdata = m_PopbillBase.toString(Form)
     Dim result : Set result = m_PopbillBase.httpPOST("/FAX/Resend/"&orgRequestNum, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
 
@@ -268,14 +268,14 @@ Public Function ResendFAXRN(CorpNum, orgRequestNum, sendNum, senderName, receive
 End Function
 
 
-'ÆÑ½º Àü¼Û°á°ú È®ÀÎ
+'íŒ©ìŠ¤ ì „ì†¡ê²°ê³¼ í™•ì¸
 Public Function GetFaxDetail(CorpNum, receiptNum, UserID)
     If  isEmpty(receiptNum) Then
-            Err.Raise -99999999, "POPBILL", "ÆÑ½º Á¢¼ö¹øÈ£(receiptNum)°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "íŒ©ìŠ¤ ì ‘ìˆ˜ë²ˆí˜¸(receiptNum)ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim result : Set result = m_PopbillBase.httpGET("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
-        
+
     Dim tmp : Set tmp = CreateObject("Scripting.Dictionary")
 
     Dim i
@@ -287,17 +287,17 @@ Public Function GetFaxDetail(CorpNum, receiptNum, UserID)
 
     Set GetFaxDetail = tmp
 
-End Function 
+End Function
 
 
-'ÆÑ½º Àü¼Û³»¿ª È®ÀÎ (¿äÃ»¹øÈ£ ÇÒ´ç)
+'íŒ©ìŠ¤ ì „ì†¡ë‚´ì—­ í™•ì¸ (ìš”ì²­ë²ˆí˜¸ í• ë‹¹)
 Public Function GetFaxDetailRN(CorpNum, RequestNum, UserID)
-    If RequestNum = "" Or IsNull(RequestNum) Then 
-        Err.Raise -99999999, "POPBILL", "¿äÃ»¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
+    If RequestNum = "" Or IsNull(RequestNum) Then
+        Err.Raise -99999999, "POPBILL", "ìš”ì²­ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
     End If
-    
+
     Dim result : Set result = m_PopbillBase.httpGet("/FAX/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
-    
+
     Dim tmp : Set tmp = CreateObject("Scripting.Dictionary")
 
     Dim i
@@ -309,60 +309,60 @@ Public Function GetFaxDetailRN(CorpNum, RequestNum, UserID)
 
     Set GetFaxDetailRN = tmp
 
-End Function 
+End Function
 
 
-'ÆÑ½º ¸ñ·Ï Á¶È¸
+'íŒ©ìŠ¤ ëª©ë¡ ì¡°íšŒ
 Public Function Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Order, Page, PerPage, QString)
     If SDate = "" Then
-        Err.Raise -99999999, "POPBILL", "½ÃÀÛÀÏÀÚ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ì‹œì‘ì¼ìê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
     If EDate = "" Then
-        Err.Raise -99999999, "POPBILL", "Á¾·áÀÏÀÚ°¡ ÀÌ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ì¢…ë£Œì¼ìê°€ ì´ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
-    Dim uri 
+    Dim uri
     uri = "/FAX/Search"
     uri = uri & "?SDate=" & SDate
     uri = uri & "&EDate=" & EDate
 
     Dim i
     uri = uri & "&State="
-    For i=0 To UBound(State) -1	
+    For i=0 To UBound(State) -1
         If i = UBound(State) -1 then
             uri = uri & State(i)
         Else
             uri = uri & State(i) & ","
         End If
     Next
-    
+
     If ReserveYN Then uri = uri & "&ReserveYN=1"
     If SedernOnlyYN Then uri = uri & "&SenderOnlyYN=1"
-    
+
     uri = uri & "&Order=" & Order
     uri = uri & "&Page=" & CStr(Page)
     uri = uri & "&PerPage=" & CStr(PerPage)
     uri = uri & "&QString=" & Server.URLEncode(QString)
-    
+
     Dim searchResult : Set searchResult = New FAXSearchResult
     Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
 
     searchResult.fromJsonInfo tmpObj
-    
+
     Set Search = searchResult
 End Function
 
-' ¹ß½Å¹øÈ£ ¸ñ·Ï È®ÀÎ
+' ë°œì‹ ë²ˆí˜¸ ëª©ë¡ í™•ì¸
 Public Function GetSenderNumberList(CorpNum)
     Set GetSenderNumberList = m_PopbillBase.httpGET("/FAX/SenderNumber", m_PopbillBase.getSession_token(CorpNum), "")
 End Function
 
-' ¹ß½Å¹øÈ£ µî·Ï¿©ºÎ È®ÀÎ
+' ë°œì‹ ë²ˆí˜¸ ë“±ë¡ì—¬ë¶€ í™•ì¸
 Public Function CheckSenderNumber(CorpNum, SenderNumber, UserID)
-    If SenderNumber = "" Or IsNull(SenderNumber) Then 
-        Err.Raise -99999999, "POPBILL", "¹ß½Å¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If SenderNumber = "" Or IsNull(SenderNumber) Then
+        Err.Raise -99999999, "POPBILL", "ë°œì‹ ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Set CheckSenderNumber = m_PopbillBase.httpGET("/FAX/CheckSenderNumber/"&SenderNumber,m_PopbillBase.getSession_token(CorpNum),UserID)
 End Function
 
@@ -372,7 +372,7 @@ Class FaxState
 
 Public state
 Public result
-Public title 
+Public title
 Public sendState
 Public convState
 Public sendNum
@@ -433,11 +433,11 @@ End Sub
 End Class
 
 Class FaxReceiver
-Public receiverNum 
-Public receiverName 
+Public receiverNum
+Public receiverName
 Public interOPRefKey
 
-Public Function toJsonInfo() 
+Public Function toJsonInfo()
     Set toJsonInfo = JSON.parse("{}")
     toJsonInfo.set "rcv", receiverNum
     toJsonInfo.set "rcvnm", receiverName
@@ -467,7 +467,7 @@ Class FAXSearchResult
         pageNum = jsonInfo.pageNum
         pageCount = jsonInfo.pageCount
         message = jsonInfo.message
-        
+
         ReDim list(jsonInfo.list.length)
         Dim i
         For i = 0 To jsonInfo.list.length -1

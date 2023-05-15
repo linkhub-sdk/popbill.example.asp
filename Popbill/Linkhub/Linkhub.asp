@@ -1,4 +1,4 @@
-<!--#include file="json2.asp"--> 
+<!--#include file="json2.asp"-->
 <%
 Const linkhub_ServiceURL = "https://auth.linkhub.co.kr"
 Const linkhub_ServiceURL_Static = "https://static-auth.linkhub.co.kr"
@@ -54,23 +54,23 @@ Public Sub Class_Initialize
 End Sub
 
 Public Sub Class_Terminate
-    Set m_sha1 = Nothing 
-End Sub 
+    Set m_sha1 = Nothing
+End Sub
 
 Public function getTime(useStaticIP, useLocalTimeYN, useGAIP)
     Dim result
 
-    If useLocalTimeYN Then 
+    If useLocalTimeYN Then
         result = m_sha1.getLocalTime()
-    Else   
+    Else
         Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
         Call winhttp1.setRequestHeader("User-Agent", "Classic ASP LINKHUB SDK")
         Call winhttp1.Open("GET", getTargetURL(useStaticIP, useGAIP) + "/Time")
-        
+
         winhttp1.send
         winhttp1.WaitForResponse
         result = winhttp1.responseText
-        
+
         If winhttp1.Status <> 200 Then
             Dim er : Set er = parse(result)
             Err.raise er.code , "LINKHUB", er.message
@@ -98,34 +98,34 @@ public function getToken(serviceID , access_id, Scope, forwardIP, useStaticIP, u
     Call winhttp1.setRequestHeader("x-lh-date", xdate)
     Call winhttp1.setRequestHeader("x-lh-version", "2.0")
     Call winhttp1.setRequestHeader("User-Agent", "Classic ASP LINKHUB SDK")
-    If forwardIP <> "" Then 
+    If forwardIP <> "" Then
             Call winhttp1.setRequestHeader("x-lh-forwarded", forwardIP)
-    End If 
+    End If
 
     Dim target
     target = "POST" + Chr(10)
     target = target + m_sha1.b64_sha256(postdata) + Chr(10)
     target = target + xDate + Chr(10)
-    If forwardIP <> "" Then 
+    If forwardIP <> "" Then
         target = target + forwardIP + Chr(10)
-    End If 
+    End If
     target = target + "2.0" + Chr(10)
     target = target + "/" + serviceID + "/Token"
 
     Dim Bearer : Bearer =  m_sha1.b64_hmac_sha256(m_secretKey,target)
-    
+
     Call winhttp1.setRequestHeader("Authorization", "LINKHUB " + m_linkID + " " + Bearer)
 
     winhttp1.send (postData)
     winhttp1.WaitForResponse
     Dim result : result =  winhttp1.responseText
-    
+
     If winhttp1.Status <> 200 Then
         Dim er : Set er = parse(result)
         Err.raise er.code ,"LINKHUB", er.message
     End if
     Set getToken = parse(result)
-    
+
     Set winhttp1 = nothing
 
 end function
@@ -137,19 +137,19 @@ Public Function GetBalance(BearerToken, serviceID, useStaticIP, useGAIP)
     Call winhttp1.Open("GET", getTargetURL(useStaticIP, useGAIP) + "/" + serviceID + "/Point")
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     Call winhttp1.setRequestHeader("User-Agent", "Classic ASP LINKHUB SDK")
-    
+
     winhttp1.send
     winhttp1.WaitForResponse
     Dim result : result = winhttp1.responseText
-       
+
     If winhttp1.Status <> 200 Then
         Dim er : Set er = parse(result)
         Err.raise er.code , "LINKHUB", er.message
     End If
-    
+
     Set winhttp1 = Nothing
     Dim parsedDic : Set parsedDic = parse(result)
-    
+
     GetBalance = CDbl(parsedDic.remainPoint)
 
 End Function
@@ -161,23 +161,23 @@ Public Function GetPartnerBalance(BearerToken, serviceID, useStaticIP, useGAIP)
     Call winhttp1.Open("GET", getTargetURL(useStaticIP, useGAIP) + "/" + serviceID + "/PartnerPoint")
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     Call winhttp1.setRequestHeader("User-Agent", "Classic ASP LINKHUB SDK")
-    
+
     winhttp1.send
     winhttp1.WaitForResponse
     Dim result : result = winhttp1.responseText
-    
+
     If winhttp1.Status <> 200 Then
         Dim er : Set er = parse(result)
         Err.raise er.code , "LINKHUB", er.message
     End If
-    
+
     Set winhttp1 = Nothing
     Dim parsedDic : Set parsedDic = parse(result)
     GetPartnerBalance = CDbl(parsedDic.remainPoint)
 
 End Function
 
-' ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL - 2017/08/29 Ãß°¡
+' ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½ URL - 2017/08/29 ï¿½ß°ï¿½
 Public Function GetPartnerURL(BearerToken, serviceID, TOGO, useStaticIP, useGAIP)
 
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
@@ -185,16 +185,16 @@ Public Function GetPartnerURL(BearerToken, serviceID, TOGO, useStaticIP, useGAIP
     Call winhttp1.Open("GET", getTargetURL(useStaticIP, useGAIP) + "/" + serviceID + "/URL?TG=" + TOGO)
     Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     Call winhttp1.setRequestHeader("User-Agent", "Classic ASP LINKHUB SDK")
-    
+
     winhttp1.send
     winhttp1.WaitForResponse
     Dim result : result = winhttp1.responseText
-    
+
     If winhttp1.Status <> 200 Then
         Dim er : Set er = parse(result)
         Err.raise er.code , "LINKHUB", er.message
     End If
-    
+
     Set winhttp1 = Nothing
     Dim parsedDic : Set parsedDic = parse(result)
     GetPartnerURL = parsedDic.url
@@ -212,7 +212,7 @@ Private Function getTargetURL(useStaticIP, useGAIP)
 End Function
 
 Private Function IIf(condition , trueState,falseState)
-    If condition Then 
+    If condition Then
         IIf = trueState
     Else
         IIf = falseState

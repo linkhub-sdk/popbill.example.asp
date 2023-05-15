@@ -1,14 +1,14 @@
- <%
+<%
 
 Class EasyFinBankSErvice
-    
+
     Private m_PopbillBase
-    
-    'Å×½ºÆ® ÇÃ·¡±×
+
+    'í…ŒìŠ¤íŠ¸ í”Œë˜ê·¸
     Public Property Let IsTest(ByVal value)
         m_PopbillBase.IsTest = value
     End Property
-    
+
     Public Property Let IPRestrictOnOff(ByVal value)
         m_PopbillBase.IPRestrictOnOff = value
     End Property
@@ -16,7 +16,7 @@ Class EasyFinBankSErvice
     Public Property Let UseStaticIP(ByVal value)
         m_PopbillBase.UseStaticIP = value
     End Property
-    
+
     Public Property Let UseGAIP(ByVal value)
         m_PopbillBase.UseGAIP = value
     End Property
@@ -24,92 +24,92 @@ Class EasyFinBankSErvice
     Public Property Let UseLocalTimeYN(ByVal value)
         m_PopbillBase.UseLocalTimeYN = value
     End Property
-    
+
     Public Sub Class_Initialize
         Set m_PopbillBase = New PopbillBase
         m_PopbillBase.AddScope("180")
     End Sub
-    
+
     Public Sub Initialize(linkID, SecretKey )
         m_PopbillBase.Initialize linkID,SecretKey
     End Sub
 
-    'È¸¿ø Æ÷ÀÎÆ®Á¶È¸
+    'íšŒì› í¬ì¸íŠ¸ì¡°íšŒ
     Public Function GetBalance(CorpNum)
         GetBalance = m_PopbillBase.GetBalance(CorpNum)
     End Function
 
-    'ÆÄÆ®³Ê ÀÜ¾×Á¶È¸
+    'íŒŒíŠ¸ë„ˆ ì”ì•¡ì¡°íšŒ
     Public Function GetPartnerBalance(CorpNum)
         GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
     End Function
-    
-    'ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL - 2017/08/29 Ãß°¡
+
+    'íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ íŒì—… URL - 2017/08/29 ì¶”ê°€
     Public Function GetPartnerURL(CorpNum, TOGO)
         GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
     End Function
 
-    'ÆËºô ±âº» URL
+    'íŒë¹Œ ê¸°ë³¸ URL
     Public Function GetPopbillURL(CorpNum , UserID , TOGO )
         GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
     End Function
 
-    'ÆËºô ·Î±×ÀÎ URL
+    'íŒë¹Œ ë¡œê·¸ì¸ URL
     Public Function GetAccessURL(CorpNum , UserID)
         GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
     End Function
 
-    'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀü URL
+    'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì¶©ì „ URL
     Public Function GetChargeURL(CorpNum , UserID)
         GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
     End Function
 
-    'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª URL
+    'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ URL
     Public Function GetPaymentURL(CorpNum, UserID)
         GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
     End Function
 
-    'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL
+    'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL
     Public Function GetUseHistoryURL(CorpNum, UserID)
         GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
     End Function
 
-    'È¸¿ø°¡ÀÔ ¿©ºÎ
+    'íšŒì›ê°€ì… ì—¬ë¶€
     Public Function CheckIsMember(CorpNum , linkID)
         Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
     End Function
 
-    'È¸¿ø°¡ÀÔ
+    'íšŒì›ê°€ì…
     Public Function JoinMember(JoinInfo)
         Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
     End Function
 
-    '´ã´çÀÚ Á¤º¸ È®ÀÎ
+    'ë‹´ë‹¹ì ì •ë³´ í™•ì¸
     Public Function GetContactInfo(CorpNum, ContactID, UserID)
         Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
-    End Function 
+    End Function
 
-    '´ã´çÀÚ ¸ñ·ÏÁ¶È¸
+    'ë‹´ë‹¹ì ëª©ë¡ì¡°íšŒ
     Public Function ListContact(CorpNum, UserID)
         Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
     End Function
 
-    '´ã´çÀÚ Á¤º¸¼öÁ¤
+    'ë‹´ë‹¹ì ì •ë³´ìˆ˜ì •
     Public Function UpdateContact(CorpNum, contInfo, UserId)
         Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
     End Function
 
-    '´ã´çÀÚ Ãß°¡ 
+    'ë‹´ë‹¹ì ì¶”ê°€
     Public Function RegistContact(CorpNum, contInfo, UserId)
         Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
     End Function
 
-    'È¸»çÁ¤º¸ ¼öÁ¤
+    'íšŒì‚¬ì •ë³´ ìˆ˜ì •
     Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
         Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
     End Function
 
-    'È¸»çÁ¤º¸ È®ÀÎ 
+    'íšŒì‚¬ì •ë³´ í™•ì¸
     Public Function GetCorpInfo(CorpNum, UserId)
         Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
     End Function
@@ -118,18 +118,18 @@ Class EasyFinBankSErvice
         Set CheckID = m_popbillBase.CheckID(id)
     End Function
 
-    '°ú±İÁ¤º¸ È®ÀÎ
+    'ê³¼ê¸ˆì •ë³´ í™•ì¸
     Public Function GetChargeInfo ( CorpNum, UserID )
         Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/Bank/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
         Dim chrgInfo : Set chrgInfo = New ChargeInfo
         chrgInfo.fromJsonInfo result
-        
+
         Set GetChargeInfo = chrgInfo
-    End Function 
+    End Function
 
     '''''''''''''  End of PopbillBase
 
-    
+
     Public Function RegistBankAccount(CorpNum, BankInfoObj, UserID)
         Dim uri
         uri = "/EasyFin/Bank/BankAccount/Regist"
@@ -162,7 +162,7 @@ Class EasyFinBankSErvice
         Set CloseBankAccount = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
 
     End Function
-    
+
     Public Function RevokeCloseBankAccount(CorpNum, BankCode, AccountNumber, UserID)
         Dim uri
         uri = "/EasyFin/Bank/BankAccount/RevokeClose"
@@ -173,7 +173,7 @@ Class EasyFinBankSErvice
 
     End function
 
-    'Á¾·®Á¦ °èÁÂ »èÁ¦
+    'ì¢…ëŸ‰ì œ ê³„ì¢Œ ì‚­ì œ
     Public Function DeleteBankAccount (CorpNum, BankCode, AccountNumber, UserID)
 
         Dim uri : uri = "/EasyFin/Bank/BankAccount/Delete"
@@ -186,8 +186,8 @@ Class EasyFinBankSErvice
         Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
         Set DeleteBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
-        
-    End Function 
+
+    End Function
 
     Public Function GetBankAccountMgtURL ( CorpNum, UserID )
         Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/Bank?TG=BankAccount", _
@@ -205,15 +205,15 @@ Class EasyFinBankSErvice
 
         Dim infoObj : Set infoObj = New EasyFinBankAccount
         infoObj.fromJsonInfo result
-        
-        Set GetBankAccountInfo = infoObj	
-    End Function 
+
+        Set GetBankAccountInfo = infoObj
+    End Function
 
 
     Public Function ListBankAccount(CorpNum, UserID)
         Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/Bank/ListBankAccount", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
-        
+
         Dim bankAccountList : Set bankAccountList = CreateObject("Scripting.Dictionary")
         Dim i
         For i=0 To result.length-1
@@ -239,13 +239,13 @@ Class EasyFinBankSErvice
 
     Public Function GetJobState(CorpNum, JobID, UserID)
         If Len(JobID) <> 18  Then
-            Err.Raise -99999999, "POPBILL", "ÀÛ¾÷¾ÆÀÌµğ°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ì‘ì—…ì•„ì´ë””ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
         End If
 
         Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/Bank/" & JobID & "/State", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 
-        Dim jobInfo : Set jobInfo = New EasyFinJobState	
+        Dim jobInfo : Set jobInfo = New EasyFinJobState
         jobInfo.fromJsonInfo result
         Set GetJobState = jobInfo
     End Function
@@ -253,7 +253,7 @@ Class EasyFinBankSErvice
     Public Function ListActiveJob(CorpNum, UserID)
         Dim result : Set result = m_PopbillBase.httpGET("/EasyFin/Bank/JobList", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
-        
+
         Dim jobList : Set jobList = CreateObject("Scripting.Dictionary")
 
         Dim i
@@ -269,25 +269,25 @@ Class EasyFinBankSErvice
     Public Function Search ( CorpNum, JobID, TradeType, SearchString, Page, PerPage, Order, UserID )
 
         If  Not ( Len ( JobID ) = 18 )  Then
-            Err.Raise -99999999, "POPBILL", "ÀÛ¾÷¾ÆÀÌµğ°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
-        End If 
+            Err.Raise -99999999, "POPBILL", "ì‘ì—…ì•„ì´ë””ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
+        End If
 
         Dim uri
         uri = "/EasyFin/Bank/" & JobID
 
         Dim i
         uri = uri & "?TradeType="
-        For i = 0 To UBound(TradeType) -1 
+        For i = 0 To UBound(TradeType) -1
             If i = UBound(TradeType) -1 Then
                 uri = uri & TradeType(i)
             Else
                 uri = uri & TradeType(i) & ","
             End if
         Next
-        
+
         If SearchString <> "" Then
             uri = uri & "&SearchString=" & Server.URLEncode(SearchString)
-        End If 
+        End If
 
         uri = uri & "&Page=" & CStr(Page)
         uri = uri & "&PerPage=" & CStr(PerPage)
@@ -297,35 +297,35 @@ Class EasyFinBankSErvice
 
         Dim searchResult : Set searchResult = New EasyFinBankSearchResult
         searchResult.fromJsonInfo result
-        Set Search = searchResult 
+        Set Search = searchResult
 
-    End Function 
+    End Function
 
     Public Function Summary ( CorpNum, JobID, TradeType, SearchString, UserID)
 
         If Not ( Len ( JobID ) = 18 ) Then
-            Err.Raise -99999999, "POPBILL", "ÀÛ¾÷¾ÆÀÌµğ°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
-        End If 
+            Err.Raise -99999999, "POPBILL", "ì‘ì—…ì•„ì´ë””ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
+        End If
 
         Dim uri
         uri = "/EasyFin/Bank/" & JobID & "/Summary"
 
         Dim i
         uri = uri & "?TradeType="
-        For i = 0 To UBound(TradeType) -1 
+        For i = 0 To UBound(TradeType) -1
             If i = UBound(TradeType) -1 Then
                 uri = uri & TradeType(i)
             Else
                 uri = uri & TradeType(i) & ","
             End if
         Next
-        
+
         If SearchString <> "" Then
             uri = uri & "&SearchString=" & Server.URLEncode(SearchString)
-        End If 
+        End If
 
         Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
-    
+
         Dim summaryResult : Set summaryResult = New EasyFinBankSummaryResult
         summaryResult.fromJsonInfo result
         Set Summary = summaryResult
@@ -335,7 +335,7 @@ Class EasyFinBankSErvice
     Public Function SaveMemo(CorpNum , TID, Memo, UserID)
 
         If TID = "" Then
-            Err.Raise -99999999, "POPBILL", "°Å·¡³»¿ª ¾ÆÀÌµğ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ê±°ë˜ë‚´ì—­ ì•„ì´ë””ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         End If
 
         Dim uri
@@ -353,13 +353,13 @@ Class EasyFinBankSErvice
 
     End Function
 
-    Public Function GetFlatRateState ( CorpNum, BankCode, AccountNumber, UserID ) 
+    Public Function GetFlatRateState ( CorpNum, BankCode, AccountNumber, UserID )
 
         If BankCode = "" Then
-            Err.Raise -99999999, "POPBILL", "±â°üÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ê¸°ê´€ì½”ë“œê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         End If
         If AccountNumber = "" Then
-            Err.Raise -99999999, "POPBILL", "°èÁÂ¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ê³„ì¢Œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         End If
 
         Dim responseObj : Set responseObj = m_PopbillBase.httpGET("/EasyFin/Bank/Contract/" & BankCode & "/" & AccountNumber, _
@@ -368,11 +368,11 @@ Class EasyFinBankSErvice
         Set flatRateObj = New EasyFinBankFlatRate
         flatRateObj.fromJsonInfo responseObj
         Set GetFlatRateState = flatrateObj
-    End Function 
+    End Function
 
 End Class
 
-Class EasyFinBankFlatRate 
+Class EasyFinBankFlatRate
     Public referenceID
     Public contractDT
     Public useEndDate
@@ -394,7 +394,7 @@ Class EasyFinBankFlatRate
             closeOnExpired = jsonInfo.closeOnExpired
             unPaidYN = jsonInfo.unPaidYN
         On Error GoTo 0
-    End Sub 
+    End Sub
 End Class
 
 
@@ -404,7 +404,7 @@ Class EasyFinBankSummaryResult
     Public cntAccOut
     Public totalAccIn
     Public totalAccOut
-    
+
     Public Sub fromJsonInfo ( jsonInfo )
         On Error Resume Next
         count = jsonInfo.count
@@ -412,9 +412,9 @@ Class EasyFinBankSummaryResult
         cntAccOut = jsonInfo.cntAccOut
         totalAccIn = jsonInfo.totalAccIn
         totalAccOut = jsonInfo.totalAccOut
-        On Error GoTo 0 
-    End Sub 
-End Class 
+        On Error GoTo 0
+    End Sub
+End Class
 
 
 Class EasyFinBankSearchResult
@@ -426,11 +426,11 @@ Class EasyFinBankSearchResult
     Public pageCount
     Public lastScrapDT
     Public list()
-    
+
     Public Sub classs_initialize
         ReDim list(-1)
     End Sub
-    
+
     Public Sub fromJsonInfo ( jsonInfo )
         On Error Resume Next
         code = jsonInfo.code
@@ -440,7 +440,7 @@ Class EasyFinBankSearchResult
         pageNum = jsonInfo.pageNum
         pageCount = jsonInfo.pageCount
         lastScrapDT = jsonInfo.lastScrapDT
-        
+
         ReDim list ( jsonInfo.list.length )
         Dim i
         For i = 0 To jsonInfo.list.length -1
@@ -448,10 +448,10 @@ Class EasyFinBankSearchResult
             tmpObj.fromJsonInfo jsonInfo.list.Get(i)
             Set list(i) = tmpObj
         next
-        
-        On Error GoTo 0 
-    End Sub 
-End Class 
+
+        On Error GoTo 0
+    End Sub
+End Class
 
 Class EasyFinSearchDetail
     Public tid
@@ -467,7 +467,7 @@ Class EasyFinSearchDetail
     Public remark4
     Public regDT
     Public memo
-    
+
     Public Sub fromJsonInfo ( jsonInfo )
         On Error Resume Next
         tid = jsonInfo.tid
@@ -484,7 +484,7 @@ Class EasyFinSearchDetail
         regDT = jsonInfo.regDT
         memo = jsonInfo.memo
         On Error GoTo 0
-    End Sub 
+    End Sub
 End class
 
 Class EasyFinJobState
@@ -510,7 +510,7 @@ Class EasyFinJobState
             jobStartDT = jsonInfo.jobStartDT
             jobEndDT = jsonInfo.jobEndDT
             regDT = jsonInfo.regDT
-        On Error GoTo 0 
+        On Error GoTo 0
     End sub
 End Class
 
@@ -526,7 +526,7 @@ Class EasyFinBankAccountForm
     public FastPWD
     public UsePeriod
     public Memo
-        
+
     Public Function toJsonInfo()
         Set toJsonInfo = JSON.parse("{}")
         toJsonInfo.set "BankCode", BankCode
@@ -584,7 +584,7 @@ Class EasyFinBankAccount
             unPaidYN = jsonInfo.unPaidYN
 
 
-        On Error GoTo 0 
+        On Error GoTo 0
     End sub
 End Class
 %>

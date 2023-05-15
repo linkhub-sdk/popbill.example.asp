@@ -8,7 +8,7 @@ Class TaxinvoiceService
 
 Private m_PopbillBase
 
-'Å×½ºÆ® ÇÃ·¡±×
+'í…ŒìŠ¤íŠ¸ í”Œë˜ê·¸
 Public Property Let IsTest(ByVal value)
     m_PopbillBase.IsTest = value
 End Property
@@ -38,76 +38,76 @@ Public Sub Initialize(linkID, SecretKey )
     m_PopbillBase.Initialize linkID,SecretKey
 End Sub
 
-'È¸¿øÀÜ¾×Á¶È¸
+'íšŒì›ì”ì•¡ì¡°íšŒ
 Public Function GetBalance(CorpNum)
     GetBalance = m_PopbillBase.GetBalance(CorpNum)
 End Function
-'ÆÄÆ®³Ê ÀÜ¾×Á¶È¸
+'íŒŒíŠ¸ë„ˆ ì”ì•¡ì¡°íšŒ
 Public Function GetPartnerBalance(CorpNum)
     GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
 End Function
 
-'ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL
+'íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ íŒì—… URL
 Public Function GetPartnerURL(CorpNum, TOGO)
     GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
 End Function
 
-'ÆËºô ±âº» URL
+'íŒë¹Œ ê¸°ë³¸ URL
 Public Function GetPopbillURL(CorpNum , UserID , TOGO )
     GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 End Function
 
-'ÆËºô ·Î±×ÀÎ URL
+'íŒë¹Œ ë¡œê·¸ì¸ URL
 Public Function GetAccessURL(CorpNum , UserID)
     GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
 End Function
 
-'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀü URL
+'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì¶©ì „ URL
 Public Function GetChargeURL(CorpNum , UserID)
     GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
 End Function
 
-'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª URL
+'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ URL
 Public Function GetPaymentURL(CorpNum, UserID)
     GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
 End Function
 
-'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL
+'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL
 Public Function GetUseHistoryURL(CorpNum, UserID)
     GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
 End Function
 
-'È¸¿ø°¡ÀÔ ¿©ºÎ
+'íšŒì›ê°€ì… ì—¬ë¶€
 Public Function CheckIsMember(CorpNum , linkID)
     Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
 End Function
-'È¸¿ø°¡ÀÔ
+'íšŒì›ê°€ì…
 Public Function JoinMember(JoinInfo)
     Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
 
-'´ã´çÀÚ Á¤º¸ È®ÀÎ
+'ë‹´ë‹¹ì ì •ë³´ í™•ì¸
 Public Function GetContactInfo(CorpNum, ContactID, UserID)
     Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
-End Function 
+End Function
 
-'´ã´çÀÚ ¸ñ·ÏÁ¶È¸
+'ë‹´ë‹¹ì ëª©ë¡ì¡°íšŒ
 Public Function ListContact(CorpNum, UserID)
     Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
 End Function
-'´ã´çÀÚ Á¤º¸¼öÁ¤
+'ë‹´ë‹¹ì ì •ë³´ìˆ˜ì •
 Public Function UpdateContact(CorpNum, contInfo, UserId)
     Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
 End Function
-'´ã´çÀÚ Ãß°¡ 
+'ë‹´ë‹¹ì ì¶”ê°€
 Public Function RegistContact(CorpNum, contInfo, UserId)
     Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
 End Function
-'È¸»çÁ¤º¸ ¼öÁ¤
+'íšŒì‚¬ì •ë³´ ìˆ˜ì •
 Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
     Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
 End Function
-'È¸»çÁ¤º¸ È®ÀÎ 
+'íšŒì‚¬ì •ë³´ í™•ì¸
 Public Function GetCorpInfo(CorpNum, UserId)
     Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
 End Function
@@ -115,39 +115,39 @@ Public Function CheckID(id)
     Set CheckID = m_popbillBase.CheckID(id)
 End Function
 
-'°ú±İÁ¤º¸ È®ÀÎ
+'ê³¼ê¸ˆì •ë³´ í™•ì¸
 Public Function GetChargeInfo ( CorpNum, UserID )
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
 
     Dim chrgInfo : Set chrgInfo = New ChargeInfo
     chrgInfo.fromJsonInfo result
-    
+
     Set GetChargeInfo = chrgInfo
-End Function 
+End Function
 '''''''''''''  End of PopbillBase
 
-'ÀÓ½ÃÀúÀå
+'ì„ì‹œì €ì¥
 Public Function Register(CorpNum ,byref TI, writeSpecification, UserID)
-    
-    If TI Is Nothing Then Err.raise -99999999,"POPBILL","µî·ÏÇÒ ¼¼±İ°è»ê¼­ Á¤º¸°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+
+    If TI Is Nothing Then Err.raise -99999999,"POPBILL","ë“±ë¡í•  ì„¸ê¸ˆê³„ì‚°ì„œ ì •ë³´ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
 
     Dim tmpDic : Set tmpDic = TI.toJsonInfo
     If writeSpecification Then
         tmpDic.Set "writeSpecification", True
     End If
-    
+
     Dim postdata : postdata = m_PopbillBase.toString(tmpDic)
 
     Set Register = m_PopbillBase.httpPOST("/Taxinvoice", m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
 End Function
 
-'¼öÁ¤
+'ìˆ˜ì •
 
 Public Function Update(CorpNum, KeyType, MgtKey, ByRef TI, writeSpecification, UserID)
-    If TI Is Nothing Then Err.raise -99999999,"POPBILL","¼öÁ¤ÇÒ ¼¼±İ°è»ê¼­ Á¤º¸°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If TI Is Nothing Then Err.raise -99999999,"POPBILL","ìˆ˜ì •í•  ì„¸ê¸ˆê³„ì‚°ì„œ ì •ë³´ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
 
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim tmpDic : Set tmpDic = TI.toJsonInfo
@@ -158,68 +158,68 @@ Public Function Update(CorpNum, KeyType, MgtKey, ByRef TI, writeSpecification, U
     Dim postdata : postdata = m_PopbillBase.toString(tmpDic)
 
     Set Update = m_PopbillBase.httpPOST("/Taxinvoice/"+ KeyType +"/" + MgtKey, m_PopbillBase.getSession_token(CorpNum),"PATCH", postdata, UserID)
-End Function 
+End Function
 
-'¿¬µ¿¹®¼­¹øÈ£ »ç¿ë¿©ºÎ È®ÀÎ
+'ì—°ë™ë¬¸ì„œë²ˆí˜¸ ì‚¬ìš©ì—¬ë¶€ í™•ì¸
 Public Function CheckMgtKeyInUse(CorpNum, KeyType, MgtKey)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-        
+
     On Error Resume Next
-    
+
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/" +KeyType +"/"+ MgtKey, m_PopbillBase.getSession_token(CorpNum), "")
-    
+
     If Err.Number = -11000005  Then
         CheckMgtKeyInUse = False
         Err.Clears
-    Else 
+    Else
         CheckMgtKeyInUse = True
         Err.Clears
     End If
     On Error GoTo 0
-End Function 
+End Function
 
-'ÆÄÀÏ Ã·ºÎ
+'íŒŒì¼ ì²¨ë¶€
 Public Function AttachFile(CorpNum, KeyType, MgtKey, FilePath, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Set AttachFile = m_PopbillBase.httpPOST_File("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files", m_PopbillBase.getSession_token(CorpNum), FilePath, UserID)
 End Function
 
-'¼¼±İ°è»ê¼­ Ã·ºÎÆÄÀÏ 1°³ »èÁ¦ 
+'ì„¸ê¸ˆê³„ì‚°ì„œ ì²¨ë¶€íŒŒì¼ 1ê°œ ì‚­ì œ
 Public Function DeleteFile(CorpNum , KeyType , MgtKey , FileID,  UserID )
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
-    
+
     Set DeleteFile = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files/" + FileID, _
                         m_PopbillBase.getSession_token(CorpNum), "DELETE","", UserID)
 End Function
 
-'¼¼±İ°è»ê¼­ Ã·ºÎÆÄÀÏ ¸ñ·ÏÈ®ÀÎ 
+'ì„¸ê¸ˆê³„ì‚°ì„œ ì²¨ë¶€íŒŒì¼ ëª©ë¡í™•ì¸
 Public Function GetFiles(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Set GetFiles = m_PopbillBase.httpGET("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 End Function
 
-'¹ßÇà¿¹Á¤ Ã³¸® 
+'ë°œí–‰ì˜ˆì • ì²˜ë¦¬
 Public Function Send(CorpNum, KeyType, MgtKey, Memo, EmailSubject, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
     tmp.Set "emailSubject", EmailSubject
-    
+
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
     Set Send = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
@@ -227,15 +227,15 @@ Public Function Send(CorpNum, KeyType, MgtKey, Memo, EmailSubject, UserID)
 
 End Function
 
-'¹ßÇà¿¹Á¤ Ãë¼Ò Ã³¸® 
+'ë°œí–‰ì˜ˆì • ì·¨ì†Œ ì²˜ë¦¬
 Public Function CancelSend(CorpNum, KeyType, MgtKey, Memo, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
-    
+
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
     Set CancelSend = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
@@ -243,43 +243,43 @@ Public Function CancelSend(CorpNum, KeyType, MgtKey, Memo, UserID)
 
 End Function
 
-'¹ßÁš¿¹Á¤ ½ÂÀÎ
+'ë°œÂšì˜ˆì • ìŠ¹ì¸
 Public Function Accept(CorpNum, KeyType, MgtKey, Memo, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
-    
+
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
     Set Accept = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
                         m_PopbillBase.getSession_token(CorpNum), "ACCEPT", postdata, UserID)
 End Function
 
-'¹ßÁš¿¹Á¤ °ÅºÎ
+'ë°œÂšì˜ˆì • ê±°ë¶€
 Public Function Deny(CorpNum, KeyType, MgtKey, Memo, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
-    
+
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
-    
+
     Set Deny = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
                         m_PopbillBase.getSession_token(CorpNum), "DENY", postdata, UserID)
 End Function
 
 
-'¹ßÁš
+'ë°œÂš
 Public Function Issue(CorpNum, KeyType, MgtKey, Memo, EmailSubject, ForceIssue, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
     tmp.Set "EmailSubject", EmailSubject
@@ -291,24 +291,24 @@ Public Function Issue(CorpNum, KeyType, MgtKey, Memo, EmailSubject, ForceIssue, 
                         m_PopbillBase.getSession_token(CorpNum), "ISSUE", postdata, UserID)
 End Function
 
-'¹ßÁš Ãë¼Ò Ã³¸®
+'ë°œÂš ì·¨ì†Œ ì²˜ë¦¬
 Public Function CancelIssue(CorpNum, KeyType, MgtKey, Memo, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
-    
+
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
     Set CancelIssue = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCELISSUE", postdata, UserID)
 End Function
 
 
-'Áï½Ã¿äÃ»
+'ì¦‰ì‹œìš”ì²­
 Public Function RegistRequest(CorpNum, ByRef TI, Memo, UserID)
-    If TI Is Nothing Then Err.raise -99999999,"POPBILL","µî·ÏÇÒ ¼¼±İ°è»ê¼­ Á¤º¸°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If TI Is Nothing Then Err.raise -99999999,"POPBILL","ë“±ë¡í•  ì„¸ê¸ˆê³„ì‚°ì„œ ì •ë³´ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
 
     Dim tmpDic : Set tmpDic = TI.toJsonInfo
 
@@ -323,15 +323,15 @@ Public Function RegistRequest(CorpNum, ByRef TI, Memo, UserID)
 End Function
 
 
-'¿ª)¹ßÇà¿äÃ» Ã³¸®.
+'ì—­)ë°œí–‰ìš”ì²­ ì²˜ë¦¬.
 Public Function Request(CorpNum, KeyType, MgtKey, Memo, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
-    
+
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
     Set Request = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
@@ -339,30 +339,30 @@ Public Function Request(CorpNum, KeyType, MgtKey, Memo, UserID)
 End Function
 
 
-'¿ª)¹ßÇà¿äÃ» ¹ßÇà°ÅºÎ Ã³¸®.
+'ì—­)ë°œí–‰ìš”ì²­ ë°œí–‰ê±°ë¶€ ì²˜ë¦¬.
 Public Function Refuse(CorpNum, KeyType, MgtKey, Memo, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
-    
+
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
     Set Request = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
                         m_PopbillBase.getSession_token(CorpNum), "REFUSE", postdata, UserID)
 End Function
 
-'¼¼±İ°è»ê¼­ ¿ª)¹ßÇà¿äÃ» Ãë¼Ò Ã³¸®
+'ì„¸ê¸ˆê³„ì‚°ì„œ ì—­)ë°œí–‰ìš”ì²­ ì·¨ì†Œ ì²˜ë¦¬
 Public Function CancelRequest(CorpNum, KeyType, MgtKey, Memo, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
-    
+
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
     Set CancelRequest = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
@@ -370,15 +370,15 @@ Public Function CancelRequest(CorpNum, KeyType, MgtKey, Memo, UserID)
 End Function
 
 
-'¼¼±İ°è»ê¼­ »óÅÂ/¿ä¾à Á¤º¸ ´Ù·®(ÃÖ´ë1000°Ç) È®ÀÎ
+'ì„¸ê¸ˆê³„ì‚°ì„œ ìƒíƒœ/ìš”ì•½ ì •ë³´ ë‹¤ëŸ‰(ìµœëŒ€1000ê±´) í™•ì¸
 Public Function GetInfos(CorpNum, KeyType, MgtKeyList, UserID)
     If isEmpty(MgtKeyList) Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim tmp : Set tmp = JSON.parse("[]")
 
-    Dim i 
+    Dim i
     For i=0 To UBound(MgtKeyList) -1
         tmp.Set i, MgtKeyList(i)
     Next
@@ -388,24 +388,24 @@ Public Function GetInfos(CorpNum, KeyType, MgtKeyList, UserID)
     Dim result : Set result = m_PopbillBase.httpPOST("/Taxinvoice/" +KeyType, _
                     m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
 
-    
+
     Dim infoObj: Set infoObj = CreateObject("Scripting.Dictionary")
-    
+
     For i=0 To result.length-1
         Dim infotmp : Set infoTmp = New TaxinvoiceInfo
         infoTmp.fromJsonInfo result.Get(i)
         infoObj.Add i, infoTmp
     Next
-        
+
     Set GetInfos = infoObj
 
 End Function
 
 
-'¹®¼­ÀÌ·ÂÈ®ÀÎ 
+'ë¬¸ì„œì´ë ¥í™•ì¸
 Public Function GetLogs(CorpNum, KeyType, MgtKey)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/" +KeyType+ "/"+ MgtKey+"/Logs", _
@@ -414,7 +414,7 @@ Public Function GetLogs(CorpNum, KeyType, MgtKey)
     Dim logObj : Set logObj = CreateObject("Scripting.Dictionary")
 
     Dim i
-    
+
     For i = 0 To result.length -1
         Dim logtmp : Set logTmp = New TaxinvoiceLog
         logTmp.fromJsonInfo result.Get(i)
@@ -424,37 +424,37 @@ Public Function GetLogs(CorpNum, KeyType, MgtKey)
     Set GetLogs = logObj
 End Function
 
-'¼¼±İ°è»ê¼­ »óÅÂ/¿ä¾à Á¤º¸ È®ÀÎ
+'ì„¸ê¸ˆê³„ì‚°ì„œ ìƒíƒœ/ìš”ì•½ ì •ë³´ í™•ì¸
 Public Function GetInfo(CorpNum, KeyType, MgtKey, UserID)
-    
+
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim infoTmp : Set infoTmp = New TaxinvoiceInfo
-    
+
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/" +KeyType+ "/"+ MgtKey, _
                     m_PopbillBase.getSession_token(CorpNum), UserID)
-    
+
     infoTmp.fromJsonInfo result
     Set GetInfo = infoTmp
 
 End Function
 
 
-'¼¼±İ°è»ê¼­ »èÁ¦
+'ì„¸ê¸ˆê³„ì‚°ì„œ ì‚­ì œ
 Public Function Delete(CorpNum , KeyType , MgtKey , UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Set Delete = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, m_PopbillBase.getSession_token(CorpNum), "DELETE", "", UserID)
 End Function
 
-'±¹¼¼Ã» Àü¼Û
+'êµ­ì„¸ì²­ ì „ì†¡
 Public Function SendToNTS(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Set SendToNTS = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
@@ -462,27 +462,27 @@ Public Function SendToNTS(CorpNum, KeyType, MgtKey, UserID)
 End Function
 
 
-'ÀÌ¸ŞÀÏ ÀçÀü¼Û
+'ì´ë©”ì¼ ì¬ì „ì†¡
 Public Function SendEmail(CorpNum, KeyType, MgtKey, Receiver, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "receiver", Receiver
-    
+
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
     Set SendEmail = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
                         m_PopbillBase.getSession_token(CorpNum), "EMAIL", postdata, UserID)
 End Function
 
-'¹®ÀÚ ÀçÀü¼Û
+'ë¬¸ì ì¬ì „ì†¡
 Public Function SendSMS(CorpNum, KeyType, MgtKey, Sender, Receiver, Contents, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "sender", Sender
     tmp.Set "receiver", Receiver
@@ -494,12 +494,12 @@ Public Function SendSMS(CorpNum, KeyType, MgtKey, Sender, Receiver, Contents, Us
                         m_PopbillBase.getSession_token(CorpNum), "SMS", postdata, UserID)
 End Function
 
-'ÆÑ½º ÀçÀü¼Û
+'íŒ©ìŠ¤ ì¬ì „ì†¡
 Public Function SendFAX(CorpNum, KeyType, MgtKey, Sender, Receiver, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Dim tmp : Set tmp = JSON.parse("{}")
 
     tmp.Set "receiver", Receiver
@@ -511,31 +511,31 @@ Public Function SendFAX(CorpNum, KeyType, MgtKey, Sender, Receiver, UserID)
                         m_PopbillBase.getSession_token(CorpNum), "FAX", postdata, UserID)
 End Function
 
-'¼¼±İ°è»ê¼­ URLÈ®ÀÎ
+'ì„¸ê¸ˆê³„ì‚°ì„œ URLí™•ì¸
 Public Function GetURL(CorpNum, UserID, TOGO)
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice?TG=" + TOGO, _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
     GetURL = result.url
 End Function
 
-'ÆËºô ÀÎ°¨ ¹× Ã·ºÎ¹®¼­ µî·Ï  URLÈ®ÀÎ
+'íŒë¹Œ ì¸ê° ë° ì²¨ë¶€ë¬¸ì„œ ë“±ë¡  URLí™•ì¸
 Public Function GetSealURL(CorpNum, UserID)
     Dim result : Set result = m_PopbillBase.httpGET("/?TG=SEAL", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
     GetSealURL = result.url
 End Function
 
-'¼¼±İ°è»ê¼­ URLÈ®ÀÎ
+'ì„¸ê¸ˆê³„ì‚°ì„œ URLí™•ì¸
 Public Function GetTaxCertURL(CorpNum, UserID)
     Dim result : Set result = m_PopbillBase.httpGET("/?TG=CERT", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
     GetTaxCertURL = result.url
 End Function
 
-'º¸±â ÆË¾÷ URL
+'ë³´ê¸° íŒì—… URL
 Public Function GetPopupURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=POPUP" , _
@@ -543,10 +543,10 @@ Public Function GetPopupURL(CorpNum, KeyType, MgtKey, UserID)
     GetPopupURL = result.url
 End Function
 
-'º¸±â ÆË¾÷ URL
+'ë³´ê¸° íŒì—… URL
 Public Function GetViewURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=VIEW" , _
@@ -554,10 +554,10 @@ Public Function GetViewURL(CorpNum, KeyType, MgtKey, UserID)
     GetViewURL = result.url
 End Function
 
-'PDF ´Ù¿î·Îµå URLÈ®ÀÎ
+'PDF ë‹¤ìš´ë¡œë“œ URLí™•ì¸
 Public Function GetPDFURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=PDF" , _
@@ -565,10 +565,10 @@ Public Function GetPDFURL(CorpNum, KeyType, MgtKey, UserID)
     GetPDFURL = result.url
 End Function
 
-'ÀÎ¼â URLÈ®ÀÎ
+'ì¸ì‡„ URLí™•ì¸
 Public Function GetPrintURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=PRINT" , _
@@ -576,10 +576,10 @@ Public Function GetPrintURL(CorpNum, KeyType, MgtKey, UserID)
     GetPrintURL = result.url
 End Function
 
-'(±¸)¾ç½Ä ÀÎ¼â URLÈ®ÀÎ
+'(êµ¬)ì–‘ì‹ ì¸ì‡„ URLí™•ì¸
 Public Function GetOldPrintURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=PRINTOLD" , _
@@ -587,12 +587,12 @@ Public Function GetOldPrintURL(CorpNum, KeyType, MgtKey, UserID)
     GetOldPrintURL = result.url
 End Function
 
-'´Ù·® ÀÎ¼â URLÈ®ÀÎ
+'ë‹¤ëŸ‰ ì¸ì‡„ URLí™•ì¸
 Public Function GetMassPrintURL(CorpNum, KeyType, mgtKeyList, UserID)
     If isNull(mgtKeyList) Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Dim tmp : Set tmp = JSON.parse("[]")
 
     Dim i
@@ -601,17 +601,17 @@ Public Function GetMassPrintURL(CorpNum, KeyType, mgtKeyList, UserID)
     Next
 
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
-    
+
     Dim result : Set result = m_PopbillBase.httpPOST("/Taxinvoice/"+ KeyType +"?Print", m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
 
     GetMassPrintURL = result.url
 
 End Function
 
-'ÀÎ¼â URLÈ®ÀÎ(°ø±Ş¹Ş´ÂÀÚ)
+'ì¸ì‡„ URLí™•ì¸(ê³µê¸‰ë°›ëŠ”ì)
 Public Function GetEPrintURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=EPRINT" , _
@@ -619,10 +619,10 @@ Public Function GetEPrintURL(CorpNum, KeyType, MgtKey, UserID)
     GetEPrintURL = result.url
 End Function
 
-'¸ŞÀÏ URLÈ®ÀÎ
+'ë©”ì¼ URLí™•ì¸
 Public Function GetMailURL(CorpNum, KeyType, MgtKey, UserID)
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/"+ KeyType +"/"+ MgtKey + "?TG=MAIL" , _
@@ -630,14 +630,14 @@ Public Function GetMailURL(CorpNum, KeyType, MgtKey, UserID)
     GetMailURL = result.url
 End Function
 
-'»ó¼¼Á¤º¸ È®ÀÎ
+'ìƒì„¸ì •ë³´ í™•ì¸
 Public Function GetDetailInfo(CorpNum , KeyType, MgtKey )
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Dim detailTmp : Set detailTmp = New Taxinvoice
-        
+
     Dim tmp : Set tmp = m_PopbillBase.httpGET("/Taxinvoice/" + KeyType + "/" + MgtKey + "?Detail", _
                                 m_PopbillBase.getSession_token(CorpNum), "")
 
@@ -645,14 +645,14 @@ Public Function GetDetailInfo(CorpNum , KeyType, MgtKey )
     Set GetDetailInfo = detailTmp
 End Function
 
-'»ó¼¼Á¤º¸ È®ÀÎ (XML)
+'ìƒì„¸ì •ë³´ í™•ì¸ (XML)
 Public Function GetXML(CorpNum , KeyType, MgtKey )
     If MgtKey = "" Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Dim xmlTmp : Set xmlTmp = New TaxinvoiceXML
-        
+
     Dim tmp : Set tmp = m_PopbillBase.httpGET("/Taxinvoice/" + KeyType + "/" + MgtKey + "?XML", _
                                 m_PopbillBase.getSession_token(CorpNum), "")
 
@@ -660,46 +660,46 @@ Public Function GetXML(CorpNum , KeyType, MgtKey )
     Set GetXML = xmlTmp
 End Function
 
-'¼¼±İ°è»ê¼­ ¹ßÇà ´Ü°¡ È®ÀÎ 
+'ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ ë‹¨ê°€ í™•ì¸
 Public Function GetUnitCost(CorpNum)
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice?cfg=UNITCOST", m_PopbillBase.getSession_token(CorpNum), "")
     GetUnitCost = result.unitCost
 End Function
 
-'°øÀÎÀÎÁõ¼­ÀÇ ¸¸·áÀÏ½Ã È®ÀÎ 
+'ê³µì¸ì¸ì¦ì„œì˜ ë§Œë£Œì¼ì‹œ í™•ì¸
 Public Function GetCertificateExpireDate(CorpNum)
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice?cfg=CERT", _
                         m_PopbillBase.getSession_token(CorpNum), "")
     GetCertificateExpireDate = result.certificateExpiration
 End Function
 
-'°øÀÎÀÎÁõ¼­ÀÇ Á¤º¸ È®ÀÎ
+'ê³µì¸ì¸ì¦ì„œì˜ ì •ë³´ í™•ì¸
 Public Function GetTaxCertInfo(CorpNum)
     Dim certificate : Set certificate = New TaxinvoiceCertificate
-        
+
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/Certificate", m_PopbillBase.getSession_token(CorpNum), "")
-    
+
     certificate.fromJsonInfo result
-    
+
     Set GetTaxCertInfo = certificate
 End Function
 
-'´ë¿ë·® ¿¬°è»ç¾÷ÀÚ ÀÌ¸ŞÀÏ ¸ñ·Ï È®ÀÎ 
+'ëŒ€ìš©ëŸ‰ ì—°ê³„ì‚¬ì—…ì ì´ë©”ì¼ ëª©ë¡ í™•ì¸
 Public Function GetEmailPublicKeys(CorpNum)
     Set GetEmailPublicKeys = m_PopbillBase.httpGET("/Taxinvoice/EmailPublicKeys", _
                         m_PopbillBase.getSession_token(CorpNum), "")
 End Function
 
-'¼¼±İ°è»ê¼­ ¸ñ·ÏÁ¶È¸
+'ì„¸ê¸ˆê³„ì‚°ì„œ ëª©ë¡ì¡°íšŒ
 Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, TaxType, IssueType, RegType, CloseDownState, LateOnly, Order, Page, PerPage, TaxRegIDType, TaxRegIDYN, TaxRegID, QString, MgtKey, InterOPYN, UserID)
     If DType = "" Then
-        Err.Raise -99999999, "POPBILL", "°Ë»öÀÏÀÚ À¯ÇüÀÌ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ê²€ìƒ‰ì¼ì ìœ í˜•ì´ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
     If SDate = "" Then
-        Err.Raise -99999999, "POPBILL", "½ÃÀÛÀÏÀÚ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ì‹œì‘ì¼ìê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
     If EDate = "" Then
-        Err.Raise -99999999, "POPBILL", "Á¾·áÀÏÀÚ°¡ ÀÌ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ì¢…ë£Œì¼ìê°€ ì´ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim uri
@@ -710,7 +710,7 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
 
     uri = uri & "&State="
     Dim i
-    For i=0 To UBound(State) -1	
+    For i=0 To UBound(State) -1
         If i = UBound(State) -1 then
             uri = uri & State(i)
         Else
@@ -720,15 +720,15 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
 
     uri = uri & "&Type="
     For i=0 To UBound(TIType) -1
-        If i = UBound(TIType) -1  then	
+        If i = UBound(TIType) -1  then
             uri = uri & TIType(i)
         Else
             uri = uri & TIType(i) & ","
         End If
     Next
-    
+
     uri = uri & "&TaxType="
-    For i=0 To UBound(TaxType) -1 
+    For i=0 To UBound(TaxType) -1
         If i = UBound(TaxType) -1 then
             uri = uri & TaxType(i)
         Else
@@ -736,10 +736,10 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
         End If
     Next
 
-    If Not IsNull(IssueType) Then 
+    If Not IsNull(IssueType) Then
         uri = uri & "&IssueType="
-        
-        For i=0 To UBound(IssueType) -1 
+
+        For i=0 To UBound(IssueType) -1
             If i = UBound(IssueType) -1 then
                 uri = uri & IssueType(i)
             Else
@@ -747,11 +747,11 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
             End If
         Next
     End If
-    
-    If Not IsNull(RegType) Then 
+
+    If Not IsNull(RegType) Then
         uri = uri & "&RegType="
-        
-        For i=0 To UBound(RegType) -1 
+
+        For i=0 To UBound(RegType) -1
             If i = UBound(RegType) -1 then
                 uri = uri & RegType(i)
             Else
@@ -759,11 +759,11 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
             End If
         Next
     End If
-    
-    If Not IsNull(CloseDownState) Then 
+
+    If Not IsNull(CloseDownState) Then
         uri = uri & "&CloseDownState="
-        
-        For i=0 To UBound(CloseDownState) -1 
+
+        For i=0 To UBound(CloseDownState) -1
             If i = UBound(CloseDownState) -1 then
                 uri = uri & CloseDownState(i)
             Else
@@ -772,24 +772,24 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
         Next
     End if
 
-    If Not IsNull(LateOnly) Then 
+    If Not IsNull(LateOnly) Then
         If LateOnly Then
             uri = uri & "&LateOnly=1"
-        Else 
+        Else
             uri = uri & "&LateOnly=0"
         End If
     End If
 
     If TaxRegIDYN <> "" Then
         uri = uri & "&TaxRegIDYN=" & TaxRegIDYN
-    End If 
+    End If
 
     If MgtKey <> "" Then
         uri = uri & "&MgtKey=" & MgtKey
-    End If 
+    End If
 
 
-    uri = uri & "&TaxRegIDType=" & TaxRegIDType	
+    uri = uri & "&TaxRegIDType=" & TaxRegIDType
     uri = uri & "&TaxRegID=" & TaxRegID
     uri = uri & "&QString=" & Server.URLEncode(QString)
 
@@ -802,20 +802,20 @@ Public Function Search(CorpNum, KeyType, DType, SDate, EDate, State, TIType, Tax
     Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
 
     searchResult.fromJsonInfo tmpObj
-    
+
     Set Search = searchResult
 End Function
 
-'Áï½Ã¹ßÇà
+'ì¦‰ì‹œë°œí–‰
 Public Function RegistIssue(CorpNum, ByRef TI, WriteSpecification, DealInvoiceMgtKey, ForceIssue, Memo, EmailSubject, UserID)
-    If TI Is Nothing Then Err.raise -99999999,"POPBILL","µî·ÏÇÒ ¼¼±İ°è»ê¼­ Á¤º¸°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If TI Is Nothing Then Err.raise -99999999,"POPBILL","ë“±ë¡í•  ì„¸ê¸ˆê³„ì‚°ì„œ ì •ë³´ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
 
     Dim tmpDic : Set tmpDic = TI.toJsonInfo
-    
+
     If WriteSpecification Then
         tmpDic.Set "writeSpecification", True
     End If
-    
+
     If ForceIssue Then
         tmpDic.Set "forceIssue", True
     End If
@@ -827,7 +827,7 @@ Public Function RegistIssue(CorpNum, ByRef TI, WriteSpecification, DealInvoiceMg
     If Memo <> "" Then
         tmpDic.Set "memo", Memo
     End If
-    
+
     If EmailSubject <> "" Then
         tmpDic.Set "emailSubject", EmailSubject
     End If
@@ -838,7 +838,7 @@ Public Function RegistIssue(CorpNum, ByRef TI, WriteSpecification, DealInvoiceMg
                             "ISSUE", postdata, UserID)
 End Function
 
-'´Ù¸¥ ÀüÀÚ¸í¼¼¼­ Ã·ºÎ 
+'ë‹¤ë¥¸ ì „ìëª…ì„¸ì„œ ì²¨ë¶€
 Public Function AttachStatement(CorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey)
     Dim tmp : Set tmp = JSON.parse("{}")
 
@@ -851,7 +851,7 @@ Public Function AttachStatement(CorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey
                                     m_PopbillBase.getSession_token(CorpNum), "", postdata, "")
 End Function
 
-'´Ù¸¥ ÀüÀÚ¸í¼¼¼­ Ã·ºÎÇØÁ¦
+'ë‹¤ë¥¸ ì „ìëª…ì„¸ì„œ ì²¨ë¶€í•´ì œ
 Public Function DetachStatement(CorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey)
     Dim tmp : Set tmp = JSON.parse("{}")
 
@@ -865,58 +865,58 @@ Public Function DetachStatement(CorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey
 End Function
 
 
-'¹®¼­¹øÈ£ ÇÒ´ç
+'ë¬¸ì„œë²ˆí˜¸ í• ë‹¹
 Public Function AssignMgtKey(CorpNum, MgtKeyType, ItemKey, MgtKey)
-    If ItemKey = "" Or isEmpty(ItemKey) Then 
-        Err.Raise -99999999, "POPBILL", "¾ÆÀÌÅÛÅ°°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If ItemKey = "" Or isEmpty(ItemKey) Then
+        Err.Raise -99999999, "POPBILL", "ì•„ì´í…œí‚¤ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
-    If MgtKeyType = "" Or isEmpty(MgtKeyType) Then 
-        Err.Raise -99999999, "POPBILL", "¼¼±İ°è»ê¼­ ¹ßÇàÀ¯ÇüÀÌ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+
+    If MgtKeyType = "" Or isEmpty(MgtKeyType) Then
+        Err.Raise -99999999, "POPBILL", "ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ìœ í˜•ì´ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     If MgtKey = "" Or isEmpty(MgtKey) Then
-        Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Set AssignMgtKey = m_PopbillBase.httpPOST_ContentsType("/Taxinvoice/" & ItemKey & "/" & MgtKeyType,  _
                                 m_PopbillBase.getSession_token(CorpNum), "", "MgtKey="+MgtKey, "", "application/x-www-form-urlencoded; charset=utf-8")
-    
+
 End Function
 
 
-'¾Ë¸²¸ŞÀÏ Àü¼Û¸ñ·Ï Á¶È¸
+'ì•Œë¦¼ë©”ì¼ ì „ì†¡ëª©ë¡ ì¡°íšŒ
 Public Function listEmailConfig(CorpNum, UserID)
-    If CorpNum = "" Or isEmpty(CorpNum) Then 
-        Err.Raise -99999999, "POPBILL", "»ç¾÷ÀÚµî·Ï¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
+    If CorpNum = "" Or isEmpty(CorpNum) Then
+        Err.Raise -99999999, "POPBILL", "ì‚¬ì—…ìë“±ë¡ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
     End If
 
     Dim result : Set result = m_PopbillBase.httpGet("/Taxinvoice/EmailSendConfig", m_PopbillBase.getSession_token(CorpNum), UserID)
-    
+
     Dim tmpDic : Set tmpDic = CreateObject("Scripting.Dictionary")
 
     Dim i
     For i=0 To result.length-1
-        Dim emailObj : Set emailObj = New EmailSendConfig	
+        Dim emailObj : Set emailObj = New EmailSendConfig
         emailObj.fromJsonInfo result.Get(i)
         tmpDic.Add i, emailObj
     Next
-    
+
     Set listEmailConfig = tmpDic
-End Function 
+End Function
 
-'¾Ë¸²¸ŞÀÏ Àü¼Û¼³Á¤ ¼öÁ¤
+'ì•Œë¦¼ë©”ì¼ ì „ì†¡ì„¤ì • ìˆ˜ì •
 Public Function updateEmailConfig(CorpNum, mailType, sendYN, UserID)
-    If CorpNum = "" Or isEmpty(CorpNum) Then 
-        Err.Raise -99999999, "POPBILL", "»ç¾÷ÀÚµî·Ï¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
+    If CorpNum = "" Or isEmpty(CorpNum) Then
+        Err.Raise -99999999, "POPBILL", "ì‚¬ì—…ìë“±ë¡ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
     End If
 
-    If mailType = "" Or isEmpty(mailType) Then 
-        Err.Raise -99999999, "POPBILL", "¸ŞÀÏÀü¼Û Å¸ÀÔÀÌ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If mailType = "" Or isEmpty(mailType) Then
+        Err.Raise -99999999, "POPBILL", "ë©”ì¼ì „ì†¡ íƒ€ì…ì´ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
-    If sendYN = "" Or isEmpty(sendYN) Then 
-        Err.Raise -99999999, "POPBILL", "¸ŞÀÏÀü¼Û ¿©ºÎ Ç×¸ñÀÌ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If sendYN = "" Or isEmpty(sendYN) Then
+        Err.Raise -99999999, "POPBILL", "ë©”ì¼ì „ì†¡ ì—¬ë¶€ í•­ëª©ì´ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     If (sendYN) Then
@@ -924,16 +924,16 @@ Public Function updateEmailConfig(CorpNum, mailType, sendYN, UserID)
     Else
         SendYN="false"
     End If
-    
+
     Dim uri : uri = "/Taxinvoice/EmailSendConfig?EmailType="+mailType+"&SendYN="+sendYN
 
     Set updateEmailConfig = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", "", UserID)
 End Function
 
-'°øÀÎÀÎÁõ À¯È¿¼º È®ÀÎ
+'ê³µì¸ì¸ì¦ ìœ íš¨ì„± í™•ì¸
 Public Function checkCertValidation(CorpNum, UserID)
-    If CorpNum = "" Or isEmpty(CorpNum) Then 
-        Err.Raise -99999999, "POPBILL", "»ç¾÷ÀÚµî·Ï¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
+    If CorpNum = "" Or isEmpty(CorpNum) Then
+        Err.Raise -99999999, "POPBILL", "ì‚¬ì—…ìë“±ë¡ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
     End If
 
     Set checkCertValidation = m_PopbillBase.httpGET("/Taxinvoice/CertCheck", _
@@ -941,7 +941,7 @@ Public Function checkCertValidation(CorpNum, UserID)
 
 End Function
 
-' ±¹¼¼Ã» Àü¼Û ¼³Á¤ È®ÀÎ
+' êµ­ì„¸ì²­ ì „ì†¡ ì„¤ì • í™•ì¸
 Public Function GetSendToNTSConfig(CorpNum)
 
     Dim sendToNTSConfig : Set sendToNTSConfig = m_PopbillBase.httpGET("/Taxinvoice/SendToNTSConfig",_
@@ -950,22 +950,22 @@ Public Function GetSendToNTSConfig(CorpNum)
 
 End Function
 
-' ÀüÀÚ¼¼±İ°è»ê¼­ ÃÊ´ë·® ¹ßÇà Á¢¼ö
+' ì „ìì„¸ê¸ˆê³„ì‚°ì„œ ì´ˆëŒ€ëŸ‰ ë°œí–‰ ì ‘ìˆ˜
 Public Function BulkSubmit(CorpNum, SubmitID, taxinvoiceList, ForceIssue, UserID)
 
-    If SubmitID = "" Or isEmpty(SubmitID) Then 
-        Err.Raise -99999999, "POPBILL", "Á¦Ãâ¾ÆÀÌµğ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If SubmitID = "" Or isEmpty(SubmitID) Then
+        Err.Raise -99999999, "POPBILL", "ì œì¶œì•„ì´ë””ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
-    If Ubound(taxinvoiceList) = "" Or isEmpty(taxinvoiceList) Then 
-        Err.Raise -99999999, "POPBILL", "¼¼±İ°è»ê¼­ Á¤º¸°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If Ubound(taxinvoiceList) = "" Or isEmpty(taxinvoiceList) Then
+        Err.Raise -99999999, "POPBILL", "ì„¸ê¸ˆê³„ì‚°ì„œ ì •ë³´ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim bulkTaxinvoiceSubmit : Set bulkTaxinvoiceSubmit = new BulkTaxinvoiceSubmit
 
     If ForceIssue = "" Or isEmpty(ForceIssue) Then
         bulkTaxinvoiceSubmit.forceIssue = ""
-    Else 
+    Else
         bulkTaxinvoiceSubmit.forceIssue = ForceIssue
     End If
 
@@ -982,22 +982,22 @@ Public Function BulkSubmit(CorpNum, SubmitID, taxinvoiceList, ForceIssue, UserID
 
 End Function
 
-' ÃÊ´ë·® Á¢¼ö °á°ú È®ÀÎ
+' ì´ˆëŒ€ëŸ‰ ì ‘ìˆ˜ ê²°ê³¼ í™•ì¸
 Public Function GetBulkResult(CorpNum, SubmitID, UserID)
 
     If SubmitID = "" Or isEmpty(SubmitID) Then
-        Err.Raise -99999999, "POPBILL", "Á¦Ãâ¾ÆÀÌµğ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ì œì¶œì•„ì´ë””ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim btResult : Set btResult = new BulkTaxinvoiceResult
 
     Dim result : Set result = m_PopbillBase.httpGET("/Taxinvoice/BULK/" + SubmitID + "/State", m_PopbillBase.getSession_token(CorpNum), UserID)
-    
+
     btResult.fromJsonInfo result
 
     Set GetBulkResult = btResult
-    
-End Function 
+
+End Function
 
 End Class
 
@@ -1005,85 +1005,85 @@ End Class
 Class Taxinvoice
 
 Public closeDownState
-Public closeDownStateDate 
+Public closeDownStateDate
 
-Public writeDate			
+Public writeDate
 Public chargeDirection
-Public issueType       
+Public issueType
 Public issueTiming
-Public taxType              
+Public taxType
 
-Public invoicerCorpNum      
-Public invoicerMgtKey       
-Public invoicerTaxRegID     
-Public invoicerCorpName     
-Public invoicerCEOName      
+Public invoicerCorpNum
+Public invoicerMgtKey
+Public invoicerTaxRegID
+Public invoicerCorpName
+Public invoicerCEOName
 Public invoicerAddr
-Public invoicerBizClass     
-Public invoicerBizType      
-Public invoicerContactName  
-Public invoicerDeptName     
-Public invoicerTEL          
-Public invoicerHP           
-Public invoicerEmail        
+Public invoicerBizClass
+Public invoicerBizType
+Public invoicerContactName
+Public invoicerDeptName
+Public invoicerTEL
+Public invoicerHP
+Public invoicerEmail
 Public invoicerSMSSendYN
 
-Public invoiceeType         
-Public invoiceeCorpNum      
-Public invoiceeMgtKey       
-Public invoiceeTaxRegID     
-Public invoiceeCorpName     
-Public invoiceeCEOName      
-Public invoiceeAddr         
-Public invoiceeBizClass     
-Public invoiceeBizType      
-Public invoiceeContactName1 
-Public invoiceeDeptName1    
-Public invoiceeTEL1         
-Public invoiceeHP1          
-Public invoiceeEmail1       
-Public invoiceeContactName2 
-Public invoiceeDeptName2    
-Public invoiceeTEL2         
-Public invoiceeHP2          
-Public invoiceeEmail2       
-Public invoiceeSMSSendYN   
+Public invoiceeType
+Public invoiceeCorpNum
+Public invoiceeMgtKey
+Public invoiceeTaxRegID
+Public invoiceeCorpName
+Public invoiceeCEOName
+Public invoiceeAddr
+Public invoiceeBizClass
+Public invoiceeBizType
+Public invoiceeContactName1
+Public invoiceeDeptName1
+Public invoiceeTEL1
+Public invoiceeHP1
+Public invoiceeEmail1
+Public invoiceeContactName2
+Public invoiceeDeptName2
+Public invoiceeTEL2
+Public invoiceeHP2
+Public invoiceeEmail2
+Public invoiceeSMSSendYN
 
-Public trusteeCorpNum       
-Public trusteeMgtKey        
-Public trusteeTaxRegID      
-Public trusteeCorpName      
-Public trusteeCEOName       
-Public trusteeAddr          
-Public trusteeBizClass      
-Public trusteeBizType       
-Public trusteeContactName   
-Public trusteeDeptName      
-Public trusteeTEL           
-Public trusteeHP            
-Public trusteeEmail         
+Public trusteeCorpNum
+Public trusteeMgtKey
+Public trusteeTaxRegID
+Public trusteeCorpName
+Public trusteeCEOName
+Public trusteeAddr
+Public trusteeBizClass
+Public trusteeBizType
+Public trusteeContactName
+Public trusteeDeptName
+Public trusteeTEL
+Public trusteeHP
+Public trusteeEmail
 Public trusteeSMSSendYN
 
-Public taxTotal             
-Public supplyCostTotal      
-Public totalAmount          
-Public modifyCode           
-Public orgNTSConfirmNum     
-Public purposeType          
-Public serialNum            
-Public cash                 
-Public chkBill              
-Public credit               
-Public note                 
-Public remark1              
-Public remark2              
-Public remark3              
-Public kwon                 
-Public ho                   
-Public businessLicenseYN    
-Public bankBookYN                 
-Public ntsconfirmNum        
-Public originalTaxinvoiceKey 
+Public taxTotal
+Public supplyCostTotal
+Public totalAmount
+Public modifyCode
+Public orgNTSConfirmNum
+Public purposeType
+Public serialNum
+Public cash
+Public chkBill
+Public credit
+Public note
+Public remark1
+Public remark2
+Public remark3
+Public kwon
+Public ho
+Public businessLicenseYN
+Public bankBookYN
+Public ntsconfirmNum
+Public originalTaxinvoiceKey
 Public detailList()
 Public addContactList()
 
@@ -1094,9 +1094,9 @@ End Sub
 
 Public Function toJsonInfo()
     Set toJsonInfo = JSON.parse("{}")
-    
+
     toJsonInfo.set "writeDate", writeDate
-    
+
     toJsonInfo.set "chargeDirection", chargeDirection
     toJsonInfo.set "issueType", issueType
     toJsonInfo.set "issueTiming", issueTiming
@@ -1115,7 +1115,7 @@ Public Function toJsonInfo()
     toJsonInfo.set "invoicerHP", invoicerHP
     toJsonInfo.set "invoicerEmail", invoicerEmail
     toJsonInfo.set "invoicerSMSSendYN", invoicerSMSSendYN
-    
+
     toJsonInfo.set "invoiceeCorpNum", invoiceeCorpNum
     toJsonInfo.set "invoiceeType", invoiceeType
     toJsonInfo.set "invoiceeMgtKey", invoiceeMgtKey
@@ -1135,7 +1135,7 @@ Public Function toJsonInfo()
     toJsonInfo.set "invoiceeTEL2", invoiceeTEL2
     toJsonInfo.set "invoiceeEmail2", invoiceeEmail2
     toJsonInfo.set "invoiceeSMSSendYN", invoiceeSMSSendYN
-    
+
     toJsonInfo.set "trusteeCorpNum", trusteeCorpNum
     toJsonInfo.set "trusteeMgtKey", trusteeMgtKey
     toJsonInfo.set "trusteeTaxRegID", trusteeTaxRegID
@@ -1150,14 +1150,14 @@ Public Function toJsonInfo()
     toJsonInfo.set "trusteeHP", trusteeHP
     toJsonInfo.set "trusteeEmail", trusteeEmail
     toJsonInfo.set "trusteeSMSSendYN", trusteeSMSSendYN
-    
+
     toJsonInfo.set "taxTotal", taxTotal
     toJsonInfo.set "supplyCostTotal", supplyCostTotal
     toJsonInfo.set "totalAmount", totalAmount
     If modifyCode <> "" Then
         toJsonInfo.set "modifyCode", CInt(modifyCode)
     End If
-    
+
     toJsonInfo.set "orgNTSConfirmNum", orgNTSConfirmNum
     toJsonInfo.set "purposeType", purposeType
     toJsonInfo.set "serialNum", serialNum
@@ -1171,21 +1171,21 @@ Public Function toJsonInfo()
     If ho <> "" Then
         toJsonInfo.set "ho", CInt(ho)
     End If
-    
+
     toJsonInfo.set "businessLicenseYN", businessLicenseYN
     toJsonInfo.set "bankBookYN", bankBookYN
-    
+
     toJsonInfo.set "remark1", remark1
     toJsonInfo.set "remark2", remark2
     toJsonInfo.set "remark3", remark3
-    
+
     toJsonInfo.set "ntsconfirmNum", ntsconfirmNum
     toJsonInfo.set "originalTaxinvoiceKey", originalTaxinvoiceKey
-    
+
     Dim detailJsonInfo()
     ReDim detailJsonInfo(UBound(detailList))
     Dim i, detail
-    
+
     i = 0
     For Each detail In detailList
         Set detailJsonInfo(i) = detailList(i).toJsonInfo
@@ -1202,7 +1202,7 @@ Public Function toJsonInfo()
         i = i + 1
     next
     toJsonInfo.set "addContactList", addContactListJson
-    
+
 End Function
 
 Public Sub AddDetail(detail)
@@ -1217,88 +1217,88 @@ End Sub
 
 
 Public Sub fromJsonInfo(jsonInfo)
-    
+
     On Error Resume Next
-    
+
     closeDownState = jsonInfo.closeDownState
     closeDownStateDate = jsonInfo.closeDownStateDate
-    
+
     writeDate = jsonInfo.writeDate
-    chargeDirection = jsonInfo.chargeDirection     
-    issueType = jsonInfo.issueType           
-    issueTiming = jsonInfo.issueTiming         
-    taxType = jsonInfo.taxType             
+    chargeDirection = jsonInfo.chargeDirection
+    issueType = jsonInfo.issueType
+    issueTiming = jsonInfo.issueTiming
+    taxType = jsonInfo.taxType
 
-    invoicerCorpNum = jsonInfo.invoicerCorpNum     
-    invoicerMgtKey = jsonInfo.invoicerMgtKey      
-    invoicerTaxRegID = jsonInfo.invoicerTaxRegID    
-    invoicerCorpName = jsonInfo.invoicerCorpName    
-    invoicerCEOName = jsonInfo.invoicerCEOName     
-    invoicerAddr = jsonInfo. invoicerAddr       
-    invoicerBizClass = jsonInfo.invoicerBizClass    
-    invoicerBizType = jsonInfo.invoicerBizType     
-    invoicerContactName = jsonInfo.invoicerContactName 
-    invoicerDeptName = jsonInfo.invoicerDeptName    
-    invoicerTEL = jsonInfo.invoicerTEL         
-    invoicerHP = jsonInfo.invoicerHP          
-    invoicerEmail = jsonInfo.invoicerEmail       
-    invoicerSMSSendYN = jsonInfo.invoicerSMSSendYN   
+    invoicerCorpNum = jsonInfo.invoicerCorpNum
+    invoicerMgtKey = jsonInfo.invoicerMgtKey
+    invoicerTaxRegID = jsonInfo.invoicerTaxRegID
+    invoicerCorpName = jsonInfo.invoicerCorpName
+    invoicerCEOName = jsonInfo.invoicerCEOName
+    invoicerAddr = jsonInfo. invoicerAddr
+    invoicerBizClass = jsonInfo.invoicerBizClass
+    invoicerBizType = jsonInfo.invoicerBizType
+    invoicerContactName = jsonInfo.invoicerContactName
+    invoicerDeptName = jsonInfo.invoicerDeptName
+    invoicerTEL = jsonInfo.invoicerTEL
+    invoicerHP = jsonInfo.invoicerHP
+    invoicerEmail = jsonInfo.invoicerEmail
+    invoicerSMSSendYN = jsonInfo.invoicerSMSSendYN
 
-    invoiceeType = jsonInfo.invoiceeType        
-    invoiceeCorpNum = jsonInfo.invoiceeCorpNum     
-    invoiceeMgtKey = jsonInfo.invoiceeMgtKey      
-    invoiceeTaxRegID = jsonInfo.invoiceeTaxRegID    
-    invoiceeCorpName = jsonInfo.invoiceeCorpName    
-    invoiceeCEOName = jsonInfo.invoiceeCEOName     
-    invoiceeAddr = jsonInfo.invoiceeAddr        
-    invoiceeBizClass = jsonInfo.invoiceeBizClass    
-    invoiceeBizType = jsonInfo.invoiceeBizType     
+    invoiceeType = jsonInfo.invoiceeType
+    invoiceeCorpNum = jsonInfo.invoiceeCorpNum
+    invoiceeMgtKey = jsonInfo.invoiceeMgtKey
+    invoiceeTaxRegID = jsonInfo.invoiceeTaxRegID
+    invoiceeCorpName = jsonInfo.invoiceeCorpName
+    invoiceeCEOName = jsonInfo.invoiceeCEOName
+    invoiceeAddr = jsonInfo.invoiceeAddr
+    invoiceeBizClass = jsonInfo.invoiceeBizClass
+    invoiceeBizType = jsonInfo.invoiceeBizType
     invoiceeContactName1 = jsonInfo.invoiceeContactName1
-    invoiceeDeptName1 = jsonInfo.invoiceeDeptName1   
-    invoiceeTEL1 = jsonInfo.invoiceeTEL1         
-    invoiceeHP1 = jsonInfo.invoiceeHP1         
-    invoiceeEmail1 = jsonInfo.invoiceeEmail1      
+    invoiceeDeptName1 = jsonInfo.invoiceeDeptName1
+    invoiceeTEL1 = jsonInfo.invoiceeTEL1
+    invoiceeHP1 = jsonInfo.invoiceeHP1
+    invoiceeEmail1 = jsonInfo.invoiceeEmail1
     invoiceeContactName2 = jsonInfo.invoiceeContactName2
-    invoiceeDeptName2 = jsonInfo.invoiceeDeptName2    
-    invoiceeTEL2 = jsonInfo.invoiceeTEL2        
-    invoiceeHP2 = jsonInfo.invoiceeHP2         
-    invoiceeEmail2 = jsonInfo.invoiceeEmail2      
-    invoiceeSMSSendYN = jsonInfo.invoiceeSMSSendYN   
+    invoiceeDeptName2 = jsonInfo.invoiceeDeptName2
+    invoiceeTEL2 = jsonInfo.invoiceeTEL2
+    invoiceeHP2 = jsonInfo.invoiceeHP2
+    invoiceeEmail2 = jsonInfo.invoiceeEmail2
+    invoiceeSMSSendYN = jsonInfo.invoiceeSMSSendYN
 
-    trusteeCorpNum = jsonInfo.trusteeCorpNum      
-    trusteeMgtKey = jsonInfo.trusteeMgtKey       
-    trusteeTaxRegID = jsonInfo.trusteeTaxRegID     
-    trusteeCorpName = jsonInfo.trusteeCorpName     
-    trusteeCEOName = jsonInfo.trusteeCEOName      
-    trusteeAddr = jsonInfo.trusteeAddr         
-    trusteeBizClass = jsonInfo.trusteeBizClass     
-    trusteeBizType = jsonInfo.trusteeBizType      
-    trusteeContactName = jsonInfo.trusteeContactName  
-    trusteeDeptName = jsonInfo.trusteeDeptName     
-    trusteeTEL = jsonInfo.trusteeTEL          
-    trusteeHP = jsonInfo.trusteeHP           
-    trusteeEmail = jsonInfo.trusteeEmail        
+    trusteeCorpNum = jsonInfo.trusteeCorpNum
+    trusteeMgtKey = jsonInfo.trusteeMgtKey
+    trusteeTaxRegID = jsonInfo.trusteeTaxRegID
+    trusteeCorpName = jsonInfo.trusteeCorpName
+    trusteeCEOName = jsonInfo.trusteeCEOName
+    trusteeAddr = jsonInfo.trusteeAddr
+    trusteeBizClass = jsonInfo.trusteeBizClass
+    trusteeBizType = jsonInfo.trusteeBizType
+    trusteeContactName = jsonInfo.trusteeContactName
+    trusteeDeptName = jsonInfo.trusteeDeptName
+    trusteeTEL = jsonInfo.trusteeTEL
+    trusteeHP = jsonInfo.trusteeHP
+    trusteeEmail = jsonInfo.trusteeEmail
     trusteeSMSSendYN = jsonInfo.trusteeSMSSendYN
 
-    taxTotal = jsonInfo.taxTotal            
-    supplyCostTotal = jsonInfo.supplyCostTotal     
-    totalAmount = jsonInfo.totalAmount         
-    modifyCode = jsonInfo.modifyCode          
-    orgNTSConfirmNum = jsonInfo.orgNTSConfirmNum     
-    purposeType = jsonInfo.purposeType         
-    serialNum = jsonInfo.serialNum           
-    cash = jsonInfo.cash                
-    chkBill = jsonInfo.chkBill             
-    credit = jsonInfo.credit              
-    note = jsonInfo.note                
-    remark1 = jsonInfo.remark1             
-    remark2 = jsonInfo.remark2             
-    remark3 = jsonInfo.remark3             
-    kwon = jsonInfo.kwon                
-    ho = jsonInfo.ho                  
-    businessLicenseYN = jsonInfo.businessLicenseYN   
-    bankBookYN = jsonInfo.bankBookYN                
-    ntsconfirmNum = jsonInfo.ntsconfirmNum       
+    taxTotal = jsonInfo.taxTotal
+    supplyCostTotal = jsonInfo.supplyCostTotal
+    totalAmount = jsonInfo.totalAmount
+    modifyCode = jsonInfo.modifyCode
+    orgNTSConfirmNum = jsonInfo.orgNTSConfirmNum
+    purposeType = jsonInfo.purposeType
+    serialNum = jsonInfo.serialNum
+    cash = jsonInfo.cash
+    chkBill = jsonInfo.chkBill
+    credit = jsonInfo.credit
+    note = jsonInfo.note
+    remark1 = jsonInfo.remark1
+    remark2 = jsonInfo.remark2
+    remark3 = jsonInfo.remark3
+    kwon = jsonInfo.kwon
+    ho = jsonInfo.ho
+    businessLicenseYN = jsonInfo.businessLicenseYN
+    bankBookYN = jsonInfo.bankBookYN
+    ntsconfirmNum = jsonInfo.ntsconfirmNum
     originalTaxinvoiceKey = jsonInfo.originalTaxinvoiceKey
 
 
@@ -1317,7 +1317,7 @@ Public Sub fromJsonInfo(jsonInfo)
         Set addContactList(i) = tmpContact
     Next
 
-    On Error GoTo 0	
+    On Error GoTo 0
 
     End Sub
 End Class
@@ -1372,17 +1372,17 @@ End Class
 
 Class TaxinvoiceDetail
 
-Public serialNum       
-Public purchaseDT      
-Public itemName        
-Public spec            
-Public qty             
-Public unitCost        
-Public supplyCost      
-Public tax             
-Public remark          
+Public serialNum
+Public purchaseDT
+Public itemName
+Public spec
+Public qty
+Public unitCost
+Public supplyCost
+Public tax
+Public remark
 
-Public Function toJsonInfo() 
+Public Function toJsonInfo()
     Set toJsonInfo = JSON.parse("{}")
     toJsonInfo.set "serialNum", CInt(serialNum)
     toJsonInfo.set "purchaseDT", purchaseDT
@@ -1393,7 +1393,7 @@ Public Function toJsonInfo()
     toJsonInfo.set "supplyCost", supplyCost
     toJsonInfo.set "tax", tax
     toJsonInfo.set "remark", remark
-End Function 
+End Function
 
 
 Public Sub fromJsonInfo(jsonInfo)
@@ -1428,10 +1428,10 @@ End Class
 
 Class Contact
 Public serialNum
-Public email    
+Public email
 Public contactName
 
-Public Function toJsonInfo() 
+Public Function toJsonInfo()
     Set toJsonInfo = JSON.parse("{}")
     toJsonInfo.set "serialNum", CInt(serialNum)
     toJsonInfo.set "email", email
@@ -1457,48 +1457,48 @@ Class TaxinvoiceInfo
 Public closeDownState
 Public closeDownStateDate
 
-Public itemKey                 
-Public stateCode               
-Public taxType                 
-Public purposeType             
-Public modifyCode              
-Public issueType               
-Public writeDate               
+Public itemKey
+Public stateCode
+Public taxType
+Public purposeType
+Public modifyCode
+Public issueType
+Public writeDate
 
-Public invoicerCorpName        
-Public invoicerCorpNum         
-Public invoicerMgtKey          
+Public invoicerCorpName
+Public invoicerCorpNum
+Public invoicerMgtKey
 Public invoicerPrintYN
 
-Public invoiceeCorpName        
-Public invoiceeCorpNum         
-Public invoiceeMgtKey          
+Public invoiceeCorpName
+Public invoiceeCorpNum
+Public invoiceeMgtKey
 Public invoiceePrintYN
 
-Public trusteeCorpName         
-Public trusteeCorpNum          
-Public trusteeMgtKey           
+Public trusteeCorpName
+Public trusteeCorpNum
+Public trusteeMgtKey
 Public trusteePrintYN
 
-Public supplyCostTotal         
-Public taxTotal                
+Public supplyCostTotal
+Public taxTotal
 
-Public issueDT                 
-Public preIssueDT              
-Public stateDT                 
-Public openYN                  
-Public openDT                  
+Public issueDT
+Public preIssueDT
+Public stateDT
+Public openYN
+Public openDT
 Public lateIssueYN
 Public interOPYN
 
-Public ntsresult               
-Public ntsconfirmNum           
-Public ntssendDT               
-Public ntsresultDT             
-Public ntssendErrCode          
-Public stateMemo               
+Public ntsresult
+Public ntsconfirmNum
+Public ntssendDT
+Public ntsresultDT
+Public ntssendErrCode
+Public stateMemo
 
-Public regDT                   
+Public regDT
 
 Public Sub fromJsonInfo(jsonInfo)
     On Error Resume Next
@@ -1507,42 +1507,42 @@ Public Sub fromJsonInfo(jsonInfo)
     closeDownStateDate = jsonInfo.closeDownStateDate
 
     itemKey = jsonInfo.itemKey
-    stateCode = jsonInfo.stateCode              
+    stateCode = jsonInfo.stateCode
     taxType = jsonInfo.taxType
-    purposeType = jsonInfo.purposeType            
+    purposeType = jsonInfo.purposeType
     modifyCode = jsonInfo.modifyCode
-    issueType = jsonInfo.issueType              
-    writeDate = jsonInfo.writeDate              
+    issueType = jsonInfo.issueType
+    writeDate = jsonInfo.writeDate
 
-    invoicerCorpName = jsonInfo.invoicerCorpName       
-    invoicerCorpNum = jsonInfo.invoicerCorpNum        
-    invoicerMgtKey = jsonInfo.invoicerMgtKey        
-    invoicerPrintYN = jsonInfo.invoicerPrintYN        
-    invoiceeCorpName = jsonInfo.invoiceeCorpName       
-    invoiceeCorpNum = jsonInfo.invoiceeCorpNum        
-    invoiceeMgtKey = jsonInfo.invoiceeMgtKey         
-    invoiceePrintYN = jsonInfo.invoiceePrintYN         
-    trusteeCorpName = jsonInfo.trusteeCorpName        
-    trusteeCorpNum = jsonInfo.trusteeCorpNum         
-    trusteeMgtKey = jsonInfo.trusteeMgtKey          
-    trusteePrintYN = jsonInfo.trusteePrintYN          
-    supplyCostTotal = jsonInfo.supplyCostTotal         
-    taxTotal = jsonInfo.taxTotal               
-    issueDT = jsonInfo.issueDT                
-    preIssueDT = jsonInfo.preIssueDT             
-    stateDT = jsonInfo.stateDT                
-    openYN = jsonInfo.openYN                 
-    openDT = jsonInfo.openDT                 
-    lateIssueYN = jsonInfo.lateIssueYN                 
+    invoicerCorpName = jsonInfo.invoicerCorpName
+    invoicerCorpNum = jsonInfo.invoicerCorpNum
+    invoicerMgtKey = jsonInfo.invoicerMgtKey
+    invoicerPrintYN = jsonInfo.invoicerPrintYN
+    invoiceeCorpName = jsonInfo.invoiceeCorpName
+    invoiceeCorpNum = jsonInfo.invoiceeCorpNum
+    invoiceeMgtKey = jsonInfo.invoiceeMgtKey
+    invoiceePrintYN = jsonInfo.invoiceePrintYN
+    trusteeCorpName = jsonInfo.trusteeCorpName
+    trusteeCorpNum = jsonInfo.trusteeCorpNum
+    trusteeMgtKey = jsonInfo.trusteeMgtKey
+    trusteePrintYN = jsonInfo.trusteePrintYN
+    supplyCostTotal = jsonInfo.supplyCostTotal
+    taxTotal = jsonInfo.taxTotal
+    issueDT = jsonInfo.issueDT
+    preIssueDT = jsonInfo.preIssueDT
+    stateDT = jsonInfo.stateDT
+    openYN = jsonInfo.openYN
+    openDT = jsonInfo.openDT
+    lateIssueYN = jsonInfo.lateIssueYN
     interOPYN = jsonInfo.interOPYN
 
-    ntsresult = jsonInfo.ntsresult              
-    ntsconfirmNum = jsonInfo.ntsconfirmNum          
-    ntssendDT = jsonInfo.ntssendDT              
-    ntsresultDT = jsonInfo.ntsresultDT            
-    ntssendErrCode = jsonInfo.ntssendErrCode         
-    stateMemo = jsonInfo.stateMemo              
-    
+    ntsresult = jsonInfo.ntsresult
+    ntsconfirmNum = jsonInfo.ntsconfirmNum
+    ntssendDT = jsonInfo.ntssendDT
+    ntsresultDT = jsonInfo.ntsresultDT
+    ntssendErrCode = jsonInfo.ntssendErrCode
+    stateMemo = jsonInfo.stateMemo
+
     regDT = jsonInfo.regDT
     On Error GoTo 0
 End Sub
@@ -1569,7 +1569,7 @@ Class TISearchResult
         pageNum = jsonInfo.pageNum
         pageCount = jsonInfo.pageCount
         message = jsonInfo.message
-        
+
         ReDim list(jsonInfo.list.length)
         Dim i
         For i = 0 To jsonInfo.list.length -1
@@ -1577,7 +1577,7 @@ Class TISearchResult
             tmpObj.fromJsonInfo jsonInfo.list.Get(i)
             Set list(i) = tmpObj
         Next
-        
+
         On Error GoTo 0
     End Sub
 End Class
@@ -1590,14 +1590,14 @@ Class EmailSendConfig
         On Error Resume Next
         emailType = jsonInfo.emailType
         sendYN = jsonInfo.sendYN
-        On Error GoTo 0 
-    End Sub 
+        On Error GoTo 0
+    End Sub
 
     Public Function toJsonInfo()
         Set toJsonInfo = JSON.parse("{}")
         toJsonInfo.Set "emailType", emailType
         toJsonInfo.Set "sendYN", sendYN
-    End Function 
+    End Function
 End Class
 
 Class BulkTaxinvoiceSubmit
@@ -1620,11 +1620,11 @@ Class BulkTaxinvoiceSubmit
             i = i + 1
         next
         toJsonInfo.set "invoices", invoicesJsonInfo
-    End Function 
-   
+    End Function
+
     Public Sub AddTaxinvoice(Taxinvoice)
         ReDim Preserve invoices(UBound(invoices) + 1)
-        
+
         Set invoices(Ubound(invoices)) = Taxinvoice
     End Sub
 End Class
@@ -1681,7 +1681,7 @@ Class BulkTaxinvoiceissueResult
     Public message
     Public ntsconfirmNum
     Public issueDT
-    
+
     Function fromJsonInfo(jsonInfo)
         On Error Resume Next
             invoicerMgtKey = jsonInfo.invoicerMgtKey
@@ -1690,7 +1690,7 @@ Class BulkTaxinvoiceissueResult
             message = jsonInfo.message
             ntsconfirmNum = jsonInfo.ntsconfirmNum
             issueDT = jsonInfo.issueDT
-        On Error GoTo 0 
+        On Error GoTo 0
     End Function
 End Class
 %>

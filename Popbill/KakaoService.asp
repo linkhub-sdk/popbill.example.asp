@@ -3,7 +3,7 @@ Class KakaoService
 
 Private m_PopbillBase
 
-'Å×½ºÆ® ÇÃ·¡±×
+'í…ŒìŠ¤íŠ¸ í”Œë˜ê·¸
 Public Property Let IsTest(ByVal value)
     m_PopbillBase.IsTest = value
 End Property
@@ -35,72 +35,72 @@ Public Sub Initialize(linkID, SecretKey )
     m_PopbillBase.Initialize linkID,SecretKey
 End Sub
 
-'È¸¿øÀÜ¾×Á¶È¸
+'íšŒì›ì”ì•¡ì¡°íšŒ
 Public Function GetBalance(CorpNum)
     GetBalance = m_PopbillBase.GetBalance(CorpNum)
 End Function
-'ÆÄÆ®³Ê ÀÜ¾×Á¶È¸
+'íŒŒíŠ¸ë„ˆ ì”ì•¡ì¡°íšŒ
 Public Function GetPartnerBalance(CorpNum)
     GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
 End Function
-'ÆËºô ±âº» URL
+'íŒë¹Œ ê¸°ë³¸ URL
 Public Function GetPopbillURL(CorpNum , UserID , TOGO)
     GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 End Function
-'ÆËºô ·Î±×ÀÎ URL
+'íŒë¹Œ ë¡œê·¸ì¸ URL
 Public Function GetAccessURL(CorpNum , UserID)
     GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
 End Function
 
-'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀü URL
+'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì¶©ì „ URL
 Public Function GetChargeURL(CorpNum , UserID)
     GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
 End Function
 
-'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª URL
+'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ URL
 Public Function GetPaymentURL(CorpNum, UserID)
     GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
 End Function
 
-'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL
+'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL
 Public Function GetUseHistoryURL(CorpNum, UserID)
     GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
 End Function
 
-'ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL - 2017/08/29 Ãß°¡
+'íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ íŒì—… URL - 2017/08/29 ì¶”ê°€
 Public Function GetPartnerURL(CorpNum, TOGO)
     GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
 End Function
 
-'È¸¿ø°¡ÀÔ ¿©ºÎ
+'íšŒì›ê°€ì… ì—¬ë¶€
 Public Function CheckIsMember(CorpNum , linkID)
     Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
 End Function
-'È¸¿ø°¡ÀÔ
+'íšŒì›ê°€ì…
 Public Function JoinMember(JoinInfo)
     Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
-'´ã´çÀÚ Á¤º¸ È®ÀÎ
+'ë‹´ë‹¹ì ì •ë³´ í™•ì¸
 Public Function GetContactInfo(CorpNum, ContactID, UserID)
     Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
-End Function 
-'´ã´çÀÚ ¸ñ·ÏÁ¶È¸
+End Function
+'ë‹´ë‹¹ì ëª©ë¡ì¡°íšŒ
 Public Function ListContact(CorpNum, UserID)
     Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
 End Function
-'´ã´çÀÚ Á¤º¸¼öÁ¤
+'ë‹´ë‹¹ì ì •ë³´ìˆ˜ì •
 Public Function UpdateContact(CorpNum, contInfo, UserId)
     Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
 End Function
-'´ã´çÀÚ Ãß°¡ 
+'ë‹´ë‹¹ì ì¶”ê°€
 Public Function RegistContact(CorpNum, contInfo, UserId)
     Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
 End Function
-'È¸»çÁ¤º¸ ¼öÁ¤
+'íšŒì‚¬ì •ë³´ ìˆ˜ì •
 Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
     Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
 End Function
-'È¸»çÁ¤º¸ È®ÀÎ 
+'íšŒì‚¬ì •ë³´ í™•ì¸
 Public Function GetCorpInfo(CorpNum, UserId)
     Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
 End Function
@@ -108,18 +108,18 @@ Public Function CheckID(id)
     Set CheckID = m_popbillBase.CheckID(id)
 End Function
 
-'°ú±İÁ¤º¸ È®ÀÎ
+'ê³¼ê¸ˆì •ë³´ í™•ì¸
 Public Function GetChargeInfo ( CorpNum, KType, UserID )
     Dim result : Set result = m_PopbillBase.httpGET ( "/KakaoTalk/ChargeInfo?Type=" &KType, m_PopbillBase.getSession_token(CorpNum), UserID )
 
     Dim chrgInfo : Set chrgInfo = New ChargeInfo
     chrgInfo.fromJsonInfo result
-    
+
     Set GetChargeInfo = chrgInfo
-End Function 
+End Function
 '''''''''''''  End of PopbillBase
 
-'Ä«Ä«¿ÀÅå °ü·Ã URL
+'ì¹´ì¹´ì˜¤í†¡ ê´€ë ¨ URL
 Public Function GetURL(CorpNum, UserID, TOGO)
     Dim result
     If TOGO = "SENDER" Then
@@ -130,61 +130,61 @@ Public Function GetURL(CorpNum, UserID, TOGO)
     GetURL = result.url
 End Function
 
-'ÇÃ·¯½ºÄ£±¸ °èÁ¤°ü¸® ÆË¾÷ URL
+'í”ŒëŸ¬ìŠ¤ì¹œêµ¬ ê³„ì •ê´€ë¦¬ íŒì—… URL
 Public Function GetPlusFriendMgtURL(CorpNum, UserID)
     Set result = m_PopbillBase.httpGet("/KakaoTalk/?TG=PLUSFRIEND", m_PopbillBase.getSession_token(CorpNum), UserID)
     GetPlusFriendMgtURL = result.url
 End Function
 
-'¹ß½Å¹øÈ£ °ü¸® ÆË¾÷ URL
+'ë°œì‹ ë²ˆí˜¸ ê´€ë¦¬ íŒì—… URL
 Public Function GetSenderNumberMgtURL(CorpNum, UserID)
     Set result = m_PopbillBase.httpGet("/Message/?TG=SENDER", m_PopbillBase.getSession_token(CorpNum), UserID)
     GetSenderNumberMgtURL = result.url
 End Function
 
-'¾Ë¸²Åå ÅÛÇÃ¸´°ü¸® ÆË¾÷ URL
+'ì•Œë¦¼í†¡ í…œí”Œë¦¿ê´€ë¦¬ íŒì—… URL
 Public Function GetATSTemplateMgtURL(CorpNum, UserID)
     Set result = m_PopbillBase.httpGet("/KakaoTalk/?TG=TEMPLATE", m_PopbillBase.getSession_token(CorpNum), UserID)
     GetATSTemplateMgtURL = result.url
 End Function
 
-'Ä«Ä«¿ÀÅå Àü¼Û³»¿ª ÆË¾÷ URL
+'ì¹´ì¹´ì˜¤í†¡ ì „ì†¡ë‚´ì—­ íŒì—… URL
 Public Function GetSentListURL(CorpNum, UserID)
     Set result = m_PopbillBase.httpGet("/KakaoTalk/?TG=BOX", m_PopbillBase.getSession_token(CorpNum), UserID)
     GetSentListURL = result.url
 End Function
 
 
-'ÇÃ·¯½ºÄ£±¸ °èÁ¤ ¸ñ·Ï È®ÀÎ
+'í”ŒëŸ¬ìŠ¤ì¹œêµ¬ ê³„ì • ëª©ë¡ í™•ì¸
 Public Function ListPlusFriendID(CorpNum)
     Set ListPlusFriendID = m_PopbillBase.httpGET("/KakaoTalk/ListPlusFriendID", m_PopbillBase.getSession_token(CorpNum), "")
 End Function
 
-'¹ß½Å¹øÈ£ ¸ñ·Ï È®ÀÎ
+'ë°œì‹ ë²ˆí˜¸ ëª©ë¡ í™•ì¸
 Public Function GetSenderNumberList(CorpNum)
     Set GetSenderNumberList = m_PopbillBase.httpGET("/Message/SenderNumber", m_PopbillBase.getSession_token(CorpNum), "")
 End Function
 
-'¹ß½Å¹øÈ£ µî·Ï¿©ºÎ È®ÀÎ
+'ë°œì‹ ë²ˆí˜¸ ë“±ë¡ì—¬ë¶€ í™•ì¸
 Public Function CheckSenderNumber(CorpNum, SenderNumber, UserID)
-    If SenderNumber = "" Or IsNull(SenderNumber) Then 
-        Err.Raise -99999999, "POPBILL", "¹ß½Å¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+    If SenderNumber = "" Or IsNull(SenderNumber) Then
+        Err.Raise -99999999, "POPBILL", "ë°œì‹ ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
-    
+
     Set CheckSenderNumber = m_PopbillBase.httpGET("/KakaoTalk/CheckSenderNumber/"&SenderNumber,m_PopbillBase.getSession_token(CorpNum),UserID)
 End Function
 
-'´Ü°¡È®ÀÎ
+'ë‹¨ê°€í™•ì¸
 Public Function GetUnitCost(CorpNum, KType)
     Dim result : Set result = m_PopbillBase.httpGET("/KakaoTalk/UnitCost?Type="&KType, m_PopbillBase.getSession_token(CorpNum),"")
     GetUnitCost = result.unitCost
 End Function
 
-'¾Ë¸²Åå ÅÛÇÃ¸´ Á¤º¸ È®ÀÎ
+'ì•Œë¦¼í†¡ í…œí”Œë¦¿ ì •ë³´ í™•ì¸
 Public Function GetATSTemplate(CorpNum, templateCode, UserID)
 
     If templateCode = "" Or isEmpty(templateCode) Then
-        Err.raise -99999999, "POPBILL", "ÅÛÇÃ¸´ÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.raise -99999999, "POPBILL", "í…œí”Œë¦¿ì½”ë“œê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim template : Set template = new KakaoATSTemplate
@@ -196,7 +196,7 @@ Public Function GetATSTemplate(CorpNum, templateCode, UserID)
 
 End Function
 
-'¾Ë¸²Åå ÅÛÇÃ¸´ ¸ñ·Ï È®ÀÎ
+'ì•Œë¦¼í†¡ í…œí”Œë¦¿ ëª©ë¡ í™•ì¸
 Public Function ListATSTemplate(CorpNum)
     Dim result : Set result = m_PopbillBase.httpGET("/KakaoTalk/ListATSTemplate", m_PopbillBase.getSession_token(CorpNum), "")
 
@@ -209,35 +209,35 @@ Public Function ListATSTemplate(CorpNum)
         tmp.Add i, atsList
     Next
     Set ListATSTemplate = tmp
-End Function 
+End Function
 
-'¿¹¾àÀü¼ÛÃë¼Ò
+'ì˜ˆì•½ì „ì†¡ì·¨ì†Œ
 Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
-    If ReceiptNum = "" Or IsNull(ReceptNum) Then 
-        Err.Raise -99999999, "POPBILL", "Á¢¼ö¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
+    If ReceiptNum = "" Or IsNull(ReceptNum) Then
+        Err.Raise -99999999, "POPBILL", "ì ‘ìˆ˜ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
     End If
-    
+
     Set CancelReserve = m_PopbillBase.httpGet("/KakaoTalk/"&ReceiptNum&"/Cancel",m_PopbillBase.getSession_token(CorpNum),UserID)
 End Function
 
 
-'¿¹¾à Àü¼ÛÃë¼Ò (¿äÃ»¹øÈ£ ÇÒ´ç)
+'ì˜ˆì•½ ì „ì†¡ì·¨ì†Œ (ìš”ì²­ë²ˆí˜¸ í• ë‹¹)
 Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
-    If RequestNum = "" Or IsNull(RequestNum) Then 
-        Err.Raise -99999999, "POPBILL", "¿äÃ»¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
+    If RequestNum = "" Or IsNull(RequestNum) Then
+        Err.Raise -99999999, "POPBILL", "ìš”ì²­ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
     End If
-    
+
     Set CancelReserveRN = m_PopbillBase.httpGet("/KakaoTalk/Cancel/"&RequestNum, m_PopbillBase.getSession_token(CorpNum), UserID)
 End Function
 
-'¾Ë¸²Åå Àü¼Û
+'ì•Œë¦¼í†¡ ì „ì†¡
 Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, requestNum, UserID, btnList, altSubject)
-    If templateCode = "" Or IsNull(templateCode) Then 
-        Err.Raise -99999999, "POPBILL", "¾Ë¸²Åå ÅÛÇÃ¸´ ÄÚµå(TemplateCode)°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
+    If templateCode = "" Or IsNull(templateCode) Then
+        Err.Raise -99999999, "POPBILL", "ì•Œë¦¼í†¡ í…œí”Œë¦¿ ì½”ë“œ(TemplateCode)ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
-        
+
     If templateCode <> "" Then tmp.Set "templateCode", templateCode
     If senderNum <> "" Then tmp.Set "snd", senderNum
     If content <> "" Then tmp.Set "content", content
@@ -258,7 +258,7 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
 
     tmp.Set "msgs", msgs
 
-    If False = IsNull(btnList)  Then 
+    If False = IsNull(btnList)  Then
         Dim btns : Set btns = JSON.parse("[]")
         For i=0 To btnList.Count -1
             Dim btnObj : Set btnObj = New KakaoButton
@@ -266,8 +266,8 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
             btns.Set i, btnObj.toJsonInfo
         Next
 
-        tmp.Set "btns", btns 
-    End If 
+        tmp.Set "btns", btns
+    End If
 
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
@@ -276,15 +276,15 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
 End Function
 
 
-'Ä£±¸Åå ÅØ½ºÆ® Àü¼Û
+'ì¹œêµ¬í†¡ í…ìŠ¤íŠ¸ ì „ì†¡
 Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, requestNum, UserID, altSubject)
 
-    If plusFriendID = "" Or IsNull(plusFriendID) Then 
-        Err.Raise -99999999, "POPBILL", "Ä£±¸Åå ÇÃ·¯½ºÄ£±¸ ¾ÆÀÌµğ(plusFriendID)°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
+    If plusFriendID = "" Or IsNull(plusFriendID) Then
+        Err.Raise -99999999, "POPBILL", "ì¹œêµ¬í†¡ í”ŒëŸ¬ìŠ¤ì¹œêµ¬ ì•„ì´ë””(plusFriendID)ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
-        
+
     If plusFriendID <> "" Then tmp.Set "plusFriendID", plusFriendID
     If senderNum <> "" Then tmp.Set "snd", senderNum
     If content <> "" Then tmp.Set "content", content
@@ -314,24 +314,24 @@ Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSend
         btns.Set i, btnObj.toJsonInfo
     Next
 
-    tmp.Set "btns", btns 
+    tmp.Set "btns", btns
 
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
     Dim result : Set result = m_PopbillBase.httpPost("/FTS", m_PopbillBase.getSession_Token(CorpNum), "", postdata, UserID)
     SendFTS = result.receiptNum
-End Function 
+End Function
 
 
-'Ä£±¸Åå ÀÌ¹ÌÁö Àü¼Û
+'ì¹œêµ¬í†¡ ì´ë¯¸ì§€ ì „ì†¡
 Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, filePath, imageURL, requestNum, UserID, altSubject)
 
-    If plusFriendID = "" Or IsNull(plusFriendID) Then 
-        Err.Raise -99999999, "POPBILL", "Ä£±¸Åå ÇÃ·¯½ºÄ£±¸ ¾ÆÀÌµğ(plusFriendID)°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
+    If plusFriendID = "" Or IsNull(plusFriendID) Then
+        Err.Raise -99999999, "POPBILL", "ì¹œêµ¬í†¡ í”ŒëŸ¬ìŠ¤ì¹œêµ¬ ì•„ì´ë””(plusFriendID)ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
-        
+
     If plusFriendID <> "" Then tmp.Set "plusFriendID", plusFriendID
     If senderNum <> "" Then tmp.Set "snd", senderNum
     If content <> "" Then tmp.Set "content", content
@@ -367,15 +367,15 @@ Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSend
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
     Dim result : Set result = m_PopbillBase.httpPost_Files("/FMS", m_PopbillBase.getSession_Token(CorpNum), postdata, filePath, UserID)
     SendFMS = result.receiptNum
-End Function 
+End Function
 
 
-'Ä«Ä«¿ÀÅå Àü¼Û³»¿ª È®ÀÎ
+'ì¹´ì¹´ì˜¤í†¡ ì „ì†¡ë‚´ì—­ í™•ì¸
 Public Function GetMessages(CorpNum, ReceiptNum, UserID)
-    If ReceiptNum = "" Or IsNull(ReceptNum) Then 
-        Err.Raise -99999999, "POPBILL", "Á¢¼ö¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
+    If ReceiptNum = "" Or IsNull(ReceptNum) Then
+        Err.Raise -99999999, "POPBILL", "ì ‘ìˆ˜ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
     End If
-    
+
     Dim result : Set result = m_PopbillBase.httpGet("/KakaoTalk/"&ReceiptNum,m_PopbillBase.getSession_token(CorpNum),UserID)
 
     Dim resultObj : Set resultObj = New KakaoSentResult
@@ -383,32 +383,32 @@ Public Function GetMessages(CorpNum, ReceiptNum, UserID)
     resultObj.fromJsonInfo result
 
     Set GetMessages = resultObj
-End Function 
+End Function
 
-'Ä«Ä«¿ÀÅå Àü¼Û³»¿ª È®ÀÎ (¿äÃ»¹øÈ£ ÇÒ´ç)
+'ì¹´ì¹´ì˜¤í†¡ ì „ì†¡ë‚´ì—­ í™•ì¸ (ìš”ì²­ë²ˆí˜¸ í• ë‹¹)
 Public Function GetMessagesRN(CorpNum, RequestNum, UserID)
-    If RequestNum = "" Or IsNull(RequestNum) Then 
-        Err.Raise -99999999, "POPBILL", "¿äÃ»¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
+    If RequestNum = "" Or IsNull(RequestNum) Then
+        Err.Raise -99999999, "POPBILL", "ìš”ì²­ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
     End If
-    
+
     Dim result : Set result = m_PopbillBase.httpGet("/KakaoTalk/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
-    
+
     Dim resultObj : Set resultObj = New KakaoSentResult
 
     resultObj.fromJsonInfo result
 
     Set GetMessagesRN = resultObj
 
-End Function 
+End Function
 
 
-'Ä«Ä«¿ÀÅå Àü¼Û³»¿ª ¸ñ·Ï Á¶È¸ 
+'ì¹´ì¹´ì˜¤í†¡ ì „ì†¡ë‚´ì—­ ëª©ë¡ ì¡°íšŒ
 Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
     If SDate = "" Then
-        Err.Raise -99999999, "POPBILL", "½ÃÀÛÀÏÀÚ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ì‹œì‘ì¼ìê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
     If EDate = "" Then
-        Err.Raise -99999999, "POPBILL", "Á¾·áÀÏÀÚ°¡ ÀÌ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+        Err.Raise -99999999, "POPBILL", "ì¢…ë£Œì¼ìê°€ ì´ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
     End If
 
     Dim uri
@@ -418,7 +418,7 @@ Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, 
 
     Dim i
     uri = uri & "&State="
-    For i=0 To UBound(State) -1	
+    For i=0 To UBound(State) -1
         If i = UBound(State) -1 then
             uri = uri & State(i)
         Else
@@ -428,7 +428,7 @@ Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, 
 
     uri = uri & "&Item="
     For i=0 To UBound(Item) -1
-        If i = UBound(Item) -1  then	
+        If i = UBound(Item) -1  then
             uri = uri & Item(i)
         Else
             uri = uri & Item(i) & ","
@@ -440,7 +440,7 @@ Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, 
 
     If SenderYN Then
         uri = uri & "&SenderYN=1"
-    Else 
+    Else
         uri = uri & "&SenderYN=0"
     End If
 
@@ -448,12 +448,12 @@ Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, 
     uri = uri & "&Page=" & CStr(Page)
     uri = uri & "&PerPage=" & CStr(PerPage)
     uri = uri & "&QString=" & Server.URLEncode(QString)
-    
+
     Dim searchResult : Set searchResult = New KakaoSearchResult
     Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
-    
+
     searchResult.fromJsonInfo tmpObj
-    
+
     Set Search = searchResult
 End Function
 
@@ -501,7 +501,7 @@ Class KakaoSentDetail
             requestNum = detailInfo.requestNum
             receiptNum = detailInfo.receiptNum
             interOPRefKey = detailInfo.interOPRefKey
-        on Error GoTo 0 
+        on Error GoTo 0
     End Sub
 End Class  ' end of KakaoSentDetail Class
 
@@ -537,9 +537,9 @@ Class KakaoSearchResult
             Next
         On Error GoTo 0
     End Sub
-End Class ' End of KakaoSearchResult 
+End Class ' End of KakaoSearchResult
 
-Class KakaoSentResult 
+Class KakaoSentResult
     Public contentType
     Public templateCode
     Public plusFriendID
@@ -581,7 +581,7 @@ Class KakaoSentResult
             failCnt = detailInfo.failCnt
             altCnt = detailInfo.altCnt
             cancelCnt = detailInfo.cancelCnt
-        
+
             ReDim btns(detailInfo.btns.length)
             Dim i, tmpObj
             For i = 0 To detailInfo.btns.length -1
@@ -596,9 +596,9 @@ Class KakaoSentResult
                 tmpObj.fromJsonInfo detailInfo.msgs.Get(i)
                 Set msgs(i) = tmpObj
             Next
-        On Error GoTo 0 
+        On Error GoTo 0
 
-    End Sub 
+    End Sub
 End Class ' End of KakaoSentResult class
 
 Class KakaoReceiver
@@ -634,7 +634,7 @@ Class KakaoReceiver
             Next
         End If
         toJsonInfo.set "btns", btnsJsonInfo
-    End Function 
+    End Function
 
     Public Sub setValue(msgList)
         On Error Resume Next
@@ -683,16 +683,16 @@ Class KakaoButton
 
     Public Sub fromJsonInfo(btnInfo)
         On Error Resume Next
-            n = btnInfo.n 
+            n = btnInfo.n
             t = btnInfo.t
             u1 = btnInfo.u1
             u2 = btnInfo.u2
-        On Error GoTo 0 
+        On Error GoTo 0
     End Sub
 End Class ' End of KakaoButton class
 
 Class KakaoATSTemplate
-    Public templateCode 
+    Public templateCode
     Public templateName
     Public template
     Public plusFriendID
@@ -718,7 +718,7 @@ Class KakaoATSTemplate
             secureYN = atsInfo.secureYN
             state = atsInfo.state
             stateDT = atsInfo.stateDT
-   
+
             ReDim btns(atsInfo.btns.length)
             Dim i
             For i = 0 To atsInfo.btns.length -1
@@ -726,8 +726,8 @@ Class KakaoATSTemplate
                 tmpObj.fromJsonInfo atsInfo.btns.Get(i)
                 Set btns(i) = tmpObj
             Next
-        On Error GoTo 0 
-    End Sub 
+        On Error GoTo 0
+    End Sub
 End Class ' end of KakaoATSTemplate
 
 
