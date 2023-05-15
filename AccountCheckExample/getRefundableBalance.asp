@@ -38,12 +38,9 @@
                 <%
                     If code = 0 Then
                 %>
-                    <fieldset class="fieldset2">
-                        <legend> CorpInfo </legend>
-                            <ul>
-                                <li> refundableBalance (환불 가능 포인트) : <%=refundableBalance%></li>
-                            </ul>
-                        </fieldset>
+                    <ul>
+                        <li> refundableBalance (환불 가능 포인트) : <%=refundableBalance%></li>
+                    </ul>
                 <%
                     Else
                 %>

@@ -7,7 +7,7 @@
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 연동회원의 회사정보를 확인합니다.
+    ' 연동회원의 포인트 환불신청내역을 확인합니다.
     ' - https://developers.popbill.com/reference/accountcheck/asp/api/point#GetRefundableBalance
     '**************************************************************
 
@@ -19,7 +19,7 @@
 
     On Error Resume Next
 
-    Set refundableBalance = m_AccountCheckService.GetRefundableBalance(testCorpNum, UserID)
+    Set RefundHistoryResult = m_AccountCheckService.GetRefundHistory(testCorpNum, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -34,14 +34,19 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>환불 가능 포인트 조회</legend>
+                <legend>연동회원 포인트 환불내역 확인</legend>
                 <%
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
                         <legend> CorpInfo </legend>
                             <ul>
-                                <li> refundableBalance (환불 가능 포인트) : <%=refundableBalance%></li>
+                                <li> code (응답 코드) : <%=code%></li>
+                                <li> total (총 검색결과 건수) : <%=total%></li>
+                                <li> perPage (페이지당 검색개수) : <%=perPage%></li>
+                                <li> pageNum (페이지 번호) : <%=pageNum%></li>
+                                <li> perCount (페이지 개수) : <%=perCount%></li>
+
                             </ul>
                         </fieldset>
                 <%
