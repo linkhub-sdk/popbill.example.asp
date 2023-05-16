@@ -16,13 +16,28 @@
 
     Dim m_PaymentForm : Set m_PaymentForm = New PaymentForm
 
+    '담당자명
+    m_PaymentForm.SettlerName = "담당자"
+
+    '담당자 이메일
+    m_PaymentForm.SettlerEmail = "email_damdang@email.com"
+
+
+    '담당자 휴대폰
+    m_PaymentForm.NotifyHP = "010-1234-1234"
+
+    '입금자명
+    m_PaymentForm.PaymentName = "입금자"
+
+    '결제금액
+    m_PaymentForm.SettleCost = "10000"
 
     '팝빌회원 아이디
     UserID = "testkorea"
 
     On Error Resume Next
 
-    Dim result: Set result = m_AccountCheckService.paymentRequest(testCorpNum, m_PaymentForm,UserID)
+    Set paymentResponse = m_AccountCheckService.PaymentRequest(testCorpNum, m_PaymentForm, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -42,11 +57,11 @@
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
-                        <legend> CorpInfo </legend>
+                        <legend> PaymentResponse </legend>
                             <ul>
-                                <li> code (응답코드) : <%=result.code%></li>
-                                <li> message (응답메시지) : <%=result.message%></li>
-                                <li> settleCode (정산코드) : <%=result.settleCode%></li>
+                                <li> code (응답코드) : <%=paymentResponse.code%></li>
+                                <li> message (응답메시지) : <%=paymentResponse.message%></li>
+                                <li> settleCode (정산코드) : <%=paymentResponse.settleCode%></li>
                             </ul>
                         </fieldset>
                 <%

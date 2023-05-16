@@ -15,14 +15,16 @@
     testCorpNum = "1234567890"
 
     '탈퇴 사유
-    QuitReason = ""
+    Set m_QuitReason = New QuitReason
+
+    m_QuitReason.quitReason = "탈퇴사유"
 
     '팝빌회원 아이디
     UserID = "testkorea"
 
     On Error Resume Next
 
-    Set refundableBalance = m_AccountCheckService.QuitMember(testCorpNum, QuitReason, UserID)
+    Set response = m_AccountCheckService.QuitMember(testCorpNum, m_QuitReason, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -44,7 +46,8 @@
                     <fieldset class="fieldset2">
                         <legend> CorpInfo </legend>
                             <ul>
-                                <li> refundableBalance (환불 가능 포인트) : <%=refundableBalance%></li>
+                                <li> code (응답 코드) : <%=response.code%></li>
+                                <li> message (응답 메시지) : <%=response.message%></li>
                             </ul>
                         </fieldset>
                 <%

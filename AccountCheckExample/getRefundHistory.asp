@@ -45,7 +45,7 @@
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
-                        <legend> CorpInfo </legend>
+                        <legend> RefundHistory </legend>
                         <ul>
                             <li> code (응답 코드) : <%=result.code%></li>
                             <li> total (총 검색결과 건수) : <%=result.total%></li>
@@ -55,7 +55,7 @@
                         </ul>
                         <%
                             Dim i
-                            For i = 0 to UBound(result.list) - 1
+                            For i = 0 To UBound(result.list) - 1
                         %>
                                 <li> reqDT (신청 일시) : <%=result.list(i).reqDT%></li>
                                 <li> requestPoint (환불 신청포인트) : <%=result.list(i).requestPoint%></li>
@@ -65,7 +65,7 @@
                                 <li> state (상태) : <%=result.list(i).state%></li>
                                 <li> reason (환불사유) : <%=result.list(i).reason%></li>
                         <%
-                            End For
+                            Next
                         %>
                     </fieldset>
                 <%

@@ -14,27 +14,27 @@
     '팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    Set RefundForm = New RefundForm
+    Dim m_RefundForm : Set m_RefundForm = New RefundForm
     '담당자명
-    RefundForm, "contactName", ""
+    m_RefundForm.ContactUame = "담당자 이름"
 
     '담당자 연락처
-    RefundForm, "tel", ""
+    m_RefundForm.TEL = "010-1234-1234"
 
     '환불 신청 포인트
-    RefundForm, "requestPoint", ""
+    m_RefundForm.RequestPoint = "1000"
 
     '은행명
-    RefundForm, "accountBank", ""
+    m_RefundForm.AccountBank = "신한"
 
     '계좌번호
-    RefundForm, "accountNum", ""
+    m_RefundForm.AccountNum = "110-1234-12345"
 
     '예금주명
-    RefundForm, "accountName", ""
+    m_RefundForm.AccountName = "예금주_테스트"
 
     '환불사유
-    RefundForm, "reason", ""
+    m_RefundForm.Reason = "환불하겠습니다"
 
 
     '팝빌회원 아이디
@@ -42,7 +42,7 @@
 
     On Error Resume Next
 
-    Set refundResponse = m_AccountCheckService.Refund(testCorpNum, RefundForm, UserID)
+    Set refundResponse = m_AccountCheckService.Refund(testCorpNum, m_RefundForm, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
