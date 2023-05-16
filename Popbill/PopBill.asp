@@ -281,10 +281,8 @@ End Function
 
 ' 무통장 입금신청 정보확인 (GetSettleResult)
 Public Function GetSettleResult(CorpNum, SettleCode, UserID)
-    On Error Resume Next
     If IsEmpty(SettleCode) IsNull(SettleCode) then
         Err.Raise -99999999, "POPBILL", "정산코드가 입력되지 않았습니다."
-        On Error GoTo 0
     End If
 
     GetSettleResult = httpGET("/Paymet/"& SettleCode,getSession_token(CorpNum),UserID)
@@ -314,10 +312,8 @@ End Function
 
 ' 환불 신청상태 확인 (GetRefundInfo)
 Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
-    On Error Resume Next
     If IsEmpty(RefundCode) IsNull(RefundCode) then
         Err.Raise -99999999, "POPBILL", "환불코드가 입력되지 않았습니다."
-        On Error GoTo 0
     End If
 
 	GetRefundInfo = httpGET("/Refund/"&RefundCode,getSession_token(CorpNum),UserID)
