@@ -504,8 +504,17 @@ Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, 
     Set Search = searchResult
 End Function
 
+'예약전송 전체 취소 (전송 요청번호)
+Public Function CancelReservebyRCV(CorpNum, requestNum, UserID)
 
+    CancelReservebyRCV =
+End Function
 
+'예약전송 일부 취소 (전송 요청번호)
+Public Function CancelReserveRNbyRCV(CorpNum, requestNum, receiveNum, UserID)
+
+    CancelReserveRNbyRCV =
+End Function
 
 
 End Class ' end of KakaoService class
