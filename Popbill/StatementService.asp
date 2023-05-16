@@ -228,13 +228,14 @@ Public Function Update(CorpNum, itemCode, mgtKey, ByRef statement, UserID)
 End Function
 
 '발행
-Public Function Issue(CorpNum, itemCode, mgtKey, Memo, UserID)
+Public Function Issue(CorpNum, itemCode, mgtKey, Memo, EmailSubject, UserID)
     If mgtKey = "" Or isEmpty(mgtKey) Then
         Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
+    tmp.Set "emailSubject", EmailSubject
 
     Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
