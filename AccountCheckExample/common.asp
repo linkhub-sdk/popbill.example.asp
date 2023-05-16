@@ -20,6 +20,7 @@
     'ºñ¹ÐÅ°
     SecretKey = "SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I="
     
+
     set m_AccountCheckService = new AccountCheckService
 
     m_AccountCheckService.Initialize LinkID, SecretKey

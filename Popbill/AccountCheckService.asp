@@ -107,6 +107,24 @@ Class AccountCheckService
     Public Function CheckID(id)
         Set CheckID = m_popbillBase.CheckID(id)
     End Function
+
+	'무통장 입금신청
+	Public Function PaymetRequest(CorpNUm, UserID)
+		Set m_paymentResponse = m_popbillBase.PaymetRequest(CorpnUm, UserID)
+		PaymentRequest = m_paymentResponse
+	End Function
+
+	' 환불 가능 포인트 조회
+	Public Function GetRefundableBalance(CorpNum, UserID)
+		m_refundable = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
+		GetRefundableBalance = m_refundable
+	End Function
+	
+	' 환불 신청 상태 조회
+	Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
+		Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
+	End Function
+
     '과금정보 확인
     Public Function GetChargeInfo(CorpNum, UserID, ServiceType)
 

@@ -26,6 +26,8 @@
             <li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트충전 URL</li>
             <li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
             <li><a href="getUnitCost.asp">getUnitCost</a> - 조회 단가 확인</li>
+			<li><a href="getRefundInfo.asp">getRefundInfo</a> - 환불 신청 상태 조회</li>
+			<li><a href="getRefundableBalance.asp">getRefundableBalance</a> - 환불 가능 포인트 조회</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

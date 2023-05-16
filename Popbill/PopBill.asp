@@ -287,7 +287,7 @@ End Function
 
 ' 포인트 사용내역 (GetUseHistory)
 Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
-    Set response = httpGET("/UseHistory?SDate=" +SDate+  "&EDate="+EDate +  "&Page="+Page+  "&PerPage=" +PerPage+  "&Order=" Order,getSession_token(CorpNum),UserID)
+    Set response = httpGET("/UseHistory?SDate=" & SDate &  "&EDate=" & EDate & "&Page=" & Page & "&PerPage=" & PerPage &  "&Order=" & Order,getSession_token(CorpNum),UserID)
 End Function
 
 ' 포인트 결제내역 (GetPaymentHistory)
@@ -308,13 +308,15 @@ Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
 End Function
 
 ' 환불 신청상태 확인 (GetRefundInfo)
-Public Function GetRefundInfo(CorpNum, UserID)
-    Set refundHistory = httpGET("/RefundInfo",getSession_token(CorpNum),UserID)
+Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
+    Set refundHistory = httpGET("/Refund/"&RefundCode,getSession_token(CorpNum),UserID)
+	Set GetRefundInfo = refundHistory
 End Function
 
 ' 환불 가능 포인트 조회 (GetRefundableBalance)
 Public Function GetRefundableBalance(CorpNum, UserID)
-    Set refundableBalance = httpGET("/RefundPoint",getSession_token(CorpNum),UserID)
+	Dim m_balance: Set m_balance = httpGET("/RefundPoint",getSession_token(CorpNum),UserID)
+	GetRefundableBalance = CDbl(m_balance.refundableBalance)
 End Function
 
 ' 팝빌회원 탈퇴 (QuitMember)
@@ -830,4 +832,12 @@ Class QuitReason
     End Function
 
 End Class
+
+'Class RefundableBalanceResponse
+'	Public refundableBalance
+'
+'	Public Property Get refundableBalance()
+'		refundableBalance
+'	End Property
+'End Class
 %>
