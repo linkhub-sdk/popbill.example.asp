@@ -281,7 +281,7 @@ End Function
 
 ' 무통장 입금신청 정보확인 (GetSettleResult)
 Public Function GetSettleResult(CorpNum, SettleCode, UserID)
-    If IsEmpty(SettleCode) IsNull(SettleCode) then
+    If IsEmpty(SettleCode) Or IsNull(SettleCode) then
         Err.Raise -99999999, "POPBILL", "정산코드가 입력되지 않았습니다."
     End If
 
@@ -312,7 +312,7 @@ End Function
 
 ' 환불 신청상태 확인 (GetRefundInfo)
 Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
-    If IsEmpty(RefundCode) IsNull(RefundCode) then
+    If IsEmpty(RefundCode) Or IsNull(RefundCode) then
         Err.Raise -99999999, "POPBILL", "환불코드가 입력되지 않았습니다."
     End If
 
