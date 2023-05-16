@@ -7,19 +7,22 @@
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 연동회원의 회사정보를 확인합니다.
-    ' - https://developers.popbill.com/reference/accountcheck/asp/api/point#GetRefundableBalance
+    ' 연동회원 포인트 충전을 위해 무통장입금을 신청합니다.
+    ' - https://developers.popbill.com/reference/accountcheck/asp/api/point#PaymentRequest
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
+
+    Dim m_PaymentForm : Set m_PaymentForm = New PaymentForm
+
 
     '팝빌회원 아이디
     UserID = "testkorea"
 
     On Error Resume Next
 
-    Set refundableBalance = m_AccountCheckService.GetRefundableBalance(testCorpNum, UserID)
+    Dim result: Set result = m_AccountCheckService.paymentRequest(testCorpNum, m_PaymentForm,UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -41,7 +44,9 @@
                     <fieldset class="fieldset2">
                         <legend> CorpInfo </legend>
                             <ul>
-                                <li> refundableBalance (환불 가능 포인트) : <%=refundableBalance%></li>
+                                <li> code (응답코드) : <%=result.code%></li>
+                                <li> message (응답메시지) : <%=result.message%></li>
+                                <li> settleCode (정산코드) : <%=result.settleCode%></li>
                             </ul>
                         </fieldset>
                 <%

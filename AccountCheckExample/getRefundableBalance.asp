@@ -7,7 +7,7 @@
 <!--#include file="common.asp" -->
 <%
     '**************************************************************
-    ' 연동회원의 회사정보를 확인합니다.
+    ' 환불 가능한 포인트를 확인합니다. (보너스 포인트는 환불가능포인트에서 제외됩니다.)
     ' - https://developers.popbill.com/reference/accountcheck/asp/api/point#GetRefundableBalance
     '**************************************************************
 
@@ -18,8 +18,6 @@
     UserID = "testkorea"
 
     On Error Resume Next
-
-
 
 	refundableBalance = m_AccountCheckService.GetRefundableBalance(testCorpNum, UserID)
 

@@ -7,19 +7,42 @@
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 연동회원의 회사정보를 확인합니다.
-    ' - https://developers.popbill.com/reference/accountcheck/asp/api/point#GetRefundableBalance
+    ' 연동회원 포인트를 환불 신청합니다.
+    ' - https://developers.popbill.com/reference/accountcheck/asp/api/point#Refund
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
+
+    Set RefundForm = New RefundForm
+    '담당자명
+    RefundForm, "contactName", ""
+
+    '담당자 연락처
+    RefundForm, "tel", ""
+
+    '환불 신청 포인트
+    RefundForm, "requestPoint", ""
+
+    '은행명
+    RefundForm, "accountBank", ""
+
+    '계좌번호
+    RefundForm, "accountNum", ""
+
+    '예금주명
+    RefundForm, "accountName", ""
+
+    '환불사유
+    RefundForm, "reason", ""
+
 
     '팝빌회원 아이디
     UserID = "testkorea"
 
     On Error Resume Next
 
-    Set refundableBalance = m_AccountCheckService.GetRefundableBalance(testCorpNum, UserID)
+    Set refundResponse = m_AccountCheckService.Refund(testCorpNum, RefundForm, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -34,14 +57,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>환불 가능 포인트 조회</legend>
+                <legend>연동회원 포인트 환불신청</legend>
                 <%
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
-                        <legend> CorpInfo </legend>
+                        <legend> refundResponse </legend>
                             <ul>
-                                <li> refundableBalance (환불 가능 포인트) : <%=refundableBalance%></li>
+                                <li> code (응답 코드) : <%=refundResponse.code%></li>
+                                <li> message (응답 메시지) : <%=refundResponse.message%></li>
+                                <li> refundCode (환불코드) : <%=refundResponse.refundCode%></li>
                             </ul>
                         </fieldset>
                 <%

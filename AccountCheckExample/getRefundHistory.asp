@@ -8,18 +8,24 @@
 <%
     '**************************************************************
     ' 연동회원의 포인트 환불신청내역을 확인합니다.
-    ' - https://developers.popbill.com/reference/accountcheck/asp/api/point#GetRefundableBalance
+    ' - https://developers.popbill.com/reference/accountcheck/asp/api/point#GetRefundHistory
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
+
+    '목록 페이지번호
+    Page = 1
+
+    ' 페이지당 표시할 목록개수
+    PerPage = 500
 
     '팝빌회원 아이디
     UserID = "testkorea"
 
     On Error Resume Next
 
-    Set RefundHistoryResult = m_AccountCheckService.GetRefundHistory(testCorpNum, UserID)
+    Set result = m_AccountCheckService.GetRefundHistory(testCorpNum, Page, PerPage, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -40,15 +46,28 @@
                 %>
                     <fieldset class="fieldset2">
                         <legend> CorpInfo </legend>
-                            <ul>
-                                <li> code (응답 코드) : <%=code%></li>
-                                <li> total (총 검색결과 건수) : <%=total%></li>
-                                <li> perPage (페이지당 검색개수) : <%=perPage%></li>
-                                <li> pageNum (페이지 번호) : <%=pageNum%></li>
-                                <li> perCount (페이지 개수) : <%=perCount%></li>
-
-                            </ul>
-                        </fieldset>
+                        <ul>
+                            <li> code (응답 코드) : <%=result.code%></li>
+                            <li> total (총 검색결과 건수) : <%=result.total%></li>
+                            <li> perPage (페이지당 검색개수) : <%=result.perPage%></li>
+                            <li> pageNum (페이지 번호) : <%=result.pageNum%></li>
+                            <li> perCount (페이지 개수) : <%=result.perCount%></li>
+                        </ul>
+                        <%
+                            Dim i
+                            For i = 0 to UBound(result.list) - 1
+                        %>
+                                <li> reqDT (신청 일시) : <%=result.list(i).reqDT%></li>
+                                <li> requestPoint (환불 신청포인트) : <%=result.list(i).requestPoint%></li>
+                                <li> accountBank (환불계좌 은행명) : <%=result.list(i).accountBank%></li>
+                                <li> accountNum (환불계좌번호) : <%=result.list(i).accountNum%></li>
+                                <li> accountName (환불계좌 예금주명) : <%=result.list(i).accountName%></li>
+                                <li> state (상태) : <%=result.list(i).state%></li>
+                                <li> reason (환불사유) : <%=result.list(i).reason%></li>
+                        <%
+                            End For
+                        %>
+                    </fieldset>
                 <%
                     Else
                 %>

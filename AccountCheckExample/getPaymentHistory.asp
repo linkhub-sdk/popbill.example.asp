@@ -31,7 +31,7 @@
 
     On Error Resume Next
 
-    Set paymentHistoryResult = m_AccountCheckService.GetPaymentHistory(testCorpNum, SDate, EDate, Page, PerPage, UserID)
+    Set result = m_AccountCheckService.GetPaymentHistory(testCorpNum, SDate, EDate, Page, PerPage, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -51,11 +51,11 @@
                     If code = 0 Then
                 %>
                 <ul>
-                    <li> code (환불 가능 포인트) : <%=code%></li>
-                    <li> total (환불 가능 포인트) : <%=total%></li>
-                    <li> perPage (환불 가능 포인트) : <%=perPage%></li>
-                    <li> pageNum (환불 가능 포인트) : <%=pageNum%></li>
-                    <li> pageCount (환불 가능 포인트) : <%=pageCount%></li>
+                    <li> code (환불 가능 포인트) : <%=result.code%></li>
+                    <li> total (환불 가능 포인트) : <%=result.total%></li>
+                    <li> perPage (환불 가능 포인트) : <%=result.perPage%></li>
+                    <li> pageNum (환불 가능 포인트) : <%=result.pageNum%></li>
+                    <li> pageCount (환불 가능 포인트) : <%=result.pageCount%></li>
                 </ul>
                 <%
                     Dim i
