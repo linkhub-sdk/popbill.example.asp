@@ -114,12 +114,17 @@ Class AccountCheckService
 		PaymentRequest = m_paymentResponse
 	End Function
 
+    '연동회원 포인트 결제내역 조회
+    Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+        GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+    End Function
+
 	' 환불 가능 포인트 조회
 	Public Function GetRefundableBalance(CorpNum, UserID)
 		m_refundable = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
 		GetRefundableBalance = m_refundable
 	End Function
-	
+
 	' 환불 신청 상태 조회
 	Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
 		Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)

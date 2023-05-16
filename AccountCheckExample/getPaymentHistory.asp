@@ -50,13 +50,34 @@
                 <%
                     If code = 0 Then
                 %>
-                    <fieldset class="fieldset2">
-                        <legend> CorpInfo </legend>
-                            <ul>
-                                <li> refundableBalance (환불 가능 포인트) : <%=refundableBalance%></li>
-                            </ul>
-                        </fieldset>
+                <ul>
+                    <li> code (환불 가능 포인트) : <%=code%></li>
+                    <li> total (환불 가능 포인트) : <%=total%></li>
+                    <li> perPage (환불 가능 포인트) : <%=perPage%></li>
+                    <li> pageNum (환불 가능 포인트) : <%=pageNum%></li>
+                    <li> pageCount (환불 가능 포인트) : <%=pageCount%></li>
+                </ul>
                 <%
+                    Dim i
+                    For i = 0 To UBound(result.list) -1
+                %>
+                    <fieldset class="fieldset2">
+                        <legend> PaymentHistory [ <%= i+1%> / <%=UBound(result.list)%>]</legend>
+                        <ul>
+                            <li>productType : <%= result.list(i).productType %></li>
+                            <li>productName : <%= result.list(i).productName %></li>
+                            <li>settleType : <%= result.list(i).settleType %></li>
+                            <li>settlerName : <%= result.list(i).settlerName %></li>
+                            <li>settlerEmail : <%= result.list(i).settlerEmail %></li>
+                            <li>settleCost : <%= result.list(i).settleCost %></li>
+                            <li>settlePoint : <%= result.list(i).settlePoint %></li>
+                            <li>settleState : <%= result.list(i).settleState %></li>
+                            <li>regDT : <%= result.list(i).regDT %></li>
+                            <li>stateDTz : <%= result.list(i).stateDTz %></li>
+                        </ul>
+                    </fieldset>
+                <%
+                    Next
                     Else
                 %>
                     <ul>
