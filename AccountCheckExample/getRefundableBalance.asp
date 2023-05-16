@@ -21,8 +21,6 @@
 
 	refundableBalance = m_AccountCheckService.GetRefundableBalance(testCorpNum, UserID)
 
-	Response.Write("테스트" & refundableBalance)
-
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
