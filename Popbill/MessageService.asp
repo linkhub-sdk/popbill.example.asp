@@ -472,6 +472,11 @@ Public Function GetSenderNumberList(CorpNum)
     Set GetSenderNumberList = m_PopbillBase.httpGET("/Message/SenderNumber", m_PopbillBase.getSession_token(CorpNum), "")
 End Function
 
+'080 번호 확인
+Public Function CheckAutoDenyNumber (CorpNum)
+    CheckAutoDenyNumber = m_PopbillBase.httpGet("/Message/AutoDenyNumberInfo", m_popbillBase.getSession_token(CorpNum), "")
+End Function
+
 End Class
 
 
