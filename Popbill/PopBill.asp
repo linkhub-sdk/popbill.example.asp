@@ -283,7 +283,7 @@ End Function
 Public Function GetSettleResult(CorpNum, SettleCode, UserID)
     On Error Resume Next
     If IsEmpty(SettleCode) IsNull(SettleCode) then
-        Err.Raise -99999999, "SettleCode가 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "정산코드가 입력되지 않았습니다."
         On Error GoTo 0
     End If
 
@@ -316,7 +316,7 @@ End Function
 Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
     On Error Resume Next
     If IsEmpty(RefundCode) IsNull(RefundCode) then
-        Err.Raise -99999999, "RefundCode 입력되지 않았습니다."
+        Err.Raise -99999999, "POPBILL", "환불코드가 입력되지 않았습니다."
         On Error GoTo 0
     End If
 
