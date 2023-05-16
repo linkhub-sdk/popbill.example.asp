@@ -1,33 +1,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼¼±Ý°è»ê¼­¿¡ Ã·ºÎµÈ ÆÄÀÏ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
-    ' - ÀÀ´äÇ×¸ñ Áß ÆÄÀÏ¾ÆÀÌµð(AttachedFile) Ç×¸ñÀº ÆÄÀÏ»èÁ¦(DeleteFile API) È£Ãâ½Ã ÀÌ¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ Ã·ï¿½Îµï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½ï¿½ï¿½×¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¾ï¿½ï¿½Ìµï¿½(AttachedFile) ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï»ï¿½ï¿½ï¿½(DeleteFile API) È£ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#GetFiles
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½ 10ï¿½Ú¸ï¿½
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     testUserID = "testkorea"
-    
-    ' ¼¼±Ý°è»ê¼­ ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
     KeyType = "SELL"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     MgtKey = "20220720-ASP-002"
 
     On Error Resume Next
-    
+
     Set Presponse = m_TaxinvoiceService.GetFiles(testCorpNum, KeyType ,MgtKey, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -41,18 +41,18 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±Ý°è»ê¼­ Ã·ºÎÆÄÀÏ ¸ñ·Ï È®ÀÎ</legend>
-                    <% 
-                        If code = 0 Then	
+                <legend>ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È®ï¿½ï¿½</legend>
+                    <%
+                        If code = 0 Then
                             For i=0 To Presponse.length -1
                     %>
                             <fieldset class="filedset2">
-                            <legend> Ã·ºÎÆÄÀÏ : <%=i+1%> </legend>
+                            <legend> Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : <%=i+1%> </legend>
                                 <ul>
-                                    <li> serialNum(¼ø¹ø) : <%=Presponse.Get(i).serialNum%></li>
-                                    <li> AttachedFile(ÆÄÀÏ¸í) : <%=Presponse.Get(i).AttachedFile%></li>
-                                    <li> DisplayName(ÆÄÀÏ¾ÆÀÌµð) : <%=Presponse.Get(i).DisplayName%></li>
-                                    <li> regDT(µî·ÏÀÏ½Ã) : <%=Presponse.Get(i).regDT%></li>
+                                    <li> serialNum(ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.Get(i).serialNum%></li>
+                                    <li> AttachedFile(ï¿½ï¿½ï¿½Ï¸ï¿½) : <%=Presponse.Get(i).AttachedFile%></li>
+                                    <li> DisplayName(ï¿½ï¿½ï¿½Ï¾ï¿½ï¿½Ìµï¿½) : <%=Presponse.Get(i).DisplayName%></li>
+                                    <li> regDT(ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=Presponse.Get(i).regDT%></li>
                                 </ul>
                             </fieldset>
                     <%

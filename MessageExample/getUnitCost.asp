@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 문자 전송시 과금되는 포인트 단가를 확인합니다.
+    ' 占쏙옙占쏙옙 占쏙옙占쌜쏙옙 占쏙옙占쌥되댐옙 占쏙옙占쏙옙트 占쌤곤옙占쏙옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/sms/asp/api/point#GetUnitCost
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
     testCorpNum = "1234567890"
 
-    ' 팝빌회원 아이디
+    ' 占싯븝옙회占쏙옙 占쏙옙占싱듸옙
     userID = "testkorea"
 
-    ' 전송유형 (SMS - 단문, LMS - 장문, MMS - 포토)
+    ' 占쏙옙占쏙옙占쏙옙占쏙옙 (SMS - 占쌤뱄옙, LMS - 占썲문, MMS - 占쏙옙占쏙옙)
     sendType = "SMS"
 
     On Error Resume Next
@@ -37,16 +37,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>문자메시지 전송단가 확인</legend>
+                <legend>占쏙옙占쌘메쏙옙占쏙옙 占쏙옙占쌜단곤옙 확占쏙옙</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li><%=sendType%> 전송단가 : <%=CInt(unitCost)%> </li>
+                        <li><%=sendType%> 占쏙옙占쌜단곤옙 : <%=CInt(unitCost)%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

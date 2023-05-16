@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 현금영수증 관련 메일전송 항목에 대한 전송여부를 수정합니다.
+    ' 占쏙옙占쌥울옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쌓몌옙 占쏙옙占쏙옙 占쏙옙占쌜울옙占싸몌옙 占쏙옙占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#UpdateEmailConfig
     '**************************************************************
-    
-    ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"	 
 
-    ' 팝빌회원 아이디
-    userID = "testkorea"		 
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
+    testCorpNum = "1234567890"
 
-    ' 발송 메일 유형
-    ' - CSH_ISSUE : 고객에게 현금영수증이 발행 되었음을 알려주는 메일
-    ' - CSH_CANCEL : 고객에게 현금영수증이 발행취소 되었음을 알려주는 메일
+    ' 占싯븝옙회占쏙옙 占쏙옙占싱듸옙
+    userID = "testkorea"
+
+    ' 占쌩쇽옙 占쏙옙占쏙옙 占쏙옙占쏙옙
+    ' - CSH_ISSUE : 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쌥울옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占실억옙占쏙옙占쏙옙 占싯뤄옙占쌍댐옙 占쏙옙占쏙옙
+    ' - CSH_CANCEL : 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쌥울옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占� 占실억옙占쏙옙占쏙옙 占싯뤄옙占쌍댐옙 占쏙옙占쏙옙
     emailType = "CSH_ISSUE"
 
-    ' 전송 여부 (true = 전송, false = 미전송)
+    ' 占쏙옙占쏙옙 占쏙옙占쏙옙 (true = 占쏙옙占쏙옙, false = 占쏙옙占쏙옙占쏙옙)
     sendYN = true
 
     On Error Resume Next
@@ -33,12 +33,12 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 
 %>
     <body>
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>알림메일 전송설정 수정</legend>
+                <legend>占싯몌옙占쏙옙占쏙옙 占쏙옙占쌜쇽옙占쏙옙 占쏙옙占쏙옙</legend>
                 <ul>
                     <li> Response.code : <%=code%> </li>
                     <li> Response.message : <%=message%> </li>

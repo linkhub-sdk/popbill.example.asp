@@ -1,29 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 하나의 전자명세서에 다른 전자명세서를 첨부합니다.
+    ' 占싹놂옙占쏙옙 占쏙옙占쌘몌옙占쏙옙占쏙옙占쏙옙 占쌕몌옙 占쏙옙占쌘몌옙占쏙옙占쏙옙占쏙옙 첨占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/statement/asp/api/etc#AttachStatement
     '**************************************************************
 
-    ' 팝빌회원 사업자번호
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�
     testCorpNum = "1234567890"
 
-    ' 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
+    ' 占쏙옙占쏙옙占쏙옙 占쌘듸옙 - 121(占신뤄옙占쏙옙占쏙옙占쏙옙), 122(청占쏙옙占쏙옙), 123(占쏙옙占쏙옙占쏙옙), 124(占쏙옙占쌍쇽옙), 125(占쌉깍옙표), 126(占쏙옙占쏙옙占쏙옙)
     itemCode = 121
 
-    ' 문서관리번호
+    ' 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙호
     mgtKey = "20220720-ASP-001"
 
-    ' 첨부할 명세서 코드
+    ' 첨占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌘듸옙
     subItemCode = 121
 
-    ' 첨부할 명세서 관리번호 
+    ' 첨占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙호
     subMgtKey ="20220720-100"
 
     On Error Resume Next
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>다른 전자명세서 첨부</legend>
+                <legend>占쌕몌옙 占쏙옙占쌘몌옙占쏙옙占쏙옙 첨占쏙옙</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

@@ -1,34 +1,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' »èÁ¦ °¡´ÉÇÑ »óÅÂÀÇ ¼¼±Ý°è»ê¼­¸¦ »èÁ¦ÇÕ´Ï´Ù.
-    ' - »èÁ¦ °¡´ÉÇÑ »óÅÂ: "ÀÓ½ÃÀúÀå", "¹ßÇàÃë¼Ò", "¿ª¹ßÇà°ÅºÎ", "¿ª¹ßÇàÃë¼Ò", "Àü¼Û½ÇÆÐ"
-    ' - ¼¼±Ý°è»ê¼­¸¦ »èÁ¦ÇØ¾ß¸¸ ¹®¼­¹øÈ£(mgtKey)¸¦ Àç»ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: "ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½Û½ï¿½ï¿½ï¿½"
+    ' - ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ß¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£(mgtKey)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#Delete
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£ ("-"Á¦¿Ü)
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ ("-"ï¿½ï¿½ï¿½ï¿½)
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     testUserID = "testkorea"
-    
-    ' ¼¼±Ý°è»ê¼­ ¹ßÇàÀ¯Çü, SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
     KeyType= "SELL"
 
-    ' ¼¼±Ý°è»ê¼­ ¹®¼­¹øÈ£ 
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
     Set Presponse = m_TaxinvoiceService.Delete(testCorpNum, KeyType, MgtKey, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -45,7 +45,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±Ý°è»ê¼­ »èÁ¦</legend>
+                <legend>ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

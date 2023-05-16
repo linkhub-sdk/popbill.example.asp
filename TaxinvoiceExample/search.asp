@@ -1,75 +1,75 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' °Ë»öÁ¶°ÇÀ» »ç¿ëÇÏ¿© ¼¼±Ý°è»ê¼­ ¸ñ·ÏÀ» Á¶È¸ÇÕ´Ï´Ù. (Á¶È¸±â°£ ´ÜÀ§ : ÃÖ´ë 6°³¿ù)
+    ' ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Õ´Ï´ï¿½. (ï¿½ï¿½È¸ï¿½â°£ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ö´ï¿½ 6ï¿½ï¿½ï¿½ï¿½)
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/info#Search
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½ 10ï¿½Ú¸ï¿½
     testCorpNum = "1234567890"
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     UserID = "testkorea"
 
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
     KeyType = "SELL"
 
-    ' ÀÏÀÚ À¯Çü ("R" , "W" , "I" Áß ÅÃ 1)
-    ' ¦¦ R = µî·ÏÀÏÀÚ , W = ÀÛ¼ºÀÏÀÚ , I = ¹ßÇàÀÏÀÚ
+    ' ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ("R" , "W" , "I" ï¿½ï¿½ ï¿½ï¿½ 1)
+    ' ï¿½ï¿½ R = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , W = ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ , I = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     DType = "W"
-    
-    ' ½ÃÀÛÀÏÀÚ, yyyyMMdd
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, yyyyMMdd
     SDate = "20220701"
 
-    ' Á¾·áÀÏÀÚ, yyyyMMdd
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, yyyyMMdd
     EDate = "20220720"
-    
-    ' »óÅÂÄÚµå ¹è¿­ (2,3¹øÂ° ÀÚ¸®¿¡ ¿ÍÀÏµåÄ«µå(*) »ç¿ë °¡´É)
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½è¿­ (2,3ï¿½ï¿½Â° ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½Ä«ï¿½ï¿½(*) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     Dim State(2)
     State(0) = "3**"
     State(1) = "6**"
 
-    
-    ' ¹®¼­ À¯Çü ¹è¿­ ("N" , "M" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' - N = ÀÏ¹Ý ¼¼±Ý°è»ê¼­ , M = ¼öÁ¤ ¼¼±Ý°è»ê¼­
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+
+    ' ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("N" , "M" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - N = ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ , M = ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     Dim TIType(2)
     TIType(0) = "N"
     TIType(1) = "M"
 
-    ' °ú¼¼ÇüÅÂ ¹è¿­ ("T" , "N" , "Z" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' - T = °ú¼¼ , N = ¸é¼¼ , Z = ¿µ¼¼
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("T" , "N" , "Z" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - T = ï¿½ï¿½ï¿½ï¿½ , N = ï¿½é¼¼ , Z = ï¿½ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     Dim TaxType(3)
     TaxType(0) = "T"
     TaxType(1) = "N"
     TaxType(2) = "Z"
 
-    ' ¹ßÇàÇüÅÂ ¹è¿­ ("N" , "R" , "T" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' - N = Á¤¹ßÇà , R = ¿ª¹ßÇà , T = À§¼öÅ¹¹ßÇà
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("N" , "R" , "T" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - N = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , R = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , T = ï¿½ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     Dim IssueType(3)
     IssueType(0) = "N"
     IssueType(1) = "R"
     IssueType(2) = "T"
 
-    ' µî·ÏÀ¯Çü ¹è¿­ ("P" , "H" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' - P = ÆËºô, H = È¨ÅÃ½º ¶Ç´Â ¿ÜºÎASP
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("P" , "H" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - P = ï¿½Ëºï¿½, H = È¨ï¿½Ã½ï¿½ ï¿½Ç´ï¿½ ï¿½Üºï¿½ASP
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     Dim RegType(2)
     RegType(0) = "P"
     RegType(1) = "H"
 
-    ' °ø±Þ¹Þ´ÂÀÚ ÈÞÆó¾÷»óÅÂ ¹è¿­ ("N" , "0" , "1" , "2" , "3" , "4" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' - N = ¹ÌÈ®ÀÎ , 0 = ¹Ìµî·Ï , 1 = »ç¾÷ , 2 = Æó¾÷ , 3 = ÈÞ¾÷ , 4 = È®ÀÎ½ÇÆÐ
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("N" , "0" , "1" , "2" , "3" , "4" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - N = ï¿½ï¿½È®ï¿½ï¿½ , 0 = ï¿½Ìµï¿½ï¿½ , 1 = ï¿½ï¿½ï¿½ , 2 = ï¿½ï¿½ï¿½ , 3 = ï¿½Þ¾ï¿½ , 4 = È®ï¿½Î½ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     Dim CloseDownState(5)
     CloseDownState(0) = "N"
     CloseDownState(1) = "0"
@@ -77,46 +77,46 @@
     CloseDownState(3) = "2"
     CloseDownState(4) = "3"
 
-    ' Áö¿¬¹ßÇà ¿©ºÎ (null , true , false Áß ÅÃ 1)
-    ' - null = ÀüÃ¼Á¶È¸ , true = Áö¿¬¹ßÇà , false = Á¤»ó¹ßÇà
-    LateOnly = null		
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (null , true , false ï¿½ï¿½ ï¿½ï¿½ 1)
+    ' - null = ï¿½ï¿½Ã¼ï¿½ï¿½È¸ , true = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , false = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    LateOnly = null
 
-    ' Á¤·Ä¹æÇâ, A-¿À¸§Â÷¼ø, D-³»¸²Â÷¼ø
+    ' ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½, A-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, D-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     Order = "D"
 
-    ' ÆäÀÌÁö ¹øÈ£
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
     Page = 1
 
-    ' ÆäÀÌÁö´ç °Ë»ö°¹¼ö, ÃÖ´ë 1000
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ö´ï¿½ 1000
     PerPage = 5
 
-    ' Á¾»ç¾÷Àå¹øÈ£ÀÇ ÁÖÃ¼ ("S" , "B" , "T" Áß ÅÃ 1)
-    ' ¦¦ S = °ø±ÞÀÚ , B = °ø±Þ¹Þ´ÂÀÚ , T = ¼öÅ¹ÀÚ
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ã¼ ("S" , "B" , "T" ï¿½ï¿½ ï¿½ï¿½ 1)
+    ' ï¿½ï¿½ S = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , B = ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ , T = ï¿½ï¿½Å¹ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     TaxRegIDType = "S"
 
-    ' Á¾»ç¾÷Àå¹øÈ£ À¯¹« (null , "0" , "1" Áß ÅÃ 1)
-    ' - null = ÀüÃ¼ , 0 = ¾øÀ½, 1 = ÀÖÀ½
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ (null , "0" , "1" ï¿½ï¿½ ï¿½ï¿½ 1)
+    ' - null = ï¿½ï¿½Ã¼ , 0 = ï¿½ï¿½ï¿½ï¿½, 1 = ï¿½ï¿½ï¿½ï¿½
     TaxRegIDYN = ""
-    
-    ' Á¾»ç¾÷Àå¹øÈ£
-    ' ´Ù¼ö±âÀç½Ã ÄÞ¸¶(",")·Î ±¸ºÐÇÏ¿© ±¸¼º ex ) "0001,0002"
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    ' ï¿½Ù¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½(",")ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ex ) "0001,0002"
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     TaxRegID = ""
 
-    ' °Å·¡Ã³ »óÈ£ / »ç¾÷ÀÚ¹øÈ£ (»ç¾÷ÀÚ) / ÁÖ¹Îµî·Ï¹øÈ£ (°³ÀÎ) / "9999999999999" (¿Ü±¹ÀÎ) Áß °Ë»öÇÏ°íÀÚ ÇÏ´Â Á¤º¸ ÀÔ·Â
-    ' - »ç¾÷ÀÚ¹øÈ£ / ÁÖ¹Îµî·Ï¹øÈ£´Â ÇÏÀÌÇÂ('-')À» Á¦¿ÜÇÑ ¼ýÀÚ¸¸ ÀÔ·Â
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½Å·ï¿½Ã³ ï¿½ï¿½È£ / ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ï¿½) / ï¿½Ö¹Îµï¿½Ï¹ï¿½È£ (ï¿½ï¿½ï¿½ï¿½) / "9999999999999" (ï¿½Ü±ï¿½ï¿½ï¿½) ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
+    ' - ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ / ï¿½Ö¹Îµï¿½Ï¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½('-')ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ô·ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     QString = ""
 
-    ' ¼¼±Ý°è»ê¼­ÀÇ ¹®¼­¹øÈ£ / ±¹¼¼Ã» ½ÂÀÎ¹øÈ£ Áß °Ë»öÇÏ°íÀÚ ÇÏ´Â Á¤º¸ ÀÔ·Â
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ / ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Î¹ï¿½È£ ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     MgtKey = ""
 
-    ' ¿¬µ¿¹®¼­ ¿©ºÎ (null , "0" , "1" Áß ÅÃ 1)
-    ' - null = ÀüÃ¼Á¶È¸ , 0 = ÀÏ¹Ý¹®¼­ , 1 = ¿¬µ¿¹®¼­
-    ' - ÀÏ¹Ý¹®¼­ : ¼¼±Ý°è»ê¼­ ÀÛ¼º ½Ã API°¡ ¾Æ´Ñ ÆËºô »çÀÌÆ®¸¦ ÅëÇØ µî·ÏÇÑ ¹®¼­
-    ' - ¿¬µ¿¹®¼­ : ¼¼±Ý°è»ê¼­ ÀÛ¼º ½Ã API¸¦ ÅëÇØ µî·ÏÇÑ ¹®¼­
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (null , "0" , "1" ï¿½ï¿½ ï¿½ï¿½ 1)
+    ' - null = ï¿½ï¿½Ã¼ï¿½ï¿½È¸ , 0 = ï¿½Ï¹Ý¹ï¿½ï¿½ï¿½ , 1 = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    ' - ï¿½Ï¹Ý¹ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½Û¼ï¿½ ï¿½ï¿½ APIï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½Ëºï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½Û¼ï¿½ ï¿½ï¿½ APIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     InterOPYN = ""
 
     On Error Resume Next
@@ -141,54 +141,54 @@
                 <%
                     If code = 0 Then
                 %>
-                        <legend>¼¼±Ý°è»ê¼­ ¸ñ·ÏÁ¶È¸</legend>
+                        <legend>ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½È¸</legend>
                         <ul>
-                            <li> code (ÀÀ´äÄÚµå) : <%=result.code%></li>
-                            <li> message (ÀÀ´ä¸Þ½ÃÁö) : <%=result.message%></li>
-                            <li> total (ÃÑ °Ë»ö°á°ú °Ç¼ö) : <%=result.total%></li>
-                            <li> pageNum (ÆäÀÌÁö ¹øÈ£) : <%=result.pageNum%></li>
-                            <li> perPage (ÆäÀÌÁö´ç ¸ñ·Ï°³¼ö) : <%=result.perPage%></li>
-                            <li> pageCount (ÆäÀÌÁö °³¼ö) : <%=result.pageCount%></li>
+                            <li> code (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.code%></li>
+                            <li> message (ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½) : <%=result.message%></li>
+                            <li> total (ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½) : <%=result.total%></li>
+                            <li> pageNum (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) : <%=result.pageNum%></li>
+                            <li> perPage (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï°ï¿½ï¿½ï¿½) : <%=result.perPage%></li>
+                            <li> pageCount (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.pageCount%></li>
                         </ul>
                         <%
                             For i=0 To UBound(result.list) -1
                         %>
-                            <fieldset class="fieldset2">					
-                                <legend>  ¼¼±Ý°è»ê¼­ »óÅÂ/¿ä¾àÁ¤º¸ [ <%=i+1%> / <%=UBound(result.list)%> ]</legend>
+                            <fieldset class="fieldset2">
+                                <legend>  ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ <%=i+1%> / <%=UBound(result.list)%> ]</legend>
                                     <ul>
-                                        <li> itemKey (¼¼±Ý°è»ê¼­ ¾ÆÀÌÅÛÅ°) :  <%=result.list(i).itemKey%> </li>
-                                        <li> taxType (°ú¼¼ÇüÅÂ) :  <%=result.list(i).taxType%> </li>
-                                        <li> writeDate (ÀÛ¼ºÀÏÀÚ) :  <%=result.list(i).writeDate%> </li>
-                                        <li> regDT (ÀÓ½ÃÀúÀå ÀÏÀÚ) :  <%=result.list(i).regDT%> </li>
-                                        <li> issueType (¹ßÇàÇüÅÂ) :  <%=result.list(i).issueType %> </li>
-                                        <li> supplyCostTotal (°ø±Þ°¡¾× ÇÕ°è) :  <%=result.list(i).supplyCostTotal%> </li>
-                                        <li> taxTotal (¼¼¾× ÇÕ°è) :  <%=result.list(i).taxTotal%> </li>
-                                        <li> purposeType (¿µ¼ö/Ã»±¸) :  <%=result.list(i).purposeType%> </li>
-                                        <li> issueDT (¹ßÇàÀÏ½Ã) :  <%=result.list(i).issueDT%> </li>
-                                        <li> lateIssueYN (Áö¿¬¹ßÇà ¿©ºÎ) :  <%=result.list(i).lateIssueYN%> </li>
-                                        <li> preIssueDT (¹ßÇà¿¹Á¤ÀÏ½Ã) :  <%=result.list(i).preIssueDT%> </li>
-                                        <li> openYN (°³ºÀ ¿©ºÎ) :  <%=result.list(i).openYN%> </li>
-                                        <li> openDT (°³ºÀÀÏ½Ã) :  <%=result.list(i).openDT%> </li>
-                                        <li> stateMemo (»óÅÂ¸Þ¸ð) :  <%=result.list(i).stateMemo%> </li>
-                                        <li> stateCode (»óÅÂÄÚµå) :  <%=result.list(i).stateCode%> </li>
-                                        <li> stateDT (»óÅÂ º¯°æÀÏ½Ã) :  <%=result.list(i).stateDT%> </li>
-                                        <li> ntsconfirmNum (±¹¼¼Ã» ½ÂÀÎ¹øÈ£) :  <%=result.list(i).ntsconfirmNum %> </li>
-                                        <li> ntsresult (±¹¼¼Ã» Àü¼Û°á°ú) :  <%=result.list(i).ntsresult%> </li>
-                                        <li> ntssendDT (±¹¼¼Ã» Àü¼ÛÀÏ½Ã) :  <%=result.list(i).ntssendDT%> </li>
-                                        <li> ntsresultDT  (±¹¼¼Ã» °á°ú ¼ö½ÅÀÏ½Ã) :  <%=result.list(i).ntsresultDT%> </li>
-                                        <li> ntssendErrCode (Àü¼Û½ÇÆÐ »çÀ¯ÄÚµå) :  <%=result.list(i).ntssendErrCode%> </li>
-                                        <li> modifyCode (¼öÁ¤»çÀ¯ÄÚµå) : <%=result.list(i).modifyCode%></li> 
-                                        <li> interOPYN (¿¬µ¿¹®¼­¿©ºÎ) :  <%=result.list(i).interOPYN%> </li>
-                                        <li> invoicerCorpName (°ø±ÞÀÚ »óÈ£) :  <%=result.list(i).invoicerCorpName%> </li>
-                                        <li> invoicerCorpNum (°ø±ÞÀÚ »ç¾÷ÀÚ¹øÈ£) :  <%=result.list(i).invoicerCorpNum%> </li>
-                                        <li> invoicerMgtKey (°ø±ÞÀÚ ¹®¼­¹øÈ£) :  <%=result.list(i).invoicerMgtKey%> </li>
-                                        <li> invoicerPrintYN (°ø±ÞÀÚ ÀÎ¼â¿©ºÎ) :  <%=result.list(i).invoicerPrintYN%> </li>
-                                        <li> invoiceeCorpName (°ø±Þ¹Þ´ÂÀÚ »óÈ£) :  <%=result.list(i).invoiceeCorpName%> </li>
-                                        <li> invoiceeCorpNum (°ø±Þ¹Þ´ÂÀÚ »ç¾÷ÀÚ¹øÈ£) :  <%=result.list(i).invoiceeCorpNum%> </li>
-                                        <li> invoiceeMgtKey (°ø±Þ¹Þ´ÂÀÚ ¹®¼­¹øÈ£) :  <%=result.list(i).invoiceeMgtKey%> </li>
-                                        <li> invoiceePrintYN (°ø±Þ¹Þ´ÂÀÚ ÀÎ¼â¿©ºÎ) :  <%=result.list(i).invoiceePrintYN%> </li>
-                                        <li> closeDownState (°ø±Þ¹Þ´ÂÀÚ ÈÞÆó¾÷»óÅÂ) :  <%=result.list(i).closeDownState%> </li>
-                                        <li> closeDownStateDate (°ø±Þ¹Þ´ÂÀÚ ÈÞÆó¾÷ÀÏÀÚ) :  <%=result.list(i).closeDownStateDate%> </li>
+                                        <li> itemKey (ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°) :  <%=result.list(i).itemKey%> </li>
+                                        <li> taxType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.list(i).taxType%> </li>
+                                        <li> writeDate (ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.list(i).writeDate%> </li>
+                                        <li> regDT (ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) :  <%=result.list(i).regDT%> </li>
+                                        <li> issueType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.list(i).issueType %> </li>
+                                        <li> supplyCostTotal (ï¿½ï¿½ï¿½Þ°ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) :  <%=result.list(i).supplyCostTotal%> </li>
+                                        <li> taxTotal (ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) :  <%=result.list(i).taxTotal%> </li>
+                                        <li> purposeType (ï¿½ï¿½ï¿½ï¿½/Ã»ï¿½ï¿½) :  <%=result.list(i).purposeType%> </li>
+                                        <li> issueDT (ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.list(i).issueDT%> </li>
+                                        <li> lateIssueYN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) :  <%=result.list(i).lateIssueYN%> </li>
+                                        <li> preIssueDT (ï¿½ï¿½ï¿½à¿¹ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.list(i).preIssueDT%> </li>
+                                        <li> openYN (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) :  <%=result.list(i).openYN%> </li>
+                                        <li> openDT (ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.list(i).openDT%> </li>
+                                        <li> stateMemo (ï¿½ï¿½ï¿½Â¸Þ¸ï¿½) :  <%=result.list(i).stateMemo%> </li>
+                                        <li> stateCode (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) :  <%=result.list(i).stateCode%> </li>
+                                        <li> stateDT (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.list(i).stateDT%> </li>
+                                        <li> ntsconfirmNum (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Î¹ï¿½È£) :  <%=result.list(i).ntsconfirmNum %> </li>
+                                        <li> ntsresult (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Û°ï¿½ï¿½) :  <%=result.list(i).ntsresult%> </li>
+                                        <li> ntssendDT (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.list(i).ntssendDT%> </li>
+                                        <li> ntsresultDT  (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.list(i).ntsresultDT%> </li>
+                                        <li> ntssendErrCode (ï¿½ï¿½ï¿½Û½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) :  <%=result.list(i).ntssendErrCode%> </li>
+                                        <li> modifyCode (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.list(i).modifyCode%></li>
+                                        <li> interOPYN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.list(i).interOPYN%> </li>
+                                        <li> invoicerCorpName (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) :  <%=result.list(i).invoicerCorpName%> </li>
+                                        <li> invoicerCorpNum (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) :  <%=result.list(i).invoicerCorpNum%> </li>
+                                        <li> invoicerMgtKey (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) :  <%=result.list(i).invoicerMgtKey%> </li>
+                                        <li> invoicerPrintYN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¼â¿©ï¿½ï¿½) :  <%=result.list(i).invoicerPrintYN%> </li>
+                                        <li> invoiceeCorpName (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½È£) :  <%=result.list(i).invoiceeCorpName%> </li>
+                                        <li> invoiceeCorpNum (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) :  <%=result.list(i).invoiceeCorpNum%> </li>
+                                        <li> invoiceeMgtKey (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) :  <%=result.list(i).invoiceeMgtKey%> </li>
+                                        <li> invoiceePrintYN (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½Î¼â¿©ï¿½ï¿½) :  <%=result.list(i).invoiceePrintYN%> </li>
+                                        <li> closeDownState (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.list(i).closeDownState%> </li>
+                                        <li> closeDownStateDate (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.list(i).closeDownStateDate%> </li>
                                     </ul>
                                 </fieldset>
                 <%
@@ -199,8 +199,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

@@ -1,59 +1,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÃÖ´ë 2,000byteÀÇ Àå¹®(LMS) ¸Þ½ÃÁö ´Ù¼ö°Ç Àü¼ÛÀ» ÆËºô¿¡ Á¢¼öÇÏ¸ç, ¸ðµç ¼ö½ÅÀÚ¿¡°Ô µ¿ÀÏ ³»¿ëÀ» Àü¼ÛÇÕ´Ï´Ù. (ÃÖ´ë 1,000°Ç)
+    ' ï¿½Ö´ï¿½ 2,000byteï¿½ï¿½ ï¿½å¹®(LMS) ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ù¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ëºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. (ï¿½Ö´ï¿½ 1,000ï¿½ï¿½)
     '  - https://developers.popbill.com/reference/sms/asp/api/send#SendLMS
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    userID = "testkorea"					
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    userID = "testkorea"
 
-    ' ¹ß½Å¹øÈ£
-    senderNum = ""		
+    ' ï¿½ß½Å¹ï¿½È£
+    senderNum = ""
 
-    ' ¸Þ½ÃÁö Á¦¸ñ
-    subject = "µ¿º¸Àü¼Û ¸Þ½ÃÁö Á¦¸ñ"
+    ' ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    subject = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"
 
-    ' ¸Þ½ÃÁö ³»¿ë, ÃÖ´ë 2000byte ÃÊ°ú½Ã ±æÀÌ°¡ Á¶Á¤µÇ¾î Àü¼ÛµÊ
-    content = "µ¿º¸Àü¼Û ¸Þ½ÃÁö ³»¿ë"
+    ' ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ö´ï¿½ 2000byte ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½Ûµï¿½
+    content = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"
 
-    ' ¿¹¾àÀü¼Û½Ã°£ yyyyMMddHHmmss, reserveDT°ªÀÌ ¾ø´Â °æ¿ì Áï½ÃÀü¼Û
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û½Ã°ï¿½ yyyyMMddHHmmss, reserveDTï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     reserveDT = ""
 
-    ' ±¤°í¼º ¸Þ½ÃÁö ¿©ºÎ ( true , false Áß ÅÃ 1)
-    ' ¦¦ true = ±¤°í , false = ÀÏ¹Ý
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( true , false ï¿½ï¿½ ï¿½ï¿½ 1)
+    ' ï¿½ï¿½ true = ï¿½ï¿½ï¿½ï¿½ , false = ï¿½Ï¹ï¿½
     adsYN = False
 
-    ' ¼ö½ÅÁ¤º¸¹è¿­, ÃÖ´ë 1000°Ç
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¿­, ï¿½Ö´ï¿½ 1000ï¿½ï¿½
     Set msgList = CreateObject("Scripting.Dictionary")
-    
+
     For i =0 To 15
         Set message = New Messages
 
-        ' ¼ö½Å¹øÈ£
+        ' ï¿½ï¿½ï¿½Å¹ï¿½È£
         message.receiver = ""
 
-        ' ¼ö½ÅÀÚ¸í
-        message.receivername = " ¼ö½ÅÀÚÀÌ¸§"+CStr(i)
-    
+        ' ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
+        message.receivername = " ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½"+CStr(i)
+
         msgList.Add i, message
     Next
-    
+
     On Error Resume Next
 
-    ' Àü¼Û¿äÃ»¹øÈ£
-    ' ÆËºôÀÌ Á¢¼ö ´ÜÀ§¸¦ ½Äº°ÇÒ ¼ö ÀÖµµ·Ï ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ ½Äº°¹øÈ£.
-    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ýÀÚ, ÇÏÀÌÇÂ(-), ¾ð´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
-    requestNum = ""	
+    ' ï¿½ï¿½ï¿½Û¿ï¿½Ã»ï¿½ï¿½È£
+    ' ï¿½Ëºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ê°ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½È£.
+    ' 1~36ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(-), ï¿½ï¿½ï¿½ï¿½ï¿½(_)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ëºï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½Ò´ï¿½.
+    requestNum = ""
 
     receiptNum = m_MessageService.SendLMS(testCorpNum, senderNum, subject, content, msgList, reserveDT, adsYN, requestNum, userID)
 
@@ -70,16 +70,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Àå¹® ¹®ÀÚ¸Þ½ÃÁö µ¿º¸Àü¼Û </legend>
+                <legend>ï¿½å¹® ï¿½ï¿½ï¿½Ú¸Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ </legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(Á¢¼ö¹øÈ£) : <%=receiptNum%> </li>
+                        <li>ReceiptNum(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=receiptNum%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

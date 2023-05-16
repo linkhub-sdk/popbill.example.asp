@@ -1,33 +1,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ´Ù¼ö°ÇÀÇ ¼¼±Ý°è»ê¼­ »óÅÂ ¹× ¿ä¾à Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù. (1È¸ È£Ãâ ½Ã ÃÖ´ë 1,000°Ç È®ÀÎ °¡´É)
-    ' - ¸®ÅÏ°ª 'TaxinvoiceInfo'ÀÇ º¯¼ö 'stateCode'¸¦ ÅëÇØ ¼¼±Ý°è»ê¼­ÀÇ »óÅÂÄÚµå¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - ¼¼±Ý°è»ê¼­ »óÅÂÄÚµå [https://developers.popbill.com/reference/taxinvoice/asp/response-code#state-code]
+    ' ï¿½Ù¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½. (1È¸ È£ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ 1,000ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - ï¿½ï¿½ï¿½Ï°ï¿½ 'TaxinvoiceInfo'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 'stateCode'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµå¸¦ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ [https://developers.popbill.com/reference/taxinvoice/asp/response-code#state-code]
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/info#GetInfos
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
     testCorpNum = "1234567890"
 
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
     KeyType = "SELL"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     UserID = "testkorea"
 
-    ' ¼¼±Ý°è»ê¼­ ¹®¼­¹øÈ£ ¹è¿­, ÃÖ´ë 1000°Ç
-    Dim MgtKeyList(3) 
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½è¿­, ï¿½Ö´ï¿½ 1000ï¿½ï¿½
+    Dim MgtKeyList(3)
     MgtKeyList(0) = "20220720-ASP-001"
     MgtKeyList(1) = "20220720-ASP-002"
     MgtKeyList(2) = "20220720-ASP-003"
-    
+
     On Error Resume Next
 
     Set result = m_TaxinvoiceService.GetInfos(testCorpNum, KeyType, MgtKeyList, UserID)
@@ -45,47 +45,47 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±Ý°è»ê¼­ »óÅÂ/¿ä¾à Á¤º¸ È®ÀÎ - ´ë·®</legend>
+                <legend>ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ - ï¿½ë·®</legend>
                 <%
                     If code = 0 Then
                         For i=0 To result.Count-1
                 %>
-                            <fieldset class="fieldset2">					
+                            <fieldset class="fieldset2">
                                 <legend> TaxinvoiceResult : <%=i+1%> </legend>
                                     <ul>
-                                        <li> itemKey (¼¼±Ý°è»ê¼­ ¾ÆÀÌÅÛÅ°) :  <%=result.Item(i).itemKey%> </li>
-                                        <li> taxType (°ú¼¼ÇüÅÂ) :  <%=result.Item(i).taxType%> </li>
-                                        <li> writeDate (ÀÛ¼ºÀÏÀÚ) :  <%=result.Item(i).writeDate%> </li>
-                                        <li> regDT (ÀÓ½ÃÀúÀå ÀÏÀÚ) :  <%=result.Item(i).regDT%> </li>
-                                        <li> issueType (¹ßÇàÇüÅÂ) :  <%=result.Item(i).issueType %> </li>
-                                        <li> supplyCostTotal (°ø±Þ°¡¾× ÇÕ°è) :  <%=result.Item(i).supplyCostTotal%> </li>
-                                        <li> taxTotal (¼¼¾× ÇÕ°è) :  <%=result.Item(i).taxTotal%> </li>
-                                        <li> purposeType (¿µ¼ö/Ã»±¸) :  <%=result.Item(i).purposeType%> </li>
-                                        <li> issueDT (¹ßÇàÀÏ½Ã) :  <%=result.Item(i).issueDT%> </li>
-                                        <li> lateIssueYN (Áö¿¬¹ßÇà ¿©ºÎ) :  <%=result.Item(i).lateIssueYN%> </li>
-                                        <li> preIssueDT (¹ßÇà¿¹Á¤ÀÏ½Ã) :  <%=result.Item(i).preIssueDT%> </li>
-                                        <li> openYN (°³ºÀ ¿©ºÎ) :  <%=result.Item(i).openYN%> </li>
-                                        <li> openDT (°³ºÀÀÏ½Ã) :  <%=result.Item(i).openDT%> </li>
-                                        <li> stateMemo (»óÅÂ¸Þ¸ð) :  <%=result.Item(i).stateMemo%> </li>
-                                        <li> stateCode (»óÅÂÄÚµå) :  <%=result.Item(i).stateCode%> </li>
-                                        <li> stateDT (»óÅÂ º¯°æÀÏ½Ã) :  <%=result.Item(i).stateDT%> </li>
-                                        <li> ntsconfirmNum (±¹¼¼Ã» ½ÂÀÎ¹øÈ£) :  <%=result.Item(i).ntsconfirmNum %> </li>
-                                        <li> ntsresult (±¹¼¼Ã» Àü¼Û°á°ú) :  <%=result.Item(i).ntsresult%> </li>
-                                        <li> ntssendDT (±¹¼¼Ã» Àü¼ÛÀÏ½Ã) :  <%=result.Item(i).ntssendDT%> </li>
-                                        <li> ntsresultDT  (±¹¼¼Ã» °á°ú ¼ö½ÅÀÏ½Ã) :  <%=result.Item(i).ntsresultDT%> </li>
-                                        <li> ntssendErrCode (Àü¼Û½ÇÆÐ »çÀ¯ÄÚµå) :  <%=result.Item(i).ntssendErrCode%> </li>
-                                        <li> modifyCode (¼öÁ¤»çÀ¯ÄÚµå) : <%=result.Item(i).modifyCode%></li> 
-                                        <li> interOPYN (¿¬µ¿¹®¼­¿©ºÎ) :  <%=result.Item(i).interOPYN%> </li>
-                                        <li> invoicerCorpName (°ø±ÞÀÚ »óÈ£) :  <%=result.Item(i).invoicerCorpName%> </li>
-                                        <li> invoicerCorpNum (°ø±ÞÀÚ »ç¾÷ÀÚ¹øÈ£) :  <%=result.Item(i).invoicerCorpNum%> </li>
-                                        <li> invoicerMgtKey (°ø±ÞÀÚ ¹®¼­¹øÈ£) :  <%=result.Item(i).invoicerMgtKey%> </li>
-                                        <li> invoicerPrintYN (°ø±ÞÀÚ ÀÎ¼â¿©ºÎ) :  <%=result.Item(i).invoicerPrintYN%> </li>
-                                        <li> invoiceeCorpName (°ø±Þ¹Þ´ÂÀÚ »óÈ£) :  <%=result.Item(i).invoiceeCorpName%> </li>
-                                        <li> invoiceeCorpNum (°ø±Þ¹Þ´ÂÀÚ »ç¾÷ÀÚ¹øÈ£) :  <%=result.Item(i).invoiceeCorpNum%> </li>
-                                        <li> invoiceeMgtKey (°ø±Þ¹Þ´ÂÀÚ ¹®¼­¹øÈ£) :  <%=result.Item(i).invoiceeMgtKey%> </li>
-                                        <li> invoiceePrintYN (°ø±Þ¹Þ´ÂÀÚ ÀÎ¼â¿©ºÎ) :  <%=result.Item(i).invoiceePrintYN%> </li>
-                                        <li> closeDownState (°ø±Þ¹Þ´ÂÀÚ ÈÞÆó¾÷»óÅÂ) :  <%=result.Item(i).closeDownState%> </li>
-                                        <li> closeDownStateDate (°ø±Þ¹Þ´ÂÀÚ ÈÞÆó¾÷ÀÏÀÚ) :  <%=result.Item(i).closeDownStateDate%> </li>
+                                        <li> itemKey (ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°) :  <%=result.Item(i).itemKey%> </li>
+                                        <li> taxType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.Item(i).taxType%> </li>
+                                        <li> writeDate (ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.Item(i).writeDate%> </li>
+                                        <li> regDT (ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) :  <%=result.Item(i).regDT%> </li>
+                                        <li> issueType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.Item(i).issueType %> </li>
+                                        <li> supplyCostTotal (ï¿½ï¿½ï¿½Þ°ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) :  <%=result.Item(i).supplyCostTotal%> </li>
+                                        <li> taxTotal (ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) :  <%=result.Item(i).taxTotal%> </li>
+                                        <li> purposeType (ï¿½ï¿½ï¿½ï¿½/Ã»ï¿½ï¿½) :  <%=result.Item(i).purposeType%> </li>
+                                        <li> issueDT (ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.Item(i).issueDT%> </li>
+                                        <li> lateIssueYN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) :  <%=result.Item(i).lateIssueYN%> </li>
+                                        <li> preIssueDT (ï¿½ï¿½ï¿½à¿¹ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.Item(i).preIssueDT%> </li>
+                                        <li> openYN (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) :  <%=result.Item(i).openYN%> </li>
+                                        <li> openDT (ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.Item(i).openDT%> </li>
+                                        <li> stateMemo (ï¿½ï¿½ï¿½Â¸Þ¸ï¿½) :  <%=result.Item(i).stateMemo%> </li>
+                                        <li> stateCode (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) :  <%=result.Item(i).stateCode%> </li>
+                                        <li> stateDT (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.Item(i).stateDT%> </li>
+                                        <li> ntsconfirmNum (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Î¹ï¿½È£) :  <%=result.Item(i).ntsconfirmNum %> </li>
+                                        <li> ntsresult (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Û°ï¿½ï¿½) :  <%=result.Item(i).ntsresult%> </li>
+                                        <li> ntssendDT (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.Item(i).ntssendDT%> </li>
+                                        <li> ntsresultDT  (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.Item(i).ntsresultDT%> </li>
+                                        <li> ntssendErrCode (ï¿½ï¿½ï¿½Û½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) :  <%=result.Item(i).ntssendErrCode%> </li>
+                                        <li> modifyCode (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.Item(i).modifyCode%></li>
+                                        <li> interOPYN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.Item(i).interOPYN%> </li>
+                                        <li> invoicerCorpName (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) :  <%=result.Item(i).invoicerCorpName%> </li>
+                                        <li> invoicerCorpNum (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) :  <%=result.Item(i).invoicerCorpNum%> </li>
+                                        <li> invoicerMgtKey (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) :  <%=result.Item(i).invoicerMgtKey%> </li>
+                                        <li> invoicerPrintYN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¼â¿©ï¿½ï¿½) :  <%=result.Item(i).invoicerPrintYN%> </li>
+                                        <li> invoiceeCorpName (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½È£) :  <%=result.Item(i).invoiceeCorpName%> </li>
+                                        <li> invoiceeCorpNum (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) :  <%=result.Item(i).invoiceeCorpNum%> </li>
+                                        <li> invoiceeMgtKey (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) :  <%=result.Item(i).invoiceeMgtKey%> </li>
+                                        <li> invoiceePrintYN (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½Î¼â¿©ï¿½ï¿½) :  <%=result.Item(i).invoiceePrintYN%> </li>
+                                        <li> closeDownState (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.Item(i).closeDownState%> </li>
+                                        <li> closeDownStateDate (ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) :  <%=result.Item(i).closeDownStateDate%> </li>
                                     </ul>
                                 </fieldset>
                 <%
@@ -95,8 +95,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

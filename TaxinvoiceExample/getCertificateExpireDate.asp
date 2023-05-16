@@ -1,19 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 팝빌 인증서버에 등록된 인증서의 만료일을 확인합니다.
+    ' 占싯븝옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙溝占� 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/cert#GetCertificateExpireDate
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"		 
-    
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
+    testCorpNum = "1234567890"
+
     On Error Resume Next
 
     certificateExpiration = m_TaxinvoiceService.GetCertificateExpireDate(testCorpNum)
@@ -31,10 +31,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>공인인증서 만료일시 확인</legend>
+                <legend>占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占싹쏙옙 확占쏙옙</legend>
                     <ul>
                         <% If code = 0 Then %>
-                            <li>만료일시 : <%=certificateExpiration%> </li>
+                            <li>占쏙옙占쏙옙占싹쏙옙 : <%=certificateExpiration%> </li>
                         <% Else %>
                             <li>Response.code : <%=code%> </li>
                             <li>Response.message : <%=message%> </li>

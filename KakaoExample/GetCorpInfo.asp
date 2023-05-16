@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 연동회원의 회사정보를 확인합니다.
+    ' 占쏙옙占쏙옙회占쏙옙占쏙옙 회占쏙옙占쏙옙占쏙옙占쏙옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/member#GetCorpInfo
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
     testCorpNum = "1234567890"
 
-    ' 팝빌회원 아이디
+    ' 占싯븝옙회占쏙옙 占쏙옙占싱듸옙
     UserID = "testkorea"
-    
+
     On Error Resume Next
 
     Set result = m_KakaoService.GetCorpInfo(testCorpNum, UserID)
@@ -34,18 +34,18 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>회사정보 조회</legend>
+                <legend>회占쏙옙占쏙옙占쏙옙 占쏙옙회</legend>
                 <%
                     If code = 0 Then
                 %>
-                    <fieldset class="fieldset2">					
+                    <fieldset class="fieldset2">
                         <legend> CorpInfo </legend>
                             <ul>
-                                <li> ceoname (대표자명) : <%=result.ceoname%></li>
-                                <li> corpName (상호) : <%=result.corpName%></li>
-                                <li> addr (주소) : <%=result.addr%></li>
-                                <li> bizType (업태) : <%=result.bizType%></li>
-                                <li> bizClass (종목) : <%=result.bizClass%></li>
+                                <li> ceoname (占쏙옙표占쌘몌옙) : <%=result.ceoname%></li>
+                                <li> corpName (占쏙옙호) : <%=result.corpName%></li>
+                                <li> addr (占쌍쇽옙) : <%=result.addr%></li>
+                                <li> bizType (占쏙옙占쏙옙) : <%=result.bizType%></li>
+                                <li> bizClass (占쏙옙占쏙옙) : <%=result.bizClass%></li>
 
                             </ul>
                         </fieldset>
@@ -55,8 +55,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

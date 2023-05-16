@@ -1,38 +1,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "¹ßÇà¿Ï·á" »óÅÂÀÇ ÀüÀÚ¼¼±Ý°è»ê¼­¸¦ ±¹¼¼Ã»¿¡ Áï½Ã Àü¼ÛÇÏ¸ç, ÇÔ¼ö È£Ãâ ÈÄ ÃÖ´ë 30ºÐ ÀÌ³»¿¡ Àü¼Û Ã³¸®°¡ ¿Ï·áµË´Ï´Ù.
-    ' - ±¹¼¼Ã» Áï½ÃÀü¼ÛÀ» È£ÃâÇÏÁö ¾ÊÀº ¼¼±Ý°è»ê¼­´Â ¹ßÇàÀÏ ±âÁØ ´ÙÀ½ ¿µ¾÷ÀÏ ¿ÀÈÄ 3½Ã¿¡ ÆËºô ½Ã½ºÅÛ¿¡¼­ ÀÏ°ýÀûÀ¸·Î ±¹¼¼Ã»À¸·Î Àü¼ÛÇÕ´Ï´Ù.
+    ' "ï¿½ï¿½ï¿½ï¿½Ï·ï¿½" ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½, ï¿½Ô¼ï¿½ È£ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ 30ï¿½ï¿½ ï¿½Ì³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ë´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3ï¿½Ã¿ï¿½ ï¿½Ëºï¿½ ï¿½Ã½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#SendToNTS
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    testUserID = "testkorea"   
-     
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
-    KeyType = "SELL"             
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    testUserID = "testkorea"
 
-    ' ¹®¼­¹øÈ£ 
-    MgtKey = "20220720-ASP-001"      
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
+    KeyType = "SELL"
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
-    
+
     Set Presponse = m_TaxinvoiceService.SendToNTS(testCorpNum, KeyType ,MgtKey, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -43,7 +43,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>±¹¼¼Ã» Áï½ÃÀü¼Û</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

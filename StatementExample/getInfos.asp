@@ -1,26 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ´Ù¼ö°ÇÀÇ ÀüÀÚ¸í¼¼¼­ »óÅÂ ¹× ¿ä¾àÁ¤º¸ È®ÀÎÇÕ´Ï´Ù. (1È¸ È£Ãâ ½Ã ÃÖ´ë 1,000°Ç È®ÀÎ °¡´É)
+    ' ï¿½Ù¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½. (1È¸ È£ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ 1,000ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
     ' - https://developers.popbill.com/reference/statement/asp/api/info#GetInfos
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
+
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     userID = "testkorea"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±ÝÇ¥), 126(¿µ¼öÁõ)
-    itemCode = "121"					
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ - 121(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), 122(Ã»ï¿½ï¿½ï¿½ï¿½), 123(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), 124(ï¿½ï¿½ï¿½Ö¼ï¿½), 125(ï¿½Ô±ï¿½Ç¥), 126(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+    itemCode = "121"
 
-    ' ¹®¼­¹øÈ£ ¹è¿­, ÃÖ´ë 1000°Ç
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½è¿­, ï¿½Ö´ï¿½ 1000ï¿½ï¿½
     Dim mgtKeyList(2)
     mgtKeyList(0) = "20220720-ASP-001"
     mgtKeyList(1) = "20220720-ASP-002"
@@ -42,39 +42,39 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÀüÀÚ¸í¼¼¼­ »óÅÂ/¿ä¾àÁ¤º¸ È®ÀÎ - ´ë·® </legend>
+                <legend>ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ - ï¿½ë·® </legend>
                 <ul>
-                    <% If code = 0 Then 
+                    <% If code = 0 Then
                         For i=0 To result.Count-1 %>
 
                         <fieldset class="fieldset2">
-                            <legend> ÀüÀÚ¸í¼¼¼­ Á¤º¸ [<%=i+1%>] </legend>
+                            <legend> ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [<%=i+1%>] </legend>
                             <ul>
-                                <li> itemCode(¹®¼­Á¾·ùÄÚµå) : <%=result.Item(i).itemCode %></li>
-                                <li> itemKey(ÆËºô¹øÈ£) : <%=result.Item(i).itemKey %></li>
-                                <li> invoiceNum(ÆËºô½ÂÀÎ¹øÈ£) : <%=result.Item(i).invoiceNum %></li>
-                                <li> mgtKey(ÆÄÆ®³Ê ¹®¼­¹øÈ£) : <%=result.Item(i).mgtKey %></li>
-                                <li> taxType(¼¼±ÝÇüÅÂ) : <%=result.Item(i).taxType %></li>
-                                <li> writeDate(ÀÛ¼ºÀÏÀÚ) : <%=result.Item(i).writeDate %></li>
-                                <li> regDT(µî·ÏÀÏ½Ã) : <%=result.Item(i).regDT %></li>
-                                <li> senderCorpName(¹ß½ÅÀÚ »óÈ£) : <%=result.Item(i).senderCorpName %></li>
-                                <li> senderCorpNum(¹ß½ÅÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.Item(i).senderCorpNum %></li>
-                                <li> senderPrintYN(¹ß½ÅÀÚ ÀÎ¼â¿©ºÎ) : <%=result.Item(i).senderPrintYN %></li>
-                                <li> receiverCorpName(¼ö½ÅÀÚ »óÈ£) : <%=result.Item(i).receiverCorpName %></li>
-                                <li> receiverCorpNum(¼ö½ÅÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.Item(i).receiverCorpNum %></li>
-                                <li> receiverPrintYN(¼ö½ÅÀÚ ÀÎ¼â¿©ºÎ) : <%=result.Item(i).receiverPrintYN %></li>
-                                <li> supplyCostTotal(°ø±Þ°¡¾× ÇÕ°è) : <%=result.Item(i).supplyCostTotal %></li>
-                                <li> taxTotal(¼¼¾× ÇÕ°è) : <%=result.Item(i).taxTotal %></li>
-                                <li> purposeType(¿µ¼ö/Ã»±¸) : <%=result.Item(i).purposeType %></li>
-                                <li> issueDT(¹ßÇàÀÏ½Ã) : <%=result.Item(i).issueDT %></li>
-                                <li> stateCode(»óÅÂÄÚµå) : <%=result.Item(i).stateCode %></li>
-                                <li> stateDT(»óÅÂ º¯°æÀÏ½Ã) : <%=result.Item(i).stateDT %></li>
-                                <li> stateMemo(»óÅÂ¸Þ¸ð) : <%=result.Item(i).stateMemo %></li>
-                                <li> openYN(¸ÞÀÏ °³ºÀ ¿©ºÎ) : <%=result.Item(i).openYN %></li>
-                                <li> openDT(°³ºÀ ÀÏ½Ã) : <%=result.Item(i).openDT %></li>
+                                <li> itemCode(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.Item(i).itemCode %></li>
+                                <li> itemKey(ï¿½Ëºï¿½ï¿½ï¿½È£) : <%=result.Item(i).itemKey %></li>
+                                <li> invoiceNum(ï¿½Ëºï¿½ï¿½ï¿½ï¿½Î¹ï¿½È£) : <%=result.Item(i).invoiceNum %></li>
+                                <li> mgtKey(ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=result.Item(i).mgtKey %></li>
+                                <li> taxType(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).taxType %></li>
+                                <li> writeDate(ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).writeDate %></li>
+                                <li> regDT(ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.Item(i).regDT %></li>
+                                <li> senderCorpName(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) : <%=result.Item(i).senderCorpName %></li>
+                                <li> senderCorpNum(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) : <%=result.Item(i).senderCorpNum %></li>
+                                <li> senderPrintYN(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½Î¼â¿©ï¿½ï¿½) : <%=result.Item(i).senderPrintYN %></li>
+                                <li> receiverCorpName(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) : <%=result.Item(i).receiverCorpName %></li>
+                                <li> receiverCorpNum(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) : <%=result.Item(i).receiverCorpNum %></li>
+                                <li> receiverPrintYN(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¼â¿©ï¿½ï¿½) : <%=result.Item(i).receiverPrintYN %></li>
+                                <li> supplyCostTotal(ï¿½ï¿½ï¿½Þ°ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) : <%=result.Item(i).supplyCostTotal %></li>
+                                <li> taxTotal(ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) : <%=result.Item(i).taxTotal %></li>
+                                <li> purposeType(ï¿½ï¿½ï¿½ï¿½/Ã»ï¿½ï¿½) : <%=result.Item(i).purposeType %></li>
+                                <li> issueDT(ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.Item(i).issueDT %></li>
+                                <li> stateCode(ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.Item(i).stateCode %></li>
+                                <li> stateDT(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.Item(i).stateDT %></li>
+                                <li> stateMemo(ï¿½ï¿½ï¿½Â¸Þ¸ï¿½) : <%=result.Item(i).stateMemo %></li>
+                                <li> openYN(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).openYN %></li>
+                                <li> openDT(ï¿½ï¿½ï¿½ï¿½ ï¿½Ï½ï¿½) : <%=result.Item(i).openDT %></li>
                             </ul>
                         </fieldset>
-                    <% 
+                    <%
                         Next
                         Else
                     %>

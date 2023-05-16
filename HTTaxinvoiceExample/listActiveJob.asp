@@ -1,60 +1,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÀüÀÚ¼¼±Ý°è»ê¼­ ¸ÅÀÔ/¸ÅÃâ ³»¿ª ¼öÁý¿äÃ»¿¡ ´ëÇÑ »óÅÂ ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
-    ' - ¼öÁý ¿äÃ» ÈÄ 1½Ã°£ÀÌ °æ°úÇÑ ¼öÁý ¿äÃ»°ÇÀº »óÅÂÁ¤º¸°¡ ¹ÝÈ¯µÇÁö ¾Ê½À´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ 1ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/job#ListActiveJob
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     UserID = "testkorea"
-    
+
     On Error Resume Next
 
     Set result = m_HTTaxinvoiceService.ListActiveJob(testCorpNum, UserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼öÁý ¸ñ·Ï Á¶È¸</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸</legend>
                 <%
                     If code = 0 Then
                         For i=0 To result.Count-1
                 %>
-                            <fieldset class="fieldset2">					
+                            <fieldset class="fieldset2">
                                 <legend>ListActiveJob [ <%=i+1%> / <%=result.Count%> ] </legend>
                                     <ul>
-                                        <li> jobID (ÀÛ¾÷¾ÆÀÌµð) : <%=result.Item(i).jobID%></li>
-                                        <li> jobState (¼öÁý»óÅÂ) : <%=result.Item(i).jobState%></li>
-                                        <li> queryType (¼öÁýÀ¯Çü) : <%=result.Item(i).queryType%></li>
-                                        <li> queryDateType (ÀÏÀÚÀ¯Çü) : <%=result.Item(i).queryDateType%></li>
-                                        <li> queryStDate (½ÃÀÛÀÏÀÚ) : <%=result.Item(i).queryStDate%></li>
-                                        <li> queryEnDate (Á¾·áÀÏÀÚ) : <%=result.Item(i).queryEnDate%></li>
-                                        <li> errorCode (¿À·ùÄÚµå) : <%=result.Item(i).errorCode%></li>
-                                        <li> errorReason (¿À·ù¸Þ½ÃÁö) : <%=result.Item(i).errorReason%></li>
-                                        <li> jobStartDT (ÀÛ¾÷ ½ÃÀÛÀÏ½Ã) : <%=result.Item(i).jobStartDT%></li>
-                                        <li> jobEndDT (ÀÛ¾÷ Á¾·áÀÏ½Ã) : <%=result.Item(i).jobEndDT%></li>
-                                        <li> collectCount (¼öÁý°³¼ö) : <%=result.Item(i).collectCount%></li>
-                                        <li> regDT (¼öÁý ¿äÃ»ÀÏ½Ã) : <%=result.Item(i).regDT%></li>
+                                        <li> jobID (ï¿½Û¾ï¿½ï¿½ï¿½ï¿½Ìµï¿½) : <%=result.Item(i).jobID%></li>
+                                        <li> jobState (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).jobState%></li>
+                                        <li> queryType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).queryType%></li>
+                                        <li> queryDateType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).queryDateType%></li>
+                                        <li> queryStDate (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).queryStDate%></li>
+                                        <li> queryEnDate (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).queryEnDate%></li>
+                                        <li> errorCode (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.Item(i).errorCode%></li>
+                                        <li> errorReason (ï¿½ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½) : <%=result.Item(i).errorReason%></li>
+                                        <li> jobStartDT (ï¿½Û¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.Item(i).jobStartDT%></li>
+                                        <li> jobEndDT (ï¿½Û¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.Item(i).jobEndDT%></li>
+                                        <li> collectCount (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).collectCount%></li>
+                                        <li> regDT (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ï½ï¿½) : <%=result.Item(i).regDT%></li>
                                     </ul>
                                 </fieldset>
                 <%
@@ -64,8 +64,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

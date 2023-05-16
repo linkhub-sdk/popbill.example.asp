@@ -1,42 +1,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' °ø±ÞÀÚ°¡ ¿äÃ»¹ÞÀº ¿ª¹ßÇà ¼¼±Ý°è»ê¼­¸¦ ¹ßÇàÇÏ±â Àü, °ø±Þ¹Þ´ÂÀÚ°¡ ¿ª¹ßÇà¿äÃ»À» Ãë¼ÒÇÕ´Ï´Ù.
-    ' - ÇÔ¼ö È£Ãâ½Ã »óÅÂ °ªÀÌ "Ãë¼Ò"·Î º¯°æµÇ°í, ÇØ´ç ¿ª¹ßÇà ¼¼±Ý°è»ê¼­´Â °ø±ÞÀÚ¿¡ ÀÇÇØ ¹ßÇà µÉ ¼ö ¾ø½À´Ï´Ù.
-    ' - [Ãë¼Ò]ÇÑ ¼¼±Ý°è»ê¼­ÀÇ ¹®¼­¹øÈ£¸¦ Àç»ç¿ëÇÏ±â À§ÇØ¼­´Â »èÁ¦ (Delete API) ÇÔ¼ö¸¦ È£ÃâÇØ¾ß ÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½Þ¹Þ´ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½Ô¼ï¿½ È£ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ "ï¿½ï¿½ï¿½"ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç°ï¿½, ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+    ' - [ï¿½ï¿½ï¿½]ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Delete API) ï¿½Ô¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#CancelRequest
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     testUserID = "testkorea"
 
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
     KeyType = "BUY"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     MgtKey = "20220720-ASP-001"
 
-    '¸Þ¸ð
-    Memo = "¿ª¹ßÇà ¿äÃ» Ãë¼Ò ¸Þ¸ð"     
+    'ï¿½Þ¸ï¿½
+    Memo = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½"
 
     On Error Resume Next
-    
+
     Set Presponse = m_TaxinvoiceService.CancelRequest(testCorpNum, KeyType ,MgtKey, Memo, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -47,7 +47,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±Ý°è»ê¼­ ¿ª¹ßÇà¿äÃ» Ãë¼Ò</legend>
+                <legend>ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

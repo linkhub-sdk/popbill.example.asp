@@ -1,32 +1,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÀüÀÚ¸í¼¼¼­ 1°ÇÀÇ »ó¼¼Á¤º¸ È®ÀÎÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/statement/asp/api/info#GetDetailInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-"ï¿½ï¿½ï¿½ï¿½ 10ï¿½Ú¸ï¿½
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     userID = "testkorea"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±ÝÇ¥), 126(¿µ¼öÁõ)
-    itemCode = "121"					
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ - 121(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), 122(Ã»ï¿½ï¿½ï¿½ï¿½), 123(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), 124(ï¿½ï¿½ï¿½Ö¼ï¿½), 125(ï¿½Ô±ï¿½Ç¥), 126(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+    itemCode = "121"
 
-    ' ¹®¼­¹øÈ£
-    mgtKey = "20220720-ASP-002"				
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    mgtKey = "20220720-ASP-002"
 
     On Error Resume Next
-    
+
     Set result = m_StatementService.GetDetailInfo(testCorpNum, itemCode, mgtKey, userID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -40,54 +40,54 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÀüÀÚ¸í¼¼¼­ »ó¼¼Á¤º¸</legend>
+                <legend>ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li> itemCode(¸í¼¼¼­ ÄÚµå) : <%=result.itemCode%> </li>
-                        <li> mgtKey(¹®¼­¹øÈ£) : <%=result.mgtKey%> </li>
-                        <li> invoiceNum(ÆËºô ½ÂÀÎ¹øÈ£) : <%=result.invoiceNum%> </li>
-                        <li> formCode(¸ÂÃã¾ç½Ä ÄÚµå) : <%=result.formCode%> </li>
-                        <li> writeDate(ÀÛ¼ºÀÏÀÚ) : <%=result.writeDate%> </li>
-                        <li> taxType(°ú¼¼ÇüÅÂ) : <%=result.taxType %> </li>
-                        <li> purposeType(¿µ¼ö/Ã»±¸) : <%=result.purposeType%> </li>
-                        <li> serialNum(±âÀç»ó ÀÏ·Ã¹øÈ£) : <%=result.serialNum%> </li>
-                        <li> taxTotal(¼¼¾× ÇÕ°è) : <%=result.taxTotal%> </li>
-                        <li> supplyCostTotal(°ø±Þ°¡¾× ÇÕ°è) : <%=result.supplyCostTotal%> </li>
-                        <li> totalAmount(ÇÕ°è±Ý¾×) : <%=result.totalAmount%> </li>
-                        <li> remark1(ºñ°í1) : <%=result.remark1%> </li>
-                        <li> remark2(ºñ°í2) : <%=result.remark2%> </li>
-                        <li> remark3(ºñ°í3) : <%=result.remark3%> </li>
-                        <li> senderCorpNum(¹ß½ÅÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.senderCorpNum%> </li>
-                        <li> senderTaxRegID(¹ß½ÅÀÚ Á¾»ç¾÷Àå¹øÈ£) : <%=result.senderTaxRegID%> </li>
-                        <li> senderCorpName(¹ß½ÅÀÚ »óÈ£) : <%=result.senderCEOName%> </li>
-                        <li> senderCEOName(¹ß½ÅÀÚ ´ëÇ¥ÀÚ¼º¸í) : <%=result.senderCEOName%> </li>
-                        <li> senderAddr(¹ß½ÅÀÚ ÁÖ¼Ò) : <%=result.senderAddr%> </li>
-                        <li> senderBizClass(¹ß½ÅÀÚ Á¾¸ñ) : <%=result.senderBizClass%> </li>
-                        <li> senderBizType(¹ß½ÅÀÚ ¾÷ÅÂ) : <%=result.senderBizType%> </li>
-                        <li> senderContactName(¹ß½ÅÀÚ ´ã´çÀÚ¸í) : <%=result.senderContactName%> </li>
-                        <li> senderTEL(¹ß½ÅÀÚ ¿¬¶ôÃ³) : <%=result.senderTEL%> </li>
-                        <li> senderHP(¹ß½ÅÀÚ ÈÞ´ëÆù¹øÈ£) : <%=result.senderHP%> </li>
-                        <li> senderEmail(¹ß½ÅÀÚ ¸ÞÀÏÁÖ¼Ò) : <%=result.senderEmail%> </li>
-                        <li> receiverCorpNum(¼ö½ÅÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.receiverCorpNum%> </li>
-                        <li> receiverTaxRegID(¼ö½ÅÀÚ Á¾»ç¾÷Àå¹øÈ£) : <%=result.receiverTaxRegID%> </li>
-                        <li> receiverCorpName(¼ö½ÅÀÚ »óÈ£) : <%=result.receiverCorpName%> </li>
-                        <li> receiverCEOName(¼ö½ÅÀÚ ´ëÇ¥ÀÚ¼º¸í) : <%=result.receiverCEOName%> </li>
-                        <li> receiverAddr(¼ö½ÅÀÚ ÁÖ¼Ò) : <%=result.receiverAddr%> </li>
-                        <li> receiverBizClass(¼ö½ÅÀÚ Á¾¸ñ) : <%=result.receiverBizClass%> </li>
-                        <li> receiverBizType(¼ö½ÅÀÚ ¾÷ÅÂ) : <%=result.receiverBizType%> </li>
-                        <li> receiverContactName(¼ö½ÅÀÚ ´ã´çÀÚ¸í) : <%=result.receiverContactName%> </li>
-                        <li> receiverTEL(¼ö½ÅÀÚ ¿¬¶ôÃ³) : <%=result.receiverTEL%> </li>
-                        <li> receiverHP(¼ö½ÅÀÚ ÈÞ´ëÆù¹øÈ£) : <%=result.receiverHP%> </li>
-                        <li> receiverEmail(¼ö½ÅÀÚ ¸ÞÀÏÁÖ¼Ò) : <%=result.receiverEmail%> </li>
-                        <li> businessLicenseYN(»ç¾÷ÀÚµî·ÏÁõ Ã·ºÎ¿©ºÎ) : <%=result.businessLicenseYN%> </li>
-                        <li> bankBookYN(ÅëÀå»çº» Ã·ºÎ¿©ºÎ) : <%=result.bankBookYN%> </li>
-                        <li> smssendYN(¾Ë¸²¹®ÀÚ Àü¼Û¿©ºÎ) : <%=result.smssendYN%> </li>
-                        <li> autoacceptYN(¹ßÇà½Ã ÀÚµ¿½ÂÀÎ ¿©ºÎ) : <%=result.autoacceptYN%> </li>
-                        
-                        <!--±âÅ¸ »ó¼¼Ç×¸ñ »ý·«-->
+                        <li> itemCode(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½) : <%=result.itemCode%> </li>
+                        <li> mgtKey(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=result.mgtKey%> </li>
+                        <li> invoiceNum(ï¿½Ëºï¿½ ï¿½ï¿½ï¿½Î¹ï¿½È£) : <%=result.invoiceNum%> </li>
+                        <li> formCode(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½) : <%=result.formCode%> </li>
+                        <li> writeDate(ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.writeDate%> </li>
+                        <li> taxType(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.taxType %> </li>
+                        <li> purposeType(ï¿½ï¿½ï¿½ï¿½/Ã»ï¿½ï¿½) : <%=result.purposeType%> </li>
+                        <li> serialNum(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£) : <%=result.serialNum%> </li>
+                        <li> taxTotal(ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) : <%=result.taxTotal%> </li>
+                        <li> supplyCostTotal(ï¿½ï¿½ï¿½Þ°ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) : <%=result.supplyCostTotal%> </li>
+                        <li> totalAmount(ï¿½Õ°ï¿½Ý¾ï¿½) : <%=result.totalAmount%> </li>
+                        <li> remark1(ï¿½ï¿½ï¿½1) : <%=result.remark1%> </li>
+                        <li> remark2(ï¿½ï¿½ï¿½2) : <%=result.remark2%> </li>
+                        <li> remark3(ï¿½ï¿½ï¿½3) : <%=result.remark3%> </li>
+                        <li> senderCorpNum(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) : <%=result.senderCorpNum%> </li>
+                        <li> senderTaxRegID(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=result.senderTaxRegID%> </li>
+                        <li> senderCorpName(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) : <%=result.senderCEOName%> </li>
+                        <li> senderCEOName(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½Ú¼ï¿½ï¿½ï¿½) : <%=result.senderCEOName%> </li>
+                        <li> senderAddr(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½) : <%=result.senderAddr%> </li>
+                        <li> senderBizClass(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.senderBizClass%> </li>
+                        <li> senderBizType(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.senderBizType%> </li>
+                        <li> senderContactName(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½) : <%=result.senderContactName%> </li>
+                        <li> senderTEL(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³) : <%=result.senderTEL%> </li>
+                        <li> senderHP(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=result.senderHP%> </li>
+                        <li> senderEmail(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½) : <%=result.senderEmail%> </li>
+                        <li> receiverCorpNum(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) : <%=result.receiverCorpNum%> </li>
+                        <li> receiverTaxRegID(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=result.receiverTaxRegID%> </li>
+                        <li> receiverCorpName(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) : <%=result.receiverCorpName%> </li>
+                        <li> receiverCEOName(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½Ú¼ï¿½ï¿½ï¿½) : <%=result.receiverCEOName%> </li>
+                        <li> receiverAddr(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½) : <%=result.receiverAddr%> </li>
+                        <li> receiverBizClass(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.receiverBizClass%> </li>
+                        <li> receiverBizType(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.receiverBizType%> </li>
+                        <li> receiverContactName(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½) : <%=result.receiverContactName%> </li>
+                        <li> receiverTEL(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³) : <%=result.receiverTEL%> </li>
+                        <li> receiverHP(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=result.receiverHP%> </li>
+                        <li> receiverEmail(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½) : <%=result.receiverEmail%> </li>
+                        <li> businessLicenseYN(ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ Ã·ï¿½Î¿ï¿½ï¿½ï¿½) : <%=result.businessLicenseYN%> </li>
+                        <li> bankBookYN(ï¿½ï¿½ï¿½ï¿½çº» Ã·ï¿½Î¿ï¿½ï¿½ï¿½) : <%=result.bankBookYN%> </li>
+                        <li> smssendYN(ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½) : <%=result.smssendYN%> </li>
+                        <li> autoacceptYN(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.autoacceptYN%> </li>
+
+                        <!--ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½-->
 
                         <fieldset class="fieldset2">
-                            <legend>Ãß°¡¼Ó¼º</legend>
+                            <legend>ï¿½ß°ï¿½ï¿½Ó¼ï¿½</legend>
                             <ul>
                             <% For Each propertyKey In result.propertyBag.keys() %>
                                 <li> <%=propertyKey%> : <%=result.propertyBag.get(propertyKey)%></li>
@@ -96,47 +96,47 @@
                         </fieldset>
                         <% For i=0 To Ubound(result.detailList)-1%>
                                 <fieldset class="fieldset2">
-                                <legend> »ó¼¼Ç×¸ñ <%=i+1%> </legend>
+                                <legend> ï¿½ï¿½ï¿½×¸ï¿½ <%=i+1%> </legend>
                                     <ul>
-                                        <li> serialNum(ÀÏ·Ã¹øÈ£) : <%=result.detailList(i).serialNum%> </li>
-                                        <li> purchaseDT(°Å·¡ÀÏÀÚ) : <%=result.detailList(i).purchaseDT%> </li>
-                                        <li> itemName(Ç°¸ñ¸í) : <%=result.detailList(i).itemName%> </li>
-                                        <li> spec(±Ô°Ý) : <%=result.detailList(i).spec%> </li>
-                                        <li> qty(¼ö·®) : <%=result.detailList(i).qty%> </li>
-                                        <li> unitCost(´Ü°¡) : <%=result.detailList(i).unitCost%> </li>
-                                        <li> supplyCost(°ø±Þ°¡¾×) : <%=result.detailList(i).supplyCost%> </li>
-                                        <li> tax(¼¼¾×) : <%=result.detailList(i).tax%> </li>
-                                        <li> remark(ºñ°í) : <%=result.detailList(i).remark%> </li>
-                                        <li> spare1(¿©ºÐ1) : <%=result.detailList(i).spare1%> </li>
-                                        <li> spare2(¿©ºÐ2) : <%=result.detailList(i).spare2%> </li>
-                                        <li> spare3(¿©ºÐ3) : <%=result.detailList(i).spare3%> </li>
-                                        <li> spare4(¿©ºÐ4) : <%=result.detailList(i).spare4%> </li>
-                                        <li> spare5(¿©ºÐ5) : <%=result.detailList(i).spare5%> </li>
-                                        <li> spare6(¿©ºÐ6) : <%=result.detailList(i).spare6%> </li>
-                                        <li> spare7(¿©ºÐ7) : <%=result.detailList(i).spare7%> </li>
-                                        <li> spare8(¿©ºÐ8) : <%=result.detailList(i).spare8%> </li>
-                                        <li> spare9(¿©ºÐ9) : <%=result.detailList(i).spare9%> </li>
-                                        <li> spare10(¿©ºÐ10) : <%=result.detailList(i).spare10%> </li>
-                                        <li> spare11(¿©ºÐ11) : <%=result.detailList(i).spare11%> </li>
-                                        <li> spare12(¿©ºÐ12) : <%=result.detailList(i).spare12%> </li>
-                                        <li> spare13(¿©ºÐ13) : <%=result.detailList(i).spare13%> </li>
-                                        <li> spare14(¿©ºÐ14) : <%=result.detailList(i).spare14%> </li>
-                                        <li> spare15(¿©ºÐ15) : <%=result.detailList(i).spare15%> </li>
-                                        <li> spare16(¿©ºÐ16) : <%=result.detailList(i).spare16%> </li>
-                                        <li> spare17(¿©ºÐ17) : <%=result.detailList(i).spare17%> </li>
-                                        <li> spare18(¿©ºÐ18) : <%=result.detailList(i).spare18%> </li>
-                                        <li> spare19(¿©ºÐ19) : <%=result.detailList(i).spare19%> </li>
-                                        <li> spare20(¿©ºÐ20) : <%=result.detailList(i).spare20%> </li>
+                                        <li> serialNum(ï¿½Ï·Ã¹ï¿½È£) : <%=result.detailList(i).serialNum%> </li>
+                                        <li> purchaseDT(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.detailList(i).purchaseDT%> </li>
+                                        <li> itemName(Ç°ï¿½ï¿½ï¿½) : <%=result.detailList(i).itemName%> </li>
+                                        <li> spec(ï¿½Ô°ï¿½) : <%=result.detailList(i).spec%> </li>
+                                        <li> qty(ï¿½ï¿½ï¿½ï¿½) : <%=result.detailList(i).qty%> </li>
+                                        <li> unitCost(ï¿½Ü°ï¿½) : <%=result.detailList(i).unitCost%> </li>
+                                        <li> supplyCost(ï¿½ï¿½ï¿½Þ°ï¿½ï¿½ï¿½) : <%=result.detailList(i).supplyCost%> </li>
+                                        <li> tax(ï¿½ï¿½ï¿½ï¿½) : <%=result.detailList(i).tax%> </li>
+                                        <li> remark(ï¿½ï¿½ï¿½) : <%=result.detailList(i).remark%> </li>
+                                        <li> spare1(ï¿½ï¿½ï¿½ï¿½1) : <%=result.detailList(i).spare1%> </li>
+                                        <li> spare2(ï¿½ï¿½ï¿½ï¿½2) : <%=result.detailList(i).spare2%> </li>
+                                        <li> spare3(ï¿½ï¿½ï¿½ï¿½3) : <%=result.detailList(i).spare3%> </li>
+                                        <li> spare4(ï¿½ï¿½ï¿½ï¿½4) : <%=result.detailList(i).spare4%> </li>
+                                        <li> spare5(ï¿½ï¿½ï¿½ï¿½5) : <%=result.detailList(i).spare5%> </li>
+                                        <li> spare6(ï¿½ï¿½ï¿½ï¿½6) : <%=result.detailList(i).spare6%> </li>
+                                        <li> spare7(ï¿½ï¿½ï¿½ï¿½7) : <%=result.detailList(i).spare7%> </li>
+                                        <li> spare8(ï¿½ï¿½ï¿½ï¿½8) : <%=result.detailList(i).spare8%> </li>
+                                        <li> spare9(ï¿½ï¿½ï¿½ï¿½9) : <%=result.detailList(i).spare9%> </li>
+                                        <li> spare10(ï¿½ï¿½ï¿½ï¿½10) : <%=result.detailList(i).spare10%> </li>
+                                        <li> spare11(ï¿½ï¿½ï¿½ï¿½11) : <%=result.detailList(i).spare11%> </li>
+                                        <li> spare12(ï¿½ï¿½ï¿½ï¿½12) : <%=result.detailList(i).spare12%> </li>
+                                        <li> spare13(ï¿½ï¿½ï¿½ï¿½13) : <%=result.detailList(i).spare13%> </li>
+                                        <li> spare14(ï¿½ï¿½ï¿½ï¿½14) : <%=result.detailList(i).spare14%> </li>
+                                        <li> spare15(ï¿½ï¿½ï¿½ï¿½15) : <%=result.detailList(i).spare15%> </li>
+                                        <li> spare16(ï¿½ï¿½ï¿½ï¿½16) : <%=result.detailList(i).spare16%> </li>
+                                        <li> spare17(ï¿½ï¿½ï¿½ï¿½17) : <%=result.detailList(i).spare17%> </li>
+                                        <li> spare18(ï¿½ï¿½ï¿½ï¿½18) : <%=result.detailList(i).spare18%> </li>
+                                        <li> spare19(ï¿½ï¿½ï¿½ï¿½19) : <%=result.detailList(i).spare19%> </li>
+                                        <li> spare20(ï¿½ï¿½ï¿½ï¿½20) : <%=result.detailList(i).spare20%> </li>
                                     </ul>
                                 </fieldset>
-                            <% 
+                            <%
                                 Next
                                 Else
                             %>
-        
+
                             <li>Response.code : <%=code%> </li>
                             <li>Response.message: <%=message%> </li>
-                        <% 
+                        <%
                             End If
                         %>
                 </ul>

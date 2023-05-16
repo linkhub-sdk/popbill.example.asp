@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' È¨ÅÃ½º¿¬µ¿ Á¤¾×Á¦ ¼­ºñ½º »óÅÂ¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' È¨ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/point#GetFlatRateState
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    UserID = "testkorea"					
-    
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    UserID = "testkorea"
+
     On Error Resume Next
 
     Set result = m_HTCashbillService.GetFlatRateState ( testCorpNum, UserID )
@@ -34,20 +34,20 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> Á¤¾×Á¦ ¼­ºñ½º »óÅÂ È®ÀÎ</legend>
+                <legend> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> referenceID (»ç¾÷ÀÚ¹øÈ£) : <%=result.referenceID%></li>
-                        <li> contractDT (Á¤¾×Á¦ ¼­ºñ½º ½ÃÀÛÀÏ½Ã) : <%=result.contractDT%></li>
-                        <li> useEndDate (Á¤¾×Á¦ ¼­ºñ½º Á¾·áÀÏ) : <%=result.useEndDate%></li>
-                        <li> baseDate (ÀÚµ¿¿¬Àå °áÁ¦ÀÏ) : <%=result.baseDate%></li>
-                        <li> state (Á¤¾×Á¦ ¼­ºñ½º »óÅÂ) : <%=result.state%></li>
-                        <li> closeRequestYN (Á¤¾×Á¦ ¼­ºñ½º ÇØÁö½ÅÃ» ¿©ºÎ) : <%=result.closeRequestYN%></li>
-                        <li> useRestrictYN (Á¤¾×Á¦ ¼­ºñ½º »ç¿ëÁ¦ÇÑ ¿©ºÎ) : <%=result.useRestrictYN%></li>
-                        <li> closeOnExpired (Á¤¾×Á¦ ¼­ºñ½º ¸¸·á ½Ã ÇØÁö¿©ºÎ) : <%=result.closeOnExpired%></li>
-                        <li> unPaidYN (¹Ì¼ö±Ý º¸À¯¿©ºÎ) : <%=result.unPaidYN%></li>
+                        <li> referenceID (ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) : <%=result.referenceID%></li>
+                        <li> contractDT (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.contractDT%></li>
+                        <li> useEndDate (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.useEndDate%></li>
+                        <li> baseDate (ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.baseDate%></li>
+                        <li> state (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.state%></li>
+                        <li> closeRequestYN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½) : <%=result.closeRequestYN%></li>
+                        <li> useRestrictYN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.useRestrictYN%></li>
+                        <li> closeOnExpired (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.closeOnExpired%></li>
+                        <li> unPaidYN (ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.unPaidYN%></li>
                     </ul>
                 <%
                     Else
@@ -55,8 +55,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

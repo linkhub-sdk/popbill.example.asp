@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 카카오톡 전송시 과금되는 포인트 단가를 확인합니다.
+    ' 카카占쏙옙占쏙옙 占쏙옙占쌜쏙옙 占쏙옙占쌥되댐옙 占쏙옙占쏙옙트 占쌤곤옙占쏙옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/point#GetUnitCost
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
     testCorpNum = "1234567890"
 
-    ' 팝빌회원 아이디
+    ' 占싯븝옙회占쏙옙 占쏙옙占싱듸옙
     userID = "testkorea"
 
-    ' 전송유형 (ATS - 알림톡, FTS - 친구톡 텍스트, FMS - 친구톡 이미지)
+    ' 占쏙옙占쏙옙占쏙옙占쏙옙 (ATS - 占싯몌옙占쏙옙, FTS - 친占쏙옙占쏙옙 占쌔쏙옙트, FMS - 친占쏙옙占쏙옙 占싱뱄옙占쏙옙)
     sendType = "ATS"
 
     On Error Resume Next
@@ -37,16 +37,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>카카오톡 전송단가 확인</legend>
+                <legend>카카占쏙옙占쏙옙 占쏙옙占쌜단곤옙 확占쏙옙</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li><%=sendType%> 전송단가 : <%=CInt(unitCost)%> </li>
+                        <li><%=sendType%> 占쏙옙占쌜단곤옙 : <%=CInt(unitCost)%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

@@ -1,40 +1,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "ÀÓ½ÃÀúÀå" »óÅÂÀÇ ¼¼±Ý°è»ê¼­¿¡ 1°³ÀÇ ÆÄÀÏÀ» Ã·ºÎÇÕ´Ï´Ù. (ÃÖ´ë 5°³)
+    ' "ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½" ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã·ï¿½ï¿½ï¿½Õ´Ï´ï¿½. (ï¿½Ö´ï¿½ 5ï¿½ï¿½)
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#AttachFile
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     testUserID = "testkorea"
-    
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
     KeyType = "SELL"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     MgtKey = "20220720-ASP-002"
 
-    ' Ã·ºÎÇÒ ÆÄÀÏ°æ·Î
+    ' Ã·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ï¿½
     filePath = "C:\Users\jhPark\git\popbill.example.asp\test.jpg"
 
     On Error Resume Next
 
     Set Presponse = m_TaxinvoiceService.AttachFile(testCorpNum, KeyType ,MgtKey, filePath, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -45,7 +45,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±Ý°è»ê¼­ Ã·ºÎÆÄÀÏ Ãß°¡ </legend>
+                <legend>ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ </legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

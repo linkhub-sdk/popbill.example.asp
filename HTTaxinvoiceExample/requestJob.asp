@@ -1,36 +1,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' È¨ÅÃ½º¿¡ ½Å°íµÈ ÀüÀÚ¼¼±Ý°è»ê¼­ ¸ÅÀÔ/¸ÅÃâ ³»¿ª ¼öÁýÀ» ÆËºô¿¡ ¿äÃ»ÇÕ´Ï´Ù. (Á¶È¸±â°£ ´ÜÀ§ : ÃÖ´ë 3°³¿ù)
-    ' - ÁÖ±âÀûÀ¸·Î ÀÚÃ¼ DB¿¡ ¼¼±Ý°è»ê¼­ Á¤º¸¸¦ INSERT ÇÏ´Â °æ¿ì, Á¶È¸ÇÒ ÀÏÀÚ À¯Çü(DType) °ªÀ» "S"·Î ÇÏ´Â °ÍÀ» ±ÇÀåÇÕ´Ï´Ù.
+    ' È¨ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ëºï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Õ´Ï´ï¿½. (ï¿½ï¿½È¸ï¿½â°£ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ö´ï¿½ 3ï¿½ï¿½ï¿½ï¿½)
+    ' - ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ DBï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ INSERT ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(DType) ï¿½ï¿½ï¿½ï¿½ "S"ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/job#RequestJob
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    testUserID = "testkorea"		
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    testUserID = "testkorea"
 
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
-    KeyType= SELL					
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
+    KeyType= SELL
 
-    ' °Ë»ö ÀÏÀÚÀ¯Çü, W-ÀÛ¼ºÀÏÀÚ, I-¹ßÇàÀÏÀÚ, S-Àü¼ÛÀÏÀÚ
-    DType = "S"						
+    ' ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, W-ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½, I-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, S-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    DType = "S"
 
-    ' ½ÃÀÛÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
-    SDate = "20220701"			
-    
-    ' Á¾·áÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
-    EDate =	"20220720"				
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(yyyyMMdd)
+    SDate = "20220701"
 
-    
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(yyyyMMdd)
+    EDate =	"20220720"
+
+
     On Error Resume Next
 
     jobID = m_HTTaxinvoiceService.requestJob(testCorpNum, KeyType, DType, SDate, EDate, testUserID)
@@ -48,16 +48,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼öÁý ¿äÃ»</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>jobID(ÀÛ¾÷¾ÆÀÌµð) : <%=jobID%> </li>
+                        <li>jobID(ï¿½Û¾ï¿½ï¿½ï¿½ï¿½Ìµï¿½) : <%=jobID%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

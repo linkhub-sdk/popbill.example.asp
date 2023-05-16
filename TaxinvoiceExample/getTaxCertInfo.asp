@@ -1,17 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô ÀÎÁõ¼­¹ö¿¡ µî·ÏµÈ °øµ¿ÀÎÁõ¼­ÀÇ Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' ï¿½Ëºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/cert#GetTaxCertInfo
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
+
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½ 10ï¿½Ú¸ï¿½
     testCorpNum = "1234567890"
 
     On Error Resume Next
@@ -31,23 +31,23 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÀÎÁõ¼­ Á¤º¸ È®ÀÎ</legend>
-                <% 
+                <legend>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½</legend>
+                <%
 
                     If code = 0 Then
                 %>
                 <ul>
-                    <li>regDT (µî·ÏÀÏ½Ã) : <%=resultObj.regDT %></li>
-                    <li>expireDT (¸¸·áÀÏ½Ã) : <%=resultObj.expireDT %></li>
-                    <li>issuerDN (ÀÎÁõ¼­ ¹ß±ÞÀÚ DN) : <%=resultObj.issuerDN %></li>
-                    <li>subjectDN (µî·ÏµÈ ÀÎÁõ¼­ DN) : <%=resultObj.subjectDN %></li>
-                    <li>issuerName (ÀÎÁõ¼­ Á¾·ù) : <%=resultObj.issuerName %></li>
+                    <li>regDT (ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=resultObj.regDT %></li>
+                    <li>expireDT (ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=resultObj.expireDT %></li>
+                    <li>issuerDN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß±ï¿½ï¿½ï¿½ DN) : <%=resultObj.issuerDN %></li>
+                    <li>subjectDN (ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DN) : <%=resultObj.subjectDN %></li>
+                    <li>issuerName (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj.issuerName %></li>
                     <li>oid (OID) : <%=resultObj.oid %></li>
-                    <li>regContactName (µî·Ï ´ã´çÀÚ ¼º¸í) : <%=resultObj.regContactName %></li>
-                    <li>regContactID (µî·Ï ´ã´çÀÚ ¾ÆÀÌµð) : <%=resultObj.regContactID %></li>
+                    <li>regContactName (ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj.regContactName %></li>
+                    <li>regContactID (ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½) : <%=resultObj.regContactID %></li>
                 </ul>
 
-                <% 
+                <%
                     Else
                 %>
                     <ul>

@@ -1,19 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô¿¡ µî·ÏÇÑ ¿¬µ¿È¸¿øÀÇ ÆÑ½º ¹ß½Å¹øÈ£ ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' ï¿½Ëºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ½ï¿½ ï¿½ß½Å¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/fax/asp/api/sendnum#GetSenderNumberList
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		 
-    
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
+
     On Error Resume Next
 
     Set Presponse = m_FaxService.GetSenderNumberList(testCorpNum)
@@ -31,16 +31,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÆÑ½º ¹ß½Å¹øÈ£ ¸ñ·Ï È®ÀÎ</legend>
+                <legend>ï¿½Ñ½ï¿½ ï¿½ß½Å¹ï¿½È£ ï¿½ï¿½ï¿½ È®ï¿½ï¿½</legend>
                 <%
                     For i=0 To Presponse.length -1
                 %>
                 <fieldset class="fieldset2">
                 <ul>
-                    <li>¹ß½Å¹øÈ£ (number) : <%=Presponse.Get(i).number%> </li>
-                    <li>´ëÇ¥¹øÈ£ ÁöÁ¤¿©ºÎ (representYN) : <%=Presponse.Get(i).representYN%> </li>
-                    <li>µî·Ï»óÅÂ (state) : <%=Presponse.Get(i).state%> </li>
-                    <li>¸Þ¸ð (memo) : <%=Presponse.Get(i).memo%> </li>
+                    <li>ï¿½ß½Å¹ï¿½È£ (number) : <%=Presponse.Get(i).number%> </li>
+                    <li>ï¿½ï¿½Ç¥ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (representYN) : <%=Presponse.Get(i).representYN%> </li>
+                    <li>ï¿½ï¿½Ï»ï¿½ï¿½ï¿½ (state) : <%=Presponse.Get(i).state%> </li>
+                    <li>ï¿½Þ¸ï¿½ (memo) : <%=Presponse.Get(i).memo%> </li>
 
                 </ul>
                 </fieldset>

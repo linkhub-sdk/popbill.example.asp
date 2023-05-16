@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô »çÀÌÆ®¸¦ ÅëÇØ ¹ßÇàÇÏ¿© ¹®¼­¹øÈ£°¡ ºÎ¿©µÇÁö ¾ÊÀº Çö±Ý¿µ¼öÁõ¿¡ ¹®¼­¹øÈ£¸¦ ÇÒ´çÇÕ´Ï´Ù.
+    ' ï¿½Ëºï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#AssignMgtKey
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		 
-    
-    ' Çö±Ý¿µ¼öÁõ ¾ÆÀÌÅÛÅ°, ¹®¼­ ¸ñ·ÏÁ¶È¸(Search) APIÀÇ ¹ÝÈ¯Ç×¸ñÁß ItemKey ÂüÁ¶
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
+
+    ' ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È¸(Search) APIï¿½ï¿½ ï¿½ï¿½È¯ï¿½×¸ï¿½ï¿½ï¿½ ItemKey ï¿½ï¿½ï¿½ï¿½
     itemKey = "020010910360800001"
 
-    ' ÇÒ´çÇÒ ¹®¼­¹øÈ£, ¼ýÀÚ, ¿µ¹® '-', '_' Á¶ÇÕÀ¸·Î ÃÖ´ë 24ÀÚ¸®±îÁö
-    ' »ç¾÷ÀÚ¹øÈ£º° Áßº¹¾ø´Â °íÀ¯¹øÈ£ ÇÒ´ç
+    ' ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ '-', '_' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ 24ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½
+    ' ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½Ò´ï¿½
     mgtKey = "20220720-ASP-004"
 
     On Error Resume Next
 
     Set Presponse = m_CashbillService.AssignMgtKey(testCorpNum, itemKey, mgtKey)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -34,14 +34,14 @@
         message =Presponse.message
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¹®¼­¹øÈ£ ÇÒ´ç </legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½Ò´ï¿½ </legend>
                 <ul>
                     <li> Response.code : <%=code%></li>
                     <li> Response.message : <%=message%></li>

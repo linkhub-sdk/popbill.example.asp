@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-    <!--#include file="common.asp"--> 
+    <!--#include file="common.asp"-->
     <%
         '**************************************************************
-        ' 승인된 알림톡 템플릿 정보를 확인합니다.
+        ' 占쏙옙占싸듸옙 占싯몌옙占쏙옙 占쏙옙占시몌옙 占쏙옙占쏙옙占쏙옙 확占쏙옙占쌌니댐옙.
         ' - https://developers.popbill.com/reference/kakaotalk/asp/api/template#GetATSTemplate
         '**************************************************************
 
-        ' 팝빌회원 사업자번호, "-" 제외
-        testCorpNum = "1234567890"		
+        ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
+        testCorpNum = "1234567890"
 
-        ' 템플릿 코드
+        ' 占쏙옙占시몌옙 占쌘듸옙
         templateCode = "021120000347"
 
-        ' 팝빌회원 아이디
+        ' 占싯븝옙회占쏙옙 占쏙옙占싱듸옙
         UserID = "testkorea"
 
         On Error Resume Next
@@ -37,28 +37,28 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>알림톡 템플릿 정보 확인 </legend>
-                    <% 
+                <legend>占싯몌옙占쏙옙 占쏙옙占시몌옙 占쏙옙占쏙옙 확占쏙옙 </legend>
+                    <%
                         If code = 0 Then
                     %>
                         <fieldset class="fieldset2">
-                            <legend>  템플릿 정보 </legend>
+                            <legend>  占쏙옙占시몌옙 占쏙옙占쏙옙 </legend>
                             <ul>
-                                <li> templateCode (템플릿 코드) : <%=resultObj.templateCode%></li>
-                                <li> templateName (템플릿 제목) : <%=resultObj.templateName%></li>
-                                <li> template (템플릿 내용) : <%=resultObj.template%></li>
-                                <li> plusFriendID (검색용 아이디) : <%=resultObj.plusFriendID%></li>
-                                <li> ads (광고메시지 내용) : <%=resultObj.ads%></li>
-                                <li> appendix (부가메시지 내용) : <%=resultObj.appendix%></li>
-                                <li> secureYN (보안템플릿 여부) : <%=resultObj.secureYN%></li>
-                                <li> state (템플릿 상태) : <%=resultObj.state%></li>
-                                <li> stateDT (템플릿 상태 일시) : <%=resultObj.stateDT%></li>
+                                <li> templateCode (占쏙옙占시몌옙 占쌘듸옙) : <%=resultObj.templateCode%></li>
+                                <li> templateName (占쏙옙占시몌옙 占쏙옙占쏙옙) : <%=resultObj.templateName%></li>
+                                <li> template (占쏙옙占시몌옙 占쏙옙占쏙옙) : <%=resultObj.template%></li>
+                                <li> plusFriendID (占싯삼옙占쏙옙 占쏙옙占싱듸옙) : <%=resultObj.plusFriendID%></li>
+                                <li> ads (占쏙옙占쏙옙占쌨쏙옙占쏙옙 占쏙옙占쏙옙) : <%=resultObj.ads%></li>
+                                <li> appendix (占싸곤옙占쌨쏙옙占쏙옙 占쏙옙占쏙옙) : <%=resultObj.appendix%></li>
+                                <li> secureYN (占쏙옙占쏙옙占쏙옙占시몌옙 占쏙옙占쏙옙) : <%=resultObj.secureYN%></li>
+                                <li> state (占쏙옙占시몌옙 占쏙옙占쏙옙) : <%=resultObj.state%></li>
+                                <li> stateDT (占쏙옙占시몌옙 占쏙옙占쏙옙 占싹쏙옙) : <%=resultObj.stateDT%></li>
                             </ul>
                         <%
                             For i=0 To UBound(resultObj.btns) -1
                         %>
                                 <fieldset class="fieldset3">
-                                    <legend> 버튼정보 [ <%=i+1%> / <%= UBound(resultObj.btns)%> ] </legend>
+                                    <legend> 占쏙옙튼占쏙옙占쏙옙 [ <%=i+1%> / <%= UBound(resultObj.btns)%> ] </legend>
                                     <ul>
                                         <li>n : <%=resultObj.btns(i).n%> </li>
                                         <li>t : <%=resultObj.btns(i).t%> </li>
@@ -66,7 +66,7 @@
                                         <li>u2 : <%=resultObj.btns(i).u2%> </li>
                                     </ul>
                             </fieldset>
-                        <% 
+                        <%
                                 Next
                         %>
                         </fieldset>

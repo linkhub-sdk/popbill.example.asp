@@ -1,19 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 사업자번호를 조회하여 연동회원 가입여부를 확인합니다.
+    ' 占쏙옙占쏙옙薇占싫ｏ옙占� 占쏙옙회占싹울옙 占쏙옙占쏙옙회占쏙옙 占쏙옙占쌉울옙占싸몌옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/member#CheckIsMember
     '**************************************************************
 
-    '팝빌회원 사업자번호, "-"제외 10자리
+    '占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-"占쏙옙占쏙옙 10占쌘몌옙
     testCorpNum = "1234567890"
-        
+
     On Error Resume Next
 
     Set Presponse = m_TaxinvoiceService.CheckIsMember(testCorpNum, LinkID)
@@ -35,7 +35,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>연동회원 가입여부 확인</legend>
+                <legend>占쏙옙占쏙옙회占쏙옙 占쏙옙占쌉울옙占쏙옙 확占쏙옙</legend>
                 <ul>
                     <li>Response.code : <%=CStr(code)%></li>
                     <li>Response.message : <%=message%></li>

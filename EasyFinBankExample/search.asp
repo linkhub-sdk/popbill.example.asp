@@ -1,50 +1,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼öÁý ÀÛ¾÷ÀÌ ¿Ï·áµÈ °èÁÂÀÇ °Å·¡³»¿ªÀ» Á¶È¸ÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/search#Search
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     UserID = "testkorea"
-    
-    ' ¼öÁý ¿äÃ»(requestJob) ½Ã ¹ÝÈ¯¹ÞÀº ÀÛ¾÷¾ÆÀÌµð(jobID)
+
+    ' ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»(requestJob) ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½Ìµï¿½(jobID)
     JobID = "020072416000000002"
 
-    ' °Å·¡À¯Çü ¹è¿­ ("I" ¿Í "O" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' ¦¦ I = ÀÔ±Ý , O = Ãâ±Ý
-    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
-    Dim TradeType(2) 
+    ' ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("I" ï¿½ï¿½ "O" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' ï¿½ï¿½ I = ï¿½Ô±ï¿½ , O = ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
+    Dim TradeType(2)
     TradeType(0) = "I"
     TradeType(1) = "O"
 
-    ' "ÀÔ¡¤Ãâ±Ý¾×" / "¸Þ¸ð" / "ºñ°í" Áß °Ë»öÇÏ°íÀÚ ÇÏ´Â °ª ÀÔ·Â
-    ' - ¸Þ¸ð = °Å·¡³»¿ª ¸Þ¸ðÀúÀå(SaveMemo)À» »ç¿ëÇÏ¿© ÀúÀåÇÑ °ª
-    ' - ºñ°í = EasyFinBankSearchDetailÀÇ remark1, remark2, remark3 °ª
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    ' "ï¿½Ô¡ï¿½ï¿½ï¿½Ý¾ï¿½" / "ï¿½Þ¸ï¿½" / "ï¿½ï¿½ï¿½" ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½Ô·ï¿½
+    ' - ï¿½Þ¸ï¿½ = ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½(SaveMemo)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½ = EasyFinBankSearchDetailï¿½ï¿½ remark1, remark2, remark3 ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     SearchString = ""
 
-    'ÆäÀÌÁö ¹øÈ£ 
+    'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
     Page  = 1
 
-    'ÆäÀÌÁö´ç ¸ñ·Ï°³¼ö
+    'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï°ï¿½ï¿½ï¿½
     PerPage = 10
 
-    'Á¤·Ä¹æÇ×, D-³»¸²Â÷¼ø, A-¿À¸§Â÷¼ø
+    'ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½, D-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, A-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     Order = "D"
 
     On Error Resume Next
 
-    Set result = m_EasyFinBankService.Search(testCorpNum, JobID, TradeType, SearchString, _	
+    Set result = m_EasyFinBankService.Search(testCorpNum, JobID, TradeType, SearchString, _
                                 Page, PerPage, Order, UserID)
 
     If Err.Number <> 0 Then
@@ -60,48 +60,48 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼öÁý °á°ú Á¶È¸</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> code (ÀÀ´äÄÚµå) : <%=result.code%> </li>
-                        <li> message  (ÀÀ´ä¸Þ½ÃÁö) : <%=result.message%> </li>
-                        <li> total (ÃÑ °Ë»ö°á°ú °Ç¼ö) : <%=result.total%> </li>
-                        <li> perPage (ÆäÀÌÁö´ç °Ë»ö°³¼ö) : <%=result.perPage%> </li>
-                        <li> pageNum (ÆäÀÌÁö ¹øÈ£) : <%=result.pageNum%> </li>
-                        <li> pageCount (ÆäÀÌÁö °³¼ö) : <%=result.pageCount%> </li>
-                        <li> lastScrapDT (ÃÖÁ¾ Á¶È¸ÀÏ½Ã) : <%=result.lastScrapDT%> </li>
+                        <li> code (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.code%> </li>
+                        <li> message  (ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½) : <%=result.message%> </li>
+                        <li> total (ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½) : <%=result.total%> </li>
+                        <li> perPage (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.perPage%> </li>
+                        <li> pageNum (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) : <%=result.pageNum%> </li>
+                        <li> pageCount (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.pageCount%> </li>
+                        <li> lastScrapDT (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï½ï¿½) : <%=result.lastScrapDT%> </li>
                     </ul>
 
                 <%
-                    For i=0 To UBound(result.list) -1 
+                    For i=0 To UBound(result.list) -1
                 %>
-                    <fieldset class="fieldset2">					
-                        <legend>°Å·¡³»¿ª Á¤º¸ [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
-                            <ul>								
-                                <li> tid (°Å·¡³»¿ª ¾ÆÀÌµð) : <%= result.list(i).tid %></li>
-                                <li> trdate (°Å·¡ÀÏÀÚ) : <%= result.list(i).trdate %></li>
-                                <li> trserial (°Å·¡ÀÏÀÚº° °Å·¡³»¿ª ¼ø¹ø) : <%= result.list(i).trserial %></li>
-                                <li> trdt (°Å·¡ÀÏ½Ã) : <%= result.list(i).trdt %></li>
-                                <li> accIn (ÀÔ±Ý¾×) : <%= result.list(i).accIn %></li>
-                                <li> accOut (Ãâ±Ý¾×) : <%= result.list(i).accOut %></li>
-                                <li> balance (ÀÜ¾×) : <%= result.list(i).balance %></li>
-                                <li> remark1 (ºñ°í1) : <%= result.list(i).remark1 %></li>
-                                <li> remark2 (ºñ°í2) : <%= result.list(i).remark2 %></li>
-                                <li> remark3 (ºñ°í3) : <%= result.list(i).remark3 %></li>
-                                <li> memo (¸Þ¸ð) : <%= result.list(i).memo %></li>
+                    <fieldset class="fieldset2">
+                        <legend>ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
+                            <ul>
+                                <li> tid (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½) : <%= result.list(i).tid %></li>
+                                <li> trdate (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%= result.list(i).trdate %></li>
+                                <li> trserial (ï¿½Å·ï¿½ï¿½ï¿½ï¿½Úºï¿½ ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%= result.list(i).trserial %></li>
+                                <li> trdt (ï¿½Å·ï¿½ï¿½Ï½ï¿½) : <%= result.list(i).trdt %></li>
+                                <li> accIn (ï¿½Ô±Ý¾ï¿½) : <%= result.list(i).accIn %></li>
+                                <li> accOut (ï¿½ï¿½Ý¾ï¿½) : <%= result.list(i).accOut %></li>
+                                <li> balance (ï¿½Ü¾ï¿½) : <%= result.list(i).balance %></li>
+                                <li> remark1 (ï¿½ï¿½ï¿½1) : <%= result.list(i).remark1 %></li>
+                                <li> remark2 (ï¿½ï¿½ï¿½2) : <%= result.list(i).remark2 %></li>
+                                <li> remark3 (ï¿½ï¿½ï¿½3) : <%= result.list(i).remark3 %></li>
+                                <li> memo (ï¿½Þ¸ï¿½) : <%= result.list(i).memo %></li>
                             </ul>
                         </fieldset>
                 <%
-                        Next					
+                        Next
                     Else
                 %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

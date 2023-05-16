@@ -1,25 +1,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 팝빌 카카오톡 API 서비스 과금정보를 확인합니다.
+    ' 占싯븝옙 카카占쏙옙占쏙옙 API 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/point#GetChargeInfo
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"		
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
+    testCorpNum = "1234567890"
 
-    ' 전송유형 (ATS - 알림톡, FTS - 친구톡 텍스트,  FMS-친구톡 이미지)
+    ' 占쏙옙占쏙옙占쏙옙占쏙옙 (ATS - 占싯몌옙占쏙옙, FTS - 친占쏙옙占쏙옙 占쌔쏙옙트,  FMS-친占쏙옙占쏙옙 占싱뱄옙占쏙옙)
     sendType = "ATS"
 
-    ' 팝빌회원 아이디
-    UserID = "testkorea"					
-    
+    ' 占싯븝옙회占쏙옙 占쏙옙占싱듸옙
+    UserID = "testkorea"
+
     On Error Resume Next
 
     Set result = m_KakaoService.GetChargeInfo ( testCorpNum, sendType, UserID )
@@ -37,14 +37,14 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend><%=sendType%> 과금정보 조회</legend>
+                <legend><%=sendType%> 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙회</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> unitCost (전송단가) : <%=result.unitCost%></li>
-                        <li> chargeMethod (과금유형) : <%=result.chargeMethod%></li>
-                        <li> rateSystem (과금제도) : <%=result.rateSystem%></li>
+                        <li> unitCost (占쏙옙占쌜단곤옙) : <%=result.unitCost%></li>
+                        <li> chargeMethod (占쏙옙占쏙옙占쏙옙占쏙옙) : <%=result.chargeMethod%></li>
+                        <li> rateSystem (占쏙옙占쏙옙占쏙옙占쏙옙) : <%=result.rateSystem%></li>
                     </ul>
                 <%
                     Else
@@ -52,8 +52,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

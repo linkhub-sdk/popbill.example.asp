@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 전자명세서의 상태에 대한 변경이력을 확인합니다.
+    ' 占쏙옙占쌘몌옙占쏙옙占쏙옙占쏙옙 占쏙옙占승울옙 占쏙옙占쏙옙 占쏙옙占쏙옙占싱뤄옙占쏙옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/statement/asp/api/info#GetLogs
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-"제외 10자리
-    testCorpNum = "1234567890"			
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-"占쏙옙占쏙옙 10占쌘몌옙
+    testCorpNum = "1234567890"
 
-    ' 팝빌회원 아이디
-    userID = "testkorea"				
+    ' 占싯븝옙회占쏙옙 占쏙옙占싱듸옙
+    userID = "testkorea"
 
-    ' 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
-    itemCode = "121"					
+    ' 占쏙옙占쏙옙占쏙옙 占쌘듸옙 - 121(占신뤄옙占쏙옙占쏙옙占쏙옙), 122(청占쏙옙占쏙옙), 123(占쏙옙占쏙옙占쏙옙), 124(占쏙옙占쌍쇽옙), 125(占쌉깍옙표), 126(占쏙옙占쏙옙占쏙옙)
+    itemCode = "121"
 
-    ' 문서번호
-    mgtKey = "20220720-ASP-001"				
+    ' 占쏙옙占쏙옙占쏙옙호
+    mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -33,26 +33,26 @@
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>전자명세서 상태변경 이력 </legend>
+                <legend>占쏙옙占쌘몌옙占쏙옙占쏙옙 占쏙옙占승븝옙占쏙옙 占싱뤄옙 </legend>
                 <ul>
-                    <% If code = 0 Then 
+                    <% If code = 0 Then
                         For i=0 To result.Count-1%>
                         <fieldset class="fieldset2">
-                        <legend> 전자명세서 상태변경 이력 [<%=i+1%>]</legend>
+                        <legend> 占쏙옙占쌘몌옙占쏙옙占쏙옙 占쏙옙占승븝옙占쏙옙 占싱뤄옙 [<%=i+1%>]</legend>
                             <ul>
-                                <li>docLogType(로그타입) : <%=result.Item(i).docLogType%> </li>
-                                <li>log(이력정보) : <%=result.Item(i).log%> </li>
-                                <li>procType(처리형태) : <%=result.Item(i).procType%> </li>
-                                <li>procMemo(처리메모) : <%=result.Item(i).procMemo%> </li>
-                                <li>regDT(등록일시) : <%=result.Item(i).regDT%> </li>
-                                <li>ip(아이피) : <%=result.Item(i).ip%> </li>
+                                <li>docLogType(占싸깍옙타占쏙옙) : <%=result.Item(i).docLogType%> </li>
+                                <li>log(占싱뤄옙占쏙옙占쏙옙) : <%=result.Item(i).log%> </li>
+                                <li>procType(처占쏙옙占쏙옙占쏙옙) : <%=result.Item(i).procType%> </li>
+                                <li>procMemo(처占쏙옙占쌨몌옙) : <%=result.Item(i).procMemo%> </li>
+                                <li>regDT(占쏙옙占쏙옙絿占�) : <%=result.Item(i).regDT%> </li>
+                                <li>ip(占쏙옙占쏙옙占쏙옙) : <%=result.Item(i).ip%> </li>
                             </ul>
                         </fieldset>
                     <%

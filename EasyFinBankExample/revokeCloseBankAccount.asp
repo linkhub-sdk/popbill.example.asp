@@ -1,35 +1,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ½ÅÃ»ÇÑ Á¤¾×Á¦ ÇØÁö¿äÃ»À» Ãë¼ÒÇÕ´Ï´Ù.
+    ' ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#RevokeCloseBankAccount
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
-    CorpNum = "1234567890"	
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+    CorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð 
-    UserID = "testkorea"			
-    
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    UserID = "testkorea"
 
-    ' ±â°üÄÚµå
-    ' »ê¾÷ÀºÇà-0002 / ±â¾÷ÀºÇà-0003 / ±¹¹ÎÀºÇà-0004 /¼öÇùÀºÇà-0007 / ³óÇùÀºÇà-0011 / ¿ì¸®ÀºÇà-0020
-    ' SCÀºÇà-0023 / ´ë±¸ÀºÇà-0031 / ºÎ»êÀºÇà-0032 / ±¤ÁÖÀºÇà-0034 / Á¦ÁÖÀºÇà-0035 / ÀüºÏÀºÇà-0037
-    ' °æ³²ÀºÇà-0039 / »õ¸¶À»±Ý°í-0045 / ½ÅÇùÀºÇà-0048 / ¿ìÃ¼±¹-0071 / KEBÇÏ³ªÀºÇà-0081 / ½ÅÇÑÀºÇà-0088 /¾¾Æ¼ÀºÇà-0027
+
+    ' ï¿½ï¿½ï¿½ï¿½Úµï¿½
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-0002 / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-0003 / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-0004 /ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-0007 / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-0011 / ï¿½ì¸®ï¿½ï¿½ï¿½ï¿½-0020
+    ' SCï¿½ï¿½ï¿½ï¿½-0023 / ï¿½ë±¸ï¿½ï¿½ï¿½ï¿½-0031 / ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½-0032 / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-0034 / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-0035 / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-0037
+    ' ï¿½æ³²ï¿½ï¿½ï¿½ï¿½-0039 / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½-0045 / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-0048 / ï¿½ï¿½Ã¼ï¿½ï¿½-0071 / KEBï¿½Ï³ï¿½ï¿½ï¿½ï¿½ï¿½-0081 / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-0088 /ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½-0027
     BankCode = ""
 
-    ' °èÁÂ¹øÈ£ ÇÏÀÌÇÂ('-') Á¦¿Ü
+    ' ï¿½ï¿½ï¿½Â¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½('-') ï¿½ï¿½ï¿½ï¿½
     AccountNumber = ""
 
     On Error Resume Next
         Set Presponse = m_EasyFinBankService.RevokeCloseBankAccount(CorpNum, BankCode, AccountNumber, UserID)
-        
+
         If Err.Number <> 0 Then
             code = Err.Number
             message = Err.Description
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>°èÁÂ Á¤¾×Á¦ ÇØÁö½ÅÃ» Ãë¼Ò</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

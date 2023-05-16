@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¬µ¿È¸¿ø »ç¾÷ÀÚ¹øÈ£¿¡ µî·ÏµÈ ´ã´çÀÚ(ÆËºô ·Î±×ÀÎ °èÁ¤) ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Ëºï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/member#ListContact
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    UserID = "testkorea"					
-    
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
+
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    UserID = "testkorea"
+
     On Error Resume Next
 
     Set result = m_HTCashbillService.ListContact(testCorpNum, UserID)
@@ -34,22 +34,22 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>´ã´çÀÚ ¸ñ·Ï Á¶È¸</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸</legend>
                 <%
                     If code = 0 Then
                         For i=0 To result.Count-1
                 %>
-                            <fieldset class="fieldset2">					
+                            <fieldset class="fieldset2">
                                 <legend> ContactInfoList [ <%=i+1%> / <%=result.Count%> ] </legend>
                                     <ul>
-                                        <li> id(¾ÆÀÌµð) : <%=result.Item(i).id%></li>
-                                        <li> personName(´ã´çÀÚ ¼º¸í) : <%=result.Item(i).personName%></li>
-                                        <li> email(´ã´çÀÚ ÀÌ¸ÞÀÏ) : <%=result.Item(i).email%></li>
-                                        <li> tel(´ã´çÀÚ ¿¬¶ôÃ³) : <%=result.Item(i).tel%></li>
-                                        <li> regDT(µî·ÏÀÏ½Ã) : <%=result.Item(i).regDT%></li>
-                                        <li> searchRole(´ã´çÀÚ Á¶È¸±ÇÇÑ) : <%=result.Item(i).searchRole%></li>
-                                        <li> mgrYN(°ü¸®ÀÚ ¿©ºÎ) : <%=result.Item(i).mgrYN%></li>
-                                        <li> state(»óÅÂ) : <%=result.Item(i).state%></li>
+                                        <li> id(ï¿½ï¿½ï¿½Ìµï¿½) : <%=result.Item(i).id%></li>
+                                        <li> personName(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).personName%></li>
+                                        <li> email(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½) : <%=result.Item(i).email%></li>
+                                        <li> tel(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³) : <%=result.Item(i).tel%></li>
+                                        <li> regDT(ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.Item(i).regDT%></li>
+                                        <li> searchRole(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).searchRole%></li>
+                                        <li> mgrYN(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).mgrYN%></li>
+                                        <li> state(ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).state%></li>
                                     </ul>
                                 </fieldset>
                 <%
@@ -59,8 +59,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

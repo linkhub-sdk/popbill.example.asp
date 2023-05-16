@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 사용하고자 하는 아이디의 중복여부를 확인합니다.
+    ' 占쏙옙占쏙옙構占쏙옙占� 占싹댐옙 占쏙옙占싱듸옙占쏙옙 占쌩븝옙占쏙옙占싸몌옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/closedown/asp/api/member#CheckID
     '**************************************************************
 
-    ' 중복확인할 아이디 
-    testID = "testkorea124124"    
+    ' 占쌩븝옙확占쏙옙占쏙옙 占쏙옙占싱듸옙
+    testID = "testkorea124124"
 
     On Error Resume Next
 
     Set Presponse = m_ClosedownService.CheckID(testID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -34,7 +34,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>아이디 중복확인 </legend>
+                <legend>占쏙옙占싱듸옙 占쌩븝옙확占쏙옙 </legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

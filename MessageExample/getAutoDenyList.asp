@@ -1,19 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Àü¿ë 080 ¹øÈ£¿¡ µî·ÏµÈ ¼ö½Å°ÅºÎ ¸ñ·ÏÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½ 080 ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½Å°Åºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/sms/asp/api/info#GetAutoDenyList
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		 
-    
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
+
     On Error Resume Next
 
     Set Presponse = m_MessageService.GetAutoDenyList(testCorpNum)
@@ -31,14 +31,14 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>080 ¼ö½Å°ÅºÎ ¸ñ·Ï È®ÀÎ</legend>
+                <legend>080 ï¿½ï¿½ï¿½Å°Åºï¿½ ï¿½ï¿½ï¿½ È®ï¿½ï¿½</legend>
                 <%
                     For i=0 To Presponse.length -1
                 %>
                 <fieldset class="fieldset2">
                 <ul>
-                    <li>number(¼ö½Å°ÅºÎ¹øÈ£) : <%=Presponse.Get(i).number%> </li>
-                    <li>regDT(µî·ÏÀÏ½Ã) : <%=Presponse.Get(i).regDT%> </li>
+                    <li>number(ï¿½ï¿½ï¿½Å°ÅºÎ¹ï¿½È£) : <%=Presponse.Get(i).number%> </li>
+                    <li>regDT(ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=Presponse.Get(i).regDT%> </li>
                 </ul>
                 </fieldset>
                 <%

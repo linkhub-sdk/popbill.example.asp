@@ -1,53 +1,53 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆÑ½º 1°ÇÀ» Àü¼ÛÇÕ´Ï´Ù. (ÃÖ´ë Àü¼ÛÆÄÀÏ °³¼ö: 20°³)
+    ' ï¿½Ñ½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. (ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: 20ï¿½ï¿½)
     ' - https://developers.popbill.com/reference/fax/asp/api/send#SendFAX
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    userID = "testkorea"			
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    userID = "testkorea"
 
-    ' ¹ß½ÅÀÚ ¹øÈ£
-    sendNum = ""	
+    ' ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+    sendNum = ""
 
-    ' Àü¼Û¿¹¾à½Ã°£ yyyyMMddHHmmss,  °ø¹éÃ³¸®½Ã Áï½ÃÀü¼Û
-    reserveDT = ""	
-    
-    ' ¼ö½ÅÀÚ Á¤º¸ 
+    ' ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½Ã°ï¿½ yyyyMMddHHmmss,  ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    reserveDT = ""
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     Dim receivers(0)
     Set receivers(0) = New FaxReceiver
 
-    ' ¼ö½Å¹øÈ£
+    ' ï¿½ï¿½ï¿½Å¹ï¿½È£
     receivers(0).receiverNum = ""
 
-    ' ¼ö½ÅÀÚ¸í
-    receivers(0).receiverName = "¼ö½ÅÀÚ ¸íÄª"
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
+    receivers(0).receiverName = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Äª"
 
-    ' ÆÑ½ºÀü¼ÛÇÒ ÆÄÀÏ (ÃÖ´ë 20°³)
-    FilePaths = Array("C:\popbill.example.asp\´ëÇÑ¹Î±¹Çå¹ý.doc","C:\popbill.example.asp\test.jpg")
+    ' ï¿½Ñ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Ö´ï¿½ 20ï¿½ï¿½)
+    FilePaths = Array("C:\popbill.example.asp\ï¿½ï¿½ï¿½Ñ¹Î±ï¿½ï¿½ï¿½ï¿½.doc","C:\popbill.example.asp\test.jpg")
 
-    ' ±¤°íÆÑ½º Àü¼Û¿©ºÎ , true / false Áß ÅÃ 1
-    ' ¦¦ true = ±¤°í , false = ÀÏ¹Ý
-    ' ¦¦ ¹ÌÀÔ·Â ½Ã ±âº»°ª false Ã³¸®
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½Ñ½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½ , true / false ï¿½ï¿½ ï¿½ï¿½ 1
+    ' ï¿½ï¿½ true = ï¿½ï¿½ï¿½ï¿½ , false = ï¿½Ï¹ï¿½
+    ' ï¿½ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ false Ã³ï¿½ï¿½
     adsYN = False
 
-    ' ÆÑ½ºÁ¦¸ñ
-    title = "ASP  ÆÑ½º Àü¼Û Å×½ºÆ®"
+    ' ï¿½Ñ½ï¿½ï¿½ï¿½ï¿½ï¿½
+    title = "ASP  ï¿½Ñ½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®"
 
-    ' Àü¼Û¿äÃ»¹øÈ£
-    ' ÆÄÆ®³Ê°¡ Àü¼Û °Ç¿¡ ´ëÇØ °ü¸®¹øÈ£¸¦ ±¸¼ºÇÏ¿© °ü¸®ÇÏ´Â °æ¿ì »ç¿ë.
-    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ýÀÚ, ÇÏÀÌÇÂ(-), ¾ð´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
-    requestNum = ""		
+    ' ï¿½ï¿½ï¿½Û¿ï¿½Ã»ï¿½ï¿½È£
+    ' ï¿½ï¿½Æ®ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+    ' 1~36ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(-), ï¿½ï¿½ï¿½ï¿½ï¿½(_)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ëºï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½Ò´ï¿½.
+    requestNum = ""
 
     On Error Resume Next
 
@@ -66,10 +66,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÆÑ½º Àü¼Û</legend>
+                <legend>ï¿½Ñ½ï¿½ ï¿½ï¿½ï¿½ï¿½</legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>recepitNum (Á¢¼ö¹øÈ£) : <%=url%> </li>
+                        <li>recepitNum (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=url%> </li>
                     <% Else %>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message : <%=message%> </li>

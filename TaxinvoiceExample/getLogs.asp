@@ -1,35 +1,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼¼±Ý°è»ê¼­ÀÇ »óÅÂ¿¡ ´ëÇÑ º¯°æÀÌ·ÂÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì·ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/info#GetLogs
     '**************************************************************
 
-    '  ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
+    '  ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
-    KeyType= "SELL"             
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
+    KeyType= "SELL"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
     Set result = m_TaxinvoiceService.GetLogs(testCorpNum, KeyType, MgtKey)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
     End If
-    
+
     On Error GoTo 0
 %>
     <body>
@@ -37,20 +37,20 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> ¹®¼­ÀÌ·ÂÈ®ÀÎ </legend>
+                <legend> ï¿½ï¿½ï¿½ï¿½ï¿½Ì·ï¿½È®ï¿½ï¿½ </legend>
                 <%
                     If code = 0 Then
                         For i=0 To result.Count -1 %>
                          <fieldset class="fieldset2">
                             <ul>
-                                <li> DocLogType(·Î±×Å¸ÀÔ) :  <%=result.Item(i).DocLogType%> </li>
-                                <li> Log(ÀÌ·ÂÁ¤º¸) : <%=result.Item(i).Log %> </li>
-                                <li> ProcType(Ã³¸®ÇüÅÂ) : <%=result.Item(i).ProcType%> </li>
-                                <li> ProcCorpName(Ã³¸®È¸»ç¸í) : <%=result.Item(i).ProcCorpName%></li>
-                                <li> procContactName(Ã³¸®´ã´çÀÚ) : <%=result.Item(i).procContactName%></li>
-                                <li> ProcMemo(Ã³¸®¸Þ¸ð) : <%=result.Item(i).ProcMemo %></li>
-                                <li> regDT(µî·ÏÀÏ½Ã) : <%=result.Item(i).regDT %></li>
-                                <li> ip(¾ÆÀÌÇÇ) : <%=result.Item(i).ip %></li>
+                                <li> DocLogType(ï¿½Î±ï¿½Å¸ï¿½ï¿½) :  <%=result.Item(i).DocLogType%> </li>
+                                <li> Log(ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).Log %> </li>
+                                <li> ProcType(Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).ProcType%> </li>
+                                <li> ProcCorpName(Ã³ï¿½ï¿½È¸ï¿½ï¿½ï¿½) : <%=result.Item(i).ProcCorpName%></li>
+                                <li> procContactName(Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).procContactName%></li>
+                                <li> ProcMemo(Ã³ï¿½ï¿½ï¿½Þ¸ï¿½) : <%=result.Item(i).ProcMemo %></li>
+                                <li> regDT(ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.Item(i).regDT %></li>
+                                <li> ip(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).ip %></li>
                             </ul>
                         </fieldset>
                 <%
@@ -60,8 +60,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
 

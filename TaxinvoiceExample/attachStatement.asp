@@ -1,41 +1,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    '  ÆËºô ÀüÀÚ¸í¼¼¼­ API¸¦ ÅëÇØ ¹ßÇàÇÑ ÀüÀÚ¸í¼¼¼­¸¦ ¼¼±Ý°è»ê¼­¿¡ Ã·ºÎÇÕ´Ï´Ù.
+    '  ï¿½Ëºï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ APIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ Ã·ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#AttachStatement
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
     testCorpNum = "1234567890"
 
-    ' ¼¼±Ý°è»ê¼­ ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
     KeyType= "SELL"
 
-    ' ¼¼±Ý°è»ê¼­ ¹®¼­¹øÈ£ 
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     MgtKey = "20220720-ASP-002"
 
-    ' Ã·ºÎÇÒ ÀüÀÚ¸í¼¼¼­ Á¾·ùÄÚµå 
-    ' - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­) 124(¹ßÁÖ¼­), 125(ÀÔ±ÝÇ¥), 126(¿µ¼öÁõ)
+    ' Ã·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
+    ' - 121(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), 122(Ã»ï¿½ï¿½ï¿½ï¿½), 123(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) 124(ï¿½ï¿½ï¿½Ö¼ï¿½), 125(ï¿½Ô±ï¿½Ç¥), 126(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
     SubItemCode = 121
 
-    ' ÀüÀÚ¸í¼¼¼­ °ü¸®¹øÈ£
+    ' ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     SubMgtKey = "20220720-ASP-001"
 
     On Error Resume Next
-    
+
     Set Presponse = m_TaxinvoiceService.AttachStatement(testCorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -47,7 +47,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÀüÀÚ¸í¼¼¼­ Ã·ºÎ</legend>
+                <legend>ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ã·ï¿½ï¿½</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

@@ -1,32 +1,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ´Ù¼ö°ÇÀÇ ¼¼±Ý°è»ê¼­¸¦ ÀÎ¼âÇÏ±â À§ÇÑ ÆäÀÌÁöÀÇ ÆË¾÷ URLÀ» ¹ÝÈ¯ÇÕ´Ï´Ù. (ÃÖ´ë 100°Ç)
-    ' - ¹ÝÈ¯µÇ´Â URLÀº º¸¾È Á¤Ã¥»ó 30ÃÊ µ¿¾È À¯È¿ÇÏ¸ç, ½Ã°£À» ÃÊ°úÇÑ ÈÄ¿¡´Â ÇØ´ç URLÀ» ÅëÇÑ ÆäÀÌÁö Á¢±ÙÀÌ ºÒ°¡ÇÕ´Ï´Ù.
+    ' ï¿½Ù¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½ URLï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½. (ï¿½Ö´ï¿½ 100ï¿½ï¿½)
+    ' - ï¿½ï¿½È¯ï¿½Ç´ï¿½ URLï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¥ï¿½ï¿½ 30ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½Ï¸ï¿½, ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ URLï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/view#GetMassPrintURL
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     userID = "testkorea"
 
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
     KeyType= "SELL"
-    
-    ' ÀÎ¼âÇÒ ¼¼±Ý°è»ê¼­ ¹®¼­¹øÈ£ ¹è¿­, ÃÖ´ë 100°Ç
-    Dim MgtKeyList(3) 
+
+    ' ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½è¿­, ï¿½Ö´ï¿½ 100ï¿½ï¿½
+    Dim MgtKeyList(3)
     MgtKeyList(0) = "20220720-ASP-001"
     MgtKeyList(1) = "20220720-ASP-002"
     MgtKeyList(2) = "20220720-ASP-003"
-    
+
     On Error Resume Next
 
     url = m_TaxinvoiceService.GetMassPrintURL(testCorpNum, KeyType, MgtKeyList, userID)
@@ -44,7 +44,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±Ý°è»ê¼­ ÀÎ¼â URL - ´ë·®</legend>
+                <legend>ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½Î¼ï¿½ URL - ï¿½ë·®</legend>
                 <ul>
                     <% If code = 0 Then %>
                         <li>URL : <%=url%> </li>

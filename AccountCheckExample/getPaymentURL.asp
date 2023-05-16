@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 연동회원 포인트 결제내역 확인을 위한 페이지의 팝업 URL을 반환합니다.
-    ' - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+    ' 占쏙옙占쏙옙회占쏙옙 占쏙옙占쏙옙트 占쏙옙占쏙옙占쏙옙占쏙옙 확占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占싯억옙 URL占쏙옙 占쏙옙환占쌌니댐옙.
+    ' - 占쏙옙환占실댐옙 URL占쏙옙 占쏙옙占쏙옙 占쏙옙책占쏙옙 30占쏙옙 占쏙옙占쏙옙 占쏙옙효占싹몌옙, 占시곤옙占쏙옙 占십곤옙占쏙옙 占식울옙占쏙옙 占쌔댐옙 URL占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌀곤옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/accountcheck/asp/api/point#GetPaymentURL
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"	
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
+    testCorpNum = "1234567890"
 
-    ' 팝빌회원 아이디
-    userID = "testkorea"		
+    ' 占싯븝옙회占쏙옙 占쏙옙占싱듸옙
+    userID = "testkorea"
 
     On Error Resume Next
 
@@ -35,7 +35,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>연동회원 포인트 결제내역 URL</legend>
+                <legend>占쏙옙占쏙옙회占쏙옙 占쏙옙占쏙옙트 占쏙옙占쏙옙占쏙옙占쏙옙 URL</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>URL : <%=url%> </li>

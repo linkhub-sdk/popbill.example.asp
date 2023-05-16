@@ -1,49 +1,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 
 <%
-    '**************************************************************	
-    ' ¿¬µ¿È¸¿ø »ç¾÷ÀÚ¹øÈ£¿¡ µî·ÏµÈ ´ã´çÀÚ(ÆËºô ·Î±×ÀÎ °èÁ¤) Á¤º¸¸¦ ¼öÁ¤ÇÕ´Ï´Ù.
+    '**************************************************************
+    ' ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Ëºï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/member#UpdateContact
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
     CorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð 
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     UserID = "testkorea"
 
 
-    ' ´ã´çÀÚ Á¤º¸ °´Ã¼ »ý¼º
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
     Set contInfo = New ContactInfo
 
-    ' ´ã´çÀÚ ¾ÆÀÌµð 
-    contInfo.id = UserID	
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    contInfo.id = UserID
 
-    ' ´ã´çÀÚ¸í
+    ' ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
     contInfo.personName = "ASPTest"
 
-    ' ´ã´çÀÚ ¾ÆÀÌµð
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     contInfo.id = "testkorea"
 
-    ' ´ã´çÀÚ ¿¬¶ôÃ³
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³
     contInfo.tel = ""
 
-    ' ´ã´çÀÚ ÀÌ¸ÞÀÏÁÖ¼Ò
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½
     contInfo.email = ""
-    
-    ' ´ã´çÀÚ Á¶È¸±ÇÇÑ 1 - °³ÀÎ±ÇÇÑ / 2 - ÀÐ±â±ÇÇÑ  / 3 - È¸»ç±ÇÇÑ
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ 1 - ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ / 2 - ï¿½Ð±ï¿½ï¿½ï¿½ï¿½  / 3 - È¸ï¿½ï¿½ï¿½ï¿½ï¿½
     contInfo.searchRole = 3
 
     On Error Resume Next
 
     Set Presponse = m_CashbillService.UpdateContact(CorpNum, contInfo, UserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -62,7 +62,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>´ã´çÀÚ Á¤º¸¼öÁ¤</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

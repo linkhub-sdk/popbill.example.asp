@@ -1,29 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¬µ¿È¸¿ø »ç¾÷ÀÚ¹øÈ£¿¡ µî·ÏµÈ ´ã´çÀÚ(ÆËºô ·Î±×ÀÎ °èÁ¤) Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Ëºï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/sms/asp/api/member#GetContactInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' È®ÀÎÇÒ ´ã´çÀÚ ¾ÆÀÌµð
+    ' È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     contactID = "testID"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     userID = "testkorea"
 
     On Error Resume Next
 
     Set conInfo = m_MessageService.GetContactInfo(testCorpNum, contactID ,userID)
-    
+
     If Err.Number <> 0 then
         code = Err.Number
         message =  Err.Description
@@ -37,23 +37,23 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>´ã´çÀÚ Á¤º¸ È®ÀÎ</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li> id(¾ÆÀÌµð) : <%=conInfo.id%></li>
-                        <li> personName(´ã´çÀÚ ¼º¸í) : <%=conInfo.personName%></li>
-                        <li> email(´ã´çÀÚ ÀÌ¸ÞÀÏ) : <%=conInfo.email%></li>
-                        <li> tel(´ã´çÀÚ ¿¬¶ôÃ³) : <%=conInfo.tel%></li>
-                        <li> regDT(µî·ÏÀÏ½Ã) : <%=conInfo.regDT%></li>
-                        <li> SearchRole(´ã´çÀÚ Á¶È¸±ÇÇÑ) : <%=conInfo.SearchRole%></li>
-                        <li> mgrYN(°ü¸®ÀÚ ¿©ºÎ) : <%=conInfo.mgrYN%></li>
-                        <li> state(»óÅÂ) : <%=conInfo.state%></li>
+                        <li> id(ï¿½ï¿½ï¿½Ìµï¿½) : <%=conInfo.id%></li>
+                        <li> personName(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=conInfo.personName%></li>
+                        <li> email(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½) : <%=conInfo.email%></li>
+                        <li> tel(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³) : <%=conInfo.tel%></li>
+                        <li> regDT(ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=conInfo.regDT%></li>
+                        <li> SearchRole(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½) : <%=conInfo.SearchRole%></li>
+                        <li> mgrYN(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=conInfo.mgrYN%></li>
+                        <li> state(ï¿½ï¿½ï¿½ï¿½) : <%=conInfo.state%></li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

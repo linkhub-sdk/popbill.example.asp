@@ -1,61 +1,61 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÃÖ´ë 2,000byteÀÇ Àå¹®(LMS) ¸Þ½ÃÁö 1°Ç Àü¼ÛÀ» ÆËºô¿¡ Á¢¼öÇÕ´Ï´Ù.
+    ' ï¿½Ö´ï¿½ 2,000byteï¿½ï¿½ ï¿½å¹®(LMS) ï¿½Þ½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ëºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/sms/asp/api/send#SendLMS
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    userID = "testkorea"					
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    userID = "testkorea"
 
-    ' ±¤°í¼º ¸Þ½ÃÁö ¿©ºÎ ( true , false Áß ÅÃ 1)
-    ' ¦¦ true = ±¤°í , false = ÀÏ¹Ý
-    adsYN = False							
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( true , false ï¿½ï¿½ ï¿½ï¿½ 1)
+    ' ï¿½ï¿½ true = ï¿½ï¿½ï¿½ï¿½ , false = ï¿½Ï¹ï¿½
+    adsYN = False
 
-    ' ¿¹¾àÀü¼Û½Ã°£ yyyyMMddHHmmss, reserveDT°ªÀÌ ¾ø´Â °æ¿ì Áï½ÃÀü¼Û
-	'reserveDT = "20220728200000"    
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û½Ã°ï¿½ yyyyMMddHHmmss, reserveDTï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	'reserveDT = "20220728200000"
 
     Set msgList = CreateObject("Scripting.Dictionary")
-    
-    ' ¹®ÀÚÀü¼ÛÁ¤º¸
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     Set message = New Messages
-    
-    ' ¹ß½Å¹øÈ£
+
+    ' ï¿½ß½Å¹ï¿½È£
     message.sender = ""
 
-    ' ¹ß½ÅÀÚ¸í
-    message.senderName = "¹ß½ÅÀÚ¸í"
+    ' ï¿½ß½ï¿½ï¿½Ú¸ï¿½
+    message.senderName = "ï¿½ß½ï¿½ï¿½Ú¸ï¿½"
 
-    ' ¼ö½Å¹øÈ£
+    ' ï¿½ï¿½ï¿½Å¹ï¿½È£
     message.receiver = ""
 
-    ' ¼ö½ÅÀÚ¸í
-    message.receivername = " ¼ö½ÅÀÚÀÌ¸§"
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
+    message.receivername = " ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½"
 
-    ' ¸Þ½ÃÁö³»¿ë, 2000byteÃÊ°ú½Ã ±æÀÌ°¡ Á¶Á¤µÇ¾î Àü¼ÛµÊ
-    message.content = "¹ß½Å ³»¿ë. Àå¹®"
+    ' ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 2000byteï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½Ûµï¿½
+    message.content = "ï¿½ß½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½å¹®"
 
-    ' ¸Þ½ÃÁöÁ¦¸ñ
+    ' ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     message.subject = ""
 
     msgList.Add 0, message
 
-    ' Àü¼Û¿äÃ»¹øÈ£
-    ' ÆËºôÀÌ Á¢¼ö ´ÜÀ§¸¦ ½Äº°ÇÒ ¼ö ÀÖµµ·Ï ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ ½Äº°¹øÈ£.
-    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ýÀÚ, ÇÏÀÌÇÂ(-), ¾ð´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
-    requestNum = ""		
-    
+    ' ï¿½ï¿½ï¿½Û¿ï¿½Ã»ï¿½ï¿½È£
+    ' ï¿½Ëºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ê°ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½È£.
+    ' 1~36ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(-), ï¿½ï¿½ï¿½ï¿½ï¿½(_)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ëºï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½Ò´ï¿½.
+    requestNum = ""
+
     On Error Resume Next
-    
+
     receiptNum = m_MessageService.SendLMS(testCorpNum, "", "","", msgList, reserveDT, adsYN, requestNum, userID)
 
     If Err.Number <> 0 then
@@ -71,16 +71,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Àå¹® ¹®ÀÚ¸Þ½ÃÁö 1°Ç Àü¼Û </legend>
+                <legend>ï¿½å¹® ï¿½ï¿½ï¿½Ú¸Þ½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ </legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(Á¢¼ö¹øÈ£) : <%=receiptNum%> </li>
+                        <li>ReceiptNum(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=receiptNum%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

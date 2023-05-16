@@ -1,45 +1,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 팩스 전송시 과금되는 포인트 단가를 확인합니다.
+    ' 占싼쏙옙 占쏙옙占쌜쏙옙 占쏙옙占쌥되댐옙 占쏙옙占쏙옙트 占쌤곤옙占쏙옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/fax/asp/api/point#GetUnitCost
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"	 
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
+    testCorpNum = "1234567890"
 
-    ' 수신번호 유형 : "일반" / "지능" 중 택 1
-    ' └ 일반망 : 지능망을 제외한 번호
-    ' └ 지능망 : 030*, 050*, 070*, 080*, 대표번호
-    receiveNumType = "지능"
-    
+    ' 占쏙옙占신뱄옙호 占쏙옙占쏙옙 : "占싹뱄옙" / "占쏙옙占쏙옙" 占쏙옙 占쏙옙 1
+    ' 占쏙옙 占싹반몌옙 : 占쏙옙占심몌옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙호
+    ' 占쏙옙 占쏙옙占심몌옙 : 030*, 050*, 070*, 080*, 占쏙옙표占쏙옙호
+    receiveNumType = "占쏙옙占쏙옙"
+
     On Error Resume Next
 
     unitCost = m_FaxService.GetUnitCost(testCorpNum, receiveNumType)
-    
+
     If Err.Number <> 0 then
         code = Err.Number
         message = Err.Description
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>팩스 전송 단가 확인 </legend>
+                <legend>占싼쏙옙 占쏙옙占쏙옙 占쌤곤옙 확占쏙옙 </legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>전송 단가 : <%=unitCost%> </li>
+                        <li>占쏙옙占쏙옙 占쌤곤옙 : <%=unitCost%> </li>
                     <% Else %>
                         <li> Response.code : <%=code%></li>
                         <li> Response.message : <%=message%></li>

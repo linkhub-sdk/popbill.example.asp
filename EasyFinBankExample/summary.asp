@@ -1,37 +1,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼öÁý »óÅÂ È®ÀÎ(GetJobState API) ÇÔ¼ö¸¦ »óÅÂ Á¤º¸°¡ È®ÀÎµÈ ÀÛ¾÷¾ÆÀÌµð¸¦ È°¿ëÇÏ¿© °èÁÂ °Å·¡³»¿ªÀÇ ¿ä¾à Á¤º¸¸¦ Á¶È¸ÇÕ´Ï´Ù.
-    ' - ¿ä¾à Á¤º¸´Â ÀÔ¡¤Ãâ ±Ý¾× ÇÕ°è, ÀÔ¡¤Ãâ °Å·¡ °Ç¼ö¸¦ °¡¸®Åµ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½(GetJobState API) ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½Îµï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½Ìµï¿½ È°ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¡ï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½ ï¿½Õ°ï¿½, ï¿½Ô¡ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Åµï¿½Ï´ï¿½.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/search#Summary
     '**************************************************************
 
-    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
-    
-    'ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    UserID = "testkorea"	
-    
-    '¼öÁý ¿äÃ»(requestJob) ½Ã ¹ÝÈ¯¹ÞÀº ÀÛ¾÷¾ÆÀÌµð(jobID)
+    'ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
+
+    'ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    UserID = "testkorea"
+
+    'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»(requestJob) ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½Ìµï¿½(jobID)
     JobID = "019123114000000010"
 
-    ' °Å·¡À¯Çü ¹è¿­ ("I" ¿Í "O" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' ¦¦ I = ÀÔ±Ý , O = Ãâ±Ý
-    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
-    Dim TradeType(2) 
+    ' ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("I" ï¿½ï¿½ "O" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' ï¿½ï¿½ I = ï¿½Ô±ï¿½ , O = ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
+    Dim TradeType(2)
     TradeType(0) = "I"
     TradeType(1) = "O"
 
-    ' "ÀÔ¡¤Ãâ±Ý¾×" / "¸Þ¸ð" / "ºñ°í" Áß °Ë»öÇÏ°íÀÚ ÇÏ´Â °ª ÀÔ·Â
-    ' - ¸Þ¸ð = °Å·¡³»¿ª ¸Þ¸ðÀúÀå(SaveMemo)À» »ç¿ëÇÏ¿© ÀúÀåÇÑ °ª
-    ' - ºñ°í = EasyFinBankSearchDetailÀÇ remark1, remark2, remark3 °ª
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    ' "ï¿½Ô¡ï¿½ï¿½ï¿½Ý¾ï¿½" / "ï¿½Þ¸ï¿½" / "ï¿½ï¿½ï¿½" ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½Ô·ï¿½
+    ' - ï¿½Þ¸ï¿½ = ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½(SaveMemo)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½ = EasyFinBankSearchDetailï¿½ï¿½ remark1, remark2, remark3 ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     SearchString = ""
 
     On Error Resume Next
@@ -43,24 +43,24 @@
         message = Err.Description
         Err.Clears
     End If
-    
-    On Error GoTo 0 
+
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼öÁý °á°ú ¿ä¾àÁ¤º¸ Á¶È¸</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> count (¼öÁý °á°ú °Ç¼ö) : <%=result.count%> </li>
-                        <li> cntAccIn (ÀÔ±Ý°Å·¡ °Ç¼ö) : <%=result.cntAccIn%> </li>
-                        <li> cntAccOut (Ãâ±Ý°Å·¡ °Ç¼ö) : <%=result.cntAccOut%> </li>
-                        <li> totalAccIn (ÀÔ±Ý¾× ÇÕ°è) : <%=result.totalAccIn%> </li>
-                        <li> totalAccOut (Ãâ±Ý¾× ÇÕ°è) : <%=result.totalAccOut%> </li>
+                        <li> count (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½) : <%=result.count%> </li>
+                        <li> cntAccIn (ï¿½Ô±Ý°Å·ï¿½ ï¿½Ç¼ï¿½) : <%=result.cntAccIn%> </li>
+                        <li> cntAccOut (ï¿½ï¿½Ý°Å·ï¿½ ï¿½Ç¼ï¿½) : <%=result.cntAccOut%> </li>
+                        <li> totalAccIn (ï¿½Ô±Ý¾ï¿½ ï¿½Õ°ï¿½) : <%=result.totalAccIn%> </li>
+                        <li> totalAccOut (ï¿½ï¿½Ý¾ï¿½ ï¿½Õ°ï¿½) : <%=result.totalAccOut%> </li>
                     </ul>
                 <%
                     Else
@@ -68,8 +68,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

@@ -1,72 +1,72 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' °Ë»öÁ¶°ÇÀ» »ç¿ëÇÏ¿© ¹®ÀÚÀü¼Û³»¿ª ¸ñ·ÏÀ» Á¶È¸ÇÕ´Ï´Ù. (Á¶È¸±â°£ ´ÜÀ§ : ÃÖ´ë 2°³¿ù)
-    ' - ¹®ÀÚ Á¢¼öÀÏ½Ã·ÎºÎÅÍ 6°³¿ù ÀÌ³» Á¢¼ö°Ç¸¸ Á¶È¸ÇÒ ¼ö ÀÖ½À´Ï´Ù.'
+    ' ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Õ´Ï´ï¿½. (ï¿½ï¿½È¸ï¿½â°£ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ö´ï¿½ 2ï¿½ï¿½ï¿½ï¿½)
+    ' - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã·Îºï¿½ï¿½ï¿½ 6ï¿½ï¿½ï¿½ï¿½ ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.'
     ' - https://developers.popbill.com/reference/sms/asp/api/info#Search
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ½ÃÀÛÀÏÀÚ
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     SDate = "20220701"
 
-    ' Á¾·áÀÏÀÚ
-    EDate = "20220720"					
-    
-    ' Àü¼Û»óÅÂ ¹è¿­ ("1" , "2" , "3" , "4" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' ¦¦ 1 = ´ë±â , 2 = ¼º°ø , 3 = ½ÇÆÐ , 4 = Ãë¼Ò
-    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    EDate = "20220720"
+
+    ' ï¿½ï¿½ï¿½Û»ï¿½ï¿½ï¿½ ï¿½è¿­ ("1" , "2" , "3" , "4" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' ï¿½ï¿½ 1 = ï¿½ï¿½ï¿½ , 2 = ï¿½ï¿½ï¿½ï¿½ , 3 = ï¿½ï¿½ï¿½ï¿½ , 4 = ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     Dim State(4)
     State(0) = "1"
     State(1) = "2"
     State(2) = "3"
     State(3) = "4"
 
-    ' °Ë»ö´ë»ó ¹è¿­ ("SMS" , "LMS" , "MMS" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' ¦¦ SMS = ´Ü¹® , LMS = Àå¹® , MMS = Æ÷Åä¹®ÀÚ
-    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("SMS" , "LMS" , "MMS" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' ï¿½ï¿½ SMS = ï¿½Ü¹ï¿½ , LMS = ï¿½å¹® , MMS = ï¿½ï¿½ï¿½ä¹®ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     Dim Item(3)
     Item(0) = "SMS"
     Item(1) = "LMS"
     Item(2) = "MMS"
 
-    ' ¿¹¾à¿©ºÎ (false , true Áß ÅÃ 1)
-    ' ¦¦ false = ÀüÃ¼Á¶È¸, true = ¿¹¾àÀü¼Û°Ç Á¶È¸
-    ' - ¹ÌÀÔ·Â½Ã ±âº»°ª false Ã³¸®
-    ReserveYN = False	
+    ' ï¿½ï¿½ï¿½à¿©ï¿½ï¿½ (false , true ï¿½ï¿½ ï¿½ï¿½ 1)
+    ' ï¿½ï¿½ false = ï¿½ï¿½Ã¼ï¿½ï¿½È¸, true = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û°ï¿½ ï¿½ï¿½È¸
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½âº»ï¿½ï¿½ false Ã³ï¿½ï¿½
+    ReserveYN = False
 
-    ' °³ÀÎÁ¶È¸ ¿©ºÎ (false , true Áß ÅÃ 1)
-    ' false = Á¢¼öÇÑ ¹®ÀÚ ÀüÃ¼ Á¶È¸ (°ü¸®ÀÚ±ÇÇÑ)
-    ' true = ÇØ´ç ´ã´çÀÚ °èÁ¤À¸·Î Á¢¼öÇÑ ¹®ÀÚ¸¸ Á¶È¸ (°³ÀÎ±ÇÇÑ)
-    ' ¹ÌÀÔ·Â½Ã ±âº»°ª false Ã³¸®
-    SenderYN = False		
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ (false , true ï¿½ï¿½ ï¿½ï¿½ 1)
+    ' false = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½È¸ (ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½)
+    ' true = ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½È¸ (ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½)
+    ' ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½âº»ï¿½ï¿½ false Ã³ï¿½ï¿½
+    SenderYN = False
 
-    ' Á¤·Ä¹æÇâ, D-³»¸²Â÷¼ø, A-¿À¸§Â÷¼ø
-    Order = "D"				
+    ' ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½, D-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, A-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    Order = "D"
 
-    ' ÆäÀÌÁö ¹øÈ£ 
-    Page = 1					
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+    Page = 1
 
-    ' ÆäÀÌÁö´ç °Ë»ö°³¼ö 
-    PerPage = 30			
-    
-    ' Á¶È¸ÇÏ°íÀÚ ÇÏ´Â ¹ß½ÅÀÚ¸í ¶Ç´Â ¼ö½ÅÀÚ¸í
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
+    PerPage = 30
+
+    ' ï¿½ï¿½È¸ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ß½ï¿½ï¿½Ú¸ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     QString = ""
-    
+
     On Error Resume Next
 
     Set resultObj = m_MessageService.Search(testCorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
-    
+
     If Err.Number <> 0 then
         code = Err.Number
         message = Err.Description
@@ -80,45 +80,45 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¹®ÀÚ¸Þ¼¼Áö Àü¼Û³»¿ª Á¶È¸ </legend>
+                <legend>ï¿½ï¿½ï¿½Ú¸Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û³ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ </legend>
                 <ul>
                 <% If code = 0 Then %>
-                        <li> code (ÀÀ´äÄÚµå) : <%=resultObj.code%></li>
-                        <li> message (ÀÀ´ä¸Þ½ÃÁö) : <%=resultObj.message%></li>
-                        <li> total (ÃÑ °Ë»ö°á°ú °Ç¼ö) : <%=resultObj.total%></li>
-                        <li> perPage (ÆäÀÌÁö´ç ¸ñ·Ï°³¼ö) : <%=resultObj.perPage%></li>
-                        <li> pageNum (ÆäÀÌÁö ¹øÈ£) : <%=resultObj.pageNum%></li>
-                        <li> pageCount (ÆäÀÌÁö °³¼ö) : <%=resultObj.pageCount%></li>
+                        <li> code (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=resultObj.code%></li>
+                        <li> message (ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½) : <%=resultObj.message%></li>
+                        <li> total (ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½) : <%=resultObj.total%></li>
+                        <li> perPage (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï°ï¿½ï¿½ï¿½) : <%=resultObj.perPage%></li>
+                        <li> pageNum (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) : <%=resultObj.pageNum%></li>
+                        <li> pageCount (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj.pageCount%></li>
                 </ul>
-                    <% 
+                    <%
                         For i=0 To UBound(resultObj.list) -1
                     %>
 
                         <fieldset class="fieldset2">
-                            <legend> ¹®ÀÚ¸Þ½ÃÁö Àü¼Û°á°ú [ <%=i+1%> / <%= UBound(resultObj.list)%> ] </legend>
+                            <legend> ï¿½ï¿½ï¿½Ú¸Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û°ï¿½ï¿½ [ <%=i+1%> / <%= UBound(resultObj.list)%> ] </legend>
                             <ul>
 
-                                <li>subject (¸Þ½ÃÁö Á¦¸ñ) : <%=resultObj.list(i).subject%> </li>
-                                <li>content (¸Þ½ÃÁö ³»¿ë) : <%=resultObj.list(i).content%> </li>
-                                <li>sendnum (¹ß½Å¹øÈ£) : <%=resultObj.list(i).sendnum%> </li>
-                                <li>senderName (¹ß½ÅÀÚ¸í) : <%=resultObj.list(i).senderName%> </li>
-                                <li>receiveNum (¼ö½Å¹øÈ£) : <%=resultObj.list(i).receiveNum%> </li>
-                                <li>receiveName (¼ö½ÅÀÚ¸í) : <%=resultObj.list(i).receiveName%> </li>
-                                <li>receiptDT (Á¢¼öÀÏ½Ã) : <%=resultObj.list(i).receiptDT%> </li>
-                                <li>sendDT (Àü¼ÛÀÏ½Ã) : <%=resultObj.list(i).sendDT%> </li>
-                                <li>resultDT (Àü¼Û°á°ú ¼ö½ÅÀÏ½Ã) : <%=resultObj.list(i).resultDT%> </li>
-                                <li>reserveDT (¿¹¾àÀÏ½Ã) : <%=resultObj.list(i).reserveDT%> </li>
-                                <li>state (Àü¼Û»óÅÂ ÄÚµå) : <%=resultObj.list(i).state%> </li>
-                                <li>result (Àü¼Û°á°ú ÄÚµå) : <%=resultObj.list(i).result%> </li>
-                                <li>type (¸Þ½ÃÁö À¯Çü) : <%=resultObj.list(i).msgType%> </li>
-                                <li>tranNet (Àü¼ÛÃ³¸® ÀÌµ¿Åë½Å»ç¸í) : <%=resultObj.list(i).tranNet%> </li>
-                                <li>receiptNum (Á¢¼ö¹øÈ£) : <%=resultObj.list(i).receiptNum%> </li>
-                                <li>requestNum (¿äÃ»¹øÈ£) : <%=resultObj.list(i).requestNum%> </li>
-                                <li>interOPRefKey (ÆÄÆ®³Ê ÁöÁ¤Å°) : <%=resultObj.list(i).interOPRefKey%> </li>
+                                <li>subject (ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj.list(i).subject%> </li>
+                                <li>content (ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj.list(i).content%> </li>
+                                <li>sendnum (ï¿½ß½Å¹ï¿½È£) : <%=resultObj.list(i).sendnum%> </li>
+                                <li>senderName (ï¿½ß½ï¿½ï¿½Ú¸ï¿½) : <%=resultObj.list(i).senderName%> </li>
+                                <li>receiveNum (ï¿½ï¿½ï¿½Å¹ï¿½È£) : <%=resultObj.list(i).receiveNum%> </li>
+                                <li>receiveName (ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½) : <%=resultObj.list(i).receiveName%> </li>
+                                <li>receiptDT (ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=resultObj.list(i).receiptDT%> </li>
+                                <li>sendDT (ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=resultObj.list(i).sendDT%> </li>
+                                <li>resultDT (ï¿½ï¿½ï¿½Û°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=resultObj.list(i).resultDT%> </li>
+                                <li>reserveDT (ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=resultObj.list(i).reserveDT%> </li>
+                                <li>state (ï¿½ï¿½ï¿½Û»ï¿½ï¿½ï¿½ ï¿½Úµï¿½) : <%=resultObj.list(i).state%> </li>
+                                <li>result (ï¿½ï¿½ï¿½Û°ï¿½ï¿½ ï¿½Úµï¿½) : <%=resultObj.list(i).result%> </li>
+                                <li>type (ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj.list(i).msgType%> </li>
+                                <li>tranNet (ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å»ï¿½ï¿½) : <%=resultObj.list(i).tranNet%> </li>
+                                <li>receiptNum (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=resultObj.list(i).receiptNum%> </li>
+                                <li>requestNum (ï¿½ï¿½Ã»ï¿½ï¿½È£) : <%=resultObj.list(i).requestNum%> </li>
+                                <li>interOPRefKey (ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°) : <%=resultObj.list(i).interOPRefKey%> </li>
                             </ul>
                         </fieldset>
 
-                    <% 
+                    <%
                         Next
                     Else
                     %>

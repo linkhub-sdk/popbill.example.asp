@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆÄÆ®³Ê°¡ Çö±Ý¿µ¼öÁõ °ü¸® ¸ñÀûÀ¸·Î ÇÒ´çÇÏ´Â ¹®¼­¹øÈ£ »ç¿ë¿©ºÎ¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - ÀÌ¹Ì »ç¿ë ÁßÀÎ ¹®¼­¹øÈ£´Â Áßº¹ »ç¿ëÀÌ ºÒ°¡ÇÏ°í, Çö±Ý¿µ¼öÁõÀÌ »èÁ¦µÈ °æ¿ì¿¡¸¸ ¹®¼­¹øÈ£ÀÇ Àç»ç¿ëÀÌ °¡´ÉÇÕ´Ï´Ù.
+    ' ï¿½ï¿½Æ®ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½ë¿©ï¿½Î¸ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½Ï°ï¿½, ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/info#CheckMgtKeyInUse
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
-    testCorpNum = "1234567890"	
-    
-    ' ¹®¼­¹øÈ£
-    mgtKey = "20220720-ASP-001"		
-        
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½ 10ï¿½Ú¸ï¿½
+    testCorpNum = "1234567890"
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    mgtKey = "20220720-ASP-001"
+
     On Error Resume Next
 
     Presponse = m_CashbillService.CheckMgtKeyInUse(testCorpNum, mgtKey)
@@ -25,15 +25,15 @@
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
-    Else	
+    Else
         If Presponse = True Then
             code = 1
-            message = "»ç¿ëÁß"
+            message = "ï¿½ï¿½ï¿½ï¿½ï¿½"
         Else
-            code = 0 
-            message = "¹Ì»ç¿ëÁß"
+            code = 0
+            message = "ï¿½Ì»ï¿½ï¿½ï¿½ï¿½"
         End If
-    End If 
+    End If
 
     On Error GoTo 0
 
@@ -43,7 +43,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¹®¼­¹øÈ£ »ç¿ë¿©ºÎ È®ÀÎ</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½ë¿©ï¿½ï¿½ È®ï¿½ï¿½</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

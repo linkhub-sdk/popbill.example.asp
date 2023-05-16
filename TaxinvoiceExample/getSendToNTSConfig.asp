@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¬µ¿È¸¿øÀÇ ±¹¼¼Ã» Àü¼Û ¿É¼Ç ¼³Á¤ »óÅÂ¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - ÆËºô ±¹¼¼Ã» Àü¼Û Á¤Ã¥ [https://developers.popbill.com/guide/taxinvoice/asp/introduction/policy-of-send-to-nts]
-    ' - ±¹¼¼Ã» Àü¼Û ¿É¼Ç ¼³Á¤Àº ÆËºô »çÀÌÆ® [ÀüÀÚ¼¼±Ý°è»ê¼­] > [È¯°æ¼³Á¤] > [¼¼±Ý°è»ê¼­ °ü¸®] ¸Þ´º¿¡¼­ ¼³Á¤ÇÒ ¼ö ÀÖÀ¸¸ç, API·Î ¼³Á¤Àº ºÒ°¡´É ÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½Ëºï¿½ ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¥ [https://developers.popbill.com/guide/taxinvoice/asp/introduction/policy-of-send-to-nts]
+    ' - ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ëºï¿½ ï¿½ï¿½ï¿½ï¿½Æ® [ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½Ý°ï¿½ê¼­] > [È¯ï¿½æ¼³ï¿½ï¿½] > [ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½] ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, APIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#GetSendToNTSConfig
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
     On Error Resume Next
 
@@ -33,17 +33,17 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> ±¹¼¼Ã» Àü¼Û ¼³Á¤ È®ÀÎ</legend>
+                <legend> ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>ntsConfig : <%=ntsConfig%></li>
-                        <li>(True)-¹ßÇà Áï½Ã Àü¼Û (False)-ÀÍÀÏ ÀÚµ¿ Àü¼Û</li>
+                        <li>(True)-ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (False)-ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½</li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

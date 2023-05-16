@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "ÀÓ½ÃÀúÀå" »óÅÂÀÇ ÀüÀÚ¸í¼¼¼­¿¡ Ã·ºÎµÈ 1°³ÀÇ ÆÄÀÏÀ» »èÁ¦ÇÕ´Ï´Ù.
-    ' - ÆÄÀÏ ½Äº°À» À§ÇØ Ã·ºÎ½Ã ºÎ¿©µÇ´Â 'FileID'´Â Ã·ºÎÆÄÀÏ ¸ñ·Ï È®ÀÎ(GetFiles API) ÇÔ¼ö¸¦ È£ÃâÇÏ¿© È®ÀÎÇÕ´Ï´Ù.
+    ' "ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½" ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã·ï¿½Îµï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã·ï¿½Î½ï¿½ ï¿½Î¿ï¿½ï¿½Ç´ï¿½ 'FileID'ï¿½ï¿½ Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È®ï¿½ï¿½(GetFiles API) ï¿½Ô¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï¿ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/statement/asp/api/etc#DeleteFile
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-"ï¿½ï¿½ï¿½ï¿½ 10ï¿½Ú¸ï¿½
     testCorpNum = "1234567890"
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     userID = "testkorea"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±ÝÇ¥), 126(¿µ¼öÁõ)
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ - 121(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), 122(Ã»ï¿½ï¿½ï¿½ï¿½), 123(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), 124(ï¿½ï¿½ï¿½Ö¼ï¿½), 125(ï¿½Ô±ï¿½Ç¥), 126(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
     itemCode = "121"
 
-    ' ¹®¼­¹øÈ£
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     mgtKey = "20220720-ASP-001"
 
-    ' ÆÄÀÏ¾ÆÀÌµð, Ã·ºÎÆÄÀÏ¸ñ·Ï(getFiles) APIÀÇ AttachedFile°ª
+    ' ï¿½ï¿½ï¿½Ï¾ï¿½ï¿½Ìµï¿½, Ã·ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½(getFiles) APIï¿½ï¿½ AttachedFileï¿½ï¿½
     FileID = "2556D18D-9380-4843-B748-5B8120C31BA5.PBF"
 
     On Error Resume Next
@@ -41,14 +41,14 @@
     End If
 
     On Error GoTo 0
-    
+
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Ã·ºÎÆÄÀÏ »èÁ¦</legend>
+                <legend>Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</legend>
                     <ul>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message: <%=message%> </li>

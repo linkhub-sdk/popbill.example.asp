@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 팝빌에 등록된 인증서로 홈택스 로그인 가능 여부를 확인합니다.
+    ' 占싯븝옙占쏙옙 占쏙옙溝占� 占쏙옙占쏙옙占쏙옙占쏙옙 홈占시쏙옙 占싸깍옙占쏙옙 占쏙옙占쏙옙 占쏙옙占싸몌옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/cert#CheckCertValidation
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"	 
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
+    testCorpNum = "1234567890"
 
-    ' 팝빌회원 아이디
+    ' 占싯븝옙회占쏙옙 占쏙옙占싱듸옙
     userID = "testkorea"
 
     On Error Resume Next
@@ -25,7 +25,7 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -37,7 +37,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>홈택스 공인인증서 로그인 테스트</legend>
+                <legend>홈占시쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占싸깍옙占쏙옙 占쌓쏙옙트</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

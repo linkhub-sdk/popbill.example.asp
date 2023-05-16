@@ -114,6 +114,66 @@ Public Function GetChargeInfo ( CorpNum, UserID )
 
     Set GetChargeInfo = chrgInfo
 End Function
+	'무통장 입금신청
+	Public Function PaymetRequest(CorpNUm, UserID)
+		Set m_paymentResponse = m_popbillBase.PaymetRequest(CorpnUm, UserID)
+		PaymentRequest = m_paymentResponse
+	End Function
+
+    '연동회원 포인트 결제내역 조회
+    Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+        GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+    End Function
+
+    '연동회원 무통장 입금신청 정보확인
+    Public Function GetSettleResult(CorpNum, SettleCode, UserID)
+        GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
+    End Function
+
+    '연동회원 포인트 사용내역 확인
+    Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
+        GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
+    End Function
+
+    '연동회원 포인트 환불신청
+    Public Function Refund(CorpNum, RefundForm, UserID)
+        Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
+    End Function
+
+	' 환불 가능 포인트 조회
+	Public Function GetRefundableBalance(CorpNum, UserID)
+		m_refundable = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
+		GetRefundableBalance = m_refundable
+	End Function
+
+    '연동회원 포인트 환불내역 확인
+    Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
+        GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
+    End Function
+
+	' 환불 신청 상태 조회
+	Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
+		GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
+	End Function
+
+    '회원 탈퇴
+    Public Function QuitMember(CorpNum, QuitReason)
+        QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason)
+	End Function
+
+    '과금정보 확인
+    Public Function GetChargeInfo(CorpNum, UserID, ServiceType)
+
+        Dim uri : uri = "/EasyFin/AccountCheck/ChargeInfo?serviceType=" & ServiceType
+
+        Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
+
+        Dim chrgInfo : Set chrgInfo = New ChargeInfo
+        chrgInfo.fromJsonInfo result
+
+        Set GetChargeInfo = chrgInfo
+    End Function
+
 '''''''''''''  End of PopbillBase
 
 '단가확인

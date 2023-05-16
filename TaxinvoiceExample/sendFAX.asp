@@ -1,44 +1,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼¼±Ý°è»ê¼­¸¦ ÆÑ½º·Î Àü¼ÛÇÏ´Â ÇÔ¼ö·Î, ÆËºô »çÀÌÆ® [¹®ÀÚ¡¤ÆÑ½º] > [ÆÑ½º] > [Àü¼Û³»¿ª] ¸Þ´º¿¡¼­ Àü¼Û°á°ú¸¦ È®ÀÎ ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-    ' - ÇÔ¼ö È£Ãâ½Ã Æ÷ÀÎÆ®°¡ °ú±ÝµË´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½Ñ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½, ï¿½Ëºï¿½ ï¿½ï¿½ï¿½ï¿½Æ® [ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½Ñ½ï¿½] > [ï¿½Ñ½ï¿½] > [ï¿½ï¿½ï¿½Û³ï¿½ï¿½ï¿½] ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û°ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
+    ' - ï¿½Ô¼ï¿½ È£ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ÝµË´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#SendFAX
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½ 10ï¿½Ú¸ï¿½
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     testUserID = "testkorea"
-    
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
     KeyType= "SELL"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     MgtKey = "20220720-ASP-001"
 
-    ' ¹ß½Å¹øÈ£
+    ' ï¿½ß½Å¹ï¿½È£
     Sender = ""
 
-    ' ¼ö½ÅÆÑ½º¹øÈ£
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½Ñ½ï¿½ï¿½ï¿½È£
     Receiver = ""
 
     On Error Resume Next
 
     Set Presponse = m_TaxinvoiceService.SendFAX(testCorpNum, KeyType, MgtKey, Sender, Receiver, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -49,7 +49,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÆÑ½º ÀçÀü¼Û</legend>
+                <legend>ï¿½Ñ½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

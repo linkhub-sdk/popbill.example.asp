@@ -1,62 +1,62 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô¿¡ µî·ÏµÈ °èÁÂÁ¤º¸ ¸ñ·ÏÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
+    ' ï¿½Ëºï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#ListBankAccount
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     UserID = "testkorea"
-    
+
     On Error Resume Next
 
     Set result = m_EasyFinBankService.ListBankAccount(testCorpNum, UserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>°èÁÂ ¸ñ·Ï</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½</legend>
                 <%
                     If code = 0 Then
                         For i=0 To result.Count-1
                 %>
-                            <fieldset class="fieldset2">					
+                            <fieldset class="fieldset2">
                                 <legend>ListBankAccount [ <%=i+1%> / <%=result.Count%> ] </legend>
                                     <ul>
-                                        <li>accountNumber (°èÁÂ¹øÈ£) : <%=result.Item(i).accountNumber%></li>
-                                        <li>bankCode (±â°üÄÚµå) : <%=result.Item(i).bankCode%></li>
-                                        <li>accountName (°èÁÂ º°Äª) : <%=result.Item(i).accountName%></li>
-                                        <li>accountType (°èÁÂÀ¯Çü) : <%=result.Item(i).accountType%></li>
-                                        <li>state (Á¤¾×Á¦ »óÅÂ) : <%=result.Item(i).state%></li>
-                                        <li>regDT (µî·ÏÀÏ½Ã) : <%=result.Item(i).regDT%></li>
-                                        <li>contractDT (Á¤¾×Á¦ ¼­ºñ½º ½ÃÀÛÀÏ½Ã) : <%=result.Item(i).contractDT %> </li>
-                                        <li>useEndDate (Á¤¾×Á¦ ¼­ºñ½º Á¾·áÀÏ) : <%=result.Item(i).useEndDate %> </li>
-                                        <li>baseDate (ÀÚµ¿¿¬Àå °áÁ¦ÀÏ) : <%=result.Item(i).baseDate %> </li>
-                                        <li>contractState (Á¤¾×Á¦ ¼­ºñ½º »óÅÂ) : <%=result.Item(i).contractState%> </li>
-                                        <li>closeRequestYN (Á¤¾×Á¦ ¼­ºñ½º ÇØÁö½ÅÃ» ¿©ºÎ) : <%=result.Item(i).closeRequestYN%> </li>
-                                        <li>useRestrictYN (Á¤¾×Á¦ ¼­ºñ½º »ç¿ëÁ¦ÇÑ ¿©ºÎ) : <%=result.Item(i).useRestrictYN%> </li>
-                                        <li>closeOnExpired (Á¤¾×Á¦ ¼­ºñ½º ¸¸·á ½Ã ÇØÁö ¿©ºÎ) : <%=result.Item(i).closeOnExpired %> </li>
-                                        <li>unPaidYN (¹Ì¼ö±Ý º¸À¯ ¿©ºÎ) : <%=result.Item(i).unPaidYN %> </li>
-                                        <li>memo (¸Þ¸ð) : <%=result.Item(i).memo%></li>
+                                        <li>accountNumber (ï¿½ï¿½ï¿½Â¹ï¿½È£) : <%=result.Item(i).accountNumber%></li>
+                                        <li>bankCode (ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.Item(i).bankCode%></li>
+                                        <li>accountName (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Äª) : <%=result.Item(i).accountName%></li>
+                                        <li>accountType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).accountType%></li>
+                                        <li>state (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).state%></li>
+                                        <li>regDT (ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.Item(i).regDT%></li>
+                                        <li>contractDT (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.Item(i).contractDT %> </li>
+                                        <li>useEndDate (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).useEndDate %> </li>
+                                        <li>baseDate (ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).baseDate %> </li>
+                                        <li>contractState (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).contractState%> </li>
+                                        <li>closeRequestYN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).closeRequestYN%> </li>
+                                        <li>useRestrictYN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).useRestrictYN%> </li>
+                                        <li>closeOnExpired (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).closeOnExpired %> </li>
+                                        <li>unPaidYN (ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.Item(i).unPaidYN %> </li>
+                                        <li>memo (ï¿½Þ¸ï¿½) : <%=result.Item(i).memo%></li>
 
                                     </ul>
                                 </fieldset>
@@ -67,8 +67,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

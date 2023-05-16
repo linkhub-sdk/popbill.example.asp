@@ -1,24 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ Àü¼Û¿äÃ» ¹øÈ£¸¦ ÅëÇØ ¿¹¾àÁ¢¼öµÈ ÆÑ½º Àü¼ÛÀ» Ãë¼ÒÇÕ´Ï´Ù. (¿¹¾à½Ã°£ 10ºÐ Àü±îÁö °¡´É)
+    ' ï¿½ï¿½Æ®ï¿½Ê°ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½Ã» ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. (ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ 10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
     ' - https://developers.popbill.com/reference/fax/asp/api/send#CancelReserveRN
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    userID = "testkorea"				
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ¿¹¾àÆÑ½ºÀü¼Û ¿äÃ»½Ã ÇÒ´çÇÑ Àü¼Û¿äÃ»¹øÈ£
-    requestNum = "20220720-ASP-001"   
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    userID = "testkorea"
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½Ñ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½Ã»ï¿½ï¿½È£
+    requestNum = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -28,7 +28,7 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -41,7 +41,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÆÑ½º¿¹¾àÀü¼Û Ãë¼Ò</legend>
+                <legend>ï¿½Ñ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

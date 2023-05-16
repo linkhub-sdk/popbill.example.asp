@@ -1,19 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 파트너의 잔여포인트를 확인합니다.
+    ' 占쏙옙트占쏙옙占쏙옙 占쌤울옙占쏙옙占쏙옙트占쏙옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/sms/asp/api/point#GetPartnerBalance
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
     testCorpNum = "1234567890"
-    
+
     On Error Resume Next
 
     remainPoint = m_MessageService.getPartnerBalance(testCorpNum)
@@ -31,16 +31,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>파트너 잔여포인트 확인결과</legend>
+                <legend>占쏙옙트占쏙옙 占쌤울옙占쏙옙占쏙옙트 확占싸곤옙占�</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>잔여포인트 : <%=CStr(remainpoint)%> </li>
+                        <li>占쌤울옙占쏙옙占쏙옙트 : <%=CStr(remainpoint)%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

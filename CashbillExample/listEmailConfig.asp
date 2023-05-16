@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Çö±Ý¿µ¼öÁõ °ü·Ã ¸ÞÀÏ Ç×¸ñ¿¡ ´ëÇÑ ¹ß¼Û¼³Á¤À» È®ÀÎÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß¼Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#ListEmailConfig
     '**************************************************************
 
-    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    'ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    'ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    UserID = "testkorea"					
-    
+    'ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    UserID = "testkorea"
+
     On Error Resume Next
 
     Set emailObj = m_CashbillService.listEmailConfig(testCorpNum, UserID)
@@ -34,17 +34,17 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¾Ë¸²¸ÞÀÏ Àü¼Û¸ñ·Ï Á¶È¸</legend>
+                <legend>ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¸ï¿½ï¿½ ï¿½ï¿½È¸</legend>
                         <ul>
                         <%
                             If code = 0 Then
                             For i=0 To emailObj.Count-1
                         %>
                             <% If emailObj.Item(i).emailType = "CSH_ISSUE" Then %>
-                                    <li><%= emailObj.Item(i).emailType %> (°í°´¿¡°Ô Çö±Ý¿µ¼öÁõÀÌ ¹ßÇà µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li><%= emailObj.Item(i).emailType %> (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "CSH_CANCEL" Then %>
-                                    <li><%= emailObj.Item(i).emailType %> (°í°´¿¡°Ô Çö±Ý¿µ¼öÁõÀÌ ¹ßÇàÃë¼Ò µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li><%= emailObj.Item(i).emailType %> (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                         <%
                             Next
@@ -54,8 +54,8 @@
                         <ul>
                             <li>Response.code: <%=code%> </li>
                             <li>Response.message: <%=message%> </li>
-                        </ul>	
-                <%	
+                        </ul>
+                <%
                     End If
                 %>
             </fieldset>

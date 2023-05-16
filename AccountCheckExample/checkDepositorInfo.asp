@@ -1,38 +1,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="../Example.css" media="screen" />
-        <title>¿¹±ÝÁÖÁ¶È¸ API SDK ASP Example.</title>
+        <title>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ API SDK ASP Example.</title>
     </head>
-    <!--#include file="common.asp"--> 
+    <!--#include file="common.asp"-->
     <%
         '**************************************************************
-        ' 1°ÇÀÇ ¿¹±ÝÁÖ½Ç¸íÀ» Á¶È¸ÇÕ´Ï´Ù.
+        ' 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö½Ç¸ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Õ´Ï´ï¿½.
         ' - https://developers.popbill.com/reference/accountcheck/asp/api/check#CheckDepositorInfo
         '**************************************************************
-        'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
-        CorpNum = "1234567890"	
+        'ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+        CorpNum = "1234567890"
 
-        'ÆËºôÈ¸¿ø ¾ÆÀÌµð
+        'ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
         UserID = "testkorea"
-        
-        '±â°üÄÚµå
+
+        'ï¿½ï¿½ï¿½ï¿½Úµï¿½
         BankCode = ""
 
-        '°èÁÂ¹øÈ£
+        'ï¿½ï¿½ï¿½Â¹ï¿½È£
         AccountNumber = ""
-        
-        ' µî·Ï¹øÈ£ À¯Çü ( P / B Áß ÅÃ 1 ,  P = °³ÀÎ, B = »ç¾÷ÀÚ)
+
+        ' ï¿½ï¿½Ï¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ( P / B ï¿½ï¿½ ï¿½ï¿½ 1 ,  P = ï¿½ï¿½ï¿½ï¿½, B = ï¿½ï¿½ï¿½ï¿½ï¿½)
         identityNumType = ""
 
-        ' µî·Ï¹øÈ£
-        ' - IdentityNumType °ªÀÌ "B" ÀÎ °æ¿ì (ÇÏÀÌÇÂ '-' Á¦¿Ü  »ç¾÷ÀÚ¹øÈ£(10)ÀÚ¸® ÀÔ·Â )
-        ' - IdentityNumType °ªÀÌ "P" ÀÎ °æ¿ì (»ý³â¿ùÀÏ(6)ÀÚ¸® ÀÔ·Â (Çü½Ä : YYMMDD))
+        ' ï¿½ï¿½Ï¹ï¿½È£
+        ' - IdentityNumType ï¿½ï¿½ï¿½ï¿½ "B" ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ '-' ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£(10)ï¿½Ú¸ï¿½ ï¿½Ô·ï¿½ )
+        ' - IdentityNumType ï¿½ï¿½ï¿½ï¿½ "P" ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(6)ï¿½Ú¸ï¿½ ï¿½Ô·ï¿½ (ï¿½ï¿½ï¿½ï¿½ : YYMMDD))
         identityNum = ""
 
         On Error Resume Next
             Set result = m_AccountCheckService.checkDepositorInfo(CorpNum, BankCode, AccountNumber, identityNumType, identityNum, UserID)
-            
+
             If Err.Number <> 0 Then
                 code = Err.Number
                 message = Err.Description
@@ -46,31 +46,31 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>°èÁÂ½Ç¸íÁ¶È¸</legend>
+                <legend>ï¿½ï¿½ï¿½Â½Ç¸ï¿½ï¿½ï¿½È¸</legend>
             <%
-                If Not IsEmpty(result) Then  
+                If Not IsEmpty(result) Then
             %>
                 <ul>
-                    <li>bankCode (±â°üÄÚµå) : <%= result.bankCode%></li>
-                    <li>accountNumber (°èÁÂ¹øÈ£) : <%= result.accountNumber%></li>	
-                    <li>accountName (¿¹±ÝÁÖ ¼º¸í) : <%= result.accountName%></li>	
-                    <li>checkDate (È®ÀÎÀÏ½Ã) : <%= result.checkDate%></li>	
-                    <li>identityNumType (µî·Ï¹øÈ£ À¯Çü) : <%= result.identityNumType%></li>	
-                    <li>identityNum (µî·Ï¹øÈ£) : <%= result.identityNum%></li>	
-                    <li>result (ÀÀ´äÄÚµå) : <%= result.result%></li>	
-                    <li>resultMessage (ÀÀ´ä¸Þ½ÃÁö) : <%= result.resultMessage%></li>	
+                    <li>bankCode (ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%= result.bankCode%></li>
+                    <li>accountNumber (ï¿½ï¿½ï¿½Â¹ï¿½È£) : <%= result.accountNumber%></li>
+                    <li>accountName (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%= result.accountName%></li>
+                    <li>checkDate (È®ï¿½ï¿½ï¿½Ï½ï¿½) : <%= result.checkDate%></li>
+                    <li>identityNumType (ï¿½ï¿½Ï¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½) : <%= result.identityNumType%></li>
+                    <li>identityNum (ï¿½ï¿½Ï¹ï¿½È£) : <%= result.identityNum%></li>
+                    <li>result (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%= result.result%></li>
+                    <li>resultMessage (ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½) : <%= result.resultMessage%></li>
                 </ul>
             <%
-                End If 
+                End If
                 If Not IsEmpty(code) then
             %>
-                <ul>	
+                <ul>
                     <li>Response.code : <%= code %> </li>
                     <li>Response.message : <%= message %></li>
                 </ul>
             <%
                 End If
-            %>		
+            %>
 
             </fieldset>
     </body>

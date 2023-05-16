@@ -1,32 +1,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ´Ù¼ö°ÇÀÇ Çö±Ý¿µ¼öÁõ »óÅÂ ¹× ¿ä¾à Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù. (1È¸ È£Ãâ ½Ã ÃÖ´ë 1,000°Ç È®ÀÎ °¡´É)
-    ' - ¸®ÅÏ°ª 'CashbillInfo'ÀÇ º¯¼ö 'stateCode'¸¦ ÅëÇØ Çö±Ý¿µ¼öÁõÀÇ »óÅÂÄÚµå¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - Çö±Ý¿µ¼öÁõ »óÅÂÄÚµå : [https://developers.popbill.com/reference/cashbill/asp/response-code#state-code]
+    ' ï¿½Ù¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½. (1È¸ È£ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ 1,000ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - ï¿½ï¿½ï¿½Ï°ï¿½ 'CashbillInfo'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 'stateCode'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµå¸¦ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ : [https://developers.popbill.com/reference/cashbill/asp/response-code#state-code]
     ' - https://developers.popbill.com/reference/cashbill/asp/api/info#GetInfos
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    userID = "testkorea"		 
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' Á¶È¸ÇÒ Çö±Ý¿µ¼öÁõ ¹®¼­¹øÈ£ ¹è¿­, ÃÖ´ë 1000°Ç
-    Dim mgtKeyList(3) 
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    userID = "testkorea"
+
+    ' ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½è¿­, ï¿½Ö´ï¿½ 1000ï¿½ï¿½
+    Dim mgtKeyList(3)
     MgtKeyList(0) = "20220720-ASP-001"
     MgtKeyList(1) = "20220720-ASP-002"
     MgtKeyList(2) = "20220720-ASP-003"
 
     On Error Resume Next
-    
+
     Set Presponse = m_CashbillService.GetInfos(testCorpNum, mgtKeyList, userID)
 
     If Err.Number <> 0 then
@@ -35,53 +35,53 @@
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Çö±Ý¿µ¼öÁõ »óÅÂ ´ë·® È®ÀÎ</legend>
+                <legend>ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ë·® È®ï¿½ï¿½</legend>
                 <ul>
-                    <% If code = 0 Then 
+                    <% If code = 0 Then
                         For i=0 To Presponse.Count-1 %>
                         <fieldset class="fieldset2">
-                            <legend> Çö±Ý¿µ¼öÁõ Á¶È¸ °á°ú [<%=i+1%>]</legend>
+                            <legend> ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ [<%=i+1%>]</legend>
                             <ul>
-                                <li>itemKey (Çö±Ý¿µ¼öÁõ ¾ÆÀÌÅÛÅ°) : <%=Presponse.Item(i).itemKey%></li>
-                                <li>mgtKey (¹®¼­¹øÈ£) : <%=Presponse.Item(i).mgtKey%></li>
-                                <li>tradeDate (°Å·¡ÀÏÀÚ) : <%=Presponse.Item(i).tradeDate%></li>
-                                <li>tradeDT (°Å·¡ÀÏ½Ã) : <%=Presponse.Item(i).tradeDT%></li>
-                                <li>tradeType (¹®¼­ÇüÅÂ) : <%=Presponse.Item(i).tradeType%></li>
-                                <li>tradeUsage (°Å·¡±¸ºÐ) : <%=Presponse.Item(i).tradeUsage%></li>
-                                <li>tradeOpt (°Å·¡À¯Çü) : <%=Presponse.Item(i).tradeOpt%></li>
-                                <li>taxationType (°ú¼¼ÇüÅÂ) : <%=Presponse.Item(i).taxationType%></li>
-                                <li>totalAmount (°Å·¡±Ý¾×) : <%=Presponse.Item(i).totalAmount%></li>
-                                <li>issueDT (¹ßÇàÀÏ½Ã) : <%=Presponse.Item(i).issueDT%></li>
-                                <li>regDT (µî·ÏÀÏ½Ã) : <%=Presponse.Item(i).regDT%></li>
-                                <li>stateMemo (»óÅÂ¸Þ¸ð) : <%=Presponse.Item(i).stateMemo%></li>
-                                <li>stateCode (»óÅÂÄÚµå) : <%=Presponse.Item(i).stateCode%></li>
-                                <li>stateDT (»óÅÂº¯°æÀÏ½Ã) : <%=Presponse.Item(i).stateDT%></li>
-                                <li>identityNum (½Äº°¹øÈ£) : <%=Presponse.Item(i).identityNum%></li>
-                                <li>itemName (»óÇ°¸í) : <%=Presponse.Item(i).itemName%></li>
-                                <li>customerName (°í°´¸í) : <%=Presponse.Item(i).customerName%></li>
-                                <li>confirmNum (±¹¼¼Ã» ½ÂÀÎ¹øÈ£) : <%=Presponse.Item(i).confirmNum%></li>
-                                <li>orgConfirmNum (¿øº» Çö±Ý¿µ¼öÁõ ±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%=Presponse.Item(i).orgConfirmNum%></li>
-                                <li>orgTradeDate (¿øº» Çö±Ý¿µ¼öÁõ °Å·¡ÀÏÀÚ) : <%=Presponse.Item(i).orgTradeDate%></li>
-                                <li>ntssendDT (±¹¼¼Ã» Àü¼ÛÀÏ½Ã) : <%=Presponse.Item(i).ntssendDT%></li>
-                                <li>ntsresultDT (±¹¼¼Ã» Ã³¸®°á°ú ¼ö½ÅÀÏ½Ã) : <%=Presponse.Item(i).ntsResultDT%></li>
-                                <li>ntsresultCode (±¹¼¼Ã» Ã³¸®°á°ú »óÅÂÄÚµå) : <%=Presponse.Item(i).ntsResultCode%></li>
-                                <li>ntsresultMessage (±¹¼¼Ã» Ã³¸®°á°ú ¸Þ½ÃÁö) : <%=Presponse.Item(i).ntsResultMessage%></li>
-                                <li>printYN (ÀÎ¼â¿©ºÎ) : <%=Presponse.Item(i).printYN%></li>
+                                <li>itemKey (ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°) : <%=Presponse.Item(i).itemKey%></li>
+                                <li>mgtKey (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=Presponse.Item(i).mgtKey%></li>
+                                <li>tradeDate (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.Item(i).tradeDate%></li>
+                                <li>tradeDT (ï¿½Å·ï¿½ï¿½Ï½ï¿½) : <%=Presponse.Item(i).tradeDT%></li>
+                                <li>tradeType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.Item(i).tradeType%></li>
+                                <li>tradeUsage (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.Item(i).tradeUsage%></li>
+                                <li>tradeOpt (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.Item(i).tradeOpt%></li>
+                                <li>taxationType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.Item(i).taxationType%></li>
+                                <li>totalAmount (ï¿½Å·ï¿½ï¿½Ý¾ï¿½) : <%=Presponse.Item(i).totalAmount%></li>
+                                <li>issueDT (ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=Presponse.Item(i).issueDT%></li>
+                                <li>regDT (ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=Presponse.Item(i).regDT%></li>
+                                <li>stateMemo (ï¿½ï¿½ï¿½Â¸Þ¸ï¿½) : <%=Presponse.Item(i).stateMemo%></li>
+                                <li>stateCode (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=Presponse.Item(i).stateCode%></li>
+                                <li>stateDT (ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=Presponse.Item(i).stateDT%></li>
+                                <li>identityNum (ï¿½Äºï¿½ï¿½ï¿½È£) : <%=Presponse.Item(i).identityNum%></li>
+                                <li>itemName (ï¿½ï¿½Ç°ï¿½ï¿½) : <%=Presponse.Item(i).itemName%></li>
+                                <li>customerName (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.Item(i).customerName%></li>
+                                <li>confirmNum (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Î¹ï¿½È£) : <%=Presponse.Item(i).confirmNum%></li>
+                                <li>orgConfirmNum (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Î¹ï¿½È£) : <%=Presponse.Item(i).orgConfirmNum%></li>
+                                <li>orgTradeDate (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.Item(i).orgTradeDate%></li>
+                                <li>ntssendDT (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=Presponse.Item(i).ntssendDT%></li>
+                                <li>ntsresultDT (ï¿½ï¿½ï¿½ï¿½Ã» Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=Presponse.Item(i).ntsResultDT%></li>
+                                <li>ntsresultCode (ï¿½ï¿½ï¿½ï¿½Ã» Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=Presponse.Item(i).ntsResultCode%></li>
+                                <li>ntsresultMessage (ï¿½ï¿½ï¿½ï¿½Ã» Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½) : <%=Presponse.Item(i).ntsResultMessage%></li>
+                                <li>printYN (ï¿½Î¼â¿©ï¿½ï¿½) : <%=Presponse.Item(i).printYN%></li>
                             </ul>
                             </fieldset>
                     <%	Next
                         Else %>
                         <li> Response.code : <%=code%> </li>
                         <li> Response.message : <%=message%> </li>
-                    <% End If%> 
-                    
+                    <% End If%>
+
                 </ul>
             </fieldset>
          </div>

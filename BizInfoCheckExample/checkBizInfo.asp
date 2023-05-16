@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="../Example.css" media="screen" />
-        <title>±â¾÷Á¤º¸Á¶È¸ API SDK ASP Example.</title>
+        <title>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ API SDK ASP Example.</title>
     </head>
-    <!--#include file="common.asp"--> 
+    <!--#include file="common.asp"-->
     <%
         '**************************************************************
-        ' »ç¾÷ÀÚ¹øÈ£ 1°Ç¿¡ ´ëÇÑ ±â¾÷Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
+        ' ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ 1ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         ' - https://developers.popbill.com/reference/bizinfocheck/asp/api/check#CheckBizInfo
         '**************************************************************
-        'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
-        MemberCorpNum = "1234567890"	
+        'ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+        MemberCorpNum = "1234567890"
 
-        'Á¶È¸ÇÒ »ç¾÷ÀÚ¹øÈ£
-        CheckCorpNum = "6798700433"	
+        'ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+        CheckCorpNum = "6798700433"
 
-        ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-        UserID = "testkorea"	
+        ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+        UserID = "testkorea"
 
         On Error Resume Next
             Set result = m_BizInfoCheckService.checkBizInfo(MemberCorpNum, CheckCorpNum, UserID )
-            
+
             If Err.Number <> 0 Then
                 code = Err.Number
                 message = Err.Description
@@ -36,53 +36,53 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>±â¾÷Á¤º¸Á¶È¸</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸</legend>
             <%
-                If Not IsEmpty(result) Then  
+                If Not IsEmpty(result) Then
 
             %>
 
                 <ul>
-                    <li>corpNum (»ç¾÷ÀÚ¹øÈ£) : <%= result.corpNum%></li>
-                    <li>companyRegNum (¹ýÀÎ¹øÈ£): <%=result.companyRegNum%></li>
-                    <li>checkDT (È®ÀÎÀÏ½Ã) : <%=result.checkDT%></li>
-                    <li>corpName (»óÈ£): <%=result.corpName%></li>
-                    <li>corpCode (±â¾÷ÇüÅÂÄÚµå): <%=result.corpCode%></li>
-                    <li>corpScaleCode (±â¾÷±Ô¸ðÄÚµå): <%=result.corpScaleCode%></li>
-                    <li>personCorpCode (°³ÀÎ¹ýÀÎÄÚµå): <%=result.personCorpCode%></li>
-                    <li>headOfficeCode (º»Á¡ÁöÁ¡ÄÚµå) : <%=result.headOfficeCode%></li>
-                    <li>industryCode (»ê¾÷ÄÚµå) : <%=result.industryCode%></li>
-                    <li>establishCode (¼³¸³±¸ºÐÄÚµå) : <%=result.establishCode%></li>
-                    <li>establishDate (¼³¸³ÀÏÀÚ) : <%=result.establishDate%></li>
-                    <li>CEOName (´ëÇ¥ÀÚ¸í) : <%=result.ceoname%></li>
-                    <li>workPlaceCode (»ç¾÷Àå±¸ºÐÄÚµå): <%=result.workPlaceCode%></li>
-                    <li>addrCode (ÁÖ¼Ò±¸ºÐÄÚµå) : <%=result.addrCode%></li>
-                    <li>zipCode (¿ìÆí¹øÈ£) : <%=result.zipCode%></li>
-                    <li>addr (ÁÖ¼Ò) : <%=result.addr%></li>
-                    <li>addrDetail (»ó¼¼ÁÖ¼Ò) : <%=result.addrDetail%></li>
-                    <li>enAddr (¿µ¹®ÁÖ¼Ò) : <%=result.enAddr%></li>
-                    <li>bizClass (¾÷Á¾) : <%=result.bizClass%></li>
-                    <li>bizType (¾÷ÅÂ) : <%=result.bizType%></li>
-                    <li>result (°á°úÄÚµå) : <%=result.result%></li>
-                    <li>resultMessage (°á°ú¸Þ½ÃÁö) : <%=result.resultMessage%></li>
-                    <li>closeDownTaxType (»ç¾÷ÀÚ°ú¼¼À¯Çü) : <%=result.closeDownTaxType%></li>
-                    <li>closeDownTaxTypeDate (°ú¼¼À¯ÇüÀüÈ¯ÀÏÀÚ):<%=result.closeDownTaxTypeDate%></li>
-                    <li>closeDownState (ÈÞÆó¾÷»óÅÂ) : <%=result.closeDownState%></li>
-                    <li>closeDownStateDate (ÈÞÆó¾÷ÀÏÀÚ) : <%=result.closeDownStateDate%></li>	
+                    <li>corpNum (ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) : <%= result.corpNum%></li>
+                    <li>companyRegNum (ï¿½ï¿½ï¿½Î¹ï¿½È£): <%=result.companyRegNum%></li>
+                    <li>checkDT (È®ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.checkDT%></li>
+                    <li>corpName (ï¿½ï¿½È£): <%=result.corpName%></li>
+                    <li>corpCode (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½): <%=result.corpCode%></li>
+                    <li>corpScaleCode (ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½Úµï¿½): <%=result.corpScaleCode%></li>
+                    <li>personCorpCode (ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½ï¿½Úµï¿½): <%=result.personCorpCode%></li>
+                    <li>headOfficeCode (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.headOfficeCode%></li>
+                    <li>industryCode (ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.industryCode%></li>
+                    <li>establishCode (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.establishCode%></li>
+                    <li>establishDate (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.establishDate%></li>
+                    <li>CEOName (ï¿½ï¿½Ç¥ï¿½Ú¸ï¿½) : <%=result.ceoname%></li>
+                    <li>workPlaceCode (ï¿½ï¿½ï¿½ï¿½å±¸ï¿½ï¿½ï¿½Úµï¿½): <%=result.workPlaceCode%></li>
+                    <li>addrCode (ï¿½Ö¼Ò±ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.addrCode%></li>
+                    <li>zipCode (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=result.zipCode%></li>
+                    <li>addr (ï¿½Ö¼ï¿½) : <%=result.addr%></li>
+                    <li>addrDetail (ï¿½ï¿½ï¿½Ö¼ï¿½) : <%=result.addrDetail%></li>
+                    <li>enAddr (ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½) : <%=result.enAddr%></li>
+                    <li>bizClass (ï¿½ï¿½ï¿½ï¿½) : <%=result.bizClass%></li>
+                    <li>bizType (ï¿½ï¿½ï¿½ï¿½) : <%=result.bizType%></li>
+                    <li>result (ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.result%></li>
+                    <li>resultMessage (ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½) : <%=result.resultMessage%></li>
+                    <li>closeDownTaxType (ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.closeDownTaxType%></li>
+                    <li>closeDownTaxTypeDate (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½):<%=result.closeDownTaxTypeDate%></li>
+                    <li>closeDownState (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.closeDownState%></li>
+                    <li>closeDownStateDate (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.closeDownStateDate%></li>
                 </ul>
 
             <%
-                End If 
+                End If
                 If Not IsEmpty(code) then
             %>
 
-            <ul>	
+            <ul>
                 <li>Response.code : <%= code %> </li>
                 <li>Response.message : <%= message %></li>
             </ul>
             <%
                 End If
-            %>		
+            %>
 
             </fieldset>
     </body>

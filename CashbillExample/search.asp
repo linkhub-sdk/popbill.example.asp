@@ -1,84 +1,84 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' °Ë»öÁ¶°ÇÀ» »ç¿ëÇÏ¿© Çö±Ý¿µ¼öÁõ ¸ñ·ÏÀ» Á¶È¸ÇÕ´Ï´Ù. (Á¶È¸±â°£ ´ÜÀ§ : ÃÖ´ë 6°³¿ù)
+    ' ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Õ´Ï´ï¿½. (ï¿½ï¿½È¸ï¿½â°£ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ö´ï¿½ 6ï¿½ï¿½ï¿½ï¿½)
     ' - https://developers.popbill.com/reference/cashbill/asp/api/info#Search
     '**************************************************************
 
-    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
+    'ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
 
-    ' ÀÏÀÚ À¯Çü ("R" , "T" , "I" Áß ÅÃ 1)
-    ' ¦¦ R = µî·ÏÀÏÀÚ , T = °Å·¡ÀÏÀÚ , I = ¹ßÇàÀÏÀÚ
-    DType = "T"						
-    
-    '½ÃÀÛÀÏÀÚ, yyyyMMdd
-    SDate = "20220701"				
+    ' ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ("R" , "T" , "I" ï¿½ï¿½ ï¿½ï¿½ 1)
+    ' ï¿½ï¿½ R = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , T = ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ , I = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    DType = "T"
 
-    'Á¾·áÀÏÀÚ, yyyyMMdd
-    EDate = "20220720"				
+    'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, yyyyMMdd
+    SDate = "20220701"
 
-    ' »óÅÂÄÚµå ¹è¿­ (2,3¹øÂ° ÀÚ¸®¿¡ ¿ÍÀÏµåÄ«µå(*) »ç¿ë °¡´É)
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, yyyyMMdd
+    EDate = "20220720"
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½è¿­ (2,3ï¿½ï¿½Â° ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½Ä«ï¿½ï¿½(*) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     Dim State(1)
     State(0) = "3**"
-    
-    ' ¹®¼­ÇüÅÂ ¹è¿­ ("N" , "C" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' - N = ÀÏ¹Ý Çö±Ý¿µ¼öÁõ , C = Ãë¼Ò Çö±Ý¿µ¼öÁõ
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
-    Dim TradeType(2)			
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("N" , "C" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - N = ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ , C = ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
+    Dim TradeType(2)
     TradeType(0) = "N"
     TradeType(1) = "C"
 
-    ' °Å·¡±¸ºÐ ¹è¿­ ("P" , "C" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' - P = ¼Òµæ°øÁ¦¿ë , C = ÁöÃâÁõºù¿ë
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
-    Dim TradeUsage(2)		
+    ' ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("P" , "C" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - P = ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , C = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
+    Dim TradeUsage(2)
     TradeUsage(0) = "P"
     TradeUsage(1) = "C"
 
-    ' °Å·¡À¯Çü ¹è¿­ ("N" , "B" , "T" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' - N = ÀÏ¹Ý , B = µµ¼­°ø¿¬ , T = ´ëÁß±³Åë
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
-    Dim TradeOpt(3)		
+    ' ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("N" , "B" , "T" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - N = ï¿½Ï¹ï¿½ , B = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , T = ï¿½ï¿½ï¿½ß±ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
+    Dim TradeOpt(3)
     TradeOpt(0) = "N"
     TradeOpt(1) = "B"
     TradeOpt(2) = "T"
 
-    ' °ú¼¼ÇüÅÂ ¹è¿­ ("T" , "N" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' - T = °ú¼¼ , N = ºñ°ú¼¼
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
-    Dim TaxationType(2)		
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("T" , "N" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' - T = ï¿½ï¿½ï¿½ï¿½ , N = ï¿½ï¿½ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
+    Dim TaxationType(2)
     TaxationType(0) = "T"
     TaxationType(1) = "N"
 
 
-    ' Á¤·Ä¹æÇâ, A-¿À¸§Â÷¼ø, D-³»¸²Â÷¼ø
-    Order = "D"			
+    ' ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½, A-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, D-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    Order = "D"
 
-    ' ÆäÀÌÁö¹øÈ£
-    Page = 1				
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    Page = 1
 
-    ' ÆäÀÌÁö´ç °Ë»ö°³¼ö, ÃÖ´ë 1000
-    PerPage = 20		
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ö´ï¿½ 1000
+    PerPage = 20
 
-    ' ½Äº°¹øÈ£ Á¶È¸, °ø¹éÃ³¸®½Ã ÀüÃ¼Á¶È¸
-    QString = ""		
+    ' ï¿½Äºï¿½ï¿½ï¿½È£ ï¿½ï¿½È¸, ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
+    QString = ""
 
-    ' °¡¸ÍÁ¡ Á¾»ç¾÷Àå ¹øÈ£
-    ' - ´Ù¼ö°Ç °Ë»ö½Ã ÄÞ¸¶(",")·Î ±¸ºÐ. ¿¹) 1234,1000
-    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+    ' - ï¿½Ù¼ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½(",")ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½) 1234,1000
+    ' - ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     FranchiseTaxRegID = ""
 
     On Error Resume Next
-    
+
     Set SearchResult = m_CashbillService.Search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt, TaxationType, Order, Page, PerPage, QString, FranchiseTaxRegID)
 
     If Err.Number <> 0 then
@@ -87,59 +87,59 @@
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Çö±Ý¿µ¼öÁõ ¸ñ·ÏÁ¶È¸</legend>
+                <legend>ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È¸</legend>
                     <ul>
-                        <li> code (ÀÀ´ä ÄÚµå) : <%=SearchResult.code%></li>
-                        <li> message (ÀÀ´ä ¸Þ½ÃÁö) : <%=SearchResult.message%></li>
-                        <li> total (ÃÑ °Ë»ö°á°ú °Ç¼ö) : <%=SearchResult.total%></li>
-                        <li> pageNum (ÆäÀÌÁö ¹øÈ£) : <%=SearchResult.pageNum%></li>
-                        <li> perPage (ÆäÀÌÁö´ç °Ë»ö°³¼ö) : <%=SearchResult.perPage%></li>
-                        <li> pageCount (ÆäÀÌÁö °³¼ö) : <%=SearchResult.pageCount%></li>
+                        <li> code (ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½) : <%=SearchResult.code%></li>
+                        <li> message (ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½) : <%=SearchResult.message%></li>
+                        <li> total (ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½) : <%=SearchResult.total%></li>
+                        <li> pageNum (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) : <%=SearchResult.pageNum%></li>
+                        <li> perPage (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=SearchResult.perPage%></li>
+                        <li> pageCount (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=SearchResult.pageCount%></li>
                     </ul>
-                    <% If code = 0 Then 
+                    <% If code = 0 Then
                         For i=0 To UBound(SearchResult.list)-1 %>
                         <fieldset class="fieldset2">
-                            <legend> Çö±Ý¿µ¼öÁõ Á¶È¸ °á°ú [<%= i+1 %> / <%= SearchResult.total %>]</legend>
+                            <legend> ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ [<%= i+1 %> / <%= SearchResult.total %>]</legend>
                             <ul>
-                                <li>itemKey (Çö±Ý¿µ¼öÁõ ¾ÆÀÌÅÛÅ°) : <%=SearchResult.list(i).itemKey%></li>
-                                <li>mgtKey (¹®¼­¹øÈ£) : <%=SearchResult.list(i).mgtKey%></li>
-                                <li>tradeDate (°Å·¡ÀÏÀÚ) : <%=SearchResult.list(i).tradeDate%></li>
-                                <li>tradeDT (°Å·¡ÀÏ½Ã) : <%=SearchResult.list(i).tradeDT%></li>
-                                <li>tradeType (¹®¼­ÇüÅÂ) : <%=SearchResult.list(i).tradeType%></li>
-                                <li>tradeUsage (°Å·¡±¸ºÐ) : <%=SearchResult.list(i).tradeUsage%></li>
-                                <li>tradeOpt (°Å·¡À¯Çü) : <%=SearchResult.list(i).tradeOpt%></li>
-                                <li>taxationType (°ú¼¼ÇüÅÂ) : <%=SearchResult.list(i).taxationType%></li>
-                                <li>totalAmount (°Å·¡±Ý¾×) : <%=SearchResult.list(i).totalAmount%></li>
-                                <li>issueDT (¹ßÇàÀÏ½Ã) : <%=SearchResult.list(i).issueDT%></li>
-                                <li>regDT (µî·ÏÀÏ½Ã) : <%=SearchResult.list(i).regDT%></li>
-                                <li>stateMemo (»óÅÂ¸Þ¸ð) : <%=SearchResult.list(i).stateMemo%></li>
-                                <li>stateCode (»óÅÂÄÚµå) : <%=SearchResult.list(i).stateCode%></li>
-                                <li>stateDT (»óÅÂº¯°æÀÏ½Ã) : <%=SearchResult.list(i).stateDT%></li>
-                                <li>identityNum (°Å·¡Ã³ ½Äº°¹øÈ£) : <%=SearchResult.list(i).identityNum%></li>
-                                <li>itemName (»óÇ°¸í) : <%=SearchResult.list(i).itemName%></li>
-                                <li>customerName (°í°´¸í) : <%=SearchResult.list(i).customerName%></li>
-                                <li>confirmNum (±¹¼¼Ã» ½ÂÀÎ¹øÈ£) : <%=SearchResult.list(i).confirmNum%></li>
-                                <li>orgConfirmNum (¿øº» Çö±Ý¿µ¼öÁõ ±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%=SearchResult.list(i).orgConfirmNum%></li>
-                                <li>orgTradeDate (¿øº» Çö±Ý¿µ¼öÁõ °Å·¡ÀÏÀÚ) : <%=SearchResult.list(i).orgTradeDate%></li>
-                                <li>ntssendDT (±¹¼¼Ã» Àü¼ÛÀÏ½Ã) : <%=SearchResult.list(i).ntssendDT%></li>
-                                <li>ntsresultDT (±¹¼¼Ã» Ã³¸®°á°ú ¼ö½ÅÀÏ½Ã) : <%=SearchResult.list(i).ntsResultDT%></li>
-                                <li>ntsresultCode (±¹¼¼Ã» Ã³¸®°á°ú »óÅÂÄÚµå) : <%=SearchResult.list(i).ntsResultCode%></li>
-                                <li>ntsresultMessage (±¹¼¼Ã» Ã³¸®°á°ú ¸Þ½ÃÁö) : <%=SearchResult.list(i).ntsResultMessage%></li>
-                                <li>printYN (ÀÎ¼â¿©ºÎ) : <%=SearchResult.list(i).printYN%></li>
+                                <li>itemKey (ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°) : <%=SearchResult.list(i).itemKey%></li>
+                                <li>mgtKey (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=SearchResult.list(i).mgtKey%></li>
+                                <li>tradeDate (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=SearchResult.list(i).tradeDate%></li>
+                                <li>tradeDT (ï¿½Å·ï¿½ï¿½Ï½ï¿½) : <%=SearchResult.list(i).tradeDT%></li>
+                                <li>tradeType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=SearchResult.list(i).tradeType%></li>
+                                <li>tradeUsage (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=SearchResult.list(i).tradeUsage%></li>
+                                <li>tradeOpt (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=SearchResult.list(i).tradeOpt%></li>
+                                <li>taxationType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=SearchResult.list(i).taxationType%></li>
+                                <li>totalAmount (ï¿½Å·ï¿½ï¿½Ý¾ï¿½) : <%=SearchResult.list(i).totalAmount%></li>
+                                <li>issueDT (ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=SearchResult.list(i).issueDT%></li>
+                                <li>regDT (ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=SearchResult.list(i).regDT%></li>
+                                <li>stateMemo (ï¿½ï¿½ï¿½Â¸Þ¸ï¿½) : <%=SearchResult.list(i).stateMemo%></li>
+                                <li>stateCode (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=SearchResult.list(i).stateCode%></li>
+                                <li>stateDT (ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=SearchResult.list(i).stateDT%></li>
+                                <li>identityNum (ï¿½Å·ï¿½Ã³ ï¿½Äºï¿½ï¿½ï¿½È£) : <%=SearchResult.list(i).identityNum%></li>
+                                <li>itemName (ï¿½ï¿½Ç°ï¿½ï¿½) : <%=SearchResult.list(i).itemName%></li>
+                                <li>customerName (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=SearchResult.list(i).customerName%></li>
+                                <li>confirmNum (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Î¹ï¿½È£) : <%=SearchResult.list(i).confirmNum%></li>
+                                <li>orgConfirmNum (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Î¹ï¿½È£) : <%=SearchResult.list(i).orgConfirmNum%></li>
+                                <li>orgTradeDate (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=SearchResult.list(i).orgTradeDate%></li>
+                                <li>ntssendDT (ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=SearchResult.list(i).ntssendDT%></li>
+                                <li>ntsresultDT (ï¿½ï¿½ï¿½ï¿½Ã» Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=SearchResult.list(i).ntsResultDT%></li>
+                                <li>ntsresultCode (ï¿½ï¿½ï¿½ï¿½Ã» Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=SearchResult.list(i).ntsResultCode%></li>
+                                <li>ntsresultMessage (ï¿½ï¿½ï¿½ï¿½Ã» Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½) : <%=SearchResult.list(i).ntsResultMessage%></li>
+                                <li>printYN (ï¿½Î¼â¿©ï¿½ï¿½) : <%=SearchResult.list(i).printYN%></li>
                             </ul>
                         </fieldset>
                     <%	Next
                         Else %>
                         <li> Response.code : <%=code%> </li>
                         <li> Response.message : <%=message%> </li>
-                    <% End If%> 
+                    <% End If%>
                 </fieldset>
          </div>
     </body>

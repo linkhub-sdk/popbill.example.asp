@@ -1,31 +1,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 팝빌 팩스 API 서비스 과금정보를 확인합니다.
+    ' 占싯븝옙 占싼쏙옙 API 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 확占쏙옙占쌌니댐옙.
     ' - https://developers.popbill.com/reference/fax/asp/api/point#GetChargeInfo
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"		
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
+    testCorpNum = "1234567890"
 
-    ' 팝빌회원 아이디
-    UserID = "testkorea"		
-    
-    ' 수신번호 유형 : "일반" / "지능" 중 택 1
-    ' └ 일반망 : 지능망을 제외한 번호
-    ' └ 지능망 : 030*, 050*, 070*, 080*, 대표번호
-    receiveNumType = "지능"
-    
+    ' 占싯븝옙회占쏙옙 占쏙옙占싱듸옙
+    UserID = "testkorea"
+
+    ' 占쏙옙占신뱄옙호 占쏙옙占쏙옙 : "占싹뱄옙" / "占쏙옙占쏙옙" 占쏙옙 占쏙옙 1
+    ' 占쏙옙 占싹반몌옙 : 占쏙옙占심몌옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙호
+    ' 占쏙옙 占쏙옙占심몌옙 : 030*, 050*, 070*, 080*, 占쏙옙표占쏙옙호
+    receiveNumType = "占쏙옙占쏙옙"
+
     On Error Resume Next
 
     Set result = m_FaxService.GetChargeInfo ( testCorpNum, UserID, receiveNumType )
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -39,14 +39,14 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> 과금정보 조회</legend>
+                <legend> 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙회</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> unitCost (전송단가) : <%=result.unitCost%></li>
-                        <li> chargeMethod (과금유형) : <%=result.chargeMethod%></li>
-                        <li> rateSystem (과금제도) : <%=result.rateSystem%></li>
+                        <li> unitCost (占쏙옙占쌜단곤옙) : <%=result.unitCost%></li>
+                        <li> chargeMethod (占쏙옙占쏙옙占쏙옙占쏙옙) : <%=result.chargeMethod%></li>
+                        <li> rateSystem (占쏙옙占쏙옙占쏙옙占쏙옙) : <%=result.rateSystem%></li>
                     </ul>
                 <%
                     Else
@@ -54,8 +54,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

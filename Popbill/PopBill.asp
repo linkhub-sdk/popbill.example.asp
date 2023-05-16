@@ -276,41 +276,51 @@ End Function
 Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
     Dim tmp: Set tmp = PaymentForm.toJsonInfo
     Dim postdata: postdata = m_Linkhub.toString(tmp)
-    Set paymentResponse = httpPOST("/Payment", getSession_token(CorpNum), "", postData, UserID)
+    PaymentRequest = httpPOST("/Payment", getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 ' 무통장 입금신청 정보확인 (GetSettleResult)
 Public Function GetSettleResult(CorpNum, SettleCode, UserID)
+    On Error Resume Next
+    If IsEmpty(SettleCode) IsNull(SettleCode) then
+        Err.Raise -99999999, "SettleCode가 입력되지 않았습니다."
+        On Error GoTo 0
+    End If
 
-    Set response = httpGET("/Paymet/"+ SettleCode,getSession_token(CorpNum),UserID)
+    GetSettleResult = httpGET("/Paymet/"& SettleCode,getSession_token(CorpNum),UserID)
 End Function
 
 ' 포인트 사용내역 (GetUseHistory)
 Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
-    Set response = httpGET("/UseHistory?SDate=" & SDate &  "&EDate=" & EDate & "&Page=" & Page & "&PerPage=" & PerPage &  "&Order=" & Order,getSession_token(CorpNum),UserID)
+    GetUseHistory = httpGET("/UseHistory?SDate=" & SDate &  "&EDate=" & EDate & "&Page=" & Page & "&PerPage=" & PerPage &  "&Order=" & Order,getSession_token(CorpNum),UserID)
 End Function
 
 ' 포인트 결제내역 (GetPaymentHistory)
-Public Function GetPaymentHistory(CorpNum, UserID)
-    Set response = httpGET("/PaymentHistory?SDate=" +SDate+  "&EDate="+EDate +  "&Page="+Page+  "&PerPage=" +PerPage,getSession_token(CorpNum),UserID)
+Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+    GetPaymentHistory = httpGET("/PaymentHistory?SDate=" &SDate&  "&EDate="&EDate &  "&Page="&Page&  "&PerPage=" &PerPage,getSession_token(CorpNum),UserID)
 End Function
 
 ' 환불 신청 (Refund)
 Public Function Refund(CorpNum, RefundForm,  UserID)
     Dim tmp: Set tmp = RefundForm.toJsonInfo
     Dim postdata: postdata = m_Linkhub.toString(tmp)
-    Set refundResponse = httpPOST("/Refund", getSession_token(CorpNum), "", postData, UserID)
+    Refund = httpPOST("/Refund", getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 ' 환불 신청내역 (GetRefundHistory)
 Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
-    Set response = httpGET("/RefundHistory?Page="+Page + "PerPage="+PerPage,getSession_token(CorpNum),UserID)
+    GetRefundHistory = httpGET("/RefundHistory?Page="+Page + "PerPage="+PerPage,getSession_token(CorpNum),UserID)
 End Function
 
 ' 환불 신청상태 확인 (GetRefundInfo)
 Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
-    Set refundHistory = httpGET("/Refund/"&RefundCode,getSession_token(CorpNum),UserID)
-	Set GetRefundInfo = refundHistory
+    On Error Resume Next
+    If IsEmpty(RefundCode) IsNull(RefundCode) then
+        Err.Raise -99999999, "RefundCode 입력되지 않았습니다."
+        On Error GoTo 0
+    End If
+
+	GetRefundInfo = httpGET("/Refund/"&RefundCode,getSession_token(CorpNum),UserID)
 End Function
 
 ' 환불 가능 포인트 조회 (GetRefundableBalance)
@@ -323,7 +333,7 @@ End Function
 Public Function QuitMember(CorpNum, QuitReason, UserID)
     Dim tmp: Set tmp = QuitMember.toJsonInfo(QuitReason)
     Dim postdata: postdata = m_Linkhub.toString(tmp)
-    Set response = httpPOST("/QuitMember", getSession_token(CorpNum), "", postData, UserID)
+    QuitMember = httpPOST("/QuitMember", getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 '''''''''''''  End of PopbillBase

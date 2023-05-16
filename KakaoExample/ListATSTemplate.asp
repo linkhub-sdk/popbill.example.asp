@@ -1,24 +1,24 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ½ÂÀÎµÈ ¾Ë¸²Åå ÅÛÇÃ¸´ ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Îµï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/template#ListATSTemplate
     '**************************************************************
 
-    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    'ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
     On Error Resume Next
 
     Set resultObj = m_KakaoService.ListATSTemplate(testCorpNum)
-    
+
     If Err.Number <> 0 then
         code = Err.Number
         message = Err.Description
@@ -32,29 +32,29 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¾Ë¸²Åå ÅÛÇÃ¸´ ¸ñ·Ï Á¶È¸ </legend>
-                    <% 
+                <legend>ï¿½Ë¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ </legend>
+                    <%
                         If code = 0 Then
-                            For i=0 To resultObj.Count-1 
+                            For i=0 To resultObj.Count-1
                     %>
                         <fieldset class="fieldset2">
-                            <legend>  ÅÛÇÃ¸´ Á¤º¸ [ <%=i+1%> / <%= resultObj.Count %> ] </legend>
+                            <legend>  ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ [ <%=i+1%> / <%= resultObj.Count %> ] </legend>
                             <ul>
-                                <li> templateCode (ÅÛÇÃ¸´ ÄÚµå) : <%=resultObj(i).templateCode%></li>
-                                <li> templateName (ÅÛÇÃ¸´ Á¦¸ñ) : <%=resultObj(i).templateName%></li>
-                                <li> template (ÅÛÇÃ¸´ ³»¿ë) : <%=resultObj(i).template%></li>
-                                <li> plusFriendID (°Ë»ö¿ë ¾ÆÀÌµð) : <%=resultObj(i).plusFriendID%></li>
-                                <li> ads (±¤°í¸Þ½ÃÁö ³»¿ë) : <%=resultObj(i).ads%></li>
-                                <li> appendix (ºÎ°¡¸Þ½ÃÁö ³»¿ë) : <%=resultObj(i).appendix%></li>
-                                <li> secureYN (º¸¾ÈÅÛÇÃ¸´ ¿©ºÎ) : <%=resultObj(i).secureYN%></li>
-                                <li> state (ÅÛÇÃ¸´ »óÅÂ) : <%=resultObj(i).state%></li>
-                                <li> stateDT (ÅÛÇÃ¸´ »óÅÂ ÀÏ½Ã) : <%=resultObj(i).stateDT%></li>
+                                <li> templateCode (ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½Úµï¿½) : <%=resultObj(i).templateCode%></li>
+                                <li> templateName (ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj(i).templateName%></li>
+                                <li> template (ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj(i).template%></li>
+                                <li> plusFriendID (ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½) : <%=resultObj(i).plusFriendID%></li>
+                                <li> ads (ï¿½ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj(i).ads%></li>
+                                <li> appendix (ï¿½Î°ï¿½ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj(i).appendix%></li>
+                                <li> secureYN (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj(i).secureYN%></li>
+                                <li> state (ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=resultObj(i).state%></li>
+                                <li> stateDT (ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï½ï¿½) : <%=resultObj(i).stateDT%></li>
                             </ul>
                         <%
                             For j=0 To UBound(resultObj(i).btns) -1
                         %>
                                 <fieldset class="fieldset3">
-                                    <legend> ¹öÆ°Á¤º¸ [ <%=j+1%> / <%= UBound(resultObj(i).btns)%> ] </legend>
+                                    <legend> ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ [ <%=j+1%> / <%= UBound(resultObj(i).btns)%> ] </legend>
                                     <ul>
                                         <li>n : <%=resultObj(i).btns(j).n%> </li>
                                         <li>t : <%=resultObj(i).btns(j).t%> </li>
@@ -62,7 +62,7 @@
                                         <li>u2 : <%=resultObj(i).btns(j).u2%> </li>
                                     </ul>
                             </fieldset>
-                        <% 
+                        <%
                                 Next
                         %>
                         </fieldset>

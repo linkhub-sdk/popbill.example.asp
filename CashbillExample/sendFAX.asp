@@ -1,33 +1,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 현금영수증을 팩스로 전송하는 함수로, 팝빌 사이트 [문자·팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인 할 수 있습니다.
-    ' - 팩스 전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
+    ' 占쏙옙占쌥울옙占쏙옙占쏙옙占쏙옙 占싼쏙옙占쏙옙 占쏙옙占쏙옙占싹댐옙 占쌉쇽옙占쏙옙, 占싯븝옙 占쏙옙占쏙옙트 [占쏙옙占쌘∽옙占싼쏙옙] > [占싼쏙옙] > [占쏙옙占쌜놂옙占쏙옙] 占쌨댐옙占쏙옙占쏙옙 占쏙옙占쌜곤옙占쏙옙占� 확占쏙옙 占쏙옙 占쏙옙 占쌍쏙옙占싹댐옙.
+    ' - 占싼쏙옙 占쏙옙占쏙옙 占쏙옙청占쏙옙 占쏙옙占쏙옙트占쏙옙 占쏙옙占쏙옙占싯니댐옙. (占쏙옙占쌜쏙옙占싻쏙옙 환占쏙옙처占쏙옙)
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#SendFAX
     '**************************************************************
 
-    '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"	 
+    '占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
+    testCorpNum = "1234567890"
 
-    '팝빌회원 아이디
-    userID = "testkorea"		 
+    '占싯븝옙회占쏙옙 占쏙옙占싱듸옙
+    userID = "testkorea"
 
-    '문서번호	
-    mgtKey = "20220720-ASP-001"		 
+    '占쏙옙占쏙옙占쏙옙호
+    mgtKey = "20220720-ASP-001"
 
-    '발신번호
-    sender = ""		 
+    '占쌩신뱄옙호
+    sender = ""
 
-    '수신팩스번호
-    receiver = ""		 
+    '占쏙옙占쏙옙占싼쏙옙占쏙옙호
+    receiver = ""
 
-    On Error Resume Next 
+    On Error Resume Next
 
     Set Presponse = m_CashbillService.SendFAX(testCorpNum, mgtKey, Sender, Receiver, UserID)
 
@@ -39,15 +39,15 @@
         code = Presponse.code
         message = Presponse.message
     End If
-    
-    On Error GoTo 0 
+
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>현금영수증 팩스전송 </legend>
+                <legend>占쏙옙占쌥울옙占쏙옙占쏙옙 占싼쏙옙占쏙옙占쏙옙 </legend>
                 <ul>
                     <li>Response.code : <%=code%></li>
                     <li>Response.message : <%=message%></li>

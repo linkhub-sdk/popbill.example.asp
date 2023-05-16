@@ -1,48 +1,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼¼±Ý°è»ê¼­¿Í °ü·ÃµÈ ¾È³» SMS(´Ü¹®) ¹®ÀÚ¸¦ ÀçÀü¼ÛÇÏ´Â ÇÔ¼ö·Î, ÆËºô »çÀÌÆ® [¹®ÀÚ¡¤ÆÑ½º] > [¹®ÀÚ] > [Àü¼Û³»¿ª] ¸Þ´º¿¡¼­ Àü¼Û°á°ú¸¦ È®ÀÎ ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-    ' - ¸Þ½ÃÁö´Â ÃÖ´ë 90byte±îÁö ÀÔ·Â °¡´ÉÇÏ°í, ÃÊ°úÇÑ ³»¿ëÀº ÀÚµ¿À¸·Î »èÁ¦µÇ¾î Àü¼ÛÇÕ´Ï´Ù. (ÇÑ±Û ÃÖ´ë 45ÀÚ)\
-    ' - ÇÔ¼ö È£Ãâ½Ã Æ÷ÀÎÆ®°¡ °ú±ÝµË´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½È³ï¿½ SMS(ï¿½Ü¹ï¿½) ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½, ï¿½Ëºï¿½ ï¿½ï¿½ï¿½ï¿½Æ® [ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½Ñ½ï¿½] > [ï¿½ï¿½ï¿½ï¿½] > [ï¿½ï¿½ï¿½Û³ï¿½ï¿½ï¿½] ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û°ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
+    ' - ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ 90byteï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. (ï¿½Ñ±ï¿½ ï¿½Ö´ï¿½ 45ï¿½ï¿½)\
+    ' - ï¿½Ô¼ï¿½ È£ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ÝµË´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#SendSMS
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     testUserID = "testkorea"
-    
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
     KeyType = "SELL"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     MgtKey = "20220720-ASP-001"
 
-    ' ¹ß½Å¹øÈ£
+    ' ï¿½ß½Å¹ï¿½È£
     Sender = ""
 
-    ' ¼ö½Å¹øÈ£
+    ' ï¿½ï¿½ï¿½Å¹ï¿½È£
     Receiver = ""
-    
-    ' ¸Þ½ÃÁö ³»¿ë, 90byteÃÊ°ú½Ã ±æÀÌ°¡ Á¶Á¤µÇ¾î Àü¼ÛµÊ
-    Contents = "¹®ÀÚ Å×½ºÆ®ÀÔ´Ï´Ù 90Bytes¸¦ ÃÊ°úÇÑ³»¿ëÀº Àü¼ÛµÇÁö ¾Ê½À´Ï´Ù" 
-    
+
+    ' ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 90byteï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½Ûµï¿½
+    Contents = "ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®ï¿½Ô´Ï´ï¿½ 90Bytesï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Ñ³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ûµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½"
+
     On Error Resume Next
-    
+
     Set Presponse = m_TaxinvoiceService.SendSMS(testCorpNum, KeyType, MgtKey, Sender, Receiver, Contents, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -53,7 +53,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¾Ë¸²¹®ÀÚ Àü¼Û</legend>
+                <legend>ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

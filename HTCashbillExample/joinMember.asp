@@ -1,59 +1,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' »ç¿ëÀÚ¸¦ ¿¬µ¿È¸¿øÀ¸·Î °¡ÀÔÃ³¸®ÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/member#JoinMember
     '**************************************************************
 
-    ' È¸¿øÁ¤º¸ °´Ã¼ »ý¼º
+    ' È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
     Set joinInfo = New JoinForm
 
-    ' ¸µÅ©¾ÆÀÌµð 
-    joinInfo.LinkID = "TESTER"		   
+    ' ï¿½ï¿½Å©ï¿½ï¿½ï¿½Ìµï¿½
+    joinInfo.LinkID = "TESTER"
 
-    ' »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
-    joinInfo.CorpNum = "1234567890"    
+    ' ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-"ï¿½ï¿½ï¿½ï¿½ 10ï¿½Ú¸ï¿½
+    joinInfo.CorpNum = "1234567890"
 
-    ' ´ëÇ¥ÀÚ¼º¸í
-    joinInfo.CEOName = "´ëÇ¥ÀÚ¼º¸í"	
-    
-    ' »óÈ£¸í
-    joinInfo.CorpName =  "»óÈ£"	
-    
-    ' ÁÖ¼Ò
-    joinInfo.Addr =   "ÁÖ¼Ò"		   
+    ' ï¿½ï¿½Ç¥ï¿½Ú¼ï¿½ï¿½ï¿½
+    joinInfo.CEOName = "ï¿½ï¿½Ç¥ï¿½Ú¼ï¿½ï¿½ï¿½"
 
-    ' ¾÷ÅÂ
-    joinInfo.BizType =  "¾÷ÅÂ"		   
+    ' ï¿½ï¿½È£ï¿½ï¿½
+    joinInfo.CorpName =  "ï¿½ï¿½È£"
 
-    ' Á¾¸ñ
-    joinInfo.BizClass = "Á¾¸ñ"
+    ' ï¿½Ö¼ï¿½
+    joinInfo.Addr =   "ï¿½Ö¼ï¿½"
 
-    ' ¾ÆÀÌµð (6ÀÚ ÀÌ»ó 20ÀÚ ¹Ì¸¸)
+    ' ï¿½ï¿½ï¿½ï¿½
+    joinInfo.BizType =  "ï¿½ï¿½ï¿½ï¿½"
+
+    ' ï¿½ï¿½ï¿½ï¿½
+    joinInfo.BizClass = "ï¿½ï¿½ï¿½ï¿½"
+
+    ' ï¿½ï¿½ï¿½Ìµï¿½ (6ï¿½ï¿½ ï¿½Ì»ï¿½ 20ï¿½ï¿½ ï¿½Ì¸ï¿½)
     joinInfo.ID =  "userid"
 
-    ' ºñ¹Ð¹øÈ£ (8ÀÚ ÀÌ»ó 20ÀÚ ÀÌÇÏ) ¿µ¹®, ¼ýÀÚ ,Æ¯¼ö¹®ÀÚ Á¶ÇÕ
+    ' ï¿½ï¿½Ð¹ï¿½È£ (8ï¿½ï¿½ ï¿½Ì»ï¿½ 20ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ,Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     joinInfo.Password =  "asdf1234!@#$"
 
-    ' ´ã´çÀÚ¸í
-    joinInfo.ContactName = "´ã´çÀÚ¸í"    
+    ' ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
+    joinInfo.ContactName = "ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½"
 
-    ' ´ã´çÀÚ¿¬¶ôÃ³
-    joinInfo.ContactTEL = ""	
+    ' ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½Ã³
+    joinInfo.ContactTEL = ""
 
-    ' ´ã´çÀÚ ÀÌ¸ÞÀÏ
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½
     joinInfo.ContactEmail = ""
 
     On Error Resume Next
 
     Set Presponse = m_HTCashbillService.JoinMember(joinInfo)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -72,7 +72,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¿¬µ¿È¸¿ø °¡ÀÔ¿äÃ»</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½Ã»</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

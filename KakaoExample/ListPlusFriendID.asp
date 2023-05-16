@@ -1,19 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô¿¡ µî·ÏÇÑ ¿¬µ¿È¸¿øÀÇ Ä«Ä«¿ÀÅå Ã¤³Î ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' ï¿½Ëºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ Ä«Ä«ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/channel#ListPlusFriendID
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		 
-    
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
+
     On Error Resume Next
 
     Set Presponse = m_KakaoService.ListPlusFriendID(testCorpNum)
@@ -31,17 +31,17 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Ä«Ä«¿ÀÅå Ã¤³Î °èÁ¤ ¸ñ·Ï È®ÀÎ</legend>
+                <legend>Ä«Ä«ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È®ï¿½ï¿½</legend>
                 <%
                     For i=0 To Presponse.length -1
                 %>
                 <fieldset class="fieldset2">
                 <ul>
-                    <li>Ä«Ä«¿ÀÅå °Ë»ö¿ë ¾ÆÀÌµð (plusFriendID) : <%=Presponse.Get(i).plusFriendID%> </li>
-                    <li>Ä«Ä«¿ÀÅå Ã¤³Î ÀÌ¸§ (plusFriendName) : <%=Presponse.Get(i).plusFriendName%> </li>
-                    <li>µî·ÏÀÏ½Ã (regDT) : <%=Presponse.Get(i).regDT%> </li>
-                    <li>Ã¤³Î »óÅÂ (state) : <%=Presponse.Get(i).state%> </li>
-                    <li>Ã¤³Î »óÅÂ ÀÏ½Ã (stateDT) : <%=Presponse.Get(i).stateDT%> </li>
+                    <li>Ä«Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ (plusFriendID) : <%=Presponse.Get(i).plusFriendID%> </li>
+                    <li>Ä«Ä«ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ì¸ï¿½ (plusFriendName) : <%=Presponse.Get(i).plusFriendName%> </li>
+                    <li>ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ (regDT) : <%=Presponse.Get(i).regDT%> </li>
+                    <li>Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (state) : <%=Presponse.Get(i).state%> </li>
+                    <li>Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï½ï¿½ (stateDT) : <%=Presponse.Get(i).stateDT%> </li>
                 </ul>
                 </fieldset>
                 <%

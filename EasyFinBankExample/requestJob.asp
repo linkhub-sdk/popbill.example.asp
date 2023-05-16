@@ -1,37 +1,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    '  °èÁÂ °Å·¡³»¿ªÀ» È®ÀÎÇÏ±â À§ÇØ ÆËºô¿¡ ¼öÁý¿äÃ»À» ÇÕ´Ï´Ù. (Á¶È¸±â°£ ´ÜÀ§ : ÃÖ´ë 1°³¿ù)
-    ' - Á¶È¸ÀÏ·ÎºÎÅÍ ÃÖ´ë 3°³¿ù ÀÌÀü ³»¿ª±îÁö Á¶È¸ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-    ' - ¹ÝÈ¯ ¹ÞÀº ÀÛ¾÷¾ÆÀÌµð´Â ÇÔ¼ö È£Ãâ ½ÃÁ¡ºÎÅÍ 1½Ã°£ µ¿¾È À¯È¿ÇÕ´Ï´Ù.
+    '  ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ëºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½Õ´Ï´ï¿½. (ï¿½ï¿½È¸ï¿½â°£ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ö´ï¿½ 1ï¿½ï¿½ï¿½ï¿½)
+    ' - ï¿½ï¿½È¸ï¿½Ï·Îºï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
+    ' - ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½Ô¼ï¿½ È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/job#RequestJob
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    testUserID = "testkorea"		
-    
-    ' ±â°üÄÚµå
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    testUserID = "testkorea"
+
+    ' ï¿½ï¿½ï¿½ï¿½Úµï¿½
     BankCode = ""
 
-    ' °èÁÂ¹øÈ£
-    AccountNumber = ""		
+    ' ï¿½ï¿½ï¿½Â¹ï¿½È£
+    AccountNumber = ""
 
-    ' ½ÃÀÛÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
-    SDate = "20220701"			
-    
-    ' Á¾·áÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
-    EDate =	"20220720"				
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(yyyyMMdd)
+    SDate = "20220701"
 
-    
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(yyyyMMdd)
+    EDate =	"20220720"
+
+
     On Error Resume Next
 
     jobID = m_EasyFinBankService.requestJob(testCorpNum, BankCode, AccountNumber, SDate, EDate, testUserID)
@@ -49,16 +49,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼öÁý ¿äÃ»</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>jobID(ÀÛ¾÷¾ÆÀÌµð) : <%=jobID%> </li>
+                        <li>jobID(ï¿½Û¾ï¿½ï¿½ï¿½ï¿½Ìµï¿½) : <%=jobID%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

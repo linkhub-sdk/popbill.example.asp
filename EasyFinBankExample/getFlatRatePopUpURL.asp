@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>占싯븝옙 SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 계좌조회 정액제 서비스 신청 페이지의 팝업 URL을 반환합니다.
-    ' - 반환되는 URL은 보안정책상 30초의 유효시간을 갖으며, 이 시간 초과후에는 URL을 사용해도 정상적인 페이지에 접근할 수 없습니다.
+    ' 占쏙옙占쏙옙占쏙옙회 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙청 占쏙옙占쏙옙占쏙옙占쏙옙 占싯억옙 URL占쏙옙 占쏙옙환占쌌니댐옙.
+    ' - 占쏙옙환占실댐옙 URL占쏙옙 占쏙옙占쏙옙占쏙옙책占쏙옙 30占쏙옙占쏙옙 占쏙옙효占시곤옙占쏙옙 占쏙옙占쏙옙占쏙옙, 占쏙옙 占시곤옙 占십곤옙占식울옙占쏙옙 URL占쏙옙 占쏙옙占쏙옙巒占� 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙 占쏙옙占쏙옙占싹댐옙.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/point#GetFlatRatePopUpURL
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"		
-    
-    ' 팝빌회원 아이디
-    userID = "testkorea"					
-    
+    ' 占싯븝옙회占쏙옙 占쏙옙占쏙옙薇占싫�, "-" 占쏙옙占쏙옙
+    testCorpNum = "1234567890"
+
+    ' 占싯븝옙회占쏙옙 占쏙옙占싱듸옙
+    userID = "testkorea"
+
     On Error Resume Next
-    
+
         url = m_EasyFinBankService.GetFlatRatePopUpURL(testCorpNum, userID)
-    
+
         If Err.Number <> 0 then
             code = Err.Number
             message =  Err.Description
@@ -34,7 +34,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>정액제 신청 팝업 URL</legend>
+                <legend>占쏙옙占쏙옙占쏙옙 占쏙옙청 占싯억옙 URL</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>URL : <%=url%> </li>
@@ -43,7 +43,7 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÀüÀÚ¸í¼¼¼­ÀÇ 1°ÇÀÇ »óÅÂ ¹× ¿ä¾àÁ¤º¸ È®ÀÎÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/statement/asp/api/info#GetInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
-    testCorpNum = "1234567890"	
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    userID = "testkorea"				
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-"ï¿½ï¿½ï¿½ï¿½ 10ï¿½Ú¸ï¿½
+    testCorpNum = "1234567890"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­) 124(¹ßÁÖ¼­), 125(ÀÔ±ÝÇ¥), 126(¿µ¼öÁõ)
-    itemCode = "121"					
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    userID = "testkorea"
 
-    ' ¹®¼­¹øÈ£
-    mgtKey = "20220720-ASP-001"				
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ - 121(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), 122(Ã»ï¿½ï¿½ï¿½ï¿½), 123(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) 124(ï¿½ï¿½ï¿½Ö¼ï¿½), 125(ï¿½Ô±ï¿½Ç¥), 126(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+    itemCode = "121"
+
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -40,32 +40,32 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÀüÀÚ¸í¼¼¼­ »óÅÂ/¿ä¾à Á¤º¸È®ÀÎ</legend>
+                <legend>ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½</legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li> itemKey(¾ÆÀÌÅÛÅ°) : <%=result.itemKey %></li>
-                        <li> itemCode(¹®¼­Á¾·ùÄÚµå) : <%=result.itemCode %></li>
-                        <li> itemKey(ÆËºô¹øÈ£) : <%=result.itemKey %></li>
-                        <li> invoiceNum(ÆËºô½ÂÀÎ¹øÈ£) : <%=result.invoiceNum %></li>
-                        <li> mgtKey(ÆÄÆ®³Ê ¹®¼­¹øÈ£) : <%=result.mgtKey %></li>
-                        <li> taxType(¼¼±ÝÇüÅÂ) : <%=result.taxType %></li>
-                        <li> writeDate(ÀÛ¼ºÀÏÀÚ) : <%=result.writeDate %></li>
-                        <li> regDT(µî·ÏÀÏ½Ã) : <%=result.regDT %></li>
-                        <li> senderCorpName(¹ß½ÅÀÚ »óÈ£) : <%=result.senderCorpName %></li>
-                        <li> senderCorpNum(¹ß½ÅÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.senderCorpNum %></li>
-                        <li> senderPrintYN(¹ß½ÅÀÚ ÀÎ¼â¿©ºÎ) : <%=result.senderPrintYN %></li>
-                        <li> receiverCorpName(¼ö½ÅÀÚ »óÈ£) : <%=result.receiverCorpName %></li>
-                        <li> receiverCorpNum(¼ö½ÅÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.receiverCorpNum %></li>
-                        <li> receiverPrintYN(¼ö½ÅÀÚ ÀÎ¼â¿©ºÎ) : <%=result.receiverPrintYN %></li>
-                        <li> supplyCostTotal(°ø±Þ°¡¾× ÇÕ°è) : <%=result.supplyCostTotal %></li>
-                        <li> taxTotal(¼¼¾× ÇÕ°è) : <%=result.taxTotal %></li>
-                        <li> purposeType(¿µ¼ö/Ã»±¸) : <%=result.purposeType %></li>
-                        <li> issueDT(¹ßÇàÀÏ½Ã) : <%=result.issueDT %></li>
-                        <li> stateCode(»óÅÂÄÚµå) : <%=result.stateCode %></li>
-                        <li> stateDT(»óÅÂ º¯°æÀÏ½Ã) : <%=result.stateDT %></li>
-                        <li> stateMemo(»óÅÂ¸Þ¸ð) : <%=result.stateMemo %></li>
-                        <li> openYN(¸ÞÀÏ °³ºÀ ¿©ºÎ) : <%=result.openYN %></li>
-                        <li> openDT(°³ºÀ ÀÏ½Ã) : <%=result.openDT %></li>
+                        <li> itemKey(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°) : <%=result.itemKey %></li>
+                        <li> itemCode(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.itemCode %></li>
+                        <li> itemKey(ï¿½Ëºï¿½ï¿½ï¿½È£) : <%=result.itemKey %></li>
+                        <li> invoiceNum(ï¿½Ëºï¿½ï¿½ï¿½ï¿½Î¹ï¿½È£) : <%=result.invoiceNum %></li>
+                        <li> mgtKey(ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=result.mgtKey %></li>
+                        <li> taxType(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.taxType %></li>
+                        <li> writeDate(ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.writeDate %></li>
+                        <li> regDT(ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.regDT %></li>
+                        <li> senderCorpName(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) : <%=result.senderCorpName %></li>
+                        <li> senderCorpNum(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) : <%=result.senderCorpNum %></li>
+                        <li> senderPrintYN(ï¿½ß½ï¿½ï¿½ï¿½ ï¿½Î¼â¿©ï¿½ï¿½) : <%=result.senderPrintYN %></li>
+                        <li> receiverCorpName(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) : <%=result.receiverCorpName %></li>
+                        <li> receiverCorpNum(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) : <%=result.receiverCorpNum %></li>
+                        <li> receiverPrintYN(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¼â¿©ï¿½ï¿½) : <%=result.receiverPrintYN %></li>
+                        <li> supplyCostTotal(ï¿½ï¿½ï¿½Þ°ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) : <%=result.supplyCostTotal %></li>
+                        <li> taxTotal(ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) : <%=result.taxTotal %></li>
+                        <li> purposeType(ï¿½ï¿½ï¿½ï¿½/Ã»ï¿½ï¿½) : <%=result.purposeType %></li>
+                        <li> issueDT(ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.issueDT %></li>
+                        <li> stateCode(ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.stateCode %></li>
+                        <li> stateDT(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.stateDT %></li>
+                        <li> stateMemo(ï¿½ï¿½ï¿½Â¸Þ¸ï¿½) : <%=result.stateMemo %></li>
+                        <li> openYN(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : <%=result.openYN %></li>
+                        <li> openDT(ï¿½ï¿½ï¿½ï¿½ ï¿½Ï½ï¿½) : <%=result.openDT %></li>
                     <% Else %>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message: <%=message%> </li>

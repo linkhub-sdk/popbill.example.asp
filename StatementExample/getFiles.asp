@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÀüÀÚ¸í¼¼¼­¿¡ Ã·ºÎµÈ ÆÄÀÏÀÇ ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
-    ' - ÀÀ´äÇ×¸ñ Áß ÆÄÀÏ¾ÆÀÌµð(AttachedFile) Ç×¸ñÀº ÆÄÀÏ»èÁ¦(DeleteFile API) È£Ãâ½Ã ÀÌ¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã·ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½ï¿½ï¿½×¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¾ï¿½ï¿½Ìµï¿½(AttachedFile) ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï»ï¿½ï¿½ï¿½(DeleteFile API) È£ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
     ' - https://developers.popbill.com/reference/statement/asp/api/etc#GetFiles
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
-    testCorpNum = "1234567890"			
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-"ï¿½ï¿½ï¿½ï¿½ 10ï¿½Ú¸ï¿½
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    userID = "testkorea"				
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    userID = "testkorea"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±ÝÇ¥), 126(¿µ¼öÁõ)
-    itemCode = "121"					
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ - 121(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), 122(Ã»ï¿½ï¿½ï¿½ï¿½), 123(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), 124(ï¿½ï¿½ï¿½Ö¼ï¿½), 125(ï¿½Ô±ï¿½Ç¥), 126(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+    itemCode = "121"
 
-    ' ¹®¼­¹øÈ£
-    mgtKey = "20220720-ASP-001"				
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -41,21 +41,21 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Ã·ºÎÆÄÀÏ ¸ñ·Ï È®ÀÎ</legend>
+                <legend>Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È®ï¿½ï¿½</legend>
                 <ul>
-                    <% If code = 0 Then 
+                    <% If code = 0 Then
                            For i=0 To result.length-1
                     %>
                         <fieldset class="fieldset2">
-                            <legend>Ã·ºÎÆÄÀÏ [<%=i+1%>] </legend>
+                            <legend>Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [<%=i+1%>] </legend>
                             <ul>
-                                <li>serialNum(Ã·ºÎÆÄÀÏ ÀÏ·Ã¹øÈ£) : <%=result.Get(i).serialNum%></li>
-                                <li>attachedFile(ÆÄÀÏ¾ÆÀÌµð-Ã·ºÎÆÄÀÏ »èÁ¦½Ã »ç¿ë) : <%=result.Get(i).attachedFile%></li>
-                                <li>displayName(Ã·ºÎÆÄÀÏ¸í) : <%=result.Get(i).displayName%></li>
-                                <li>regDT(Ã·ºÎÀÏ½Ã) : <%=result.Get(i).regDT%></li>
+                                <li>serialNum(Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£) : <%=result.Get(i).serialNum%></li>
+                                <li>attachedFile(ï¿½ï¿½ï¿½Ï¾ï¿½ï¿½Ìµï¿½-Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½) : <%=result.Get(i).attachedFile%></li>
+                                <li>displayName(Ã·ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½) : <%=result.Get(i).displayName%></li>
+                                <li>regDT(Ã·ï¿½ï¿½ï¿½Ï½ï¿½) : <%=result.Get(i).regDT%></li>
                             </ul>
                         </fieldset>
-                    <% 
+                    <%
                         Next
                         Else
                     %>

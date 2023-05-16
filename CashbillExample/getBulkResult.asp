@@ -1,24 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Á¢¼ö½Ã ±âÀçÇÑ SubmitID¸¦ »ç¿ëÇÏ¿© Çö±Ý¿µ¼öÁõ Á¢¼ö°á°ú¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - °³º° Çö±Ý¿µ¼öÁõ Ã³¸®»óÅÂ´Â Á¢¼ö»óÅÂ(txState)°¡ ¿Ï·á(2) ½Ã ¹ÝÈ¯µË´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SubmitIDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(txState)ï¿½ï¿½ ï¿½Ï·ï¿½(2) ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ë´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/issue#GetBulkResult
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
     testCorpNum = "1234567890"
 
-    ' Á¦Ãâ¾ÆÀÌµð, ÃÖ´ë 36ÀÚ¸® (¿µ¹®, ¼ýÀÚ, "-" Á¶ÇÕ)
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½, ï¿½Ö´ï¿½ 36ï¿½Ú¸ï¿½ (ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, "-" ï¿½ï¿½ï¿½ï¿½)
     SubmitID = "20221109-ASP-BULK001"
 
-    ' ÆËºôÈ¸¿ø¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
     UserID = "testkorea"
 
     On Error Resume Next
@@ -29,56 +29,56 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    End If	
+    End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÃÊ´ë·® Á¢¼ö °á°ú È®ÀÎ</legend>
-                <% 
-                    If code = 0 Then 
+                <legend>ï¿½Ê´ë·® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È®ï¿½ï¿½</legend>
+                <%
+                    If code = 0 Then
                 %>
                     <ul>
-                        <li> code (ÀÀ´äÄÚµå) :  <%=result.code%> </li>
-                        <li> message (ÀÀ´ä¸Þ½ÃÁö) :  <%=result.message%> </li>
-                        <li> submitID (Á¦Ãâ¾ÆÀÌµð) :  <%=result.submitID%> </li>
-                        <li> submitCount (Çö±Ý¿µ¼öÁõ Á¢¼ö °Ç¼ö) :  <%=result.submitCount%> </li>
-                        <li> successCount (Çö±Ý¿µ¼öÁõ ¹ßÇà ¼º°ø °Ç¼ö) : <%=result.successCount%></li> 
-                        <li> failCount (Çö±Ý¿µ¼öÁõ ¹ßÇà ½ÇÆÐ °Ç¼ö) :  <%=result.failCount %> </li>
-                        <li> txState (Á¢¼ö»óÅÂÄÚµå) :  <%=result.txState%> </li>
-                        <li> txResultCode (Á¢¼ö °á°úÄÚµå) :  <%=result.txResultCode%> </li>
-                        <li> txStartDT (¹ßÇàÃ³¸® ½ÃÀÛÀÏ½Ã) :  <%=result.txStartDT%> </li>
-                        <li> txEndDT (¹ßÇàÃ³¸® ¿Ï·áÀÏ½Ã	) :  <%=result.txEndDT%> </li>
-                        <li> receiptDT (Á¢¼öÀÏ½Ã) :  <%=result.receiptDT%> </li>
-                        <li> receiptID (Á¢¼ö¾ÆÀÌµð) :  <%=result.receiptID%> </li>
+                        <li> code (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) :  <%=result.code%> </li>
+                        <li> message (ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½) :  <%=result.message%> </li>
+                        <li> submitID (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½) :  <%=result.submitID%> </li>
+                        <li> submitCount (ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½) :  <%=result.submitCount%> </li>
+                        <li> successCount (ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½) : <%=result.successCount%></li>
+                        <li> failCount (ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½) :  <%=result.failCount %> </li>
+                        <li> txState (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) :  <%=result.txState%> </li>
+                        <li> txResultCode (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Úµï¿½) :  <%=result.txResultCode%> </li>
+                        <li> txStartDT (ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.txStartDT%> </li>
+                        <li> txEndDT (ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½Ï½ï¿½	) :  <%=result.txEndDT%> </li>
+                        <li> receiptDT (ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½) :  <%=result.receiptDT%> </li>
+                        <li> receiptID (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½) :  <%=result.receiptID%> </li>
                     </ul>
                     <%   Dim i
                         For i=0 To UBound(result.issueResult) -1
-                     %>	
-                     <fieldset class="fieldset2">					
-                        <legend>  issueResult (¹ßÇà °á°ú) [ <%=i+1%> / <%=UBound(result.issueResult)%> ]</legend>
+                     %>
+                     <fieldset class="fieldset2">
+                        <legend>  issueResult (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½) [ <%=i+1%> / <%=UBound(result.issueResult)%> ]</legend>
                         <ul>
-                            <li> mgtKey (¹®¼­¹øÈ£) : <%=result.issueResult(i).mgtKey %>
-                            <li> code (ÀÀ´äÄÚµå) : <%=result.issueResult(i).code %>
-                            <li> message (ÀÀ´ä¸Þ½ÃÁö) : <%=result.issueResult(i).message %>
-                            <li> confirmNum (±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%=result.issueResult(i).confirmNum %>
-                            <li> tradeDate (°Å·¡ÀÏÀÚ) : <%=result.issueResult(i).tradeDate %>
-                            <li> tradeDT (°Å·¡ÀÏ½Ã) : <%=result.issueResult(i).tradeDT %>
+                            <li> mgtKey (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=result.issueResult(i).mgtKey %>
+                            <li> code (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.issueResult(i).code %>
+                            <li> message (ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½) : <%=result.issueResult(i).message %>
+                            <li> confirmNum (ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Î¹ï¿½È£) : <%=result.issueResult(i).confirmNum %>
+                            <li> tradeDate (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=result.issueResult(i).tradeDate %>
+                            <li> tradeDT (ï¿½Å·ï¿½ï¿½Ï½ï¿½) : <%=result.issueResult(i).tradeDT %>
                         </ul>
                     </fieldset>
                      <% Next %>
-                    <%	
+                    <%
                         Else
                     %>
                         <ul>
                             <li>Response.code: <%=code%> </li>
                             <li>Response.message: <%=message%> </li>
-                        </ul>	
-                    <%	
+                        </ul>
+                    <%
                         End If
                     %>
             </fieldset>

@@ -1,43 +1,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¬µ¿È¸¿øÀÇ È¸»çÁ¤º¸¸¦ ¼öÁ¤ÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/fax/asp/api/member#UpdateCorpInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
-    CorpNum = "1234567890"		 
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+    CorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð 
-    UserID = "testkorea"				 
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    UserID = "testkorea"
 
     Set infoObj = New CorpInfo
-    
-    ' ´ëÇ¥ÀÚ¸í
-    infoObj.ceoname = "¸µÅ©Çãºê ´ëÇ¥ÀÚ"
 
-    ' »óÈ£
-    infoObj.corpName = "¸µÅ©Çãºê"
+    ' ï¿½ï¿½Ç¥ï¿½Ú¸ï¿½
+    infoObj.ceoname = "ï¿½ï¿½Å©ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½"
 
-    ' ÁÖ¼Ò
-    infoObj.addr = "ÁÖ¼Ò¼öÁ¤"
+    ' ï¿½ï¿½È£
+    infoObj.corpName = "ï¿½ï¿½Å©ï¿½ï¿½ï¿½"
 
-    ' ¾÷ÅÂ
-    infoObj.bizType = "¾÷ÅÂÁ¤º¸"
+    ' ï¿½Ö¼ï¿½
+    infoObj.addr = "ï¿½Ö¼Ò¼ï¿½ï¿½ï¿½"
 
-    ' Á¾¸ñ
-    infoObj.bizClass = "Á¾¸ñÁ¤º¸"
-    
+    ' ï¿½ï¿½ï¿½ï¿½
+    infoObj.bizType = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+
+    ' ï¿½ï¿½ï¿½ï¿½
+    infoObj.bizClass = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+
     On Error Resume Next
 
     Set Presponse = m_FaxService.UpdateCorpInfo(CorpNum, infoObj, UserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -55,7 +55,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>È¸»çÁ¤º¸ ¼öÁ¤</legend>
+                <legend>È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

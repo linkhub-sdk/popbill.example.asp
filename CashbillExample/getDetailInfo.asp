@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Çö±Ý¿µ¼öÁõ 1°ÇÀÇ »ó¼¼Á¤º¸¸¦ Á¶È¸ÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/info#GetDetailInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     userID = "testkorea"
 
-    ' ¹®¼­¹øÈ£
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -30,53 +30,53 @@
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Çö±Ý¿µ¼öÁõ »ó¼¼Á¤º¸ È®ÀÎ</legend>
+                <legend>ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½</legend>
                 <ul>
                     <% If code = 0 Then %>
                         <fieldset class="fieldset2">
                             <ul>
-                                <li>mgtKey (¹®¼­¹øÈ£) : <%=Presponse.mgtKey%></li>
-                                <li>confirmNum (±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%=Presponse.confirmNum%></li>
-                                <li>orgConfirmNum (¿øº» Çö±Ý¿µ¼öÁõ ±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%=Presponse.orgConfirmNum%></li>
-                                <li>orgTradeDate (¿øº» Çö±Ý¿µ¼öÁõ °Å·¡ÀÏÀÚ) : <%=Presponse.orgTradeDate%></li>
-                                <li>tradeDate (°Å·¡ÀÏÀÚ) : <%=Presponse.tradeDate%></li>
-                                <li>tradeDT (°Å·¡ÀÏ½Ã) : <%=Presponse.tradeDT%></li>
-                                <li>tradeType (¹®¼­ÇüÅÂ) : <%=Presponse.tradeType %></li>
-                                <li>tradeUsage (°Å·¡±¸ºÐ) : <%=Presponse.tradeUsage%></li>
-                                <li>tradeOpt (°Å·¡À¯Çü) : <%=Presponse.tradeOpt %></li>
-                                <li>taxationType (°ú¼¼ÇüÅÂ) : <%=Presponse.taxationType%></li>
-                                <li>totalAmount (°Å·¡±Ý¾×) : <%=Presponse.totalAmount%></li>
-                                <li>supplyCost (°ø±Þ°¡¾×) : <%=Presponse.supplyCost%></li>
-                                <li>tax (ºÎ°¡¼¼) : <%=Presponse.tax %></li>
-                                <li>serviceFee (ºÀ»ç·á) : <%=Presponse.serviceFee%></li>
-                                <li>franchiseCorpNum (°¡¸ÍÁ¡ »ç¾÷ÀÚ¹øÈ£) : <%=Presponse.franchiseCorpNum%></li>
-                                <li>franchiseTaxRegID (°¡¸ÍÁ¡ Á¾»ç¾÷Àå ½Äº°¹øÈ£) : <%=Presponse.franchiseTaxRegID%></li>
-                                <li>franchiseCorpName (°¡¸ÍÁ¡ »óÈ£) : <%=Presponse.franchiseCorpName%></li>
-                                <li>franchiseCEOName (°¡¸ÍÁ¡ ´ëÇ¥ÀÚ¸í) : <%=Presponse.franchiseCEOName%></li>
-                                <li>franchiseAddr (°¡¸ÍÁ¡ ÁÖ¼Ò) : <%=Presponse.franchiseAddr%></li>
-                                <li>franchiseTEL (°¡¸ÍÁ¡ ÀüÈ­¹øÈ£) : <%=Presponse.franchiseTEL %></li>
-                                <li>identityNum (½Äº°¹øÈ£) : <%=Presponse.identityNum%></li>
-                                <li>customerName (ÁÖ¹®ÀÚ¸í) : <%=Presponse.customerName%></li>
-                                <li>itemName (ÁÖ¹®»óÇ°¸í) : <%=Presponse.itemName%></li>
-                                <li>orderNumber (ÁÖ¹®¹øÈ£) : <%=Presponse.orderNumber%></li>
-                                <li>email (ÀÌ¸ÞÀÏ) : <%=Presponse.email%></li>
-                                <li>hp (ÈÞ´ëÆù) : <%=Presponse.hp%></li>
-                                <li>smssendYN (¾Ë¸²¹®ÀÚ Àü¼Û¿©ºÎ) : <%=Presponse.smssendYN%></li>
-                                <li>cancelType (Ãë¼Ò»çÀ¯) : <%=Presponse.cancelType %></li>
+                                <li>mgtKey (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£) : <%=Presponse.mgtKey%></li>
+                                <li>confirmNum (ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Î¹ï¿½È£) : <%=Presponse.confirmNum%></li>
+                                <li>orgConfirmNum (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Î¹ï¿½È£) : <%=Presponse.orgConfirmNum%></li>
+                                <li>orgTradeDate (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.orgTradeDate%></li>
+                                <li>tradeDate (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.tradeDate%></li>
+                                <li>tradeDT (ï¿½Å·ï¿½ï¿½Ï½ï¿½) : <%=Presponse.tradeDT%></li>
+                                <li>tradeType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.tradeType %></li>
+                                <li>tradeUsage (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.tradeUsage%></li>
+                                <li>tradeOpt (ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.tradeOpt %></li>
+                                <li>taxationType (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.taxationType%></li>
+                                <li>totalAmount (ï¿½Å·ï¿½ï¿½Ý¾ï¿½) : <%=Presponse.totalAmount%></li>
+                                <li>supplyCost (ï¿½ï¿½ï¿½Þ°ï¿½ï¿½ï¿½) : <%=Presponse.supplyCost%></li>
+                                <li>tax (ï¿½Î°ï¿½ï¿½ï¿½) : <%=Presponse.tax %></li>
+                                <li>serviceFee (ï¿½ï¿½ï¿½ï¿½ï¿½) : <%=Presponse.serviceFee%></li>
+                                <li>franchiseCorpNum (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£) : <%=Presponse.franchiseCorpNum%></li>
+                                <li>franchiseTaxRegID (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½È£) : <%=Presponse.franchiseTaxRegID%></li>
+                                <li>franchiseCorpName (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£) : <%=Presponse.franchiseCorpName%></li>
+                                <li>franchiseCEOName (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½Ú¸ï¿½) : <%=Presponse.franchiseCEOName%></li>
+                                <li>franchiseAddr (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½) : <%=Presponse.franchiseAddr%></li>
+                                <li>franchiseTEL (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½È£) : <%=Presponse.franchiseTEL %></li>
+                                <li>identityNum (ï¿½Äºï¿½ï¿½ï¿½È£) : <%=Presponse.identityNum%></li>
+                                <li>customerName (ï¿½Ö¹ï¿½ï¿½Ú¸ï¿½) : <%=Presponse.customerName%></li>
+                                <li>itemName (ï¿½Ö¹ï¿½ï¿½ï¿½Ç°ï¿½ï¿½) : <%=Presponse.itemName%></li>
+                                <li>orderNumber (ï¿½Ö¹ï¿½ï¿½ï¿½È£) : <%=Presponse.orderNumber%></li>
+                                <li>email (ï¿½Ì¸ï¿½ï¿½ï¿½) : <%=Presponse.email%></li>
+                                <li>hp (ï¿½Þ´ï¿½ï¿½ï¿½) : <%=Presponse.hp%></li>
+                                <li>smssendYN (ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½) : <%=Presponse.smssendYN%></li>
+                                <li>cancelType (ï¿½ï¿½Ò»ï¿½ï¿½ï¿½) : <%=Presponse.cancelType %></li>
                             </ul>
                         </fieldset>
                     <%	Else %>
                         <li> Response.code : <%=code%> </li>
                         <li> Response.message : <%=message%> </li>
-                    <% End If%> 
-                    
+                    <% End If%>
+
                 </ul>
             </fieldset>
          </div>

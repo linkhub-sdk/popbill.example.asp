@@ -1,41 +1,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "ÀÓ½ÃÀúÀå" »óÅÂÀÇ ¼¼±Ý°è»ê¼­¿¡ Ã·ºÎµÈ 1°³ÀÇ ÆÄÀÏÀ» »èÁ¦ÇÕ´Ï´Ù.
-    ' - ÆÄÀÏÀ» ½Äº°ÇÏ´Â ÆÄÀÏ¾ÆÀÌµð´Â Ã·ºÎÆÄÀÏ ¸ñ·Ï(GetFiles API) ÀÇ ÀÀ´äÇ×¸ñ Áß ÆÄÀÏ¾ÆÀÌµð(AttachedFile) °ªÀ» ÅëÇØ È®ÀÎÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' "ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½" ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ï¿½ï¿½ Ã·ï¿½Îµï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Äºï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ï¾ï¿½ï¿½Ìµï¿½ï¿½ Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½(GetFiles API) ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½×¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¾ï¿½ï¿½Ìµï¿½(AttachedFile) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#DeleteFile
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     testUserID = "testkorea"
-    
-    ' ¼¼±Ý°è»ê¼­ ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+
+    ' ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SELL(ï¿½ï¿½ï¿½ï¿½), BUY(ï¿½ï¿½ï¿½ï¿½), TRUSTEE(ï¿½ï¿½ï¿½ï¿½Å¹)
     KeyType = "SELL"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
     MgtKey = "20220720-ASP-002"
 
-    ' ÆÄÀÏ¾ÆÀÌµð, Ã·ºÎÆÄÀÏ ¸ñ·Ï(getFiles) AttachedFile °ª ÂüÁ¶. 
+    ' ï¿½ï¿½ï¿½Ï¾ï¿½ï¿½Ìµï¿½, Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½(getFiles) AttachedFile ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
     FileID = "7CB2F557-51F6-43A8-BECA-A856BDDB2CCB.PBF"
 
     On Error Resume Next
-    
+
     Set Presponse = m_TaxinvoiceService.DeleteFile(testCorpNum, KeyType ,MgtKey, FileID, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±Ý°è»ê¼­ Ã·ºÎÆÄÀÏ »èÁ¦</legend>
+                <legend>ï¿½ï¿½ï¿½Ý°ï¿½ê¼­ Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</legend>
                     <ul>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message : <%=message%> </li>

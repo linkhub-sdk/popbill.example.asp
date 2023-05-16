@@ -1,25 +1,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ±¹¼¼Ã» ½ÂÀÎ¹øÈ£¸¦ ÅëÇØ ¼öÁýÇÑ ÀüÀÚ¼¼±Ý°è»ê¼­ 1°ÇÀÇ »ó¼¼Á¤º¸¸¦ XML ÇüÅÂÀÇ ¹®ÀÚ¿­·Î ¹ÝÈ¯ÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Î¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½Ý°ï¿½ê¼­ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ XML ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/search#GetXML
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð 
-    UserID = "testkorea"				 
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+    UserID = "testkorea"
 
-    ' ±¹¼¼Ã»½ÂÀÎ¹øÈ£ 
+    ' ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Î¹ï¿½È£
     NTSConfirmNum = "201611104100020300000cb2"
-    
+
     On Error Resume Next
 
     Set result = m_HTTaxinvoiceService.GetXML ( testCorpNum, NTSConfirmNum, UserID )
@@ -37,14 +37,14 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> »ó¼¼Á¤º¸ Á¶È¸ - XML</legend>
+                <legend> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ - XML</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> ResultCode (¿äÃ»¿¡ ´ëÇÑ ÀÀ´ä »óÅÂÄÚµå) : <%=result.ResultCode%></li>
-                        <li> Message (±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%=result.Message%></li>
-                        <li> retObject (ÀüÀÚ¼¼±Ý°è»ê¼­ XML ¹®¼­) : <%=Replace(result.retObject, "<" ,"&lt")%></li>
+                        <li> ResultCode (ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½) : <%=result.ResultCode%></li>
+                        <li> Message (ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Î¹ï¿½È£) : <%=result.Message%></li>
+                        <li> retObject (ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½Ý°ï¿½ê¼­ XML ï¿½ï¿½ï¿½ï¿½) : <%=Replace(result.retObject, "<" ,"&lt")%></li>
                     </ul>
                 <%
                     Else
@@ -52,8 +52,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

@@ -1,18 +1,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Çö±Ý¿µ¼öÁõ ¹ßÇà½Ã °ú±ÝµÇ´Â Æ÷ÀÎÆ® ´Ü°¡¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÝµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ü°ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/point#GetUnitCost
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
+    ' ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
     On Error Resume Next
 
@@ -31,10 +31,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Çö±Ý¿µ¼öÁõ ¹ßÇà´Ü°¡ È®ÀÎ </legend>
+                <legend>ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ü°ï¿½ È®ï¿½ï¿½ </legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>¹ßÇà´Ü°¡ : <%=unitCost%> </li>
+                        <li>ï¿½ï¿½ï¿½ï¿½Ü°ï¿½ : <%=unitCost%> </li>
                     <% Else %>
                         <li> Response.code : <%=code%> </li>
                         <li> Response.message : <%=message%> </li>

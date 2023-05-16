@@ -1,42 +1,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>ï¿½Ëºï¿½ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼öÁý »óÅÂ È®ÀÎ(GetJobState API) ÇÔ¼ö¸¦ ÅëÇØ »óÅÂ Á¤º¸°¡ È®ÀÎµÈ ÀÛ¾÷¾ÆÀÌµð¸¦ È°¿ëÇÏ¿© ¼öÁýµÈ Çö±Ý¿µ¼öÁõ ¸ÅÀÔ/¸ÅÃâ ³»¿ªÀÇ ¿ä¾à Á¤º¸¸¦ Á¶È¸ÇÕ´Ï´Ù.
-    ' - ¿ä¾à Á¤º¸ : Çö±Ý¿µ¼öÁõ ¼öÁý °Ç¼ö, °ø±Þ°¡¾× ÇÕ°è, ¼¼¾× ÇÕ°è, ºÀ»ç·á ÇÕ°è, ÇÕ°è ±Ý¾×
+    ' ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½(GetJobState API) ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½Îµï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½Ìµï¿½ È°ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Õ´Ï´ï¿½.
+    ' - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½, ï¿½ï¿½ï¿½Þ°ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½, ï¿½Õ°ï¿½ ï¿½Ý¾ï¿½
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/search#Summary
     '**************************************************************
 
-    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    'ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£, "-" ï¿½ï¿½ï¿½ï¿½
+    testCorpNum = "1234567890"
 
-    'ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    'ï¿½Ëºï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
     UserID = "testkorea"
-    
-    '¼öÁý ¿äÃ»(requestJob) ½Ã ¹ÝÈ¯¹ÞÀº ÀÛ¾÷¾ÆÀÌµð(jobID)
+
+    'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»(requestJob) ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½Ìµï¿½(jobID)
     JobID = "016111417000000002"
 
-    ' ¹®¼­ÇüÅÂ ¹è¿­ ("N" ¿Í "C" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' ¦¦ N = ÀÏ¹Ý Çö±Ý¿µ¼öÁõ , C = Ãë¼ÒÇö±Ý¿µ¼öÁõ
-    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
-    Dim TradeType(2) 
+    ' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("N" ï¿½ï¿½ "C" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' ï¿½ï¿½ N = ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ , C = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
+    Dim TradeType(2)
     TradeType(0) = "N"
     TradeType(1) = "C"
 
-    ' °Å·¡±¸ºÐ ¹è¿­ ("P" ¿Í "C" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' ¦¦ P = ¼Òµæ°øÁ¦¿ë , C = ÁöÃâÁõºù¿ë
-    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
+    ' ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ("P" ï¿½ï¿½ "C" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    ' ï¿½ï¿½ P = ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , C = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    ' - ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½È¸
     Dim TradeUsage(2)
     TradeUsage(0) = "P"
     TradeUsage(1) = "C"
 
     On Error Resume Next
-    
+
     Set result = m_HTCashbillService.Summary(testCorpNum, JobID, TradeType, TradeUsage, UserID)
 
     If Err.Number <> 0 Then
@@ -45,23 +45,23 @@
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼öÁý °á°ú Á¶È¸</legend>
+                <legend>ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> count (¼öÁý °á°ú °Ç¼ö) : <%=result.count%> </li>
-                        <li> supplyCostTotal (°ø±Þ°¡¾× ÇÕ°è) : <%=result.supplyCostTotal%> </li>
-                        <li> taxTotal (¼¼¾× ÇÕ°è) : <%=result.taxTotal%> </li>
-                        <li> serviceFeeTotal (ºÀ»ç·á ÇÕ°è) : <%=result.serviceFeeTotal%> </li>
-                        <li> amountTotal (ÇÕ°è ±Ý¾×) : <%=result.amountTotal%> </li>
+                        <li> count (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½) : <%=result.count%> </li>
+                        <li> supplyCostTotal (ï¿½ï¿½ï¿½Þ°ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) : <%=result.supplyCostTotal%> </li>
+                        <li> taxTotal (ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) : <%=result.taxTotal%> </li>
+                        <li> serviceFeeTotal (ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½) : <%=result.serviceFeeTotal%> </li>
+                        <li> amountTotal (ï¿½Õ°ï¿½ ï¿½Ý¾ï¿½) : <%=result.amountTotal%> </li>
                     </ul>
                 <%
                     Else
@@ -69,8 +69,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>
