@@ -1,71 +1,80 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-    <title>�˺� SDK ASP Example.</title>
+    <title>팝빌 SDK ASP Example.</title>
 </head>
 <body>
 <div id="content">
-    <p class="heading1">�˺� Ȩ�ý����� (���ڼ��ݰ�꼭) API SDK Example.</p>
+    <p class="heading1">팝빌 홈택스연동 (전자세금계산서) API SDK Example.</p>
     <br/>
     <fieldset class="fieldset1">
-        <legend>Ȩ�ý� ���ڼ��ݰ�꼭 ����/���� ���� ����</legend>
+        <legend>홈택스 전자세금계산서 매입/매출 내역 수집</legend>
         <ul>
-            <li><a href="requestJob.asp">requestJob</a> - ���� ��û</li>
-            <li><a href="getJobState.asp">getJobState</a> - ���� ���� Ȯ��</li>
-            <li><a href="listActiveJob.asp">listActiveJob</a> - ���� ���� ��� Ȯ��</li>
+            <li><a href="requestJob.asp">requestJob</a> - 수집 요청</li>
+            <li><a href="getJobState.asp">getJobState</a> - 수집 상태 확인</li>
+            <li><a href="listActiveJob.asp">listActiveJob</a> - 수집 상태 목록 확인</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>Ȩ�ý� ���ڼ��ݰ�꼭 ����/���� ���� ���� ��� ��ȸ</legend>
+        <legend>홈택스 전자세금계산서 매입/매출 내역 수집 결과 조회</legend>
         <ul>
-            <li><a href="search.asp">search</a> - ���� ��� ��ȸ</li>
-            <li><a href="summary.asp">summary</a> - ���� ��� ������� ��ȸ</li>
-            <li><a href="getTaxinvoice.asp">getTaxinvoice</a> - ������ Ȯ�� - JSON</li>
-            <li><a href="getXML.asp">getXML</a> - ������ Ȯ�� - XML</li>
-            <li><a href="getPopUpURL.asp">getPopUpURL</a> - Ȩ�ý� ���ڼ��ݰ�꼭 ���� �˾� URL</li>
-            <li><a href="getPrintURl.asp">getPrintURL</a> - Ȩ�ý� ���ڼ��ݰ�꼭 �μ� �˾� URL</li>
+            <li><a href="search.asp">search</a> - 수집 결과 조회</li>
+            <li><a href="summary.asp">summary</a> - 수집 결과 요약정보 조회</li>
+            <li><a href="getTaxinvoice.asp">getTaxinvoice</a> - 상세정보 확인 - JSON</li>
+            <li><a href="getXML.asp">getXML</a> - 상세정보 확인 - XML</li>
+            <li><a href="getPopUpURL.asp">getPopUpURL</a> - 홈택스 전자세금계산서 보기 팝업 URL</li>
+            <li><a href="getPrintURl.asp">getPrintURL</a> - 홈택스 전자세금계산서 인쇄 팝업 URL</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>Ȩ�ý����� ���� ����</legend>
+        <legend>홈택스연동 인증 관리</legend>
         <ul>
-            <li><a href="getCertificatePopUpURL.asp">getCertificatePopUpURL</a> - Ȩ�ý����� ���� ���� �˾� URL</li>
-            <li><a href="getCertificateExpireDate.asp">getCertificateExpireDate</a> - Ȩ�ý����� ���������� �������� Ȯ��</li>
-            <li><a href="checkCertValidation.asp">checkCertValidation</a> - Ȩ�ý� ���������� �α��� �׽�Ʈ</li>
-            <li><a href="registDeptUser.asp">registDeptUser</a> - �μ������ �������</li>
-            <li><a href="checkDeptUser.asp">checkDeptUser</a> - �μ������ ������� Ȯ��</li>
-            <li><a href="checkLoginDeptUser.asp">checkLoginDeptUser</a> - �μ������ �α��� �׽�Ʈ</li>
-            <li><a href="deleteDeptUser.asp">deleteDeptUser</a> - �μ������ ������� ����</li>
+            <li><a href="getCertificatePopUpURL.asp">getCertificatePopUpURL</a> - 홈택스연동 인증 관리 팝업 URL</li>
+            <li><a href="getCertificateExpireDate.asp">getCertificateExpireDate</a> - 홈택스연동 공인인증서 만료일자 확인</li>
+            <li><a href="checkCertValidation.asp">checkCertValidation</a> - 홈택스 공인인증서 로그인 테스트</li>
+            <li><a href="registDeptUser.asp">registDeptUser</a> - 부서사용자 계정등록</li>
+            <li><a href="checkDeptUser.asp">checkDeptUser</a> - 부서사용자 등록정보 확인</li>
+            <li><a href="checkLoginDeptUser.asp">checkLoginDeptUser</a> - 부서사용자 로그인 테스트</li>
+            <li><a href="deleteDeptUser.asp">deleteDeptUser</a> - 부서사용자 등록정보 삭제</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>����Ʈ ���� / ������ ��û</legend>
+        <legend>포인트 관리 / 정액제 신청</legend>
         <ul>
-            <li><a href="getBalance.asp">getBalance</a> - ����ȸ�� �ܿ�����Ʈ Ȯ��</li>
-            <li><a href="getChargeURL.asp">getChargeURL</a> - ����ȸ�� ����Ʈ���� URL</li>
-            <li><a href="getPaymentURL.asp">GetPaymentURL</a> - ����ȸ�� ����Ʈ ���系�� URL</li>
-            <li><a href="getUseHistoryURL.asp">GetUseHistoryURL</a> - ����ȸ�� ����Ʈ ��볻�� URL</li>
-            <li><a href="getPartnerBalance.asp">getPartnerBalance</a> - ��Ʈ�� �ܿ�����Ʈ Ȯ��</li>
-            <li><a href="getPartnerURL.asp">getPartnerURL</a> - ��Ʈ�� ����Ʈ���� URL</li>
-            <li><a href="getChargeInfo.asp">getChargeInfo</a> - �������� Ȯ��</li>
-            <li><a href="getFlatRatePopUpURL.asp">getFlatRatePopUpURL</a> - ������ ���� ��û URL</li>
-            <li><a href="getFlatRateState.asp">getFlatRateState</a> - ������ ���� ���� Ȯ��</li>
+            <li><a href="getBalance.asp">getBalance</a> - 연동회원 잔여포인트 확인</li>
+            <li><a href="getChargeURL.asp">getChargeURL</a> - 연동회원 포인트충전 URL</li>
+            <li><a href="getPaymentURL.asp">GetPaymentURL</a> - 연동회원 포인트 결재내역 URL</li>
+            <li><a href="getUseHistoryURL.asp">GetUseHistoryURL</a> - 연동회원 포인트 사용내역 URL</li>
+            <li><a href="getPartnerBalance.asp">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
+            <li><a href="getPartnerURL.asp">getPartnerURL</a> - 파트너 포인트충전 URL</li>
+            <li><a href="getChargeInfo.asp">getChargeInfo</a> - 과금정보 확인</li>
+            <li><a href="getFlatRatePopUpURL.asp">getFlatRatePopUpURL</a> - 정액제 서비스 신청 URL</li>
+            <li><a href="getFlatRateState.asp">getFlatRateState</a> - 정액제 서비스 상태 확인</li>
+            <li><a href="paymentRequest.asp">paymentRequest</a> - 연동회원 무통장 입금신청</li>
+            <li><a href="getSettleResult.asp">getSettleResult</a> - 연동회원 무통장 입금신청 확인</li>
+            <li><a href="getPaymentHistory.asp">getPaymentHistory</a> - 연동회원 포인트 결제내역 확인</li>
+            <li><a href="getUseHistory.asp">getUseHistory</a> - 연동회원 포인트 사용내역 확인</li>
+            <li><a href="refund.asp">refund</a> - 연동회원 포인트 환불신청</li>
+            <li><a href="getRefundHistory.asp">getRefundHistory</a> - 연동회원 포인트 환불내역 확인</li>
+            <li><a href="getRefundInfo.asp">getRefundInfo</a> - 환불 신청 상태 조회</li>
+			<li><a href="getRefundableBalance.asp">getRefundableBalance</a> - 환불 가능 포인트 조회</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>ȸ������</legend>
+        <legend>회원정보</legend>
         <ul>
-            <li><a href="checkIsMember.asp">checkIsMember</a> - ����ȸ�� ���Կ��� Ȯ��</li>
-            <li><a href="checkID.asp">checkID</a> - ���̵� �ߺ� Ȯ��</li>
-            <li><a href="joinMember.asp">joinMember</a> - ����ȸ�� �ű԰���</li>
-            <li><a href="getAccessURL.asp">getAccessURL</a> - �˺� �α��� URL</li>
-            <li><a href="getCorpInfo.asp">getCorpInfo</a> - ȸ������ Ȯ��</li>
-            <li><a href="updateCorpInfo.asp">updateCorpInfo</a> - ȸ������ ����</li>
-            <li><a href="registContact.asp">registContact</a> - ����� ���</li>
-            <li><a href="getContactInfo.asp">getContactInfo</a> - ����� ���� Ȯ��</li>
-            <li><a href="listContact.asp">listContact</a> - ����� ��� Ȯ��</li>
-            <li><a href="updateContact.asp">updateContact</a> - ����� ���� ����</li>
+            <li><a href="checkIsMember.asp">checkIsMember</a> - 연동회원 가입여부 확인</li>
+            <li><a href="checkID.asp">checkID</a> - 아이디 중복 확인</li>
+            <li><a href="joinMember.asp">joinMember</a> - 연동회원 신규가입</li>
+            <li><a href="getAccessURL.asp">getAccessURL</a> - 팝빌 로그인 URL</li>
+            <li><a href="getCorpInfo.asp">getCorpInfo</a> - 회사정보 확인</li>
+            <li><a href="updateCorpInfo.asp">updateCorpInfo</a> - 회사정보 수정</li>
+            <li><a href="registContact.asp">registContact</a> - 담당자 등록</li>
+            <li><a href="getContactInfo.asp">getContactInfo</a> - 담당자 정보 확인</li>
+            <li><a href="listContact.asp">listContact</a> - 담당자 목록 확인</li>
+            <li><a href="updateContact.asp">updateContact</a> - 담당자 정보 수정</li>
+            <li><a href="quitMember.asp">quitMember</a> - 팝빌회원 탈퇴</li>
         </ul>
     </fieldset>
 </div>
