@@ -109,9 +109,8 @@ Class AccountCheckService
     End Function
 
 	'무통장 입금신청
-	Public Function PaymetRequest(CorpNUm, UserID)
-		Set m_paymentResponse = m_popbillBase.PaymetRequest(CorpnUm, UserID)
-		PaymentRequest = m_paymentResponse
+	Public Function PaymentRequest(CorpNUm, PaymentForm, UserID)
+		PaymentRequest = m_popbillBase.PaymentRequest(CorpnUm, PaymentForm, UserID)
 	End Function
 
     '연동회원 포인트 결제내역 조회
@@ -151,8 +150,8 @@ Class AccountCheckService
 	End Function
 
     '회원 탈퇴
-    Public Function QuitMember(CorpNum, QuitReason)
-        QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason)
+    Public Function QuitMember(CorpNum, QuitReason, UserID)
+        QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
 	End Function
 
     '과금정보 확인

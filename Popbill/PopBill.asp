@@ -307,7 +307,7 @@ End Function
 
 ' 환불 신청내역 (GetRefundHistory)
 Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
-    GetRefundHistory = httpGET("/RefundHistory?Page="+Page + "PerPage="+PerPage,getSession_token(CorpNum),UserID)
+    GetRefundHistory = httpGET("/RefundHistory?Page="&Page & "&PerPage="&PerPage,getSession_token(CorpNum),UserID)
 End Function
 
 ' 환불 신청상태 확인 (GetRefundInfo)
@@ -327,7 +327,7 @@ End Function
 
 ' 팝빌회원 탈퇴 (QuitMember)
 Public Function QuitMember(CorpNum, QuitReason, UserID)
-    Dim tmp: Set tmp = QuitMember.toJsonInfo(QuitReason)
+    Dim tmp: Set tmp = QuitReason.toJsonInfo
     Dim postdata: postdata = m_Linkhub.toString(tmp)
     QuitMember = httpPOST("/QuitMember", getSession_token(CorpNum), "", postData, UserID)
 End Function
@@ -787,8 +787,8 @@ Class ChargeInfo
 
 End Class
 
-' 입금신청 객체정보
-Class PaymetForm
+'무통장 입금신청 객체정보
+Class PaymentForm
     Public SettlerName
     Public SettlerEmail
     Public NotifyHP
@@ -829,6 +829,7 @@ Class RefundForm
 
 End Class
 
+'회원탈퇴 신청 객체정보
 Class QuitReason
     public quitReason
 
@@ -838,12 +839,4 @@ Class QuitReason
     End Function
 
 End Class
-
-'Class RefundableBalanceResponse
-'	Public refundableBalance
-'
-'	Public Property Get refundableBalance()
-'		refundableBalance
-'	End Property
-'End Class
 %>

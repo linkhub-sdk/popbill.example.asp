@@ -127,10 +127,10 @@ Class EasyFinBankSErvice
         Set GetChargeInfo = chrgInfo
     End Function
 
-    	'무통장 입금신청
-	Public Function PaymetRequest(CorpNUm, UserID)
-		Set m_paymentResponse = m_popbillBase.PaymetRequest(CorpnUm, UserID)
-		PaymentRequest = m_paymentResponse
+
+	'무통장 입금신청
+	Public Function PaymentRequest(CorpNUm, PaymentForm, UserID)
+		PaymentRequest = m_popbillBase.PaymentRequest(CorpnUm, PaymentForm, UserID)
 	End Function
 
     '연동회원 포인트 결제내역 조회
@@ -170,22 +170,9 @@ Class EasyFinBankSErvice
 	End Function
 
     '회원 탈퇴
-    Public Function QuitMember(CorpNum, QuitReason)
-        QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason)
+    Public Function QuitMember(CorpNum, QuitReason, UserID)
+        QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
 	End Function
-
-    '과금정보 확인
-    Public Function GetChargeInfo(CorpNum, UserID, ServiceType)
-
-        Dim uri : uri = "/EasyFin/AccountCheck/ChargeInfo?serviceType=" & ServiceType
-
-        Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
-
-        Dim chrgInfo : Set chrgInfo = New ChargeInfo
-        chrgInfo.fromJsonInfo result
-
-        Set GetChargeInfo = chrgInfo
-    End Function
 
 '''''''''''''  End of PopbillBase
 
