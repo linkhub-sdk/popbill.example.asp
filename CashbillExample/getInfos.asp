@@ -1,25 +1,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' �ټ����� ���ݿ����� ���� �� ��� ������ Ȯ���մϴ�. (1ȸ ȣ�� �� �ִ� 1,000�� Ȯ�� ����)
-    ' - ���ϰ� 'CashbillInfo'�� ���� 'stateCode'�� ���� ���ݿ������� �����ڵ带 Ȯ���մϴ�.
-    ' - ���ݿ����� �����ڵ� : [https://developers.popbill.com/reference/cashbill/asp/response-code#state-code]
+    ' 다수건의 현금영수증 상태 및 요약 정보를 확인합니다. (1회 호출 시 최대 1,000건 확인 가능)
+    ' - 리턴값 'CashbillInfo'의 변수 'stateCode'를 통해 현금영수증의 상태코드를 확인합니다.
+    ' - 현금영수증 상태코드 : [https://developers.popbill.com/reference/cashbill/asp/response-code#state-code]
     ' - https://developers.popbill.com/reference/cashbill/asp/api/info#GetInfos
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     userID = "testkorea"
 
-    ' ��ȸ�� ���ݿ����� ������ȣ �迭, �ִ� 1000��
+    ' 조회할 현금영수증 문서번호 배열, 최대 1000건
     Dim mgtKeyList(3)
     MgtKeyList(0) = "20220720-ASP-001"
     MgtKeyList(1) = "20220720-ASP-002"
@@ -42,38 +42,39 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���ݿ����� ���� �뷮 Ȯ��</legend>
+                <legend>현금영수증 상태 대량 확인</legend>
                 <ul>
                     <% If code = 0 Then
                         For i=0 To Presponse.Count-1 %>
                         <fieldset class="fieldset2">
-                            <legend> ���ݿ����� ��ȸ ��� [<%=i+1%>]</legend>
+                            <legend> 현금영수증 조회 결과 [<%=i+1%>]</legend>
                             <ul>
-                                <li>itemKey (���ݿ����� ������Ű) : <%=Presponse.Item(i).itemKey%></li>
-                                <li>mgtKey (������ȣ) : <%=Presponse.Item(i).mgtKey%></li>
-                                <li>tradeDate (�ŷ�����) : <%=Presponse.Item(i).tradeDate%></li>
-                                <li>tradeDT (�ŷ��Ͻ�) : <%=Presponse.Item(i).tradeDT%></li>
-                                <li>tradeType (��������) : <%=Presponse.Item(i).tradeType%></li>
-                                <li>tradeUsage (�ŷ�����) : <%=Presponse.Item(i).tradeUsage%></li>
-                                <li>tradeOpt (�ŷ�����) : <%=Presponse.Item(i).tradeOpt%></li>
-                                <li>taxationType (��������) : <%=Presponse.Item(i).taxationType%></li>
-                                <li>totalAmount (�ŷ��ݾ�) : <%=Presponse.Item(i).totalAmount%></li>
-                                <li>issueDT (�����Ͻ�) : <%=Presponse.Item(i).issueDT%></li>
-                                <li>regDT (����Ͻ�) : <%=Presponse.Item(i).regDT%></li>
-                                <li>stateMemo (���¸޸�) : <%=Presponse.Item(i).stateMemo%></li>
-                                <li>stateCode (�����ڵ�) : <%=Presponse.Item(i).stateCode%></li>
-                                <li>stateDT (���º����Ͻ�) : <%=Presponse.Item(i).stateDT%></li>
-                                <li>identityNum (�ĺ���ȣ) : <%=Presponse.Item(i).identityNum%></li>
-                                <li>itemName (��ǰ��) : <%=Presponse.Item(i).itemName%></li>
-                                <li>customerName (������) : <%=Presponse.Item(i).customerName%></li>
-                                <li>confirmNum (����û ���ι�ȣ) : <%=Presponse.Item(i).confirmNum%></li>
-                                <li>orgConfirmNum (���� ���ݿ����� ����û���ι�ȣ) : <%=Presponse.Item(i).orgConfirmNum%></li>
-                                <li>orgTradeDate (���� ���ݿ����� �ŷ�����) : <%=Presponse.Item(i).orgTradeDate%></li>
-                                <li>ntssendDT (����û �����Ͻ�) : <%=Presponse.Item(i).ntssendDT%></li>
-                                <li>ntsresultDT (����û ó����� �����Ͻ�) : <%=Presponse.Item(i).ntsResultDT%></li>
-                                <li>ntsresultCode (����û ó����� �����ڵ�) : <%=Presponse.Item(i).ntsResultCode%></li>
-                                <li>ntsresultMessage (����û ó����� �޽���) : <%=Presponse.Item(i).ntsResultMessage%></li>
-                                <li>printYN (�μ⿩��) : <%=Presponse.Item(i).printYN%></li>
+                                <li>itemKey (현금영수증 아이템키) : <%=Presponse.Item(i).itemKey%></li>
+                                <li>mgtKey (문서번호) : <%=Presponse.Item(i).mgtKey%></li>
+                                <li>tradeDate (거래일자) : <%=Presponse.Item(i).tradeDate%></li>
+                                <li>tradeDT (거래일시) : <%=Presponse.Item(i).tradeDT%></li>
+                                <li>tradeType (문서형태) : <%=Presponse.Item(i).tradeType%></li>
+                                <li>tradeUsage (거래구분) : <%=Presponse.Item(i).tradeUsage%></li>
+                                <li>tradeOpt (거래유형) : <%=Presponse.Item(i).tradeOpt%></li>
+                                <li>taxationType (과세형태) : <%=Presponse.Item(i).taxationType%></li>
+                                <li>totalAmount (거래금액) : <%=Presponse.Item(i).totalAmount%></li>
+                                <li>issueDT (발행일시) : <%=Presponse.Item(i).issueDT%></li>
+                                <li>regDT (등록일시) : <%=Presponse.Item(i).regDT%></li>
+                                <li>stateMemo (상태메모) : <%=Presponse.Item(i).stateMemo%></li>
+                                <li>stateCode (상태코드) : <%=Presponse.Item(i).stateCode%></li>
+                                <li>stateDT (상태변경일시) : <%=Presponse.Item(i).stateDT%></li>
+                                <li>identityNum (식별번호) : <%=Presponse.Item(i).identityNum%></li>
+                                <li>itemName (상품명) : <%=Presponse.Item(i).itemName%></li>
+                                <li>customerName (고객명) : <%=Presponse.Item(i).customerName%></li>
+                                <li>confirmNum (국세청 승인번호) : <%=Presponse.Item(i).confirmNum%></li>
+                                <li>orgConfirmNum (원본 현금영수증 국세청승인번호) : <%=Presponse.Item(i).orgConfirmNum%></li>
+                                <li>orgTradeDate (원본 현금영수증 거래일자) : <%=Presponse.Item(i).orgTradeDate%></li>
+                                <li>ntssendDT (국세청 전송일시) : <%=Presponse.Item(i).ntssendDT%></li>
+                                <li>ntsresultDT (국세청 처리결과 수신일시) : <%=Presponse.Item(i).ntsResultDT%></li>
+                                <li>ntsresultCode (국세청 처리결과 상태코드) : <%=Presponse.Item(i).ntsResultCode%></li>
+                                <li>ntsresultMessage (국세청 처리결과 메시지) : <%=Presponse.Item(i).ntsResultMessage%></li>
+                                <li>printYN (인쇄여부) : <%=Presponse.Item(i).printYN%></li>
+                                <li>interOPYN (연동문서여부) : <%=Presponse.Item(i).interOPYN%></li>
                             </ul>
                             </fieldset>
                     <%	Next
