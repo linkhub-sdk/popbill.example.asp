@@ -5,7 +5,7 @@
 ---
 ## 업데이트 내역
 
-### 2023-05-18
+### 2023-05-18 (v1.50.0)
 - 회원 탈퇴 (QuitMember)
 - 환불 신청 상태 확인 (GetRefundInfo)
 - 환불 가능 포인트 조회  (GetRefundableBalance)
