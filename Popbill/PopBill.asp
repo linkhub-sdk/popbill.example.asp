@@ -290,17 +290,13 @@ End Function
 
 ' 포인트 사용내역 (GetUseHistory)
 Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
-     Dim result : Set result = httpGET("/UseHistory?SDate=" & SDate &  "&EDate=" & EDate & "&Page=" & Page & "&PerPage=" & PerPage &  "&Order=" & Order,getSession_token(CorpNum),UserID)
+    Dim tmp : Set tmp = httpGET("/UseHistory?SDate=" & SDate &  "&EDate=" & EDate & "&Page=" & Page & "&PerPage=" & PerPage &  "&Order=" & Order,getSession_token(CorpNum),UserID)
     Dim infoObj : Set infoObj = CreateObject("Scripting.Dictionary")
 
-    Dim i
-    For i = 0 To result.list.length - 1
-        Dim tUseHistory : Set tUseHistory = New UseHistory
-    Next
+    Dim useHistoryResult : Set useHistoryResult = New UseHistoryResult
+    useHistoryResult.fromJsonIfno tmp
 
-    result.list =
-
-     Set GetUseHistory = result
+    Set GetUseHistory = useHistoryResult
 End Function
 
 ' 포인트 결제내역 (GetPaymentHistory)
