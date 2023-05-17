@@ -44,19 +44,21 @@
                 <%
                     If code = 0 Then
                 %>
-                    <fieldset class="fieldset2">
-                        <legend> RefundHistory </legend>
+
                         <ul>
                             <li> code (응답 코드) : <%=result.code%></li>
                             <li> total (총 검색결과 건수) : <%=result.total%></li>
                             <li> perPage (페이지당 검색개수) : <%=result.perPage%></li>
                             <li> pageNum (페이지 번호) : <%=result.pageNum%></li>
-                            <li> perCount (페이지 개수) : <%=result.perCount%></li>
+                            <li> pageCount (페이지 개수) : <%=result.pageCount%></li>
                         </ul>
                         <%
                             Dim i
                             For i = 0 To UBound(result.list) - 1
                         %>
+                        <fieldset class="fieldset2">
+                            <legend> RefundHistory  [ <%= i+1%> / <%=UBound(result.list)%>]</legend>
+                            <ul>
                                 <li> reqDT (신청 일시) : <%=result.list(i).reqDT%></li>
                                 <li> requestPoint (환불 신청포인트) : <%=result.list(i).requestPoint%></li>
                                 <li> accountBank (환불계좌 은행명) : <%=result.list(i).accountBank%></li>
@@ -64,6 +66,8 @@
                                 <li> accountName (환불계좌 예금주명) : <%=result.list(i).accountName%></li>
                                 <li> state (상태) : <%=result.list(i).state%></li>
                                 <li> reason (환불사유) : <%=result.list(i).reason%></li>
+                            </ul>
+                        </fieldset>
                         <%
                             Next
                         %>
@@ -79,6 +83,6 @@
                     End If
                 %>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>
