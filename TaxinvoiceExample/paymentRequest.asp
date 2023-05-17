@@ -14,7 +14,7 @@
     '팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    Dim m_PaymentForm : Set m_PaymentForm = New PaymentForm
+    Set m_PaymentForm = New PaymentForm
 
     '담당자명
     m_PaymentForm.SettlerName = "담당자"

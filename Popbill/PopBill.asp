@@ -276,7 +276,7 @@ End Function
 Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
     Dim tmp: Set tmp = PaymentForm.toJsonInfo
     Dim postdata: postdata = m_Linkhub.toString(tmp)
-    PaymentRequest = httpPOST("/Payment", getSession_token(CorpNum), "", postData, UserID)
+    Set PaymentRequest = httpPOST("/Payment", getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 ' 무통장 입금신청 정보확인 (GetSettleResult)
@@ -285,29 +285,49 @@ Public Function GetSettleResult(CorpNum, SettleCode, UserID)
         Err.Raise -99999999, "POPBILL", "정산코드가 입력되지 않았습니다."
     End If
 
-    GetSettleResult = httpGET("/Paymet/"& SettleCode,getSession_token(CorpNum),UserID)
+    Set GetSettleResult = httpGET("/Paymet/"& SettleCode,getSession_token(CorpNum),UserID)
 End Function
 
 ' 포인트 사용내역 (GetUseHistory)
 Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
-    GetUseHistory = httpGET("/UseHistory?SDate=" & SDate &  "&EDate=" & EDate & "&Page=" & Page & "&PerPage=" & PerPage &  "&Order=" & Order,getSession_token(CorpNum),UserID)
+     Dim result : Set result = httpGET("/UseHistory?SDate=" & SDate &  "&EDate=" & EDate & "&Page=" & Page & "&PerPage=" & PerPage &  "&Order=" & Order,getSession_token(CorpNum),UserID)
+    Dim infoObj : Set infoObj = CreateObject("Scripting.Dictionary")
+
+    Dim i
+    For i = 0 To result.list.length - 1
+        Dim tUseHistory : Set tUseHistory = New UseHistory
+    Next
+
+    result.list =
+
+     Set GetUseHistory = result
 End Function
 
 ' 포인트 결제내역 (GetPaymentHistory)
 Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
-    GetPaymentHistory = httpGET("/PaymentHistory?SDate=" &SDate&  "&EDate="&EDate &  "&Page="&Page&  "&PerPage=" &PerPage,getSession_token(CorpNum),UserID)
+     Dim tmp: Set tmp = httpGET("/PaymentHistory?SDate=" &SDate&  "&EDate="&EDate &  "&Page="&Page&  "&PerPage=" &PerPage,getSession_token(CorpNum),UserID)
+
+    Dim paymentHistoryResult : Set paymentHistoryResult = New PaymentHistoryResult
+    paymentHistoryResult.fromJsonIfno tmp
+
+
+     Set GetPaymentHistory = paymentHistoryResult
 End Function
 
 ' 환불 신청 (Refund)
 Public Function Refund(CorpNum, RefundForm,  UserID)
     Dim tmp: Set tmp = RefundForm.toJsonInfo
     Dim postdata: postdata = m_Linkhub.toString(tmp)
-    Refund = httpPOST("/Refund", getSession_token(CorpNum), "", postData, UserID)
+    Set Refund = httpPOST("/Refund", getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 ' 환불 신청내역 (GetRefundHistory)
 Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
-    GetRefundHistory = httpGET("/RefundHistory?Page="&Page & "&PerPage="&PerPage,getSession_token(CorpNum),UserID)
+    Dim tmp : Set tmp  = httpGET("/RefundHistory?Page="&Page & "&PerPage="&PerPage,getSession_token(CorpNum),UserID)
+    Dim refundHistoryResult : Set refundHistoryResult = New RefundHistoryResult
+    refundHistoryResult.fromJsonInfo tmp
+
+    Set GetRefundHistory = refundHistoryResult
 End Function
 
 ' 환불 신청상태 확인 (GetRefundInfo)
@@ -316,7 +336,7 @@ Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
         Err.Raise -99999999, "POPBILL", "환불코드가 입력되지 않았습니다."
     End If
 
-	GetRefundInfo = httpGET("/Refund/"&RefundCode,getSession_token(CorpNum),UserID)
+	Set GetRefundInfo = httpGET("/Refund/"&RefundCode,getSession_token(CorpNum),UserID)
 End Function
 
 ' 환불 가능 포인트 조회 (GetRefundableBalance)
@@ -329,7 +349,7 @@ End Function
 Public Function QuitMember(CorpNum, QuitReason, UserID)
     Dim tmp: Set tmp = QuitReason.toJsonInfo
     Dim postdata: postdata = m_Linkhub.toString(tmp)
-    QuitMember = httpPOST("/QuitMember", getSession_token(CorpNum), "", postData, UserID)
+    Set QuitMember = httpPOST("/QuitMember", getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 '''''''''''''  End of PopbillBase
@@ -839,4 +859,180 @@ Class QuitReason
     End Function
 
 End Class
+
+Class UseHistoryResult
+Public code
+Public total
+Public perPage
+Public pageNum
+Public pageCount
+Public list()
+
+    Public Sub Class_Initialize
+        ReDim list(-1)
+    End Sub
+
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+
+        code = jsonInfo.code
+        total = jsonInfo.total
+        perPage = jsonInfo.perPage
+        pageNum = jsonInfo.pageNum
+        pageCount = jsonInfo.pageCount
+
+        ReDim list(jsonInfo.list.length)
+        Dim i
+        For i = 0 To jsonInfo.list.length -1
+            Dim tmpObj : Set tmpObj = New UseHistory
+            tmpObj.fromJsonInfo jsonInfo.list.Get(i)
+            Set list(i) = tmpObj
+        Next
+
+        On Error GoTo 0
+    End Sub
+End Class
+
+Class UseHistory
+    Public itemCode
+    Public txtType
+    Public txPoint
+    Public balance
+    Public txDT
+    Public userID
+    Public userName
+
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+            itemCode = jsonInfo.itemCode
+            txtType = jsonInfo.txtType
+            txPoint = jsonInfo.txPoint
+            balance = jsonInfo.balance
+            txDT = jsonInfo.txDT
+            userID = jsonInfo.userID
+            userName = jsonInfo.userName
+        On Error GoTo 0
+    End Sub
+End Class
+
+Class RefundHistory
+
+    Public reqDT
+    Public requestPoint
+    Public accountBank
+    Public accountNum
+    Public accountName
+    Public state
+    Public reason
+
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+            reqDT = jsonInfo.reqDT
+            requestPoint = jsonInfo.requestPoint
+            accountBank = jsonInfo.accountBank
+            accountNum = jsonInfo.accountNum
+            accountName = jsonInfo.accountName
+            state = jsonInfo.state
+            reason = jsonInfo.reason
+        On Error GoTo 0
+    End Sub
+
+End Class
+
+Class RefundHistoryResult
+Public code
+Public total
+Public perPage
+Public pageNum
+Public pageCount
+Public list()
+
+    Public Sub Class_Initialize
+        ReDim list(-1)
+    End Sub
+
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+
+        code = jsonInfo.code
+        total = jsonInfo.total
+        perPage = jsonInfo.perPage
+        pageNum = jsonInfo.pageNum
+        pageCount = jsonInfo.pageCount
+
+        ReDim list(jsonInfo.list.length)
+        Dim i
+        For i = 0 To jsonInfo.list.length -1
+            Dim tmpObj : Set tmpObj = New RefundHistory
+            tmpObj.fromJsonInfo jsonInfo.list.Get(i)
+            Set list(i) = tmpObj
+        Next
+
+        On Error GoTo 0
+    End Sub
+End Class
+
+Class PaymentHistory
+    Public productType
+    Public productName
+    Public settleType
+    Public settlerName
+    Public settlerEmail
+    Public settleCost
+    Public settlePoint
+    Public settleState
+    Public regDT
+    Public stateDT
+
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+            productType = jsonInfo.productType
+            productName = jsonInfo.productName
+            settleType = jsonInfo.settleType
+            settlerName = jsonInfo.settlerName
+            settlerEmail = jsonInfo.settlerEmail
+            settleCost = jsonInfo.settleCost
+            settlePoint = jsonInfo.settlePoint
+            settleState = jsonInfo.settleState
+            regDT = jsonInfo.regDT
+            stateDT = jsonInfo.stateDT
+        On Error GoTo 0
+    End Sub
+
+End Class
+
+
+Class PaymentHistoryResult
+Public code
+Public total
+Public perPage
+Public pageNum
+Public pageCount
+Public list()
+
+    Public Sub Class_Initialize
+        ReDim list(-1)
+    End Sub
+
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+
+        code = jsonInfo.code
+        total = jsonInfo.total
+        perPage = jsonInfo.perPage
+        pageNum = jsonInfo.pageNum
+        pageCount = jsonInfo.pageCount
+
+        ReDim list(jsonInfo.list.length)
+        Dim i
+        For i = 0 To jsonInfo.list.length -1
+            Dim tmpObj : Set tmpObj = New PaymentHistory
+            tmpObj.fromJsonInfo jsonInfo.list.Get(i)
+            Set list(i) = tmpObj
+        Next
+
+        On Error GoTo 0
+    End Sub
+End Class
+
 %>
