@@ -22,7 +22,7 @@
 
     On Error Resume Next
 
-    Set refundableBalance = m_EasyFinBankService.GetSettleResult(testCorpNum, SettleCode, UserID)
+    Set result = m_EasyFinBankService.GetSettleResult(testCorpNum, SettleCode, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -37,16 +37,25 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>환불 가능 포인트 조회</legend>
+                <legend>연동회원 무통장 입금신청 정보확인</legend>
                 <%
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
-                        <legend> CorpInfo </legend>
-                            <ul>
-                                <li> refundableBalance (환불 가능 포인트) : <%=refundableBalance%></li>
-                            </ul>
-                        </fieldset>
+                        <legend> PaymentHistory </legend>
+                        <ul>
+                            <li>productType (결제 내용) : <%= result.productType %></li>
+                            <li>productName (정액제 상품명) : <%= result.productName %></li>
+                            <li>settleType (결제유형) : <%= result.settleType %></li>
+                            <li>settlerName (담당자명) : <%= result.settlerName %></li>
+                            <li>settlerEmail (담당자메일) : <%= result.settlerEmail %></li>
+                            <li>settleCost (결제금액) : <%= result.settleCost %></li>
+                            <li>settlePoint (충전포인트) : <%= result.settlePoint %></li>
+                            <li>settleState (결제상태) : <%= result.settleState %></li>
+                            <li>regDT (등록일시 ) : <%= result.regDT %></li>
+                            <li>stateDT (상태일시 ) : <%= result.stateDT %></li>
+                        </ul>
+                    </fieldset>
                 <%
                     Else
                 %>
@@ -58,6 +67,6 @@
                     End If
                 %>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>

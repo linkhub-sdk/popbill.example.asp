@@ -307,7 +307,6 @@ if(!JSON) {
 
     if(typeof JSON.parse !== 'function') {
         JSON.parse = function (text, reviver) {
-
 // The parse method takes a text and an optional reviver function, and returns
 // a JavaScript value if the text is a valid JSON text.
 

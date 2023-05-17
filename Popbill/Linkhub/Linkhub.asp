@@ -229,5 +229,4 @@ End Function
 
 'end of class
 end Class
-
 %>

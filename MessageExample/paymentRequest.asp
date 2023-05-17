@@ -37,7 +37,7 @@
 
     On Error Resume Next
 
-    Set paymentResponse = m_MessageService.PaymentRequest(testCorpNum, m_PaymentForm, UserID)
+    Set result = m_MessageService.PaymentRequest(testCorpNum, m_PaymentForm, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -59,9 +59,9 @@
                     <fieldset class="fieldset2">
                         <legend> PaymentResponse </legend>
                             <ul>
-                                <li> code (응답코드) : <%=paymentResponse.code%></li>
-                                <li> message (응답메시지) : <%=paymentResponse.message%></li>
-                                <li> settleCode (정산코드) : <%=paymentResponse.settleCode%></li>
+                                <li> code (응답코드) : <%=result.code%></li>
+                                <li> message (응답메시지) : <%=result.message%></li>
+                                <li> settleCode (정산코드) : <%=result.settleCode%></li>
                             </ul>
                         </fieldset>
                 <%
@@ -75,6 +75,6 @@
                     End If
                 %>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>

@@ -64,16 +64,16 @@
                     <fieldset class="fieldset2">
                         <legend> PaymentHistory [ <%= i+1%> / <%=UBound(result.list)%>]</legend>
                         <ul>
-                            <li>productType : <%= result.list(i).productType %></li>
-                            <li>productName : <%= result.list(i).productName %></li>
-                            <li>settleType : <%= result.list(i).settleType %></li>
-                            <li>settlerName : <%= result.list(i).settlerName %></li>
-                            <li>settlerEmail : <%= result.list(i).settlerEmail %></li>
-                            <li>settleCost : <%= result.list(i).settleCost %></li>
-                            <li>settlePoint : <%= result.list(i).settlePoint %></li>
-                            <li>settleState : <%= result.list(i).settleState %></li>
-                            <li>regDT : <%= result.list(i).regDT %></li>
-                            <li>stateDTz : <%= result.list(i).stateDTz %></li>
+                            <li>productType (결제 내용) : <%= result.list(i).productType %></li>
+                            <li>productName (정액제 상품명) : <%= result.list(i).productName %></li>
+                            <li>settleType (결제유형) : <%= result.list(i).settleType %></li>
+                            <li>settlerName (담당자명) : <%= result.list(i).settlerName %></li>
+                            <li>settlerEmail (담당자메일) : <%= result.list(i).settlerEmail %></li>
+                            <li>settleCost (결제금액) : <%= result.list(i).settleCost %></li>
+                            <li>settlePoint (충전포인트) : <%= result.list(i).settlePoint %></li>
+                            <li>settleState (결제상태) : <%= result.list(i).settleState %></li>
+                            <li>regDT (등록일시 ) : <%= result.list(i).regDT %></li>
+                            <li>stateDT (상태일시 ) : <%= result.list(i).stateDT %></li>
                         </ul>
                     </fieldset>
                 <%
@@ -88,6 +88,6 @@
                     End If
                 %>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>

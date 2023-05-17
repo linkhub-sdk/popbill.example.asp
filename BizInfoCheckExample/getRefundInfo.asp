@@ -22,7 +22,7 @@
 
     On Error Resume Next
 
-    Dim refundHistory: Set refundHistory = m_BizInfoCheckService.GetRefundInfo(testCorpNum, refundCode, UserID)
+    Set result = m_BizInfoCheckService.GetRefundInfo(testCorpNum, refundCode, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -44,13 +44,13 @@
                     <fieldset class="fieldset2">
                         <legend> GetRefundInfo </legend>
                             <ul>
-                                <li> reqDT (신청 일시) : <%=refundHistory.reqDT%></li>
-                                <li> requestPoint (환불 신청포인트) : <%=refundHistory.requestPoint%></li>
-                                <li> accountBank (환불계좌 은행명) : <%=refundHistory.accountBank%></li>
-                                <li> accountNum (환불계좌번호) : <%=refundHistory.accountNum%></li>
-                                <li> accountName (환불계좌 예금주명) : <%=refundHistory.accountName%></li>
-                                <li> state (상태) : <%=refundHistory.state%></li>
-                                <li> reason (환불사유) : <%=refundHistory.reason%></li>
+                                <li> reqDT (신청 일시) : <%=result.reqDT%></li>
+                                <li> requestPoint (환불 신청포인트) : <%=result.requestPoint%></li>
+                                <li> accountBank (환불계좌 은행명) : <%=result.accountBank%></li>
+                                <li> accountNum (환불계좌번호) : <%=result.accountNum%></li>
+                                <li> accountName (환불계좌 예금주명) : <%=result.accountName%></li>
+                                <li> state (상태) : <%=result.state%></li>
+                                <li> reason (환불사유) : <%=result.reason%></li>
                             </ul>
                         </fieldset>
                 <%
@@ -64,6 +64,6 @@
                     End If
                 %>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>

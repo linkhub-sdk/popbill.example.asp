@@ -7,16 +7,20 @@
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 연동회원의 회사정보를 확인합니다.
+    ' 가입된 연동회원의 탈퇴를 요청합니다.
+    ' - 회원탈퇴 신청과 동시에 팝빌의 모든 서비스 이용이 불가하며, 관리자를 포함한 모든 담당자 계정도 일괄탈퇴 됩니다.
+    ' - 회원탈퇴로 삭제된 데이터는 복원이 불가능합니다.
+    ' - 관리자 계정만 회원탈퇴가 가능합니다.
     ' - https://developers.popbill.com/reference/closedown/asp/api/member#QuitMember
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    '탈퇴 사유
+    '탈퇴 사유 객체
     Set m_QuitReason = New QuitReason
 
+    '탈퇴 사유
     m_QuitReason.quitReason = "탈퇴사유"
 
     '팝빌회원 아이디
@@ -39,15 +43,15 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>환불 가능 포인트 조회</legend>
+                <legend>팝빌 회원 탈퇴</legend>
                 <%
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
                         <legend> CorpInfo </legend>
                             <ul>
-                                <li> code (응답 코드) : <%=response.code%></li>
-                                <li> message (응답 메시지) : <%=response.message%></li>
+                                <li> code (응답 코드) : <%=result.code%></li>
+                                <li> message (응답 메시지) : <%=result.message%></li>
                             </ul>
                         </fieldset>
                 <%
@@ -61,6 +65,6 @@
                     End If
                 %>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>

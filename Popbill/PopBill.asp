@@ -1,4 +1,5 @@
 <!--#include file="Linkhub/Linkhub.asp"-->
+<!--#include file="Linkhub/json2.asp"-->
 <%
 
 Application("LINKHUB_TOKEN_SCOPE_POPBILL") = Array("member")
@@ -276,7 +277,11 @@ End Function
 Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
     Dim tmp: Set tmp = PaymentForm.toJsonInfo
     Dim postdata: postdata = m_Linkhub.toString(tmp)
-    Set PaymentRequest = httpPOST("/Payment", getSession_token(CorpNum), "", postData, UserID)
+    Dim t_result : Set t_result = httpPOST("/Payment", getSession_token(CorpNum), "", postData, UserID)
+
+    Dim m_paymentResult : Set m_paymentResult = New PaymentResponse
+    m_paymentResult.fromJsonInfo t_result
+    Set PaymentRequest = m_paymentResult
 End Function
 
 ' 무통장 입금신청 정보확인 (GetSettleResult)
@@ -285,7 +290,11 @@ Public Function GetSettleResult(CorpNum, SettleCode, UserID)
         Err.Raise -99999999, "POPBILL", "정산코드가 입력되지 않았습니다."
     End If
 
-    Set GetSettleResult = httpGET("/Paymet/"& SettleCode,getSession_token(CorpNum),UserID)
+    Dim tmp : Set tmp = httpGET("/Paymet/"& SettleCode,getSession_token(CorpNum),UserID)
+    Dim m_paymentHistory: Set m_paymentHistory = New PaymentHistory
+    m_paymentHistory.fromJsonInfo  tmp
+
+    Set GetSettleResult = m_paymentHistory
 End Function
 
 ' 포인트 사용내역 (GetUseHistory)
@@ -294,32 +303,38 @@ Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserI
     Dim infoObj : Set infoObj = CreateObject("Scripting.Dictionary")
 
     Dim useHistoryResult : Set useHistoryResult = New UseHistoryResult
-    useHistoryResult.fromJsonIfno tmp
+    useHistoryResult.fromJsonInfo tmp
+
 
     Set GetUseHistory = useHistoryResult
 End Function
 
 ' 포인트 결제내역 (GetPaymentHistory)
 Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
-     Dim tmp: Set tmp = httpGET("/PaymentHistory?SDate=" &SDate&  "&EDate="&EDate &  "&Page="&Page&  "&PerPage=" &PerPage,getSession_token(CorpNum),UserID)
+    Dim tmp: Set tmp = httpGET("/PaymentHistory?SDate=" &SDate&  "&EDate="&EDate &  "&Page="&Page&  "&PerPage=" &PerPage,getSession_token(CorpNum),UserID)
 
+    Dim infoObj : Set infoObj = CreateObject("Scripting.Dictionary")
     Dim paymentHistoryResult : Set paymentHistoryResult = New PaymentHistoryResult
-    paymentHistoryResult.fromJsonIfno tmp
+    paymentHistoryResult.fromJsonInfo mytmp
 
-
-     Set GetPaymentHistory = paymentHistoryResult
+    Set GetPaymentHistory = paymentHistoryResult
 End Function
 
 ' 환불 신청 (Refund)
 Public Function Refund(CorpNum, RefundForm,  UserID)
     Dim tmp: Set tmp = RefundForm.toJsonInfo
     Dim postdata: postdata = m_Linkhub.toString(tmp)
-    Set Refund = httpPOST("/Refund", getSession_token(CorpNum), "", postData, UserID)
+    Dim tmpResult:Set tmpResult = httpPOST("/Refund", getSession_token(CorpNum), "", postData, UserID)
+
+    Dim refundResponse: Set refundResponse = New RefundResponse
+    refundResponse.fromJsonInfo tmpResult
+    Set Refund = refundResponse
 End Function
 
 ' 환불 신청내역 (GetRefundHistory)
 Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
     Dim tmp : Set tmp  = httpGET("/RefundHistory?Page="&Page & "&PerPage="&PerPage,getSession_token(CorpNum),UserID)
+
     Dim refundHistoryResult : Set refundHistoryResult = New RefundHistoryResult
     refundHistoryResult.fromJsonInfo tmp
 
@@ -332,7 +347,13 @@ Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
         Err.Raise -99999999, "POPBILL", "환불코드가 입력되지 않았습니다."
     End If
 
-	Set GetRefundInfo = httpGET("/Refund/"&RefundCode,getSession_token(CorpNum),UserID)
+	Set tmp = httpGET("/Refund/"&RefundCode,getSession_token(CorpNum),UserID)
+
+    Dim refundHistory : Set refundHistory = New RefundHistory
+    refundHistory.fromJsonInfo tmp
+
+    Set GetRefundInfo = refundHistory
+
 End Function
 
 ' 환불 가능 포인트 조회 (GetRefundableBalance)
@@ -343,9 +364,10 @@ End Function
 
 ' 팝빌회원 탈퇴 (QuitMember)
 Public Function QuitMember(CorpNum, QuitReason, UserID)
-    Dim tmp: Set tmp = QuitReason.toJsonInfo
-    Dim postdata: postdata = m_Linkhub.toString(tmp)
-    Set QuitMember = httpPOST("/QuitMember", getSession_token(CorpNum), "", postData, UserID)
+    Dim t_QuitReason: Set t_QuitReason = QuitReason.toJsonInfo
+    Dim postdata: postdata = m_Linkhub.toString(t_QuitReason)
+    Dim tmp: Set tmp  = httpPOST("/QuitMember", getSession_token(CorpNum), "", postData, UserID)
+    Set QuitMember = tmp
 End Function
 
 '''''''''''''  End of PopbillBase
@@ -891,7 +913,7 @@ End Class
 
 Class UseHistory
     Public itemCode
-    Public txtType
+    Public txType
     Public txPoint
     Public balance
     Public txDT
@@ -901,7 +923,7 @@ Class UseHistory
     Public Sub fromJsonInfo(jsonInfo)
         On Error Resume Next
             itemCode = jsonInfo.itemCode
-            txtType = jsonInfo.txtType
+            txType = jsonInfo.txType
             txPoint = jsonInfo.txPoint
             balance = jsonInfo.balance
             txDT = jsonInfo.txDT
@@ -1031,4 +1053,36 @@ Public list()
     End Sub
 End Class
 
+
+Class RefundResponse
+	Public code
+    Public message
+    Public refundCode
+
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+
+        code = jsonInfo.code
+        message = jsonInfo.message
+        refundCode = jsonInfo.refundCode
+
+        On Error GoTo 0
+    End Sub
+End Class
+
+Class PaymentResponse
+    Public code
+    Public message
+    Public settleCode
+
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+
+        code = jsonInfo.code
+        message = jsonInfo.message
+        settleCode = jsonInfo.settleCode
+
+        On Error GoTo 0
+    End Sub
+End Class
 %>

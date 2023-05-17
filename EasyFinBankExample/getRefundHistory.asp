@@ -40,48 +40,47 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>연동회원 포인트 환불내역 확인</legend>
-                <%
-                    If code = 0 Then
-                %>
+            <legend>연동회원 포인트 환불내역 확인</legend>
+            <%
+                If code = 0 Then
+            %>
 
-                        <ul>
-                            <li> code (응답 코드) : <%=result.code%></li>
-                            <li> total (총 검색결과 건수) : <%=result.total%></li>
-                            <li> perPage (페이지당 검색개수) : <%=result.perPage%></li>
-                            <li> pageNum (페이지 번호) : <%=result.pageNum%></li>
-                            <li> pageCount (페이지 개수) : <%=result.pageCount%></li>
-                        </ul>
-                        <%
-                            Dim i
-                            For i = 0 To UBound(result.list) - 1
-                        %>
-                        <fieldset class="fieldset2">
-                            <legend> RefundHistory  [ <%= i+1%> / <%=UBound(result.list)%>]</legend>
-                            <ul>
-                                <li> reqDT (신청 일시) : <%=result.list(i).reqDT%></li>
-                                <li> requestPoint (환불 신청포인트) : <%=result.list(i).requestPoint%></li>
-                                <li> accountBank (환불계좌 은행명) : <%=result.list(i).accountBank%></li>
-                                <li> accountNum (환불계좌번호) : <%=result.list(i).accountNum%></li>
-                                <li> accountName (환불계좌 예금주명) : <%=result.list(i).accountName%></li>
-                                <li> state (상태) : <%=result.list(i).state%></li>
-                                <li> reason (환불사유) : <%=result.list(i).reason%></li>
-                            </ul>
-                        </fieldset>
-                        <%
-                            Next
-                        %>
-                    </fieldset>
+            <ul>
+                <li> code (응답 코드) : <%=result.code%></li>
+                <li> total (총 검색결과 건수) : <%=result.total%></li>
+                <li> perPage (페이지당 검색개수) : <%=result.perPage%></li>
+                <li> pageNum (페이지 번호) : <%=result.pageNum%></li>
+                <li> pageCount (페이지 개수) : <%=result.pageCount%></li>
+            </ul>
                 <%
-                    Else
+                    Dim i
+                    For i = 0 To UBound(result.list) - 1
                 %>
+                <fieldset class="fieldset2">
+                    <legend> RefundHistory  [ <%= i+1%> / <%=UBound(result.list)%>]</legend>
                     <ul>
-                        <li>Response.code: <%=code%> </li>
-                        <li>Response.message: <%=message%> </li>
+                        <li> reqDT (신청 일시) : <%=result.list(i).reqDT%></li>
+                        <li> requestPoint (환불 신청포인트) : <%=result.list(i).requestPoint%></li>
+                        <li> accountBank (환불계좌 은행명) : <%=result.list(i).accountBank%></li>
+                        <li> accountNum (환불계좌번호) : <%=result.list(i).accountNum%></li>
+                        <li> accountName (환불계좌 예금주명) : <%=result.list(i).accountName%></li>
+                        <li> state (상태) : <%=result.list(i).state%></li>
+                        <li> reason (환불사유) : <%=result.list(i).reason%></li>
                     </ul>
+                </fieldset>
                 <%
-                    End If
+                    Next
                 %>
+            <%
+                Else
+            %>
+                <ul>
+                    <li>Response.code: <%=code%> </li>
+                    <li>Response.message: <%=message%> </li>
+                </ul>
+            <%
+                End If
+            %>
             </fieldset>
         </div>
     </body>
