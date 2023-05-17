@@ -42,7 +42,7 @@
 
     On Error Resume Next
 
-    Set refundResponse = m_BizInfoCheckService.Refund(testCorpNum, m_RefundForm, UserID)
+    Set result = m_BizInfoCheckService.Refund(testCorpNum, m_RefundForm, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -62,11 +62,11 @@
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
-                        <legend> refundResponse </legend>
+                        <legend> result </legend>
                             <ul>
-                                <li> code (응답 코드) : <%=refundResponse.code%></li>
-                                <li> message (응답 메시지) : <%=refundResponse.message%></li>
-                                <li> refundCode (환불코드) : <%=refundResponse.refundCode%></li>
+                                <li> code (응답 코드) : <%=result.code%></li>
+                                <li> message (응답 메시지) : <%=result.message%></li>
+                                <li> refundCode (환불코드) : <%=result.refundCode%></li>
                             </ul>
                         </fieldset>
                 <%
