@@ -120,50 +120,49 @@ Public Function GetChargeInfo ( CorpNum, MType, UserID )
     Set GetChargeInfo = chrgInfo
 End Function
 
-	'무통장 입금신청
+'무통장 입금신청
 Public Function PaymentRequest(CorpNum, ByRef PaymentForm, UserID)
-    PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
+    Set PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
 End Function
 
 '연동회원 포인트 결제내역 조회
 Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
-    GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+    Set GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
 End Function
 
 '연동회원 무통장 입금신청 정보확인
 Public Function GetSettleResult(CorpNum, SettleCode, UserID)
-    GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
+    Set GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
 End Function
 
 '연동회원 포인트 사용내역 확인
 Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
-    GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
+    Set GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
 End Function
 
 '연동회원 포인트 환불신청
 Public Function Refund(CorpNum, RefundForm, UserID)
-    Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
+    Set Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
 End Function
 
 ' 환불 가능 포인트 조회
 Public Function GetRefundableBalance(CorpNum, UserID)
-    m_refundable = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
-    GetRefundableBalance = m_refundable
+    GetRefundableBalance = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
 End Function
 
 '연동회원 포인트 환불내역 확인
 Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
-    GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
+    Set GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
 End Function
 
 ' 환불 신청 상태 조회
 Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
-    GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
+    Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
 End Function
 
 '회원 탈퇴
 Public Function QuitMember(CorpNum, QuitReason, UserID)
-    QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
+    Set QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
 End Function
 
 '''''''''''''  End of PopbillBase
