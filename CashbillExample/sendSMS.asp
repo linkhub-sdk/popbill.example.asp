@@ -1,35 +1,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ���ݿ������� ���õ� �ȳ� SMS(�ܹ�) ���ڸ� �������ϴ� �Լ���, �˺� ����Ʈ [���ڡ��ѽ�] > [����] > [���۳���] �޴����� ���۰���� Ȯ�� �� �� �ֽ��ϴ�.
-    ' - �޽����� �ִ� 90byte���� �Է� �����ϰ�, �ʰ��� ������ �ڵ����� �����Ǿ� �����մϴ�. (�ѱ� �ִ� 45��)
-    ' - �˸����� ���۽� ����Ʈ�� �����˴ϴ�. (���۽��н� ȯ��ó��)
+    ' 현금영수증과 관련된 안내 SMS(단문) 문자를 재전송하는 함수로, 팝빌 사이트 [문자·팩스] > [문자] > [전송내역] 메뉴에서 전송결과를 확인 할 수 있습니다.
+    ' - 메시지는 최대 90byte까지 입력 가능하고, 초과한 내용은 자동으로 삭제되어 전송합니다. (한글 최대 45자)
+    ' - 알림문자 전송시 포인트가 차감됩니다. (전송실패시 환불처리)
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#SendSMS
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     userID = "testkorea"
 
-    ' ������ȣ
+    ' 문서번호
     mgtKey = "20220720-ASP-001"
 
-    ' �߽Ź�ȣ
+    ' 발신번호
     sender = ""
 
-    ' ���Ź�ȣ
+    ' 수신번호
     receiver = ""
 
-    ' �޽��� ����, 90byte�� �ʰ��� ������ ���̰� �����Ǿ� ���۵˴ϴ�.
-    contents = "���ݿ����� �˸����� �׽�Ʈ�Դϴ�"
+    ' 메시지 내용, 90byte를 초과한 내용은 길이가 조정되어 전송됩니다.
+    contents = "현금영수증 알림문자 테스트입니다"
 
     On Error Resume Next
 
@@ -51,7 +51,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>�˸����� ������ </legend>
+                <legend>알림문자 재전송 </legend>
                 <ul>
                     <li>Response.code : <%=code%></li>
                     <li>Response.message : <%=message%></li>

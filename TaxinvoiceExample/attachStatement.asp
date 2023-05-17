@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    '  �˺� ���ڸ����� API�� ���� ������ ���ڸ������� ���ݰ�꼭�� ÷���մϴ�.
+    '  팝빌 전자명세서 API를 통해 발행한 전자명세서를 세금계산서에 첨부합니다.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#AttachStatement
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' ���ݰ�꼭 �������� SELL(����), BUY(����), TRUSTEE(����Ź)
+    ' 세금계산서 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
     KeyType= "SELL"
 
-    ' ���ݰ�꼭 ������ȣ
+    ' 세금계산서 문서번호
     MgtKey = "20220720-ASP-002"
 
-    ' ÷���� ���ڸ����� �����ڵ�
-    ' - 121(�ŷ�������), 122(û����), 123(������) 124(���ּ�), 125(�Ա�ǥ), 126(������)
+    ' 첨부할 전자명세서 종류코드
+    ' - 121(거래명세서), 122(청구서), 123(견적서) 124(발주서), 125(입금표), 126(영수증)
     SubItemCode = 121
 
-    ' ���ڸ����� ������ȣ
+    ' 전자명세서 관리번호
     SubMgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -47,7 +47,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���ڸ����� ÷��</legend>
+                <legend>전자명세서 첨부</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

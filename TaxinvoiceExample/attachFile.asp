@@ -1,29 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "�ӽ�����" ������ ���ݰ�꼭�� 1���� ������ ÷���մϴ�. (�ִ� 5��)
+    ' "임시저장" 상태의 세금계산서에 1개의 파일을 첨부합니다. (최대 5개)
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#AttachFile
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     testUserID = "testkorea"
 
-    ' �������� SELL(����), BUY(����), TRUSTEE(����Ź)
+    ' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
     KeyType = "SELL"
 
-    ' ������ȣ
+    ' 문서번호
     MgtKey = "20220720-ASP-002"
 
-    ' ÷���� ���ϰ��
+    ' 첨부할 파일경로
     filePath = "C:\Users\jhPark\git\popbill.example.asp\test.jpg"
 
     On Error Resume Next
@@ -45,7 +45,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���ݰ�꼭 ÷������ �߰� </legend>
+                <legend>세금계산서 첨부파일 추가 </legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

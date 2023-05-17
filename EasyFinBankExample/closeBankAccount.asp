@@ -1,37 +1,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ������ ������ ������ ��û�մϴ�.
+    ' 계좌의 정액제 해지를 요청합니다.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#CloseBankAccount
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ
+    ' 팝빌회원 사업자번호
     CorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     UserID = "testkorea"
 
 
-    ' ����ڵ�
-    ' �������-0002 / �������-0003 / ��������-0004 /��������-0007 / ��������-0011 / �츮����-0020
-    ' SC����-0023 / �뱸����-0031 / �λ�����-0032 / ��������-0034 / ��������-0035 / ��������-0037
-    ' �泲����-0039 / �������ݰ�-0045 / ��������-0048 / ��ü��-0071 / KEB�ϳ�����-0081 / ��������-0088 /��Ƽ����-0027
+    ' 기관코드
+    ' 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
+    ' SC은행-0023 / 대구은행-0031 / 부산은행-0032 / 광주은행-0034 / 제주은행-0035 / 전북은행-0037
+    ' 경남은행-0039 / 새마을금고-0045 / 신협은행-0048 / 우체국-0071 / KEB하나은행-0081 / 신한은행-0088 /씨티은행-0027
     BankCode = ""
 
-    ' ���¹�ȣ ������('-') ����
+    ' 계좌번호 하이픈('-') 제외
     AccountNumber = ""
 
-    ' ��������, "�Ϲ�", "�ߵ�" �� �� 1
-    ' - �Ϲ�(�Ϲ�����) - ���� ��û���� ���Ե� ������ �̿�Ⱓ ���� �� ����
-    ' - �ߵ�(�ߵ�����) - ���� ��û�� ��� �����ǰ� �˺� ����ڰ� ���ν� ����
-    ' �� �ߵ��� ���, ������ �ܿ��Ⱓ�� ���ҷ� ���Ǿ� ����Ʈ ȯ��(���� �̿�Ⱓ�� �����ϸ� ���� ȯ��)
-    CloseType = "�ߵ�"
+    ' 해지유형, "일반", "중도" 중 택 1
+    ' - 일반(일반해지) - 해지 요청일이 포함된 정액제 이용기간 만료 후 해지
+    ' - 중도(중도해지) - 해지 요청시 즉시 정지되고 팝빌 담당자가 승인시 해지
+    ' └ 중도일 경우, 정액제 잔여기간은 일할로 계산되어 포인트 환불(무료 이용기간에 해지하면 전액 환불)
+    CloseType = "중도"
 
     On Error Resume Next
         Set Presponse = m_EasyFinBankService.CloseBankAccount(CorpNum, BankCode, AccountNumber, CloseType, UserID)
@@ -52,7 +52,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���� ������ ������û</legend>
+                <legend>계좌 정액제 해지신청</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

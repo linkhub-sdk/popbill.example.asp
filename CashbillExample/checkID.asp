@@ -1,17 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ����ϰ��� �ϴ� ���̵��� �ߺ����θ� Ȯ���մϴ�.
+    ' 사용하고자 하는 아이디의 중복여부를 확인합니다.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/member#CheckID
     '**************************************************************
 
-    ' �ߺ�Ȯ���� ���̵�
+    ' 중복확인할 아이디
     testID = "testkorea124124"
 
     On Error Resume Next
@@ -34,7 +34,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���̵� �ߺ�Ȯ�� </legend>
+                <legend>아이디 중복확인 </legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' �� ���� �ŷ� ������ �޸� �����մϴ�.
+    ' 한 건의 거래 내역에 메모를 저장합니다.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/search#SaveMemo
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ
+    ' 팝빌회원 사업자번호
     CorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     UserID = "testkorea"
 
-    ' �ŷ����� ���̵�, Search API ��ȯ�׸� �� TID
+    ' 거래내역 아이디, Search API 반환항목 중 TID
     TID = "01912181100000000120191231000001"
 
-    ' �޸�
-    Memo = "asp �޸� �׽�Ʈ"
+    ' 메모
+    Memo = "asp 메모 테스트"
 
     On Error Resume Next
 
@@ -45,7 +45,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>�ŷ����� �޸� ����</legend>
+                <legend>거래내역 메모 저장</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ��������ȸ API ���� ���������� Ȯ���մϴ�.
+    ' 예금주조회 API 서비스 과금정보를 확인합니다.
     ' - https://developers.popbill.com/reference/accountcheck/asp/api/point#GetChargeInfo
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     UserID = "testkorea"
 
-    ' ���� ���� ("����" / "�Ǹ�" �� �� 1 , ���� = �����ּ�����ȸ, �Ǹ� = �����ֽǸ���ȸ)
+    ' 서비스 유형 ("성명" / "실명" 중 택 1 , 성명 = 예금주성명조회, 실명 = 예금주실명조회)
     serviceType = ""
 
     On Error Resume Next
@@ -37,14 +37,14 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> �������� ��ȸ</legend>
+                <legend> 과금정보 조회</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> unitCost (�ܰ�) : <%=result.unitCost%></li>
-                        <li> chargeMethod (��������) : <%=result.chargeMethod%></li>
-                        <li> rateSystem (��������) : <%=result.rateSystem%></li>
+                        <li> unitCost (단가) : <%=result.unitCost%></li>
+                        <li> chargeMethod (과금유형) : <%=result.chargeMethod%></li>
+                        <li> rateSystem (과금제도) : <%=result.rateSystem%></li>
                     </ul>
                 <%
                     Else

@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' �˺��� ��ϵ� Ȩ�ý� ���������� �����Ͻø� Ȯ���մϴ�
+    ' 팝빌에 등록된 홈택스 공인인증서 만료일시를 확인합니다
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/cert#GetCertificateExpireDate
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     UserID = "testkorea"
 
     On Error Resume Next
@@ -34,10 +34,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���������� �����Ͻ� Ȯ��</legend>
+                <legend>공인인증서 만료일시 확인</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>���������� �����Ͻ� : <%=expireDate%> </li>
+                        <li>공인인증서 만료일시 : <%=expireDate%> </li>
                     </ul>
                 <%	Else  %>
                 <ul>

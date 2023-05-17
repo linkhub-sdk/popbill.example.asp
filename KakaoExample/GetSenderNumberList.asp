@@ -1,17 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
     <!--#include file="common.asp"-->
     <%
         '**************************************************************
-        ' �˺��� ����� ����ȸ���� īī���� �߽Ź�ȣ ����� Ȯ���մϴ�.
+        ' 팝빌에 등록한 연동회원의 카카오톡 발신번호 목록을 확인합니다.
         ' - https://developers.popbill.com/reference/kakaotalk/asp/api/sendnum#GetSenderNumberList
         '**************************************************************
 
-        ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+        ' 팝빌회원 사업자번호, "-" 제외
         testCorpNum = "1234567890"
 
         On Error Resume Next
@@ -31,16 +31,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>�߽Ź�ȣ ��� Ȯ��</legend>
+                <legend>발신번호 목록 확인</legend>
                 <%
                     For i=0 To Presponse.length -1
                 %>
                 <fieldset class="fieldset2">
                 <ul>
-                    <li>�߽Ź�ȣ (number) : <%=Presponse.Get(i).number %> </li>
-                    <li>��ϻ��� (state) : <%=Presponse.Get(i).state %> </li>
-                    <li>��ǥ��ȣ �������� (representYN) : <%=Presponse.Get(i).representYN %> </li>
-                    <li>�޸� (memo) : <%=Presponse.Get(i).memo %> </li>
+                    <li>발신번호 (number) : <%=Presponse.Get(i).number %> </li>
+                    <li>등록상태 (state) : <%=Presponse.Get(i).state %> </li>
+                    <li>대표번호 지정여부 (representYN) : <%=Presponse.Get(i).representYN %> </li>
+                    <li>메모 (memo) : <%=Presponse.Get(i).memo %> </li>
                 </ul>
                 </fieldset>
                 <%

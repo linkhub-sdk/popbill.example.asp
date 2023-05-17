@@ -1,34 +1,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    '  ���� �ŷ������� Ȯ���ϱ� ���� �˺��� ������û�� �մϴ�. (��ȸ�Ⱓ ���� : �ִ� 1����)
-    ' - ��ȸ�Ϸκ��� �ִ� 3���� ���� �������� ��ȸ�� �� �ֽ��ϴ�.
-    ' - ��ȯ ���� �۾����̵�� �Լ� ȣ�� �������� 1�ð� ���� ��ȿ�մϴ�.
+    '  계좌 거래내역을 확인하기 위해 팝빌에 수집요청을 합니다. (조회기간 단위 : 최대 1개월)
+    ' - 조회일로부터 최대 3개월 이전 내역까지 조회할 수 있습니다.
+    ' - 반환 받은 작업아이디는 함수 호출 시점부터 1시간 동안 유효합니다.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/job#RequestJob
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     testUserID = "testkorea"
 
-    ' ����ڵ�
+    ' 기관코드
     BankCode = ""
 
-    ' ���¹�ȣ
+    ' 계좌번호
     AccountNumber = ""
 
-    ' ��������, ǥ������(yyyyMMdd)
+    ' 시작일자, 표시형식(yyyyMMdd)
     SDate = "20220701"
 
-    ' ��������, ǥ������(yyyyMMdd)
+    ' 종료일자, 표시형식(yyyyMMdd)
     EDate =	"20220720"
 
 
@@ -49,10 +49,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���� ��û</legend>
+                <legend>수집 요청</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>jobID(�۾����̵�) : <%=jobID%> </li>
+                        <li>jobID(작업아이디) : <%=jobID%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>

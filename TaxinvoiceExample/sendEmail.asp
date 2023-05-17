@@ -1,31 +1,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ���� �ȳ������� �������մϴ�.
+    ' 발행 안내메일을 재전송합니다.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#SendEmail
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     testUserID = "testkorea"
 
-    ' �������� SELL(����), BUY(����), TRUSTEE(����Ź)
+    ' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
     KeyType = "SELL"
 
-    ' ������ȣ
+    ' 문서번호
     MgtKey = "20220720-ASP-001"
 
-    ' �̸����ּ�
-    ' �˺� ����ȯ�濡�� �׽�Ʈ�ϴ� ��쿡�� �ȳ� ������ ���۵ǹǷ�,
-    ' ���� �ŷ�ó�� �����ּҰ� ������� �ʵ��� ����
+    ' 이메일주소
+    ' 팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
+    ' 실제 거래처의 메일주소가 기재되지 않도록 주의
     Receiver = "test@test.com"
 
     On Error Resume Next
@@ -48,7 +48,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���ݰ�꼭 ���� ������</legend>
+                <legend>세금계산서 메일 재전송</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

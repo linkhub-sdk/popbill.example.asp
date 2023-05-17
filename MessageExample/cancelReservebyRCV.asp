@@ -1,26 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' �˺����� ��ȯ���� ������ȣ�� ���Ź�ȣ�� ���� ���������� ���� �޽��� ������ ����մϴ�. (����ð� 10�� ������ ����)
+    ' 팝빌에서 반환받은 접수번호와 수신번호를 통해 예약접수된 문자 메시지 전송을 취소합니다. (예약시간 10분 전까지 가능)
     ' - https://developers.popbill.com/reference/sms/asp/api/send#CancelReservebyRCV
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     userID = "testkorea"
 
-    ' ���๮�� ���ۿ�û�� �˺��κ��� ��ȯ ���� ������ȣ
+    ' 예약문자 전송요청시 팝빌로부터 반환 받은 접수번호
     receiptNum = "022102708000000003"
 
-    ' ���๮�� ���ۿ�û�� �˺��� ��û�� ���Ź�ȣ
+    ' 예약문자 전송요청시 팝빌로 요청한 수신번호
     receiveNum = "0102223333"
 
     On Error Resume Next
@@ -43,7 +43,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���ڿ������� ���</legend>
+                <legend>문자예약전송 취소</legend>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>

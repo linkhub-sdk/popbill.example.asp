@@ -1,66 +1,66 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' �˻������� ����Ͽ� �������۳��� ����� ��ȸ�մϴ�. (��ȸ�Ⱓ ���� : �ִ� 2����)
-    ' - ���� �����Ͻ÷κ��� 6���� �̳� �����Ǹ� ��ȸ�� �� �ֽ��ϴ�.'
+    ' 검색조건을 사용하여 문자전송내역 목록을 조회합니다. (조회기간 단위 : 최대 2개월)
+    ' - 문자 접수일시로부터 6개월 이내 접수건만 조회할 수 있습니다.'
     ' - https://developers.popbill.com/reference/sms/asp/api/info#Search
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' ��������
+    ' 시작일자
     SDate = "20220701"
 
-    ' ��������
+    ' 종료일자
     EDate = "20220720"
 
-    ' ���ۻ��� �迭 ("1" , "2" , "3" , "4" �� ����, ���� ���� ����)
-    ' �� 1 = ��� , 2 = ���� , 3 = ���� , 4 = ���
-    ' - ���Է� �� ��ü��ȸ
+    ' 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
+    ' └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소
+    ' - 미입력 시 전체조회
     Dim State(4)
     State(0) = "1"
     State(1) = "2"
     State(2) = "3"
     State(3) = "4"
 
-    ' �˻���� �迭 ("SMS" , "LMS" , "MMS" �� ����, ���� ���� ����)
-    ' �� SMS = �ܹ� , LMS = �幮 , MMS = ���乮��
-    ' - ���Է� �� ��ü��ȸ
+    ' 검색대상 배열 ("SMS" , "LMS" , "MMS" 중 선택, 다중 선택 가능)
+    ' └ SMS = 단문 , LMS = 장문 , MMS = 포토문자
+    ' - 미입력 시 전체조회
     Dim Item(3)
     Item(0) = "SMS"
     Item(1) = "LMS"
     Item(2) = "MMS"
 
-    ' ���࿩�� (false , true �� �� 1)
-    ' �� false = ��ü��ȸ, true = �������۰� ��ȸ
-    ' - ���Է½� �⺻�� false ó��
+    ' 예약여부 (false , true 중 택 1)
+    ' └ false = 전체조회, true = 예약전송건 조회
+    ' - 미입력시 기본값 false 처리
     ReserveYN = False
 
-    ' ������ȸ ���� (false , true �� �� 1)
-    ' false = ������ ���� ��ü ��ȸ (�����ڱ���)
-    ' true = �ش� ����� �������� ������ ���ڸ� ��ȸ (���α���)
-    ' ���Է½� �⺻�� false ó��
+    ' 개인조회 여부 (false , true 중 택 1)
+    ' false = 접수한 문자 전체 조회 (관리자권한)
+    ' true = 해당 담당자 계정으로 접수한 문자만 조회 (개인권한)
+    ' 미입력시 기본값 false 처리
     SenderYN = False
 
-    ' ���Ĺ���, D-��������, A-��������
+    ' 정렬방향, D-내림차순, A-오름차순
     Order = "D"
 
-    ' ������ ��ȣ
+    ' 페이지 번호
     Page = 1
 
-    ' �������� �˻�����
+    ' 페이지당 검색개수
     PerPage = 30
 
-    ' ��ȸ�ϰ��� �ϴ� �߽��ڸ� �Ǵ� �����ڸ�
-    ' - ���Է½� ��ü��ȸ
+    ' 조회하고자 하는 발신자명 또는 수신자명
+    ' - 미입력시 전체조회
     QString = ""
 
     On Error Resume Next
@@ -80,41 +80,41 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���ڸ޼��� ���۳��� ��ȸ </legend>
+                <legend>문자메세지 전송내역 조회 </legend>
                 <ul>
                 <% If code = 0 Then %>
-                        <li> code (�����ڵ�) : <%=resultObj.code%></li>
-                        <li> message (����޽���) : <%=resultObj.message%></li>
-                        <li> total (�� �˻���� �Ǽ�) : <%=resultObj.total%></li>
-                        <li> perPage (�������� ��ϰ���) : <%=resultObj.perPage%></li>
-                        <li> pageNum (������ ��ȣ) : <%=resultObj.pageNum%></li>
-                        <li> pageCount (������ ����) : <%=resultObj.pageCount%></li>
+                        <li> code (응답코드) : <%=resultObj.code%></li>
+                        <li> message (응답메시지) : <%=resultObj.message%></li>
+                        <li> total (총 검색결과 건수) : <%=resultObj.total%></li>
+                        <li> perPage (페이지당 목록개수) : <%=resultObj.perPage%></li>
+                        <li> pageNum (페이지 번호) : <%=resultObj.pageNum%></li>
+                        <li> pageCount (페이지 개수) : <%=resultObj.pageCount%></li>
                 </ul>
                     <%
                         For i=0 To UBound(resultObj.list) -1
                     %>
 
                         <fieldset class="fieldset2">
-                            <legend> ���ڸ޽��� ���۰�� [ <%=i+1%> / <%= UBound(resultObj.list)%> ] </legend>
+                            <legend> 문자메시지 전송결과 [ <%=i+1%> / <%= UBound(resultObj.list)%> ] </legend>
                             <ul>
 
-                                <li>subject (�޽��� ����) : <%=resultObj.list(i).subject%> </li>
-                                <li>content (�޽��� ����) : <%=resultObj.list(i).content%> </li>
-                                <li>sendnum (�߽Ź�ȣ) : <%=resultObj.list(i).sendnum%> </li>
-                                <li>senderName (�߽��ڸ�) : <%=resultObj.list(i).senderName%> </li>
-                                <li>receiveNum (���Ź�ȣ) : <%=resultObj.list(i).receiveNum%> </li>
-                                <li>receiveName (�����ڸ�) : <%=resultObj.list(i).receiveName%> </li>
-                                <li>receiptDT (�����Ͻ�) : <%=resultObj.list(i).receiptDT%> </li>
-                                <li>sendDT (�����Ͻ�) : <%=resultObj.list(i).sendDT%> </li>
-                                <li>resultDT (���۰�� �����Ͻ�) : <%=resultObj.list(i).resultDT%> </li>
-                                <li>reserveDT (�����Ͻ�) : <%=resultObj.list(i).reserveDT%> </li>
-                                <li>state (���ۻ��� �ڵ�) : <%=resultObj.list(i).state%> </li>
-                                <li>result (���۰�� �ڵ�) : <%=resultObj.list(i).result%> </li>
-                                <li>type (�޽��� ����) : <%=resultObj.list(i).msgType%> </li>
-                                <li>tranNet (����ó�� �̵���Ż��) : <%=resultObj.list(i).tranNet%> </li>
-                                <li>receiptNum (������ȣ) : <%=resultObj.list(i).receiptNum%> </li>
-                                <li>requestNum (��û��ȣ) : <%=resultObj.list(i).requestNum%> </li>
-                                <li>interOPRefKey (��Ʈ�� ����Ű) : <%=resultObj.list(i).interOPRefKey%> </li>
+                                <li>subject (메시지 제목) : <%=resultObj.list(i).subject%> </li>
+                                <li>content (메시지 내용) : <%=resultObj.list(i).content%> </li>
+                                <li>sendnum (발신번호) : <%=resultObj.list(i).sendnum%> </li>
+                                <li>senderName (발신자명) : <%=resultObj.list(i).senderName%> </li>
+                                <li>receiveNum (수신번호) : <%=resultObj.list(i).receiveNum%> </li>
+                                <li>receiveName (수신자명) : <%=resultObj.list(i).receiveName%> </li>
+                                <li>receiptDT (접수일시) : <%=resultObj.list(i).receiptDT%> </li>
+                                <li>sendDT (전송일시) : <%=resultObj.list(i).sendDT%> </li>
+                                <li>resultDT (전송결과 수신일시) : <%=resultObj.list(i).resultDT%> </li>
+                                <li>reserveDT (예약일시) : <%=resultObj.list(i).reserveDT%> </li>
+                                <li>state (전송상태 코드) : <%=resultObj.list(i).state%> </li>
+                                <li>result (전송결과 코드) : <%=resultObj.list(i).result%> </li>
+                                <li>type (메시지 유형) : <%=resultObj.list(i).msgType%> </li>
+                                <li>tranNet (전송처리 이동통신사명) : <%=resultObj.list(i).tranNet%> </li>
+                                <li>receiptNum (접수번호) : <%=resultObj.list(i).receiptNum%> </li>
+                                <li>requestNum (요청번호) : <%=resultObj.list(i).requestNum%> </li>
+                                <li>interOPRefKey (파트너 지정키) : <%=resultObj.list(i).interOPRefKey%> </li>
                             </ul>
                         </fieldset>
 

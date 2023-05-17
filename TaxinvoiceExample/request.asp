@@ -1,33 +1,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ���޹޴��ڰ� ����� ������ ���ݰ�꼭�� �����ڿ��� �ۺ��Ͽ� ���� ��û�մϴ�.
-    ' - ������ ���ݰ�꼭 ���μ����� �����ϱ� ���ؼ��� ������/���޹޴��ڰ� ��� �˺��� ȸ���̿��� �մϴ�.
-    ' - ������ ��û�� �����ڰ� [����] ó���� ����Ʈ�� �����Ǹ� ������ ���ݰ�꼭 �׸��� ���ݹ���(ChargeDirection) �� ������ ���� ����
-    '   ������(�����ڰ���) �Ǵ� ������(���޹޴��ڰ���) ó���˴ϴ�.
+    ' 공급받는자가 저장된 역발행 세금계산서를 공급자에게 송부하여 발행 요청합니다.
+    ' - 역발행 세금계산서 프로세스를 구현하기 위해서는 공급자/공급받는자가 모두 팝빌에 회원이여야 합니다.
+    ' - 역발행 요청후 공급자가 [발행] 처리시 포인트가 차감되며 역발행 세금계산서 항목중 과금방향(ChargeDirection) 에 기재한 값에 따라
+    '   정과금(공급자과금) 또는 역과금(공급받는자과금) 처리됩니다.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#Request
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     testUserID = "testkorea"
 
-    ' �������� SELL(����), BUY(����), TRUSTEE(����Ź)
+    ' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
     KeyType = "BUY"
 
-    ' ������ȣ
+    ' 문서번호
     MgtKey = "20220720-ASP-001"
 
-    ' �޸�
-    Memo = "������ ��û �޸�"
+    ' 메모
+    Memo = "역발행 요청 메모"
 
     On Error Resume Next
 
@@ -49,7 +49,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���ݰ�꼭 �������û</legend>
+                <legend>세금계산서 역발행요청</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

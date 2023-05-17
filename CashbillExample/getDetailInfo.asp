@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ���ݿ����� 1���� �������� ��ȸ�մϴ�.
+    ' 현금영수증 1건의 상세정보를 조회합니다.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/info#GetDetailInfo
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     userID = "testkorea"
 
-    ' ������ȣ
+    ' 문서번호
     mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -37,39 +37,39 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���ݿ����� ������ Ȯ��</legend>
+                <legend>현금영수증 상세정보 확인</legend>
                 <ul>
                     <% If code = 0 Then %>
                         <fieldset class="fieldset2">
                             <ul>
-                                <li>mgtKey (������ȣ) : <%=Presponse.mgtKey%></li>
-                                <li>confirmNum (����û���ι�ȣ) : <%=Presponse.confirmNum%></li>
-                                <li>orgConfirmNum (���� ���ݿ����� ����û���ι�ȣ) : <%=Presponse.orgConfirmNum%></li>
-                                <li>orgTradeDate (���� ���ݿ����� �ŷ�����) : <%=Presponse.orgTradeDate%></li>
-                                <li>tradeDate (�ŷ�����) : <%=Presponse.tradeDate%></li>
-                                <li>tradeDT (�ŷ��Ͻ�) : <%=Presponse.tradeDT%></li>
-                                <li>tradeType (��������) : <%=Presponse.tradeType %></li>
-                                <li>tradeUsage (�ŷ�����) : <%=Presponse.tradeUsage%></li>
-                                <li>tradeOpt (�ŷ�����) : <%=Presponse.tradeOpt %></li>
-                                <li>taxationType (��������) : <%=Presponse.taxationType%></li>
-                                <li>totalAmount (�ŷ��ݾ�) : <%=Presponse.totalAmount%></li>
-                                <li>supplyCost (���ް���) : <%=Presponse.supplyCost%></li>
-                                <li>tax (�ΰ���) : <%=Presponse.tax %></li>
-                                <li>serviceFee (�����) : <%=Presponse.serviceFee%></li>
-                                <li>franchiseCorpNum (������ ����ڹ�ȣ) : <%=Presponse.franchiseCorpNum%></li>
-                                <li>franchiseTaxRegID (������ ������� �ĺ���ȣ) : <%=Presponse.franchiseTaxRegID%></li>
-                                <li>franchiseCorpName (������ ��ȣ) : <%=Presponse.franchiseCorpName%></li>
-                                <li>franchiseCEOName (������ ��ǥ�ڸ�) : <%=Presponse.franchiseCEOName%></li>
-                                <li>franchiseAddr (������ �ּ�) : <%=Presponse.franchiseAddr%></li>
-                                <li>franchiseTEL (������ ��ȭ��ȣ) : <%=Presponse.franchiseTEL %></li>
-                                <li>identityNum (�ĺ���ȣ) : <%=Presponse.identityNum%></li>
-                                <li>customerName (�ֹ��ڸ�) : <%=Presponse.customerName%></li>
-                                <li>itemName (�ֹ���ǰ��) : <%=Presponse.itemName%></li>
-                                <li>orderNumber (�ֹ���ȣ) : <%=Presponse.orderNumber%></li>
-                                <li>email (�̸���) : <%=Presponse.email%></li>
-                                <li>hp (�޴���) : <%=Presponse.hp%></li>
-                                <li>smssendYN (�˸����� ���ۿ���) : <%=Presponse.smssendYN%></li>
-                                <li>cancelType (��һ���) : <%=Presponse.cancelType %></li>
+                                <li>mgtKey (문서번호) : <%=Presponse.mgtKey%></li>
+                                <li>confirmNum (국세청승인번호) : <%=Presponse.confirmNum%></li>
+                                <li>orgConfirmNum (원본 현금영수증 국세청승인번호) : <%=Presponse.orgConfirmNum%></li>
+                                <li>orgTradeDate (원본 현금영수증 거래일자) : <%=Presponse.orgTradeDate%></li>
+                                <li>tradeDate (거래일자) : <%=Presponse.tradeDate%></li>
+                                <li>tradeDT (거래일시) : <%=Presponse.tradeDT%></li>
+                                <li>tradeType (문서형태) : <%=Presponse.tradeType %></li>
+                                <li>tradeUsage (거래구분) : <%=Presponse.tradeUsage%></li>
+                                <li>tradeOpt (거래유형) : <%=Presponse.tradeOpt %></li>
+                                <li>taxationType (과세형태) : <%=Presponse.taxationType%></li>
+                                <li>totalAmount (거래금액) : <%=Presponse.totalAmount%></li>
+                                <li>supplyCost (공급가액) : <%=Presponse.supplyCost%></li>
+                                <li>tax (부가세) : <%=Presponse.tax %></li>
+                                <li>serviceFee (봉사료) : <%=Presponse.serviceFee%></li>
+                                <li>franchiseCorpNum (가맹점 사업자번호) : <%=Presponse.franchiseCorpNum%></li>
+                                <li>franchiseTaxRegID (가맹점 종사업장 식별번호) : <%=Presponse.franchiseTaxRegID%></li>
+                                <li>franchiseCorpName (가맹점 상호) : <%=Presponse.franchiseCorpName%></li>
+                                <li>franchiseCEOName (가맹점 대표자명) : <%=Presponse.franchiseCEOName%></li>
+                                <li>franchiseAddr (가맹점 주소) : <%=Presponse.franchiseAddr%></li>
+                                <li>franchiseTEL (가맹점 전화번호) : <%=Presponse.franchiseTEL %></li>
+                                <li>identityNum (식별번호) : <%=Presponse.identityNum%></li>
+                                <li>customerName (주문자명) : <%=Presponse.customerName%></li>
+                                <li>itemName (주문상품명) : <%=Presponse.itemName%></li>
+                                <li>orderNumber (주문번호) : <%=Presponse.orderNumber%></li>
+                                <li>email (이메일) : <%=Presponse.email%></li>
+                                <li>hp (휴대폰) : <%=Presponse.hp%></li>
+                                <li>smssendYN (알림문자 전송여부) : <%=Presponse.smssendYN%></li>
+                                <li>cancelType (취소사유) : <%=Presponse.cancelType %></li>
                             </ul>
                         </fieldset>
                     <%	Else %>

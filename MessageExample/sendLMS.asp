@@ -1,57 +1,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' �ִ� 2,000byte�� �幮(LMS) �޽��� 1�� ������ �˺��� �����մϴ�.
+    ' 최대 2,000byte의 장문(LMS) 메시지 1건 전송을 팝빌에 접수합니다.
     ' - https://developers.popbill.com/reference/sms/asp/api/send#SendLMS
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     userID = "testkorea"
 
-    ' ������ �޽��� ���� ( true , false �� �� 1)
-    ' �� true = ���� , false = �Ϲ�
+    ' 광고성 메시지 여부 ( true , false 중 택 1)
+    ' └ true = 광고 , false = 일반
     adsYN = False
 
-    ' �������۽ð� yyyyMMddHHmmss, reserveDT���� ���� ��� �������
+    ' 예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
 	'reserveDT = "20220728200000"
 
     Set msgList = CreateObject("Scripting.Dictionary")
 
-    ' ������������
+    ' 문자전송정보
     Set message = New Messages
 
-    ' �߽Ź�ȣ
+    ' 발신번호
     message.sender = ""
 
-    ' �߽��ڸ�
-    message.senderName = "�߽��ڸ�"
+    ' 발신자명
+    message.senderName = "발신자명"
 
-    ' ���Ź�ȣ
+    ' 수신번호
     message.receiver = ""
 
-    ' �����ڸ�
-    message.receivername = " �������̸�"
+    ' 수신자명
+    message.receivername = " 수신자이름"
 
-    ' �޽�������, 2000byte�ʰ��� ���̰� �����Ǿ� ���۵�
-    message.content = "�߽� ����. �幮"
+    ' 메시지내용, 2000byte초과시 길이가 조정되어 전송됨
+    message.content = "발신 내용. 장문"
 
-    ' �޽�������
+    ' 메시지제목
     message.subject = ""
 
     msgList.Add 0, message
 
-    ' ���ۿ�û��ȣ
-    ' �˺��� ���� ������ �ĺ��� �� �ֵ��� ��Ʈ�ʰ� �Ҵ��� �ĺ���ȣ.
-    ' 1~36�ڸ��� ����. ����, ����, ������(-), �����(_)�� �����Ͽ� �˺� ȸ������ �ߺ����� �ʵ��� �Ҵ�.
+    ' 전송요청번호
+    ' 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
+    ' 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
     requestNum = ""
 
     On Error Resume Next
@@ -71,10 +71,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>�幮 ���ڸ޽��� 1�� ���� </legend>
+                <legend>장문 문자메시지 1건 전송 </legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(������ȣ) : <%=receiptNum%> </li>
+                        <li>ReceiptNum(접수번호) : <%=receiptNum%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>

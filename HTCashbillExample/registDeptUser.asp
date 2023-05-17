@@ -1,26 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Ȩ�ý����� ������ ���� �˺��� ���ݿ����� �ڷ���ȸ �μ������ ������ ����մϴ�.
+    ' 홈택스연동 인증을 위해 팝빌에 현금영수증 자료조회 부서사용자 계정을 등록합니다.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/cert#RegistDeptUser
     '**************************************************************
 
-    '�˺�ȸ�� ����ڹ�ȣ, "-" ����
+    '팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    'Ȩ�ý����� ������ ���ݿ����� �μ������ ���̵�
+    '홈택스에서 생성한 현금영수증 부서사용자 아이디
     deptUserID = "userid"
 
-    'Ȩ�ý����� ������ ���ݿ����� �μ������ ��й�ȣ
+    '홈택스에서 생성한 현금영수증 부서사용자 비밀번호
     deptUserPWD = "pwd"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     userID = "testkorea"
 
     On Error Resume Next
@@ -44,7 +44,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>�μ������ �������</legend>
+                <legend>부서사용자 계정등록</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ���ڸ����� ����� ���ݵǴ� ����Ʈ �ܰ��� Ȯ���մϴ�.
+    ' 전자명세서 발행시 과금되는 포인트 단가를 확인합니다.
     ' - https://developers.popbill.com/reference/statement/asp/api/point#GetUnitCost
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' ������ �ڵ� - 121(�ŷ�������), 122(û����), 123(������), 124(���ּ�), 125(�Ա�ǥ), 126(������)
+    ' 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
     itemCode = "121"
 
     On Error Resume Next
@@ -34,10 +34,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���ڸ����� ����ܰ� Ȯ��</legend>
+                <legend>전자명세서 발행단가 확인</legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>����ܰ� : <%=unitCost%> </li>
+                        <li>발행단가 : <%=unitCost%> </li>
                     <% Else %>
                         <li> Response.code : <%=code%> </li>
                         <li> Response.message : <%=message%> </li>

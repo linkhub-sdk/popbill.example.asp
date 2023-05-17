@@ -1,177 +1,177 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' �ۼ��� ���ڸ����� �����͸� �˺��� �����մϴ�.
-    ' - �ӽ������� ����(Issue API)�� ȣ���ؾ� �����ڿ��� ���Ϸ� ���޵˴ϴ�.
+    ' 작성된 전자명세서 데이터를 팝빌에 저장합니다.
+    ' - 임시저장후 발행(Issue API)를 호출해야 수신자에게 메일로 전달됩니다.
     ' - https://developers.popbill.com/reference/statement/asp/api/issue#Register
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ
+    ' 팝빌회원 사업자번호
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     userID = "testkorea"
 
-    ' ������ȣ, �����ں� ������ȣ �Ҵ�, 1~24�ڸ� ����,������������ �ߺ����� ����.
+    ' 문서번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
     mgtKey = "20220720-ASP-002"
 
-    ' ���ڸ����� ��ü ����
+    ' 전자명세서 객체 생성
     Set newStatement = New Statement
 
-    ' ����� �ۼ�����, ��¥����(yyyyMMdd)
+    ' 기재상 작성일자, 날짜형식(yyyyMMdd)
     newStatement.writeDate = "20220720"
 
-    ' {����, û��, ����} �� ����
-    newStatement.purposeType = "����"
+    ' {영수, 청구, 없음} 중 기재
+    newStatement.purposeType = "영수"
 
-    ' ��������, {����, ����, �鼼} �� ����
-    newStatement.taxType = "����"
+    ' 과세형태, {과세, 영세, 면세} 중 기재
+    newStatement.taxType = "과세"
 
-    ' �������ڵ�, ����ó���� �⺻������� �ۼ�
+    ' 맞춤양식코드, 공백처리시 기본양식으로 작성
     newStatement.formCode = ""
 
-    ' ������ �����ڵ� - 121(�ŷ�������), 122(û����), 123(������), 124(���ּ�), 125(�Ա�ǥ), 126(������)
+    ' 명세서 종류코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
     newStatement.itemCode = "121"
 
-    ' ������ȣ, ����, ����, '-', '_' ���� (�ִ�24�ڸ�)���� ����ں��� �ߺ����� �ʵ��� ����
+    ' 문서번호, 숫자, 영문, '-', '_' 조합 (최대24자리)으로 사업자별로 중복되지 않도록 구성
     newStatement.mgtKey = mgtKey
 
 
 
     '**************************************************************
-    '                          �߽��� ����
+    '                          발신자 정보
     '**************************************************************
 
-    ' �߽��� ����ڹ�ȣ, '-' ���� 10�ڸ�
+    ' 발신자 사업자번호, '-' 제외 10자리
     newStatement.senderCorpNum = testCorpNum
 
-    ' �߽��� ������� �ĺ���ȣ, �ʿ�� ����, ������ ���� 4�ڸ�
+    ' 발신자 종사업장 식별번호, 필요시 기재, 형식은 숫자 4자리
     newStatement.senderTaxRegID = ""
 
-    ' �߽��� ��ȣ
-    newStatement.senderCorpName = "�߽��� ��ȣ"
+    ' 발신자 상호
+    newStatement.senderCorpName = "발신자 상호"
 
-    ' �߽��� ��ǥ�ڼ���
-    newStatement.senderCEOName = "�߽���"" ��ǥ�� ����"
+    ' 발신자 대표자성명
+    newStatement.senderCEOName = "발신자"" 대표자 성명"
 
-    ' �߽��� �ּ�
-    newStatement.senderAddr = "�߽��� �ּ�"
+    ' 발신자 주소
+    newStatement.senderAddr = "발신자 주소"
 
-    ' �߽��� ����
-    newStatement.senderBizClass = "�߽��� ����"
+    ' 발신자 종목
+    newStatement.senderBizClass = "발신자 종목"
 
-    ' �߽��� ����
-    newStatement.senderBizType = "�߽��� ����,����2"
+    ' 발신자 업태
+    newStatement.senderBizType = "발신자 업태,업태2"
 
-    ' �߽��� ����� ����
-    newStatement.senderContactName = "�߽��� ����ڸ�"
+    ' 발신자 담당자 성명
+    newStatement.senderContactName = "발신자 담당자명"
 
-    ' �߽��� �����ּ�
+    ' 발신자 메일주소
     newStatement.senderEmail = ""
 
-    ' �߽��� ����ó
+    ' 발신자 연락처
     newStatement.senderTEL = ""
 
-    ' �߽��� �޴�����ȣ
+    ' 발신자 휴대폰번호
     newStatement.senderHP = ""
 
 
 
     '**************************************************************
-    '                     ������ ����
+    '                     수신자 정보
     '**************************************************************
 
-    ' ������ ����ڹ�ȣ, '-' ���� 10�ڸ�
+    ' 수신자 사업자번호, '-' 제외 10자리
     newStatement.receiverCorpNum = "8888888888"
 
-    ' ������ ��ȣ
-    newStatement.receiverCorpName = "������ ��ȣ"
+    ' 수신자 상호
+    newStatement.receiverCorpName = "수신자 상호"
 
-    ' ������ ��ǥ�� ����
-    newStatement.receiverCEOName = "������ ��ǥ�� ����"
+    ' 수신자 대표자 성명
+    newStatement.receiverCEOName = "수신자 대표자 성명"
 
-    ' ������ �ּ�
-    newStatement.receiverAddr = "������ �ּ�"
+    ' 수신자 주소
+    newStatement.receiverAddr = "수신자 주소"
 
-    ' ������ ����
-    newStatement.receiverBizClass = "������ ����"
+    ' 수신자 종목
+    newStatement.receiverBizClass = "수신자 종목"
 
-    ' ������ ����
-    newStatement.receiverBizType = "������ ����"
+    ' 수신자 업태
+    newStatement.receiverBizType = "수신자 업태"
 
-    ' ������ ����ڸ�
-    newStatement.receiverContactName = "������ ����ڸ�"
+    ' 수신자 담당자명
+    newStatement.receiverContactName = "수신자 담당자명"
 
-    ' ������ �����ּ�
-    ' �˺� ����ȯ�濡�� �׽�Ʈ�ϴ� ��쿡�� �ȳ� ������ ���۵ǹǷ�,
-    ' ���� �ŷ�ó�� �����ּҰ� ������� �ʵ��� ����
+    ' 수신자 메일주소
+    ' 팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
+    ' 실제 거래처의 메일주소가 기재되지 않도록 주의
     newStatement.receiverEmail = ""
 
-    ' ������ ����ó
+    ' 수신자 연락처
     newStatement.receiverTEL = ""
 
-    ' ������ �޴�����ȣ
+    ' 수신자 휴대폰번호
     newStatement.receiverHP = ""
 
 
 
     '**************************************************************
-    '                      ���ڸ����� �������
+    '                      전자명세서 기재사항
     '**************************************************************
 
-    ' ���ް��� �հ�
+    ' 공급가액 합계
     newStatement.supplyCostTotal = "100000"
 
-    ' ���� �հ�
+    ' 세액 합계
     newStatement.taxTotal = "10000"
 
-    ' �հ�ݾ�, ���ް��� �հ� + ���� �հ�
+    ' 합계금액, 공급가액 합계 + 세액 합계
     newStatement.totalAmount = "110000"
 
-    ' ���� �� �Ϸù�ȣ �׸�
+    ' 기재 상 일련번호 항목
     newStatement.serialNum = "123"
 
-    ' ���� �� ��� �׸�
-    newStatement.remark1 = "���1"
-    newStatement.remark2 = "���2"
-    newStatement.remark3 = "���3"
+    ' 기재 상 비고 항목
+    newStatement.remark1 = "비고1"
+    newStatement.remark2 = "비고2"
+    newStatement.remark3 = "비고3"
 
 
-    ' ����ڵ���� �̹��� ÷�ο���  (true / false �� �� 1)
-    ' �� true = ÷�� , false = ��÷��(�⺻��)
-    ' - �˺� ����Ʈ �Ǵ� �ΰ� �� ÷�ι��� ��� �˾� URL (GetSealURL API) �Լ��� �̿��Ͽ� ���
+    ' 사업자등록증 이미지 첨부여부  (true / false 중 택 1)
+    ' └ true = 첨부 , false = 미첨부(기본값)
+    ' - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
     newStatement.businessLicenseYN = False
 
-    ' ����纻 �̹��� ÷�ο���  (true / false �� �� 1)
-    ' �� true = ÷�� , false = ��÷��(�⺻��)
-    ' - �˺� ����Ʈ �Ǵ� �ΰ� �� ÷�ι��� ��� �˾� URL (GetSealURL API) �Լ��� �̿��Ͽ� ���
+    ' 통장사본 이미지 첨부여부  (true / false 중 택 1)
+    ' └ true = 첨부 , false = 미첨부(기본값)
+    ' - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
     newStatement.bankBookYN = False
 
-    ' ����� �˸����� ���ۿ���
+    ' 발행시 알림문자 전송여부
     newStatement.smssendYN = True
 
     '**************************************************************
-    '                      ���ڸ����� ��(ǰ��)
+    '                      전자명세서 상세(품목)
     '**************************************************************
 
     Set newDetail = New StatementDetail
 
-    newDetail.serialNum = "1"             '�Ϸù�ȣ 1���� ���� ����
-    newDetail.purchaseDT = "20220720"   '�ŷ�����  yyyyMMdd
-    newDetail.itemName = "ǰ��"
-    newDetail.spec = "�԰�"
-    newDetail.unit = "����"
-    newDetail.qty = "1" '����           ' �Ҽ��� 2�ڸ����� ���ڿ��� ���簡��
-    newDetail.unitCost = "100000"       ' �Ҽ��� 2�ڸ����� ���ڿ��� ���簡��
+    newDetail.serialNum = "1"             '일련번호 1부터 순차 기재
+    newDetail.purchaseDT = "20220720"   '거래일자  yyyyMMdd
+    newDetail.itemName = "품명"
+    newDetail.spec = "규격"
+    newDetail.unit = "단위"
+    newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능
+    newDetail.unitCost = "100000"       ' 소숫점 2자리까지 문자열로 기재가능
     newDetail.supplyCost = "100000"
     newDetail.tax = "10000"
-    newDetail.remark = "���"
+    newDetail.remark = "비고"
     newDetail.spare1 = "spare1"
     newDetail.spare2 = "spare2"
     newDetail.spare3 = "spare3"
@@ -182,16 +182,16 @@
 
     Set newDetail = New StatementDetail
 
-    newDetail.serialNum = "2"             '�Ϸù�ȣ 1���� ���� ����
-    newDetail.purchaseDT = "20220720"   '�ŷ�����  yyyyMMdd
-    newDetail.itemName = "ǰ��"
-    newDetail.spec = "�԰�"
-    newDetail.unit = "����"
-    newDetail.qty = "1" '����           ' �Ҽ��� 2�ڸ����� ���ڿ��� ���簡��
-    newDetail.unitCost = "100000"       ' �Ҽ��� 2�ڸ����� ���ڿ��� ���簡��
+    newDetail.serialNum = "2"             '일련번호 1부터 순차 기재
+    newDetail.purchaseDT = "20220720"   '거래일자  yyyyMMdd
+    newDetail.itemName = "품명"
+    newDetail.spec = "규격"
+    newDetail.unit = "단위"
+    newDetail.qty = "1" '수량           ' 소숫점 2자리까지 문자열로 기재가능
+    newDetail.unitCost = "100000"       ' 소숫점 2자리까지 문자열로 기재가능
     newDetail.supplyCost = "100000"
     newDetail.tax = "10000"
-    newDetail.remark = "���"
+    newDetail.remark = "비고"
     newDetail.spare1 = "spare1"
     newDetail.spare2 = "spare2"
     newDetail.spare3 = "spare3"
@@ -202,7 +202,7 @@
 
 
     '**************************************************************
-    '					���ڸ����� �߰��Ӽ�
+    '					전자명세서 추가속성
     '**************************************************************
 
     newStatement.propertyBag.Set "Balance", "150000"
@@ -229,7 +229,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���ڸ����� �ӽ�����</legend>
+                <legend>전자명세서 임시저장</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

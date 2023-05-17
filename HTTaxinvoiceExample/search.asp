@@ -1,74 +1,74 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ���� ���� Ȯ��(GetJobState API) �Լ��� ���� ���� ������ Ȯ�ε� �۾����̵� Ȱ���Ͽ� ������ ���ڼ��ݰ�꼭 ����/���� ������ ��ȸ�մϴ�.
+    ' 수집 상태 확인(GetJobState API) 함수를 통해 상태 정보가 확인된 작업아이디를 활용하여 수집된 전자세금계산서 매입/매출 내역을 조회합니다.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/search#Search
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     UserID = "testkorea"
 
-    ' ���� ��û(requestJob) �� ��ȯ���� �۾����̵�(jobID)
+    ' 수집 요청(requestJob) 시 반환받은 작업아이디(jobID)
     JobID = "019102415000000014"
 
-    ' �������� �迭 ("N" �� "M" �� ����, ���� ���� ����)
-    ' �� N = �Ϲ� , M = ����
-    ' - ���Է� �� ��ü��ȸ
+    ' 문서형태 배열 ("N" 와 "M" 중 선택, 다중 선택 가능)
+    ' └ N = 일반 , M = 수정
+    ' - 미입력 시 전체조회
     Dim TIType(2)
     TIType(0) = "N"
     TIType(1) = "M"
 
-    ' �������� �迭 ("T" , "N" , "Z" �� ����, ���� ���� ����)
-    ' �� T = ����, N = �鼼, Z = ����
-    ' - ���Է� �� ��ü��ȸ
+    ' 과세형태 배열 ("T" , "N" , "Z" 중 선택, 다중 선택 가능)
+    ' └ T = 과세, N = 면세, Z = 영세
+    ' - 미입력 시 전체조회
     Dim TaxType(3)
     TaxType(0) = "T"
     TaxType(1) = "N"
     TaxType(2) = "Z"
 
-    ' ������� �迭 ("R" , "C", "N" �� ����, ���� ���� ����)
-    ' �� R = ����, C = û��, N = ����
-    ' - ���Է� �� ��ü��ȸ
+    ' 발행목적 배열 ("R" , "C", "N" 중 선택, 다중 선택 가능)
+    ' └ R = 영수, C = 청구, N = 없음
+    ' - 미입력 시 전체조회
     Dim PurposeType(3)
     PurposeType(0) = "R"
     PurposeType(1) = "C"
     PurposeType(2) = "N"
 
-    ' ��������ȣ ���� (null , "0" , "1" �� �� 1)
-    ' - null = ��ü , 0 = ����, 1 = ����
+    ' 종사업장번호 유무 (null , "0" , "1" 중 택 1)
+    ' - null = 전체 , 0 = 없음, 1 = 있음
     TaxRegIDYN = ""
 
-    ' ��������ȣ�� ��ü ("S" , "B" , "T" �� �� 1)
-    ' �� S = ������ , B = ���޹޴��� , T = ��Ź��
-    ' - ���Է½� ��ü��ȸ
+    ' 종사업장번호의 주체 ("S" , "B" , "T" 중 택 1)
+    ' └ S = 공급자 , B = 공급받는자 , T = 수탁자
+    ' - 미입력시 전체조회
     TaxRegIDType = "S"
 
-    ' ��������ȣ
-    ' �ټ������ �޸�(",")�� �����Ͽ� ���� ex ) "0001,0002"
-    ' - ���Է½� ��ü��ȸ
+    ' 종사업장번호
+    ' 다수기재시 콤마(",")로 구분하여 구성 ex ) "0001,0002"
+    ' - 미입력시 전체조회
     TaxRegID = ""
 
-    ' ������ ��ȣ
+    ' 페이지 번호
     Page  = 1
 
-    ' �������� ��ϰ���
+    ' 페이지당 목록개수
     PerPage = 10
 
-    ' ���Ĺ���, D-��������, A-��������
+    ' 정렬방항, D-내림차순, A-오름차순
     Order = "D"
 
-    ' �ŷ�ó ��ȣ / ����ڹ�ȣ (�����) / �ֹε�Ϲ�ȣ (����) / "9999999999999" (�ܱ���) �� �˻��ϰ��� �ϴ� ���� �Է�
-    ' - ����ڹ�ȣ / �ֹε�Ϲ�ȣ�� ������('-')�� ������ ���ڸ� �Է�
-    ' - ���Է½� ��ü��ȸ
+    ' 거래처 상호 / 사업자번호 (사업자) / 주민등록번호 (개인) / "9999999999999" (외국인) 중 검색하고자 하는 정보 입력
+    ' - 사업자번호 / 주민등록번호는 하이픈('-')을 제외한 숫자만 입력
+    ' - 미입력시 전체조회
     SearchString = ""
 
     On Error Resume Next
@@ -89,69 +89,69 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>���� ��� ��ȸ</legend>
+                <legend>수집 결과 조회</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> code (�����ڵ�) : <%=result.code%> </li>
-                        <li> message  (����޽���) : <%=result.message%> </li>
-                        <li> total (�� �˻���� �Ǽ�) : <%=result.total%> </li>
-                        <li> perPage (�������� �˻�����) : <%=result.perPage%> </li>
-                        <li> pageNum (������ ��ȣ) : <%=result.pageNum%> </li>
-                        <li> pageCount (������ ����) : <%=result.pageCount%> </li>
+                        <li> code (응답코드) : <%=result.code%> </li>
+                        <li> message  (응답메시지) : <%=result.message%> </li>
+                        <li> total (총 검색결과 건수) : <%=result.total%> </li>
+                        <li> perPage (페이지당 검색개수) : <%=result.perPage%> </li>
+                        <li> pageNum (페이지 번호) : <%=result.pageNum%> </li>
+                        <li> pageCount (페이지 개수) : <%=result.pageCount%> </li>
                     </ul>
 
                 <%
                     For i=0 To UBound(result.list) -1
                 %>
                     <fieldset class="fieldset2">
-                        <legend>���ݰ�꼭 ���� [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
+                        <legend>세금계산서 정보 [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
                             <ul>
 
-                                <li> ntsconfirmNum (����û���ι�ȣ) : <%= result.list(i).ntsconfirmNum %></li>
-                                <li> writeDate (�ۼ�����) : <%= result.list(i).writeDate %></li>
-                                <li> issueDate (��������) : <%= result.list(i).issueDate %></li>
-                                <li> sendDate (��������) : <%= result.list(i).sendDate %></li>
-                                <li> taxType (��������) : <%= result.list(i).taxType %></li>
-                                <li> invoiceType (����/����) : <%= result.list(i).invoiceType %></li>
-                                <li> purposeType (����/û��) : <%= result.list(i).purposeType %></li>
-                                <li> supplyCostTotal (���ް��� �հ�) : <%= result.list(i).supplyCostTotal %></li>
-                                <li> taxTotal (���� �հ�) : <%= result.list(i).taxTotal %></li>
-                                <li> totalAmount (�հ�ݾ�) : <%= result.list(i).totalAmount %></li>
-                                <li> remark1 (���) : <%= result.list(i).remark1 %></li>
-                                <li> purchaseDate (�ŷ�����) : <%= result.list(i).purchaseDate %></li>
-                                <li> itemName (ǰ��) : <%= result.list(i).itemName %></li>
-                                <li> spec (�԰�) : <%= result.list(i).spec %></li>
-                                <li> qty (����) : <%= result.list(i).qty %></li>
-                                <li> unitCost (�ܰ�) : <%= result.list(i).unitCost %></li>
-                                <li> supplyCost (���ް���) : <%= result.list(i).supplyCost %></li>
-                                <li> tax (����) : <%= result.list(i).tax %></li>
-                                <li> remark (���) : <%= result.list(i).remark %></li>
-                                <li> modifyYN (���� ���ڼ��ݰ�꼭 ���� ) : <%= result.list(i).modifyYN %></li>
-                                <li> orgNTSConfirmNum (���� ���ڼ��ݰ�꼭 ����û���ι�ȣ) : <%= result.list(i).orgNTSConfirmNum %></li>
+                                <li> ntsconfirmNum (국세청승인번호) : <%= result.list(i).ntsconfirmNum %></li>
+                                <li> writeDate (작성일자) : <%= result.list(i).writeDate %></li>
+                                <li> issueDate (발행일자) : <%= result.list(i).issueDate %></li>
+                                <li> sendDate (전송일자) : <%= result.list(i).sendDate %></li>
+                                <li> taxType (과세형태) : <%= result.list(i).taxType %></li>
+                                <li> invoiceType (매입/매출) : <%= result.list(i).invoiceType %></li>
+                                <li> purposeType (영수/청구) : <%= result.list(i).purposeType %></li>
+                                <li> supplyCostTotal (공급가액 합계) : <%= result.list(i).supplyCostTotal %></li>
+                                <li> taxTotal (세액 합계) : <%= result.list(i).taxTotal %></li>
+                                <li> totalAmount (합계금액) : <%= result.list(i).totalAmount %></li>
+                                <li> remark1 (비고) : <%= result.list(i).remark1 %></li>
+                                <li> purchaseDate (거래일자) : <%= result.list(i).purchaseDate %></li>
+                                <li> itemName (품명) : <%= result.list(i).itemName %></li>
+                                <li> spec (규격) : <%= result.list(i).spec %></li>
+                                <li> qty (수량) : <%= result.list(i).qty %></li>
+                                <li> unitCost (단가) : <%= result.list(i).unitCost %></li>
+                                <li> supplyCost (공급가액) : <%= result.list(i).supplyCost %></li>
+                                <li> tax (세액) : <%= result.list(i).tax %></li>
+                                <li> remark (비고) : <%= result.list(i).remark %></li>
+                                <li> modifyYN (수정 전자세금계산서 여부 ) : <%= result.list(i).modifyYN %></li>
+                                <li> orgNTSConfirmNum (원본 전자세금계산서 국세청승인번호) : <%= result.list(i).orgNTSConfirmNum %></li>
                                 <br/>
-                                <p><b>������ ����</b></p>
-                                <li> invoicerCorpNum (����ڹ�ȣ) : <%= result.list(i).invoicerCorpNum %></li>
-                                <li> invoicerTaxRegID (��������ȣ) : <%= result.list(i).invoicerTaxRegID %></li>
-                                <li> invoicerCorpName (��ȣ) : <%= result.list(i).invoicerCorpName %></li>
-                                <li> invoicerCEOName (��ǥ�� ����) : <%= result.list(i).invoicerCEOName %></li>
-                                <li> invoicerEmail (����� �̸���) : <%= result.list(i).invoicerEmail %></li>
+                                <p><b>공급자 정보</b></p>
+                                <li> invoicerCorpNum (사업자번호) : <%= result.list(i).invoicerCorpNum %></li>
+                                <li> invoicerTaxRegID (종사업장번호) : <%= result.list(i).invoicerTaxRegID %></li>
+                                <li> invoicerCorpName (상호) : <%= result.list(i).invoicerCorpName %></li>
+                                <li> invoicerCEOName (대표자 성명) : <%= result.list(i).invoicerCEOName %></li>
+                                <li> invoicerEmail (담당자 이메일) : <%= result.list(i).invoicerEmail %></li>
                                 <br/>
-                                <p><b>���޹޴��� ����</b></p>
-                                <li> invoiceeCorpNum (����ڹ�ȣ) : <%= result.list(i).invoiceeCorpNum %></li>
-                                <li> invoiceeType (���޹޴��� ����) : <%= result.list(i).invoiceeType %></li>
-                                <li> invoiceeTaxRegID (��������ȣ) : <%= result.list(i).invoiceeTaxRegID %></li>
-                                <li> invoiceeCorpName (��ȣ) : <%= result.list(i).invoiceeCorpName %></li>
-                                <li> invoiceeCEOName (��ǥ�� ����) : <%= result.list(i).invoiceeCEOName %></li>
-                                <li> invoiceeEmail1 (����� �̸���) : <%= result.list(i).invoiceeEmail1 %></li>
+                                <p><b>공급받는자 정보</b></p>
+                                <li> invoiceeCorpNum (사업자번호) : <%= result.list(i).invoiceeCorpNum %></li>
+                                <li> invoiceeType (공급받는자 구분) : <%= result.list(i).invoiceeType %></li>
+                                <li> invoiceeTaxRegID (종사업장번호) : <%= result.list(i).invoiceeTaxRegID %></li>
+                                <li> invoiceeCorpName (상호) : <%= result.list(i).invoiceeCorpName %></li>
+                                <li> invoiceeCEOName (대표자 성명) : <%= result.list(i).invoiceeCEOName %></li>
+                                <li> invoiceeEmail1 (담당자 이메일) : <%= result.list(i).invoiceeEmail1 %></li>
                                 <br/>
-                                <p><b>��Ź�� ����</b></p>
-                                <li> trusteeCorpNum (����ڹ�ȣ) : <%= result.list(i).trusteeCorpNum %></li>
-                                <li> trusteeTaxRegID (��������ȣ) : <%= result.list(i).trusteeTaxRegID %></li>
-                                <li> trusteeCorpName (��ȣ) : <%= result.list(i).trusteeCorpName %></li>
-                                <li> trusteeCEOName (��ǥ�� ����) : <%= result.list(i).trusteeCEOName %></li>
-                                <li> trusteeEmail (����� �̸���) : <%= result.list(i).trusteeEmail %></li>
+                                <p><b>수탁자 정보</b></p>
+                                <li> trusteeCorpNum (사업자번호) : <%= result.list(i).trusteeCorpNum %></li>
+                                <li> trusteeTaxRegID (종사업장번호) : <%= result.list(i).trusteeTaxRegID %></li>
+                                <li> trusteeCorpName (상호) : <%= result.list(i).trusteeCorpName %></li>
+                                <li> trusteeCEOName (대표자 성명) : <%= result.list(i).trusteeCEOName %></li>
+                                <li> trusteeEmail (담당자 이메일) : <%= result.list(i).trusteeEmail %></li>
 
                             </ul>
                         </fieldset>
@@ -170,4 +170,3 @@
          </div>
     </body>
 </html>
-

@@ -1,38 +1,38 @@
-<!--#include virtual="/Popbill/Popbill.asp"--> 
+<!--#include virtual="/Popbill/Popbill.asp"-->
 <!--#include virtual="/Popbill/EasyFinBankService.asp"-->
 <%
 
     '**************************************************************'
-    ' ÆËºô °èÁÂÁ¶È¸ API ASP SDK Example
+    ' íŒë¹Œ ê³„ì¢Œì¡°íšŒ API ASP SDK Example
     '
-    ' ASP SDK ¿¬µ¿È¯°æ ¼³Á¤¹æ¹ý ¾È³» : https://developers.popbill.com/guide/easyfinbank/asp/getting-started/environment-set-up
-    ' - ¾÷µ¥ÀÌÆ® ÀÏÀÚ : 2022-07-20
-    ' - ±â¼úÁö¿ø ¿¬¶ôÃ³ : 1600-9854
-    ' - ±â¼úÁö¿ø ÀÌ¸ÞÀÏ : code@linkhubcorp.com
+    ' ASP SDK ì—°ë™í™˜ê²½ ì„¤ì •ë°©ë²• ì•ˆë‚´ : https://developers.popbill.com/guide/easyfinbank/asp/getting-started/environment-set-up
+    ' - ì—…ë°ì´íŠ¸ ì¼ìž : 2022-07-20
+    ' - ê¸°ìˆ ì§€ì› ì—°ë½ì²˜ : 1600-9854
+    ' - ê¸°ìˆ ì§€ì› ì´ë©”ì¼ : code@linkhubcorp.com
     '
-    ' <Å×½ºÆ® ¿¬µ¿°³¹ß ÁØºñ»çÇ×>
-    ' 1) 19, 22¹ø ¶óÀÎ¿¡ ¼±¾ðµÈ ¸µÅ©¾ÆÀÌµð(LinkID)¿Í ºñ¹ÐÅ°(SecretKey)¸¦
-    '    ¸µÅ©Çãºê °¡ÀÔ½Ã ¸ÞÀÏ·Î ¹ß±Þ¹ÞÀº ÀÎÁõÁ¤º¸¸¦ ÂüÁ¶ÇÏ¿© º¯°æÇÕ´Ï´Ù.
+    ' <í…ŒìŠ¤íŠ¸ ì—°ë™ê°œë°œ ì¤€ë¹„ì‚¬í•­>
+    ' 1) 19, 22ë²ˆ ë¼ì¸ì— ì„ ì–¸ëœ ë§í¬ì•„ì´ë””(LinkID)ì™€ ë¹„ë°€í‚¤(SecretKey)ë¥¼
+    '    ë§í¬í—ˆë¸Œ ê°€ìž…ì‹œ ë©”ì¼ë¡œ ë°œê¸‰ë°›ì€ ì¸ì¦ì •ë³´ë¥¼ ì°¸ì¡°í•˜ì—¬ ë³€ê²½í•©ë‹ˆë‹¤.
     '**************************************************************
-    
-    ' ¸µÅ©¾ÆÀÌµð 
+
+    ' ë§í¬ì•„ì´ë””
     LinkID = "TESTER"
 
-    ' ºñ¹ÐÅ°
+    ' ë¹„ë°€í‚¤
     SecretKey ="SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I="
 
     set m_EasyFinBankService = new EasyFinBankService
     m_EasyFinBankService.Initialize LinkID, SecretKey
 
-    ' ¿¬µ¿È¯°æ ¼³Á¤°ª, True-°³¹ß¿ë, false-»ó¾÷¿ë
+    ' ì—°ë™í™˜ê²½ ì„¤ì •ê°’, True-ê°œë°œìš©, false-ìƒì—…ìš©
     m_EasyFinBankService.IsTest = True
 
-    ' ÀÎÁõÅäÅ« ¹ß±Þ IP Á¦ÇÑ On/Off, True-»ç¿ë, false-¹Ì»ç¿ë, ±âº»°ª(True)
+    ' ì¸ì¦í† í° ë°œê¸‰ IP ì œí•œ On/Off, True-ì‚¬ìš©, false-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(True)
     m_EasyFinBankService.IPRestrictOnOff = True
-    
-    ' ÆËºô API ¼­ºñ½º °íÁ¤ IP »ç¿ë¿©ºÎ, True-»ç¿ë, false-¹Ì»ç¿ë, ±âº»°ª(false)
+
+    ' íŒë¹Œ API ì„œë¹„ìŠ¤ ê³ ì • IP ì‚¬ìš©ì—¬ë¶€, True-ì‚¬ìš©, false-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(false)
     m_EasyFinBankService.UseStaticIP = False
-    
-    ' ·ÎÄÃ½Ã½ºÅÛ ½Ã°£ »ç¿ë¿©ºÎ Ture-»ç¿ë, False-¹Ì»ç¿ë, ±âº»°ª(True)
+
+    ' ë¡œì»¬ì‹œìŠ¤í…œ ì‹œê°„ ì‚¬ìš©ì—¬ë¶€ Ture-ì‚¬ìš©, False-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(True)
     m_EasyFinBankService.UseLocalTimeYN = True
 %>

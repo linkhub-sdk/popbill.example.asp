@@ -1,24 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' īī���� �߽Ź�ȣ ��Ͽ��θ� Ȯ���մϴ�.
-    ' - �߽Ź�ȣ ���°� '����'�� ��쿡�� ���ϰ� 'Response'�� ���� 'code'�� 1�� ��ȯ�˴ϴ�.
+    ' 카카오톡 발신번호 등록여부를 확인합니다.
+    ' - 발신번호 상태가 '승인'인 경우에만 리턴값 'Response'의 변수 'code'가 1로 반환됩니다.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/sendnum#CheckSenderNumber
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     userID = "testkorea"
 
-    ' Ȯ���� �߽Ź�ȣ
+    ' 확인할 발신번호
     SenderNumber = ""
 
     On Error Resume Next
@@ -41,7 +41,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>�߽Ź�ȣ ��Ͽ��� Ȯ��</legend>
+                <legend>발신번호 등록여부 확인</legend>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>

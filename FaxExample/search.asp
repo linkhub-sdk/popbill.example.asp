@@ -1,57 +1,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' �˻������� ����Ͽ� �ѽ����� ������ ��ȸ�մϴ�. (��ȸ�Ⱓ ���� : �ִ� 2����)
-    ' - �ѽ� �����Ͻ÷κ��� 2���� �̳� �����Ǹ� ��ȸ�� �� �ֽ��ϴ�.
+    ' 검색조건을 사용하여 팩스전송 내역을 조회합니다. (조회기간 단위 : 최대 2개월)
+    ' - 팩스 접수일시로부터 2개월 이내 접수건만 조회할 수 있습니다.
     ' - https://developers.popbill.com/reference/fax/asp/api/info#Search
     '**************************************************************
 
-    '�˺�ȸ�� ����ڹ�ȣ, "-" ����
+    '팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    '��������, yyyyMMdd
+    '시작일자, yyyyMMdd
     SDate = "20220701"
 
-    '��������, yyyyMMdd
+    '종료일자, yyyyMMdd
     EDate = "20220720"
 
-    ' ���ۻ��� �迭 ("1" , "2" , "3" , "4" �� ����, ���� ���� ����)
-    ' �� 1 = ��� , 2 = ���� , 3 = ���� , 4 = ���
-    ' - ���Է� �� ��ü��ȸ
+    ' 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
+    ' └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소
+    ' - 미입력 시 전체조회
     Dim State(4)
     State(0) = "1"
     State(1) = "2"
     State(2) = "3"
     State(3) = "4"
 
-    ' ���࿩�� (false , true �� �� 1)
-    ' false = ��ü��ȸ, true = �������۰� ��ȸ
-    ' ���Է½� �⺻�� false ó��
+    ' 예약여부 (false , true 중 택 1)
+    ' false = 전체조회, true = 예약전송건 조회
+    ' 미입력시 기본값 false 처리
     ReserveYN = False
 
-    ' ������ȸ ���� (false , true �� �� 1)
-    ' false = ������ �ѽ� ��ü ��ȸ (�����ڱ���)
-    ' true = �ش� ����� �������� ������ �ѽ��� ��ȸ (���α���)
-    ' ���Է½� �⺻�� false ó��
+    ' 개인조회 여부 (false , true 중 택 1)
+    ' false = 접수한 팩스 전체 조회 (관리자권한)
+    ' true = 해당 담당자 계정으로 접수한 팩스만 조회 (개인권한)
+    ' 미입력시 기본값 false 처리
     SenderOnlyYN = False
 
-    '���Ĺ���, A-��������, D-��������
+    '정렬발향, A-오름차순, D-내림차순
     Order = "D"
 
-    '������ ��ȣ
+    '페이지 번호
     Page = 1
 
-    '�������� �˻�����
+    '페이지당 검색개수
     PerPage = 20
 
-    ' ��ȸ�ϰ��� �ϴ� �߽��ڸ� �Ǵ� �����ڸ�
-    ' - ���Է½� ��ü��ȸ
+    ' 조회하고자 하는 발신자명 또는 수신자명
+    ' - 미입력시 전체조회
     QString = ""
 
     On Error Resume Next
@@ -74,43 +74,43 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>�ѽ����� ���۳��� ��ȸ </legend>
+                <legend>팩스전송 전송내역 조회 </legend>
                     <ul>
-                        <li> code (�����ڵ�) : <%=result.code%></li>
-                        <li> total (�� �˻���� �Ǽ�) : <%=result.total%></li>
-                        <li> pageNum (������ ��ȣ) : <%=result.pageNum%></li>
-                        <li> perPage (�������� ��ϰ���) : <%=result.perPage%></li>
-                        <li> pageCount (������ ����) : <%=result.pageCount%></li>
-                        <li> message (����޽���) : <%=result.message%></li>
+                        <li> code (응답코드) : <%=result.code%></li>
+                        <li> total (총 검색결과 건수) : <%=result.total%></li>
+                        <li> pageNum (페이지 번호) : <%=result.pageNum%></li>
+                        <li> perPage (페이지당 목록개수) : <%=result.perPage%></li>
+                        <li> pageCount (페이지 개수) : <%=result.pageCount%></li>
+                        <li> message (응답메시지) : <%=result.message%></li>
                     </ul>
                 <% If code = 0 Then
                         For i=0 To UBound(result.list)-1
                 %>
                     <fieldset class="fieldset2">
-                            <legend> �ѽ� ���۰�� [ <%=i+1%> /  <%=UBound(result.list)%> ] </legend>
+                            <legend> 팩스 전송결과 [ <%=i+1%> /  <%=UBound(result.list)%> ] </legend>
                             <ul>
-                                <li>state (���ۻ��� �ڵ�) : <%=result.list(i).state%> </li>
-                                <li>result (���۰�� �ڵ�) : <%=result.list(i).result%> </li>
-                                <li>sendNum (�߽Ź�ȣ) : <%=result.list(i).sendNum%> </li>
-                                <li>senderName (�߽��ڸ�) : <%=result.list(i).senderName%> </li>
-                                <li>receiveNum (���Ź�ȣ) : <%=result.list(i).receiveNum%> </li>
-                                <li>receiveNumType (���Ź�ȣ ����) : <%=result.list(i).receiveNumType%> </li>
-                                <li>receiveName (�����ڸ�) : <%=result.list(i).receiveName%> </li>
-                                <li>title (�ѽ� ����) : <%=result.list(i).title %> </li>
-                                <li>sendPageCnt (��������) : <%=result.list(i).sendPageCnt%></li>
-                                <li>successPageCnt (���� ��������) : <%=result.list(i).successPageCnt%></li>
-                                <li>failPageCnt (���� ��������) : <%=result.list(i).failPageCnt%></li>
-                                <li>refundPageCnt (ȯ�� ��������) : <%=result.list(i).refundPageCnt%></li>
-                                <li>cancelPageCnt (��� ��������) : <%=result.list(i).cancelPageCnt%></li>
-                                <li>reserveDT (����ð�) : <%=result.list(i).reserveDT%></li>
-                                <li>sendDT (�߼۽ð�) : <%=result.list(i).sendDT%></li>
-                                <li>receiptDT (���� �����ð�) : <%=result.list(i).receiptDT%></li>
-                                <li>fileNames (�������ϸ� �迭) : <%=result.list(i).fileNames%></li>
-                                <li>interOPRefKey (��Ʈ�� ����Ű) : <%=result.list(i).interOPRefKey%> </li>
-                                <li>receiptNum (������ȣ) : <%=result.list(i).receiptNum%> </li>
-                                <li>requestNum (��û��ȣ) : <%=result.list(i).requestNum%> </li>
-                                <li>chargePageCnt (���� ��������) : <%=result.list(i).chargePageCnt%> </li>
-                                <li>tiffFileSize (��ȯ���Ͽ뷮 (���� : byte)) : <%=result.list(i).tiffFileSize%> </li>
+                                <li>state (전송상태 코드) : <%=result.list(i).state%> </li>
+                                <li>result (전송결과 코드) : <%=result.list(i).result%> </li>
+                                <li>sendNum (발신번호) : <%=result.list(i).sendNum%> </li>
+                                <li>senderName (발신자명) : <%=result.list(i).senderName%> </li>
+                                <li>receiveNum (수신번호) : <%=result.list(i).receiveNum%> </li>
+                                <li>receiveNumType (수신번호 유형) : <%=result.list(i).receiveNumType%> </li>
+                                <li>receiveName (수신자명) : <%=result.list(i).receiveName%> </li>
+                                <li>title (팩스 제목) : <%=result.list(i).title %> </li>
+                                <li>sendPageCnt (페이지수) : <%=result.list(i).sendPageCnt%></li>
+                                <li>successPageCnt (성공 페이지수) : <%=result.list(i).successPageCnt%></li>
+                                <li>failPageCnt (실패 페이지수) : <%=result.list(i).failPageCnt%></li>
+                                <li>refundPageCnt (환불 페이지수) : <%=result.list(i).refundPageCnt%></li>
+                                <li>cancelPageCnt (취소 페이지수) : <%=result.list(i).cancelPageCnt%></li>
+                                <li>reserveDT (예약시간) : <%=result.list(i).reserveDT%></li>
+                                <li>sendDT (발송시간) : <%=result.list(i).sendDT%></li>
+                                <li>receiptDT (전송 접수시간) : <%=result.list(i).receiptDT%></li>
+                                <li>fileNames (전송파일명 배열) : <%=result.list(i).fileNames%></li>
+                                <li>interOPRefKey (파트너 지정키) : <%=result.list(i).interOPRefKey%> </li>
+                                <li>receiptNum (접수번호) : <%=result.list(i).receiptNum%> </li>
+                                <li>requestNum (요청번호) : <%=result.list(i).requestNum%> </li>
+                                <li>chargePageCnt (과금 페이지수) : <%=result.list(i).chargePageCnt%> </li>
+                                <li>tiffFileSize (변환파일용량 (단위 : byte)) : <%=result.list(i).tiffFileSize%> </li>
                             </ul>
                         </fieldset>
                 <%

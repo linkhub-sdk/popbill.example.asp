@@ -1,52 +1,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************'
-    ' ���ڼ��ݰ�꼭 ���� �������� �׸� ���� ���ۿ��θ� �����Ѵ�.
+    ' 전자세금계산서 관련 메일전송 항목에 대한 전송여부를 수정한다.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#UpdateEmailConfig
     '
-    ' ������������
-    ' [������]
-    ' TAX_ISSUE : ���޹޴��ڿ��� ���ڼ��ݰ�꼭�� ���� �Ǿ����� �˷��ִ� �����Դϴ�.
-    ' TAX_ISSUE_INVOICER : �����ڿ��� ���ڼ��ݰ�꼭�� ���� �Ǿ����� �˷��ִ� �����Դϴ�.
-    ' TAX_CHECK : �����ڿ��� ���ڼ��ݰ�꼭�� ����Ȯ�� �Ǿ����� �˷��ִ� �����Դϴ�.
-    ' TAX_CANCEL_ISSUE : ���޹޴��ڿ��� ���ڼ��ݰ�꼭�� ������� �Ǿ����� �˷��ִ� �����Դϴ�.
+    ' 메일전송유형
+    ' [정발행]
+    ' TAX_ISSUE : 공급받는자에게 전자세금계산서가 발행 되었음을 알려주는 메일입니다.
+    ' TAX_ISSUE_INVOICER : 공급자에게 전자세금계산서가 발행 되었음을 알려주는 메일입니다.
+    ' TAX_CHECK : 공급자에게 전자세금계산서가 수신확인 되었음을 알려주는 메일입니다.
+    ' TAX_CANCEL_ISSUE : 공급받는자에게 전자세금계산서가 발행취소 되었음을 알려주는 메일입니다.
     '
-    ' [������]
-    ' TAX_REQUEST : �����ڿ��� ���ݰ�꼭�� ���ڼ��� �Ͽ� ������ ��û�ϴ� �����Դϴ�.
-    ' TAX_CANCEL_REQUEST : ���޹޴��ڿ��� ���ݰ�꼭�� ��� �Ǿ����� �˷��ִ� �����Դϴ�.
-    ' TAX_REFUSE : ���޹޴��ڿ��� ���ݰ�꼭�� �ź� �Ǿ����� �˷��ִ� �����Դϴ�.
+    ' [역발행]
+    ' TAX_REQUEST : 공급자에게 세금계산서를 전자서명 하여 발행을 요청하는 메일입니다.
+    ' TAX_CANCEL_REQUEST : 공급받는자에게 세금계산서가 취소 되었음을 알려주는 메일입니다.
+    ' TAX_REFUSE : 공급받는자에게 세금계산서가 거부 되었음을 알려주는 메일입니다.
     '
-    ' [����Ź����]
-    ' TAX_TRUST_ISSUE : ���޹޴��ڿ��� ���ڼ��ݰ�꼭�� ���� �Ǿ����� �˷��ִ� �����Դϴ�.
-    ' TAX_TRUST_ISSUE_TRUSTEE : ��Ź�ڿ��� ���ڼ��ݰ�꼭�� ���� �Ǿ����� �˷��ִ� �����Դϴ�.
-    ' TAX_TRUST_ISSUE_INVOICER : �����ڿ��� ���ڼ��ݰ�꼭�� ���� �Ǿ����� �˷��ִ� �����Դϴ�.
-    ' TAX_TRUST_CANCEL_ISSUE : ���޹޴��ڿ��� ���ڼ��ݰ�꼭�� ������� �Ǿ����� �˷��ִ� �����Դϴ�.
-    ' TAX_TRUST_CANCEL_ISSUE_INVOICER : �����ڿ��� ���ڼ��ݰ�꼭�� ������� �Ǿ����� �˷��ִ� �����Դϴ�.
+    ' [위수탁발행]
+    ' TAX_TRUST_ISSUE : 공급받는자에게 전자세금계산서가 발행 되었음을 알려주는 메일입니다.
+    ' TAX_TRUST_ISSUE_TRUSTEE : 수탁자에게 전자세금계산서가 발행 되었음을 알려주는 메일입니다.
+    ' TAX_TRUST_ISSUE_INVOICER : 공급자에게 전자세금계산서가 발행 되었음을 알려주는 메일입니다.
+    ' TAX_TRUST_CANCEL_ISSUE : 공급받는자에게 전자세금계산서가 발행취소 되었음을 알려주는 메일입니다.
+    ' TAX_TRUST_CANCEL_ISSUE_INVOICER : 공급자에게 전자세금계산서가 발행취소 되었음을 알려주는 메일입니다.
     '
-    ' [ó�����]
-    ' TAX_CLOSEDOWN : �ŷ�ó�� ����� ���θ� Ȯ���Ͽ� �ȳ��ϴ� �����Դϴ�.
-    ' TAX_NTSFAIL_INVOICER : ���ڼ��ݰ�꼭 ����û ���۽��и� �ȳ��ϴ� �����Դϴ�.
+    ' [처리결과]
+    ' TAX_CLOSEDOWN : 거래처의 휴폐업 여부를 확인하여 안내하는 메일입니다.
+    ' TAX_NTSFAIL_INVOICER : 전자세금계산서 국세청 전송실패를 안내하는 메일입니다.
     '
-    ' [����߼�]
-    ' ETC_CERT_EXPIRATION : �˺��� ��ϵ� �������� ���Ό���� �ȳ��ϴ� �����Դϴ�.
+    ' [정기발송]
+    ' ETC_CERT_EXPIRATION : 팝빌에 등록된 인증서의 만료예정을 안내하는 메일입니다.
     '**************************************************************
 
-    '�˺�ȸ�� ����ڹ�ȣ, "-" ����
+    '팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    '�˺�ȸ�� ���̵�
+    '팝빌회원 아이디
     userID = "testkorea"
 
-    '���� ���� ����
+    '메일 전송 유형
     emailType = "TAX_ISSUE"
 
-    '���� ���� (true = ����, false = ������)
+    '전송 여부 (true = 전송, false = 미전송)
     sendYN = true
 
     On Error Resume Next
@@ -70,7 +70,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>�˸����� ���ۼ��� ����</legend>
+                <legend>알림메일 전송설정 수정</legend>
                 <ul>
                     <li> Response.code : <%=code%> </li>
                     <li> Response.message : <%=message%> </li>

@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ����û ���ι�ȣ�� ���� ������ ���ڼ��ݰ�꼭 1���� �������� XML ������ ���ڿ��� ��ȯ�մϴ�.
+    ' 국세청 승인번호를 통해 수집한 전자세금계산서 1건의 상세정보를 XML 형태의 문자열로 반환합니다.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/search#GetXML
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ
+    ' 팝빌회원 사업자번호
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     UserID = "testkorea"
 
-    ' ����û���ι�ȣ
+    ' 국세청승인번호
     NTSConfirmNum = "201611104100020300000cb2"
 
     On Error Resume Next
@@ -37,14 +37,14 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> ������ ��ȸ - XML</legend>
+                <legend> 상세정보 조회 - XML</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> ResultCode (��û�� ���� ���� �����ڵ�) : <%=result.ResultCode%></li>
-                        <li> Message (����û���ι�ȣ) : <%=result.Message%></li>
-                        <li> retObject (���ڼ��ݰ�꼭 XML ����) : <%=Replace(result.retObject, "<" ,"&lt")%></li>
+                        <li> ResultCode (요청에 대한 응답 상태코드) : <%=result.ResultCode%></li>
+                        <li> Message (국세청승인번호) : <%=result.Message%></li>
+                        <li> retObject (전자세금계산서 XML 문서) : <%=Replace(result.retObject, "<" ,"&lt")%></li>
                     </ul>
                 <%
                     Else

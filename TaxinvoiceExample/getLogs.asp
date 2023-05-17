@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ���ݰ�꼭�� ���¿� ���� �����̷��� Ȯ���մϴ�.
+    ' 세금계산서의 상태에 대한 변경이력을 확인합니다.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/info#GetLogs
     '**************************************************************
 
-    '  �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    '  팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �������� SELL(����), BUY(����), TRUSTEE(����Ź)
+    ' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
     KeyType= "SELL"
 
-    ' ������ȣ
+    ' 문서번호
     MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -37,20 +37,20 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> �����̷�Ȯ�� </legend>
+                <legend> 문서이력확인 </legend>
                 <%
                     If code = 0 Then
                         For i=0 To result.Count -1 %>
                          <fieldset class="fieldset2">
                             <ul>
-                                <li> DocLogType(�α�Ÿ��) :  <%=result.Item(i).DocLogType%> </li>
-                                <li> Log(�̷�����) : <%=result.Item(i).Log %> </li>
-                                <li> ProcType(ó������) : <%=result.Item(i).ProcType%> </li>
-                                <li> ProcCorpName(ó��ȸ���) : <%=result.Item(i).ProcCorpName%></li>
-                                <li> procContactName(ó�������) : <%=result.Item(i).procContactName%></li>
-                                <li> ProcMemo(ó���޸�) : <%=result.Item(i).ProcMemo %></li>
-                                <li> regDT(����Ͻ�) : <%=result.Item(i).regDT %></li>
-                                <li> ip(������) : <%=result.Item(i).ip %></li>
+                                <li> DocLogType(로그타입) :  <%=result.Item(i).DocLogType%> </li>
+                                <li> Log(이력정보) : <%=result.Item(i).Log %> </li>
+                                <li> ProcType(처리형태) : <%=result.Item(i).ProcType%> </li>
+                                <li> ProcCorpName(처리회사명) : <%=result.Item(i).ProcCorpName%></li>
+                                <li> procContactName(처리담당자) : <%=result.Item(i).procContactName%></li>
+                                <li> ProcMemo(처리메모) : <%=result.Item(i).ProcMemo %></li>
+                                <li> regDT(등록일시) : <%=result.Item(i).regDT %></li>
+                                <li> ip(아이피) : <%=result.Item(i).ip %></li>
                             </ul>
                         </fieldset>
                 <%

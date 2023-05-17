@@ -1,53 +1,53 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ����ڸ� ����ȸ������ ����ó���մϴ�.
+    ' 사용자를 연동회원으로 가입처리합니다.
     ' - https://developers.popbill.com/reference/sms/asp/api/member#JoinMember
     '**************************************************************
 
-    ' ȸ������ ��ü ����
+    ' 회원정보 객체 생성
     Set joinInfo = New JoinForm
 
-    ' ��ũ���̵�
+    ' 링크아이디
     joinInfo.LinkID = "TESTER"
 
-    ' ����ڹ�ȣ, "-"���� 10�ڸ�
+    ' 사업자번호, "-"제외 10자리
     joinInfo.CorpNum = "1234567890"
 
-    ' ��ǥ�ڼ���
-    joinInfo.CEOName = "��ǥ�ڼ���"
+    ' 대표자성명
+    joinInfo.CEOName = "대표자성명"
 
-    ' ��ȣ��
-    joinInfo.CorpName =  "��ȣ"
+    ' 상호명
+    joinInfo.CorpName =  "상호"
 
-    ' �ּ�
-    joinInfo.Addr =   "�ּ�"
+    ' 주소
+    joinInfo.Addr =   "주소"
 
-    ' ����
-    joinInfo.BizType =  "����"
+    ' 업태
+    joinInfo.BizType =  "업태"
 
-    ' ����
-    joinInfo.BizClass = "����"
+    ' 종목
+    joinInfo.BizClass = "종목"
 
-    ' ���̵� (6�� �̻� 20�� �̸�)
+    ' 아이디 (6자 이상 20자 미만)
     joinInfo.ID =  "userid"
 
-    ' ��й�ȣ (8�� �̻� 20�� ����) ����, ���� ,Ư������ ����
+    ' 비밀번호 (8자 이상 20자 이하) 영문, 숫자 ,특수문자 조합
     joinInfo.Password =  "asdf1234!@#$"
 
-    ' ����ڸ�
-    joinInfo.ContactName = "����ڸ�"
+    ' 담당자명
+    joinInfo.ContactName = "담당자명"
 
-    ' ����ڿ���ó
+    ' 담당자연락처
     joinInfo.ContactTEL = ""
 
-    ' ����� �̸���
+    ' 담당자 이메일
     joinInfo.ContactEmail = ""
 
 
@@ -73,7 +73,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>����ȸ�� ���Կ�û</legend>
+                <legend>연동회원 가입요청</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

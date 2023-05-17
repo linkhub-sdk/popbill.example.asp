@@ -1,17 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ��Ʈ���� �ܿ�����Ʈ�� Ȯ���մϴ�.
+    ' 파트너의 잔여포인트를 확인합니다.
     ' - https://developers.popbill.com/reference/fax/asp/api/point#GetPartnerBalance
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
     On Error Resume Next
@@ -31,10 +31,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>��Ʈ�� �ܿ�����Ʈ Ȯ�ΰ��</legend>
+                <legend>파트너 잔여포인트 확인결과</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>�ܿ�����Ʈ : <%=CStr(remainpoint)%> </li>
+                        <li>잔여포인트 : <%=CStr(remainpoint)%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>

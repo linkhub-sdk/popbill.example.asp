@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' �����ڰ� ���޹޴��ڿ��� ������ ��û ���� ���ݰ�꼭�� ������ �ź��մϴ�.
+    ' 공급자가 공급받는자에게 역발행 요청 받은 세금계산서의 발행을 거부합니다.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#Refuse
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     testUserID = "testkorea"
 
-    ' �������� SELL(����), BUY(����), TRUSTEE(����Ź)
+    ' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
     KeyType = "SELL"
 
-    ' ������ȣ
+    ' 문서번호
     MgtKey = "20220720-ASP-001"
 
-    ' �޸�
-    Memo = "������ ��û �ź� �޸�"
+    ' 메모
+    Memo = "역발행 요청 거부 메모"
 
     On Error Resume Next
 
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>�������û �ź�</legend>
+                <legend>역발행요청 거부</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

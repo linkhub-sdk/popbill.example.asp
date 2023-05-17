@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ��Ʈ�ʰ� �Ҵ��� ���ۿ�û ��ȣ�� ���� �ѽ� ���ۻ��� �� ����� Ȯ���մϴ�.
+    ' 파트너가 할당한 전송요청 번호를 통해 팩스 전송상태 및 결과를 확인합니다.
     ' - https://developers.popbill.com/reference/fax/asp/api/info#GetFaxResultRN
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     userID = "testkorea"
 
-    ' �ѽ����� ��û�� �Ҵ��� ���ۿ�û��ȣ
+    ' 팩스전송 요청시 할당한 전송요청번호
     requestNum = ""
 
     On Error Resume Next
@@ -40,35 +40,35 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>�ѽ����� ���۰�� Ȯ�� </legend>
+                <legend>팩스전송 전송결과 확인 </legend>
                 <% If code = 0 Then
                         For i=0 To result.Count-1
                 %>
                     <fieldset class="fieldset2">
-                            <legend> �ѽ� ���۰�� [<%=i+1%>] </legend>
+                            <legend> 팩스 전송결과 [<%=i+1%>] </legend>
                             <ul>
-                                <li>state (���ۻ��� �ڵ�) : <%=result.Item(i).state%> </li>
-                                <li>result (���۰�� �ڵ�) : <%=result.Item(i).result%> </li>
-                                <li>sendNum (�߽Ź�ȣ) : <%=result.Item(i).sendNum%> </li>
-                                <li>senderName (�߽��ڸ�) : <%=result.Item(i).senderName%> </li>
-                                <li>receiveNum (���Ź�ȣ) : <%=result.Item(i).receiveNum%> </li>
-                                <li>receiveNumType (���Ź�ȣ ����) : <%=result.Item(i).receiveNumType%> </li>
-                                <li>receiveName (�����ڸ�) : <%=result.Item(i).receiveName%> </li>
-                                <li>title (�ѽ� ����) : <%=result.Item(i).title %> </li>
-                                <li>sendPageCnt (��������) : <%=result.Item(i).sendPageCnt%></li>
-                                <li>successPageCnt (���� ��������) : <%=result.Item(i).successPageCnt%></li>
-                                <li>failPageCnt (���� ��������) : <%=result.Item(i).failPageCnt%></li>
-                                <li>cancelPageCnt (��� ��������) : <%=result.Item(i).cancelPageCnt%></li>
-                                <li>reserveDT (����ð�) : <%=result.Item(i).reserveDT%></li>
-                                <li>sendDT (�߼۽ð�) : <%=result.Item(i).sendDT%></li>
-                                <li>receiptDT (���� �����ð�) : <%=result.Item(i).receiptDT%></li>
-                                <li>fileNames (�������ϸ� �迭) : <%=result.Item(i).fileNames%></li>
-                                <li>receiptNum (������ȣ) : <%=result.Item(i).receiptNum%> </li>
-                                <li>requestNum (��û��ȣ) : <%=result.Item(i).requestNum%> </li>
-                                <li>interOPRefKey (��Ʈ�� ����Ű) : <%=result.Item(i).interOPRefKey%> </li>
-                                <li>chargePageCnt (���� ��������) : <%=result.Item(i).chargePageCnt%> </li>
-                                <li>refundPageCnt (ȯ�� ��������) : <%=result.Item(i).refundPageCnt%></li>
-                                <li>tiffFileSize (��ȯ���Ͽ뷮 (���� : byte)) : <%=result.Item(i).tiffFileSize%> </li>
+                                <li>state (전송상태 코드) : <%=result.Item(i).state%> </li>
+                                <li>result (전송결과 코드) : <%=result.Item(i).result%> </li>
+                                <li>sendNum (발신번호) : <%=result.Item(i).sendNum%> </li>
+                                <li>senderName (발신자명) : <%=result.Item(i).senderName%> </li>
+                                <li>receiveNum (수신번호) : <%=result.Item(i).receiveNum%> </li>
+                                <li>receiveNumType (수신번호 유형) : <%=result.Item(i).receiveNumType%> </li>
+                                <li>receiveName (수신자명) : <%=result.Item(i).receiveName%> </li>
+                                <li>title (팩스 제목) : <%=result.Item(i).title %> </li>
+                                <li>sendPageCnt (페이지수) : <%=result.Item(i).sendPageCnt%></li>
+                                <li>successPageCnt (성공 페이지수) : <%=result.Item(i).successPageCnt%></li>
+                                <li>failPageCnt (실패 페이지수) : <%=result.Item(i).failPageCnt%></li>
+                                <li>cancelPageCnt (취소 페이지수) : <%=result.Item(i).cancelPageCnt%></li>
+                                <li>reserveDT (예약시간) : <%=result.Item(i).reserveDT%></li>
+                                <li>sendDT (발송시간) : <%=result.Item(i).sendDT%></li>
+                                <li>receiptDT (전송 접수시간) : <%=result.Item(i).receiptDT%></li>
+                                <li>fileNames (전송파일명 배열) : <%=result.Item(i).fileNames%></li>
+                                <li>receiptNum (접수번호) : <%=result.Item(i).receiptNum%> </li>
+                                <li>requestNum (요청번호) : <%=result.Item(i).requestNum%> </li>
+                                <li>interOPRefKey (파트너 지정키) : <%=result.Item(i).interOPRefKey%> </li>
+                                <li>chargePageCnt (과금 페이지수) : <%=result.Item(i).chargePageCnt%> </li>
+                                <li>refundPageCnt (환불 페이지수) : <%=result.Item(i).refundPageCnt%></li>
+                                <li>tiffFileSize (변환파일용량 (단위 : byte)) : <%=result.Item(i).tiffFileSize%> </li>
                             </ul>
                             </ul>
                         </fieldset>

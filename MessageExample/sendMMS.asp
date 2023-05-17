@@ -1,61 +1,61 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>�˺� SDK ASP Example.</title>
+        <title>팝빌 SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' �ִ� 2,000byte�� �޽����� �̹����� ������ ���乮��(MMS) 1�� ������ �˺��� �����մϴ�.
-    ' - �̹��� ���� ����/�԰� : �ִ� 300Kbyte(JPEG), ����/���� 1,000px ���� ����
+    ' 최대 2,000byte의 메시지와 이미지로 구성된 포토문자(MMS) 1건 전송을 팝빌에 접수합니다.
+    ' - 이미지 파일 포맷/규격 : 최대 300Kbyte(JPEG), 가로/세로 1,000px 이하 권장
     ' - https://developers.popbill.com/reference/sms/asp/api/send#SendMMS
     '**************************************************************
 
-    ' �˺�ȸ�� ����ڹ�ȣ, "-" ����
+    ' 팝빌회원 사업자번호, "-" 제외
     testCorpNum = "1234567890"
 
-    ' �˺�ȸ�� ���̵�
+    ' 팝빌회원 아이디
     userID = "testkorea"
 
-    ' ������ �޽��� ���� ( true , false �� �� 1)
-    ' �� true = ���� , false = �Ϲ�
+    ' 광고성 메시지 여부 ( true , false 중 택 1)
+    ' └ true = 광고 , false = 일반
     adsYN = False
 
-    ' �������۽ð� yyyyMMddHHmmss, reserveDT���� ���� ��� �������
+    ' 예약전송시간 yyyyMMddHHmmss, reserveDT값이 없는 경우 즉시전송
     reserveDT = ""
 
     Set msgList = CreateObject("Scripting.Dictionary")
 
-    ' ������������
+    ' 문자전송정보
     Set message = New Messages
 
-    ' �߽Ź�ȣ
+    ' 발신번호
     message.sender = ""
 
-    ' �߽��ڸ�
-    message.senderName = "�߽��ڸ�"
+    ' 발신자명
+    message.senderName = "발신자명"
 
-    ' ���Ź�ȣ
+    ' 수신번호
     message.receiver = ""
 
-    ' �����ڸ�
-    message.receivername = " �������̸�"
+    ' 수신자명
+    message.receivername = " 수신자이름"
 
-    ' �޽��� ����, 2000byte �ʰ��� ���̰� �����Ǿ����۵�.
-    message.content = "MMS �޽��� �׽�Ʈ��"
+    ' 메시지 내용, 2000byte 초과시 길이가 조정되어전송됨.
+    message.content = "MMS 메시지 테스트중"
 
-    ' �޽��� ����
-    message.subject = "MMS �޽��� �����Դϴ�"
+    ' 메시지 제목
+    message.subject = "MMS 메시지 제목입니다"
 
     msgList.Add 0, message
 
-    ' ���� �޽��� ÷������, 300KByte���� JPEG ���� ���۰���
+    ' 포토 메시지 첨부파일, 300KByte이하 JPEG 포맷 전송가능
     FilePaths = Array("C:\popbill.example.asp\test.jpg")
 
-    ' ���ۿ�û��ȣ
-    ' �˺��� ���� ������ �ĺ��� �� �ֵ��� ��Ʈ�ʰ� �Ҵ��� �ĺ���ȣ.
-    ' 1~36�ڸ��� ����. ����, ����, ������(-), �����(_)�� �����Ͽ� �˺� ȸ������ �ߺ����� �ʵ��� �Ҵ�.
+    ' 전송요청번호
+    ' 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
+    ' 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
     requestNum = ""
 
     On Error Resume Next
@@ -75,10 +75,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>MMS ���ڸ޽��� 1�� ���� </legend>
+                <legend>MMS 문자메시지 1건 전송 </legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(������ȣ) : <%=receiptNum%> </li>
+                        <li>ReceiptNum(접수번호) : <%=receiptNum%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
