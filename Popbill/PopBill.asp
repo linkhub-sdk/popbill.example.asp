@@ -1,5 +1,4 @@
 <!--#include file="Linkhub/Linkhub.asp"-->
-<!--#include file="Linkhub/json2.asp"-->
 <%
 
 Application("LINKHUB_TOKEN_SCOPE_POPBILL") = Array("member")

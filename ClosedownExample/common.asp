@@ -5,7 +5,7 @@
     ' 팝빌 휴폐업조회 API ASP SDK Example
     '
     ' ASP SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/closedown/asp/getting-started/environment-set-up
-    ' - 업데이트 일자 : 2022-07-20
+    ' - 업데이트 일자 : 2023-05-18
     ' - 연동 기술지원 연락처 : 1600-9854
     ' - 연동 기술지원 이메일 : code@linkhubcorp.com
     '
