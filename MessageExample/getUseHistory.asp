@@ -34,7 +34,7 @@
 
     On Error Resume Next
 
-    Set useHistoryResult = m_MessageService.GetUseHistory(testCorpNum, SDate,EDate,Page,PerPage,Order, UserID)
+    Set result = m_MessageService.GetUseHistory(testCorpNum, SDate,EDate,Page,PerPage,Order, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -49,35 +49,37 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>환불 가능 포인트 조회</legend>
+                <legend>연동회원 포인트 사용내역 확인</legend>
                 <%
                     If code = 0 Then
                 %>
+                    <ul>
+                        <li> code (응답코드) : <%=result.code%></li>
+                        <li> total (총 검색결과 건수) : <%=result.total%></li>
+                        <li> perPage (페이지당 검색개수) : <%=result.perPage%></li>
+                        <li> pageNum (페이지 번호) : <%=result.pageNum%></li>
+                        <li> pageCount (페이지 개수) : <%=result.pageCount%></li>
+                    </ul>
+                <%
+                    Dim i
+                    For i = 0 to UBound(result.list)-1
+                %>
                     <fieldset class="fieldset2">
-                        <legend> UseHistoryResult </legend>
-                            <ul>
-                                <li> code (응답코드) : <%=useHistoryResult.code%></li>
-                                <li> total (총 검색결과 건수) : <%=useHistoryResult.total%></li>
-                                <li> perPage (페이지당 검색개수) : <%=useHistoryResult.perPage%></li>
-                                <li> pageNum (페이지 번호) : <%=useHistoryResult.pageNum%></li>
-                                <li> pageCount (페이지 개수) : <%=useHistoryResult.pageCount%></li>
-                                <%
-                                    Dim i
-                                    For i = 0 to UBound(useHistoryResult.list)-1
-
-                                %>
-                                <li> itemCode (서비스코드) : <%=useHistoryResult.list(i).itemCode%></li>
-                                <li> txType (포인트 증감 유형) : <%=useHistoryResult.list(i).txType%></li>
-                                <li> txPoint (증감 포인트) : <%=useHistoryResult.list(i).txPoint%></li>
-                                <li> balance (잔여 포인트) : <%=useHistoryResult.list(i).balance%></li>
-                                <li> txDT (포인트 증감 일시) : <%=useHistoryResult.list(i).txDT%></li>
-                                <li> userID (담당자 아이디) : <%=useHistoryResult.list(i).userID%></li>
-                                <li> userName (담당자명) : <%=useHistoryResult.list(i).userName%></li>
-                                <%
-                                Next
-                                %>
-                            </ul>
-                        </fieldset>
+                        <legend> UseHistory [ <%= i+1%> / <%=UBound(result.list)%>]</legend>
+                        <ul>
+                        <li> itemCode (서비스코드) : <%=result.list(i).itemCode%></li>
+                        <li> txType (포인트 증감 유형) : <%=result.list(i).txType%></li>
+                        <li> txPoint (증감 포인트) : <%=result.list(i).txPoint%></li>
+                        <li> balance (잔여 포인트) : <%=result.list(i).balance%></li>
+                        <li> txDT (포인트 증감 일시) : <%=result.list(i).txDT%></li>
+                        <li> userID (담당자 아이디) : <%=result.list(i).userID%></li>
+                        <li> userName (담당자명) : <%=result.list(i).userName%></li>
+                        </ul>
+                    </fieldset>
+                <%
+                Next
+                %>
+                </fieldset>
                 <%
 
                     Else
@@ -90,6 +92,6 @@
                     End If
                 %>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>
