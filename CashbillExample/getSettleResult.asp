@@ -15,7 +15,7 @@
     testCorpNum = "1234567890"
 
     '정산코드
-    SettleCode = ""
+    SettleCode = "202304260000000055"
 
     '팝빌회원 아이디
     UserID = "testkorea"
