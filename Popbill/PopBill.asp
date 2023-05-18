@@ -322,7 +322,10 @@ End Function
 ' 환불 신청 (Refund)
 Public Function Refund(CorpNum, RefundForm,  UserID)
     Dim tmp: Set tmp = RefundForm.toJsonInfo
-    Dim postdata: postdata = m_Linkhub.toString(tmp)
+    Dim postData: postData = m_Linkhub.toString(tmp)
+
+    response.write(postdata)
+
     Dim tmpResult:Set tmpResult = httpPOST("/Refund", getSession_token(CorpNum), "", postData, UserID)
 
     Dim refundResponse: Set refundResponse = New RefundResponse
@@ -845,7 +848,7 @@ End Class
 
 ' 환불신청 객체정보
 Class RefundForm
-    Public ContactUame
+    Public ContactName
     Public TEL
     Public RequestPoint
     Public AccountBank
@@ -855,7 +858,7 @@ Class RefundForm
 
     Public Function toJsonInfo()
         Set toJsonInfo = JSON.parse("{}")
-        toJsonInfo.set "ContactUame", ContactUame
+        toJsonInfo.set "ContactName", ContactName
         toJsonInfo.set "TEL", TEL
         toJsonInfo.set "RequestPoint", RequestPoint
         toJsonInfo.set "AccountBank", AccountBank

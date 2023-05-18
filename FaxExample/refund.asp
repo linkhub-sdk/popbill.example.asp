@@ -16,7 +16,7 @@
 
     Dim m_RefundForm : Set m_RefundForm = New RefundForm
     '담당자명
-    m_RefundForm.ContactUame = "담당자 이름"
+    m_RefundForm.ContactName = "담당자 이름"
 
     '담당자 연락처
     m_RefundForm.TEL = "010-1234-1234"
