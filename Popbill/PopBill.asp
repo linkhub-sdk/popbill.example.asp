@@ -289,7 +289,7 @@ Public Function GetSettleResult(CorpNum, SettleCode, UserID)
         Err.Raise -99999999, "POPBILL", "정산코드가 입력되지 않았습니다."
     End If
 
-    Dim tmp : Set tmp = httpGET("/Paymet/"& SettleCode,getSession_token(CorpNum),UserID)
+    Dim tmp : Set tmp = httpGET("/Payment/"& SettleCode,getSession_token(CorpNum),UserID)
     Dim m_paymentHistory: Set m_paymentHistory = New PaymentHistory
     m_paymentHistory.fromJsonInfo  tmp
 
@@ -316,7 +316,7 @@ Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
     Dim paymentHistoryResult : Set paymentHistoryResult = New PaymentHistoryResult
     paymentHistoryResult.fromJsonInfo tmp
 
-    Set GetPaymentHistory = paymentHistoryResult
+    Set GetPaymentHistory = paymentHistoryResultㄴ
 End Function
 
 ' 환불 신청 (Refund)
