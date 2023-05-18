@@ -19,7 +19,7 @@
 
     On Error Resume Next
 
-	refundableBalance = m_HTCashbillService..GetRefundableBalance(testCorpNum, UserID)
+	refundableBalance = m_HTCashbillService.GetRefundableBalance(testCorpNum, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
