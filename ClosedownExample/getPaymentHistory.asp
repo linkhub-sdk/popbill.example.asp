@@ -15,7 +15,7 @@
     testCorpNum = "1234567890"
 
     ' 조회 기간의 시작일자 (형식 : yyyyMMdd)
-    SDate = "20230501"
+    SDate = "20230401"
 
     ' 조회 기간의 종료일자 (형식 : yyyyMMdd)
     EDate = "20230530"
