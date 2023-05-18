@@ -908,6 +908,7 @@ Class CashbillInfo
     Public stateMemo
     Public stateDT
     Public printYN
+    Public interOPYN
 
     Public confirmNum
     Public orgTradeDate
@@ -941,6 +942,7 @@ Class CashbillInfo
         stateMemo = jsonInfo.stateMemo
         stateDT = jsonInfo.stateDT
         printYN = jsonInfo.printYN
+        interOPYN = jsonInfo.interOPYN
 
         confirmNum = jsonInfo.confirmNum
         orgTradeDate = jsonInfo.orgTradeDate
