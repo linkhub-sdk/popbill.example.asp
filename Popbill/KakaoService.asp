@@ -809,7 +809,7 @@ Class KakaoATSTemplate
     End Sub
 End Class ' end of KakaoATSTemplate
 
-Class CanelReserve
+Class CancelReserve
     Public receiverNum
 
     Public Function toJsonInfo()
