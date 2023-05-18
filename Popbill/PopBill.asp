@@ -323,9 +323,6 @@ End Function
 Public Function Refund(CorpNum, RefundForm,  UserID)
     Dim tmp: Set tmp = RefundForm.toJsonInfo
     Dim postData: postData = m_Linkhub.toString(tmp)
-
-    response.write(postdata)
-
     Dim tmpResult:Set tmpResult = httpPOST("/Refund", getSession_token(CorpNum), "", postData, UserID)
 
     Dim refundResponse: Set refundResponse = New RefundResponse
