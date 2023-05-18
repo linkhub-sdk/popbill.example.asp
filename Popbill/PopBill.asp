@@ -365,7 +365,7 @@ End Function
 Public Function QuitMember(CorpNum, QuitReason, UserID)
     Dim t_QuitReason: Set t_QuitReason = QuitReason.toJsonInfo
     Dim postData: postData = m_Linkhub.toString(t_QuitReason)
-    Dim tmp: Set tmp  = httpPOST("/QuitMember", getSession_token(CorpNum), "", postData, UserID)
+    Dim tmp: Set tmp  = httpPOST("/QuitRequest", getSession_token(CorpNum), "", postData, UserID)
     Set QuitMember = tmp
 End Function
 
@@ -872,7 +872,7 @@ Class QuitReason
 
     Public Function toJsonInfo()
         Set toJsonInfo = JSON.parse("{}")
-        toJsonInfo.set "QuitReason", quitReason
+        toJsonInfo.set "quitReason", quitReason
     End Function
 
 End Class
