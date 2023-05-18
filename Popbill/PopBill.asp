@@ -314,7 +314,7 @@ Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
 
     Dim infoObj : Set infoObj = CreateObject("Scripting.Dictionary")
     Dim paymentHistoryResult : Set paymentHistoryResult = New PaymentHistoryResult
-    paymentHistoryResult.fromJsonInfo mytmp
+    paymentHistoryResult.fromJsonInfo tmp
 
     Set GetPaymentHistory = paymentHistoryResult
 End Function
