@@ -512,7 +512,7 @@ Public Function CancelReservebyRCV(CorpNum, receiptNum,receiverNum, UserID)
         Err.raise receiverNum, "POPBILL", "수신번호가 입력되지 않았습니다."
     End IF
 
-    Set m_CancelReserve = New CancelReserve
+    Set m_CancelReserve = New CancelReserveObj
     m_CancelReserve.receiverNum = receiverNum
 
     Dim uri : uri = "/KakaoTalk/" & receiptNum & "/Cancel"
@@ -530,7 +530,7 @@ Public Function CancelReserveRNbyRCV(CorpNum, requestNum, receiverNum, UserID)
         Err.raise receiverNum, "POPBILL", "수신번호가 입력되지 않았습니다."
     End IF
 
-    Set m_CancelReserve = New CancelReserve
+    Set m_CancelReserve = New CancelReserveObj
     m_CancelReserve.receiverNum = receiverNum
 
     Dim uri : uri = "/KakaoTalk/Cancel/" & requestNum
@@ -809,7 +809,7 @@ Class KakaoATSTemplate
     End Sub
 End Class ' end of KakaoATSTemplate
 
-Class CancelReserve
+Class CancelReserveObj
     Public receiverNum
 
     Public Function toJsonInfo()
