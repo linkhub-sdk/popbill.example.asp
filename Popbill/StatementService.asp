@@ -207,9 +207,9 @@ End Function
 Public Function Register(CorpNum, ByRef statement, UserID)
     Dim tmpJson : Set tmpJson = statement.toJsonInfo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmpJson)
+    Dim postData : postData = m_PopbillBase.toString(tmpJson)
 
-    Set Register = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    Set Register = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 
@@ -221,9 +221,9 @@ Public Function Update(CorpNum, itemCode, mgtKey, ByRef statement, UserID)
 
     Dim tmpJson : Set tmpJson = statement.toJsonInfo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmpJson)
+    Dim postData : postData = m_PopbillBase.toString(tmpJson)
 
-    Set Update = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "PATCH", postdata, UserID)
+    Set Update = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "PATCH", postData, UserID)
 End Function
 
 '발행
@@ -236,9 +236,9 @@ Public Function Issue(CorpNum, itemCode, mgtKey, Memo, EmailSubject, UserID)
     tmp.Set "memo", Memo
     tmp.Set "emailSubject", EmailSubject
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set Issue = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "ISSUE", postdata, UserID)
+    Set Issue = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "ISSUE", postData, UserID)
 End Function
 
 
@@ -251,9 +251,9 @@ Public Function CancelIssue(CorpNum, itemCode, mgtKey, Memo, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set CancelIssue = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCEL", postdata, UserID)
+    Set CancelIssue = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCEL", postData, UserID)
 
 End Function
 
@@ -332,11 +332,11 @@ Public Function GetInfos(CorpNum, itemCode, mgtKeyList, UserID)
         tmp.Set i, mgtKeyList(i)
     Next
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Dim infoList : Set infoList = CreateObject("Scripting.Dictionary")
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode), m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    Dim result : Set result = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode), m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 
     For i=0 To result.length-1
         Dim tmpObj : Set tmpObj = New StatementInfo
@@ -394,9 +394,9 @@ Public Function SendEmail(CorpNum, itemCode, mgtKey, receiver, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "receiver", receiver
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendEmail = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "EMAIL", postdata, UserID)
+    Set SendEmail = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "EMAIL", postData, UserID)
 End Function
 
 
@@ -411,9 +411,9 @@ Public Function SendSMS(CorpNum, itemCode, mgtKey, sender, receiver, contents, U
     tmp.Set "sender", sender
     tmp.Set "contents", contents
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendSMS = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "SMS", postdata, UserID)
+    Set SendSMS = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "SMS", postData, UserID)
 End Function
 
 
@@ -427,9 +427,9 @@ Public Function SendFAX(CorpNum, itemCode, mgtKey, sender, receiver, UserID)
     tmp.Set "receiver", receiver
     tmp.Set "sender", sender
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendFAX = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "FAX", postdata, UserID)
+    Set SendFAX = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
 End Function
 
 
@@ -494,9 +494,9 @@ Public Function GetMassPrintURL(CorpNum, itemCode, mgtKeyList, UserID)
         tmp.Set i, mgtKeyList(i)
     Next
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"?Print", m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    Dim result : Set result = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"?Print", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
     GetMassPrintURL = result.url
 End Function
 
@@ -515,10 +515,10 @@ Public Function RegistIssue(CorpNum, ByRef statement, Memo, UserID, EmailSubject
     End If
 
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmpDic)
+    Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
     Set RegistIssue = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), _
-                    "ISSUE", postdata, UserID)
+                    "ISSUE", postData, UserID)
 
 End Function
 
@@ -534,9 +534,9 @@ Public Function FAXSend(CorpNum, ByRef statement, SendNum, ReceiveNum, UserID)
     tmpDic.Set "sendNum", SendNum
     tmpDic.Set "receiveNum", ReceiveNum
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmpDic)
+    Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), "FAX", postdata, UserID)
+    Dim result : Set result = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
     FAXSend = result.receiptNum
 
 End Function
@@ -596,9 +596,9 @@ Public Function AttachStatement(CorpNum, ItemCode, MgtKey, SubItemCode, SubMgtKe
     tmp.Set "ItemCode", SubItemCode
     tmp.Set "MgtKey", SubMgtKey
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
     Set AttachStatement = m_PopbillBase.httpPOST("/Statement/"+CStr(ItemCode)+"/"+mgtKey+"/AttachStmt", _
-                        m_PopbillBase.getSession_token(CorpNum), "", postdata, "")
+                        m_PopbillBase.getSession_token(CorpNum), "", postData, "")
 End Function
 
 Public Function DetachStatement(CorpNum, ItemCode, MgtKey, SubItemCode, SubMgtKey)
@@ -606,9 +606,9 @@ Public Function DetachStatement(CorpNum, ItemCode, MgtKey, SubItemCode, SubMgtKe
     tmp.Set "ItemCode", SubItemCode
     tmp.Set "MgtKey", SubMgtKey
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
     Set DetachStatement = m_PopbillBase.httpPOST("/Statement/"+CStr(ItemCode)+"/"+mgtKey+"/DetachStmt", _
-                        m_PopbillBase.getSession_token(CorpNum), "", postdata, "")
+                        m_PopbillBase.getSession_token(CorpNum), "", postData, "")
 End Function
 
 

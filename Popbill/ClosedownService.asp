@@ -206,9 +206,9 @@ Public Function CheckCorpNums(MemberCorpNum, CorpNumList)
         tmp.Set i, CorpNumList(i)
     Next
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/CloseDown", m_PopbillBase.getSession_token(MemberCorpNum), "", postdata, "")
+    Dim result : Set result = m_PopbillBase.httpPOST("/CloseDown", m_PopbillBase.getSession_token(MemberCorpNum), "", postData, "")
 
     Dim tmpDic : Set tmpDic = CreateObject("Scripting.Dictionary")
 

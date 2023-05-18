@@ -200,18 +200,18 @@ Public Function JoinMember(JoinInfo)
     tmp.set "ID", JoinInfo.ID
     tmp.set "PWD", JoinInfo.PWD
     tmp.set "Password", JoinInfo.Password
-    Dim postdata : postdata = m_Linkhub.toString(tmp)
+    Dim postData : postData = m_Linkhub.toString(tmp)
 
-    Set JoinMember = httpPOST("/Join", "", "", postdata, "")
+    Set JoinMember = httpPOST("/Join", "", "", postData, "")
 End Function
 
 '담당자 정보 확인
 Public Function GetContactInfo(CorpNum, ContactID, UserID)
 
-    postdata = "{'id':" + "'" + ContactID  +"'}"
+    postData = "{'id':" + "'" + ContactID  +"'}"
 
     Dim contInfo : Set contInfo = New ContactInfo
-    Dim result : Set result = httpPOST("/Contact", getSession_token(CorpNum), "", postdata, UserID)
+    Dim result : Set result = httpPOST("/Contact", getSession_token(CorpNum), "", postData, UserID)
 
     contInfo.fromJsonInfo result
 
@@ -236,17 +236,17 @@ End Function
 '담당자 수정
 Public Function UpdateContact(CorpNum, ContactInfo, UserID)
     Dim tmp : Set tmp = ContactInfo.toJsonInfo
-    Dim postdata : postdata = m_Linkhub.toString(tmp)
+    Dim postData : postData = m_Linkhub.toString(tmp)
 
-    Set UpdateContact = httpPOST("/IDs", getSession_token(CorpNum), "", postdata, UserID)
+    Set UpdateContact = httpPOST("/IDs", getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 '담당자 추가
 Public Function RegistContact(CorpNum, ContactInfo, UserId)
     Dim tmp : Set tmp = ContactInfo.toJsonInfo
-    Dim postdata : postdata = m_Linkhub.toString(tmp)
+    Dim postData : postData = m_Linkhub.toString(tmp)
 
-    Set RegistContact = httpPOST("/IDs/New", getSession_token(CorpNum), "", postdata, UserId)
+    Set RegistContact = httpPOST("/IDs/New", getSession_token(CorpNum), "", postData, UserId)
 End Function
 
 '회사정보 확인
@@ -262,9 +262,9 @@ End Function
 '회사정보 수정
 Public Function UpdateCorpInfo(CorpNum, CorpInfo, UserID)
     Dim tmp : Set tmp = CorpInfo.toJsonInfo
-    Dim postdata : postdata = m_Linkhub.toString(tmp)
+    Dim postData : postData = m_Linkhub.toString(tmp)
 
-    Set UpdateCorpInfo = httpPOST("/CorpInfo", getSession_token(CorpNum), "", postdata, UserID)
+    Set UpdateCorpInfo = httpPOST("/CorpInfo", getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 '아이디 중복확인
@@ -364,7 +364,7 @@ End Function
 ' 팝빌회원 탈퇴 (QuitMember)
 Public Function QuitMember(CorpNum, QuitReason, UserID)
     Dim t_QuitReason: Set t_QuitReason = QuitReason.toJsonInfo
-    Dim postdata: postdata = m_Linkhub.toString(t_QuitReason)
+    Dim postData: postData = m_Linkhub.toString(t_QuitReason)
     Dim tmp: Set tmp  = httpPOST("/QuitMember", getSession_token(CorpNum), "", postData, UserID)
     Set QuitMember = tmp
 End Function
@@ -403,7 +403,7 @@ Public Function httpGET(url , BearerToken , UserID )
 End Function
 
 
-Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
+Public Function httpPOST(url , BearerToken , override , postData ,  UserID)
 
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
@@ -424,7 +424,7 @@ Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
         Call winhttp1.setRequestHeader("x-pb-userid", UserID)
     End If
 
-    winhttp1.Send (postdata)
+    winhttp1.Send (postData)
     winhttp1.WaitForResponse
     Dim result : result = winhttp1.responseText
 
@@ -439,7 +439,7 @@ Public Function httpPOST(url , BearerToken , override , postdata ,  UserID)
 
 End Function
 
-Public Function httpBulkPOST(url, BearerToken, override, SubmitID, postdata, userID)
+Public Function httpBulkPOST(url, BearerToken, override, SubmitID, postData, userID)
 
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
@@ -447,7 +447,7 @@ Public Function httpBulkPOST(url, BearerToken, override, SubmitID, postdata, use
     Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
     Call winhttp1.setRequestHeader("Content-Type", "Application/json")
     Call winhttp1.setRequestHeader("User-Agent", "Classic ASP POPBILL SDK")
-    Call winhttp1.setRequestHeader("x-pb-message-digest", m_linkhub.b64sha1(postdata))
+    Call winhttp1.setRequestHeader("x-pb-message-digest", m_linkhub.b64sha1(postData))
     If BearerToken <> "" Then
         Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
     End If
@@ -464,7 +464,7 @@ Public Function httpBulkPOST(url, BearerToken, override, SubmitID, postdata, use
         Call winhttp1.setRequestHeader("x-pb-userid", UserID)
     End If
 
-    winhttp1.Send (postdata)
+    winhttp1.Send (postData)
     winhttp1.WaitForResponse
     Dim result : result = winhttp1.responseText
 
@@ -479,7 +479,7 @@ Public Function httpBulkPOST(url, BearerToken, override, SubmitID, postdata, use
 
 End Function
 
-Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , UserID, ContentsType)
+Public Function httpPOST_ContentsType(url , BearerToken , override , postData , UserID, ContentsType)
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
     Call winhttp1.Open("POST", getTargetURL() + url)
@@ -504,7 +504,7 @@ Public Function httpPOST_ContentsType(url , BearerToken , override , postdata , 
         Call winhttp1.setRequestHeader("Content-Type", "Application/json")
     End If
 
-    winhttp1.Send (postdata)
+    winhttp1.Send (postData)
     winhttp1.WaitForResponse
     Dim result : result = winhttp1.responseText
 
@@ -600,11 +600,11 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
     Stream.Type = adTypeBinary
     Stream.Open
 
-    If postdata <> "" Then
+    If postData <> "" Then
         Dim applicationform : applicationform = vbCrLf & "--" & boundary & vbCrLf & _
                           "Content-Disposition: form-data; name=""form""" & vbCrLf & _
                           "Content-Type: Application/json" & vbCrLf & vbCrLf & _
-                          postdata
+                          postData
         Stream.Write StringToBytes(applicationform)
     End If
 

@@ -182,9 +182,9 @@ Public Function Register(CorpNum ,byref TI, writeSpecification, UserID)
         tmpDic.Set "writeSpecification", True
     End If
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmpDic)
+    Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Set Register = m_PopbillBase.httpPOST("/Taxinvoice", m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
+    Set Register = m_PopbillBase.httpPOST("/Taxinvoice", m_PopbillBase.getSession_token(CorpNum),"", postData, UserID)
 End Function
 
 '수정
@@ -201,9 +201,9 @@ Public Function Update(CorpNum, KeyType, MgtKey, ByRef TI, writeSpecification, U
         tmpDic.Set "writeSpecification", True
     End If
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmpDic)
+    Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Set Update = m_PopbillBase.httpPOST("/Taxinvoice/"+ KeyType +"/" + MgtKey, m_PopbillBase.getSession_token(CorpNum),"PATCH", postdata, UserID)
+    Set Update = m_PopbillBase.httpPOST("/Taxinvoice/"+ KeyType +"/" + MgtKey, m_PopbillBase.getSession_token(CorpNum),"PATCH", postData, UserID)
 End Function
 
 '연동문서번호 사용여부 확인
@@ -266,10 +266,10 @@ Public Function Send(CorpNum, KeyType, MgtKey, Memo, EmailSubject, UserID)
     tmp.Set "memo", Memo
     tmp.Set "emailSubject", EmailSubject
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set Send = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
-                        m_PopbillBase.getSession_token(CorpNum), "SEND", postdata, UserID)
+                        m_PopbillBase.getSession_token(CorpNum), "SEND", postData, UserID)
 
 End Function
 
@@ -282,10 +282,10 @@ Public Function CancelSend(CorpNum, KeyType, MgtKey, Memo, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set CancelSend = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
-                        m_PopbillBase.getSession_token(CorpNum), "CANCELSEND", postdata, UserID)
+                        m_PopbillBase.getSession_token(CorpNum), "CANCELSEND", postData, UserID)
 
 End Function
 
@@ -298,10 +298,10 @@ Public Function Accept(CorpNum, KeyType, MgtKey, Memo, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set Accept = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
-                        m_PopbillBase.getSession_token(CorpNum), "ACCEPT", postdata, UserID)
+                        m_PopbillBase.getSession_token(CorpNum), "ACCEPT", postData, UserID)
 End Function
 
 '발예정 거부
@@ -313,10 +313,10 @@ Public Function Deny(CorpNum, KeyType, MgtKey, Memo, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set Deny = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
-                        m_PopbillBase.getSession_token(CorpNum), "DENY", postdata, UserID)
+                        m_PopbillBase.getSession_token(CorpNum), "DENY", postData, UserID)
 End Function
 
 
@@ -331,10 +331,10 @@ Public Function Issue(CorpNum, KeyType, MgtKey, Memo, EmailSubject, ForceIssue, 
     tmp.Set "EmailSubject", EmailSubject
     tmp.Set "forceIssue", ForceIssue
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set Issue = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
-                        m_PopbillBase.getSession_token(CorpNum), "ISSUE", postdata, UserID)
+                        m_PopbillBase.getSession_token(CorpNum), "ISSUE", postData, UserID)
 End Function
 
 '발 취소 처리
@@ -346,9 +346,9 @@ Public Function CancelIssue(CorpNum, KeyType, MgtKey, Memo, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set CancelIssue = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCELISSUE", postdata, UserID)
+    Set CancelIssue = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCELISSUE", postData, UserID)
 End Function
 
 
@@ -362,10 +362,10 @@ Public Function RegistRequest(CorpNum, ByRef TI, Memo, UserID)
         tmpDic.Set "memo", Memo
     End If
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmpDic)
+    Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
     Set RegistRequest = m_PopbillBase.httpPOST("/Taxinvoice", m_PopbillBase.getSession_token(CorpNum), _
-                            "REQUEST", postdata, UserID)
+                            "REQUEST", postData, UserID)
 End Function
 
 
@@ -378,10 +378,10 @@ Public Function Request(CorpNum, KeyType, MgtKey, Memo, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set Request = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
-                        m_PopbillBase.getSession_token(CorpNum), "REQUEST", postdata, UserID)
+                        m_PopbillBase.getSession_token(CorpNum), "REQUEST", postData, UserID)
 End Function
 
 
@@ -394,10 +394,10 @@ Public Function Refuse(CorpNum, KeyType, MgtKey, Memo, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set Request = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
-                        m_PopbillBase.getSession_token(CorpNum), "REFUSE", postdata, UserID)
+                        m_PopbillBase.getSession_token(CorpNum), "REFUSE", postData, UserID)
 End Function
 
 '세금계산서 역)발행요청 취소 처리
@@ -409,10 +409,10 @@ Public Function CancelRequest(CorpNum, KeyType, MgtKey, Memo, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set CancelRequest = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
-                        m_PopbillBase.getSession_token(CorpNum), "CANCELREQUEST", postdata, UserID)
+                        m_PopbillBase.getSession_token(CorpNum), "CANCELREQUEST", postData, UserID)
 End Function
 
 
@@ -429,10 +429,10 @@ Public Function GetInfos(CorpNum, KeyType, MgtKeyList, UserID)
         tmp.Set i, MgtKeyList(i)
     Next
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Dim result : Set result = m_PopbillBase.httpPOST("/Taxinvoice/" +KeyType, _
-                    m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
+                    m_PopbillBase.getSession_token(CorpNum),"", postData, UserID)
 
 
     Dim infoObj: Set infoObj = CreateObject("Scripting.Dictionary")
@@ -517,10 +517,10 @@ Public Function SendEmail(CorpNum, KeyType, MgtKey, Receiver, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "receiver", Receiver
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set SendEmail = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
-                        m_PopbillBase.getSession_token(CorpNum), "EMAIL", postdata, UserID)
+                        m_PopbillBase.getSession_token(CorpNum), "EMAIL", postData, UserID)
 End Function
 
 '문자 재전송
@@ -534,10 +534,10 @@ Public Function SendSMS(CorpNum, KeyType, MgtKey, Sender, Receiver, Contents, Us
     tmp.Set "receiver", Receiver
     tmp.Set "contents", Contents
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set SendSMS = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
-                        m_PopbillBase.getSession_token(CorpNum), "SMS", postdata, UserID)
+                        m_PopbillBase.getSession_token(CorpNum), "SMS", postData, UserID)
 End Function
 
 '팩스 재전송
@@ -551,10 +551,10 @@ Public Function SendFAX(CorpNum, KeyType, MgtKey, Sender, Receiver, UserID)
     tmp.Set "receiver", Receiver
     tmp.Set "sender", Sender
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set SendFAX = m_PopbillBase.httpPOST("/Taxinvoice/" + KeyType + "/" + MgtKey, _
-                        m_PopbillBase.getSession_token(CorpNum), "FAX", postdata, UserID)
+                        m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
 End Function
 
 '세금계산서 URL확인
@@ -646,9 +646,9 @@ Public Function GetMassPrintURL(CorpNum, KeyType, mgtKeyList, UserID)
         tmp.Set i, MgtKeyList(i)
     Next
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/Taxinvoice/"+ KeyType +"?Print", m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
+    Dim result : Set result = m_PopbillBase.httpPOST("/Taxinvoice/"+ KeyType +"?Print", m_PopbillBase.getSession_token(CorpNum),"", postData, UserID)
 
     GetMassPrintURL = result.url
 
@@ -878,10 +878,10 @@ Public Function RegistIssue(CorpNum, ByRef TI, WriteSpecification, DealInvoiceMg
         tmpDic.Set "emailSubject", EmailSubject
     End If
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmpDic)
+    Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
     Set RegistIssue = m_PopbillBase.httpPOST("/Taxinvoice", m_PopbillBase.getSession_token(CorpNum), _
-                            "ISSUE", postdata, UserID)
+                            "ISSUE", postData, UserID)
 End Function
 
 '다른 전자명세서 첨부
@@ -891,10 +891,10 @@ Public Function AttachStatement(CorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey
     tmp.Set "ItemCode", SubItemCode
     tmp.Set "MgtKey", SubMgtKey
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set AttachStatement = m_PopbillBase.httpPOST("/Taxinvoice/" & KeyType & "/" & MgtKey & "/AttachStmt", _
-                                    m_PopbillBase.getSession_token(CorpNum), "", postdata, "")
+                                    m_PopbillBase.getSession_token(CorpNum), "", postData, "")
 End Function
 
 '다른 전자명세서 첨부해제
@@ -904,10 +904,10 @@ Public Function DetachStatement(CorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey
     tmp.Set "ItemCode", SubItemCode
     tmp.Set "MgtKey", SubMgtKey
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set DetachStatement = m_PopbillBase.httpPOST("/Taxinvoice/" & KeyType & "/" & MgtKey & "/DetachStmt", _
-                                    m_PopbillBase.getSession_token(CorpNum), "", postdata, "")
+                                    m_PopbillBase.getSession_token(CorpNum), "", postData, "")
 End Function
 
 

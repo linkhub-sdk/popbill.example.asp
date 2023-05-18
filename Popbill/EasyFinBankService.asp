@@ -182,9 +182,9 @@ End Function
         uri = uri + "?UsePeriod=" & BankInfoObj.UsePeriod
 
         Dim tmp : Set tmp = BankInfoObj.toJsonInfo
-        Dim postdata : postdata = m_PopbillBase.toString(tmp)
+        Dim postData : postData = m_PopbillBase.toString(tmp)
 
-        Set RegistBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+        Set RegistBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
     End Function
 
     Public Function UpdateBankAccount(CorpNum, BankInfoObj, UserID)
@@ -192,9 +192,9 @@ End Function
         Dim uri : uri = "/EasyFin/Bank/BankAccount/"+BankInfoObj.BankCode+"/"+BankInfoObj.AccountNumber+"/Update"
 
         Dim tmp : Set tmp = BankInfoObj.toJsonInfo
-        Dim postdata : postdata = m_PopbillBase.toString(tmp)
+        Dim postData : postData = m_PopbillBase.toString(tmp)
 
-        Set UpdateBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+        Set UpdateBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
     End Function
 
 
@@ -229,9 +229,9 @@ End Function
         infoObj.AccountNumber = AccountNumber
 
         Dim tmp : Set tmp = infoObj.toJsonInfo
-        Dim postdata : postdata = m_PopbillBase.toString(tmp)
+        Dim postData : postData = m_PopbillBase.toString(tmp)
 
-        Set DeleteBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+        Set DeleteBankAccount = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 
     End Function
 

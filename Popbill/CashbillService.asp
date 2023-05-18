@@ -271,9 +271,9 @@ Public Function GetMassPrintURL(CorpNum, mgtKeyList, UserID)
         tmp.Set i, mgtKeyList(i)
     Next
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/Cashbill/Prints", m_PopbillBase.getSession_token(CorpNum), "",postdata, UserID)
+    Dim result : Set result = m_PopbillBase.httpPOST("/Cashbill/Prints", m_PopbillBase.getSession_token(CorpNum), "",postData, UserID)
 
     GetMassPrintURL = result.url
 End Function
@@ -295,18 +295,18 @@ End Function
 '현금영수증 임시저장
 Public Function Register(CorpNum, ByRef Cashbill, UserID)
     Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo()
-    Dim postdata : postdata = m_PopbillBase.toString(tmpDic)
+    Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Set Register = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    Set Register = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 
 '현금영수증 수정
 Public Function Update(CorpNum, mgtKey, ByRef Cashbill, UserID)
     Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo()
-    Dim postdata : postdata = m_PopbillBase.toString(tmpDic)
+    Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Set Update = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "PATCH", postdata, UserID)
+    Set Update = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "PATCH", postData, UserID)
 End Function
 
 
@@ -319,8 +319,8 @@ Public Function Issue(CorpNum, mgtKey, Memo, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
-    Set Issue = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "ISSUE", postdata, UserID)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
+    Set Issue = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "ISSUE", postData, UserID)
 End Function
 
 
@@ -333,8 +333,8 @@ Public Function CancelIssue(CorpNum, mgtKey, Memo, UserID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "memo", Memo
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
-    Set CancelIssue = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCELISSUE", postdata, UserID)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
+    Set CancelIssue = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCELISSUE", postData, UserID)
 End Function
 
 
@@ -375,9 +375,9 @@ Public Function GetInfos(CorpNum, mgtKeyList, UserID)
         tmp.Set i, mgtKeyList(i)
     Next
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/Cashbill/States", m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    Dim result : Set result = m_PopbillBase.httpPOST("/Cashbill/States", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 
     Dim tmpDic : Set tmpDic = CreateObject("Scripting.Dictionary")
 
@@ -437,9 +437,9 @@ Public Function SendEmail(CorpNum, mgtKey, Receiver, UsrID)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.Set "receiver", Receiver
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendEmail = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "EMAIL", postdata, UserID)
+    Set SendEmail = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "EMAIL", postData, UserID)
 End Function
 
 
@@ -454,9 +454,9 @@ Public Function SendSMS(CorpNum, mgtKey, Sender, Receiver, Contents, UserID)
     tmp.Set "sender", Sender
     tmp.Set "contents", Contents
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendSMS = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "SMS", postdata, UserID)
+    Set SendSMS = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "SMS", postData, UserID)
 End Function
 
 
@@ -470,9 +470,9 @@ Public Function SendFAX(CorpNum, mgtKey, Sender, Receiver, UserID)
     tmp.Set "receiver", Receiver
     tmp.Set "sender", Sender
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendFAX = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "FAX", postdata, UserID)
+    Set SendFAX = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
 End Function
 
 '현금영수증 즉시발행
@@ -484,9 +484,9 @@ Public Function RegistIssue(CorpNum, ByRef Cashbill, Memo, UserID, EmailSubject)
         tmpDic.Set "emailSubject", EmailSubject
     End If
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmpDic)
+    Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Set RegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "ISSUE", postdata, UserID)
+    Set RegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "ISSUE", postData, UserID)
 End Function
 
 ' 현금영수증 초대량 발행 접수
@@ -549,9 +549,9 @@ Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, 
     tmp.Set "emailSubject", emailSubject
     tmp.Set "tradeDT", tradeDT
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set RevokeRegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postdata, UserID)
+    Set RevokeRegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postData, UserID)
 End Function
 
 '취소현금영수증 임시저장. 2017/08/17 추가
@@ -567,9 +567,9 @@ Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, sms
     End If
 
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set RevokeRegister = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postdata, UserID)
+    Set RevokeRegister = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postData, UserID)
 End Function
 
 '부분취소 현금영수증 즉시발행
@@ -594,9 +594,9 @@ Public Function RevokeRegistIssue_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeD
     tmp.Set "emailSubject", emailSubject
     tmp.Set "tradeDT", tradeDT
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set RevokeRegistIssue_Part = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postdata, UserID)
+    Set RevokeRegistIssue_Part = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postData, UserID)
 End Function
 
 '부분취소 현금영수증 임시저장
@@ -616,9 +616,9 @@ Public Function RevokeRegister_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate
     tmp.Set "serviceFee", serviceFee
     tmp.Set "totalAmount", totalAmount
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set RevokeRegister_Part = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postdata, UserID)
+    Set RevokeRegister_Part = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postData, UserID)
 End Function
 
 

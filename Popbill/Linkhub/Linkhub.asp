@@ -104,7 +104,7 @@ public function getToken(serviceID , access_id, Scope, forwardIP, useStaticIP, u
 
     Dim target
     target = "POST" + Chr(10)
-    target = target + m_sha1.b64_sha256(postdata) + Chr(10)
+    target = target + m_sha1.b64_sha256(postData) + Chr(10)
     target = target + xDate + Chr(10)
     If forwardIP <> "" Then
         target = target + forwardIP + Chr(10)

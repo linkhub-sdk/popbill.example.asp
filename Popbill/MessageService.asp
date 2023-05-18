@@ -225,9 +225,9 @@ Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, 
 
     tmp.Set "msgs", msgs
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPost_Files("/MMS", m_PopbillBase.getSession_Token(CorpNum), postdata, FilePaths, UserID)
+    Dim result : Set result = m_PopbillBase.httpPost_Files("/MMS", m_PopbillBase.getSession_Token(CorpNum), postData, FilePaths, UserID)
     SendMMS = result.receiptNum
 End Function
 
@@ -259,9 +259,9 @@ Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList,
 
     tmp.Set "msgs", msgs
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set result = m_PopbillBase.httpPost("/"&MType, m_PopbillBase.getSession_Token(CorpNum), "", postdata, UserID)
+    Set result = m_PopbillBase.httpPost("/"&MType, m_PopbillBase.getSession_Token(CorpNum), "", postData, UserID)
     SendMessage = result.receiptNum
 
 End Function
@@ -293,9 +293,9 @@ Public Function CancelReservebyRCV(CorpNum, ReceiptNum, ReceiveNum, UserID)
         Err.Raise -99999999, "POPBILL", "수신번호가 입력되지 않았습니다"
     End If
 
-    Dim postdata : postdata = m_PopbillBase.toString(ReceiveNum)
+    Dim postData : postData = m_PopbillBase.toString(ReceiveNum)
 
-    set CancelReservebyRCV = m_PopbillBase.httpPost("/Message/"&ReceiptNum&"/Cancel", m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    set CancelReservebyRCV = m_PopbillBase.httpPost("/Message/"&ReceiptNum&"/Cancel", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 End Function
 
     '예약문자 전송취소 (요청번호, 수신번호)
@@ -307,9 +307,9 @@ Public Function CancelReserveRNbyRCV(CorpNum, RequestNum, ReceiveNum, UserID)
     Err.Raise -99999999, "POPBILL", "수신번호가 입력되지 않았습니다"
     End If
 
-    Dim postdata : postdata = m_PopbillBase.toString(ReceiveNum)
+    Dim postData : postData = m_PopbillBase.toString(ReceiveNum)
 
-    Set CancelReserveRNbyRCV = m_PopbillBase.httpPost("/Message/Cancel/"&RequestNum, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    Set CancelReserveRNbyRCV = m_PopbillBase.httpPost("/Message/Cancel/"&RequestNum, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 '문자 관련 URL
@@ -388,9 +388,9 @@ Public Function GetStates(CorpNum, ReceiptNumList, UserID)
         tmp.Set i, ReceiptNumList(i)
     Next
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPost("/Message/States", m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    Dim result : Set result = m_PopbillBase.httpPost("/Message/States", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 
     Dim infoObj : Set infoObj = CreateObject("Scripting.Dictionary")
 

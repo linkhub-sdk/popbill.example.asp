@@ -431,9 +431,9 @@ End Function
         tmp.Set "id", DeptUserID
         tmp.Set "pwd", DeptUserPWD
 
-        Dim postdata : postdata = m_PopbillBase.toString(tmp)
+        Dim postData : postData = m_PopbillBase.toString(tmp)
 
-        Set RegistDeptUser = m_PopbillBase.httpPOST("/HomeTax/Taxinvoice/DeptUser", m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
+        Set RegistDeptUser = m_PopbillBase.httpPOST("/HomeTax/Taxinvoice/DeptUser", m_PopbillBase.getSession_token(CorpNum),"", postData, UserID)
     End Function
 
     '부서사용자 등록정보 확인

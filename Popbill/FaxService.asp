@@ -243,8 +243,8 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
 
     Form.set "rcvs", tmpArray
 
-    Dim postdata : postdata = m_PopbillBase.toString(Form)
-    Dim result : Set result = m_PopbillBase.httpPOST_Files("/FAX", m_PopbillBase.getSession_token(CorpNum), postdata, FilePaths, UserID)
+    Dim postData : postData = m_PopbillBase.toString(Form)
+    Dim result : Set result = m_PopbillBase.httpPOST_Files("/FAX", m_PopbillBase.getSession_token(CorpNum), postData, FilePaths, UserID)
 
     SendFAX = result.receiptNum
 End Function
@@ -276,8 +276,8 @@ Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  
         Form.set "rcvs", tmpArray
     End If
 
-    Dim postdata : postdata = m_PopbillBase.toString(Form)
-    Dim result : Set result = m_PopbillBase.httpPOST("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    Dim postData : postData = m_PopbillBase.toString(Form)
+    Dim result : Set result = m_PopbillBase.httpPOST("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 
     ResendFAX = result.receiptNum
 End Function
@@ -307,8 +307,8 @@ Public Function ResendFAXRN(CorpNum, orgRequestNum, sendNum, senderName, receive
         Form.set "rcvs", tmpArray
     End If
 
-    Dim postdata : postdata = m_PopbillBase.toString(Form)
-    Dim result : Set result = m_PopbillBase.httpPOST("/FAX/Resend/"&orgRequestNum, m_PopbillBase.getSession_token(CorpNum), "", postdata, UserID)
+    Dim postData : postData = m_PopbillBase.toString(Form)
+    Dim result : Set result = m_PopbillBase.httpPOST("/FAX/Resend/"&orgRequestNum, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 
     ResendFAXRN = result.receiptNum
 End Function

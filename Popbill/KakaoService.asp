@@ -315,9 +315,9 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
         tmp.Set "btns", btns
     End If
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPost("/ATS", m_PopbillBase.getSession_Token(CorpNum), "", postdata, UserID)
+    Dim result : Set result = m_PopbillBase.httpPost("/ATS", m_PopbillBase.getSession_Token(CorpNum), "", postData, UserID)
     SendATS = result.receiptNum
 End Function
 
@@ -362,9 +362,9 @@ Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSend
 
     tmp.Set "btns", btns
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPost("/FTS", m_PopbillBase.getSession_Token(CorpNum), "", postdata, UserID)
+    Dim result : Set result = m_PopbillBase.httpPost("/FTS", m_PopbillBase.getSession_Token(CorpNum), "", postData, UserID)
     SendFTS = result.receiptNum
 End Function
 
@@ -410,8 +410,8 @@ Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSend
 
     tmp.Set "btns", btns
 
-    Dim postdata : postdata = m_PopbillBase.toString(tmp)
-    Dim result : Set result = m_PopbillBase.httpPost_Files("/FMS", m_PopbillBase.getSession_Token(CorpNum), postdata, filePath, UserID)
+    Dim postData : postData = m_PopbillBase.toString(tmp)
+    Dim result : Set result = m_PopbillBase.httpPost_Files("/FMS", m_PopbillBase.getSession_Token(CorpNum), postData, filePath, UserID)
     SendFMS = result.receiptNum
 End Function
 
