@@ -52,7 +52,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>환불 가능 포인트 조회</legend>
+                <legend>연동회원 무통장 입금신청</legend>
                 <%
                     If code = 0 Then
                 %>
