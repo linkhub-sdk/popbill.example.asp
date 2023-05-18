@@ -126,7 +126,7 @@ Public Function GetChargeInfo ( CorpNum, UserID )
 End Function
 
 '무통장 입금신청
-Public Function PaymentRequest(CorpNum, ByRef PaymentForm, UserID)
+Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
     Set PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
 End Function
 

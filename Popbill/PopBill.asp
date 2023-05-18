@@ -275,7 +275,7 @@ End Function
 ' 무통장 입금신청 (PaymentRequest)
 Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
     Dim tmp: Set tmp = PaymentForm.toJsonInfo
-    Dim postdata: postdata = m_Linkhub.toString(tmp)
+    Dim postData: postData = m_Linkhub.toString(tmp)
     Dim t_result : Set t_result = httpPOST("/Payment", getSession_token(CorpNum), "", postData, UserID)
 
     Dim m_paymentResult : Set m_paymentResult = New PaymentResponse
@@ -837,11 +837,11 @@ Class PaymentForm
 
     Public Function toJsonInfo()
         Set toJsonInfo = JSON.parse("{}")
-        toJsonInfo.set "SettlerName", SettlerName
-        toJsonInfo.set "SettlerEmail", SettlerEmail
-        toJsonInfo.set "NotifyHP", NotifyHP
-        toJsonInfo.set "PaymentName", PaymentName
-        toJsonInfo.set "SettleCost", SettleCost
+        toJsonInfo.set "settlerName", SettlerName
+        toJsonInfo.set "settlerEmail", SettlerEmail
+        toJsonInfo.set "notifyHP", NotifyHP
+        toJsonInfo.set "paymentName", PaymentName
+        toJsonInfo.set "settleCost", SettleCost
     End Function
 
 End Class
