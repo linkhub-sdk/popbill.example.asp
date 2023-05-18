@@ -476,7 +476,7 @@ Public Function CheckAutoDenyNumber (CorpNum, UserID)
     Dim m_AutoDenyNumberInfo : Set m_AutoDenyNumberInfo = New AutoDenyNumberInfo
     Dim tmp : Set tmp = m_PopbillBase.httpGet("/Message/AutoDenyNumberInfo", m_popbillBase.getSession_token(CorpNum), UserID)
 
-    m_AutoDenyNumberInfo.toJsonInfo(tmp)
+    m_AutoDenyNumberInfo.fromJsonInfo(tmp)
 
     Set CheckAutoDenyNumber = m_AutoDenyNumberInfo
 End Function
