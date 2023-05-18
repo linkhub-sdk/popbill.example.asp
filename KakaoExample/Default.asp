@@ -60,8 +60,10 @@
         <fieldset class="fieldset2">
             <legend>예약전송 취소</legend>
             <ul>
-                <li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소</li>
-                <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 취소 (요청번호 할당)</li>
+                <li><a href="cancelReserve.asp">cancelReserve</a> - 예약전송 취소 (접수번호)</li>
+                <li><a href="cancelReserveRN.asp">cancelReserveRN</a> - 예약전송 전체 취소 (전송 요청번호)</li>
+                <li><a href="CancelReservebyRCV.asp">CancelReservebyRCV</a> - 예약전송 일부 취소 (접수번호)</li>
+                <li><a href="CancelReserveRNbyRCV.asp">CancelReserveRNbyRCV</a> - 예약전송 일부 취소 (전송 요청번호)</li>
             </ul>
         </fieldset>
      </fieldset>

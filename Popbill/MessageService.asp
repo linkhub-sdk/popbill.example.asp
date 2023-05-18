@@ -472,8 +472,13 @@ Public Function GetSenderNumberList(CorpNum)
 End Function
 
 '080 번호 확인
-Public Function CheckAutoDenyNumber (CorpNum)
-    CheckAutoDenyNumber = m_PopbillBase.httpGet("/Message/AutoDenyNumberInfo", m_popbillBase.getSession_token(CorpNum), "")
+Public Function CheckAutoDenyNumber (CorpNum, UserID)
+    Dim m_AutoDenyNumberInfo : Set m_AutoDenyNumberInfo = New AutoDenyNumberInfo
+    Dim tmp : Set tmp = m_PopbillBase.httpGet("/Message/AutoDenyNumberInfo", m_popbillBase.getSession_token(CorpNum), UserID)
+
+    m_AutoDenyNumberInfo.toJsonInfo(tmp)
+
+    Set CheckAutoDenyNumber = m_AutoDenyNumberInfo
 End Function
 
 End Class
@@ -617,4 +622,15 @@ Class MSGSearchResult
     End Sub
 End Class
 
+Class AutoDenyNumberInfo
+    Public smsdenyNumber
+    Public regDT
+
+    Public Sub fromJsonInfo(jsonInfo)
+        On Error Resume Next
+            smsdenyNumber = jsonInfo.smsdenyNumber
+            regDT = jsonInfo.regDT
+        On Error GoTo 0
+    End Sub
+End Class
 %>

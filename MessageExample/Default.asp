@@ -41,6 +41,7 @@
             <li><a href="search.asp">search</a> - 전송내역 목록 조회</li>
             <li><a href="getSentListURL.asp">getSentListURL</a> - 문자 전송내역 팝업 URL</li>
             <li><a href="getAutoDenyList.asp">getAutoDenyList</a> - 080 수신거부 목록 확인</li>
+            <li><a href="CheckAutoDenyNumber.asp">CheckAutoDenyNumber</a> - 080 번호 확인</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

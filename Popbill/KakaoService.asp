@@ -503,16 +503,35 @@ Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, 
     Set Search = searchResult
 End Function
 
-'예약전송 전체 취소 (전송 요청번호)
-Public Function CancelReservebyRCV(CorpNum, requestNum, UserID)
+'예약전송 일부 취소 (접수번호)
+Public Function CancelReservebyRCV(CorpNum, receiptNum,receiveNum, UserID)
+    IF receiptNum = "" Then
+        Err.raise receiptNum, "POPBILL", "접수번호가 입력되지 않았습니다."
+    IF receiveNum = "" Then
+        Err.raise receiveNum, "POPBILL", "수신번호가 입력되지 않았습니다."
 
-    CancelReservebyRCV =
+    Set m_CanelReserve = New CanelReserve
+    m_CanelReserve.receiveNum = receiveNum
+
+    Dim uri : uri = "/KakaoTalk/" & receiptNum & "/Cancel"
+
+    Dim postData:Set postData = m_Linkhub.toString(m_CanelReserve)
+    Set CancelReservebyRCV = m_popbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postData, "")
 End Function
 
 '예약전송 일부 취소 (전송 요청번호)
 Public Function CancelReserveRNbyRCV(CorpNum, requestNum, receiveNum, UserID)
+    IF requestNum = "" Then
+        Err.raise requestNum, "POPBILL", "전송요청번호가 입력되지 않았습니다."
+    IF receiveNum = "" Then
+        Err.raise receiveNum, "POPBILL", "수신번호가 입력되지 않았습니다."
 
-    CancelReserveRNbyRCV =
+    Set m_CanelReserve = New CanelReserve
+    m_CanelReserve.receiveNum = receiveNum
+
+    Dim uri : uri = "/KakaoTalk/Cancel/" & requestNum
+    Dim postData:Set postData = m_Linkhub.toString(m_CanelReserve)
+    Set CancelReserveRNbyRCV = m_popbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postData, "")
 End Function
 
 
@@ -785,5 +804,14 @@ Class KakaoATSTemplate
     End Sub
 End Class ' end of KakaoATSTemplate
 
+Class CanelReserve
+    Public receiveNum
+
+    Public Function toJsonInfo()
+
+        Set toJsonInfo = JSON.parse("{}")
+        toJsonInfo.Set "receiveNum", receiveNum
+    End Function
+End Class
 
 %>
