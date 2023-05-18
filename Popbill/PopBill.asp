@@ -316,7 +316,7 @@ Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
     Dim paymentHistoryResult : Set paymentHistoryResult = New PaymentHistoryResult
     paymentHistoryResult.fromJsonInfo tmp
 
-    Set GetPaymentHistory = paymentHistoryResultㄴ
+    Set GetPaymentHistory = paymentHistoryResult
 End Function
 
 ' 환불 신청 (Refund)
