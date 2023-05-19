@@ -58,8 +58,8 @@
                     </ul>
                     <%   Dim i
                         For i=0 To UBound(result.issueResult) -1
-                     %>
-                     <fieldset class="fieldset2">
+                    %>
+                    <fieldset class="fieldset2">
                         <legend>  issueResult (발행 결과) [ <%=i+1%> / <%=UBound(result.issueResult)%> ]</legend>
                         <ul>
                             <li> mgtKey (문서번호) : <%=result.issueResult(i).mgtKey %>
@@ -70,7 +70,7 @@
                             <li> issueDT (거래일시) : <%=result.issueResult(i).issueDT %>
                         </ul>
                     </fieldset>
-                     <% Next %>
+                    <% Next %>
                     <%
                         Else
                     %>
@@ -82,6 +82,6 @@
                         End If
                     %>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>
