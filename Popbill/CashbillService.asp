@@ -1087,7 +1087,7 @@ Class BulkCashbillissueResult
     Public message
     Public confirmNum
     Public tradeDate
-    // Public tradeDT
+    Public tradeDT
     Public issueDT
 
     Function fromJsonInfo(jsonInfo)
@@ -1097,7 +1097,7 @@ Class BulkCashbillissueResult
             message = jsonInfo.message
             confirmNum = jsonInfo.confirmNum
             tradeDate = jsonInfo.tradeDate
-            // tradeDT = jsonInfo.tradeDT
+            tradeDT = jsonInfo.tradeDT
             issueDT = jsonInfo.issueDT
         On Error GoTo 0
     End Function

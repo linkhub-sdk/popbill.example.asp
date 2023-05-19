@@ -67,7 +67,7 @@
                             <li> message (응답메시지) : <%=result.issueResult(i).message %>
                             <li> confirmNum (국세청승인번호) : <%=result.issueResult(i).confirmNum %>
                             <li> tradeDate (거래일자) : <%=result.issueResult(i).tradeDate %>
-                            <li> tradeDT (거래일시) : <%=result.issueResult(i).tradeDT %>
+                            <li> issueDT (거래일시) : <%=result.issueResult(i).issueDT %>
                         </ul>
                     </fieldset>
                      <% Next %>
