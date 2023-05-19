@@ -29,9 +29,12 @@
     ' 메모
     memo = "전자명세서 발행 테스트"
 
+    ' 전자명세서 발행 안내메일 제목
+    emailSubject = "발행 안내메일의 제목"
+
     On Error Resume Next
 
-    Set result = m_StatementService.Issue(testCorpNum, itemCode, mgtKey, memo, userID)
+    Set result = m_StatementService.Issue(testCorpNum, itemCode, mgtKey, memo, emailSubject, userID)
 
     If Err.Number <> 0 Then
         code = Err.Number
