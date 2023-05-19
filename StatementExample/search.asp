@@ -120,6 +120,6 @@
                         <li>Response.message: <%=message%> </li>
                     <% End If %>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>

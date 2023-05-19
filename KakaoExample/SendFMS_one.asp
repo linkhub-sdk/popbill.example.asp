@@ -120,6 +120,6 @@
                     </ul>
                 <%	End If	%>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>

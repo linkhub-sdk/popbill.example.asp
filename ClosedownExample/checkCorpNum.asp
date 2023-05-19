@@ -54,7 +54,7 @@
 
                         <p class="find_btn find_btn01 hand" onclick="search()" tabindex=2>조회</p>
                     </form>
-                    </div>
+                   </div>
             </fieldset>
             <%
                 If Not IsEmpty(result) Then
@@ -87,7 +87,7 @@
             <%
                 End If
             %>
-         </div>
+        </div>
 
         <script type ="text/javascript">
              window.onload=function(){

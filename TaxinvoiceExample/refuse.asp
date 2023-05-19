@@ -52,6 +52,6 @@
                     <li>Response.message : <%=message%> </li>
                 </ul>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>

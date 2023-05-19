@@ -40,13 +40,13 @@
                     <ul>
                         <li>URL : <%=CStr(url)%> </li>
                     </ul>
-                <%	Else  %>
+                <% Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
                     </ul>
-                <%	End If	%>
+                <% End If %>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>

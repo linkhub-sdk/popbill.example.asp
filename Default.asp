@@ -27,6 +27,6 @@
                         <li><a href="KakaoExample">KakaoService</a> -  카카오톡 API</li>
                     </ul>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>
