@@ -514,9 +514,10 @@ Public Function CancelReservebyRCV(CorpNum, receiptNum,receiverNum, UserID)
 
     Set m_CancelReserve = New CancelReserveObj
     m_CancelReserve.receiverNum = receiverNum
+    Dim tmp : Set tmp = m_CancelReserve.toJsonInfo
 
     Dim uri : uri = "/KakaoTalk/" & receiptNum & "/Cancel"
-    Dim postData:Set postData = m_popbillBase.toString(m_CancelReserve)
+    Dim postData:Set postData = m_popbillBase.toString(tmp)
 
     Set CancelReservebyRCV = m_popbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 End Function
@@ -532,9 +533,10 @@ Public Function CancelReserveRNbyRCV(CorpNum, requestNum, receiverNum, UserID)
 
     Set m_CancelReserve = New CancelReserveObj
     m_CancelReserve.receiverNum = receiverNum
+    Dim tmp : Set tmp = m_CancelReserve.toJsonInfo
 
     Dim uri : uri = "/KakaoTalk/Cancel/" & requestNum
-    Dim postData:Set postData = m_popbillBase.toString(m_CancelReserve)
+    Dim postData:Set postData = m_popbillBase.toString(tmp)
 
     Set CancelReserveRNbyRCV = m_popbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 End Function
