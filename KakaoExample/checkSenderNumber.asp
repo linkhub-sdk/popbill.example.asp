@@ -19,7 +19,7 @@
     userID = "testkorea"
 
     ' 확인할 발신번호
-    SenderNumber = ""
+    SenderNumber = "01012341234"
 
     On Error Resume Next
 
