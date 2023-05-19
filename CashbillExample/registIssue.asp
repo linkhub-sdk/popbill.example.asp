@@ -138,11 +138,8 @@
                     <% If confirmNum <> "" Then %>
                     <li> Response.confirmNum : <%=confirmNum%> </li>
                     <% End If %>
-                    <% If tradeDT <> "" Then %>
-                    <li> Response.tradeDT : <%=tradeDT%> </li>
-                    <% End If %>
                 </ul>
             </fieldset>
-         </div>
+        </div>
     </body>
 </html>
