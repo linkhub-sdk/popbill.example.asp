@@ -72,6 +72,7 @@
                         <li> pageNum (페이지 번호) : <%=result.pageNum%> </li>
                         <li> pageCount (페이지 개수) : <%=result.pageCount%> </li>
                         <li> lastScrapDT (최종 조회일시) : <%=result.lastScrapDT%> </li>
+                        <li> balance (현재 잔액) : <%=result.balance%> </li>
                     </ul>
 
                 <%

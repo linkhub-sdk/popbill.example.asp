@@ -471,6 +471,7 @@ Class EasyFinBankSearchResult
     Public pageNum
     Public pageCount
     Public lastScrapDT
+    Public balance
     Public list()
 
     Public Sub classs_initialize
@@ -486,6 +487,7 @@ Class EasyFinBankSearchResult
         pageNum = jsonInfo.pageNum
         pageCount = jsonInfo.pageCount
         lastScrapDT = jsonInfo.lastScrapDT
+        balance = jsonInfo.balance
 
         ReDim list ( jsonInfo.list.length )
         Dim i
