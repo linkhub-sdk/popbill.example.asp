@@ -1,66 +1,66 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÃÖ´ë 2,000byteÀÇ ¸Ş½ÃÁö¿Í ÀÌ¹ÌÁö·Î ±¸¼ºµÈ Æ÷Åä¹®ÀÚ(MMS) ´Ù¼ö°Ç Àü¼ÛÀ» ÆËºô¿¡ Á¢¼öÇÏ¸ç, ¼ö½ÅÀÚ º°·Î °³º° ³»¿ëÀ» Àü¼ÛÇÕ´Ï´Ù. (ÃÖ´ë 1,000°Ç)
-    ' - ÀÌ¹ÌÁö ÆÄÀÏ Æ÷¸Ë/±Ô°İ : ÃÖ´ë 300Kbyte(JPEG), °¡·Î/¼¼·Î 1,000px ÀÌÇÏ ±ÇÀå
+    ' ìµœëŒ€ 2,000byteì˜ ë©”ì‹œì§€ì™€ ì´ë¯¸ì§€ë¡œ êµ¬ì„±ëœ í¬í† ë¬¸ì(MMS) ë‹¤ìˆ˜ê±´ ì „ì†¡ì„ íŒë¹Œì— ì ‘ìˆ˜í•˜ë©°, ìˆ˜ì‹ ì ë³„ë¡œ ê°œë³„ ë‚´ìš©ì„ ì „ì†¡í•©ë‹ˆë‹¤. (ìµœëŒ€ 1,000ê±´)
+    ' - ì´ë¯¸ì§€ íŒŒì¼ í¬ë§·/ê·œê²© : ìµœëŒ€ 300Kbyte(JPEG), ê°€ë¡œ/ì„¸ë¡œ 1,000px ì´í•˜ ê¶Œì¥
     ' - https://developers.popbill.com/reference/sms/asp/api/send#SendMMS
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"					
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
 
-    ' ±¤°í¼º ¸Ş½ÃÁö ¿©ºÎ ( true , false Áß ÅÃ 1)
-    ' ¦¦ true = ±¤°í , false = ÀÏ¹İ
-    adsYN = False							
+    ' ê´‘ê³ ì„± ë©”ì‹œì§€ ì—¬ë¶€ ( true , false ì¤‘ íƒ 1)
+    ' â”” true = ê´‘ê³  , false = ì¼ë°˜
+    adsYN = False
 
-    ' ¿¹¾àÀü¼Û½Ã°£ yyyyMMddHHmmss, reserveDT°ªÀÌ ¾ø´Â °æ¿ì Áï½ÃÀü¼Û
+    ' ì˜ˆì•½ì „ì†¡ì‹œê°„ yyyyMMddHHmmss, reserveDTê°’ì´ ì—†ëŠ” ê²½ìš° ì¦‰ì‹œì „ì†¡
     reserveDT = ""
-    
-    ' ¹®ÀÚÀü¼ÛÁ¤º¸ ¹è¿­, ÃÖ´ë 1000°Ç
+
+    ' ë¬¸ìì „ì†¡ì •ë³´ ë°°ì—´, ìµœëŒ€ 1000ê±´
     Set msgList = CreateObject("Scripting.Dictionary")
 
     For i =0 To 9
         Set message = New Messages
-        ' ¹ß½Å¹øÈ£
+        ' ë°œì‹ ë²ˆí˜¸
         message.sender = ""
 
-        ' ¹ß½ÅÀÚ¸í
-        message.senderName = "¹ß½ÅÀÚ¸í"
+        ' ë°œì‹ ìëª…
+        message.senderName = "ë°œì‹ ìëª…"
 
-        ' ¼ö½Å¹øÈ£
+        ' ìˆ˜ì‹ ë²ˆí˜¸
         message.receiver = ""
 
-        ' ¼ö½ÅÀÚ¸í
-        message.receivername = " ¼ö½ÅÀÚÀÌ¸§"+CStr(i)
+        ' ìˆ˜ì‹ ìëª…
+        message.receivername = " ìˆ˜ì‹ ìì´ë¦„"+CStr(i)
 
-        ' ¸Ş½ÃÁö ³»¿ë, 2000byteÃÊ°ú½Ã ±æÀÌ°¡ Á¶Á¤µÇ¾î Àü¼ÛµÊ.
-        message.content = "MMS ¸Ş½ÃÁö ³»¿ë"
-        
-        ' ¸Ş½ÃÁö Á¦¸ñ
-        message.subject = "MMS ¸Ş½ÃÁö Á¦¸ñ"
+        ' ë©”ì‹œì§€ ë‚´ìš©, 2000byteì´ˆê³¼ì‹œ ê¸¸ì´ê°€ ì¡°ì •ë˜ì–´ ì „ì†¡ë¨.
+        message.content = "MMS ë©”ì‹œì§€ ë‚´ìš©"
 
-        ' ÆÄÆ®³Ê ÁöÁ¤Å°, ¼ö½ÅÀÚ ±¸º°¿ë ¸Ş¸ğ
+        ' ë©”ì‹œì§€ ì œëª©
+        message.subject = "MMS ë©”ì‹œì§€ ì œëª©"
+
+        ' íŒŒíŠ¸ë„ˆ ì§€ì •í‚¤, ìˆ˜ì‹ ì êµ¬ë³„ìš© ë©”ëª¨
         message.interOPRefKey = "20220720-00"+CStr(i)
-    
+
         msgList.Add i, message
     Next
-    
-    ' Æ÷Åä¸Ş½ÃÁö ÀÌ¹ÌÁöÆÄÀÏ, 300Kbyte JPEG Æ÷¸Ë Àü¼Û°¡´É
+
+    ' í¬í† ë©”ì‹œì§€ ì´ë¯¸ì§€íŒŒì¼, 300Kbyte JPEG í¬ë§· ì „ì†¡ê°€ëŠ¥
     FilePaths = Array("C:\popbill.example.asp\test.jpg")
 
-    ' Àü¼Û¿äÃ»¹øÈ£
-    ' ÆËºôÀÌ Á¢¼ö ´ÜÀ§¸¦ ½Äº°ÇÒ ¼ö ÀÖµµ·Ï ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ ½Äº°¹øÈ£.
-    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ıÀÚ, ÇÏÀÌÇÂ(-), ¾ğ´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
-    requestNum = ""	
+    ' ì „ì†¡ìš”ì²­ë²ˆí˜¸
+    ' íŒë¹Œì´ ì ‘ìˆ˜ ë‹¨ìœ„ë¥¼ ì‹ë³„í•  ìˆ˜ ìˆë„ë¡ íŒŒíŠ¸ë„ˆê°€ í• ë‹¹í•œ ì‹ë³„ë²ˆí˜¸.
+    ' 1~36ìë¦¬ë¡œ êµ¬ì„±. ì˜ë¬¸, ìˆ«ì, í•˜ì´í”ˆ(-), ì–¸ë”ë°”(_)ë¥¼ ì¡°í•©í•˜ì—¬ íŒë¹Œ íšŒì›ë³„ë¡œ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ í• ë‹¹.
+    requestNum = ""
 
     On Error Resume Next
 
@@ -79,16 +79,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>MMS ¹®ÀÚ¸Ş½ÃÁö 1°Ç Àü¼Û </legend>
+                <legend>MMS ë¬¸ìë©”ì‹œì§€ 1ê±´ ì „ì†¡ </legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(Á¢¼ö¹øÈ£) : <%=receiptNum%> </li>
+                        <li>ReceiptNum(ì ‘ìˆ˜ë²ˆí˜¸) : <%=receiptNum%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

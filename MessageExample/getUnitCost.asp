@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¹®ÀÚ Àü¼Û½Ã °ú±İµÇ´Â Æ÷ÀÎÆ® ´Ü°¡¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' ë¬¸ì ì „ì†¡ì‹œ ê³¼ê¸ˆë˜ëŠ” í¬ì¸íŠ¸ ë‹¨ê°€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/sms/asp/api/point#GetUnitCost
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
 
-    ' Àü¼ÛÀ¯Çü (SMS - ´Ü¹®, LMS - Àå¹®, MMS - Æ÷Åä)
+    ' ì „ì†¡ìœ í˜• (SMS - ë‹¨ë¬¸, LMS - ì¥ë¬¸, MMS - í¬í† )
     sendType = "SMS"
 
     On Error Resume Next
@@ -37,16 +37,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¹®ÀÚ¸Ş½ÃÁö Àü¼Û´Ü°¡ È®ÀÎ</legend>
+                <legend>ë¬¸ìë©”ì‹œì§€ ì „ì†¡ë‹¨ê°€ í™•ì¸</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li><%=sendType%> Àü¼Û´Ü°¡ : <%=CInt(unitCost)%> </li>
+                        <li><%=sendType%> ì „ì†¡ë‹¨ê°€ : <%=CInt(unitCost)%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

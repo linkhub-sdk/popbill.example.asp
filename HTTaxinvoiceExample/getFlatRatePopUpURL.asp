@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' »®≈√Ω∫ø¨µø ¡§æ◊¡¶ º≠∫ÒΩ∫ Ω≈√ª ∆‰¿Ã¡ˆ¿« ∆Àæ˜ URL¿ª π›»Ø«’¥œ¥Ÿ.
-    ' - π›»Øµ«¥¬ URL¿∫ ∫∏æ» ¡§√•ªÛ 30√  µøæ» ¿Ø»ø«œ∏Á, Ω√∞£¿ª √ ∞˙«— »ƒø°¥¬ «ÿ¥Á URL¿ª ≈Î«— ∆‰¿Ã¡ˆ ¡¢±Ÿ¿Ã ∫“∞°«’¥œ¥Ÿ.
+    ' ÌôàÌÉùÏä§Ïó∞Îèô Ï†ïÏï°Ï†ú ÏÑúÎπÑÏä§ Ïã†Ï≤≠ ÌéòÏù¥ÏßÄÏùò ÌåùÏóÖ URLÏùÑ Î∞òÌôòÌï©ÎãàÎã§.
+    ' - Î∞òÌôòÎêòÎäî URLÏùÄ Î≥¥Ïïà Ï†ïÏ±ÖÏÉÅ 30Ï¥à ÎèôÏïà Ïú†Ìö®ÌïòÎ©∞, ÏãúÍ∞ÑÏùÑ Ï¥àÍ≥ºÌïú ÌõÑÏóêÎäî Ìï¥Îãπ URLÏùÑ ÌÜµÌïú ÌéòÏù¥ÏßÄ Ï†ëÍ∑ºÏù¥ Î∂àÍ∞ÄÌï©ÎãàÎã§.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/point#GetFlatRatePopUpURL
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
-    testCorpNum = "1234567890"		
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    testCorpNum = "1234567890"
 
-    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
-    userID = "testkorea"					
+    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    userID = "testkorea"
 
     On Error Resume Next
 
@@ -35,7 +35,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¡§æ◊¡¶ Ω≈√ª ∆Àæ˜ URL</legend>
+                <legend>Ï†ïÏï°Ï†ú Ïã†Ï≤≠ ÌåùÏóÖ URL</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>URL : <%=url%> </li>
@@ -44,7 +44,7 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

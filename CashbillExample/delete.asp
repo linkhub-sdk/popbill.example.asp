@@ -1,26 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' »èÁ¦ °¡´ÉÇÑ »óÅÂÀÇ Çö±İ¿µ¼öÁõÀ» »èÁ¦ÇÕ´Ï´Ù.
-    ' - ¡Ø »èÁ¦ °¡´ÉÇÑ »óÅÂ: "Àü¼Û½ÇÆĞ"
-    ' - Çö±İ¿µ¼öÁõÀ» »èÁ¦ÇÏ¸é »ç¿ëµÈ ¹®¼­¹øÈ£(mgtKey)¸¦ Àç»ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' ì‚­ì œ ê°€ëŠ¥í•œ ìƒíƒœì˜ í˜„ê¸ˆì˜ìˆ˜ì¦ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+    ' - â€» ì‚­ì œ ê°€ëŠ¥í•œ ìƒíƒœ: "ì „ì†¡ì‹¤íŒ¨"
+    ' - í˜„ê¸ˆì˜ìˆ˜ì¦ì„ ì‚­ì œí•˜ë©´ ì‚¬ìš©ëœ ë¬¸ì„œë²ˆí˜¸(mgtKey)ë¥¼ ì¬ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/issue#Delete
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"		 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ¹®¼­¹øÈ£
-    mgtKey = "20220720-ASP-001" 
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
+
+    ' ë¬¸ì„œë²ˆí˜¸
+    mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -30,12 +30,12 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 
 %>
     <body>
@@ -43,7 +43,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Çö±İ¿µ¼öÁõ »èÁ¦</legend>
+                <legend>í˜„ê¸ˆì˜ìˆ˜ì¦ ì‚­ì œ</legend>
                 <ul>
                     <li> Response.code : <%=code%> </li>
                     <li> Response.message : <%=message%> </li>

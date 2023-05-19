@@ -1,37 +1,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    '  °èÁÂ °Å·¡³»¿ªÀ» È®ÀÎÇÏ±â À§ÇØ ÆËºô¿¡ ¼öÁı¿äÃ»À» ÇÕ´Ï´Ù. (Á¶È¸±â°£ ´ÜÀ§ : ÃÖ´ë 1°³¿ù)
-    ' - Á¶È¸ÀÏ·ÎºÎÅÍ ÃÖ´ë 3°³¿ù ÀÌÀü ³»¿ª±îÁö Á¶È¸ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-    ' - ¹İÈ¯ ¹ŞÀº ÀÛ¾÷¾ÆÀÌµğ´Â ÇÔ¼ö È£Ãâ ½ÃÁ¡ºÎÅÍ 1½Ã°£ µ¿¾È À¯È¿ÇÕ´Ï´Ù.
+    '  ê³„ì¢Œ ê±°ë˜ë‚´ì—­ì„ í™•ì¸í•˜ê¸° ìœ„í•´ íŒë¹Œì— ìˆ˜ì§‘ìš”ì²­ì„ í•©ë‹ˆë‹¤. (ì¡°íšŒê¸°ê°„ ë‹¨ìœ„ : ìµœëŒ€ 1ê°œì›”)
+    ' - ì¡°íšŒì¼ë¡œë¶€í„° ìµœëŒ€ 3ê°œì›” ì´ì „ ë‚´ì—­ê¹Œì§€ ì¡°íšŒí•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+    ' - ë°˜í™˜ ë°›ì€ ì‘ì—…ì•„ì´ë””ëŠ” í•¨ìˆ˜ í˜¸ì¶œ ì‹œì ë¶€í„° 1ì‹œê°„ ë™ì•ˆ ìœ íš¨í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/job#RequestJob
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    testUserID = "testkorea"		
-    
-    ' ±â°üÄÚµå
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    testUserID = "testkorea"
+
+    ' ê¸°ê´€ì½”ë“œ
     BankCode = ""
 
-    ' °èÁÂ¹øÈ£
-    AccountNumber = ""		
+    ' ê³„ì¢Œë²ˆí˜¸
+    AccountNumber = ""
 
-    ' ½ÃÀÛÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
-    SDate = "20220701"			
-    
-    ' Á¾·áÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
-    EDate =	"20220720"				
+    ' ì‹œì‘ì¼ì, í‘œì‹œí˜•ì‹(yyyyMMdd)
+    SDate = "20220701"
 
-    
+    ' ì¢…ë£Œì¼ì, í‘œì‹œí˜•ì‹(yyyyMMdd)
+    EDate =	"20220720"
+
+
     On Error Resume Next
 
     jobID = m_EasyFinBankService.requestJob(testCorpNum, BankCode, AccountNumber, SDate, EDate, testUserID)
@@ -49,16 +49,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼öÁı ¿äÃ»</legend>
+                <legend>ìˆ˜ì§‘ ìš”ì²­</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>jobID(ÀÛ¾÷¾ÆÀÌµğ) : <%=jobID%> </li>
+                        <li>jobID(ì‘ì—…ì•„ì´ë””) : <%=jobID%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

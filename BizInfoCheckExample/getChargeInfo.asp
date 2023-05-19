@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ±â¾÷Á¤º¸Á¶È¸ API ¼­ºñ½º °ú±İÁ¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' ê¸°ì—…ì •ë³´ì¡°íšŒ API ì„œë¹„ìŠ¤ ê³¼ê¸ˆì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/bizinfocheck/asp/api/point#GetChargeInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     UserID = "testkorea"
-    
+
     On Error Resume Next
 
     Set result = m_BizInfoCheckService.GetChargeInfo(testCorpNum, UserID)
@@ -34,14 +34,14 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> °ú±İÁ¤º¸ Á¶È¸</legend>
+                <legend> ê³¼ê¸ˆì •ë³´ ì¡°íšŒ</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> unitCost (´Ü°¡) : <%=result.unitCost%></li>
-                        <li> chargeMethod (°ú±İÀ¯Çü) : <%=result.chargeMethod%></li>
-                        <li> rateSystem (°ú±İÁ¦µµ) : <%=result.rateSystem%></li>
+                        <li> unitCost (ë‹¨ê°€) : <%=result.unitCost%></li>
+                        <li> chargeMethod (ê³¼ê¸ˆìœ í˜•) : <%=result.chargeMethod%></li>
+                        <li> rateSystem (ê³¼ê¸ˆì œë„) : <%=result.rateSystem%></li>
                     </ul>
                 <%
                     Else
@@ -49,8 +49,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

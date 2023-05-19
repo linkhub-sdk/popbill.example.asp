@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼¼±Ý°è»ê¼­ 1°ÇÀÇ »ó¼¼Á¤º¸¸¦ XML·Î ¹ÝÈ¯ÇÕ´Ï´Ù.
+    ' ì„¸ê¸ˆê³„ì‚°ì„œ 1ê±´ì˜ ìƒì„¸ì •ë³´ë¥¼ XMLë¡œ ë°˜í™˜í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/info#GetXML
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
+
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸ 10ìžë¦¬
     testCorpNum = "1234567890"
 
-    ' ¼¼±Ý°è»ê¼­ ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ìž…), TRUSTEE(ìœ„ìˆ˜íƒ)
     KeyType = "SELL"
 
-    ' ¹®¼­¹øÈ£
+    ' ë¬¸ì„œë²ˆí˜¸
     MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -37,19 +37,19 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>»ó¼¼Á¤º¸ È®ÀÎ - XML</legend>
-                <% 
+                <legend>ìƒì„¸ì •ë³´ í™•ì¸ - XML</legend>
+                <%
 
                     If code = 0 Then
                 %>
                 <ul>
-                    <li>code (ÀÀ´äÄÚµå) : <%=taxXML.code%></li>
-                    <li>message (ÀÀ´ä¸Þ½ÃÁö) : <%=taxXML.message%></li>
-                    <li>retObject (ÀüÀÚ¼¼±Ý°è»ê¼­ XML¹®¼­) : <%=Replace(taxXML.retObject, "<", "&lt;")%></li>
-                    <!-- Browser¿¡¼­ xml¹®¼­¸¦ Ãâ·ÂÇÏ±â À§ÇØ '<' &lt·Î Ä¡È¯ÇÏ¿´½À´Ï´Ù. -->
+                    <li>code (ì‘ë‹µì½”ë“œ) : <%=taxXML.code%></li>
+                    <li>message (ì‘ë‹µë©”ì‹œì§€) : <%=taxXML.message%></li>
+                    <li>retObject (ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ XMLë¬¸ì„œ) : <%=Replace(taxXML.retObject, "<", "&lt;")%></li>
+                    <!-- Browserì—ì„œ xmlë¬¸ì„œë¥¼ ì¶œë ¥í•˜ê¸° ìœ„í•´ '<' &ltë¡œ ì¹˜í™˜í•˜ì˜€ìŠµë‹ˆë‹¤. -->
                 </ul>
 
-                <% 
+                <%
                     Else
                 %>
                     <ul>

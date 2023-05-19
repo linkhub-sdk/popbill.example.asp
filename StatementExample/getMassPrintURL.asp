@@ -1,32 +1,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¥Ÿºˆ∞«¿« ¿¸¿⁄∏Ìººº≠∏¶ ¿Œº‚«œ±‚ ¿ß«— ∆‰¿Ã¡ˆ¿« ∆Àæ˜ URL¿ª π›»Ø«’¥œ¥Ÿ. (√÷¥Î 100∞«)
-    ' - π›»Øµ«¥¬ URL¿∫ ∫∏æ» ¡§√•ªÛ 30√  µøæ» ¿Ø»ø«œ∏Á, Ω√∞£¿ª √ ∞˙«— »ƒø°¥¬ «ÿ¥Á URL¿ª ≈Î«— ∆‰¿Ã¡ˆ ¡¢±Ÿ¿Ã ∫“∞°«’¥œ¥Ÿ.
+    ' Îã§ÏàòÍ±¥Ïùò Ï†ÑÏûêÎ™ÖÏÑ∏ÏÑúÎ•º Ïù∏ÏáÑÌïòÍ∏∞ ÏúÑÌïú ÌéòÏù¥ÏßÄÏùò ÌåùÏóÖ URLÏùÑ Î∞òÌôòÌï©ÎãàÎã§. (ÏµúÎåÄ 100Í±¥)
+    ' - Î∞òÌôòÎêòÎäî URLÏùÄ Î≥¥Ïïà Ï†ïÏ±ÖÏÉÅ 30Ï¥à ÎèôÏïà Ïú†Ìö®ÌïòÎ©∞, ÏãúÍ∞ÑÏùÑ Ï¥àÍ≥ºÌïú ÌõÑÏóêÎäî Ìï¥Îãπ URLÏùÑ ÌÜµÌïú ÌéòÏù¥ÏßÄ Ï†ëÍ∑ºÏù¥ Î∂àÍ∞ÄÌï©ÎãàÎã§.
     ' - https://developers.popbill.com/reference/statement/asp/api/view#GetMassPrintURL
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
-    testCorpNum = "1234567890"	 
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    testCorpNum = "1234567890"
 
-    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
-    userID = "testkorea"		 
+    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    userID = "testkorea"
 
-    ' ∏Ìººº≠ ƒ⁄µÂ - 121(∞≈∑°∏Ìººº≠), 122(√ª±∏º≠), 123(∞ﬂ¿˚º≠), 124(πﬂ¡÷º≠), 125(¿‘±›«•), 126(øµºˆ¡ı)
-    itemCode = "121"			 
+    ' Î™ÖÏÑ∏ÏÑú ÏΩîÎìú - 121(Í±∞ÎûòÎ™ÖÏÑ∏ÏÑú), 122(Ï≤≠Íµ¨ÏÑú), 123(Í≤¨Ï†ÅÏÑú), 124(Î∞úÏ£ºÏÑú), 125(ÏûÖÍ∏àÌëú), 126(ÏòÅÏàòÏ¶ù)
+    itemCode = "121"
 
-    ' πÆº≠π¯»£ πËø≠, √÷¥Î 100∞«
-    Dim mgtKeyList(2)  
+    ' Î¨∏ÏÑúÎ≤àÌò∏ Î∞∞Ïó¥, ÏµúÎåÄ 100Í±¥
+    Dim mgtKeyList(2)
     mgtKeyList(0) = "20220720-ASP-001"
     mgtKeyList(1) = "20220720-ASP-002"
 
-    On Error Resume Next	
+    On Error Resume Next
 
     url = m_StatementService.GetMassPrintURL(testCorpNum, itemCode, mgtKeyList, userID)
 
@@ -36,14 +36,14 @@
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¥Ÿ∑Æ ¿Œº‚ URL ø‰√ª</legend>
+                <legend>Îã§Îüâ Ïù∏ÏáÑ URL ÏöîÏ≤≠</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>URL : <%=CStr(url)%> </li>
@@ -52,7 +52,7 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

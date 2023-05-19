@@ -1,41 +1,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "¿”Ω√¿˙¿Â" ªÛ≈¬¿« ºº±›∞ËªÍº≠ø° √∑∫Œµ» 1∞≥¿« ∆ƒ¿œ¿ª ªË¡¶«’¥œ¥Ÿ.
-    ' - ∆ƒ¿œ¿ª Ωƒ∫∞«œ¥¬ ∆ƒ¿œæ∆¿Ãµ¥¬ √∑∫Œ∆ƒ¿œ ∏Ò∑œ(GetFiles API) ¿« ¿¿¥‰«◊∏Ò ¡ﬂ ∆ƒ¿œæ∆¿Ãµ(AttachedFile) ∞™¿ª ≈Î«ÿ »Æ¿Œ«“ ºˆ ¿÷Ω¿¥œ¥Ÿ.
+    ' "ÏûÑÏãúÏ†ÄÏû•" ÏÉÅÌÉúÏùò ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑúÏóê Ï≤®Î∂ÄÎêú 1Í∞úÏùò ÌååÏùºÏùÑ ÏÇ≠Ï†úÌï©ÎãàÎã§.
+    ' - ÌååÏùºÏùÑ ÏãùÎ≥ÑÌïòÎäî ÌååÏùºÏïÑÏù¥ÎîîÎäî Ï≤®Î∂ÄÌååÏùº Î™©Î°ù(GetFiles API) Ïùò ÏùëÎãµÌï≠Î™© Ï§ë ÌååÏùºÏïÑÏù¥Îîî(AttachedFile) Í∞íÏùÑ ÌÜµÌï¥ ÌôïÏù∏Ìï† Ïàò ÏûàÏäµÎãàÎã§.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#DeleteFile
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
     testCorpNum = "1234567890"
 
-    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
+    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
     testUserID = "testkorea"
-    
-    ' ºº±›∞ËªÍº≠ πﬂ«‡¿Ø«¸ SELL(∏≈√‚), BUY(∏≈¿‘), TRUSTEE(¿ßºˆ≈π)
+
+    ' ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î∞úÌñâÏú†Ìòï SELL(Îß§Ï∂ú), BUY(Îß§ÏûÖ), TRUSTEE(ÏúÑÏàòÌÉÅ)
     KeyType = "SELL"
 
-    ' πÆº≠π¯»£ 
+    ' Î¨∏ÏÑúÎ≤àÌò∏
     MgtKey = "20220720-ASP-002"
 
-    ' ∆ƒ¿œæ∆¿Ãµ, √∑∫Œ∆ƒ¿œ ∏Ò∑œ(getFiles) AttachedFile ∞™ ¬¸¡∂. 
+    ' ÌååÏùºÏïÑÏù¥Îîî, Ï≤®Î∂ÄÌååÏùº Î™©Î°ù(getFiles) AttachedFile Í∞í Ï∞∏Ï°∞.
     FileID = "7CB2F557-51F6-43A8-BECA-A856BDDB2CCB.PBF"
 
     On Error Resume Next
-    
+
     Set Presponse = m_TaxinvoiceService.DeleteFile(testCorpNum, KeyType ,MgtKey, FileID, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ºº±›∞ËªÍº≠ √∑∫Œ∆ƒ¿œ ªË¡¶</legend>
+                <legend>ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Ï≤®Î∂ÄÌååÏùº ÏÇ≠Ï†ú</legend>
                     <ul>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message : <%=message%> </li>

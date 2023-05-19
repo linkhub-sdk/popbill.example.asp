@@ -1,19 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô ÀÎÁõ¼­¹ö¿¡ µî·ÏµÈ ÀÎÁõ¼­ÀÇ ¸¸·áÀÏÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' íŒë¹Œ ì¸ì¦ì„œë²„ì— ë“±ë¡ëœ ì¸ì¦ì„œì˜ ë§Œë£Œì¼ì„ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/cert#GetCertificateExpireDate
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		 
-    
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
+
     On Error Resume Next
 
     certificateExpiration = m_TaxinvoiceService.GetCertificateExpireDate(testCorpNum)
@@ -31,10 +31,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>°øÀÎÀÎÁõ¼­ ¸¸·áÀÏ½Ã È®ÀÎ</legend>
+                <legend>ê³µì¸ì¸ì¦ì„œ ë§Œë£Œì¼ì‹œ í™•ì¸</legend>
                     <ul>
                         <% If code = 0 Then %>
-                            <li>¸¸·áÀÏ½Ã : <%=certificateExpiration%> </li>
+                            <li>ë§Œë£Œì¼ì‹œ : <%=certificateExpiration%> </li>
                         <% Else %>
                             <li>Response.code : <%=code%> </li>
                             <li>Response.message : <%=message%> </li>

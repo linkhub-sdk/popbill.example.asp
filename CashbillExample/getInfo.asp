@@ -1,25 +1,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Çö±İ¿µ¼öÁõ 1°ÇÀÇ »óÅÂ ¹× ¿ä¾àÁ¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - ¸®ÅÏ°ª 'CashbillInfo'ÀÇ º¯¼ö 'stateCode'¸¦ ÅëÇØ Çö±İ¿µ¼öÁõÀÇ »óÅÂÄÚµå¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - Çö±İ¿µ¼öÁõ »óÅÂÄÚµå : [https://developers.popbill.com/reference/cashbill/asp/response-code#state-code]
+    ' í˜„ê¸ˆì˜ìˆ˜ì¦ 1ê±´ì˜ ìƒíƒœ ë° ìš”ì•½ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' - ë¦¬í„´ê°’ 'CashbillInfo'ì˜ ë³€ìˆ˜ 'stateCode'ë¥¼ í†µí•´ í˜„ê¸ˆì˜ìˆ˜ì¦ì˜ ìƒíƒœì½”ë“œë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' - í˜„ê¸ˆì˜ìˆ˜ì¦ ìƒíƒœì½”ë“œ : [https://developers.popbill.com/reference/cashbill/asp/response-code#state-code]
     ' - https://developers.popbill.com/reference/cashbill/asp/api/info#GetInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"		 
-    
-    ' ¹®¼­¹øÈ£
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
+
+    ' ë¬¸ì„œë²ˆí˜¸
     mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -39,38 +39,39 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÆËºô Çö±İ¿µ¼öÁõ »óÅÂ/¿ä¾à Á¤º¸È®ÀÎ </legend>
+                <legend>íŒë¹Œ í˜„ê¸ˆì˜ìˆ˜ì¦ ìƒíƒœ/ìš”ì•½ ì •ë³´í™•ì¸ </legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>itemKey (Çö±İ¿µ¼öÁõ ¾ÆÀÌÅÛÅ°) : <%=Presponse.itemKey%></li>
-                        <li>mgtKey (¹®¼­¹øÈ£) : <%=Presponse.mgtKey%></li>
-                        <li>tradeDate (°Å·¡ÀÏÀÚ) : <%=Presponse.tradeDate%></li>
-                        <li>tradeDT (°Å·¡ÀÏ½Ã) : <%=Presponse.tradeDT%></li>
-                        <li>tradeType (¹®¼­ÇüÅÂ) : <%=Presponse.tradeType%></li>
-                        <li>tradeUsage (°Å·¡±¸ºĞ) : <%=Presponse.tradeUsage%></li>
-                        <li>tradeOpt (°Å·¡À¯Çü) : <%=Presponse.tradeOpt%></li>
-                        <li>taxationType (°ú¼¼ÇüÅÂ) : <%=Presponse.taxationType%></li>
-                        <li>totalAmount (°Å·¡±İ¾×) : <%=Presponse.totalAmount%></li>
-                        <li>issueDT (¹ßÇàÀÏ½Ã) : <%=Presponse.issueDT%></li>
-                        <li>regDT (µî·ÏÀÏ½Ã) : <%=Presponse.regDT%></li>
-                        <li>stateMemo (»óÅÂ¸Ş¸ğ) : <%=Presponse.stateMemo%></li>
-                        <li>stateCode (»óÅÂÄÚµå) : <%=Presponse.stateCode%></li>
-                        <li>stateDT (»óÅÂº¯°æÀÏ½Ã) : <%=Presponse.stateDT%></li>
-                        <li>identityNum (½Äº°¹øÈ£) : <%=Presponse.identityNum%></li>
-                        <li>itemName (»óÇ°¸í) : <%=Presponse.itemName%></li>
-                        <li>customerName (°í°´¸í) : <%=Presponse.customerName%></li>
-                        <li>confirmNum (±¹¼¼Ã» ½ÂÀÎ¹øÈ£) : <%=Presponse.confirmNum%></li>
-                        <li>orgConfirmNum (¿øº» Çö±İ¿µ¼öÁõ ±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%=Presponse.orgConfirmNum%></li>
-                        <li>orgTradeDate (¿øº» Çö±İ¿µ¼öÁõ °Å·¡ÀÏÀÚ) : <%=Presponse.orgTradeDate%></li>
-                        <li>ntssendDT (±¹¼¼Ã» Àü¼ÛÀÏ½Ã) : <%=Presponse.ntssendDT%></li>
-                        <li>ntsresultDT (±¹¼¼Ã» Ã³¸®°á°ú ¼ö½ÅÀÏ½Ã) : <%=Presponse.ntsResultDT%></li>
-                        <li>ntsresultCode (±¹¼¼Ã» Ã³¸®°á°ú »óÅÂÄÚµå) : <%=Presponse.ntsResultCode%></li>
-                        <li>ntsresultMessage (±¹¼¼Ã» Ã³¸®°á°ú ¸Ş½ÃÁö) : <%=Presponse.ntsResultMessage%></li>
-                        <li>printYN (ÀÎ¼â¿©ºÎ) : <%=Presponse.printYN%></li>
+                        <li>itemKey (í˜„ê¸ˆì˜ìˆ˜ì¦ ì•„ì´í…œí‚¤) : <%=Presponse.itemKey%></li>
+                        <li>mgtKey (ë¬¸ì„œë²ˆí˜¸) : <%=Presponse.mgtKey%></li>
+                        <li>tradeDate (ê±°ë˜ì¼ì) : <%=Presponse.tradeDate%></li>
+                        <li>tradeDT (ê±°ë˜ì¼ì‹œ) : <%=Presponse.tradeDT%></li>
+                        <li>tradeType (ë¬¸ì„œí˜•íƒœ) : <%=Presponse.tradeType%></li>
+                        <li>tradeUsage (ê±°ë˜êµ¬ë¶„) : <%=Presponse.tradeUsage%></li>
+                        <li>tradeOpt (ê±°ë˜ìœ í˜•) : <%=Presponse.tradeOpt%></li>
+                        <li>taxationType (ê³¼ì„¸í˜•íƒœ) : <%=Presponse.taxationType%></li>
+                        <li>totalAmount (ê±°ë˜ê¸ˆì•¡) : <%=Presponse.totalAmount%></li>
+                        <li>issueDT (ë°œí–‰ì¼ì‹œ) : <%=Presponse.issueDT%></li>
+                        <li>regDT (ë“±ë¡ì¼ì‹œ) : <%=Presponse.regDT%></li>
+                        <li>stateMemo (ìƒíƒœë©”ëª¨) : <%=Presponse.stateMemo%></li>
+                        <li>stateCode (ìƒíƒœì½”ë“œ) : <%=Presponse.stateCode%></li>
+                        <li>stateDT (ìƒíƒœë³€ê²½ì¼ì‹œ) : <%=Presponse.stateDT%></li>
+                        <li>identityNum (ì‹ë³„ë²ˆí˜¸) : <%=Presponse.identityNum%></li>
+                        <li>itemName (ìƒí’ˆëª…) : <%=Presponse.itemName%></li>
+                        <li>customerName (ê³ ê°ëª…) : <%=Presponse.customerName%></li>
+                        <li>confirmNum (êµ­ì„¸ì²­ ìŠ¹ì¸ë²ˆí˜¸) : <%=Presponse.confirmNum%></li>
+                        <li>orgConfirmNum (ì›ë³¸ í˜„ê¸ˆì˜ìˆ˜ì¦ êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸) : <%=Presponse.orgConfirmNum%></li>
+                        <li>orgTradeDate (ì›ë³¸ í˜„ê¸ˆì˜ìˆ˜ì¦ ê±°ë˜ì¼ì) : <%=Presponse.orgTradeDate%></li>
+                        <li>ntssendDT (êµ­ì„¸ì²­ ì „ì†¡ì¼ì‹œ) : <%=Presponse.ntssendDT%></li>
+                        <li>ntsresultDT (êµ­ì„¸ì²­ ì²˜ë¦¬ê²°ê³¼ ìˆ˜ì‹ ì¼ì‹œ) : <%=Presponse.ntsResultDT%></li>
+                        <li>ntsresultCode (êµ­ì„¸ì²­ ì²˜ë¦¬ê²°ê³¼ ìƒíƒœì½”ë“œ) : <%=Presponse.ntsResultCode%></li>
+                        <li>ntsresultMessage (êµ­ì„¸ì²­ ì²˜ë¦¬ê²°ê³¼ ë©”ì‹œì§€) : <%=Presponse.ntsResultMessage%></li>
+                        <li>printYN (ì¸ì‡„ì—¬ë¶€) : <%=Presponse.printYN%></li>
+                        <li>interOPYN (ì—°ë™ë¬¸ì„œì—¬ë¶€) : <%=Presponse.interOPYN%></li>
                     <% Else %>
                         <li> Response.code : <%=code%> </li>
                         <li> Response.message : <%=message%> </li>
-                    <% End If%> 
+                    <% End If%>
                 </ul>
             </fieldset>
          </div>

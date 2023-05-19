@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' »ç¿ëÇÏ°íÀÚ ÇÏ´Â ¾ÆÀÌµğÀÇ Áßº¹¿©ºÎ¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' ì‚¬ìš©í•˜ê³ ì í•˜ëŠ” ì•„ì´ë””ì˜ ì¤‘ë³µì—¬ë¶€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/closedown/asp/api/member#CheckID
     '**************************************************************
 
-    ' Áßº¹È®ÀÎÇÒ ¾ÆÀÌµğ 
-    testID = "testkorea124124"    
+    ' ì¤‘ë³µí™•ì¸í•  ì•„ì´ë””
+    testID = "testkorea124124"
 
     On Error Resume Next
 
     Set Presponse = m_ClosedownService.CheckID(testID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -34,7 +34,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¾ÆÀÌµğ Áßº¹È®ÀÎ </legend>
+                <legend>ì•„ì´ë”” ì¤‘ë³µí™•ì¸ </legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-    <!--#include file="common.asp"--> 
+    <!--#include file="common.asp"-->
     <%
         '**************************************************************
-        ' ¾Ë¸²Åå ÅÛÇÃ¸´À» ½ÅÃ»ÇÏ°í ½ÂÀÎ½É»ç °á°ú¸¦ È®ÀÎÇÏ¸ç µî·Ï ³»¿ªÀ» È®ÀÎÇÏ´Â ¾Ë¸²Åå ÅÛÇÃ¸´ °ü¸® ÆäÀÌÁö ÆË¾÷ URLÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
-        ' - ¹ÝÈ¯µÇ´Â URLÀº º¸¾È Á¤Ã¥»ó 30ÃÊ µ¿¾È À¯È¿ÇÏ¸ç, ½Ã°£À» ÃÊ°úÇÑ ÈÄ¿¡´Â ÇØ´ç URLÀ» ÅëÇÑ ÆäÀÌÁö Á¢±ÙÀÌ ºÒ°¡ÇÕ´Ï´Ù.
-        ' - ½ÂÀÎµÈ ¾Ë¸²Åå ÅÛÇÃ¸´Àº ¼öÁ¤ÀÌ ºÒ°¡ÇÏ°í, º¯°æÀÌ ÇÊ¿äÇÑ °æ¿ì »õ·Ó°Ô ÅÛÇÃ¸´ ½ÅÃ»À» ÇØ¾ßÇÕ´Ï´Ù.
+        ' ì•Œë¦¼í†¡ í…œí”Œë¦¿ì„ ì‹ ì²­í•˜ê³  ìŠ¹ì¸ì‹¬ì‚¬ ê²°ê³¼ë¥¼ í™•ì¸í•˜ë©° ë“±ë¡ ë‚´ì—­ì„ í™•ì¸í•˜ëŠ” ì•Œë¦¼í†¡ í…œí”Œë¦¿ ê´€ë¦¬ íŽ˜ì´ì§€ íŒì—… URLì„ ë°˜í™˜í•©ë‹ˆë‹¤.
+        ' - ë°˜í™˜ë˜ëŠ” URLì€ ë³´ì•ˆ ì •ì±…ìƒ 30ì´ˆ ë™ì•ˆ ìœ íš¨í•˜ë©°, ì‹œê°„ì„ ì´ˆê³¼í•œ í›„ì—ëŠ” í•´ë‹¹ URLì„ í†µí•œ íŽ˜ì´ì§€ ì ‘ê·¼ì´ ë¶ˆê°€í•©ë‹ˆë‹¤.
+        ' - ìŠ¹ì¸ëœ ì•Œë¦¼í†¡ í…œí”Œë¦¿ì€ ìˆ˜ì •ì´ ë¶ˆê°€í•˜ê³ , ë³€ê²½ì´ í•„ìš”í•œ ê²½ìš° ìƒˆë¡­ê²Œ í…œí”Œë¦¿ ì‹ ì²­ì„ í•´ì•¼í•©ë‹ˆë‹¤.
         ' - https://developers.popbill.com/reference/kakaotalk/asp/api/template#GetATSTemplateMgtURL
         '**************************************************************
 
-        ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+        ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
         testCorpNum = "1234567890"
 
-        ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+        ' íŒë¹ŒíšŒì› ì•„ì´ë””
         userID = "testkorea"
 
         On Error Resume Next
@@ -28,7 +28,7 @@
             message = Err.Description
             Err.Clears
         End If
-    
+
         On Error GoTo 0
     %>
     <body>
@@ -36,7 +36,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¾Ë¸²Åå ÅÛÇÃ¸´ °ü¸® ÆË¾÷ URL</legend>
+                <legend>ì•Œë¦¼í†¡ í…œí”Œë¦¿ ê´€ë¦¬ íŒì—… URL</legend>
                 <ul>
                     <% If code = 0 Then %>
                         <li>URL : <%=url%> </li>

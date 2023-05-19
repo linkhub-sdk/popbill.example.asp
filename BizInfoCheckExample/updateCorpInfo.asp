@@ -1,44 +1,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¬µ¿È¸¿øÀÇ È¸»çÁ¤º¸¸¦ ¼öÁ¤ÇÕ´Ï´Ù
+    ' ì—°ë™íšŒì›ì˜ íšŒì‚¬ì •ë³´ë¥¼ ìˆ˜ì •í•©ë‹ˆë‹¤
     ' - https://developers.popbill.com/reference/bizinfocheck/asp/api/member#UpdateCorpInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
-    CorpNum = "1234567890"		
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+    CorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ 
-    UserID = "testkorea"				 
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    UserID = "testkorea"
 
 
     Set infoObj = New CorpInfo
-    
-    ' ´ëÇ¥ÀÚ¸í
-    infoObj.ceoname = "¸µÅ©Çãºê ´ëÇ¥ÀÚ"
 
-    ' »óÈ£
-    infoObj.corpName = "¸µÅ©Çãºê"
+    ' ëŒ€í‘œìëª…
+    infoObj.ceoname = "ë§í¬í—ˆë¸Œ ëŒ€í‘œì"
 
-    ' ÁÖ¼Ò
-    infoObj.addr	= "ÁÖ¼Ò¼öÁ¤"
+    ' ìƒí˜¸
+    infoObj.corpName = "ë§í¬í—ˆë¸Œ"
 
-    ' ¾÷ÅÂ
-    infoObj.bizType = "¾÷ÅÂÁ¤º¸"
-        
-    ' Á¾¸ñ
-    infoObj.bizClass = "Á¾¸ñÁ¤º¸"
-    
+    ' ì£¼ì†Œ
+    infoObj.addr	= "ì£¼ì†Œìˆ˜ì •"
+
+    ' ì—…íƒœ
+    infoObj.bizType = "ì—…íƒœì •ë³´"
+
+    ' ì¢…ëª©
+    infoObj.bizClass = "ì¢…ëª©ì •ë³´"
+
     On Error Resume Next
 
     Set Presponse = m_BizInfoCheckService.UpdateCorpInfo(CorpNum, infoObj, UserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -57,7 +57,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>È¸»çÁ¤º¸ ¼öÁ¤</legend>
+                <legend>íšŒì‚¬ì •ë³´ ìˆ˜ì •</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

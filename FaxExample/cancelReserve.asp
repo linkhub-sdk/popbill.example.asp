@@ -1,24 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô¿¡¼­ ¹İÈ¯¹ŞÀº Á¢¼ö¹øÈ£¸¦ ÅëÇØ ¿¹¾àÁ¢¼öµÈ ÆÑ½º Àü¼ÛÀ» Ãë¼ÒÇÕ´Ï´Ù. (¿¹¾à½Ã°£ 10ºĞ Àü±îÁö °¡´É)
+    ' íŒë¹Œì—ì„œ ë°˜í™˜ë°›ì€ ì ‘ìˆ˜ë²ˆí˜¸ë¥¼ í†µí•´ ì˜ˆì•½ì ‘ìˆ˜ëœ íŒ©ìŠ¤ ì „ì†¡ì„ ì·¨ì†Œí•©ë‹ˆë‹¤. (ì˜ˆì•½ì‹œê°„ 10ë¶„ ì „ê¹Œì§€ ê°€ëŠ¥)
     ' - https://developers.popbill.com/reference/fax/asp/api/send#CancelReserve
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"				
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆÑ½º Àü¼Û½Ã ¹ß±Ş¹ŞÀº Á¢¼ö¹øÈ£(receiptNum)
-    receiptNum = "015012713201000001"   
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
+
+    ' íŒ©ìŠ¤ ì „ì†¡ì‹œ ë°œê¸‰ë°›ì€ ì ‘ìˆ˜ë²ˆí˜¸(receiptNum)
+    receiptNum = "015012713201000001"
 
     On Error Resume Next
 
@@ -28,7 +28,7 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -41,7 +41,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÆÑ½º¿¹¾àÀü¼Û Ãë¼Ò</legend>
+                <legend>íŒ©ìŠ¤ì˜ˆì•½ì „ì†¡ ì·¨ì†Œ</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

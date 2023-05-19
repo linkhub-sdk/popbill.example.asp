@@ -1,19 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô¿¡ µî·ÏÇÑ ¿¬µ¿È¸¿øÀÇ ¹®ÀÚ ¹ß½Å¹øÈ£ ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' íŒë¹Œì— ë“±ë¡í•œ ì—°ë™íšŒì›ì˜ ë¬¸ì ë°œì‹ ë²ˆí˜¸ ëª©ë¡ì„ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/sms/asp/api/sendnum#GetSenderNumberList
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		 
-    
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
+
     On Error Resume Next
 
     Set Presponse = m_MessageService.GetSenderNumberList(testCorpNum)
@@ -31,16 +31,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¹®ÀÚ ¹ß½Å¹øÈ£ ¸ñ·Ï È®ÀÎ</legend>
+                <legend>ë¬¸ì ë°œì‹ ë²ˆí˜¸ ëª©ë¡ í™•ì¸</legend>
                 <%
                     For i=0 To Presponse.length -1
                 %>
                 <fieldset class="fieldset2">
                 <ul>
-                    <li>¹ß½Å¹øÈ£ (number) : <%=Presponse.Get(i).number%> </li>
-                    <li>´ëÇ¥¹øÈ£ ÁöÁ¤¿©ºÎ (representYN) : <%=Presponse.Get(i).representYN%> </li>
-                    <li>µî·Ï»óÅÂ (state) : <%=Presponse.Get(i).state%> </li>
-                    <li>¸Ş¸ğ (memo) : <%=Presponse.Get(i).memo%> </li>
+                    <li>ë°œì‹ ë²ˆí˜¸ (number) : <%=Presponse.Get(i).number%> </li>
+                    <li>ëŒ€í‘œë²ˆí˜¸ ì§€ì •ì—¬ë¶€ (representYN) : <%=Presponse.Get(i).representYN%> </li>
+                    <li>ë“±ë¡ìƒíƒœ (state) : <%=Presponse.Get(i).state%> </li>
+                    <li>ë©”ëª¨ (memo) : <%=Presponse.Get(i).memo%> </li>
                 </ul>
                 </fieldset>
                 <%

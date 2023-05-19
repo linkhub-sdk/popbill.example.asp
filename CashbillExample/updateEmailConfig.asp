@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Çö±İ¿µ¼öÁõ °ü·Ã ¸ŞÀÏÀü¼Û Ç×¸ñ¿¡ ´ëÇÑ Àü¼Û¿©ºÎ¸¦ ¼öÁ¤ÇÕ´Ï´Ù.
+    ' í˜„ê¸ˆì˜ìˆ˜ì¦ ê´€ë ¨ ë©”ì¼ì „ì†¡ í•­ëª©ì— ëŒ€í•œ ì „ì†¡ì—¬ë¶€ë¥¼ ìˆ˜ì •í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#UpdateEmailConfig
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"		 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ¹ß¼Û ¸ŞÀÏ À¯Çü
-    ' - CSH_ISSUE : °í°´¿¡°Ô Çö±İ¿µ¼öÁõÀÌ ¹ßÇà µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ŞÀÏ
-    ' - CSH_CANCEL : °í°´¿¡°Ô Çö±İ¿µ¼öÁõÀÌ ¹ßÇàÃë¼Ò µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ŞÀÏ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
+
+    ' ë°œì†¡ ë©”ì¼ ìœ í˜•
+    ' - CSH_ISSUE : ê³ ê°ì—ê²Œ í˜„ê¸ˆì˜ìˆ˜ì¦ì´ ë°œí–‰ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼
+    ' - CSH_CANCEL : ê³ ê°ì—ê²Œ í˜„ê¸ˆì˜ìˆ˜ì¦ì´ ë°œí–‰ì·¨ì†Œ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼
     emailType = "CSH_ISSUE"
 
-    ' Àü¼Û ¿©ºÎ (true = Àü¼Û, false = ¹ÌÀü¼Û)
+    ' ì „ì†¡ ì—¬ë¶€ (true = ì „ì†¡, false = ë¯¸ì „ì†¡)
     sendYN = true
 
     On Error Resume Next
@@ -33,12 +33,12 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 
 %>
     <body>
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¾Ë¸²¸ŞÀÏ Àü¼Û¼³Á¤ ¼öÁ¤</legend>
+                <legend>ì•Œë¦¼ë©”ì¼ ì „ì†¡ì„¤ì • ìˆ˜ì •</legend>
                 <ul>
                     <li> Response.code : <%=code%> </li>
                     <li> Response.message : <%=message%> </li>

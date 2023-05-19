@@ -1,33 +1,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "ÀÓ½ÃÀúÀå" »óÅÂÀÇ ÀüÀÚ¸í¼¼¼­¸¦ ¹ßÇàÇÏ¿©, "¹ßÇà¿Ï·á" »óÅÂ·Î Ã³¸®ÇÕ´Ï´Ù.
-    ' - ÆËºô »çÀÌÆ® [ÀüÀÚ¸í¼¼¼­] > [È¯°æ¼³Á¤] > [ÀüÀÚ¸í¼¼¼­ °ü¸®] ¸Þ´ºÀÇ ¹ßÇà½Ã ÀÚµ¿½ÂÀÎ ¿É¼Ç ¼³Á¤À» ÅëÇØ
-    '   ÀüÀÚ¸í¼¼¼­¸¦ "¹ßÇà¿Ï·á" »óÅÂ°¡ ¾Æ´Ñ "½ÂÀÎ´ë±â" »óÅÂ·Î ¹ßÇà Ã³¸® ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-    ' - ÀüÀÚ¸í¼¼¼­ ¹ßÇà ÇÔ¼ö È£Ãâ½Ã ¼ö½ÅÀÚ¿¡°Ô ¹ßÇà ¾È³» ¸ÞÀÏÀÌ ¹ß¼ÛµË´Ï´Ù.
+    ' "ìž„ì‹œì €ìž¥" ìƒíƒœì˜ ì „ìžëª…ì„¸ì„œë¥¼ ë°œí–‰í•˜ì—¬, "ë°œí–‰ì™„ë£Œ" ìƒíƒœë¡œ ì²˜ë¦¬í•©ë‹ˆë‹¤.
+    ' - íŒë¹Œ ì‚¬ì´íŠ¸ [ì „ìžëª…ì„¸ì„œ] > [í™˜ê²½ì„¤ì •] > [ì „ìžëª…ì„¸ì„œ ê´€ë¦¬] ë©”ë‰´ì˜ ë°œí–‰ì‹œ ìžë™ìŠ¹ì¸ ì˜µì…˜ ì„¤ì •ì„ í†µí•´
+    '   ì „ìžëª…ì„¸ì„œë¥¼ "ë°œí–‰ì™„ë£Œ" ìƒíƒœê°€ ì•„ë‹Œ "ìŠ¹ì¸ëŒ€ê¸°" ìƒíƒœë¡œ ë°œí–‰ ì²˜ë¦¬ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+    ' - ì „ìžëª…ì„¸ì„œ ë°œí–‰ í•¨ìˆ˜ í˜¸ì¶œì‹œ ìˆ˜ì‹ ìžì—ê²Œ ë°œí–‰ ì•ˆë‚´ ë©”ì¼ì´ ë°œì†¡ë©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/statement/asp/api/issue#Issue
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
+
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸ 10ìžë¦¬
     testCorpNum = "1234567890"
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±ÝÇ¥), 126(¿µ¼öÁõ)
+    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ëž˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ìž…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
     itemCode = "121"
 
-    ' ¹®¼­¹øÈ£
+    ' ë¬¸ì„œë²ˆí˜¸
     mgtKey = "20220720-ASP-002"
 
-    ' ¸Þ¸ð
-    memo = "ÀüÀÚ¸í¼¼¼­ ¹ßÇà Å×½ºÆ®"
+    ' ë©”ëª¨
+    memo = "ì „ìžëª…ì„¸ì„œ ë°œí–‰ í…ŒìŠ¤íŠ¸"
 
     On Error Resume Next
 
@@ -49,7 +49,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÀüÀÚ¸í¼¼¼­ ¹ßÇà</legend>
+                <legend>ì „ìžëª…ì„¸ì„œ ë°œí–‰</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

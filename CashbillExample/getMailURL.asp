@@ -1,25 +1,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Çö±Ý¿µ¼öÁõ ¾È³»¸ÞÀÏÀÇ »ó¼¼º¸±â ¸µÅ© URLÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
-    ' - ÇÔ¼ö È£Ãâ·Î ¹ÝÈ¯ ¹ÞÀº URL¿¡´Â À¯È¿½Ã°£ÀÌ ¾ø½À´Ï´Ù.
+    ' í˜„ê¸ˆì˜ìˆ˜ì¦ ì•ˆë‚´ë©”ì¼ì˜ ìƒì„¸ë³´ê¸° ë§í¬ URLì„ ë°˜í™˜í•©ë‹ˆë‹¤.
+    ' - í•¨ìˆ˜ í˜¸ì¶œë¡œ ë°˜í™˜ ë°›ì€ URLì—ëŠ” ìœ íš¨ì‹œê°„ì´ ì—†ìŠµë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/view#GetMailURL
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    userID = "testkorea"		 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' Çö±Ý¿µ¼öÁõ ¹®¼­¹øÈ£
-    mgtKey = "20220720-ASP-001"	     
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
+
+    ' í˜„ê¸ˆì˜ìˆ˜ì¦ ë¬¸ì„œë²ˆí˜¸
+    mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -38,7 +38,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Çö±Ý¿µ¼öÁõ ¸ÞÀÏ ¸µÅ© URL</legend>
+                <legend>í˜„ê¸ˆì˜ìˆ˜ì¦ ë©”ì¼ ë§í¬ URL</legend>
                 <ul>
                     <% If code = 0 Then %>
                         <li>URL : <%=url%> </li>

@@ -1,170 +1,170 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "ÀÓ½ÃÀúÀå" »óÅÂÀÇ ÀüÀÚ¸í¼¼¼­¸¦ ¼öÁ¤ÇÕ´Ï´Ù.
+    ' "ì„ì‹œì €ì¥" ìƒíƒœì˜ ì „ìëª…ì„¸ì„œë¥¼ ìˆ˜ì •í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/statement/asp/api/issue#Update
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
+    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
     itemCode = "121"
 
-    ' ¹®¼­¹øÈ£
+    ' ë¬¸ì„œë²ˆí˜¸
     mgtKey = "20220720-ASP-002"
 
-    ' ÀüÀÚ¸í¼¼¼­ °´Ã¼ »ı¼º
+    ' ì „ìëª…ì„¸ì„œ ê°ì²´ ìƒì„±
     Set newStatement = New Statement
 
-    ' ±âÀç»ó ÀÛ¼ºÀÏÀÚ, ³¯Â¥Çü½Ä(yyyyMMdd)
+    ' ê¸°ì¬ìƒ ì‘ì„±ì¼ì, ë‚ ì§œí˜•ì‹(yyyyMMdd)
     newStatement.writeDate = "20220720"
 
-    ' {¿µ¼ö, Ã»±¸, ¾øÀ½} Áß ±âÀç
-    newStatement.purposeType = "¿µ¼ö"
+    ' {ì˜ìˆ˜, ì²­êµ¬, ì—†ìŒ} ì¤‘ ê¸°ì¬
+    newStatement.purposeType = "ì˜ìˆ˜"
 
-    ' °ú¼¼ÇüÅÂ, {°ú¼¼, ¿µ¼¼, ¸é¼¼} Áß ±âÀç
-    newStatement.taxType = "°ú¼¼"           
+    ' ê³¼ì„¸í˜•íƒœ, {ê³¼ì„¸, ì˜ì„¸, ë©´ì„¸} ì¤‘ ê¸°ì¬
+    newStatement.taxType = "ê³¼ì„¸"
 
-    ' ¸ÂÃã¾ç½ÄÄÚµå, °ø¹éÃ³¸®½Ã ±âº»¾ç½ÄÀ¸·Î ÀÛ¼º
+    ' ë§ì¶¤ì–‘ì‹ì½”ë“œ, ê³µë°±ì²˜ë¦¬ì‹œ ê¸°ë³¸ì–‘ì‹ìœ¼ë¡œ ì‘ì„±
     newStatement.formCode = ""
-    
-    ' ¸í¼¼¼­ Á¾·ùÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
+
+    ' ëª…ì„¸ì„œ ì¢…ë¥˜ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
     newStatement.itemCode = "121"
 
-    ' ¹®¼­¹øÈ£, ¼ıÀÚ, ¿µ¹®, '-', '_' Á¶ÇÕ (ÃÖ´ë24ÀÚ¸®)À¸·Î »ç¾÷ÀÚº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ±¸¼º   
+    ' ë¬¸ì„œë²ˆí˜¸, ìˆ«ì, ì˜ë¬¸, '-', '_' ì¡°í•© (ìµœëŒ€24ìë¦¬)ìœ¼ë¡œ ì‚¬ì—…ìë³„ë¡œ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ êµ¬ì„±
     newStatement.mgtKey = mgtKey
-    
+
 
     '**************************************************************
-    '                          ¹ß½ÅÀÚ Á¤º¸
+    '                          ë°œì‹ ì ì •ë³´
     '**************************************************************
 
-    ' ¹ß½ÅÀÚ »ç¾÷ÀÚ¹øÈ£, '-' Á¦¿Ü 10ÀÚ¸®
+    ' ë°œì‹ ì ì‚¬ì—…ìë²ˆí˜¸, '-' ì œì™¸ 10ìë¦¬
     newStatement.senderCorpNum = testCorpNum
 
-    ' ¹ß½ÅÀÚ Á¾»ç¾÷Àå ½Äº°¹øÈ£, ÇÊ¿ä½Ã ±âÀç, Çü½ÄÀº ¼ıÀÚ 4ÀÚ¸®
+    ' ë°œì‹ ì ì¢…ì‚¬ì—…ì¥ ì‹ë³„ë²ˆí˜¸, í•„ìš”ì‹œ ê¸°ì¬, í˜•ì‹ì€ ìˆ«ì 4ìë¦¬
     newStatement.senderTaxRegID = ""
 
-    ' ¹ß½ÅÀÚ »óÈ£
-    newStatement.senderCorpName = "¹ß½ÅÀÚ »óÈ£_¼öÁ¤"
+    ' ë°œì‹ ì ìƒí˜¸
+    newStatement.senderCorpName = "ë°œì‹ ì ìƒí˜¸_ìˆ˜ì •"
 
-    ' ¹ß½ÅÀÚ ´ëÇ¥ÀÚ¼º¸í
-    newStatement.senderCEOName = "¹ß½ÅÀÚ"" ´ëÇ¥ÀÚ ¼º¸í_¼öÁ¤"
+    ' ë°œì‹ ì ëŒ€í‘œìì„±ëª…
+    newStatement.senderCEOName = "ë°œì‹ ì"" ëŒ€í‘œì ì„±ëª…_ìˆ˜ì •"
 
-    ' ¹ß½ÅÀÚ ÁÖ¼Ò
-    newStatement.senderAddr = "¹ß½ÅÀÚ ÁÖ¼Ò"
+    ' ë°œì‹ ì ì£¼ì†Œ
+    newStatement.senderAddr = "ë°œì‹ ì ì£¼ì†Œ"
 
-    ' ¹ß½ÅÀÚ Á¾¸ñ
-    newStatement.senderBizClass = "¹ß½ÅÀÚ Á¾¸ñ"
+    ' ë°œì‹ ì ì¢…ëª©
+    newStatement.senderBizClass = "ë°œì‹ ì ì¢…ëª©"
 
-    ' ¹ß½ÅÀÚ ¾÷ÅÂ
-    newStatement.senderBizType = "¹ß½ÅÀÚ ¾÷ÅÂ,¾÷ÅÂ2"
+    ' ë°œì‹ ì ì—…íƒœ
+    newStatement.senderBizType = "ë°œì‹ ì ì—…íƒœ,ì—…íƒœ2"
 
-    ' ¹ß½ÅÀÚ ´ã´çÀÚ ¼º¸í
-    newStatement.senderContactName = "¹ß½ÅÀÚ ´ã´çÀÚ¸í"
+    ' ë°œì‹ ì ë‹´ë‹¹ì ì„±ëª…
+    newStatement.senderContactName = "ë°œì‹ ì ë‹´ë‹¹ìëª…"
 
-    ' ¹ß½ÅÀÚ ¸ŞÀÏÁÖ¼Ò
+    ' ë°œì‹ ì ë©”ì¼ì£¼ì†Œ
     newStatement.senderEmail = ""
 
-    ' ¹ß½ÅÀÚ ¿¬¶ôÃ³
+    ' ë°œì‹ ì ì—°ë½ì²˜
     newStatement.senderTEL = ""
 
-    ' ¹ß½ÅÀÚ ÈŞ´ëÆù¹øÈ£
+    ' ë°œì‹ ì íœ´ëŒ€í°ë²ˆí˜¸
     newStatement.senderHP = ""
 
 
     '**************************************************************
-    '                      ¼ö½ÅÀÚ Á¤º¸
+    '                      ìˆ˜ì‹ ì ì •ë³´
     '**************************************************************
-    
-    ' ¼ö½ÅÀÚ »ç¾÷ÀÚ¹øÈ£, '-' Á¦¿Ü 10ÀÚ¸®
+
+    ' ìˆ˜ì‹ ì ì‚¬ì—…ìë²ˆí˜¸, '-' ì œì™¸ 10ìë¦¬
     newStatement.receiverCorpNum = "8888888888"
 
-    ' ¼ö½ÅÀÚ »óÈ£
-    newStatement.receiverCorpName = "¼ö½ÅÀÚ »óÈ£"
+    ' ìˆ˜ì‹ ì ìƒí˜¸
+    newStatement.receiverCorpName = "ìˆ˜ì‹ ì ìƒí˜¸"
 
-    ' ¼ö½ÅÀÚ ´ëÇ¥ÀÚ ¼º¸í
-    newStatement.receiverCEOName = "¼ö½ÅÀÚ ´ëÇ¥ÀÚ ¼º¸í"
+    ' ìˆ˜ì‹ ì ëŒ€í‘œì ì„±ëª…
+    newStatement.receiverCEOName = "ìˆ˜ì‹ ì ëŒ€í‘œì ì„±ëª…"
 
-    ' ¼ö½ÅÀÚ ÁÖ¼Ò
-    newStatement.receiverAddr = "¼ö½ÅÀÚ ÁÖ¼Ò"
+    ' ìˆ˜ì‹ ì ì£¼ì†Œ
+    newStatement.receiverAddr = "ìˆ˜ì‹ ì ì£¼ì†Œ"
 
-    ' ¼ö½ÅÀÚ Á¾¸ñ
-    newStatement.receiverBizClass = "¼ö½ÅÀÚ Á¾¸ñ"
+    ' ìˆ˜ì‹ ì ì¢…ëª©
+    newStatement.receiverBizClass = "ìˆ˜ì‹ ì ì¢…ëª©"
 
-    ' ¼ö½ÅÀÚ ¾÷ÅÂ
-    newStatement.receiverBizType = "¼ö½ÅÀÚ ¾÷ÅÂ"
+    ' ìˆ˜ì‹ ì ì—…íƒœ
+    newStatement.receiverBizType = "ìˆ˜ì‹ ì ì—…íƒœ"
 
-    ' ¼ö½ÅÀÚ ´ã´çÀÚ¸í
-    newStatement.receiverContactName = "¼ö½ÅÀÚ ´ã´çÀÚ¸í"
+    ' ìˆ˜ì‹ ì ë‹´ë‹¹ìëª…
+    newStatement.receiverContactName = "ìˆ˜ì‹ ì ë‹´ë‹¹ìëª…"
 
-    ' ¼ö½ÅÀÚ ¸ŞÀÏÁÖ¼Ò
-    ' ÆËºô °³¹ßÈ¯°æ¿¡¼­ Å×½ºÆ®ÇÏ´Â °æ¿ì¿¡µµ ¾È³» ¸ŞÀÏÀÌ Àü¼ÛµÇ¹Ç·Î,
-    ' ½ÇÁ¦ °Å·¡Ã³ÀÇ ¸ŞÀÏÁÖ¼Ò°¡ ±âÀçµÇÁö ¾Êµµ·Ï ÁÖÀÇ
+    ' ìˆ˜ì‹ ì ë©”ì¼ì£¼ì†Œ
+    ' íŒë¹Œ ê°œë°œí™˜ê²½ì—ì„œ í…ŒìŠ¤íŠ¸í•˜ëŠ” ê²½ìš°ì—ë„ ì•ˆë‚´ ë©”ì¼ì´ ì „ì†¡ë˜ë¯€ë¡œ,
+    ' ì‹¤ì œ ê±°ë˜ì²˜ì˜ ë©”ì¼ì£¼ì†Œê°€ ê¸°ì¬ë˜ì§€ ì•Šë„ë¡ ì£¼ì˜
     newStatement.receiverEmail = ""
 
 
     '**************************************************************
-    '                      ÀüÀÚ¸í¼¼¼­ ±âÀç»çÇ×
-    '**************************************************************	
+    '                      ì „ìëª…ì„¸ì„œ ê¸°ì¬ì‚¬í•­
+    '**************************************************************
 
-    ' °ø±Ş°¡¾× ÇÕ°è
+    ' ê³µê¸‰ê°€ì•¡ í•©ê³„
     newStatement.supplyCostTotal = "100000"
 
-    ' ¼¼¾× ÇÕ°è
+    ' ì„¸ì•¡ í•©ê³„
     newStatement.taxTotal = "10000"
 
-    ' ÇÕ°è±İ¾×, °ø±Ş°¡¾× ÇÕ°è + ¼¼¾× ÇÕ°è
+    ' í•©ê³„ê¸ˆì•¡, ê³µê¸‰ê°€ì•¡ í•©ê³„ + ì„¸ì•¡ í•©ê³„
     newStatement.totalAmount = "110000"
-    
-    ' ±âÀç »ó ÀÏ·Ã¹øÈ£ Ç×¸ñ
+
+    ' ê¸°ì¬ ìƒ ì¼ë ¨ë²ˆí˜¸ í•­ëª©
     newStatement.serialNum = "123"
 
-    ' ±âÀç »ó ºñ°í Ç×¸ñ
-    newStatement.remark1 = "ºñ°í1"
-    newStatement.remark2 = "ºñ°í2"
-    newStatement.remark3 = "ºñ°í3"
-    
-    ' »ç¾÷ÀÚµî·ÏÁõ ÀÌ¹ÌÁö Ã·ºÎ¿©ºÎ  (true / false Áß ÅÃ 1)
-    ' ¦¦ true = Ã·ºÎ , false = ¹ÌÃ·ºÎ(±âº»°ª)
-    ' - ÆËºô »çÀÌÆ® ¶Ç´Â ÀÎ°¨ ¹× Ã·ºÎ¹®¼­ µî·Ï ÆË¾÷ URL (GetSealURL API) ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© µî·Ï
-    newStatement.businessLicenseYN = False 
+    ' ê¸°ì¬ ìƒ ë¹„ê³  í•­ëª©
+    newStatement.remark1 = "ë¹„ê³ 1"
+    newStatement.remark2 = "ë¹„ê³ 2"
+    newStatement.remark3 = "ë¹„ê³ 3"
 
-    ' ÅëÀå»çº» ÀÌ¹ÌÁö Ã·ºÎ¿©ºÎ  (true / false Áß ÅÃ 1)
-    ' ¦¦ true = Ã·ºÎ , false = ¹ÌÃ·ºÎ(±âº»°ª)
-    ' - ÆËºô »çÀÌÆ® ¶Ç´Â ÀÎ°¨ ¹× Ã·ºÎ¹®¼­ µî·Ï ÆË¾÷ URL (GetSealURL API) ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© µî·Ï
-    newStatement.bankBookYN = False     
-    
-    ' ¹ßÇà½Ã ¾Ë¸²¹®ÀÚ Àü¼Û¿©ºÎ
-    newStatement.smssendYN = True 
-    
+    ' ì‚¬ì—…ìë“±ë¡ì¦ ì´ë¯¸ì§€ ì²¨ë¶€ì—¬ë¶€  (true / false ì¤‘ íƒ 1)
+    ' â”” true = ì²¨ë¶€ , false = ë¯¸ì²¨ë¶€(ê¸°ë³¸ê°’)
+    ' - íŒë¹Œ ì‚¬ì´íŠ¸ ë˜ëŠ” ì¸ê° ë° ì²¨ë¶€ë¬¸ì„œ ë“±ë¡ íŒì—… URL (GetSealURL API) í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ ë“±ë¡
+    newStatement.businessLicenseYN = False
+
+    ' í†µì¥ì‚¬ë³¸ ì´ë¯¸ì§€ ì²¨ë¶€ì—¬ë¶€  (true / false ì¤‘ íƒ 1)
+    ' â”” true = ì²¨ë¶€ , false = ë¯¸ì²¨ë¶€(ê¸°ë³¸ê°’)
+    ' - íŒë¹Œ ì‚¬ì´íŠ¸ ë˜ëŠ” ì¸ê° ë° ì²¨ë¶€ë¬¸ì„œ ë“±ë¡ íŒì—… URL (GetSealURL API) í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ ë“±ë¡
+    newStatement.bankBookYN = False
+
+    ' ë°œí–‰ì‹œ ì•Œë¦¼ë¬¸ì ì „ì†¡ì—¬ë¶€
+    newStatement.smssendYN = True
+
 
     '**************************************************************
-    '                      ÀüÀÚ¸í¼¼¼­ »ó¼¼(Ç°¸ñ)
-    '**************************************************************	
+    '                      ì „ìëª…ì„¸ì„œ ìƒì„¸(í’ˆëª©)
+    '**************************************************************
 
     Set newDetail = New StatementDetail
 
-    newDetail.serialNum = "1"             'ÀÏ·Ã¹øÈ£ 1ºÎÅÍ ¼øÂ÷ ±âÀç
-    newDetail.purchaseDT = "20220720"   '°Å·¡ÀÏÀÚ  yyyyMMdd
-    newDetail.itemName = "Ç°¸í"
-    newDetail.spec = "±Ô°İ"
-    newDetail.unit = "´ÜÀ§"
-    newDetail.qty = "1" '¼ö·®           ' ¼Ò¼ıÁ¡ 2ÀÚ¸®±îÁö ¹®ÀÚ¿­·Î ±âÀç°¡´É
-    newDetail.unitCost = "100000"       ' ¼Ò¼ıÁ¡ 2ÀÚ¸®±îÁö ¹®ÀÚ¿­·Î ±âÀç°¡´É
+    newDetail.serialNum = "1"             'ì¼ë ¨ë²ˆí˜¸ 1ë¶€í„° ìˆœì°¨ ê¸°ì¬
+    newDetail.purchaseDT = "20220720"   'ê±°ë˜ì¼ì  yyyyMMdd
+    newDetail.itemName = "í’ˆëª…"
+    newDetail.spec = "ê·œê²©"
+    newDetail.unit = "ë‹¨ìœ„"
+    newDetail.qty = "1" 'ìˆ˜ëŸ‰           ' ì†Œìˆ«ì  2ìë¦¬ê¹Œì§€ ë¬¸ìì—´ë¡œ ê¸°ì¬ê°€ëŠ¥
+    newDetail.unitCost = "100000"       ' ì†Œìˆ«ì  2ìë¦¬ê¹Œì§€ ë¬¸ìì—´ë¡œ ê¸°ì¬ê°€ëŠ¥
     newDetail.supplyCost = "100000"
     newDetail.tax = "10000"
-    newDetail.remark = "ºñ°í"
+    newDetail.remark = "ë¹„ê³ "
     newDetail.spare1 = "spare1"
     newDetail.spare2 = "spare2"
     newDetail.spare3 = "spare3"
@@ -172,19 +172,19 @@
     newDetail.spare5 = "spare5"
 
     newStatement.AddDetail newDetail
-    
+
     Set newDetail = New StatementDetail
 
-    newDetail.serialNum = "2"             'ÀÏ·Ã¹øÈ£ 1ºÎÅÍ ¼øÂ÷ ±âÀç
-    newDetail.purchaseDT = "20220720"   '°Å·¡ÀÏÀÚ  yyyyMMdd
-    newDetail.itemName = "Ç°¸í"
-    newDetail.spec = "±Ô°İ"
-    newDetail.unit = "´ÜÀ§"
-    newDetail.qty = "1" '¼ö·®           ' ¼Ò¼ıÁ¡ 2ÀÚ¸®±îÁö ¹®ÀÚ¿­·Î ±âÀç°¡´É
-    newDetail.unitCost = "100000"       ' ¼Ò¼ıÁ¡ 2ÀÚ¸®±îÁö ¹®ÀÚ¿­·Î ±âÀç°¡´É
+    newDetail.serialNum = "2"             'ì¼ë ¨ë²ˆí˜¸ 1ë¶€í„° ìˆœì°¨ ê¸°ì¬
+    newDetail.purchaseDT = "20220720"   'ê±°ë˜ì¼ì  yyyyMMdd
+    newDetail.itemName = "í’ˆëª…"
+    newDetail.spec = "ê·œê²©"
+    newDetail.unit = "ë‹¨ìœ„"
+    newDetail.qty = "1" 'ìˆ˜ëŸ‰           ' ì†Œìˆ«ì  2ìë¦¬ê¹Œì§€ ë¬¸ìì—´ë¡œ ê¸°ì¬ê°€ëŠ¥
+    newDetail.unitCost = "100000"       ' ì†Œìˆ«ì  2ìë¦¬ê¹Œì§€ ë¬¸ìì—´ë¡œ ê¸°ì¬ê°€ëŠ¥
     newDetail.supplyCost = "100000"
     newDetail.tax = "10000"
-    newDetail.remark = "ºñ°í"
+    newDetail.remark = "ë¹„ê³ "
     newDetail.spare1 = "spare1"
     newDetail.spare2 = "spare2"
     newDetail.spare3 = "spare3"
@@ -192,10 +192,10 @@
     newDetail.spare5 = "spare5"
 
     newStatement.AddDetail newDetail
-    
+
 
     '**************************************************************
-    '                       ÀüÀÚ¸í¼¼¼­ Ãß°¡¼Ó¼º
+    '                       ì „ìëª…ì„¸ì„œ ì¶”ê°€ì†ì„±
     '**************************************************************
 
     newStatement.propertyBag.Set "Balance", "150000"
@@ -222,7 +222,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÀüÀÚ¸í¼¼¼­ ¼öÁ¤</legend>
+                <legend>ì „ìëª…ì„¸ì„œ ìˆ˜ì •</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

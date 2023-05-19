@@ -1,26 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' È¨ÅÃ½º¿¬µ¿ ÀÎÁõÀ» À§ÇØ ÆËºô¿¡ ÀüÀÚ¼¼±İ°è»ê¼­¿ë ºÎ¼­»ç¿ëÀÚ °èÁ¤À» µî·ÏÇÕ´Ï´Ù.
+    ' í™ˆíƒìŠ¤ì—°ë™ ì¸ì¦ì„ ìœ„í•´ íŒë¹Œì— ì „ìì„¸ê¸ˆê³„ì‚°ì„œìš© ë¶€ì„œì‚¬ìš©ì ê³„ì •ì„ ë“±ë¡í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/cert#RegistDeptUser
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' È¨ÅÃ½º¿¡¼­ »ı¼ºÇÑ ÀüÀÚ¼¼±İ°è»ê¼­ ºÎ¼­»ç¿ëÀÚ ¾ÆÀÌµğ
+    ' í™ˆíƒìŠ¤ì—ì„œ ìƒì„±í•œ ì „ìì„¸ê¸ˆê³„ì‚°ì„œ ë¶€ì„œì‚¬ìš©ì ì•„ì´ë””
     deptUserID = "userid_test"
 
-    ' È¨ÅÃ½º¿¡¼­ »ı¼ºÇÑ ÀüÀÚ¼¼±İ°è»ê¼­ ºÎ¼­»ç¿ëÀÚ ºñ¹Ğ¹øÈ£
+    ' í™ˆíƒìŠ¤ì—ì„œ ìƒì„±í•œ ì „ìì„¸ê¸ˆê³„ì‚°ì„œ ë¶€ì„œì‚¬ìš©ì ë¹„ë°€ë²ˆí˜¸
     deptUserPWD = "passwd_test"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
 
     On Error Resume Next
@@ -31,7 +31,7 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -44,7 +44,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ºÎ¼­»ç¿ëÀÚ °èÁ¤µî·Ï</legend>
+                <legend>ë¶€ì„œì‚¬ìš©ì ê³„ì •ë“±ë¡</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

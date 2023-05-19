@@ -1,24 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ∆À∫Ùø°º≠ π›»Øπﬁ¿∫ ¡¢ºˆπ¯»£∏¶ ≈Î«ÿ øπæ‡¡¢ºˆµ» ƒ´ƒ´ø¿≈Â¿ª ¿¸º€ √Îº“«’¥œ¥Ÿ. (øπæ‡Ω√∞£ 10∫– ¿¸±Ó¡ˆ ∞°¥…)
+    ' ÌåùÎπåÏóêÏÑú Î∞òÌôòÎ∞õÏùÄ Ï†ëÏàòÎ≤àÌò∏Î•º ÌÜµÌï¥ ÏòàÏïΩÏ†ëÏàòÎêú Ïπ¥Ïπ¥Ïò§ÌÜ°ÏùÑ Ï†ÑÏÜ° Ï∑®ÏÜåÌï©ÎãàÎã§. (ÏòàÏïΩÏãúÍ∞Ñ 10Î∂Ñ Ï†ÑÍπåÏßÄ Í∞ÄÎä•)
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/send#CancelReserve
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
     testCorpNum = "1234567890"
-    
-    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
-    userID = "testkorea"			   
 
-    ' ƒ´ƒ´ø¿≈Â ¿¸º€Ω√ πﬂ±ﬁπﬁ¿∫ ¡¢ºˆπ¯»£(ReceiptNum)
-    receiptNum = "018031513173900001"  
+    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    userID = "testkorea"
+
+    ' Ïπ¥Ïπ¥Ïò§ÌÜ° Ï†ÑÏÜ°Ïãú Î∞úÍ∏âÎ∞õÏùÄ Ï†ëÏàòÎ≤àÌò∏(ReceiptNum)
+    receiptNum = "018031513173900001"
 
     On Error Resume Next
 
@@ -40,11 +40,11 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>øπæ‡¿¸º€ √Îº“</legend>
+                <legend>ÏòàÏïΩÏ†ÑÏÜ° Ï∑®ÏÜå</legend>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
             </fieldset>
          </div>
     </body>

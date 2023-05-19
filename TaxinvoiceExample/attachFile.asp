@@ -1,40 +1,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "ÀÓ½ÃÀúÀå" »óÅÂÀÇ ¼¼±İ°è»ê¼­¿¡ 1°³ÀÇ ÆÄÀÏÀ» Ã·ºÎÇÕ´Ï´Ù. (ÃÖ´ë 5°³)
+    ' "ì„ì‹œì €ì¥" ìƒíƒœì˜ ì„¸ê¸ˆê³„ì‚°ì„œì— 1ê°œì˜ íŒŒì¼ì„ ì²¨ë¶€í•©ë‹ˆë‹¤. (ìµœëŒ€ 5ê°œ)
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#AttachFile
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     testUserID = "testkorea"
-    
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+
+    ' ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
     KeyType = "SELL"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ë¬¸ì„œë²ˆí˜¸
     MgtKey = "20220720-ASP-002"
 
-    ' Ã·ºÎÇÒ ÆÄÀÏ°æ·Î
+    ' ì²¨ë¶€í•  íŒŒì¼ê²½ë¡œ
     filePath = "C:\Users\jhPark\git\popbill.example.asp\test.jpg"
 
     On Error Resume Next
 
     Set Presponse = m_TaxinvoiceService.AttachFile(testCorpNum, KeyType ,MgtKey, filePath, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -45,7 +45,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±İ°è»ê¼­ Ã·ºÎÆÄÀÏ Ãß°¡ </legend>
+                <legend>ì„¸ê¸ˆê³„ì‚°ì„œ ì²¨ë¶€íŒŒì¼ ì¶”ê°€ </legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

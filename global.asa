@@ -1,2 +1,2 @@
-<!-- ÆËºô ÅäÅ« Ä³½¬. ¼º´ÉÇâ»óÀ» À§ÇØ¼­´Â global.asa¿¡ ¾Æ·¡ µñ¼Å³Ê¸®¸¦ Ãß°¡.  -->
+<!-- íŒë¹Œ í† í° ìºì‰¬. ì„±ëŠ¥í–¥ìƒì„ ìœ„í•´ì„œëŠ” global.asaì— ì•„ëž˜ ë”•ì…”ë„ˆë¦¬ë¥¼ ì¶”ê°€.  -->
 <object id="POPBILL_TOKEN_CACHE" progid="Scripting.Dictionary" runat="Server" scope="Application"></object>

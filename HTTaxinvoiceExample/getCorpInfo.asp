@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¬µ¿È¸¿øÀÇ È¸»çÁ¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' ì—°ë™íšŒì›ì˜ íšŒì‚¬ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/member#GetCorpInfo
     '**************************************************************
 
-    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    'íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    UserID = "testkorea"					
-    
+    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    UserID = "testkorea"
+
     On Error Resume Next
 
     Set result = m_HTTaxinvoiceService.GetCorpInfo(testCorpNum, UserID)
@@ -34,16 +34,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>È¸»çÁ¤º¸ Á¶È¸</legend>
+                <legend>íšŒì‚¬ì •ë³´ ì¡°íšŒ</legend>
                 <%
                     If code = 0 Then
                 %>
                         <ul>
-                            <li> ceoname (´ëÇ¥ÀÚ¸í) : <%=result.ceoname%></li>
-                            <li> corpName (»óÈ£) : <%=result.corpName%></li>
-                            <li> addr (ÁÖ¼Ò) : <%=result.addr%></li>
-                            <li> bizType (¾÷ÅÂ) : <%=result.bizType%></li>
-                            <li> bizClass (Á¾¸ñ) : <%=result.bizClass%></li>
+                            <li> ceoname (ëŒ€í‘œìëª…) : <%=result.ceoname%></li>
+                            <li> corpName (ìƒí˜¸) : <%=result.corpName%></li>
+                            <li> addr (ì£¼ì†Œ) : <%=result.addr%></li>
+                            <li> bizType (ì—…íƒœ) : <%=result.bizType%></li>
+                            <li> bizClass (ì¢…ëª©) : <%=result.bizClass%></li>
                         </ul>
                 <%
                     Else
@@ -51,8 +51,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

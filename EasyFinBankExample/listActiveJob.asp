@@ -1,57 +1,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼öÁı ¿äÃ»(RequestJob API) ÇÔ¼ö¸¦ ÅëÇØ ¹İÈ¯ ¹ŞÀº ÀÛ¾÷¾ÆÀÌµğÀÇ ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
-    ' - ¼öÁı ¿äÃ» ÈÄ 1½Ã°£ÀÌ °æ°úÇÑ ¼öÁı ¿äÃ»°ÇÀº »óÅÂÁ¤º¸°¡ ¹İÈ¯µÇÁö ¾Ê½À´Ï´Ù.
+    ' ìˆ˜ì§‘ ìš”ì²­(RequestJob API) í•¨ìˆ˜ë¥¼ í†µí•´ ë°˜í™˜ ë°›ì€ ì‘ì—…ì•„ì´ë””ì˜ ëª©ë¡ì„ í™•ì¸í•©ë‹ˆë‹¤.
+    ' - ìˆ˜ì§‘ ìš”ì²­ í›„ 1ì‹œê°„ì´ ê²½ê³¼í•œ ìˆ˜ì§‘ ìš”ì²­ê±´ì€ ìƒíƒœì •ë³´ê°€ ë°˜í™˜ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/job#ListActiveJob
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     UserID = "testkorea"
-    
+
     On Error Resume Next
 
     Set result = m_EasyFinBankService.ListActiveJob(testCorpNum, UserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼öÁı ¸ñ·Ï Á¶È¸</legend>
+                <legend>ìˆ˜ì§‘ ëª©ë¡ ì¡°íšŒ</legend>
                 <%
                     If code = 0 Then
                         For i=0 To result.Count-1
                 %>
-                            <fieldset class="fieldset2">					
+                            <fieldset class="fieldset2">
                                 <legend>ListActiveJob [ <%=i+1%> / <%=result.Count%> ] </legend>
                                     <ul>
-                                        <li> jobID (ÀÛ¾÷¾ÆÀÌµğ) : <%=result.Item(i).jobID%></li>
-                                        <li> jobState (¼öÁı»óÅÂ) : <%=result.Item(i).jobState%></li>
-                                        <li> startDate (½ÃÀÛÀÏÀÚ) : <%=result.Item(i).startDate%></li>
-                                        <li> endDate (Á¾·áÀÏÀÚ) : <%=result.Item(i).endDate%></li>
-                                        <li> errorCode (¿À·ùÄÚµå) : <%=result.Item(i).errorCode%></li>
-                                        <li> errorReason (¿À·ù¸Ş½ÃÁö) : <%=result.Item(i).errorReason%></li>
-                                        <li> jobStartDT (ÀÛ¾÷ ½ÃÀÛÀÏ½Ã) : <%=result.Item(i).jobStartDT%></li>
-                                        <li> jobEndDT (ÀÛ¾÷ Á¾·áÀÏ½Ã) : <%=result.Item(i).jobEndDT%></li>
-                                        <li> regDT (¼öÁı ¿äÃ»ÀÏ½Ã) : <%=result.Item(i).regDT%></li>
+                                        <li> jobID (ì‘ì—…ì•„ì´ë””) : <%=result.Item(i).jobID%></li>
+                                        <li> jobState (ìˆ˜ì§‘ìƒíƒœ) : <%=result.Item(i).jobState%></li>
+                                        <li> startDate (ì‹œì‘ì¼ì) : <%=result.Item(i).startDate%></li>
+                                        <li> endDate (ì¢…ë£Œì¼ì) : <%=result.Item(i).endDate%></li>
+                                        <li> errorCode (ì˜¤ë¥˜ì½”ë“œ) : <%=result.Item(i).errorCode%></li>
+                                        <li> errorReason (ì˜¤ë¥˜ë©”ì‹œì§€) : <%=result.Item(i).errorReason%></li>
+                                        <li> jobStartDT (ì‘ì—… ì‹œì‘ì¼ì‹œ) : <%=result.Item(i).jobStartDT%></li>
+                                        <li> jobEndDT (ì‘ì—… ì¢…ë£Œì¼ì‹œ) : <%=result.Item(i).jobEndDT%></li>
+                                        <li> regDT (ìˆ˜ì§‘ ìš”ì²­ì¼ì‹œ) : <%=result.Item(i).regDT%></li>
                                     </ul>
                                 </fieldset>
                 <%
@@ -61,8 +61,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

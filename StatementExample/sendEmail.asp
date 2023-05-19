@@ -1,32 +1,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "½ÂÀÎ´ë±â", "¹ßÇà¿Ï·á" »óÅÂÀÇ ÀüÀÚ¸í¼¼¼­¿Í °ü·ÃµÈ ¹ßÇà ¾È³» ¸ŞÀÏÀ» ÀçÀü¼Û ÇÕ´Ï´Ù.
+    ' "ìŠ¹ì¸ëŒ€ê¸°", "ë°œí–‰ì™„ë£Œ" ìƒíƒœì˜ ì „ìëª…ì„¸ì„œì™€ ê´€ë ¨ëœ ë°œí–‰ ì•ˆë‚´ ë©”ì¼ì„ ì¬ì „ì†¡ í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/statement/asp/api/etc#SendEmail
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
-    testCorpNum = "1234567890"	
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-"ì œì™¸ 10ìë¦¬
+    testCorpNum = "1234567890"
+
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
+    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
     itemCode = "121"
 
-    ' ¹®¼­¹øÈ£
+    ' ë¬¸ì„œë²ˆí˜¸
     mgtKey = "20220720-ASP-001"
 
-    ' ¼ö½ÅÀÚ ÀÌ¸ŞÀÏÁÖ¼Ò
-    ' ÆËºô °³¹ßÈ¯°æ¿¡¼­ Å×½ºÆ®ÇÏ´Â °æ¿ì¿¡µµ ¾È³» ¸ŞÀÏÀÌ Àü¼ÛµÇ¹Ç·Î,
-    ' ½ÇÁ¦ °Å·¡Ã³ÀÇ ¸ŞÀÏÁÖ¼Ò°¡ ±âÀçµÇÁö ¾Êµµ·Ï ÁÖÀÇ
-    receiver = ""	
+    ' ìˆ˜ì‹ ì ì´ë©”ì¼ì£¼ì†Œ
+    ' íŒë¹Œ ê°œë°œí™˜ê²½ì—ì„œ í…ŒìŠ¤íŠ¸í•˜ëŠ” ê²½ìš°ì—ë„ ì•ˆë‚´ ë©”ì¼ì´ ì „ì†¡ë˜ë¯€ë¡œ,
+    ' ì‹¤ì œ ê±°ë˜ì²˜ì˜ ë©”ì¼ì£¼ì†Œê°€ ê¸°ì¬ë˜ì§€ ì•Šë„ë¡ ì£¼ì˜
+    receiver = ""
 
     On Error Resume Next
 
@@ -48,7 +48,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¾Ë¸²¸ŞÀÏ ÀçÀü¼Û</legend>
+                <legend>ì•Œë¦¼ë©”ì¼ ì¬ì „ì†¡</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

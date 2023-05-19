@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="../Example.css" media="screen" />
-        <title>¿¹±İÁÖÁ¶È¸ API SDK ASP Example.</title>
+        <title>ì˜ˆê¸ˆì£¼ì¡°íšŒ API SDK ASP Example.</title>
     </head>
-    <!--#include file="common.asp"--> 
+    <!--#include file="common.asp"-->
     <%
         '**************************************************************
-        ' 1°ÇÀÇ ¿¹±İÁÖ¼º¸íÀ» Á¶È¸ÇÕ´Ï´Ù.
+        ' 1ê±´ì˜ ì˜ˆê¸ˆì£¼ì„±ëª…ì„ ì¡°íšŒí•©ë‹ˆë‹¤.
         ' - https://developers.popbill.com/reference/accountcheck/asp/api/check#CheckAccountInfo
         '**************************************************************
-        'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
-        CorpNum = "1234567890"	
+        'íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+        CorpNum = "1234567890"
 
-        'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+        'íŒë¹ŒíšŒì› ì•„ì´ë””
         UserID = "testkorea"
-        
-        '±â°üÄÚµå
+
+        'ê¸°ê´€ì½”ë“œ
         BankCode = ""
 
-        '°èÁÂ¹øÈ£
+        'ê³„ì¢Œë²ˆí˜¸
         AccountNumber = ""
 
         On Error Resume Next
             Set result = m_AccountCheckService.checkAccountInfo(CorpNum, BankCode, AccountNumber, UserID)
-            
+
             If Err.Number <> 0 Then
                 code = Err.Number
                 message = Err.Description
@@ -39,33 +39,33 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>°èÁÂ¼º¸íÁ¶È¸</legend>
+                <legend>ê³„ì¢Œì„±ëª…ì¡°íšŒ</legend>
             <%
-                If Not IsEmpty(result) Then  
+                If Not IsEmpty(result) Then
 
             %>
 
                 <ul>
-                    <li>bankCode (±â°üÄÚµå) : <%= result.bankCode%></li>	
-                    <li>accountNumber (°èÁÂ¹øÈ£) : <%= result.accountNumber%></li>	
-                    <li>accountName (¿¹±İÁÖ ¼º¸í) : <%= result.accountName%></li>	
-                    <li>checkDate (È®ÀÎÀÏ½Ã) : <%= result.checkDate%></li>	
-                    <li>result (ÀÀ´äÄÚµå) : <%= result.result%></li>	
-                    <li>resultMessage (ÀÀ´ä¸Ş½ÃÁö) : <%= result.resultMessage%></li>	
+                    <li>bankCode (ê¸°ê´€ì½”ë“œ) : <%= result.bankCode%></li>
+                    <li>accountNumber (ê³„ì¢Œë²ˆí˜¸) : <%= result.accountNumber%></li>
+                    <li>accountName (ì˜ˆê¸ˆì£¼ ì„±ëª…) : <%= result.accountName%></li>
+                    <li>checkDate (í™•ì¸ì¼ì‹œ) : <%= result.checkDate%></li>
+                    <li>result (ì‘ë‹µì½”ë“œ) : <%= result.result%></li>
+                    <li>resultMessage (ì‘ë‹µë©”ì‹œì§€) : <%= result.resultMessage%></li>
                 </ul>
 
             <%
-                End If 
+                End If
                 If Not IsEmpty(code) then
             %>
 
-            <ul>	
+            <ul>
                 <li>Response.code : <%= code %> </li>
                 <li>Response.message : <%= message %></li>
             </ul>
             <%
                 End If
-            %>		
+            %>
 
             </fieldset>
     </body>

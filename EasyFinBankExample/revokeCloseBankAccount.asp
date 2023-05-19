@@ -1,35 +1,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ½ÅÃ»ÇÑ Á¤¾×Á¦ ÇØÁö¿äÃ»À» Ãë¼ÒÇÕ´Ï´Ù.
+    ' ì‹ ì²­í•œ ì •ì•¡ì œ í•´ì§€ìš”ì²­ì„ ì·¨ì†Œí•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#RevokeCloseBankAccount
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
-    CorpNum = "1234567890"	
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+    CorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ 
-    UserID = "testkorea"			
-    
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    UserID = "testkorea"
 
-    ' ±â°üÄÚµå
-    ' »ê¾÷ÀºÇà-0002 / ±â¾÷ÀºÇà-0003 / ±¹¹ÎÀºÇà-0004 /¼öÇùÀºÇà-0007 / ³óÇùÀºÇà-0011 / ¿ì¸®ÀºÇà-0020
-    ' SCÀºÇà-0023 / ´ë±¸ÀºÇà-0031 / ºÎ»êÀºÇà-0032 / ±¤ÁÖÀºÇà-0034 / Á¦ÁÖÀºÇà-0035 / ÀüºÏÀºÇà-0037
-    ' °æ³²ÀºÇà-0039 / »õ¸¶À»±İ°í-0045 / ½ÅÇùÀºÇà-0048 / ¿ìÃ¼±¹-0071 / KEBÇÏ³ªÀºÇà-0081 / ½ÅÇÑÀºÇà-0088 /¾¾Æ¼ÀºÇà-0027
+
+    ' ê¸°ê´€ì½”ë“œ
+    ' ì‚°ì—…ì€í–‰-0002 / ê¸°ì—…ì€í–‰-0003 / êµ­ë¯¼ì€í–‰-0004 /ìˆ˜í˜‘ì€í–‰-0007 / ë†í˜‘ì€í–‰-0011 / ìš°ë¦¬ì€í–‰-0020
+    ' SCì€í–‰-0023 / ëŒ€êµ¬ì€í–‰-0031 / ë¶€ì‚°ì€í–‰-0032 / ê´‘ì£¼ì€í–‰-0034 / ì œì£¼ì€í–‰-0035 / ì „ë¶ì€í–‰-0037
+    ' ê²½ë‚¨ì€í–‰-0039 / ìƒˆë§ˆì„ê¸ˆê³ -0045 / ì‹ í˜‘ì€í–‰-0048 / ìš°ì²´êµ­-0071 / KEBí•˜ë‚˜ì€í–‰-0081 / ì‹ í•œì€í–‰-0088 /ì”¨í‹°ì€í–‰-0027
     BankCode = ""
 
-    ' °èÁÂ¹øÈ£ ÇÏÀÌÇÂ('-') Á¦¿Ü
+    ' ê³„ì¢Œë²ˆí˜¸ í•˜ì´í”ˆ('-') ì œì™¸
     AccountNumber = ""
 
     On Error Resume Next
         Set Presponse = m_EasyFinBankService.RevokeCloseBankAccount(CorpNum, BankCode, AccountNumber, UserID)
-        
+
         If Err.Number <> 0 Then
             code = Err.Number
             message = Err.Description
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>°èÁÂ Á¤¾×Á¦ ÇØÁö½ÅÃ» Ãë¼Ò</legend>
+                <legend>ê³„ì¢Œ ì •ì•¡ì œ í•´ì§€ì‹ ì²­ ì·¨ì†Œ</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

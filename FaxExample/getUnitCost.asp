@@ -1,45 +1,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ∆—Ω∫ ¿¸º€Ω√ ∞˙±›µ«¥¬ ∆˜¿Œ∆Æ ¥‹∞°∏¶ »Æ¿Œ«’¥œ¥Ÿ.
+    ' Ìå©Ïä§ Ï†ÑÏÜ°Ïãú Í≥ºÍ∏àÎêòÎäî Ìè¨Ïù∏Ìä∏ Îã®Í∞ÄÎ•º ÌôïÏù∏Ìï©ÎãàÎã§.
     ' - https://developers.popbill.com/reference/fax/asp/api/point#GetUnitCost
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
-    testCorpNum = "1234567890"	 
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    testCorpNum = "1234567890"
 
-    ' ºˆΩ≈π¯»£ ¿Ø«¸ : "¿œπ›" / "¡ˆ¥…" ¡ﬂ ≈√ 1
-    ' ¶¶ ¿œπ›∏¡ : ¡ˆ¥…∏¡¿ª ¡¶ø‹«— π¯»£
-    ' ¶¶ ¡ˆ¥…∏¡ : 030*, 050*, 070*, 080*, ¥Î«•π¯»£
-    receiveNumType = "¡ˆ¥…"
-    
+    ' ÏàòÏã†Î≤àÌò∏ Ïú†Ìòï : "ÏùºÎ∞ò" / "ÏßÄÎä•" Ï§ë ÌÉù 1
+    ' ‚îî ÏùºÎ∞òÎßù : ÏßÄÎä•ÎßùÏùÑ Ï†úÏô∏Ìïú Î≤àÌò∏
+    ' ‚îî ÏßÄÎä•Îßù : 030*, 050*, 070*, 080*, ÎåÄÌëúÎ≤àÌò∏
+    receiveNumType = "ÏßÄÎä•"
+
     On Error Resume Next
 
     unitCost = m_FaxService.GetUnitCost(testCorpNum, receiveNumType)
-    
+
     If Err.Number <> 0 then
         code = Err.Number
         message = Err.Description
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>∆—Ω∫ ¿¸º€ ¥‹∞° »Æ¿Œ </legend>
+                <legend>Ìå©Ïä§ Ï†ÑÏÜ° Îã®Í∞Ä ÌôïÏù∏ </legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>¿¸º€ ¥‹∞° : <%=unitCost%> </li>
+                        <li>Ï†ÑÏÜ° Îã®Í∞Ä : <%=unitCost%> </li>
                     <% Else %>
                         <li> Response.code : <%=code%></li>
                         <li> Response.message : <%=message%></li>

@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************************
-    ' ÆËºô¿¡ µî·ÏµÈ ÀüÀÚ¼¼±İ°è»ê¼­ ºÎ¼­»ç¿ëÀÚ °èÁ¤Á¤º¸¸¦ ÀÌ¿ëÇÏ¿© È¨ÅÃ½º ·Î±×ÀÎÀ» Å×½ºÆ®ÇÕ´Ï´Ù
+    ' íŒë¹Œì— ë“±ë¡ëœ ì „ìì„¸ê¸ˆê³„ì‚°ì„œ ë¶€ì„œì‚¬ìš©ì ê³„ì •ì •ë³´ë¥¼ ì´ìš©í•˜ì—¬ í™ˆíƒìŠ¤ ë¡œê·¸ì¸ì„ í…ŒìŠ¤íŠ¸í•©ë‹ˆë‹¤
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/cert#CheckLoginDeptUser
     '**************************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
 
     On Error Resume Next
@@ -25,7 +25,7 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -37,7 +37,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ºÎ¼­»ç¿ëÀÚ ·Î±×ÀÎ Å×½ºÆ®</legend>
+                <legend>ë¶€ì„œì‚¬ìš©ì ë¡œê·¸ì¸ í…ŒìŠ¤íŠ¸</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

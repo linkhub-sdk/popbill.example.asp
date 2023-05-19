@@ -1,41 +1,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    '  ÆËºô ÀüÀÚ¸í¼¼¼­ API¸¦ ÅëÇØ ¹ßÇàÇÑ ÀüÀÚ¸í¼¼¼­¸¦ ¼¼±İ°è»ê¼­¿¡ Ã·ºÎÇÕ´Ï´Ù.
+    '  íŒë¹Œ ì „ìëª…ì„¸ì„œ APIë¥¼ í†µí•´ ë°œí–‰í•œ ì „ìëª…ì„¸ì„œë¥¼ ì„¸ê¸ˆê³„ì‚°ì„œì— ì²¨ë¶€í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#AttachStatement
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
 
-    ' ¼¼±İ°è»ê¼­ ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
     KeyType= "SELL"
 
-    ' ¼¼±İ°è»ê¼­ ¹®¼­¹øÈ£ 
+    ' ì„¸ê¸ˆê³„ì‚°ì„œ ë¬¸ì„œë²ˆí˜¸
     MgtKey = "20220720-ASP-002"
 
-    ' Ã·ºÎÇÒ ÀüÀÚ¸í¼¼¼­ Á¾·ùÄÚµå 
-    ' - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­) 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
+    ' ì²¨ë¶€í•  ì „ìëª…ì„¸ì„œ ì¢…ë¥˜ì½”ë“œ
+    ' - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ) 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
     SubItemCode = 121
 
-    ' ÀüÀÚ¸í¼¼¼­ °ü¸®¹øÈ£
+    ' ì „ìëª…ì„¸ì„œ ê´€ë¦¬ë²ˆí˜¸
     SubMgtKey = "20220720-ASP-001"
 
     On Error Resume Next
-    
+
     Set Presponse = m_TaxinvoiceService.AttachStatement(testCorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -47,7 +47,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÀüÀÚ¸í¼¼¼­ Ã·ºÎ</legend>
+                <legend>ì „ìëª…ì„¸ì„œ ì²¨ë¶€</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

@@ -1,62 +1,62 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
 
     '**************************************************************
-    ' µ¿ÀÏÇÑ ÆÑ½ºÆÄÀÏÀ» ´Ù¼öÀÇ ¼ö½ÅÀÚ¿¡°Ô Àü¼ÛÇÏ±â À§ÇØ ÆËºô¿¡ Á¢¼öÇÕ´Ï´Ù. (ÃÖ´ë Àü¼ÛÆÄÀÏ °³¼ö : 20°³) (ÃÖ´ë 1,000°Ç)
+    ' ë™ì¼í•œ íŒ©ìŠ¤íŒŒì¼ì„ ë‹¤ìˆ˜ì˜ ìˆ˜ì‹ ìì—ê²Œ ì „ì†¡í•˜ê¸° ìœ„í•´ íŒë¹Œì— ì ‘ìˆ˜í•©ë‹ˆë‹¤. (ìµœëŒ€ ì „ì†¡íŒŒì¼ ê°œìˆ˜ : 20ê°œ) (ìµœëŒ€ 1,000ê±´)
     ' - https://developers.popbill.com/reference/fax/asp/api/send#SendFAX
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"			
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
 
-    ' ¹ß½Å¹øÈ£
-    sendNum = ""			
+    ' ë°œì‹ ë²ˆí˜¸
+    sendNum = ""
 
-    ' Àü¼Û¿¹¾à½Ã°£ yyyyMMddHHmmss, reserveDT°ªÀÌ null °æ¿ì Áï½ÃÀü¼Û
+    ' ì „ì†¡ì˜ˆì•½ì‹œê°„ yyyyMMddHHmmss, reserveDTê°’ì´ null ê²½ìš° ì¦‰ì‹œì „ì†¡
     reserveDT = ""
-    
-    ' ¼ö½ÅÁ¤º¸ ¹è¿­ ÃÖ´ë 1000°Ç
+
+    ' ìˆ˜ì‹ ì •ë³´ ë°°ì—´ ìµœëŒ€ 1000ê±´
     Dim receivers(1)
     Set receivers(0) = New FaxReceiver
-    ' ÆÑ½º ¼ö½Å¹øÈ£
+    ' íŒ©ìŠ¤ ìˆ˜ì‹ ë²ˆí˜¸
     receivers(0).receiverNum = ""
-    ' ÆÑ½º ¼ö½ÅÀÚ¸í
-    receivers(0).receiverName = "¼ö½ÅÀÚ ¸íÄª"
-    ' ÆÄÆ®³Ê ÁöÁ¤Å°, ¼ö½ÅÀÚ ±¸º°¿ë ¸Ş¸ğ
+    ' íŒ©ìŠ¤ ìˆ˜ì‹ ìëª…
+    receivers(0).receiverName = "ìˆ˜ì‹ ì ëª…ì¹­"
+    ' íŒŒíŠ¸ë„ˆ ì§€ì •í‚¤, ìˆ˜ì‹ ì êµ¬ë³„ìš© ë©”ëª¨
     receivers(0).interOPRefKey = "20220720-001"
 
     Set receivers(1) = New FaxReceiver
-    ' ÆÑ½º ¼ö½Å¹øÈ£
+    ' íŒ©ìŠ¤ ìˆ˜ì‹ ë²ˆí˜¸
     receivers(1).receiverNum = ""
-    ' ÆÑ½º ¼ö½ÅÀÚ¸í
-    receivers(1).receiverName = "¼ö½ÅÀÚ ¸íÄª"
-    ' ÆÄÆ®³Ê ÁöÁ¤Å°, ¼ö½ÅÀÚ ±¸º°¿ë ¸Ş¸ğ
+    ' íŒ©ìŠ¤ ìˆ˜ì‹ ìëª…
+    receivers(1).receiverName = "ìˆ˜ì‹ ì ëª…ì¹­"
+    ' íŒŒíŠ¸ë„ˆ ì§€ì •í‚¤, ìˆ˜ì‹ ì êµ¬ë³„ìš© ë©”ëª¨
     receivers(1).interOPRefKey = "20220720-002"
-    
-    ' ÆÑ½ºÀü¼ÛÇÒ ÆÄÀÏ (ÃÖ´ë 20°³)
-    FilePaths = Array("C:\popbill.example.asp\´ëÇÑ¹Î±¹Çå¹ı.doc","C:\popbill.example.asp\test.jpg")
-    
-    ' ±¤°íÆÑ½º Àü¼Û¿©ºÎ , true / false Áß ÅÃ 1
-    ' ¦¦ true = ±¤°í , false = ÀÏ¹İ
-    ' ¦¦ ¹ÌÀÔ·Â ½Ã ±âº»°ª false Ã³¸®
+
+    ' íŒ©ìŠ¤ì „ì†¡í•  íŒŒì¼ (ìµœëŒ€ 20ê°œ)
+    FilePaths = Array("C:\popbill.example.asp\ëŒ€í•œë¯¼êµ­í—Œë²•.doc","C:\popbill.example.asp\test.jpg")
+
+    ' ê´‘ê³ íŒ©ìŠ¤ ì „ì†¡ì—¬ë¶€ , true / false ì¤‘ íƒ 1
+    ' â”” true = ê´‘ê³  , false = ì¼ë°˜
+    ' â”” ë¯¸ì…ë ¥ ì‹œ ê¸°ë³¸ê°’ false ì²˜ë¦¬
     adsYN = False
 
-    ' ÆÑ½ºÁ¦¸ñ
-    title = "ÆÑ½º µ¿º¸Àü¼Û Á¦¸ñ"
+    ' íŒ©ìŠ¤ì œëª©
+    title = "íŒ©ìŠ¤ ë™ë³´ì „ì†¡ ì œëª©"
 
-    ' Àü¼Û¿äÃ»¹øÈ£
-    ' ÆÄÆ®³Ê°¡ Àü¼Û °Ç¿¡ ´ëÇØ °ü¸®¹øÈ£¸¦ ±¸¼ºÇÏ¿© °ü¸®ÇÏ´Â °æ¿ì »ç¿ë.
-    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ıÀÚ, ÇÏÀÌÇÂ(-), ¾ğ´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
-    requestNum = ""		
+    ' ì „ì†¡ìš”ì²­ë²ˆí˜¸
+    ' íŒŒíŠ¸ë„ˆê°€ ì „ì†¡ ê±´ì— ëŒ€í•´ ê´€ë¦¬ë²ˆí˜¸ë¥¼ êµ¬ì„±í•˜ì—¬ ê´€ë¦¬í•˜ëŠ” ê²½ìš° ì‚¬ìš©.
+    ' 1~36ìë¦¬ë¡œ êµ¬ì„±. ì˜ë¬¸, ìˆ«ì, í•˜ì´í”ˆ(-), ì–¸ë”ë°”(_)ë¥¼ ì¡°í•©í•˜ì—¬ íŒë¹Œ íšŒì›ë³„ë¡œ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ í• ë‹¹.
+    requestNum = ""
 
     On Error Resume Next
 
@@ -75,10 +75,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÆÑ½º Àü¼Û</legend>
+                <legend>íŒ©ìŠ¤ ì „ì†¡</legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>recepitNum (Á¢¼ö¹øÈ£) : <%=url%> </li>
+                        <li>recepitNum (ì ‘ìˆ˜ë²ˆí˜¸) : <%=url%> </li>
                     <% Else %>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message : <%=message%> </li>

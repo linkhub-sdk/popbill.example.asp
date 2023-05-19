@@ -1,46 +1,46 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼öÁı »óÅÂ È®ÀÎ(GetJobState API) ÇÔ¼ö¸¦ ÅëÇØ »óÅÂ Á¤º¸ È®ÀÎµÈ ÀÛ¾÷¾ÆÀÌµğ¸¦ È°¿ëÇÏ¿© Çö±İ¿µ¼öÁõ ¸ÅÀÔ/¸ÅÃâ ³»¿ªÀ» Á¶È¸ÇÕ´Ï´Ù.
+    ' ìˆ˜ì§‘ ìƒíƒœ í™•ì¸(GetJobState API) í•¨ìˆ˜ë¥¼ í†µí•´ ìƒíƒœ ì •ë³´ í™•ì¸ëœ ì‘ì—…ì•„ì´ë””ë¥¼ í™œìš©í•˜ì—¬ í˜„ê¸ˆì˜ìˆ˜ì¦ ë§¤ì…/ë§¤ì¶œ ë‚´ì—­ì„ ì¡°íšŒí•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/search#Search
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     UserID = ""
-    
-    ' ¼öÁı ¿äÃ»(requestJob) ½Ã ¹İÈ¯¹ŞÀº ÀÛ¾÷¾ÆÀÌµğ(jobID)
+
+    ' ìˆ˜ì§‘ ìš”ì²­(requestJob) ì‹œ ë°˜í™˜ë°›ì€ ì‘ì—…ì•„ì´ë””(jobID)
     JobID = "018100815000000002"
 
-    ' ¹®¼­ÇüÅÂ ¹è¿­ ("N" ¿Í "C" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' ¦¦ N = ÀÏ¹İ Çö±İ¿µ¼öÁõ , C = Ãë¼ÒÇö±İ¿µ¼öÁõ
-    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
-    Dim TradeType(2) 
+    ' ë¬¸ì„œí˜•íƒœ ë°°ì—´ ("N" ì™€ "C" ì¤‘ ì„ íƒ, ë‹¤ì¤‘ ì„ íƒ ê°€ëŠ¥)
+    ' â”” N = ì¼ë°˜ í˜„ê¸ˆì˜ìˆ˜ì¦ , C = ì·¨ì†Œí˜„ê¸ˆì˜ìˆ˜ì¦
+    ' - ë¯¸ì…ë ¥ ì‹œ ì „ì²´ì¡°íšŒ
+    Dim TradeType(2)
     TradeType(0) = "N"
     TradeType(1) = "C"
 
-    ' °Å·¡±¸ºĞ ¹è¿­ ("P" ¿Í "C" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
-    ' ¦¦ P = ¼Òµæ°øÁ¦¿ë , C = ÁöÃâÁõºù¿ë
-    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
+    ' ê±°ë˜êµ¬ë¶„ ë°°ì—´ ("P" ì™€ "C" ì¤‘ ì„ íƒ, ë‹¤ì¤‘ ì„ íƒ ê°€ëŠ¥)
+    ' â”” P = ì†Œë“ê³µì œìš© , C = ì§€ì¶œì¦ë¹™ìš©
+    ' - ë¯¸ì…ë ¥ ì‹œ ì „ì²´ì¡°íšŒ
     Dim TradeUsage(2)
     TradeUsage(0) = "P"
     TradeUsage(1) = "C"
 
-    ' ÆäÀÌÁö ¹øÈ£ 
+    ' í˜ì´ì§€ ë²ˆí˜¸
     Page  = 1
 
-    ' ÆäÀÌÁö´ç ¸ñ·Ï°³¼ö
+    ' í˜ì´ì§€ë‹¹ ëª©ë¡ê°œìˆ˜
     PerPage = 10
 
-    ' Á¤·Ä¹æÇ×, D-³»¸²Â÷¼ø, A-¿À¸§Â÷¼ø
+    ' ì •ë ¬ë°©í•­, D-ë‚´ë¦¼ì°¨ìˆœ, A-ì˜¤ë¦„ì°¨ìˆœ
     Order = "D"
 
     On Error Resume Next
@@ -60,58 +60,57 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼öÁı °á°ú Á¶È¸</legend>
+                <legend>ìˆ˜ì§‘ ê²°ê³¼ ì¡°íšŒ</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> code (ÀÀ´äÄÚµå) : <%=result.code%> </li>
-                        <li> message  (ÀÀ´ä¸Ş½ÃÁö) : <%=result.message%> </li>
-                        <li> total (ÃÑ °Ë»ö°á°ú °Ç¼ö) : <%=result.total%> </li>
-                        <li> perPage (ÆäÀÌÁö´ç °Ë»ö°³¼ö) : <%=result.perPage%> </li>
-                        <li> pageNum (ÆäÀÌÁö ¹øÈ£) : <%=result.pageNum%> </li>
-                        <li> pageCount (ÆäÀÌÁö °³¼ö) : <%=result.pageCount%> </li>
+                        <li> code (ì‘ë‹µì½”ë“œ) : <%=result.code%> </li>
+                        <li> message  (ì‘ë‹µë©”ì‹œì§€) : <%=result.message%> </li>
+                        <li> total (ì´ ê²€ìƒ‰ê²°ê³¼ ê±´ìˆ˜) : <%=result.total%> </li>
+                        <li> perPage (í˜ì´ì§€ë‹¹ ê²€ìƒ‰ê°œìˆ˜) : <%=result.perPage%> </li>
+                        <li> pageNum (í˜ì´ì§€ ë²ˆí˜¸) : <%=result.pageNum%> </li>
+                        <li> pageCount (í˜ì´ì§€ ê°œìˆ˜) : <%=result.pageCount%> </li>
                     </ul>
 
                 <%
-                    For i=0 To UBound(result.list) -1 
+                    For i=0 To UBound(result.list) -1
                 %>
-                    <fieldset class="fieldset2">					
+                    <fieldset class="fieldset2">
                         <legend>ListActiveJob [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
-                            <ul>										
-                                <li> ntsconfirmNum (±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%= result.list(i).ntsconfirmNum %></li>
-                                <li> tradeDate (°Å·¡ÀÏÀÚ) : <%= result.list(i).tradeDate %></li>
-                                <li> tradeDT (°Å·¡ÀÏ½Ã) : <%= result.list(i).tradeDT %></li>
-                                <li> tradeType (¹®¼­ÇüÅÂ) : <%= result.list(i).tradeType %></li>
-                                <li> tradeUsage (°Å·¡±¸ºĞ) : <%= result.list(i).tradeUsage %></li>
-                                <li> totalAmount (°Å·¡±İ¾×) : <%= result.list(i).totalAmount %></li>
-                                <li> supplyCost (°ø±Ş°¡¾×) : <%= result.list(i).supplyCost %></li>
-                                <li> tax (ºÎ°¡¼¼) : <%= result.list(i).tax %></li>
-                                <li> serviceFee (ºÀ»ç·á) : <%= result.list(i).serviceFee %></li>
-                                <li> invoiceType (¸ÅÀÔ/¸ÅÃâ) : <%= result.list(i).invoiceType %></li>
-                                <li> franchiseCorpNum (¹ßÇàÀÚ »ç¾÷ÀÚ¹øÈ£) : <%= result.list(i).franchiseCorpNum %></li>
-                                <li> franchiseCorpName (¹ßÇàÀÚ »óÈ£) : <%= result.list(i).franchiseCorpName %></li>
-                                <li> franchiseCorpType (¹ßÇàÀÚ »ç¾÷ÀÚÀ¯Çü) : <%= result.list(i).franchiseCorpType %></li>
-                                <li> identityNum (½Äº°¹øÈ£) : <%= result.list(i).identityNum %></li>
-                                <li> identityNumType (½Äº°¹øÈ£À¯Çü) : <%= result.list(i).identityNumType %></li>
-                                <li> customerName (°í°´¸í) : <%= result.list(i).customerName %></li>
-                                <li> cardOwnerName (Ä«µå¼ÒÀ¯ÀÚ¸í) : <%= result.list(i).cardOwnerName %></li>
-                                <li> deductionType (°øÁ¦À¯Çü) : <%= result.list(i).deductionType %></li>						
+                            <ul>
+                                <li> ntsconfirmNum (êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸) : <%= result.list(i).ntsconfirmNum %></li>
+                                <li> tradeDate (ê±°ë˜ì¼ì) : <%= result.list(i).tradeDate %></li>
+                                <li> tradeDT (ê±°ë˜ì¼ì‹œ) : <%= result.list(i).tradeDT %></li>
+                                <li> tradeType (ë¬¸ì„œí˜•íƒœ) : <%= result.list(i).tradeType %></li>
+                                <li> tradeUsage (ê±°ë˜êµ¬ë¶„) : <%= result.list(i).tradeUsage %></li>
+                                <li> totalAmount (ê±°ë˜ê¸ˆì•¡) : <%= result.list(i).totalAmount %></li>
+                                <li> supplyCost (ê³µê¸‰ê°€ì•¡) : <%= result.list(i).supplyCost %></li>
+                                <li> tax (ë¶€ê°€ì„¸) : <%= result.list(i).tax %></li>
+                                <li> serviceFee (ë´‰ì‚¬ë£Œ) : <%= result.list(i).serviceFee %></li>
+                                <li> invoiceType (ë§¤ì…/ë§¤ì¶œ) : <%= result.list(i).invoiceType %></li>
+                                <li> franchiseCorpNum (ë°œí–‰ì ì‚¬ì—…ìë²ˆí˜¸) : <%= result.list(i).franchiseCorpNum %></li>
+                                <li> franchiseCorpName (ë°œí–‰ì ìƒí˜¸) : <%= result.list(i).franchiseCorpName %></li>
+                                <li> franchiseCorpType (ë°œí–‰ì ì‚¬ì—…ììœ í˜•) : <%= result.list(i).franchiseCorpType %></li>
+                                <li> identityNum (ì‹ë³„ë²ˆí˜¸) : <%= result.list(i).identityNum %></li>
+                                <li> identityNumType (ì‹ë³„ë²ˆí˜¸ìœ í˜•) : <%= result.list(i).identityNumType %></li>
+                                <li> customerName (ê³ ê°ëª…) : <%= result.list(i).customerName %></li>
+                                <li> cardOwnerName (ì¹´ë“œì†Œìœ ìëª…) : <%= result.list(i).cardOwnerName %></li>
+                                <li> deductionType (ê³µì œìœ í˜•) : <%= result.list(i).deductionType %></li>
                             </ul>
                         </fieldset>
                 <%
-                        Next					
+                        Next
                     Else
                 %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>
          </div>
     </body>
 </html>
-

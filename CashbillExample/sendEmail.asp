@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Çö±İ¿µ¼öÁõ°ú °ü·ÃµÈ ¾È³» ¸ŞÀÏÀ» ÀçÀü¼Û ÇÕ´Ï´Ù.
+    ' í˜„ê¸ˆì˜ìˆ˜ì¦ê³¼ ê´€ë ¨ëœ ì•ˆë‚´ ë©”ì¼ì„ ì¬ì „ì†¡ í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#SendEmail
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"		 
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
 
-    ' ¹®¼­¹øÈ£	
-    mgtKey = "20220720-ASP-001"		 
+    ' ë¬¸ì„œë²ˆí˜¸
+    mgtKey = "20220720-ASP-001"
 
-    ' ¼ö½Å ¸ŞÀÏÁÖ¼Ò
-    receiver = ""		
+    ' ìˆ˜ì‹  ë©”ì¼ì£¼ì†Œ
+    receiver = ""
 
     On Error Resume Next
-        
+
     Set Presponse = m_CashbillService.SendEmail(testCorpNum, mgtKey, receiver, userID)
 
     If Err.Number <> 0 then
@@ -36,7 +36,7 @@
         message = Presponse.message
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 
 %>
     <body>
@@ -44,7 +44,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¾Ë¸²¸ŞÀÏ ÀçÀü¼Û</legend>
+                <legend>ì•Œë¦¼ë©”ì¼ ì¬ì „ì†¡</legend>
                 <ul>
                     <li>Response.code : <%=code%></li>
                     <li>Response.message : <%=message%></li>

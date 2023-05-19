@@ -1,24 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ Àü¼Û¿äÃ» ¹øÈ£¸¦ ÅëÇØ ¿¹¾àÁ¢¼öµÈ ¹®ÀÚ Àü¼ÛÀ» Ãë¼ÒÇÕ´Ï´Ù. (¿¹¾à½Ã°£ 10ºĞ Àü±îÁö °¡´É)
+    ' íŒŒíŠ¸ë„ˆê°€ í• ë‹¹í•œ ì „ì†¡ìš”ì²­ ë²ˆí˜¸ë¥¼ í†µí•´ ì˜ˆì•½ì ‘ìˆ˜ëœ ë¬¸ì ì „ì†¡ì„ ì·¨ì†Œí•©ë‹ˆë‹¤. (ì˜ˆì•½ì‹œê°„ 10ë¶„ ì „ê¹Œì§€ ê°€ëŠ¥)
     ' - https://developers.popbill.com/reference/sms/asp/api/send#CancelReserveRN
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"			   
 
-    ' ¿¹¾à¹®ÀÚ Àü¼Û¿äÃ»½Ã ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ Àü¼Û¿äÃ»¹øÈ£
-    requestNum = "20220720-ASP-001"  
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
+
+    ' ì˜ˆì•½ë¬¸ì ì „ì†¡ìš”ì²­ì‹œ íŒŒíŠ¸ë„ˆê°€ í• ë‹¹í•œ ì „ì†¡ìš”ì²­ë²ˆí˜¸
+    requestNum = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -40,11 +40,11 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¹®ÀÚ¿¹¾àÀü¼Û Ãë¼Ò</legend>
+                <legend>ë¬¸ìì˜ˆì•½ì „ì†¡ ì·¨ì†Œ</legend>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
             </fieldset>
          </div>
     </body>

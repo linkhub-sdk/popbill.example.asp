@@ -4,7 +4,7 @@ Class AccountCheckService
 
     Private m_PopbillBase
 
-    'Å×½ºÆ® ÇÃ·¡±×
+    'í…ŒìŠ¤íŠ¸ í”Œë˜ê·¸
     Public Property Let IsTest(ByVal value)
         m_PopbillBase.IsTest = value
     End Property
@@ -16,7 +16,7 @@ Class AccountCheckService
     Public Property Let UseStaticIP(ByVal value)
         m_PopbillBase.UseStaticIP = value
     End Property
-    
+
     Public Property Let UseGAIP(ByVal value)
         m_PopbillBase.UseGAIP = value
     End Property
@@ -35,79 +35,126 @@ Class AccountCheckService
         m_PopbillBase.Initialize linkID,SecretKey
     End Sub
 
-    'È¸¿øÀÜ¾×Á¶È¸
+    'íšŒì›ì”ì•¡ì¡°íšŒ
     Public Function GetBalance(CorpNum)
         GetBalance = m_PopbillBase.GetBalance(CorpNum)
     End Function
-    'ÆÄÆ®³Ê ÀÜ¾×Á¶È¸
+    'íŒŒíŠ¸ë„ˆ ì”ì•¡ì¡°íšŒ
     Public Function GetPartnerBalance(CorpNum)
         GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
     End Function
-    'ÆËºô ±âº» URL
+    'íŒë¹Œ ê¸°ë³¸ URL
     Public Function GetPopbillURL(CorpNum , UserID , TOGO )
         GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
     End Function
-    'ÆËºô ·Î±×ÀÎ URL
+    'íŒë¹Œ ë¡œê·¸ì¸ URL
     Public Function GetAccessURL(CorpNum , UserID)
         GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
     End Function
 
-    'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀü URL
+    'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì¶©ì „ URL
     Public Function GetChargeURL(CorpNum , UserID)
         GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
     End Function
 
-    'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª URL
+    'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ URL
     Public Function GetPaymentURL(CorpNum, UserID)
         GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
     End Function
 
-    'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL
+    'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL
     Public Function GetUseHistoryURL(CorpNum, UserID)
         GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
     End Function
 
-    'ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL - 2017/08/29 Ãß°¡
+    'íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ íŒì—… URL - 2017/08/29 ì¶”ê°€
     Public Function GetPartnerURL(CorpNum, TOGO)
         GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
     End Function
 
-    'È¸¿ø°¡ÀÔ ¿©ºÎ
+    'íšŒì›ê°€ì… ì—¬ë¶€
     Public Function CheckIsMember(CorpNum , linkID)
         Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
     End Function
-    'È¸¿ø°¡ÀÔ
+    'íšŒì›ê°€ì…
     Public Function JoinMember(JoinInfo)
         Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
     End Function
-    '´ã´çÀÚ Á¤º¸ È®ÀÎ
+    'ë‹´ë‹¹ì ì •ë³´ í™•ì¸
     Public Function GetContactInfo(CorpNum, ContactID, UserID)
         Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
-    End Function 
-    '´ã´çÀÚ ¸ñ·ÏÁ¶È¸
+    End Function
+    'ë‹´ë‹¹ì ëª©ë¡ì¡°íšŒ
     Public Function ListContact(CorpNum, UserID)
         Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
     End Function
-    '´ã´çÀÚ Á¤º¸¼öÁ¤
+    'ë‹´ë‹¹ì ì •ë³´ìˆ˜ì •
     Public Function UpdateContact(CorpNum, contInfo, UserId)
         Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
     End Function
-    '´ã´çÀÚ Ãß°¡ 
+    'ë‹´ë‹¹ì ì¶”ê°€
     Public Function RegistContact(CorpNum, contInfo, UserId)
         Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
     End Function
-    'È¸»çÁ¤º¸ ¼öÁ¤
+    'íšŒì‚¬ì •ë³´ ìˆ˜ì •
     Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
         Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
     End Function
-    'È¸»çÁ¤º¸ È®ÀÎ 
+    'íšŒì‚¬ì •ë³´ í™•ì¸
     Public Function GetCorpInfo(CorpNum, UserId)
         Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
     End Function
     Public Function CheckID(id)
         Set CheckID = m_popbillBase.CheckID(id)
     End Function
-    '°ú±İÁ¤º¸ È®ÀÎ
+
+	'ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­
+Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
+    PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
+End Function
+
+'ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ ì¡°íšŒ
+Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+    Set GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+End Function
+
+'ì—°ë™íšŒì› ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­ ì •ë³´í™•ì¸
+Public Function GetSettleResult(CorpNum, SettleCode, UserID)
+    Set GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
+End Function
+
+'ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ í™•ì¸
+Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
+    Set GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
+End Function
+
+'ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆì‹ ì²­
+Public Function Refund(CorpNum, RefundForm, UserID)
+    Set Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
+End Function
+
+' í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸ ì¡°íšŒ
+Public Function GetRefundableBalance(CorpNum, UserID)
+    m_refundable = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
+    GetRefundableBalance = m_refundable
+End Function
+
+'ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆë‚´ì—­ í™•ì¸
+Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
+    Set GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
+End Function
+
+' í™˜ë¶ˆ ì‹ ì²­ ìƒíƒœ ì¡°íšŒ
+Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
+    Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
+End Function
+
+'íšŒì› íƒˆí‡´
+Public Function QuitMember(CorpNum, QuitReason, UserID)
+    Set QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
+End Function
+
+    'ê³¼ê¸ˆì •ë³´ í™•ì¸
     Public Function GetChargeInfo(CorpNum, UserID, ServiceType)
 
         Dim uri : uri = "/EasyFin/AccountCheck/ChargeInfo?serviceType=" & ServiceType
@@ -116,12 +163,12 @@ Class AccountCheckService
 
         Dim chrgInfo : Set chrgInfo = New ChargeInfo
         chrgInfo.fromJsonInfo result
-        
+
         Set GetChargeInfo = chrgInfo
     End Function
     '''''''''''''  End of PopbillBase
 
-    'Á¶È¸´Ü°¡È®ÀÎ
+    'ì¡°íšŒë‹¨ê°€í™•ì¸
     Public Function GetUnitCost(CorpNum, ServiceType, UserID)
 
         Dim uri : uri = "/EasyFin/AccountCheck/UnitCost?serviceType=" & ServiceType
@@ -133,18 +180,18 @@ Class AccountCheckService
     Public Function CheckAccountInfo(CorpNum , BankCode, AccountNumber, UserID)
 
         If BankCode = "" Then
-            Err.Raise -99999999, "POPBILL", "±â°üÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ê¸°ê´€ì½”ë“œê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         End If
 
         If AccountNumber = "" Then
-            Err.Raise -99999999, "POPBILL", "°èÁÂ¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ê³„ì¢Œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         End If
 
         Dim uri
         uri = "/EasyFin/AccountCheck"
         uri = uri + "?c=" & BankCode
         uri = uri + "&n=" & AccountNumber
-    
+
 
         Dim result : Set result = m_PopbillBase.httpPOST( uri, m_PopbillBase.getSession_token(CorpNum),"", "", UserID )
 
@@ -155,32 +202,32 @@ Class AccountCheckService
     End Function
 
     Public Function CheckDepositorInfo(CorpNum , BankCode, AccountNumber, IdentityNumType, IdentityNum, UserID)
-        
+
         If BankCode = "" Then
-            Err.Raise -99999999, "POPBILL", "±â°üÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ê¸°ê´€ì½”ë“œê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         End If
 
         If AccountNumber = "" Then
-            Err.Raise -99999999, "POPBILL", "°èÁÂ¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ê³„ì¢Œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         End If
 
         If IdentityNumType = "" Then
-            Err.Raise -99999999, "POPBILL", "µî·Ï¹øÈ£ À¯ÇüÀÌ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ë“±ë¡ë²ˆí˜¸ ìœ í˜•ì´ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         End If
 
         Dim regEx : Set regEx = new RegExp
         regEx.Pattern = "^[PB]$"
         If regEx.Test(IdentityNumType) = False Then
-            Err.Raise -99999999, "POPBILL", "µî·Ï¹øÈ£ À¯ÇüÀÌ À¯È¿ÇÏÁö ¾Ê½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ë“±ë¡ë²ˆí˜¸ ìœ í˜•ì´ ìœ íš¨í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤."
         End If
 
         If IdentityNum = "" Then
-            Err.Raise -99999999, "POPBILL", "µî·Ï¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ë“±ë¡ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         End If
 
         regEx.Pattern = "^\d+$"
         If regEx.Test(IdentityNum) = False Then
-            Err.Raise -99999999, "POPBILL", "µî·Ï¹øÈ£°¡ À¯È¿ÇÏÁö ¾Ê½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ë“±ë¡ë²ˆí˜¸ê°€ ìœ íš¨í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤."
         End If
 
         Dim uri
@@ -215,32 +262,32 @@ Class AccountCheckInfo
         On Error Resume Next
             If Not isEmpty(jsonInfo.resultCode) Then
                 resultCode = jsonInfo.resultCode
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.result) Then
                 result = jsonInfo.result
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.resultMessage) Then
                 resultMessage = jsonInfo.resultMessage
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.bankCode) Then
                 bankCode = jsonInfo.bankCode
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.accountNumber) Then
                 accountNumber = jsonInfo.accountNumber
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.accountName) Then
                 accountName = jsonInfo.accountName
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.checkDate) Then
                 checkDate = jsonInfo.checkDate
-            End If 
-            
+            End If
+
         On Error GoTo 0
     End Sub
 End Class
@@ -260,36 +307,36 @@ Class DepositorCheckInfo
         On Error Resume Next
             If Not isEmpty(jsonInfo.result) Then
                 result = jsonInfo.result
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.resultMessage) Then
                 resultMessage = jsonInfo.resultMessage
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.bankCode) Then
                 bankCode = jsonInfo.bankCode
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.accountNumber) Then
                 accountNumber = jsonInfo.accountNumber
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.accountName) Then
                 accountName = jsonInfo.accountName
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.checkDate) Then
                 checkDate = jsonInfo.checkDate
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.identityNumType) Then
                 identityNumType = jsonInfo.identityNumType
-            End If 
+            End If
 
             If Not isEmpty(jsonInfo.identityNum) Then
                 identityNum = jsonInfo.identityNum
-            End If 
-            
+            End If
+
         On Error GoTo 0
     End Sub
 End Class

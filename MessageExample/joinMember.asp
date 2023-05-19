@@ -1,60 +1,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' »ç¿ëÀÚ¸¦ ¿¬µ¿È¸¿øÀ¸·Î °¡ÀÔÃ³¸®ÇÕ´Ï´Ù.
+    ' ì‚¬ìš©ìë¥¼ ì—°ë™íšŒì›ìœ¼ë¡œ ê°€ì…ì²˜ë¦¬í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/sms/asp/api/member#JoinMember
     '**************************************************************
 
-    ' È¸¿øÁ¤º¸ °´Ã¼ »ı¼º
+    ' íšŒì›ì •ë³´ ê°ì²´ ìƒì„±
     Set joinInfo = New JoinForm
 
-    ' ¸µÅ©¾ÆÀÌµğ 
-    joinInfo.LinkID = "TESTER"		   
+    ' ë§í¬ì•„ì´ë””
+    joinInfo.LinkID = "TESTER"
 
-    ' »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
-    joinInfo.CorpNum = "1234567890"    
+    ' ì‚¬ì—…ìë²ˆí˜¸, "-"ì œì™¸ 10ìë¦¬
+    joinInfo.CorpNum = "1234567890"
 
-    ' ´ëÇ¥ÀÚ¼º¸í
-    joinInfo.CEOName = "´ëÇ¥ÀÚ¼º¸í"	
-    
-    ' »óÈ£¸í
-    joinInfo.CorpName =  "»óÈ£"	
-    
-    ' ÁÖ¼Ò
-    joinInfo.Addr =   "ÁÖ¼Ò"		   
+    ' ëŒ€í‘œìì„±ëª…
+    joinInfo.CEOName = "ëŒ€í‘œìì„±ëª…"
 
-    ' ¾÷ÅÂ
-    joinInfo.BizType =  "¾÷ÅÂ"		   
+    ' ìƒí˜¸ëª…
+    joinInfo.CorpName =  "ìƒí˜¸"
 
-    ' Á¾¸ñ
-    joinInfo.BizClass = "Á¾¸ñ"
+    ' ì£¼ì†Œ
+    joinInfo.Addr =   "ì£¼ì†Œ"
 
-    ' ¾ÆÀÌµğ (6ÀÚ ÀÌ»ó 20ÀÚ ¹Ì¸¸)
+    ' ì—…íƒœ
+    joinInfo.BizType =  "ì—…íƒœ"
+
+    ' ì¢…ëª©
+    joinInfo.BizClass = "ì¢…ëª©"
+
+    ' ì•„ì´ë”” (6ì ì´ìƒ 20ì ë¯¸ë§Œ)
     joinInfo.ID =  "userid"
 
-    ' ºñ¹Ğ¹øÈ£ (8ÀÚ ÀÌ»ó 20ÀÚ ÀÌÇÏ) ¿µ¹®, ¼ıÀÚ ,Æ¯¼ö¹®ÀÚ Á¶ÇÕ
+    ' ë¹„ë°€ë²ˆí˜¸ (8ì ì´ìƒ 20ì ì´í•˜) ì˜ë¬¸, ìˆ«ì ,íŠ¹ìˆ˜ë¬¸ì ì¡°í•©
     joinInfo.Password =  "asdf1234!@#$"
 
-    ' ´ã´çÀÚ¸í
-    joinInfo.ContactName = "´ã´çÀÚ¸í"    
+    ' ë‹´ë‹¹ìëª…
+    joinInfo.ContactName = "ë‹´ë‹¹ìëª…"
 
-    ' ´ã´çÀÚ¿¬¶ôÃ³
+    ' ë‹´ë‹¹ìì—°ë½ì²˜
     joinInfo.ContactTEL = ""
 
-    ' ´ã´çÀÚ ÀÌ¸ŞÀÏ
+    ' ë‹´ë‹¹ì ì´ë©”ì¼
     joinInfo.ContactEmail = ""
 
 
     On Error Resume Next
 
     Set Presponse = m_MessageService.JoinMember(joinInfo)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -73,7 +73,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¿¬µ¿È¸¿ø °¡ÀÔ¿äÃ»</legend>
+                <legend>ì—°ë™íšŒì› ê°€ì…ìš”ì²­</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

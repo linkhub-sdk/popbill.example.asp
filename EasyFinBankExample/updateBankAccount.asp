@@ -1,55 +1,55 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô¿¡ µî·ÏµÈ °èÁÂÁ¤º¸¸¦ ¼öÁ¤ÇÕ´Ï´Ù.
+    ' íŒë¹Œì— ë“±ë¡ëœ ê³„ì¢Œì •ë³´ë¥¼ ìˆ˜ì •í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#UpdateBankAccount
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
-    CorpNum = "1234567890"	
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+    CorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ 
-    UserID = "testkorea"			
-    
-    ' °èÁÂÁ¤º¸ °´Ã¼ »ı¼º
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    UserID = "testkorea"
+
+    ' ê³„ì¢Œì •ë³´ ê°ì²´ ìƒì„±
     Set infoObj = New EasyFinBankAccountForm
-    
-    ' ±â°üÄÚµå
-    ' »ê¾÷ÀºÇà-0002 / ±â¾÷ÀºÇà-0003 / ±¹¹ÎÀºÇà-0004 /¼öÇùÀºÇà-0007 / ³óÇùÀºÇà-0011 / ¿ì¸®ÀºÇà-0020
-    ' SCÀºÇà-0023 / ´ë±¸ÀºÇà-0031 / ºÎ»êÀºÇà-0032 / ±¤ÁÖÀºÇà-0034 / Á¦ÁÖÀºÇà-0035 / ÀüºÏÀºÇà-0037
-    ' °æ³²ÀºÇà-0039 / »õ¸¶À»±İ°í-0045 / ½ÅÇùÀºÇà-0048 / ¿ìÃ¼±¹-0071 / KEBÇÏ³ªÀºÇà-0081 / ½ÅÇÑÀºÇà-0088 /¾¾Æ¼ÀºÇà-0027
+
+    ' ê¸°ê´€ì½”ë“œ
+    ' ì‚°ì—…ì€í–‰-0002 / ê¸°ì—…ì€í–‰-0003 / êµ­ë¯¼ì€í–‰-0004 /ìˆ˜í˜‘ì€í–‰-0007 / ë†í˜‘ì€í–‰-0011 / ìš°ë¦¬ì€í–‰-0020
+    ' SCì€í–‰-0023 / ëŒ€êµ¬ì€í–‰-0031 / ë¶€ì‚°ì€í–‰-0032 / ê´‘ì£¼ì€í–‰-0034 / ì œì£¼ì€í–‰-0035 / ì „ë¶ì€í–‰-0037
+    ' ê²½ë‚¨ì€í–‰-0039 / ìƒˆë§ˆì„ê¸ˆê³ -0045 / ì‹ í˜‘ì€í–‰-0048 / ìš°ì²´êµ­-0071 / KEBí•˜ë‚˜ì€í–‰-0081 / ì‹ í•œì€í–‰-0088 /ì”¨í‹°ì€í–‰-0027
     infoObj.BankCode = ""
 
-    ' °èÁÂ¹øÈ£ ÇÏÀÌÇÂ('-') Á¦¿Ü
+    ' ê³„ì¢Œë²ˆí˜¸ í•˜ì´í”ˆ('-') ì œì™¸
     infoObj.AccountNumber = ""
 
-    ' °èÁÂºñ¹Ğ¹øÈ£
+    ' ê³„ì¢Œë¹„ë°€ë²ˆí˜¸
     infoObj.AccountPWD = ""
 
-    ' °èÁÂ º°Äª
+    ' ê³„ì¢Œ ë³„ì¹­
     infoObj.AccountName = ""
 
-    ' ÀÎÅÍ³İ¹ğÅ· ¾ÆÀÌµğ (±¹¹ÎÀºÇà ÇÊ¼ö)
+    ' ì¸í„°ë„·ë±…í‚¹ ì•„ì´ë”” (êµ­ë¯¼ì€í–‰ í•„ìˆ˜)
     infoObj.BankID = ""
 
-    ' Á¶È¸Àü¿ë °èÁ¤ ¾ÆÀÌµğ (´ë±¸ÀºÇà, ½ÅÇù, ½ÅÇÑÀºÇà ÇÊ¼ö)
+    ' ì¡°íšŒì „ìš© ê³„ì • ì•„ì´ë”” (ëŒ€êµ¬ì€í–‰, ì‹ í˜‘, ì‹ í•œì€í–‰ í•„ìˆ˜)
     infoObj.FastID = ""
 
-    ' Á¶È¸Àü¿ë °èÁ¤ ºñ¹Ğ¹øÈ£ (´ë±¸ÀºÇà, ½ÅÇù, ½ÅÇÑÀºÇà ÇÊ¼ö
+    ' ì¡°íšŒì „ìš© ê³„ì • ë¹„ë°€ë²ˆí˜¸ (ëŒ€êµ¬ì€í–‰, ì‹ í˜‘, ì‹ í•œì€í–‰ í•„ìˆ˜
     infoObj.FastPWD = ""
 
-    ' ¸Ş¸ğ
+    ' ë©”ëª¨
     infoObj.Memo = ""
 
     On Error Resume Next
         Set Presponse = m_EasyFinBankService.UpdateBankAccount(CorpNum, infoObj, UserID)
-        
+
         If Err.Number <> 0 Then
             code = Err.Number
             message = Err.Description
@@ -66,7 +66,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>°èÁÂÁ¤º¸ ¼öÁ¤</legend>
+                <legend>ê³„ì¢Œì •ë³´ ìˆ˜ì •</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

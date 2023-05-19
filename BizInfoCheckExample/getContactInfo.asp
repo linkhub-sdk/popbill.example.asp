@@ -1,29 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¬µ¿È¸¿ø »ç¾÷ÀÚ¹øÈ£¿¡ µî·ÏµÈ ´ã´çÀÚ(ÆËºô ·Î±×ÀÎ °èÁ¤) Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' ì—°ë™íšŒì› ì‚¬ì—…ìë²ˆí˜¸ì— ë“±ë¡ëœ ë‹´ë‹¹ì(íŒë¹Œ ë¡œê·¸ì¸ ê³„ì •) ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/bizinfocheck/asp/api/member#GetContactInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' È®ÀÎÇÒ ´ã´çÀÚ ¾ÆÀÌµğ
+    ' í™•ì¸í•  ë‹´ë‹¹ì ì•„ì´ë””
     contactID = "testID"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
 
     On Error Resume Next
 
     Set conInfo = m_BizInfoCheckService.GetContactInfo(testCorpNum, contactID ,userID)
-    
+
     If Err.Number <> 0 then
         code = Err.Number
         message =  Err.Description
@@ -37,23 +37,23 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>´ã´çÀÚ Á¤º¸ È®ÀÎ</legend>
+                <legend>ë‹´ë‹¹ì ì •ë³´ í™•ì¸</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li> id(¾ÆÀÌµğ) : <%=conInfo.id%></li>
-                        <li> personName(´ã´çÀÚ ¼º¸í) : <%=conInfo.personName%></li>
-                        <li> email(´ã´çÀÚ ÀÌ¸ŞÀÏ) : <%=conInfo.email%></li>
-                        <li> tel(´ã´çÀÚ ¿¬¶ôÃ³) : <%=conInfo.tel%></li>
-                        <li> regDT(µî·ÏÀÏ½Ã) : <%=conInfo.regDT%></li>
-                        <li> SearchRole(´ã´çÀÚ Á¶È¸±ÇÇÑ) : <%=conInfo.SearchRole%></li>
-                        <li> mgrYN(°ü¸®ÀÚ ¿©ºÎ) : <%=conInfo.mgrYN%></li>
-                        <li> state(»óÅÂ) : <%=conInfo.state%></li>
+                        <li> id(ì•„ì´ë””) : <%=conInfo.id%></li>
+                        <li> personName(ë‹´ë‹¹ì ì„±ëª…) : <%=conInfo.personName%></li>
+                        <li> email(ë‹´ë‹¹ì ì´ë©”ì¼) : <%=conInfo.email%></li>
+                        <li> tel(ë‹´ë‹¹ì ì—°ë½ì²˜) : <%=conInfo.tel%></li>
+                        <li> regDT(ë“±ë¡ì¼ì‹œ) : <%=conInfo.regDT%></li>
+                        <li> SearchRole(ë‹´ë‹¹ì ì¡°íšŒê¶Œí•œ) : <%=conInfo.SearchRole%></li>
+                        <li> mgrYN(ê´€ë¦¬ì ì—¬ë¶€) : <%=conInfo.mgrYN%></li>
+                        <li> state(ìƒíƒœ) : <%=conInfo.state%></li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

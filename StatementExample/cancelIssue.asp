@@ -1,31 +1,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¹ß½ÅÀÚ°¡ ¹ßÇàÇÑ ÀüÀÚ¸í¼¼¼­¸¦ ¹ßÇàÃë¼ÒÇÕ´Ï´Ù.
-    ' - "¹ßÇàÃë¼Ò" »óÅÂÀÇ ÀüÀÚ¸í¼¼¼­¸¦ »èÁ¦(Delete API) ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¸é, ÀüÀÚ¸í¼¼¼­ °ü¸®¸¦ À§ÇØ ºÎ¿©Çß´ø ¹®¼­¹øÈ£¸¦ Àç»ç¿ë ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' ë°œì‹ ìê°€ ë°œí–‰í•œ ì „ìëª…ì„¸ì„œë¥¼ ë°œí–‰ì·¨ì†Œí•©ë‹ˆë‹¤.
+    ' - "ë°œí–‰ì·¨ì†Œ" ìƒíƒœì˜ ì „ìëª…ì„¸ì„œë¥¼ ì‚­ì œ(Delete API) í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ë©´, ì „ìëª…ì„¸ì„œ ê´€ë¦¬ë¥¼ ìœ„í•´ ë¶€ì—¬í–ˆë˜ ë¬¸ì„œë²ˆí˜¸ë¥¼ ì¬ì‚¬ìš© í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/statement/asp/api/issue#Cancel
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-"ì œì™¸ 10ìë¦¬
     testCorpNum = "1234567890"
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
+    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
     itemCode = "121"
 
-    ' ¹®¼­°ü¸®¹øÈ£
+    ' ë¬¸ì„œê´€ë¦¬ë²ˆí˜¸
     mgtKey = "20220720-ASP-001"
 
-    ' ¸Ş¸ğ
-    memo = "ÀüÀÚ¸í¼¼¼­ ¹ßÇàÃë¼Ò"
+    ' ë©”ëª¨
+    memo = "ì „ìëª…ì„¸ì„œ ë°œí–‰ì·¨ì†Œ"
 
     On Error Resume Next
 
@@ -48,7 +48,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÀüÀÚ¸í¼¼¼­ ¹ßÇàÃë¼Ò</legend>
+                <legend>ì „ìëª…ì„¸ì„œ ë°œí–‰ì·¨ì†Œ</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

@@ -1,24 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Á¢¼ö½Ã ±âÀçÇÑ SubmitID¸¦ »ç¿ëÇÏ¿© ¼¼±İ°è»ê¼­ Á¢¼ö°á°ú¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - °³º° ¼¼±İ°è»ê¼­ Ã³¸®»óÅÂ´Â Á¢¼ö»óÅÂ(txState)°¡ ¿Ï·á(2) ½Ã ¹İÈ¯µË´Ï´Ù.
+    ' ì ‘ìˆ˜ì‹œ ê¸°ì¬í•œ SubmitIDë¥¼ ì‚¬ìš©í•˜ì—¬ ì„¸ê¸ˆê³„ì‚°ì„œ ì ‘ìˆ˜ê²°ê³¼ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' - ê°œë³„ ì„¸ê¸ˆê³„ì‚°ì„œ ì²˜ë¦¬ìƒíƒœëŠ” ì ‘ìˆ˜ìƒíƒœ(txState)ê°€ ì™„ë£Œ(2) ì‹œ ë°˜í™˜ë©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#GetBulkResult
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
 
-    ' Á¦Ãâ¾ÆÀÌµğ, ÃÖ´ë 36ÀÚ¸® (¿µ¹®, ¼ıÀÚ, "-" Á¶ÇÕ)
+    ' ì œì¶œì•„ì´ë””, ìµœëŒ€ 36ìë¦¬ (ì˜ë¬¸, ìˆ«ì, "-" ì¡°í•©)
     SubmitID = "20220720-ASP-BULK001"
 
-    ' ÆËºôÈ¸¿ø¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì›ì•„ì´ë””
     UserID = "testkorea"
 
     On Error Resume Next
@@ -29,56 +29,56 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    End If	
+    End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÃÊ´ë·® Á¢¼ö °á°ú È®ÀÎ</legend>
-                <% 
-                    If code = 0 Then 
+                <legend>ì´ˆëŒ€ëŸ‰ ì ‘ìˆ˜ ê²°ê³¼ í™•ì¸</legend>
+                <%
+                    If code = 0 Then
                 %>
                     <ul>
-                        <li> code (ÀÀ´äÄÚµå) :  <%=result.code%> </li>
-                        <li> message (ÀÀ´ä¸Ş½ÃÁö) :  <%=result.message%> </li>
-                        <li> submitID (Á¦Ãâ¾ÆÀÌµğ) :  <%=result.submitID%> </li>
-                        <li> submitCount (¼¼±İ°è»ê¼­ Á¢¼ö °Ç¼ö) :  <%=result.submitCount%> </li>
-                        <li> successCount (¼¼±İ°è»ê¼­ ¹ßÇà ¼º°ø °Ç¼ö) : <%=result.successCount%></li> 
-                        <li> failCount (¼¼±İ°è»ê¼­ ¹ßÇà ½ÇÆĞ °Ç¼ö) :  <%=result.failCount %> </li>
-                        <li> txState (Á¢¼ö»óÅÂÄÚµå) :  <%=result.txState%> </li>
-                        <li> txResultCode (Á¢¼ö °á°úÄÚµå) :  <%=result.txResultCode%> </li>
-                        <li> txStartDT (¹ßÇàÃ³¸® ½ÃÀÛÀÏ½Ã) :  <%=result.txStartDT%> </li>
-                        <li> txEndDT (¹ßÇàÃ³¸® ¿Ï·áÀÏ½Ã	) :  <%=result.txEndDT%> </li>
-                        <li> receiptDT (Á¢¼öÀÏ½Ã) :  <%=result.receiptDT%> </li>
-                        <li> receiptID (Á¢¼ö¾ÆÀÌµğ) :  <%=result.receiptID%> </li>
+                        <li> code (ì‘ë‹µì½”ë“œ) :  <%=result.code%> </li>
+                        <li> message (ì‘ë‹µë©”ì‹œì§€) :  <%=result.message%> </li>
+                        <li> submitID (ì œì¶œì•„ì´ë””) :  <%=result.submitID%> </li>
+                        <li> submitCount (ì„¸ê¸ˆê³„ì‚°ì„œ ì ‘ìˆ˜ ê±´ìˆ˜) :  <%=result.submitCount%> </li>
+                        <li> successCount (ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ ì„±ê³µ ê±´ìˆ˜) : <%=result.successCount%></li>
+                        <li> failCount (ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ ì‹¤íŒ¨ ê±´ìˆ˜) :  <%=result.failCount %> </li>
+                        <li> txState (ì ‘ìˆ˜ìƒíƒœì½”ë“œ) :  <%=result.txState%> </li>
+                        <li> txResultCode (ì ‘ìˆ˜ ê²°ê³¼ì½”ë“œ) :  <%=result.txResultCode%> </li>
+                        <li> txStartDT (ë°œí–‰ì²˜ë¦¬ ì‹œì‘ì¼ì‹œ) :  <%=result.txStartDT%> </li>
+                        <li> txEndDT (ë°œí–‰ì²˜ë¦¬ ì™„ë£Œì¼ì‹œ	) :  <%=result.txEndDT%> </li>
+                        <li> receiptDT (ì ‘ìˆ˜ì¼ì‹œ) :  <%=result.receiptDT%> </li>
+                        <li> receiptID (ì ‘ìˆ˜ì•„ì´ë””) :  <%=result.receiptID%> </li>
                     </ul>
                     <%   Dim i
                         For i=0 To UBound(result.issueResult) -1
-                     %>	
-                     <fieldset class="fieldset2">					
-                        <legend>  issueResult (¹ßÇà °á°ú) [ <%=i+1%> / <%=UBound(result.issueResult)%> ]</legend>
+                     %>
+                     <fieldset class="fieldset2">
+                        <legend>  issueResult (ë°œí–‰ ê²°ê³¼) [ <%=i+1%> / <%=UBound(result.issueResult)%> ]</legend>
                         <ul>
-                            <li> invoicerMgtKey (°ø±ŞÀÚ ¹®¼­¹øÈ£) : <%=result.issueResult(i).invoicerMgtKey %>
-                            <li> trusteeMgtKey (¼öÅ¹ÀÚ ¹®¼­¹øÈ£	) : <%=result.issueResult(i).trusteeMgtKey %>
-                            <li> code (ÀÀ´äÄÚµå) : <%=result.issueResult(i).code %>
-                            <li> message (ÀÀ´ä¸Ş½ÃÁö) : <%=result.issueResult(i).message %>
-                            <li> ntsconfirmNum (±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%=result.issueResult(i).ntsconfirmNum %>
-                            <li> issueDT (¹ßÇàÀÏ½Ã) : <%=result.issueResult(i).issueDT %>
+                            <li> invoicerMgtKey (ê³µê¸‰ì ë¬¸ì„œë²ˆí˜¸) : <%=result.issueResult(i).invoicerMgtKey %>
+                            <li> trusteeMgtKey (ìˆ˜íƒì ë¬¸ì„œë²ˆí˜¸	) : <%=result.issueResult(i).trusteeMgtKey %>
+                            <li> code (ì‘ë‹µì½”ë“œ) : <%=result.issueResult(i).code %>
+                            <li> message (ì‘ë‹µë©”ì‹œì§€) : <%=result.issueResult(i).message %>
+                            <li> ntsconfirmNum (êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸) : <%=result.issueResult(i).ntsconfirmNum %>
+                            <li> issueDT (ë°œí–‰ì¼ì‹œ) : <%=result.issueResult(i).issueDT %>
                         </ul>
                     </fieldset>
                      <% Next %>
-                    <%	
+                    <%
                         Else
                     %>
                         <ul>
                             <li>Response.code: <%=code%> </li>
                             <li>Response.message: <%=message%> </li>
-                        </ul>	
-                    <%	
+                        </ul>
+                    <%
                         End If
                     %>
             </fieldset>

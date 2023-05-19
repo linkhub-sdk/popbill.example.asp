@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô ÀÎÁõ¼­¹ö¿¡ µî·ÏµÈ ÀÎÁõ¼­ÀÇ À¯È¿¼ºÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' íŒë¹Œ ì¸ì¦ì„œë²„ì— ë“±ë¡ëœ ì¸ì¦ì„œì˜ ìœ íš¨ì„±ì„ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/cert#CheckCertValidation
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
-    
+
     On Error Resume Next
 
     Set Presponse = m_TaxinvoiceService.checkCertValidation(testCorpNum, userID)
@@ -37,7 +37,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>°øÀÎÀÎÁõ¼­ À¯È¿¼º È®ÀÎ</legend>
+                <legend>ê³µì¸ì¸ì¦ì„œ ìœ íš¨ì„± í™•ì¸</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

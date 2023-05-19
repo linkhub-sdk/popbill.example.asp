@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼¼±İ°è»ê¼­ 1°ÇÀÇ »óÅÂ ¹× ¿ä¾àÁ¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - ¸®ÅÏ°ª 'TaxinvoiceInfo'ÀÇ º¯¼ö 'stateCode'¸¦ ÅëÇØ ¼¼±İ°è»ê¼­ÀÇ »óÅÂÄÚµå¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - ¼¼±İ°è»ê¼­ »óÅÂÄÚµå [https://developers.popbill.com/reference/taxinvoice/asp/response-code#state-code]
+    ' ì„¸ê¸ˆê³„ì‚°ì„œ 1ê±´ì˜ ìƒíƒœ ë° ìš”ì•½ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' - ë¦¬í„´ê°’ 'TaxinvoiceInfo'ì˜ ë³€ìˆ˜ 'stateCode'ë¥¼ í†µí•´ ì„¸ê¸ˆê³„ì‚°ì„œì˜ ìƒíƒœì½”ë“œë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' - ì„¸ê¸ˆê³„ì‚°ì„œ ìƒíƒœì½”ë“œ [https://developers.popbill.com/reference/taxinvoice/asp/response-code#state-code]
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/info#GetInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
 
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
     KeyType= "SELL"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ë¬¸ì„œë²ˆí˜¸
     MgtKey = "20220720-ASP-001"
 
-    ' ÆËºôÈ¸¿ø¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì›ì•„ì´ë””
     UserID = "testkorea"
 
     On Error Resume Next
@@ -33,63 +33,63 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    End If	
+    End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±İ°è»ê¼­ »óÅÂ/¿ä¾à Á¤º¸ È®ÀÎ </legend>
-                <% 
-                    If code = 0 Then 
+                <legend>ì„¸ê¸ˆê³„ì‚°ì„œ ìƒíƒœ/ìš”ì•½ ì •ë³´ í™•ì¸ </legend>
+                <%
+                    If code = 0 Then
                 %>
                     <ul>
-                        <li> itemKey (¼¼±İ°è»ê¼­ ¾ÆÀÌÅÛÅ°) :  <%=result.itemKey%> </li>
-                        <li> taxType (°ú¼¼ÇüÅÂ) :  <%=result.taxType%> </li>
-                        <li> writeDate (ÀÛ¼ºÀÏÀÚ) :  <%=result.writeDate%> </li>
-                        <li> regDT (ÀÓ½ÃÀúÀå ÀÏÀÚ) :  <%=result.regDT%> </li>
-                        <li> issueType (¹ßÇàÇüÅÂ) :  <%=result.issueType %> </li>
-                        <li> supplyCostTotal (°ø±Ş°¡¾× ÇÕ°è) :  <%=result.supplyCostTotal%> </li>
-                        <li> taxTotal (¼¼¾× ÇÕ°è) :  <%=result.taxTotal%> </li>
-                        <li> purposeType (¿µ¼ö/Ã»±¸) :  <%=result.purposeType%> </li>
-                        <li> issueDT (¹ßÇàÀÏ½Ã) :  <%=result.issueDT%> </li>
-                        <li> lateIssueYN (Áö¿¬¹ßÇà ¿©ºÎ) :  <%=result.lateIssueYN%> </li>
-                        <li> preIssueDT (¹ßÇà¿¹Á¤ÀÏ½Ã) :  <%=result.preIssueDT%> </li>
-                        <li> openYN (°³ºÀ ¿©ºÎ) :  <%=result.openYN%> </li>
-                        <li> openDT (°³ºÀÀÏ½Ã) :  <%=result.openDT%> </li>
-                        <li> stateMemo (»óÅÂ¸Ş¸ğ) :  <%=result.stateMemo%> </li>
-                        <li> stateCode (»óÅÂÄÚµå) :  <%=result.stateCode%> </li>
-                        <li> stateDT (»óÅÂ º¯°æÀÏ½Ã) :  <%=result.stateDT%> </li>
-                        <li> ntsconfirmNum (±¹¼¼Ã» ½ÂÀÎ¹øÈ£) :  <%=result.ntsconfirmNum %> </li>
-                        <li> ntsresult (±¹¼¼Ã» Àü¼Û°á°ú) :  <%=result.ntsresult%> </li>
-                        <li> ntssendDT (±¹¼¼Ã» Àü¼ÛÀÏ½Ã) :  <%=result.ntssendDT%> </li>
-                        <li> ntsresultDT  (±¹¼¼Ã» °á°ú ¼ö½ÅÀÏ½Ã) :  <%=result.ntsresultDT%> </li>
-                        <li> ntssendErrCode (Àü¼Û½ÇÆĞ »çÀ¯ÄÚµå) :  <%=result.ntssendErrCode%> </li>
-                        <li> modifyCode (¼öÁ¤»çÀ¯ÄÚµå) : <%=result.modifyCode%></li> 
-                        <li> interOPYN (¿¬µ¿¹®¼­¿©ºÎ) :  <%=result.interOPYN%> </li>
-                        <li> invoicerCorpName (°ø±ŞÀÚ »óÈ£) :  <%=result.invoicerCorpName%> </li>
-                        <li> invoicerCorpNum (°ø±ŞÀÚ »ç¾÷ÀÚ¹øÈ£) :  <%=result.invoicerCorpNum%> </li>
-                        <li> invoicerMgtKey (°ø±ŞÀÚ ¹®¼­¹øÈ£) :  <%=result.invoicerMgtKey%> </li>
-                        <li> invoicerPrintYN (°ø±ŞÀÚ ÀÎ¼â¿©ºÎ) :  <%=result.invoicerPrintYN%> </li>
-                        <li> invoiceeCorpName (°ø±Ş¹Ş´ÂÀÚ »óÈ£) :  <%=result.invoiceeCorpName%> </li>
-                        <li> invoiceeCorpNum (°ø±Ş¹Ş´ÂÀÚ »ç¾÷ÀÚ¹øÈ£) :  <%=result.invoiceeCorpNum%> </li>
-                        <li> invoiceeMgtKey (°ø±Ş¹Ş´ÂÀÚ ¹®¼­¹øÈ£) :  <%=result.invoiceeMgtKey%> </li>
-                        <li> invoiceePrintYN (°ø±Ş¹Ş´ÂÀÚ ÀÎ¼â¿©ºÎ) :  <%=result.invoiceePrintYN%> </li>
-                        <li> closeDownState (°ø±Ş¹Ş´ÂÀÚ ÈŞÆó¾÷»óÅÂ) :  <%=result.closeDownState%> </li>
-                        <li> closeDownStateDate (°ø±Ş¹Ş´ÂÀÚ ÈŞÆó¾÷ÀÏÀÚ) :  <%=result.closeDownStateDate%> </li>
-                        
-                    </ul>	
-                    <%	
+                        <li> itemKey (ì„¸ê¸ˆê³„ì‚°ì„œ ì•„ì´í…œí‚¤) :  <%=result.itemKey%> </li>
+                        <li> taxType (ê³¼ì„¸í˜•íƒœ) :  <%=result.taxType%> </li>
+                        <li> writeDate (ì‘ì„±ì¼ì) :  <%=result.writeDate%> </li>
+                        <li> regDT (ì„ì‹œì €ì¥ ì¼ì) :  <%=result.regDT%> </li>
+                        <li> issueType (ë°œí–‰í˜•íƒœ) :  <%=result.issueType %> </li>
+                        <li> supplyCostTotal (ê³µê¸‰ê°€ì•¡ í•©ê³„) :  <%=result.supplyCostTotal%> </li>
+                        <li> taxTotal (ì„¸ì•¡ í•©ê³„) :  <%=result.taxTotal%> </li>
+                        <li> purposeType (ì˜ìˆ˜/ì²­êµ¬) :  <%=result.purposeType%> </li>
+                        <li> issueDT (ë°œí–‰ì¼ì‹œ) :  <%=result.issueDT%> </li>
+                        <li> lateIssueYN (ì§€ì—°ë°œí–‰ ì—¬ë¶€) :  <%=result.lateIssueYN%> </li>
+                        <li> preIssueDT (ë°œí–‰ì˜ˆì •ì¼ì‹œ) :  <%=result.preIssueDT%> </li>
+                        <li> openYN (ê°œë´‰ ì—¬ë¶€) :  <%=result.openYN%> </li>
+                        <li> openDT (ê°œë´‰ì¼ì‹œ) :  <%=result.openDT%> </li>
+                        <li> stateMemo (ìƒíƒœë©”ëª¨) :  <%=result.stateMemo%> </li>
+                        <li> stateCode (ìƒíƒœì½”ë“œ) :  <%=result.stateCode%> </li>
+                        <li> stateDT (ìƒíƒœ ë³€ê²½ì¼ì‹œ) :  <%=result.stateDT%> </li>
+                        <li> ntsconfirmNum (êµ­ì„¸ì²­ ìŠ¹ì¸ë²ˆí˜¸) :  <%=result.ntsconfirmNum %> </li>
+                        <li> ntsresult (êµ­ì„¸ì²­ ì „ì†¡ê²°ê³¼) :  <%=result.ntsresult%> </li>
+                        <li> ntssendDT (êµ­ì„¸ì²­ ì „ì†¡ì¼ì‹œ) :  <%=result.ntssendDT%> </li>
+                        <li> ntsresultDT  (êµ­ì„¸ì²­ ê²°ê³¼ ìˆ˜ì‹ ì¼ì‹œ) :  <%=result.ntsresultDT%> </li>
+                        <li> ntssendErrCode (ì „ì†¡ì‹¤íŒ¨ ì‚¬ìœ ì½”ë“œ) :  <%=result.ntssendErrCode%> </li>
+                        <li> modifyCode (ìˆ˜ì •ì‚¬ìœ ì½”ë“œ) : <%=result.modifyCode%></li>
+                        <li> interOPYN (ì—°ë™ë¬¸ì„œì—¬ë¶€) :  <%=result.interOPYN%> </li>
+                        <li> invoicerCorpName (ê³µê¸‰ì ìƒí˜¸) :  <%=result.invoicerCorpName%> </li>
+                        <li> invoicerCorpNum (ê³µê¸‰ì ì‚¬ì—…ìë²ˆí˜¸) :  <%=result.invoicerCorpNum%> </li>
+                        <li> invoicerMgtKey (ê³µê¸‰ì ë¬¸ì„œë²ˆí˜¸) :  <%=result.invoicerMgtKey%> </li>
+                        <li> invoicerPrintYN (ê³µê¸‰ì ì¸ì‡„ì—¬ë¶€) :  <%=result.invoicerPrintYN%> </li>
+                        <li> invoiceeCorpName (ê³µê¸‰ë°›ëŠ”ì ìƒí˜¸) :  <%=result.invoiceeCorpName%> </li>
+                        <li> invoiceeCorpNum (ê³µê¸‰ë°›ëŠ”ì ì‚¬ì—…ìë²ˆí˜¸) :  <%=result.invoiceeCorpNum%> </li>
+                        <li> invoiceeMgtKey (ê³µê¸‰ë°›ëŠ”ì ë¬¸ì„œë²ˆí˜¸) :  <%=result.invoiceeMgtKey%> </li>
+                        <li> invoiceePrintYN (ê³µê¸‰ë°›ëŠ”ì ì¸ì‡„ì—¬ë¶€) :  <%=result.invoiceePrintYN%> </li>
+                        <li> closeDownState (ê³µê¸‰ë°›ëŠ”ì íœ´íì—…ìƒíƒœ) :  <%=result.closeDownState%> </li>
+                        <li> closeDownStateDate (ê³µê¸‰ë°›ëŠ”ì íœ´íì—…ì¼ì) :  <%=result.closeDownStateDate%> </li>
+
+                    </ul>
+                    <%
                         Else
                     %>
                         <ul>
                             <li>Response.code: <%=code%> </li>
                             <li>Response.message: <%=message%> </li>
-                        </ul>	
-                    <%	
+                        </ul>
+                    <%
                         End If
                     %>
             </fieldset>

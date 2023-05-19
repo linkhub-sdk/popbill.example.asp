@@ -1,119 +1,119 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÃÖ´ë 100°ÇÀÇ Çö±İ¿µ¼öÁõ ¹ßÇàÀ» ÇÑ¹øÀÇ ¿äÃ»À¸·Î Á¢¼öÇÕ´Ï´Ù.
+    ' ìµœëŒ€ 100ê±´ì˜ í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œí–‰ì„ í•œë²ˆì˜ ìš”ì²­ìœ¼ë¡œ ì ‘ìˆ˜í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/issue#BulkSubmit
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
+
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
     testCorpNum = "1234567890"
 
-    ' Á¦Ãâ¾ÆÀÌµğ, ÃÖ´ë 36ÀÚ¸® (¿µ¹®, ¼ıÀÚ, "-" Á¶ÇÕ)
+    ' ì œì¶œì•„ì´ë””, ìµœëŒ€ 36ìë¦¬ (ì˜ë¬¸, ìˆ«ì, "-" ì¡°í•©)
     SubmitID = "20220720-ASP-BULK001"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
-    
-    Dim cashbillList(99)  
+
+    Dim cashbillList(99)
     for i = 0 to 99
-        ' Çö±İ¿µ¼öÁõ Á¤º¸ °´Ã¼ »ı¼º
+        ' í˜„ê¸ˆì˜ìˆ˜ì¦ ì •ë³´ ê°ì²´ ìƒì„±
         Set CashbillObj = New Cashbill
 
         CashbillObj.mgtKey = SubmitID + CStr(i)
 
-        ' ¹®¼­ÇüÅÂ, [½ÂÀÎ°Å·¡, Ãë¼Ò°Å·¡] Áß ±âÀç
-        CashbillObj.tradeType = "½ÂÀÎ°Å·¡"
+        ' ë¬¸ì„œí˜•íƒœ, [ìŠ¹ì¸ê±°ë˜, ì·¨ì†Œê±°ë˜] ì¤‘ ê¸°ì¬
+        CashbillObj.tradeType = "ìŠ¹ì¸ê±°ë˜"
 
-        ' [Ãë¼Ò°Å·¡½Ã ÇÊ¼ö] ¿øº» Çö±İ¿µ¼öÁõ ±¹¼¼Ã»½ÂÀÎ¹øÈ£
+        ' [ì·¨ì†Œê±°ë˜ì‹œ í•„ìˆ˜] ì›ë³¸ í˜„ê¸ˆì˜ìˆ˜ì¦ êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸
         CashbillObj.orgConfirmNum = ""
 
-        ' [Ãë¼Ò°Å·¡½Ã ÇÊ¼ö] ¿øº» Çö±İ¿µ¼öÁõ °Å·¡ÀÏÀÚ
+        ' [ì·¨ì†Œê±°ë˜ì‹œ í•„ìˆ˜] ì›ë³¸ í˜„ê¸ˆì˜ìˆ˜ì¦ ê±°ë˜ì¼ì
         CashbillObj.orgTradeDate = ""
 
-        ' °Å·¡±¸ºĞ, [¼Òµæ°øÁ¦¿ë, ÁöÃâÁõºù¿ë] Áß ±âÀç
-        CashbillObj.tradeUsage = "¼Òµæ°øÁ¦¿ë"
+        ' ê±°ë˜êµ¬ë¶„, [ì†Œë“ê³µì œìš©, ì§€ì¶œì¦ë¹™ìš©] ì¤‘ ê¸°ì¬
+        CashbillObj.tradeUsage = "ì†Œë“ê³µì œìš©"
 
-        ' °Å·¡À¯Çü, [ÀÏ¹İ, µµ¼­°ø¿¬, ´ëÁß±³Åë] Áß ±âÀç
-        ' ¹ÌÀÔ·Â½Ã ±âº»°ª 'ÀÏ¹İ' Ã³¸®
-        CashbillObj.tradeOpt = "ÀÏ¹İ"
+        ' ê±°ë˜ìœ í˜•, [ì¼ë°˜, ë„ì„œê³µì—°, ëŒ€ì¤‘êµí†µ] ì¤‘ ê¸°ì¬
+        ' ë¯¸ì…ë ¥ì‹œ ê¸°ë³¸ê°’ 'ì¼ë°˜' ì²˜ë¦¬
+        CashbillObj.tradeOpt = "ì¼ë°˜"
 
-        ' °ú¼¼ÇüÅÂ, [°ú¼¼, ºñ°ú¼¼] Áß ±âÀç
-        CashbillObj.taxationType = "°ú¼¼"
+        ' ê³¼ì„¸í˜•íƒœ, [ê³¼ì„¸, ë¹„ê³¼ì„¸] ì¤‘ ê¸°ì¬
+        CashbillObj.taxationType = "ê³¼ì„¸"
 
-        ' °ø±Ş°¡¾×
+        ' ê³µê¸‰ê°€ì•¡
         CashbillObj.supplyCost = "10000"
 
-        ' ºÎ°¡¼¼
+        ' ë¶€ê°€ì„¸
         CashbillObj.tax = "1000"
 
-        ' ºÀ»ç·á
+        ' ë´‰ì‚¬ë£Œ
         CashbillObj.serviceFee = "0"
 
-        ' ÇÕ°è±İ¾×, °ø±Ş°¡¾× + ºÀ»ç·á + ¼¼¾×
+        ' í•©ê³„ê¸ˆì•¡, ê³µê¸‰ê°€ì•¡ + ë´‰ì‚¬ë£Œ + ì„¸ì•¡
         CashbillObj.totalAmount = "11000"
 
-        ' °¡¸ÍÁ¡ »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
+        ' ê°€ë§¹ì  ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸ 10ìë¦¬
         CashbillObj.franchiseCorpNum = testCorpNum
 
-        ' °¡¸ÍÁ¡ Á¾»ç¾÷Àå ½Äº°¹øÈ£
+        ' ê°€ë§¹ì  ì¢…ì‚¬ì—…ì¥ ì‹ë³„ë²ˆí˜¸
         CashbillObj.franchiseTaxRegID = ""
 
-        ' °¡¸ÍÁ¡ »óÈ£
-        CashbillObj.franchiseCorpName = "°¡¸ÍÁ¡ »óÈ£"
+        ' ê°€ë§¹ì  ìƒí˜¸
+        CashbillObj.franchiseCorpName = "ê°€ë§¹ì  ìƒí˜¸"
 
-        ' °¡¸ÍÁ¡ ´ëÇ¥ÀÚ ¼º¸í
-        CashbillObj.franchiseCEOName = "°¡¸ÍÁ¡ ´ëÇ¥ÀÚ"
+        ' ê°€ë§¹ì  ëŒ€í‘œì ì„±ëª…
+        CashbillObj.franchiseCEOName = "ê°€ë§¹ì  ëŒ€í‘œì"
 
-        ' °¡¸ÍÁ¡ ÁÖ¼Ò
-        CashbillObj.franchiseAddr = "°¡¸ÍÁ¡ ÁÖ¼Ò"
+        ' ê°€ë§¹ì  ì£¼ì†Œ
+        CashbillObj.franchiseAddr = "ê°€ë§¹ì  ì£¼ì†Œ"
 
-        ' °¡¸ÍÁ¡ ÀüÈ­¹øÈ£
+        ' ê°€ë§¹ì  ì „í™”ë²ˆí˜¸
         CashbillObj.franchiseTEL = "070-1234-1234"
 
-        ' ½Äº°¹øÈ£, °Å·¡±¸ºĞ¿¡ µû¶ó ÀÛ¼º
-        ' ¦¦ ¼Òµæ°øÁ¦¿ë - ÁÖ¹Îµî·Ï/ÈŞ´ëÆù/Ä«µå¹øÈ£(Çö±İ¿µ¼öÁõ Ä«µå)/ÀÚÁø¹ß±Ş¿ë ¹øÈ£(010-000-1234) ±âÀç°¡´É
-        ' ¦¦ ÁöÃâÁõºù¿ë - »ç¾÷ÀÚ¹øÈ£/ÁÖ¹Îµî·Ï/ÈŞ´ëÆù/Ä«µå¹øÈ£(Çö±İ¿µ¼öÁõ Ä«µå) ±âÀç°¡´É
-        ' ¦¦ ÁÖ¹Îµî·Ï¹øÈ£ 13ÀÚ¸®, ÈŞ´ëÆù¹øÈ£ 10~11ÀÚ¸®, Ä«µå¹øÈ£ 13~19ÀÚ¸®, »ç¾÷ÀÚ¹øÈ£ 10ÀÚ¸® ÀÔ·Â °¡´É
+        ' ì‹ë³„ë²ˆí˜¸, ê±°ë˜êµ¬ë¶„ì— ë”°ë¼ ì‘ì„±
+        ' â”” ì†Œë“ê³µì œìš© - ì£¼ë¯¼ë“±ë¡/íœ´ëŒ€í°/ì¹´ë“œë²ˆí˜¸(í˜„ê¸ˆì˜ìˆ˜ì¦ ì¹´ë“œ)/ìì§„ë°œê¸‰ìš© ë²ˆí˜¸(010-000-1234) ê¸°ì¬ê°€ëŠ¥
+        ' â”” ì§€ì¶œì¦ë¹™ìš© - ì‚¬ì—…ìë²ˆí˜¸/ì£¼ë¯¼ë“±ë¡/íœ´ëŒ€í°/ì¹´ë“œë²ˆí˜¸(í˜„ê¸ˆì˜ìˆ˜ì¦ ì¹´ë“œ) ê¸°ì¬ê°€ëŠ¥
+        ' â”” ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ 13ìë¦¬, íœ´ëŒ€í°ë²ˆí˜¸ 10~11ìë¦¬, ì¹´ë“œë²ˆí˜¸ 13~19ìë¦¬, ì‚¬ì—…ìë²ˆí˜¸ 10ìë¦¬ ì…ë ¥ ê°€ëŠ¥
         CashbillObj.identityNum = "0100001234"
 
-        ' ÁÖ¹®°í°´¸í
-        CashbillObj.customerName = "°í°´¸í"
+        ' ì£¼ë¬¸ê³ ê°ëª…
+        CashbillObj.customerName = "ê³ ê°ëª…"
 
-        ' ÁÖ¹®»óÇ°¸í
-        CashbillObj.itemName = "»óÇ°¸í"
+        ' ì£¼ë¬¸ìƒí’ˆëª…
+        CashbillObj.itemName = "ìƒí’ˆëª…"
 
-        ' ÁÖ¹®¹øÈ£
-        CashbillObj.orderNumber = "ÁÖ¹®¹øÈ£"
+        ' ì£¼ë¬¸ë²ˆí˜¸
+        CashbillObj.orderNumber = "ì£¼ë¬¸ë²ˆí˜¸"
 
-        ' ÀÌ¸ŞÀÏ
-        ' ÆËºô °³¹ßÈ¯°æ¿¡¼­ Å×½ºÆ®ÇÏ´Â °æ¿ì¿¡µµ ¾È³» ¸ŞÀÏÀÌ Àü¼ÛµÇ¹Ç·Î,
-        ' ½ÇÁ¦ °Å·¡Ã³ÀÇ ¸ŞÀÏÁÖ¼Ò°¡ ±âÀçµÇÁö ¾Êµµ·Ï ÁÖÀÇ
+        ' ì´ë©”ì¼
+        ' íŒë¹Œ ê°œë°œí™˜ê²½ì—ì„œ í…ŒìŠ¤íŠ¸í•˜ëŠ” ê²½ìš°ì—ë„ ì•ˆë‚´ ë©”ì¼ì´ ì „ì†¡ë˜ë¯€ë¡œ,
+        ' ì‹¤ì œ ê±°ë˜ì²˜ì˜ ë©”ì¼ì£¼ì†Œê°€ ê¸°ì¬ë˜ì§€ ì•Šë„ë¡ ì£¼ì˜
         CashbillObj.email = ""
 
-        ' ÈŞ´ëÆù
+        ' íœ´ëŒ€í°
         CashbillObj.hp = ""
 
-        ' ¹ßÇà¾È³»¹®ÀÚ Àü¼Û¿©ºÎ
-        ' ¾È³»¹®ÀÚ Àü¼Û½Ã Æ÷ÀÎÆ®°¡ Â÷°¨µÇ¸ç, Àü¼Û½ÇÆĞ½Ã È¯ºÒÃ³¸®µË´Ï´Ù.
+        ' ë°œí–‰ì•ˆë‚´ë¬¸ì ì „ì†¡ì—¬ë¶€
+        ' ì•ˆë‚´ë¬¸ì ì „ì†¡ì‹œ í¬ì¸íŠ¸ê°€ ì°¨ê°ë˜ë©°, ì „ì†¡ì‹¤íŒ¨ì‹œ í™˜ë¶ˆì²˜ë¦¬ë©ë‹ˆë‹¤.
         CashbillObj.smssendYN = False
 
-        ' °Å·¡ÀÏ½Ã, ³¯Â¥(yyyyMMddHHmmss)
-        ' ´çÀÏ, ÀüÀÏ¸¸ °¡´É, ¹ÌÀÔ·Â½Ã ±âº»°ª ¹ßÇàÀÏ½Ã Ã³¸®
+        ' ê±°ë˜ì¼ì‹œ, ë‚ ì§œ(yyyyMMddHHmmss)
+        ' ë‹¹ì¼, ì „ì¼ë§Œ ê°€ëŠ¥, ë¯¸ì…ë ¥ì‹œ ê¸°ë³¸ê°’ ë°œí–‰ì¼ì‹œ ì²˜ë¦¬
         CashbillObj.tradeDT = "20221108000000"
-        
+
         Set cashbillList(i) =  CashbillObj
     Next
 
     On Error Resume Next
-    
+
     Set Presponse = m_CashbillService.BulkSubmit(testCorpNum, SubmitID, cashbillList, userID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -132,12 +132,12 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Çö±İ¿µ¼öÁõ ÃÊ´ë·® Á¢¼ö</legend>
+                <legend>í˜„ê¸ˆì˜ìˆ˜ì¦ ì´ˆëŒ€ëŸ‰ ì ‘ìˆ˜</legend>
                 <ul>
-                    <li>ÀÀ´äÄÚµå (Response.code) : <%=code%> </li>
-                    <li>ÀÀ´ä¸Ş½ÃÁö (Response.message) : <%=message%> </li>
+                    <li>ì‘ë‹µì½”ë“œ (Response.code) : <%=code%> </li>
+                    <li>ì‘ë‹µë©”ì‹œì§€ (Response.message) : <%=message%> </li>
                     <% If receiptID <> "" Then %>
-                    <li>Á¢¼ö¾ÆÀÌµğ (Response.receiptID) : <%=receiptID%> </li>
+                    <li>ì ‘ìˆ˜ì•„ì´ë”” (Response.receiptID) : <%=receiptID%> </li>
                     <% End If %>
                 </ul>
             </fieldset>

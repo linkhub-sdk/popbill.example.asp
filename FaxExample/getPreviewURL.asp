@@ -1,26 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆÑ½º ¹Ì¸®º¸±â ÆË¾÷ URLÀ» ¹ÝÈ¯ÇÏ¸ç, ÆÑ½ºÀü¼ÛÀ» À§ÇÑ TIF Æ÷¸Ë º¯È¯ ¿Ï·á ÈÄ È£Ãâ ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-    ' - ¹ÝÈ¯µÇ´Â URLÀº º¸¾È Á¤Ã¥»ó 30ÃÊ µ¿¾È À¯È¿ÇÏ¸ç, ½Ã°£À» ÃÊ°úÇÑ ÈÄ¿¡´Â ÇØ´ç URLÀ» ÅëÇÑ ÆäÀÌÁö Á¢±ÙÀÌ ºÒ°¡ÇÕ´Ï´Ù.
+    ' íŒ©ìŠ¤ ë¯¸ë¦¬ë³´ê¸° íŒì—… URLì„ ë°˜í™˜í•˜ë©°, íŒ©ìŠ¤ì „ì†¡ì„ ìœ„í•œ TIF í¬ë§· ë³€í™˜ ì™„ë£Œ í›„ í˜¸ì¶œ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+    ' - ë°˜í™˜ë˜ëŠ” URLì€ ë³´ì•ˆ ì •ì±…ìƒ 30ì´ˆ ë™ì•ˆ ìœ íš¨í•˜ë©°, ì‹œê°„ì„ ì´ˆê³¼í•œ í›„ì—ëŠ” í•´ë‹¹ URLì„ í†µí•œ íŽ˜ì´ì§€ ì ‘ê·¼ì´ ë¶ˆê°€í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/fax/asp/api/info#GetPreviewURL
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
 
-    ' ÆÑ½º Àü¼Û½Ã ¹ß±Þ¹ÞÀº Á¢¼ö¹øÈ£(receiptNum)
-    receiptNum = "018092811205600001" 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' íŒ©ìŠ¤ ì „ì†¡ì‹œ ë°œê¸‰ë°›ì€ ì ‘ìˆ˜ë²ˆí˜¸(receiptNum)
+    receiptNum = "018092811205600001"
+
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
-    
+
     On Error Resume Next
 
     url = m_FaxService.GetPreviewURL(testCorpNum, receiptNum, userID)
@@ -38,7 +38,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÆÑ½º ¹Ì¸®º¸±â ÆË¾÷ URL</legend>
+                <legend>íŒ©ìŠ¤ ë¯¸ë¦¬ë³´ê¸° íŒì—… URL</legend>
                 <ul>
                     <% If code = 0 Then %>
                         <li>URL : <%=url%> </li>

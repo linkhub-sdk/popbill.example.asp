@@ -1,25 +1,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¹®ÀÚ ¹ß½Å¹øÈ£ µî·Ï¿©ºÎ¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - ¹ß½Å¹øÈ£ »óÅÂ°¡ '½ÂÀÎ'ÀÎ °æ¿ì¿¡¸¸ ¸®ÅÏ°ª 'Response'ÀÇ º¯¼ö 'code'°¡ 1·Î ¹İÈ¯µË´Ï´Ù.
+    ' ë¬¸ì ë°œì‹ ë²ˆí˜¸ ë“±ë¡ì—¬ë¶€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' - ë°œì‹ ë²ˆí˜¸ ìƒíƒœê°€ 'ìŠ¹ì¸'ì¸ ê²½ìš°ì—ë§Œ ë¦¬í„´ê°’ 'Response'ì˜ ë³€ìˆ˜ 'code'ê°€ 1ë¡œ ë°˜í™˜ë©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/sms/asp/api/sendnum#CheckSenderNumber
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"			   
 
-    ' È®ÀÎÇÒ ¹ß½Å¹øÈ£
-    SenderNumber = ""  
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
+
+    ' í™•ì¸í•  ë°œì‹ ë²ˆí˜¸
+    SenderNumber = ""
 
     On Error Resume Next
 
@@ -41,11 +41,11 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¹ß½Å¹øÈ£ µî·Ï¿©ºÎ È®ÀÎ</legend>
+                <legend>ë°œì‹ ë²ˆí˜¸ ë“±ë¡ì—¬ë¶€ í™•ì¸</legend>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
             </fieldset>
          </div>
     </body>

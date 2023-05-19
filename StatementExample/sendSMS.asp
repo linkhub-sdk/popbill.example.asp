@@ -1,38 +1,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÀüÀÚ¸í¼¼¼­¿Í °ü·ÃµÈ ¾È³» SMS(´Ü¹®) ¹®ÀÚ¸¦ ÀçÀü¼ÛÇÏ´Â ÇÔ¼ö·Î, ÆËºô »çÀÌÆ® [¹®ÀÚ¡¤ÆÑ½º] > [¹®ÀÚ] > [Àü¼Û³»¿ª] ¸Þ´º¿¡¼­ Àü¼Û°á°ú¸¦ È®ÀÎ ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-    ' - ¸Þ½ÃÁö´Â ÃÖ´ë 90byte±îÁö ÀÔ·Â °¡´ÉÇÏ°í, ÃÊ°úÇÑ ³»¿ëÀº ÀÚµ¿À¸·Î »èÁ¦µÇ¾î Àü¼ÛÇÕ´Ï´Ù. (ÇÑ±Û ÃÖ´ë 45ÀÚ)
-    ' - ÇÔ¼ö È£Ãâ½Ã Æ÷ÀÎÆ®°¡ °ú±ÝµË´Ï´Ù.
+    ' ì „ìžëª…ì„¸ì„œì™€ ê´€ë ¨ëœ ì•ˆë‚´ SMS(ë‹¨ë¬¸) ë¬¸ìžë¥¼ ìž¬ì „ì†¡í•˜ëŠ” í•¨ìˆ˜ë¡œ, íŒë¹Œ ì‚¬ì´íŠ¸ [ë¬¸ìžÂ·íŒ©ìŠ¤] > [ë¬¸ìž] > [ì „ì†¡ë‚´ì—­] ë©”ë‰´ì—ì„œ ì „ì†¡ê²°ê³¼ë¥¼ í™•ì¸ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+    ' - ë©”ì‹œì§€ëŠ” ìµœëŒ€ 90byteê¹Œì§€ ìž…ë ¥ ê°€ëŠ¥í•˜ê³ , ì´ˆê³¼í•œ ë‚´ìš©ì€ ìžë™ìœ¼ë¡œ ì‚­ì œë˜ì–´ ì „ì†¡í•©ë‹ˆë‹¤. (í•œê¸€ ìµœëŒ€ 45ìž)
+    ' - í•¨ìˆ˜ í˜¸ì¶œì‹œ í¬ì¸íŠ¸ê°€ ê³¼ê¸ˆë©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/statement/asp/api/etc#SendSMS
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
+
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-"ì œì™¸ 10ìžë¦¬
     testCorpNum = "1234567890"
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±ÝÇ¥), 126(¿µ¼öÁõ)
+    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ëž˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ìž…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
     itemCode = "121"
 
-    ' ¹®¼­¹øÈ£
+    ' ë¬¸ì„œë²ˆí˜¸
     mgtKey = "20220720-ASP-001"
 
-    ' ¹ß½Å¹øÈ£
+    ' ë°œì‹ ë²ˆí˜¸
     sender = ""
 
-    ' ¼ö½Å¹øÈ£
+    ' ìˆ˜ì‹ ë²ˆí˜¸
     receiver = ""
 
-    ' ¸Þ½ÃÁö ³»¿ë, 90byteÃÊ°ú½Ã ±æÀÌ°¡ Á¶Á¤µÇ¾î Àü¼ÛµÊ
-    contents = "ÀüÀÚ¸í¼¼¼­ ¾Ë¸²¹®ÀÚÀü¼Û Å×½ºÆ®ÀÔ´Ï´Ù."
+    ' ë©”ì‹œì§€ ë‚´ìš©, 90byteì´ˆê³¼ì‹œ ê¸¸ì´ê°€ ì¡°ì •ë˜ì–´ ì „ì†¡ë¨
+    contents = "ì „ìžëª…ì„¸ì„œ ì•Œë¦¼ë¬¸ìžì „ì†¡ í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤."
 
     On Error Resume Next
 
@@ -54,7 +54,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¾Ë¸²¸ÞÀÏ ÀçÀü¼Û</legend>
+                <legend>ì•Œë¦¼ë©”ì¼ ìž¬ì „ì†¡</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

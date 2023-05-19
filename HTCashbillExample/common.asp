@@ -1,43 +1,43 @@
-<!--#include virtual="/Popbill/Popbill.asp"--> 
+<!--#include virtual="/Popbill/Popbill.asp"-->
 <!--#include virtual="/Popbill/HTCashbillService.asp"-->
 <%
 
     '**************************************************************'
-    ' ÆËºô È¨ÅÃ½º Çö±Ý¿µ¼öÁõ ¿¬µ¿ API ASP SDK Example
+    ' íŒë¹Œ í™ˆíƒìŠ¤ í˜„ê¸ˆì˜ìˆ˜ì¦ ì—°ë™ API ASP SDK Example
     '
-    ' ASP SDK ¿¬µ¿È¯°æ ¼³Á¤¹æ¹ý ¾È³» : https://developers.popbill.com/guide/httaxinvoice/asp/getting-started/environment-set-up
-    ' - ¾÷µ¥ÀÌÆ® ÀÏÀÚ : 2022-07-20
-    ' - ¿¬µ¿ ±â¼úÁö¿ø ¿¬¶ôÃ³ : 1600-9854
-    ' - ¿¬µ¿ ±â¼úÁö¿ø ÀÌ¸ÞÀÏ : code@linkhubcorp.com
+    ' ASP SDK ì—°ë™í™˜ê²½ ì„¤ì •ë°©ë²• ì•ˆë‚´ : https://developers.popbill.com/guide/httaxinvoice/asp/getting-started/environment-set-up
+    ' - ì—…ë°ì´íŠ¸ ì¼ìž : 2023-05-18
+    ' - ì—°ë™ ê¸°ìˆ ì§€ì› ì—°ë½ì²˜ : 1600-9854
+    ' - ì—°ë™ ê¸°ìˆ ì§€ì› ì´ë©”ì¼ : code@linkhubcorp.com
     '
-    ' <Å×½ºÆ® ¿¬µ¿°³¹ß ÁØºñ»çÇ×>
-    ' 1) 23, 26¹ø ¶óÀÎ¿¡ ¼±¾ðµÈ ¸µÅ©¾ÆÀÌµð(LinkID)¿Í ºñ¹ÐÅ°(SecretKey)¸¦
-    '    ¸µÅ©Çãºê °¡ÀÔ½Ã ¸ÞÀÏ·Î ¹ß±Þ¹ÞÀº ÀÎÁõÁ¤º¸¸¦ ÂüÁ¶ÇÏ¿© º¯°æÇÕ´Ï´Ù.
-    ' 2) È¨ÅÃ½º ÀÎÁõ Ã³¸®¸¦ ÇÕ´Ï´Ù. (ºÎ¼­»ç¿ëÀÚµî·Ï / °øÀÎÀÎÁõ¼­ µî·Ï)
-    '     - ÆËºô·Î±×ÀÎ > [È¨ÅÃ½º¿¬µ¿] > [È¯°æ¼³Á¤] > [ÀÎÁõ °ü¸®] ¸Þ´º
-    '     - È¨ÅÃ½º¿¬µ¿ ÀÎÁõ °ü¸® ÆË¾÷ URL(GetCertificatePopUpURL API) ¹ÝÈ¯µÈ URLÀ» ÀÌ¿ëÇÏ¿©
-    '       È¨ÅÃ½º ÀÎÁõ Ã³¸®¸¦ ÇÕ´Ï´Ù.
+    ' <í…ŒìŠ¤íŠ¸ ì—°ë™ê°œë°œ ì¤€ë¹„ì‚¬í•­>
+    ' 1) 23, 26ë²ˆ ë¼ì¸ì— ì„ ì–¸ëœ ë§í¬ì•„ì´ë””(LinkID)ì™€ ë¹„ë°€í‚¤(SecretKey)ë¥¼
+    '    ë§í¬í—ˆë¸Œ ê°€ìž…ì‹œ ë©”ì¼ë¡œ ë°œê¸‰ë°›ì€ ì¸ì¦ì •ë³´ë¥¼ ì°¸ì¡°í•˜ì—¬ ë³€ê²½í•©ë‹ˆë‹¤.
+    ' 2) í™ˆíƒìŠ¤ ì¸ì¦ ì²˜ë¦¬ë¥¼ í•©ë‹ˆë‹¤. (ë¶€ì„œì‚¬ìš©ìžë“±ë¡ / ê³µì¸ì¸ì¦ì„œ ë“±ë¡)
+    '     - íŒë¹Œë¡œê·¸ì¸ > [í™ˆíƒìŠ¤ì—°ë™] > [í™˜ê²½ì„¤ì •] > [ì¸ì¦ ê´€ë¦¬] ë©”ë‰´
+    '     - í™ˆíƒìŠ¤ì—°ë™ ì¸ì¦ ê´€ë¦¬ íŒì—… URL(GetCertificatePopUpURL API) ë°˜í™˜ëœ URLì„ ì´ìš©í•˜ì—¬
+    '       í™ˆíƒìŠ¤ ì¸ì¦ ì²˜ë¦¬ë¥¼ í•©ë‹ˆë‹¤.
     '**************************************************************
 
-    '¸µÅ©¾ÆÀÌµð 
+    'ë§í¬ì•„ì´ë””
     LinkID = "TESTER"
 
-    'ºñ¹ÐÅ°
+    'ë¹„ë°€í‚¤
     SecretKey ="SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I="
 
     set m_HTCashbillService = new HTCashbillService
 
     m_HTCashbillService.Initialize LinkID, SecretKey
 
-    ' ¿¬µ¿È¯°æ ¼³Á¤°ª, True-°³¹ß¿ë, false-»ó¾÷¿ë
+    ' ì—°ë™í™˜ê²½ ì„¤ì •ê°’, True-ê°œë°œìš©, false-ìƒì—…ìš©
     m_HTCashbillService.IsTest = True
 
-    ' ÀÎÁõÅäÅ« ¹ß±Þ IP Á¦ÇÑ On/Off, True-»ç¿ë, false-¹Ì»ç¿ë, ±âº»°ª(True)
+    ' ì¸ì¦í† í° ë°œê¸‰ IP ì œí•œ On/Off, True-ì‚¬ìš©, false-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(True)
     m_HTCashbillService.IPRestrictOnOff = True
-    
-    ' ÆËºô API ¼­ºñ½º °íÁ¤ IP »ç¿ë¿©ºÎ, True-»ç¿ë, false-¹Ì»ç¿ë, ±âº»°ª(false)
+
+    ' íŒë¹Œ API ì„œë¹„ìŠ¤ ê³ ì • IP ì‚¬ìš©ì—¬ë¶€, True-ì‚¬ìš©, false-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(false)
     m_HTCashbillService.UseStaticIP = False
-    
-    ' ·ÎÄÃ½Ã½ºÅÛ ½Ã°£ »ç¿ë¿©ºÎ Ture-»ç¿ë, False-¹Ì»ç¿ë, ±âº»°ª(True)
+
+    ' ë¡œì»¬ì‹œìŠ¤í…œ ì‹œê°„ ì‚¬ìš©ì—¬ë¶€ Ture-ì‚¬ìš©, False-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(True)
     m_HTCashbillService.UseLocalTimeYN = True
 %>

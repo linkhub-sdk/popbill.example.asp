@@ -1,24 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆÄÆ®³Ê°¡ ÀüÀÚ¸í¼¼¼­ °ü¸® ¸ñÀûÀ¸·Î ÇÒ´çÇÏ´Â ¹®¼­¹øÈ£ÀÇ »ç¿ë¿©ºÎ¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - ÀÌ¹Ì »ç¿ë ÁßÀÎ ¹®¼­¹øÈ£´Â Áßº¹ »ç¿ëÀÌ ºÒ°¡ÇÏ°í, ÀüÀÚ¸í¼¼¼­°¡ »èÁ¦µÈ °æ¿ì¿¡¸¸ ¹®¼­¹øÈ£ÀÇ Àç»ç¿ëÀÌ °¡´ÉÇÕ´Ï´Ù.
+    ' íŒŒíŠ¸ë„ˆê°€ ì „ìëª…ì„¸ì„œ ê´€ë¦¬ ëª©ì ìœ¼ë¡œ í• ë‹¹í•˜ëŠ” ë¬¸ì„œë²ˆí˜¸ì˜ ì‚¬ìš©ì—¬ë¶€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' - ì´ë¯¸ ì‚¬ìš© ì¤‘ì¸ ë¬¸ì„œë²ˆí˜¸ëŠ” ì¤‘ë³µ ì‚¬ìš©ì´ ë¶ˆê°€í•˜ê³ , ì „ìëª…ì„¸ì„œê°€ ì‚­ì œëœ ê²½ìš°ì—ë§Œ ë¬¸ì„œë²ˆí˜¸ì˜ ì¬ì‚¬ìš©ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/statement/asp/api/info#CheckMgtKeyInUse
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸ 10ìë¦¬
     testCorpNum = "1234567890"
 
-    ' ¹®¼­¹øÈ£
+    ' ë¬¸ì„œë²ˆí˜¸
     mgtKey = "20220720-ASP-001"
 
-    ' ¸í¼¼¼­ ±¸ºĞÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
+    ' ëª…ì„¸ì„œ êµ¬ë¶„ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
     itemCode = "121"
 
     On Error Resume Next
@@ -28,24 +28,24 @@
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
-    Else	
+    Else
         If result = True Then
             code = 1
-            message = "»ç¿ëÁß"
+            message = "ì‚¬ìš©ì¤‘"
         Else
-            code = 0 
-            message = "¹Ì»ç¿ëÁß"
+            code = 0
+            message = "ë¯¸ì‚¬ìš©ì¤‘"
         End If
-    End If 
+    End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¹®¼­¹øÈ£ »ç¿ë¿©ºÎ È®ÀÎ</legend>
+                <legend>ë¬¸ì„œë²ˆí˜¸ ì‚¬ìš©ì—¬ë¶€ í™•ì¸</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

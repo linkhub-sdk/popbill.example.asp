@@ -1,55 +1,55 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    '  ÃÖ´ë 90byteÀÇ ´Ü¹®(SMS) ¸Ş½ÃÁö 1°Ç Àü¼ÛÀ» ÆËºô¿¡ Á¢¼öÇÕ´Ï´Ù.
+    '  ìµœëŒ€ 90byteì˜ ë‹¨ë¬¸(SMS) ë©”ì‹œì§€ 1ê±´ ì „ì†¡ì„ íŒë¹Œì— ì ‘ìˆ˜í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/sms/asp/api/send#SendSMS
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"					
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
 
-    ' ±¤°í¼º ¸Ş½ÃÁö ¿©ºÎ ( true , false Áß ÅÃ 1)
-    ' ¦¦ true = ±¤°í , false = ÀÏ¹İ
-    adsYN = False							
+    ' ê´‘ê³ ì„± ë©”ì‹œì§€ ì—¬ë¶€ ( true , false ì¤‘ íƒ 1)
+    ' â”” true = ê´‘ê³  , false = ì¼ë°˜
+    adsYN = False
 
-    ' ¿¹¾àÀü¼Û½Ã°£ yyyyMMddHHmmss, reserveDT°ªÀÌ ¾ø´Â °æ¿ì Áï½ÃÀü¼Û
+    ' ì˜ˆì•½ì „ì†¡ì‹œê°„ yyyyMMddHHmmss, reserveDTê°’ì´ ì—†ëŠ” ê²½ìš° ì¦‰ì‹œì „ì†¡
     reserveDT = ""
 
     Set msgList = CreateObject("Scripting.Dictionary")
 
-    ' ¸Ş½ÃÁö Àü¼ÛÁ¤º¸
+    ' ë©”ì‹œì§€ ì „ì†¡ì •ë³´
     Set message = New Messages
 
-    ' ¹ß½ÅÀÚ¹øÈ£
+    ' ë°œì‹ ìë²ˆí˜¸
     message.sender = ""
 
-    ' ¹ß½ÅÀÚ¸í
-    message.senderName = "¹ß½ÅÀÚ¸í"		
-    
-    ' ¼ö½ÅÀÚ¹øÈ£
-    message.receiver = ""			
+    ' ë°œì‹ ìëª…
+    message.senderName = "ë°œì‹ ìëª…"
 
-    ' ¼ö½ÅÀÚ¸í
-    message.receivername = " ¼ö½ÅÀÚÀÌ¸§"		
+    ' ìˆ˜ì‹ ìë²ˆí˜¸
+    message.receiver = ""
 
-    ' ¸Ş½ÃÁö ³»¿ë, 90byte ÃÊ°úÇÏ´Â °æ¿ì ±æÀÌ°¡ Á¶Á¤µÇ¾î Àü¼ÛµÊ
-    message.content = "ÆËºô ¸Ş½ÃÁö API Å×½ºÆ®Áß" 
+    ' ìˆ˜ì‹ ìëª…
+    message.receivername = " ìˆ˜ì‹ ìì´ë¦„"
+
+    ' ë©”ì‹œì§€ ë‚´ìš©, 90byte ì´ˆê³¼í•˜ëŠ” ê²½ìš° ê¸¸ì´ê°€ ì¡°ì •ë˜ì–´ ì „ì†¡ë¨
+    message.content = "íŒë¹Œ ë©”ì‹œì§€ API í…ŒìŠ¤íŠ¸ì¤‘"
 
     msgList.Add 0, message
-    
-    ' Àü¼Û¿äÃ»¹øÈ£
-    ' ÆËºôÀÌ Á¢¼ö ´ÜÀ§¸¦ ½Äº°ÇÒ ¼ö ÀÖµµ·Ï ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ ½Äº°¹øÈ£.
-    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ıÀÚ, ÇÏÀÌÇÂ(-), ¾ğ´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
-    requestNum = ""		
+
+    ' ì „ì†¡ìš”ì²­ë²ˆí˜¸
+    ' íŒë¹Œì´ ì ‘ìˆ˜ ë‹¨ìœ„ë¥¼ ì‹ë³„í•  ìˆ˜ ìˆë„ë¡ íŒŒíŠ¸ë„ˆê°€ í• ë‹¹í•œ ì‹ë³„ë²ˆí˜¸.
+    ' 1~36ìë¦¬ë¡œ êµ¬ì„±. ì˜ë¬¸, ìˆ«ì, í•˜ì´í”ˆ(-), ì–¸ë”ë°”(_)ë¥¼ ì¡°í•©í•˜ì—¬ íŒë¹Œ íšŒì›ë³„ë¡œ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ í• ë‹¹.
+    requestNum = ""
 
     On Error Resume Next
 
@@ -68,16 +68,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>´Ü¹® ¹®ÀÚ¸Ş½ÃÁö 1°Ç Àü¼Û </legend>
+                <legend>ë‹¨ë¬¸ ë¬¸ìë©”ì‹œì§€ 1ê±´ ì „ì†¡ </legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(Á¢¼ö¹øÈ£) : <%=receiptNum%> </li>
+                        <li>ReceiptNum(ì ‘ìˆ˜ë²ˆí˜¸) : <%=receiptNum%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

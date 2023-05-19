@@ -1,32 +1,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÇÑ °ÇÀÇ °Å·¡ ³»¿ª¿¡ ¸Ş¸ğ¸¦ ÀúÀåÇÕ´Ï´Ù.
+    ' í•œ ê±´ì˜ ê±°ë˜ ë‚´ì—­ì— ë©”ëª¨ë¥¼ ì €ì¥í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/search#SaveMemo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
     CorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     UserID = "testkorea"
 
-    ' °Å·¡³»¿ª ¾ÆÀÌµğ, Search API ¹İÈ¯Ç×¸ñ Áß TID
+    ' ê±°ë˜ë‚´ì—­ ì•„ì´ë””, Search API ë°˜í™˜í•­ëª© ì¤‘ TID
     TID = "01912181100000000120191231000001"
 
-    ' ¸Ş¸ğ 
-    Memo = "asp ¸Ş¸ğ Å×½ºÆ®"
+    ' ë©”ëª¨
+    Memo = "asp ë©”ëª¨ í…ŒìŠ¤íŠ¸"
 
     On Error Resume Next
 
     Set Presponse = m_EasyFinBankService.SaveMemo(CorpNum, TID, Memo, UserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -45,7 +45,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>°Å·¡³»¿ª ¸Ş¸ğ ÀúÀå</legend>
+                <legend>ê±°ë˜ë‚´ì—­ ë©”ëª¨ ì €ì¥</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

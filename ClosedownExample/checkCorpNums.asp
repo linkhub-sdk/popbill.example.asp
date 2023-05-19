@@ -1,29 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="../Example.css" media="screen" />
-        <title>ÈÞÆó¾÷Á¶È¸ API SDK ASP Example.</title>
+        <title>íœ´íì—…ì¡°íšŒ API SDK ASP Example.</title>
     </head>
-    <!--#include file="common.asp"--> 
+    <!--#include file="common.asp"-->
     <%
         '**************************************************************
-        ' ´Ù¼ö°ÇÀÇ »ç¾÷ÀÚ¹øÈ£¿¡ ´ëÇÑ ÈÞÆó¾÷Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù. (ÃÖ´ë 1,000°Ç)
+        ' ë‹¤ìˆ˜ê±´ì˜ ì‚¬ì—…ìžë²ˆí˜¸ì— ëŒ€í•œ íœ´íì—…ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤. (ìµœëŒ€ 1,000ê±´)
         ' - https://developers.popbill.com/reference/closedown/asp/api/check#CheckCorpNums
         '**************************************************************
 
-        ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
-        UserCorpNum = "1234567890"		
+        ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸
+        UserCorpNum = "1234567890"
 
-        ' Á¶È¸ÇÒ »ç¾÷ÀÚ¹øÈ£ ¹è¿­, ÃÖ´ë 1000°Ç
+        ' ì¡°íšŒí•  ì‚¬ì—…ìžë²ˆí˜¸ ë°°ì—´, ìµœëŒ€ 1000ê±´
         Dim CorpNumList(3)
         CorpNumList(0) = "1234567890"
         CorpNumList(1) = "6798700433"
         CorpNumList(2) = "110-04-45791"
-                        
+
         On Error Resume Next
 
         Set result = m_ClosedownService.checkCorpNums(UserCorpnum, CorpNumList)
-        
+
         If Err.Number <> 0 Then
             code = Err.Number
             message = Err.Description
@@ -37,34 +37,34 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÈÞÆó¾÷Á¶È¸ - ´ë·®</legend>
+                <legend>íœ´íì—…ì¡°íšŒ - ëŒ€ëŸ‰</legend>
                 <br/>
-                <p class="info">> state (ÈÞÆó¾÷»óÅÂ) : null-¾Ë¼ö¾øÀ½, 0-µî·ÏµÇÁö ¾ÊÀº »ç¾÷ÀÚ¹øÈ£, 1-»ç¾÷Áß, 2-Æó¾÷, 3-ÈÞ¾÷</p>
-                <p class="info">> taxType (»ç¾÷ À¯Çü) : null-¾Ë¼ö¾øÀ½, 10-ÀÏ¹Ý°ú¼¼ÀÚ, 20-¸é¼¼°ú¼¼ÀÚ, 30-°£ÀÌ°ú¼¼ÀÚ, 31-°£ÀÌ°ú¼¼ÀÚ(¼¼±Ý°è»ê¼­ ¹ß±Þ»ç¾÷ÀÚ), 40-ºñ¿µ¸®¹ýÀÎ, ±¹°¡±â°ü</p>
+                <p class="info">> state (íœ´íì—…ìƒíƒœ) : null-ì•Œìˆ˜ì—†ìŒ, 0-ë“±ë¡ë˜ì§€ ì•Šì€ ì‚¬ì—…ìžë²ˆí˜¸, 1-ì‚¬ì—…ì¤‘, 2-íì—…, 3-íœ´ì—…</p>
+                <p class="info">> taxType (ì‚¬ì—… ìœ í˜•) : null-ì•Œìˆ˜ì—†ìŒ, 10-ì¼ë°˜ê³¼ì„¸ìž, 20-ë©´ì„¸ê³¼ì„¸ìž, 30-ê°„ì´ê³¼ì„¸ìž, 31-ê°„ì´ê³¼ì„¸ìž(ì„¸ê¸ˆê³„ì‚°ì„œ ë°œê¸‰ì‚¬ì—…ìž), 40-ë¹„ì˜ë¦¬ë²•ì¸, êµ­ê°€ê¸°ê´€</p>
 
                 <br/>
             <%
-                If Not IsEmpty(result) Then  
+                If Not IsEmpty(result) Then
                     For i=0 To result.Count-1
             %>
                     <fieldset class="fieldset2">
-                        <legend>ÈÞÆó¾÷Á¤º¸ [<%=i+1 %>]</legend>
+                        <legend>íœ´íì—…ì •ë³´ [<%=i+1 %>]</legend>
                         <ul>
-                                <li>»ç¾÷ÀÚ¹øÈ£ (corpNum) : <%= result.Item(i).corpNum%></li>		
-                                <li>ÈÞÆó¾÷»óÅÂ (state) : <%= result.Item(i).state%></li>
-                                <li>»ç¾÷ÀÚÀ¯Çü (taxType) : <%= result.Item(i).taxType%></li>	
-                                <li>ÈÞÆó¾÷ÀÏÀÚ (stateDate) : <%= result.Item(i).stateDate%></li>	
-                                <li>°ú¼¼À¯Çü ÀüÈ¯ÀÏÀÚ (typeDate) : <%= result.Item(i).typeDate%></li>	
-                                <li>±¹¼¼Ã» È®ÀÎÀÏÀÚ (checkDate) : <%= result.Item(i).checkDate%></li>	
+                                <li>ì‚¬ì—…ìžë²ˆí˜¸ (corpNum) : <%= result.Item(i).corpNum%></li>
+                                <li>íœ´íì—…ìƒíƒœ (state) : <%= result.Item(i).state%></li>
+                                <li>ì‚¬ì—…ìžìœ í˜• (taxType) : <%= result.Item(i).taxType%></li>
+                                <li>íœ´íì—…ì¼ìž (stateDate) : <%= result.Item(i).stateDate%></li>
+                                <li>ê³¼ì„¸ìœ í˜• ì „í™˜ì¼ìž (typeDate) : <%= result.Item(i).typeDate%></li>
+                                <li>êµ­ì„¸ì²­ í™•ì¸ì¼ìž (checkDate) : <%= result.Item(i).checkDate%></li>
                         </ul>
                     </fieldset>
             <%
                     Next
-                End If 
+                End If
                 If Not IsEmpty(code) then
             %>
                 <fieldset class="fieldset2">
-                    <legend>ÈÞÆó¾÷Á¶È¸ - ´Ü°Ç</legend>
+                    <legend>íœ´íì—…ì¡°íšŒ - ë‹¨ê±´</legend>
                     <ul>
                         <li>Response.code : <%= code %> </li>
                         <li>Response.message : <%= message %></li>
@@ -72,7 +72,7 @@
                 </fieldset>
             <%
                 End If
-            %>		
+            %>
 
             </fieldset>
 
@@ -80,10 +80,10 @@
              window.onload=function(){
                  document.getElementById('CorpNum').focus();
              }
-             
+
              function search(){
                 document.getElementById('corpnum_form').submit();
-             }		 
+             }
          </script>
     </body>
 </html>

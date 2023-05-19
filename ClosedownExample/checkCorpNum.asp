@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="../Example.css" media="screen" />
-        <title>ÈŞÆó¾÷Á¶È¸ API SDK ASP Example.</title>
+        <title>íœ´íì—…ì¡°íšŒ API SDK ASP Example.</title>
     </head>
-    <!--#include file="common.asp"--> 
+    <!--#include file="common.asp"-->
     <%
         '**************************************************************
-        ' »ç¾÷ÀÚ¹øÈ£ 1°Ç¿¡ ´ëÇÑ ÈŞÆó¾÷Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
+        ' ì‚¬ì—…ìë²ˆí˜¸ 1ê±´ì— ëŒ€í•œ íœ´íì—…ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
         ' - https://developers.popbill.com/reference/closedown/asp/api/check#CheckCorpNum
         '**************************************************************
-    
-        ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
-        UserCorpNum = "1234567890"							
 
-        ' Á¶È¸ÇÒ »ç¾÷ÀÚ¹øÈ£
-        CorpNum = request.QueryString("CorpNum")		
-        
+        ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+        UserCorpNum = "1234567890"
+
+        ' ì¡°íšŒí•  ì‚¬ì—…ìë²ˆí˜¸
+        CorpNum = request.QueryString("CorpNum")
+
         If CorpNum <> "" Then
 
             On Error Resume Next
-            
+
             Set result = m_ClosedownService.checkCorpNum(UserCorpNum, CorpNum)
-        
+
             If Err.Number <> 0 Then
                 code = Err.Number
                 message = Err.Description
@@ -37,48 +37,48 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÈŞÆó¾÷Á¶È¸ - ´Ü°Ç</legend>
+                <legend>íœ´íì—…ì¡°íšŒ - ë‹¨ê±´</legend>
                     <div class ="fieldset4">
                     <form method= "GET" id="corpnum_form" action="checkCorpNum.asp">
                         <%
                             If IsEmpty(result) then
                         %>
-                                <input class= "txtCorpNum left" type="text" placeholder="»ç¾÷ÀÚ¹øÈ£ ±âÀç" id="CorpNum" name="CorpNum"  tabindex=1/>
+                                <input class= "txtCorpNum left" type="text" placeholder="ì‚¬ì—…ìë²ˆí˜¸ ê¸°ì¬" id="CorpNum" name="CorpNum"  tabindex=1/>
                         <%
-                            Else 
+                            Else
                         %>
-                                <input class= "txtCorpNum left" type="text" placeholder="»ç¾÷ÀÚ¹øÈ£ ±âÀç" id="CorpNum" name="CorpNum"  value="<%=result.corpNum%>" tabindex=1/>
+                                <input class= "txtCorpNum left" type="text" placeholder="ì‚¬ì—…ìë²ˆí˜¸ ê¸°ì¬" id="CorpNum" name="CorpNum"  value="<%=result.corpNum%>" tabindex=1/>
                         <%
-                            End if	
+                            End if
                         %>
 
-                        <p class="find_btn find_btn01 hand" onclick="search()" tabindex=2>Á¶È¸</p>
+                        <p class="find_btn find_btn01 hand" onclick="search()" tabindex=2>ì¡°íšŒ</p>
                     </form>
                     </div>
             </fieldset>
             <%
-                If Not IsEmpty(result) Then  
+                If Not IsEmpty(result) Then
             %>
                 <fieldset class="fieldset2">
-                    <legend>ÈŞÆó¾÷Á¶È¸ - ´Ü°Ç</legend>
+                    <legend>íœ´íì—…ì¡°íšŒ - ë‹¨ê±´</legend>
                     <br/>
-                    <p class="info">> state (ÈŞÆó¾÷»óÅÂ) : null-¾Ë¼ö¾øÀ½, 0-µî·ÏµÇÁö ¾ÊÀº »ç¾÷ÀÚ¹øÈ£, 1-»ç¾÷Áß, 2-Æó¾÷, 3-ÈŞ¾÷</p>
-                    <p class="info">> taxType (»ç¾÷ À¯Çü) : null-¾Ë¼ö¾øÀ½, 10-ÀÏ¹İ°ú¼¼ÀÚ, 20-¸é¼¼°ú¼¼ÀÚ, 30-°£ÀÌ°ú¼¼ÀÚ, 31-°£ÀÌ°ú¼¼ÀÚ(¼¼±İ°è»ê¼­ ¹ß±Ş»ç¾÷ÀÚ), 40-ºñ¿µ¸®¹ıÀÎ, ±¹°¡±â°ü</p>
+                    <p class="info">> state (íœ´íì—…ìƒíƒœ) : null-ì•Œìˆ˜ì—†ìŒ, 0-ë“±ë¡ë˜ì§€ ì•Šì€ ì‚¬ì—…ìë²ˆí˜¸, 1-ì‚¬ì—…ì¤‘, 2-íì—…, 3-íœ´ì—…</p>
+                    <p class="info">> taxType (ì‚¬ì—… ìœ í˜•) : null-ì•Œìˆ˜ì—†ìŒ, 10-ì¼ë°˜ê³¼ì„¸ì, 20-ë©´ì„¸ê³¼ì„¸ì, 30-ê°„ì´ê³¼ì„¸ì, 31-ê°„ì´ê³¼ì„¸ì(ì„¸ê¸ˆê³„ì‚°ì„œ ë°œê¸‰ì‚¬ì—…ì), 40-ë¹„ì˜ë¦¬ë²•ì¸, êµ­ê°€ê¸°ê´€</p>
                     <ul>
-                        <li>»ç¾÷ÀÚ¹øÈ£ (corpNum) : <%= result.corpNum%></li>		
-                        <li>ÈŞÆó¾÷»óÅÂ (state) : <%= result.state%></li>
-                        <li>»ç¾÷ÀÚÀ¯Çü (taxType) : <%= result.taxType%></li>	
-                        <li>ÈŞÆó¾÷ÀÏÀÚ (stateDate) : <%= result.stateDate%></li>	
-                        <li>°ú¼¼À¯Çü ÀüÈ¯ÀÏÀÚ (typeDate) : <%= result.typeDate%></li>	
-                        <li>±¹¼¼Ã» È®ÀÎÀÏÀÚ (checkDate) : <%= result.checkDate%></li>	
+                        <li>ì‚¬ì—…ìë²ˆí˜¸ (corpNum) : <%= result.corpNum%></li>
+                        <li>íœ´íì—…ìƒíƒœ (state) : <%= result.state%></li>
+                        <li>ì‚¬ì—…ììœ í˜• (taxType) : <%= result.taxType%></li>
+                        <li>íœ´íì—…ì¼ì (stateDate) : <%= result.stateDate%></li>
+                        <li>ê³¼ì„¸ìœ í˜• ì „í™˜ì¼ì (typeDate) : <%= result.typeDate%></li>
+                        <li>êµ­ì„¸ì²­ í™•ì¸ì¼ì (checkDate) : <%= result.checkDate%></li>
                     </ul>
                 </fieldset>
             <%
-                End If 
+                End If
                 If Not IsEmpty(code) then
             %>
                 <fieldset class="fieldset2">
-                    <legend>ÈŞÆó¾÷Á¶È¸ - ´Ü°Ç</legend>
+                    <legend>íœ´íì—…ì¡°íšŒ - ë‹¨ê±´</legend>
                     <ul>
                         <li>Response.code : <%= code %> </li>
                         <li>Response.message : <%= message %></li>
@@ -86,17 +86,17 @@
                 </fieldset>
             <%
                 End If
-            %>		
+            %>
          </div>
 
         <script type ="text/javascript">
              window.onload=function(){
                  document.getElementById('CorpNum').focus();
              }
-             
+
              function search(){
                 document.getElementById('corpnum_form').submit();
-             }		 
+             }
          </script>
     </body>
 </html>

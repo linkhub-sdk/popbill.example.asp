@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¬µ¿È¸¿øÀÇ ±¹¼¼Ã» Àü¼Û ¿É¼Ç ¼³Á¤ »óÅÂ¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - ÆËºô ±¹¼¼Ã» Àü¼Û Á¤Ã¥ [https://developers.popbill.com/guide/taxinvoice/asp/introduction/policy-of-send-to-nts]
-    ' - ±¹¼¼Ã» Àü¼Û ¿É¼Ç ¼³Á¤Àº ÆËºô »çÀÌÆ® [ÀüÀÚ¼¼±İ°è»ê¼­] > [È¯°æ¼³Á¤] > [¼¼±İ°è»ê¼­ °ü¸®] ¸Ş´º¿¡¼­ ¼³Á¤ÇÒ ¼ö ÀÖÀ¸¸ç, API·Î ¼³Á¤Àº ºÒ°¡´É ÇÕ´Ï´Ù.
+    ' ì—°ë™íšŒì›ì˜ êµ­ì„¸ì²­ ì „ì†¡ ì˜µì…˜ ì„¤ì • ìƒíƒœë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' - íŒë¹Œ êµ­ì„¸ì²­ ì „ì†¡ ì •ì±… [https://developers.popbill.com/guide/taxinvoice/asp/introduction/policy-of-send-to-nts]
+    ' - êµ­ì„¸ì²­ ì „ì†¡ ì˜µì…˜ ì„¤ì •ì€ íŒë¹Œ ì‚¬ì´íŠ¸ [ì „ìì„¸ê¸ˆê³„ì‚°ì„œ] > [í™˜ê²½ì„¤ì •] > [ì„¸ê¸ˆê³„ì‚°ì„œ ê´€ë¦¬] ë©”ë‰´ì—ì„œ ì„¤ì •í•  ìˆ˜ ìˆìœ¼ë©°, APIë¡œ ì„¤ì •ì€ ë¶ˆê°€ëŠ¥ í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#GetSendToNTSConfig
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
     On Error Resume Next
 
@@ -33,17 +33,17 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> ±¹¼¼Ã» Àü¼Û ¼³Á¤ È®ÀÎ</legend>
+                <legend> êµ­ì„¸ì²­ ì „ì†¡ ì„¤ì • í™•ì¸</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>ntsConfig : <%=ntsConfig%></li>
-                        <li>(True)-¹ßÇà Áï½Ã Àü¼Û (False)-ÀÍÀÏ ÀÚµ¿ Àü¼Û</li>
+                        <li>(True)-ë°œí–‰ ì¦‰ì‹œ ì „ì†¡ (False)-ìµì¼ ìë™ ì „ì†¡</li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

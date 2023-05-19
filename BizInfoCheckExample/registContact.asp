@@ -1,47 +1,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¬µ¿È¸¿ø »ç¾÷ÀÚ¹øÈ£¿¡ ´ã´çÀÚ(ÆËºô ·Î±×ÀÎ °èÁ¤)¸¦ Ãß°¡ÇÕ´Ï´Ù.
+    ' ì—°ë™íšŒì› ì‚¬ì—…ìë²ˆí˜¸ì— ë‹´ë‹¹ì(íŒë¹Œ ë¡œê·¸ì¸ ê³„ì •)ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/bizinfocheck/asp/api/member#RegistContact
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
-    CorpNum = "1234567890"		 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+    CorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ 
-    UserID = "testkorea"				 
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    UserID = "testkorea"
 
-    ' ´ã´çÀÚ Á¤º¸ °´Ã¼ »ı¼º
+    ' ë‹´ë‹¹ì ì •ë³´ ê°ì²´ ìƒì„±
     Set contInfo = New ContactInfo
 
-    ' ´ã´çÀÚ ¾ÆÀÌµğ, 6ÀÚÀÌ»ó 20ÀÚ¹Ì¸¸
+    ' ë‹´ë‹¹ì ì•„ì´ë””, 6ìì´ìƒ 20ìë¯¸ë§Œ
     contInfo.id = "testkorea00000"
 
-    ' ºñ¹Ğ¹øÈ£ (8ÀÚÀÌ»ó 20ÀÚ ÀÌÇÏ) ¿µ¹®, ¼ıÀÚ, Æ¯¼ö¹®ÀÚ Á¶ÇÕ
+    ' ë¹„ë°€ë²ˆí˜¸ (8ìì´ìƒ 20ì ì´í•˜) ì˜ë¬¸, ìˆ«ì, íŠ¹ìˆ˜ë¬¸ì ì¡°í•©
     contInfo.Password = "asdf1234!@#$"
 
-    ' ´ã´çÀÚ¸í
+    ' ë‹´ë‹¹ìëª…
     contInfo.personName = "ASPTest"
 
-    ' ¿¬¶ôÃ³
+    ' ì—°ë½ì²˜
     contInfo.tel = ""
 
-    ' ¸ŞÀÏÁÖ¼Ò
+    ' ë©”ì¼ì£¼ì†Œ
     contInfo.email = ""
 
-    ' ´ã´çÀÚ Á¶È¸±ÇÇÑ 1 - °³ÀÎ±ÇÇÑ / 2 - ÀĞ±â±ÇÇÑ  / 3 - È¸»ç±ÇÇÑ
+    ' ë‹´ë‹¹ì ì¡°íšŒê¶Œí•œ 1 - ê°œì¸ê¶Œí•œ / 2 - ì½ê¸°ê¶Œí•œ  / 3 - íšŒì‚¬ê¶Œí•œ
     contInfo.searchRole = 3
 
     On Error Resume Next
 
     Set Presponse = m_BizInfoCheckService.RegistContact(CorpNum, contInfo, UserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -60,7 +60,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>´ã´çÀÚ Ãß°¡</legend>
+                <legend>ë‹´ë‹¹ì ì¶”ê°€</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

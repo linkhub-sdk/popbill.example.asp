@@ -1,34 +1,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ªË¡¶ ∞°¥…«— ªÛ≈¬¿« ºº±›∞ËªÍº≠∏¶ ªË¡¶«’¥œ¥Ÿ.
-    ' - ªË¡¶ ∞°¥…«— ªÛ≈¬: "¿”Ω√¿˙¿Â", "πﬂ«‡√Îº“", "ø™πﬂ«‡∞≈∫Œ", "ø™πﬂ«‡√Îº“", "¿¸º€Ω«∆–"
-    ' - ºº±›∞ËªÍº≠∏¶ ªË¡¶«ÿæﬂ∏∏ πÆº≠π¯»£(mgtKey)∏¶ ¿ÁªÁøÎ«“ ºˆ ¿÷Ω¿¥œ¥Ÿ.
+    ' ÏÇ≠Ï†ú Í∞ÄÎä•Ìïú ÏÉÅÌÉúÏùò ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑúÎ•º ÏÇ≠Ï†úÌï©ÎãàÎã§.
+    ' - ÏÇ≠Ï†ú Í∞ÄÎä•Ìïú ÏÉÅÌÉú: "ÏûÑÏãúÏ†ÄÏû•", "Î∞úÌñâÏ∑®ÏÜå", "Ïó≠Î∞úÌñâÍ±∞Î∂Ä", "Ïó≠Î∞úÌñâÏ∑®ÏÜå", "Ï†ÑÏÜ°Ïã§Ìå®"
+    ' - ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑúÎ•º ÏÇ≠Ï†úÌï¥ÏïºÎßå Î¨∏ÏÑúÎ≤àÌò∏(mgtKey)Î•º Ïû¨ÏÇ¨Ïö©Ìï† Ïàò ÏûàÏäµÎãàÎã§.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#Delete
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£ ("-"¡¶ø‹)
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏ ("-"Ï†úÏô∏)
     testCorpNum = "1234567890"
 
-    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
+    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
     testUserID = "testkorea"
-    
-    ' ºº±›∞ËªÍº≠ πﬂ«‡¿Ø«¸, SELL(∏≈√‚), BUY(∏≈¿‘), TRUSTEE(¿ßºˆ≈π)
+
+    ' ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î∞úÌñâÏú†Ìòï, SELL(Îß§Ï∂ú), BUY(Îß§ÏûÖ), TRUSTEE(ÏúÑÏàòÌÉÅ)
     KeyType= "SELL"
 
-    ' ºº±›∞ËªÍº≠ πÆº≠π¯»£ 
+    ' ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î¨∏ÏÑúÎ≤àÌò∏
     MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
     Set Presponse = m_TaxinvoiceService.Delete(testCorpNum, KeyType, MgtKey, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -45,7 +45,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ºº±›∞ËªÍº≠ ªË¡¶</legend>
+                <legend>ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú ÏÇ≠Ï†ú</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

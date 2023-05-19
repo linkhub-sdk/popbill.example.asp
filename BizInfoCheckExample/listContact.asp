@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¬µ¿È¸¿ø »ç¾÷ÀÚ¹øÈ£¿¡ µî·ÏµÈ ´ã´çÀÚ(ÆËºô ·Î±×ÀÎ °èÁ¤) ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' ì—°ë™íšŒì› ì‚¬ì—…ìë²ˆí˜¸ì— ë“±ë¡ëœ ë‹´ë‹¹ì(íŒë¹Œ ë¡œê·¸ì¸ ê³„ì •) ëª©ë¡ì„ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/bizinfocheck/asp/api/member#ListContact
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    UserID = "testkorea"					
-    
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    UserID = "testkorea"
+
     On Error Resume Next
 
     Set result = m_BizInfoCheckService.ListContact(testCorpNum, UserID)
@@ -34,22 +34,22 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>´ã´çÀÚ ¸ñ·Ï Á¶È¸</legend>
+                <legend>ë‹´ë‹¹ì ëª©ë¡ ì¡°íšŒ</legend>
                 <%
                     If code = 0 Then
                         For i=0 To result.Count-1
                 %>
-                    <fieldset class="fieldset2">					
-                        <legend> ´ã´çÀÚ Á¤º¸ [ <%=i+1%> / <%=result.Count%> ] </legend>
+                    <fieldset class="fieldset2">
+                        <legend> ë‹´ë‹¹ì ì •ë³´ [ <%=i+1%> / <%=result.Count%> ] </legend>
                             <ul>
-                                <li> id(¾ÆÀÌµğ) : <%=result.Item(i).id%></li>
-                                <li> personName(´ã´çÀÚ ¼º¸í) : <%=result.Item(i).personName%></li>
-                                <li> email(´ã´çÀÚ ÀÌ¸ŞÀÏ) : <%=result.Item(i).email%></li>
-                                <li> tel(´ã´çÀÚ ¿¬¶ôÃ³) : <%=result.Item(i).tel%></li>
-                                <li> regDT(µî·ÏÀÏ½Ã) : <%=result.Item(i).regDT%></li>
-                                <li> searchRole(´ã´çÀÚ Á¶È¸±ÇÇÑ) : <%=result.Item(i).searchRole%></li>
-                                <li> mgrYN(°ü¸®ÀÚ ¿©ºÎ) : <%=result.Item(i).mgrYN%></li>
-                                <li> state(»óÅÂ) : <%=result.Item(i).state%></li>
+                                <li> id(ì•„ì´ë””) : <%=result.Item(i).id%></li>
+                                <li> personName(ë‹´ë‹¹ì ì„±ëª…) : <%=result.Item(i).personName%></li>
+                                <li> email(ë‹´ë‹¹ì ì´ë©”ì¼) : <%=result.Item(i).email%></li>
+                                <li> tel(ë‹´ë‹¹ì ì—°ë½ì²˜) : <%=result.Item(i).tel%></li>
+                                <li> regDT(ë“±ë¡ì¼ì‹œ) : <%=result.Item(i).regDT%></li>
+                                <li> searchRole(ë‹´ë‹¹ì ì¡°íšŒê¶Œí•œ) : <%=result.Item(i).searchRole%></li>
+                                <li> mgrYN(ê´€ë¦¬ì ì—¬ë¶€) : <%=result.Item(i).mgrYN%></li>
+                                <li> state(ìƒíƒœ) : <%=result.Item(i).state%></li>
                             </ul>
                         </fieldset>
                 <%
@@ -59,8 +59,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 1∞«¿« ¿¸¿⁄ºº±›∞ËªÍº≠ PDF ¥ŸøÓ∑ŒµÂ URL¿ª π›»Ø«’¥œ¥Ÿ.
-    ' - π›»Øµ«¥¬ URL¿∫ ∫∏æ» ¡§√•ªÛ 30√  µøæ» ¿Ø»ø«œ∏Á, Ω√∞£¿ª √ ∞˙«— »ƒø°¥¬ «ÿ¥Á URL¿ª ≈Î«— ∆‰¿Ã¡ˆ ¡¢±Ÿ¿Ã ∫“∞°«’¥œ¥Ÿ.
+    ' 1Í±¥Ïùò Ï†ÑÏûêÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú PDF Îã§Ïö¥Î°úÎìú URLÏùÑ Î∞òÌôòÌï©ÎãàÎã§.
+    ' - Î∞òÌôòÎêòÎäî URLÏùÄ Î≥¥Ïïà Ï†ïÏ±ÖÏÉÅ 30Ï¥à ÎèôÏïà Ïú†Ìö®ÌïòÎ©∞, ÏãúÍ∞ÑÏùÑ Ï¥àÍ≥ºÌïú ÌõÑÏóêÎäî Ìï¥Îãπ URLÏùÑ ÌÜµÌïú ÌéòÏù¥ÏßÄ Ï†ëÍ∑ºÏù¥ Î∂àÍ∞ÄÌï©ÎãàÎã§.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/view#GetPDFURL
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
-    testCorpNum = "1234567890"	
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    testCorpNum = "1234567890"
 
-    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
-    userID = "testkorea"		
+    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    userID = "testkorea"
 
-    ' ºº±›∞ËªÍº≠ πﬂ«‡¿Ø«¸ SELL(∏≈√‚), BUY(∏≈¿‘), TRUSTEE(¿ßºˆ≈π)
-    KeyType= "SELL"             
+    ' ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î∞úÌñâÏú†Ìòï SELL(Îß§Ï∂ú), BUY(Îß§ÏûÖ), TRUSTEE(ÏúÑÏàòÌÉÅ)
+    KeyType= "SELL"
 
-    ' πÆº≠π¯»£ 
-    MgtKey = "20220720-ASP-001"      
+    ' Î¨∏ÏÑúÎ≤àÌò∏
+    MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -41,7 +41,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ºº±›∞ËªÍº≠ PDF ¥ŸøÓ∑ŒµÂ URL</legend>
+                <legend>ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú PDF Îã§Ïö¥Î°úÎìú URL</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>URL : <%=url%> </li>

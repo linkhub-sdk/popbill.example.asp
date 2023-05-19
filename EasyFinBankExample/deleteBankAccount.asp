@@ -1,37 +1,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' µÓ∑œµ» ∞Ë¡¬∏¶ ªË¡¶«’¥œ¥Ÿ.
-    ' - ¡§æ◊¡¶∞° æ∆¥— ¡æ∑Æ¡¶ ¿ÃøÎ Ω√ø°∏∏ µÓ∑œµ» ∞Ë¡¬∏¶ ªË¡¶«“ ºˆ ¿÷Ω¿¥œ¥Ÿ.
-    ' - ¡§æ◊¡¶ ¿ÃøÎ Ω√ ¡§æ◊¡¶ «ÿ¡ˆø‰√ª(CloseBankAccount API) «‘ºˆ∏¶ ªÁøÎ«œø© ¡§æ◊¡¶∏¶ «ÿ¡¶«“ ºˆ ¿÷Ω¿¥œ¥Ÿ.
+    ' Îì±Î°ùÎêú Í≥ÑÏ¢åÎ•º ÏÇ≠Ï†úÌï©ÎãàÎã§.
+    ' - Ï†ïÏï°Ï†úÍ∞Ä ÏïÑÎãå Ï¢ÖÎüâÏ†ú Ïù¥Ïö© ÏãúÏóêÎßå Îì±Î°ùÎêú Í≥ÑÏ¢åÎ•º ÏÇ≠Ï†úÌï† Ïàò ÏûàÏäµÎãàÎã§.
+    ' - Ï†ïÏï°Ï†ú Ïù¥Ïö© Ïãú Ï†ïÏï°Ï†ú Ìï¥ÏßÄÏöîÏ≤≠(CloseBankAccount API) Ìï®ÏàòÎ•º ÏÇ¨Ïö©ÌïòÏó¨ Ï†ïÏï°Ï†úÎ•º Ìï¥Ï†úÌï† Ïàò ÏûàÏäµÎãàÎã§.
     '- https://developers.popbill.com/reference/easyfinbank/asp/api/manage#DeleteBankAccount
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£
-    CorpNum = "1234567890"	
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏
+    CorpNum = "1234567890"
 
-    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ 
-    UserID = "testkorea"			
-    
-    ' ±‚∞¸ƒ⁄µÂ
-    ' ªÍæ˜¿∫«‡-0002 / ±‚æ˜¿∫«‡-0003 / ±ππŒ¿∫«‡-0004 /ºˆ«˘¿∫«‡-0007 / ≥Û«˘¿∫«‡-0011 / øÏ∏Æ¿∫«‡-0020
-    ' SC¿∫«‡-0023 / ¥Î±∏¿∫«‡-0031 / ∫ŒªÍ¿∫«‡-0032 / ±§¡÷¿∫«‡-0034 / ¡¶¡÷¿∫«‡-0035 / ¿¸∫œ¿∫«‡-0037
-    ' ∞Ê≥≤¿∫«‡-0039 / ªı∏∂¿ª±›∞Ì-0045 / Ω≈«˘¿∫«‡-0048 / øÏ√º±π-0071 / KEB«œ≥™¿∫«‡-0081 / Ω≈«—¿∫«‡-0088 /ææ∆º¿∫«‡-0027
+    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    UserID = "testkorea"
+
+    ' Í∏∞Í¥ÄÏΩîÎìú
+    ' ÏÇ∞ÏóÖÏùÄÌñâ-0002 / Í∏∞ÏóÖÏùÄÌñâ-0003 / Íµ≠ÎØºÏùÄÌñâ-0004 /ÏàòÌòëÏùÄÌñâ-0007 / ÎÜçÌòëÏùÄÌñâ-0011 / Ïö∞Î¶¨ÏùÄÌñâ-0020
+    ' SCÏùÄÌñâ-0023 / ÎåÄÍµ¨ÏùÄÌñâ-0031 / Î∂ÄÏÇ∞ÏùÄÌñâ-0032 / Í¥ëÏ£ºÏùÄÌñâ-0034 / Ï†úÏ£ºÏùÄÌñâ-0035 / Ï†ÑÎ∂ÅÏùÄÌñâ-0037
+    ' Í≤ΩÎÇ®ÏùÄÌñâ-0039 / ÏÉàÎßàÏùÑÍ∏àÍ≥†-0045 / Ïã†ÌòëÏùÄÌñâ-0048 / Ïö∞Ï≤¥Íµ≠-0071 / KEBÌïòÎÇòÏùÄÌñâ-0081 / Ïã†ÌïúÏùÄÌñâ-0088 /Ïî®Ìã∞ÏùÄÌñâ-0027
     BankCode = "0004"
 
-    ' ∞Ë¡¬π¯»£ «œ¿Ã«¬('-') ¡¶ø‹
+    ' Í≥ÑÏ¢åÎ≤àÌò∏ ÌïòÏù¥Ìîà('-') Ï†úÏô∏
     AccountNumber = ""
 
 
     On Error Resume Next
         Set Presponse = m_EasyFinBankService.DeleteBankAccount(CorpNum, BankCode, AccountNumber, UserID)
-        
+
         If Err.Number <> 0 Then
             code = Err.Number
             message = Err.Description
@@ -48,7 +48,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¡æ∑Æ¡¶ ∞Ë¡¬ ªË¡¶</legend>
+                <legend>Ï¢ÖÎüâÏ†ú Í≥ÑÏ¢å ÏÇ≠Ï†ú</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

@@ -1,31 +1,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼öÁı ¿äÃ»(RequestJob API) ÇÔ¼ö¸¦ ÅëÇØ ¹İÈ¯ ¹ŞÀº ÀÛ¾÷ ¾ÆÀÌµğÀÇ »óÅÂ¸¦ È®ÀÎÇÕ´Ï´Ù.
-    ' - °Å·¡ ³»¿ª Á¶È¸(Search API) ÇÔ¼ö ¶Ç´Â °Å·¡ ¿ä¾à Á¤º¸ Á¶È¸(Summary API) ÇÔ¼ö¸¦ »ç¿ëÇÏ±â Àü¿¡
-    '   ¼öÁı ÀÛ¾÷ÀÇ ÁøÇà »óÅÂ, ¼öÁı ÀÛ¾÷ÀÇ ¼º°ø ¿©ºÎ¸¦ È®ÀÎÇØ¾ß ÇÕ´Ï´Ù.
-    ' - ÀÛ¾÷ »óÅÂ(jobState) = 3(¿Ï·á)ÀÌ°í ¼öÁı °á°ú ÄÚµå(errorCode) = 1(¼öÁı¼º°ø)ÀÌ¸é
-    '   °Å·¡ ³»¿ª Á¶È¸(Search) ¶Ç´Â °Å·¡ ¿ä¾à Á¤º¸ Á¶È¸(Summary) ¸¦ ÇØ¾ßÇÕ´Ï´Ù.
-    ' - ÀÛ¾÷ »óÅÂ(jobState)°¡ 3(¿Ï·á)ÀÌÁö¸¸ ¼öÁı °á°ú ÄÚµå(errorCode)°¡ 1(¼öÁı¼º°ø)ÀÌ ¾Æ´Ñ °æ¿ì¿¡´Â
-    '   ¿À·ù¸Ş½ÃÁö(errorReason)·Î ¼öÁı ½ÇÆĞ¿¡ ´ëÇÑ ¿øÀÎÀ» ÆÄ¾ÇÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' ìˆ˜ì§‘ ìš”ì²­(RequestJob API) í•¨ìˆ˜ë¥¼ í†µí•´ ë°˜í™˜ ë°›ì€ ì‘ì—… ì•„ì´ë””ì˜ ìƒíƒœë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' - ê±°ë˜ ë‚´ì—­ ì¡°íšŒ(Search API) í•¨ìˆ˜ ë˜ëŠ” ê±°ë˜ ìš”ì•½ ì •ë³´ ì¡°íšŒ(Summary API) í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ê¸° ì „ì—
+    '   ìˆ˜ì§‘ ì‘ì—…ì˜ ì§„í–‰ ìƒíƒœ, ìˆ˜ì§‘ ì‘ì—…ì˜ ì„±ê³µ ì—¬ë¶€ë¥¼ í™•ì¸í•´ì•¼ í•©ë‹ˆë‹¤.
+    ' - ì‘ì—… ìƒíƒœ(jobState) = 3(ì™„ë£Œ)ì´ê³  ìˆ˜ì§‘ ê²°ê³¼ ì½”ë“œ(errorCode) = 1(ìˆ˜ì§‘ì„±ê³µ)ì´ë©´
+    '   ê±°ë˜ ë‚´ì—­ ì¡°íšŒ(Search) ë˜ëŠ” ê±°ë˜ ìš”ì•½ ì •ë³´ ì¡°íšŒ(Summary) ë¥¼ í•´ì•¼í•©ë‹ˆë‹¤.
+    ' - ì‘ì—… ìƒíƒœ(jobState)ê°€ 3(ì™„ë£Œ)ì´ì§€ë§Œ ìˆ˜ì§‘ ê²°ê³¼ ì½”ë“œ(errorCode)ê°€ 1(ìˆ˜ì§‘ì„±ê³µ)ì´ ì•„ë‹Œ ê²½ìš°ì—ëŠ”
+    '   ì˜¤ë¥˜ë©”ì‹œì§€(errorReason)ë¡œ ìˆ˜ì§‘ ì‹¤íŒ¨ì— ëŒ€í•œ ì›ì¸ì„ íŒŒì•…í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/job#GetJobState
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ¼öÁı¿äÃ»½Ã ¹İÈ¯¹ŞÀº ÀÛ¾÷¾ÆÀÌµğ(jobID)
-    JobID = "019123114000000010"	
+    ' ìˆ˜ì§‘ìš”ì²­ì‹œ ë°˜í™˜ë°›ì€ ì‘ì—…ì•„ì´ë””(jobID)
+    JobID = "019123114000000010"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    UserID = "testkorea"	
-    
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    UserID = "testkorea"
+
     On Error Resume Next
 
     Set result = m_EasyFinBankService.GetJobState(testCorpNum, JobID, UserID)
@@ -43,20 +43,20 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼öÁı »óÅÂ È®ÀÎ</legend>
+                <legend>ìˆ˜ì§‘ ìƒíƒœ í™•ì¸</legend>
                 <%
                     If code = 0 Then
                 %>
                         <ul>
-                            <li> jobID (ÀÛ¾÷¾ÆÀÌµğ) : <%=result.jobID%></li>
-                            <li> jobState (¼öÁı»óÅÂ) : <%=result.jobState%></li>
-                            <li> startDate (½ÃÀÛÀÏÀÚ) : <%=result.startDate%></li>
-                            <li> endDate (Á¾·áÀÏÀÚ) : <%=result.endDate%></li>
-                            <li> errorCode (¿À·ùÄÚµå) : <%=result.errorCode%></li>
-                            <li> errorReason (¿À·ù¸Ş½ÃÁö) : <%=result.errorReason%></li>
-                            <li> jobStartDT (ÀÛ¾÷ ½ÃÀÛÀÏ½Ã) : <%=result.jobStartDT%></li>
-                            <li> jobEndDT (ÀÛ¾÷ Á¾·áÀÏ½Ã) : <%=result.jobEndDT%></li>
-                            <li> regDT (¼öÁı ¿äÃ»ÀÏ½Ã) : <%=result.regDT%></li>
+                            <li> jobID (ì‘ì—…ì•„ì´ë””) : <%=result.jobID%></li>
+                            <li> jobState (ìˆ˜ì§‘ìƒíƒœ) : <%=result.jobState%></li>
+                            <li> startDate (ì‹œì‘ì¼ì) : <%=result.startDate%></li>
+                            <li> endDate (ì¢…ë£Œì¼ì) : <%=result.endDate%></li>
+                            <li> errorCode (ì˜¤ë¥˜ì½”ë“œ) : <%=result.errorCode%></li>
+                            <li> errorReason (ì˜¤ë¥˜ë©”ì‹œì§€) : <%=result.errorReason%></li>
+                            <li> jobStartDT (ì‘ì—… ì‹œì‘ì¼ì‹œ) : <%=result.jobStartDT%></li>
+                            <li> jobEndDT (ì‘ì—… ì¢…ë£Œì¼ì‹œ) : <%=result.jobEndDT%></li>
+                            <li> regDT (ìˆ˜ì§‘ ìš”ì²­ì¼ì‹œ) : <%=result.regDT%></li>
                         </ul>
                 <%
                     Else
@@ -64,8 +64,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

@@ -1,37 +1,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Çö±İ¿µ¼öÁõ°ú °ü·ÃµÈ ¾È³» SMS(´Ü¹®) ¹®ÀÚ¸¦ ÀçÀü¼ÛÇÏ´Â ÇÔ¼ö·Î, ÆËºô »çÀÌÆ® [¹®ÀÚ¡¤ÆÑ½º] > [¹®ÀÚ] > [Àü¼Û³»¿ª] ¸Ş´º¿¡¼­ Àü¼Û°á°ú¸¦ È®ÀÎ ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-    ' - ¸Ş½ÃÁö´Â ÃÖ´ë 90byte±îÁö ÀÔ·Â °¡´ÉÇÏ°í, ÃÊ°úÇÑ ³»¿ëÀº ÀÚµ¿À¸·Î »èÁ¦µÇ¾î Àü¼ÛÇÕ´Ï´Ù. (ÇÑ±Û ÃÖ´ë 45ÀÚ)
-    ' - ¾Ë¸²¹®ÀÚ Àü¼Û½Ã Æ÷ÀÎÆ®°¡ Â÷°¨µË´Ï´Ù. (Àü¼Û½ÇÆĞ½Ã È¯ºÒÃ³¸®)
+    ' í˜„ê¸ˆì˜ìˆ˜ì¦ê³¼ ê´€ë ¨ëœ ì•ˆë‚´ SMS(ë‹¨ë¬¸) ë¬¸ìë¥¼ ì¬ì „ì†¡í•˜ëŠ” í•¨ìˆ˜ë¡œ, íŒë¹Œ ì‚¬ì´íŠ¸ [ë¬¸ìÂ·íŒ©ìŠ¤] > [ë¬¸ì] > [ì „ì†¡ë‚´ì—­] ë©”ë‰´ì—ì„œ ì „ì†¡ê²°ê³¼ë¥¼ í™•ì¸ í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+    ' - ë©”ì‹œì§€ëŠ” ìµœëŒ€ 90byteê¹Œì§€ ì…ë ¥ ê°€ëŠ¥í•˜ê³ , ì´ˆê³¼í•œ ë‚´ìš©ì€ ìë™ìœ¼ë¡œ ì‚­ì œë˜ì–´ ì „ì†¡í•©ë‹ˆë‹¤. (í•œê¸€ ìµœëŒ€ 45ì)
+    ' - ì•Œë¦¼ë¬¸ì ì „ì†¡ì‹œ í¬ì¸íŠ¸ê°€ ì°¨ê°ë©ë‹ˆë‹¤. (ì „ì†¡ì‹¤íŒ¨ì‹œ í™˜ë¶ˆì²˜ë¦¬)
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#SendSMS
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"		 
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
 
-    ' ¹®¼­¹øÈ£	
-    mgtKey = "20220720-ASP-001"		 
+    ' ë¬¸ì„œë²ˆí˜¸
+    mgtKey = "20220720-ASP-001"
 
-    ' ¹ß½Å¹øÈ£	
-    sender = ""	
-    
-    ' ¼ö½Å¹øÈ£
-    receiver = ""		 
+    ' ë°œì‹ ë²ˆí˜¸
+    sender = ""
 
-    ' ¸Ş½ÃÁö ³»¿ë, 90byte¸¦ ÃÊ°úÇÑ ³»¿ëÀº ±æÀÌ°¡ Á¶Á¤µÇ¾î Àü¼ÛµË´Ï´Ù.
-    contents = "Çö±İ¿µ¼öÁõ ¾Ë¸²¹®ÀÚ Å×½ºÆ®ÀÔ´Ï´Ù"  
+    ' ìˆ˜ì‹ ë²ˆí˜¸
+    receiver = ""
 
-    On Error Resume Next 
+    ' ë©”ì‹œì§€ ë‚´ìš©, 90byteë¥¼ ì´ˆê³¼í•œ ë‚´ìš©ì€ ê¸¸ì´ê°€ ì¡°ì •ë˜ì–´ ì „ì†¡ë©ë‹ˆë‹¤.
+    contents = "í˜„ê¸ˆì˜ìˆ˜ì¦ ì•Œë¦¼ë¬¸ì í…ŒìŠ¤íŠ¸ì…ë‹ˆë‹¤"
+
+    On Error Resume Next
 
     Set Presponse = m_CashbillService.SendSMS(testCorpNum, mgtKey, Sender, Receiver, Contents, UserID)
 
@@ -43,15 +43,15 @@
         code = Presponse.code
         message = Presponse.message
     End If
-    
-    On Error GoTo 0 
+
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¾Ë¸²¹®ÀÚ ÀçÀü¼Û </legend>
+                <legend>ì•Œë¦¼ë¬¸ì ì¬ì „ì†¡ </legend>
                 <ul>
                     <li>Response.code : <%=code%></li>
                     <li>Response.message : <%=message%></li>

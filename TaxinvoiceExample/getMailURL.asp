@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¸¿⁄ºº±›∞ËªÍº≠ æ»≥ª∏ﬁ¿œ¿« ªÛºº∫∏±‚ ∏µ≈© URL¿ª π›»Ø«’¥œ¥Ÿ.
-    ' «‘ºˆ »£√‚∑Œ π›»Ø πﬁ¿∫ URLø°¥¬ ¿Ø»øΩ√∞£¿Ã æ¯Ω¿¥œ¥Ÿ.
+    ' Ï†ÑÏûêÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú ÏïàÎÇ¥Î©îÏùºÏùò ÏÉÅÏÑ∏Î≥¥Í∏∞ ÎßÅÌÅ¨ URLÏùÑ Î∞òÌôòÌï©ÎãàÎã§.
+    ' Ìï®Ïàò Ìò∏Ï∂úÎ°ú Î∞òÌôò Î∞õÏùÄ URLÏóêÎäî Ïú†Ìö®ÏãúÍ∞ÑÏù¥ ÏóÜÏäµÎãàÎã§.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/view#GetMailURL
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
-    testCorpNum = "1234567890"	
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    testCorpNum = "1234567890"
 
-    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
-    userID = "testkorea"		
+    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    userID = "testkorea"
 
-    ' πﬂ«‡¿Ø«¸ SELL(∏≈√‚), BUY(∏≈¿‘), TRUSTEE(¿ßºˆ≈π)
-    KeyType= "SELL"             
+    ' Î∞úÌñâÏú†Ìòï SELL(Îß§Ï∂ú), BUY(Îß§ÏûÖ), TRUSTEE(ÏúÑÏàòÌÉÅ)
+    KeyType= "SELL"
 
-    ' πÆº≠π¯»£ 
-    MgtKey = "20220720-ASP-001"      
+    ' Î¨∏ÏÑúÎ≤àÌò∏
+    MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -41,7 +41,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ºº±›∞ËªÍº≠ ∏ﬁ¿œ∏µ≈© URL</legend>
+                <legend>ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î©îÏùºÎßÅÌÅ¨ URL</legend>
                 <ul>
                     <% If code = 0 Then %>
                         <li>URL : <%=url%> </li>

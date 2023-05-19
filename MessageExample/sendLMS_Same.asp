@@ -1,59 +1,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÃÖ´ë 2,000byteÀÇ Àå¹®(LMS) ¸Ş½ÃÁö ´Ù¼ö°Ç Àü¼ÛÀ» ÆËºô¿¡ Á¢¼öÇÏ¸ç, ¸ğµç ¼ö½ÅÀÚ¿¡°Ô µ¿ÀÏ ³»¿ëÀ» Àü¼ÛÇÕ´Ï´Ù. (ÃÖ´ë 1,000°Ç)
+    ' ìµœëŒ€ 2,000byteì˜ ì¥ë¬¸(LMS) ë©”ì‹œì§€ ë‹¤ìˆ˜ê±´ ì „ì†¡ì„ íŒë¹Œì— ì ‘ìˆ˜í•˜ë©°, ëª¨ë“  ìˆ˜ì‹ ìì—ê²Œ ë™ì¼ ë‚´ìš©ì„ ì „ì†¡í•©ë‹ˆë‹¤. (ìµœëŒ€ 1,000ê±´)
     '  - https://developers.popbill.com/reference/sms/asp/api/send#SendLMS
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"					
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
 
-    ' ¹ß½Å¹øÈ£
-    senderNum = ""		
+    ' ë°œì‹ ë²ˆí˜¸
+    senderNum = ""
 
-    ' ¸Ş½ÃÁö Á¦¸ñ
-    subject = "µ¿º¸Àü¼Û ¸Ş½ÃÁö Á¦¸ñ"
+    ' ë©”ì‹œì§€ ì œëª©
+    subject = "ë™ë³´ì „ì†¡ ë©”ì‹œì§€ ì œëª©"
 
-    ' ¸Ş½ÃÁö ³»¿ë, ÃÖ´ë 2000byte ÃÊ°ú½Ã ±æÀÌ°¡ Á¶Á¤µÇ¾î Àü¼ÛµÊ
-    content = "µ¿º¸Àü¼Û ¸Ş½ÃÁö ³»¿ë"
+    ' ë©”ì‹œì§€ ë‚´ìš©, ìµœëŒ€ 2000byte ì´ˆê³¼ì‹œ ê¸¸ì´ê°€ ì¡°ì •ë˜ì–´ ì „ì†¡ë¨
+    content = "ë™ë³´ì „ì†¡ ë©”ì‹œì§€ ë‚´ìš©"
 
-    ' ¿¹¾àÀü¼Û½Ã°£ yyyyMMddHHmmss, reserveDT°ªÀÌ ¾ø´Â °æ¿ì Áï½ÃÀü¼Û
+    ' ì˜ˆì•½ì „ì†¡ì‹œê°„ yyyyMMddHHmmss, reserveDTê°’ì´ ì—†ëŠ” ê²½ìš° ì¦‰ì‹œì „ì†¡
     reserveDT = ""
 
-    ' ±¤°í¼º ¸Ş½ÃÁö ¿©ºÎ ( true , false Áß ÅÃ 1)
-    ' ¦¦ true = ±¤°í , false = ÀÏ¹İ
+    ' ê´‘ê³ ì„± ë©”ì‹œì§€ ì—¬ë¶€ ( true , false ì¤‘ íƒ 1)
+    ' â”” true = ê´‘ê³  , false = ì¼ë°˜
     adsYN = False
 
-    ' ¼ö½ÅÁ¤º¸¹è¿­, ÃÖ´ë 1000°Ç
+    ' ìˆ˜ì‹ ì •ë³´ë°°ì—´, ìµœëŒ€ 1000ê±´
     Set msgList = CreateObject("Scripting.Dictionary")
-    
+
     For i =0 To 15
         Set message = New Messages
 
-        ' ¼ö½Å¹øÈ£
+        ' ìˆ˜ì‹ ë²ˆí˜¸
         message.receiver = ""
 
-        ' ¼ö½ÅÀÚ¸í
-        message.receivername = " ¼ö½ÅÀÚÀÌ¸§"+CStr(i)
-    
+        ' ìˆ˜ì‹ ìëª…
+        message.receivername = " ìˆ˜ì‹ ìì´ë¦„"+CStr(i)
+
         msgList.Add i, message
     Next
-    
+
     On Error Resume Next
 
-    ' Àü¼Û¿äÃ»¹øÈ£
-    ' ÆËºôÀÌ Á¢¼ö ´ÜÀ§¸¦ ½Äº°ÇÒ ¼ö ÀÖµµ·Ï ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ ½Äº°¹øÈ£.
-    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ıÀÚ, ÇÏÀÌÇÂ(-), ¾ğ´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
-    requestNum = ""	
+    ' ì „ì†¡ìš”ì²­ë²ˆí˜¸
+    ' íŒë¹Œì´ ì ‘ìˆ˜ ë‹¨ìœ„ë¥¼ ì‹ë³„í•  ìˆ˜ ìˆë„ë¡ íŒŒíŠ¸ë„ˆê°€ í• ë‹¹í•œ ì‹ë³„ë²ˆí˜¸.
+    ' 1~36ìë¦¬ë¡œ êµ¬ì„±. ì˜ë¬¸, ìˆ«ì, í•˜ì´í”ˆ(-), ì–¸ë”ë°”(_)ë¥¼ ì¡°í•©í•˜ì—¬ íŒë¹Œ íšŒì›ë³„ë¡œ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ í• ë‹¹.
+    requestNum = ""
 
     receiptNum = m_MessageService.SendLMS(testCorpNum, senderNum, subject, content, msgList, reserveDT, adsYN, requestNum, userID)
 
@@ -70,16 +70,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Àå¹® ¹®ÀÚ¸Ş½ÃÁö µ¿º¸Àü¼Û </legend>
+                <legend>ì¥ë¬¸ ë¬¸ìë©”ì‹œì§€ ë™ë³´ì „ì†¡ </legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(Á¢¼ö¹øÈ£) : <%=receiptNum%> </li>
+                        <li>ReceiptNum(ì ‘ìˆ˜ë²ˆí˜¸) : <%=receiptNum%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

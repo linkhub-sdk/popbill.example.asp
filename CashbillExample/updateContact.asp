@@ -1,49 +1,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 
 <%
-    '**************************************************************	
-    ' ¿¬µ¿È¸¿ø »ç¾÷ÀÚ¹øÈ£¿¡ µî·ÏµÈ ´ã´çÀÚ(ÆËºô ·Î±×ÀÎ °èÁ¤) Á¤º¸¸¦ ¼öÁ¤ÇÕ´Ï´Ù.
+    '**************************************************************
+    ' ì—°ë™íšŒì› ì‚¬ì—…ìë²ˆí˜¸ì— ë“±ë¡ëœ ë‹´ë‹¹ì(íŒë¹Œ ë¡œê·¸ì¸ ê³„ì •) ì •ë³´ë¥¼ ìˆ˜ì •í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/member#UpdateContact
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
     CorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ 
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     UserID = "testkorea"
 
 
-    ' ´ã´çÀÚ Á¤º¸ °´Ã¼ »ı¼º
+    ' ë‹´ë‹¹ì ì •ë³´ ê°ì²´ ìƒì„±
     Set contInfo = New ContactInfo
 
-    ' ´ã´çÀÚ ¾ÆÀÌµğ 
-    contInfo.id = UserID	
+    ' ë‹´ë‹¹ì ì•„ì´ë””
+    contInfo.id = UserID
 
-    ' ´ã´çÀÚ¸í
+    ' ë‹´ë‹¹ìëª…
     contInfo.personName = "ASPTest"
 
-    ' ´ã´çÀÚ ¾ÆÀÌµğ
+    ' ë‹´ë‹¹ì ì•„ì´ë””
     contInfo.id = "testkorea"
 
-    ' ´ã´çÀÚ ¿¬¶ôÃ³
+    ' ë‹´ë‹¹ì ì—°ë½ì²˜
     contInfo.tel = ""
 
-    ' ´ã´çÀÚ ÀÌ¸ŞÀÏÁÖ¼Ò
+    ' ë‹´ë‹¹ì ì´ë©”ì¼ì£¼ì†Œ
     contInfo.email = ""
-    
-    ' ´ã´çÀÚ Á¶È¸±ÇÇÑ 1 - °³ÀÎ±ÇÇÑ / 2 - ÀĞ±â±ÇÇÑ  / 3 - È¸»ç±ÇÇÑ
+
+    ' ë‹´ë‹¹ì ì¡°íšŒê¶Œí•œ 1 - ê°œì¸ê¶Œí•œ / 2 - ì½ê¸°ê¶Œí•œ  / 3 - íšŒì‚¬ê¶Œí•œ
     contInfo.searchRole = 3
 
     On Error Resume Next
 
     Set Presponse = m_CashbillService.UpdateContact(CorpNum, contInfo, UserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -62,7 +62,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>´ã´çÀÚ Á¤º¸¼öÁ¤</legend>
+                <legend>ë‹´ë‹¹ì ì •ë³´ìˆ˜ì •</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

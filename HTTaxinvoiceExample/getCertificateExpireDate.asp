@@ -1,21 +1,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô¿¡ µî·ÏµÈ ÀÎÁõ¼­ ¸¸·áÀÏÀÚ¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' íŒë¹Œì— ë“±ë¡ëœ ì¸ì¦ì„œ ë§Œë£Œì¼ìžë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/cert#GetCertificateExpireDate
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"		
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð 
-    UserID = "testkorea"					
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
+
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    UserID = "testkorea"
 
     On Error Resume Next
 
@@ -34,16 +34,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>°øÀÎÀÎÁõ¼­ ¸¸·áÀÏ½Ã È®ÀÎ</legend>
+                <legend>ê³µì¸ì¸ì¦ì„œ ë§Œë£Œì¼ì‹œ í™•ì¸</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>°øÀÎÀÎÁõ¼­ ¸¸·áÀÏ½Ã : <%=expireDate%> </li>
+                        <li>ê³µì¸ì¸ì¦ì„œ ë§Œë£Œì¼ì‹œ : <%=expireDate%> </li>
                     </ul>
                 <%	Else  %>
                 <ul>
                     <li>Response.code: <%=code%> </li>
                     <li>Response.message: <%=message%> </li>
-                </ul>	
+                </ul>
                 <%	End If	%>
             </fieldset>
          </div>

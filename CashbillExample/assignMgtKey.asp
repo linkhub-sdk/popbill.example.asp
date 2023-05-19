@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ∆À∫Ù ªÁ¿Ã∆Æ∏¶ ≈Î«ÿ πﬂ«‡«œø© πÆº≠π¯»£∞° ∫Œø©µ«¡ˆ æ ¿∫ «ˆ±›øµºˆ¡ıø° πÆº≠π¯»£∏¶ «“¥Á«’¥œ¥Ÿ.
+    ' ÌåùÎπå ÏÇ¨Ïù¥Ìä∏Î•º ÌÜµÌï¥ Î∞úÌñâÌïòÏó¨ Î¨∏ÏÑúÎ≤àÌò∏Í∞Ä Î∂ÄÏó¨ÎêòÏßÄ ÏïäÏùÄ ÌòÑÍ∏àÏòÅÏàòÏ¶ùÏóê Î¨∏ÏÑúÎ≤àÌò∏Î•º Ìï†ÎãπÌï©ÎãàÎã§.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#AssignMgtKey
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
-    testCorpNum = "1234567890"		 
-    
-    ' «ˆ±›øµºˆ¡ı æ∆¿Ã≈€≈∞, πÆº≠ ∏Ò∑œ¡∂»∏(Search) API¿« π›»Ø«◊∏Ò¡ﬂ ItemKey ¬¸¡∂
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    testCorpNum = "1234567890"
+
+    ' ÌòÑÍ∏àÏòÅÏàòÏ¶ù ÏïÑÏù¥ÌÖúÌÇ§, Î¨∏ÏÑú Î™©Î°ùÏ°∞Ìöå(Search) APIÏùò Î∞òÌôòÌï≠Î™©Ï§ë ItemKey Ï∞∏Ï°∞
     itemKey = "020010910360800001"
 
-    ' «“¥Á«“ πÆº≠π¯»£, º˝¿⁄, øµπÆ '-', '_' ¡∂«’¿∏∑Œ √÷¥Î 24¿⁄∏Æ±Ó¡ˆ
-    ' ªÁæ˜¿⁄π¯»£∫∞ ¡ﬂ∫πæ¯¥¬ ∞Ì¿Øπ¯»£ «“¥Á
+    ' Ìï†ÎãπÌï† Î¨∏ÏÑúÎ≤àÌò∏, Ïà´Ïûê, ÏòÅÎ¨∏ '-', '_' Ï°∞Ìï©ÏúºÎ°ú ÏµúÎåÄ 24ÏûêÎ¶¨ÍπåÏßÄ
+    ' ÏÇ¨ÏóÖÏûêÎ≤àÌò∏Î≥Ñ Ï§ëÎ≥µÏóÜÎäî Í≥†Ïú†Î≤àÌò∏ Ìï†Îãπ
     mgtKey = "20220720-ASP-004"
 
     On Error Resume Next
 
     Set Presponse = m_CashbillService.AssignMgtKey(testCorpNum, itemKey, mgtKey)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
@@ -34,14 +34,14 @@
         message =Presponse.message
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>πÆº≠π¯»£ «“¥Á </legend>
+                <legend>Î¨∏ÏÑúÎ≤àÌò∏ Ìï†Îãπ </legend>
                 <ul>
                     <li> Response.code : <%=code%></li>
                     <li> Response.message : <%=message%></li>

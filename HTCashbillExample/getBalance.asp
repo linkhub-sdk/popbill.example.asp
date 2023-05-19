@@ -1,18 +1,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ΖΛΊτ SDK ASP Example.</title>
+        <title>νλΉ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Ώ¬µΏΘΈΏψΐΗ ΐάΏ©ΖχΐΞΖ®Έ¦ Θ®ΐΞΗΥ΄Ο΄Ω.
+    ' μ—°λ™νμ›μ μ”μ—¬ν¬μΈνΈλ¥Ό ν™•μΈν•©λ‹λ‹¤.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/point#GetBalance
     '**************************************************************
 
-    ' ΖΛΊτΘΈΏψ »ηΎχΐΪΉψΘ£, "-" Α¦Ώά
-    testCorpNum = "1234567890"		
+    ' νλΉνμ› μ‚¬μ—…μλ²νΈ, "-" μ μ™Έ
+    testCorpNum = "1234567890"
 
     On Error Resume Next
 
@@ -31,16 +31,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Ώ¬µΏΘΈΏψ ΐάΏ©ΖχΐΞΖ®</legend>
+                <legend>μ—°λ™νμ› μ”μ—¬ν¬μΈνΈ</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ΐάΏ©ΖχΐΞΖ® : <%=CStr(remainpoint)%> </li>
+                        <li>μ”μ—¬ν¬μΈνΈ : <%=CStr(remainpoint)%> </li>
                     </ul>
                 <%	Else  %>
                 <ul>
                     <li>Response.code: <%=code%> </li>
                     <li>Response.message: <%=message%> </li>
-                </ul>	
+                </ul>
                 <%	End If	%>
             </fieldset>
          </div>

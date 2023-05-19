@@ -1,33 +1,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Çö±İ¿µ¼öÁõÀ» ÆÑ½º·Î Àü¼ÛÇÏ´Â ÇÔ¼ö·Î, ÆËºô »çÀÌÆ® [¹®ÀÚ¡¤ÆÑ½º] > [ÆÑ½º] > [Àü¼Û³»¿ª] ¸Ş´º¿¡¼­ Àü¼Û°á°ú¸¦ È®ÀÎ ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-    ' - ÆÑ½º Àü¼Û ¿äÃ»½Ã Æ÷ÀÎÆ®°¡ Â÷°¨µË´Ï´Ù. (Àü¼Û½ÇÆĞ½Ã È¯ºÒÃ³¸®)
+    ' í˜„ê¸ˆì˜ìˆ˜ì¦ì„ íŒ©ìŠ¤ë¡œ ì „ì†¡í•˜ëŠ” í•¨ìˆ˜ë¡œ, íŒë¹Œ ì‚¬ì´íŠ¸ [ë¬¸ìÂ·íŒ©ìŠ¤] > [íŒ©ìŠ¤] > [ì „ì†¡ë‚´ì—­] ë©”ë‰´ì—ì„œ ì „ì†¡ê²°ê³¼ë¥¼ í™•ì¸ í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+    ' - íŒ©ìŠ¤ ì „ì†¡ ìš”ì²­ì‹œ í¬ì¸íŠ¸ê°€ ì°¨ê°ë©ë‹ˆë‹¤. (ì „ì†¡ì‹¤íŒ¨ì‹œ í™˜ë¶ˆì²˜ë¦¬)
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#SendFAX
     '**************************************************************
 
-    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	 
+    'íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"		 
+    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
 
-    '¹®¼­¹øÈ£	
-    mgtKey = "20220720-ASP-001"		 
+    'ë¬¸ì„œë²ˆí˜¸
+    mgtKey = "20220720-ASP-001"
 
-    '¹ß½Å¹øÈ£
-    sender = ""		 
+    'ë°œì‹ ë²ˆí˜¸
+    sender = ""
 
-    '¼ö½ÅÆÑ½º¹øÈ£
-    receiver = ""		 
+    'ìˆ˜ì‹ íŒ©ìŠ¤ë²ˆí˜¸
+    receiver = ""
 
-    On Error Resume Next 
+    On Error Resume Next
 
     Set Presponse = m_CashbillService.SendFAX(testCorpNum, mgtKey, Sender, Receiver, UserID)
 
@@ -39,15 +39,15 @@
         code = Presponse.code
         message = Presponse.message
     End If
-    
-    On Error GoTo 0 
+
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Çö±İ¿µ¼öÁõ ÆÑ½ºÀü¼Û </legend>
+                <legend>í˜„ê¸ˆì˜ìˆ˜ì¦ íŒ©ìŠ¤ì „ì†¡ </legend>
                 <ul>
                     <li>Response.code : <%=code%></li>
                     <li>Response.message : <%=message%></li>

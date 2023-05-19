@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¼¼±Ý°è»ê¼­ 1°ÇÀÇ »ó¼¼Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' ì„¸ê¸ˆê³„ì‚°ì„œ 1ê±´ì˜ ìƒì„¸ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/info#GetDetailInfo
     '**************************************************************
-    
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
+
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸ 10ìžë¦¬
     testCorpNum = "1234567890"
 
-    ' ¼¼±Ý°è»ê¼­ ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ìž…), TRUSTEE(ìœ„ìˆ˜íƒ)
     KeyType = "SELL"
 
-    ' ¹®¼­¹øÈ£
+    ' ë¬¸ì„œë²ˆí˜¸
     MgtKey = "20220720-ASP-002"
 
     On Error Resume Next
@@ -37,80 +37,80 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±Ý°è»ê¼­ »ó¼¼Á¤º¸ È®ÀÎ </legend>
-                <% 
+                <legend>ì„¸ê¸ˆê³„ì‚°ì„œ ìƒì„¸ì •ë³´ í™•ì¸ </legend>
+                <%
 
                     If code = 0 Then
                 %>
                 <ul>
-                    <li>ntsconfirmNum (±¹¼¼Ã» ½ÂÀÎ¹øÈ£) : <%=taxInfo.ntsconfirmNum%></li>
-                    <li>issueType (¹ßÇàÇüÅÂ) : <%=taxInfo.issueType%></li>
-                    <li>taxType (°ú¼¼ÇüÅÂ) : <%=taxInfo.taxType%></li>
-                    <li>chargeDirection (°ú±Ý¹æÇâ) : <%=taxInfo.chargeDirection%></li>
-                    <li>serialNum (ÀÏ·Ã¹øÈ£) : <%=taxInfo.serialNum%></li>
-                    <li>kwon (±Ç) : <%=taxInfo.kwon%></li>
-                    <li>ho (È£) : <%=taxInfo.ho%></li>
-                    <li>writeDate (ÀÛ¼ºÀÏÀÚ) : <%=taxInfo.writeDate%></li>
-                    <li>purposeType (¿µ¼ö/Ã»±¸) : <%=taxInfo.purposeType%></li>
-                    <li>supplyCostTotal (°ø±Þ°¡¾× ÇÕ°è) : <%=taxInfo.supplyCostTotal%></li>
-                    <li>taxTotal (¼¼¾× ÇÕ°è) : <%=taxInfo.taxTotal%></li>
-                    <li>totalAmount (ÇÕ°è±Ý¾×) : <%=taxInfo.totalAmount%></li>
-                    <li>cash (Çö±Ý) : <%=taxInfo.cash%></li>
-                    <li>chkBill (¼öÇ¥) : <%=taxInfo.chkBill%></li>
-                    <li>credit (¿Ü»ó) : <%=taxInfo.credit%></li>
-                    <li>note (¾îÀ½) : <%=taxInfo.note%></li>
-                    <li>remark1 (ºñ°í1) : <%=taxInfo.remark1%></li>
-                    <li>remark2 (ºñ°í2) : <%=taxInfo.remark2%></li>
-                    <li>remark3 (ºñ°í3) : <%=taxInfo.remark3%></li>
+                    <li>ntsconfirmNum (êµ­ì„¸ì²­ ìŠ¹ì¸ë²ˆí˜¸) : <%=taxInfo.ntsconfirmNum%></li>
+                    <li>issueType (ë°œí–‰í˜•íƒœ) : <%=taxInfo.issueType%></li>
+                    <li>taxType (ê³¼ì„¸í˜•íƒœ) : <%=taxInfo.taxType%></li>
+                    <li>chargeDirection (ê³¼ê¸ˆë°©í–¥) : <%=taxInfo.chargeDirection%></li>
+                    <li>serialNum (ì¼ë ¨ë²ˆí˜¸) : <%=taxInfo.serialNum%></li>
+                    <li>kwon (ê¶Œ) : <%=taxInfo.kwon%></li>
+                    <li>ho (í˜¸) : <%=taxInfo.ho%></li>
+                    <li>writeDate (ìž‘ì„±ì¼ìž) : <%=taxInfo.writeDate%></li>
+                    <li>purposeType (ì˜ìˆ˜/ì²­êµ¬) : <%=taxInfo.purposeType%></li>
+                    <li>supplyCostTotal (ê³µê¸‰ê°€ì•¡ í•©ê³„) : <%=taxInfo.supplyCostTotal%></li>
+                    <li>taxTotal (ì„¸ì•¡ í•©ê³„) : <%=taxInfo.taxTotal%></li>
+                    <li>totalAmount (í•©ê³„ê¸ˆì•¡) : <%=taxInfo.totalAmount%></li>
+                    <li>cash (í˜„ê¸ˆ) : <%=taxInfo.cash%></li>
+                    <li>chkBill (ìˆ˜í‘œ) : <%=taxInfo.chkBill%></li>
+                    <li>credit (ì™¸ìƒ) : <%=taxInfo.credit%></li>
+                    <li>note (ì–´ìŒ) : <%=taxInfo.note%></li>
+                    <li>remark1 (ë¹„ê³ 1) : <%=taxInfo.remark1%></li>
+                    <li>remark2 (ë¹„ê³ 2) : <%=taxInfo.remark2%></li>
+                    <li>remark3 (ë¹„ê³ 3) : <%=taxInfo.remark3%></li>
 
-                    <li>invoicerMgtKey (°ø±ÞÀÚ ¹®¼­¹øÈ£) : <%=taxInfo.invoicerMgtKey%></li>
-                    <li>invoicerCorpNum (°ø±ÞÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=taxInfo.invoicerCorpNum%> </li>
-                    <li>invoicerTaxRegID (°ø±ÞÀÚ Á¾»ç¾÷Àå ½Äº°¹øÈ£) : <%=taxInfo.invoicerTaxRegID%></li>
-                    <li>invoicerCorpName (°ø±ÞÀÚ »óÈ£) : <%=taxInfo.invoicerCorpName%></li>
-                    <li>invoicerCEOName (°ø±ÞÀÚ ´ëÇ¥ÀÚ¸í) : <%=taxInfo.invoicerCEOName%></li>
-                    <li>invoicerAddr (°ø±ÞÀÚ ÁÖ¼Ò) : <%=taxInfo.invoicerAddr%></li>
-                    <li>invoicerBizType (°ø±ÞÀÚ ¾÷ÅÂ) : <%=taxInfo.invoicerBizType%></li>
-                    <li>invoicerBizClass (°ø±ÞÀÚ Á¾¸ñ) : <%=taxInfo.invoicerBizClass%></li>
-                    <li>invoicerContactName (°ø±ÞÀÚ ´ã´çÀÚ¸í) : <%=taxInfo.invoicerContactName%></li>
-                    <li>invoicerDeptName (°ø±ÞÀÚ ´ã´çÀÚ ºÎ¼­¸í) : <%=taxInfo.invoicerDeptName%></li>
-                    <li>invoicerTEL (°ø±ÞÀÚ ¿¬¶ôÃ³) : <%=taxInfo.invoicerTEL%></li>
-                    <li>invoicerHP (°ø±ÞÀÚ ÈÞ´ëÆù¹øÈ£) : <%=taxInfo.invoicerHP%></li>
-                    <li>invoicerEmail (°ø±ÞÀÚ ¸ÞÀÏ) : <%=taxInfo.invoicerEmail%></li>
-                    <li>invoicerSMSSendYN (¾Ë¸²¹®ÀÚ Àü¼Û¿©ºÎ) : <%=taxInfo.invoicerSMSSendYN%></li>
+                    <li>invoicerMgtKey (ê³µê¸‰ìž ë¬¸ì„œë²ˆí˜¸) : <%=taxInfo.invoicerMgtKey%></li>
+                    <li>invoicerCorpNum (ê³µê¸‰ìž ì‚¬ì—…ìžë²ˆí˜¸) : <%=taxInfo.invoicerCorpNum%> </li>
+                    <li>invoicerTaxRegID (ê³µê¸‰ìž ì¢…ì‚¬ì—…ìž¥ ì‹ë³„ë²ˆí˜¸) : <%=taxInfo.invoicerTaxRegID%></li>
+                    <li>invoicerCorpName (ê³µê¸‰ìž ìƒí˜¸) : <%=taxInfo.invoicerCorpName%></li>
+                    <li>invoicerCEOName (ê³µê¸‰ìž ëŒ€í‘œìžëª…) : <%=taxInfo.invoicerCEOName%></li>
+                    <li>invoicerAddr (ê³µê¸‰ìž ì£¼ì†Œ) : <%=taxInfo.invoicerAddr%></li>
+                    <li>invoicerBizType (ê³µê¸‰ìž ì—…íƒœ) : <%=taxInfo.invoicerBizType%></li>
+                    <li>invoicerBizClass (ê³µê¸‰ìž ì¢…ëª©) : <%=taxInfo.invoicerBizClass%></li>
+                    <li>invoicerContactName (ê³µê¸‰ìž ë‹´ë‹¹ìžëª…) : <%=taxInfo.invoicerContactName%></li>
+                    <li>invoicerDeptName (ê³µê¸‰ìž ë‹´ë‹¹ìž ë¶€ì„œëª…) : <%=taxInfo.invoicerDeptName%></li>
+                    <li>invoicerTEL (ê³µê¸‰ìž ì—°ë½ì²˜) : <%=taxInfo.invoicerTEL%></li>
+                    <li>invoicerHP (ê³µê¸‰ìž íœ´ëŒ€í°ë²ˆí˜¸) : <%=taxInfo.invoicerHP%></li>
+                    <li>invoicerEmail (ê³µê¸‰ìž ë©”ì¼) : <%=taxInfo.invoicerEmail%></li>
+                    <li>invoicerSMSSendYN (ì•Œë¦¼ë¬¸ìž ì „ì†¡ì—¬ë¶€) : <%=taxInfo.invoicerSMSSendYN%></li>
 
-                    <li>invoiceeMgtKey (°ø±Þ¹Þ´ÂÀÚ ¹®¼­¹øÈ£) : <%=taxInfo.invoiceeMgtKey%></li>
-                    <li>invoiceeType (°ø±Þ¹Þ´ÂÀÚ ±¸ºÐ) : <%=taxInfo.invoiceeType%></li>
-                    <li>invoiceeCorpNum (°ø±Þ¹Þ´ÂÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=taxInfo.invoiceeCorpNum%></li>
-                    <li>invoiceeTaxRegID (°ø±Þ¹Þ´ÂÀÚ Á¾»ç¾÷Àå ½Äº°¹øÈ£) : <%=taxInfo.invoiceeTaxRegID%></li>
-                    <li>invoiceeCorpName (°ø±Þ¹Þ´ÂÀÚ »óÈ£) : <%=taxInfo.invoiceeCorpName%></li>
-                    <li>invoiceeCEOName (°ø±Þ¹Þ´ÂÀÚ ´ëÇ¥ÀÚ¸í) : <%=taxInfo.invoiceeCEOName%></li>
-                    <li>invoiceeAddr (°ø±Þ¹Þ´ÂÀÚ ÁÖ¼Ò) : <%=taxInfo.invoiceeAddr%></li>
-                    <li>invoiceeBizType (°ø±Þ¹Þ´ÂÀÚ ¾÷ÅÂ) : <%=taxInfo.invoiceeBizType%></li>
-                    <li>invoiceeBizClass (°ø±Þ¹Þ´ÂÀÚ Á¾¸ñ) : <%=taxInfo.invoiceeBizClass%></li>
-                    <li>closeDownState (°ø±Þ¹Þ´ÂÀÚ ÈÞÆó¾÷»óÅÂ) : <%=taxInfo.closeDownState%></li>
-                    <li>closeDownStateDate (°ø±Þ¹Þ´ÂÀÚ ÈÞÆó¾÷ÀÏÀÚ) : <%=taxInfo.closeDownStateDate%></li>
-                    <li>invoiceeContactName1 (°ø±Þ¹Þ´ÂÀÚ ´ã´çÀÚ¸í) : <%=taxInfo.invoiceeContactName1%></li>
-                    <li>invoiceeDeptName1 (°ø±Þ¹Þ´ÂÀÚ ºÎ¼­¸í) : <%=taxInfo.invoiceeDeptName1%></li>
-                    <li>invoiceeTEL1 (°ø±Þ¹Þ´ÂÀÚ ´ã´çÀÚ ¿¬¶ôÃ³) : <%=taxInfo.invoiceeTEL1%></li>
-                    <li>invoiceeHP1 (°ø±Þ¹Þ´ÂÀÚ ´ã´çÀÚ ÈÞ´ëÆù) : <%=taxInfo.invoiceeHP1%></li>
-                    <li>invoiceeEmail1 (°ø±Þ¹Þ´ÂÀÚ ´ã´çÀÚ ÀÌ¸ÞÀÏ) : <%=taxInfo.invoiceeEmail1%></li>
-                    <li>invoiceeSMSSendYN (¿ª¹ßÇà¾È³»¹®ÀÚ Àü¼Û¿©ºÎ) : <%=taxInfo.invoiceeSMSSendYN%></li>
+                    <li>invoiceeMgtKey (ê³µê¸‰ë°›ëŠ”ìž ë¬¸ì„œë²ˆí˜¸) : <%=taxInfo.invoiceeMgtKey%></li>
+                    <li>invoiceeType (ê³µê¸‰ë°›ëŠ”ìž êµ¬ë¶„) : <%=taxInfo.invoiceeType%></li>
+                    <li>invoiceeCorpNum (ê³µê¸‰ë°›ëŠ”ìž ì‚¬ì—…ìžë²ˆí˜¸) : <%=taxInfo.invoiceeCorpNum%></li>
+                    <li>invoiceeTaxRegID (ê³µê¸‰ë°›ëŠ”ìž ì¢…ì‚¬ì—…ìž¥ ì‹ë³„ë²ˆí˜¸) : <%=taxInfo.invoiceeTaxRegID%></li>
+                    <li>invoiceeCorpName (ê³µê¸‰ë°›ëŠ”ìž ìƒí˜¸) : <%=taxInfo.invoiceeCorpName%></li>
+                    <li>invoiceeCEOName (ê³µê¸‰ë°›ëŠ”ìž ëŒ€í‘œìžëª…) : <%=taxInfo.invoiceeCEOName%></li>
+                    <li>invoiceeAddr (ê³µê¸‰ë°›ëŠ”ìž ì£¼ì†Œ) : <%=taxInfo.invoiceeAddr%></li>
+                    <li>invoiceeBizType (ê³µê¸‰ë°›ëŠ”ìž ì—…íƒœ) : <%=taxInfo.invoiceeBizType%></li>
+                    <li>invoiceeBizClass (ê³µê¸‰ë°›ëŠ”ìž ì¢…ëª©) : <%=taxInfo.invoiceeBizClass%></li>
+                    <li>closeDownState (ê³µê¸‰ë°›ëŠ”ìž íœ´íì—…ìƒíƒœ) : <%=taxInfo.closeDownState%></li>
+                    <li>closeDownStateDate (ê³µê¸‰ë°›ëŠ”ìž íœ´íì—…ì¼ìž) : <%=taxInfo.closeDownStateDate%></li>
+                    <li>invoiceeContactName1 (ê³µê¸‰ë°›ëŠ”ìž ë‹´ë‹¹ìžëª…) : <%=taxInfo.invoiceeContactName1%></li>
+                    <li>invoiceeDeptName1 (ê³µê¸‰ë°›ëŠ”ìž ë¶€ì„œëª…) : <%=taxInfo.invoiceeDeptName1%></li>
+                    <li>invoiceeTEL1 (ê³µê¸‰ë°›ëŠ”ìž ë‹´ë‹¹ìž ì—°ë½ì²˜) : <%=taxInfo.invoiceeTEL1%></li>
+                    <li>invoiceeHP1 (ê³µê¸‰ë°›ëŠ”ìž ë‹´ë‹¹ìž íœ´ëŒ€í°) : <%=taxInfo.invoiceeHP1%></li>
+                    <li>invoiceeEmail1 (ê³µê¸‰ë°›ëŠ”ìž ë‹´ë‹¹ìž ì´ë©”ì¼) : <%=taxInfo.invoiceeEmail1%></li>
+                    <li>invoiceeSMSSendYN (ì—­ë°œí–‰ì•ˆë‚´ë¬¸ìž ì „ì†¡ì—¬ë¶€) : <%=taxInfo.invoiceeSMSSendYN%></li>
 
                     <%
                         For i=0 To UBound(taxInfo.detailList)-1
                     %>
                         <fieldset class="fieldset2">
-                        <legend>»ó¼¼Ç×¸ñ(Ç°¸ñ) Á¤º¸ <%=i+1%> </legend>
+                        <legend>ìƒì„¸í•­ëª©(í’ˆëª©) ì •ë³´ <%=i+1%> </legend>
                         <ul>
-                            <li>serialNum (ÀÏ·Ã¹øÈ£) : <%=taxInfo.detailList(i).serialNum%></li>
-                            <li>purchaseDT (°Å·¡ÀÏÀÚ) : <%=taxInfo.detailList(i).purchaseDT%></li>
-                            <li>itemName (Ç°¸í) : <%=taxInfo.detailList(i).itemName%></li>
-                            <li>spec (±Ô°Ý) : <%=taxInfo.detailList(i).spec%></li>
-                            <li>qty (¼ö·®) : <%=taxInfo.detailList(i).qty%></li>
-                            <li>unitCost (´Ü°¡) : <%=taxInfo.detailList(i).unitCost%></li>
-                            <li>supplyCost (°ø±Þ°¡¾×) : <%=taxInfo.detailList(i).supplyCost%></li>
-                            <li>tax (¼¼¾×) : <%=taxInfo.detailList(i).tax%></li>
-                            <li>remark (ºñ°í) : <%=taxInfo.detailList(i).remark%></li>
+                            <li>serialNum (ì¼ë ¨ë²ˆí˜¸) : <%=taxInfo.detailList(i).serialNum%></li>
+                            <li>purchaseDT (ê±°ëž˜ì¼ìž) : <%=taxInfo.detailList(i).purchaseDT%></li>
+                            <li>itemName (í’ˆëª…) : <%=taxInfo.detailList(i).itemName%></li>
+                            <li>spec (ê·œê²©) : <%=taxInfo.detailList(i).spec%></li>
+                            <li>qty (ìˆ˜ëŸ‰) : <%=taxInfo.detailList(i).qty%></li>
+                            <li>unitCost (ë‹¨ê°€) : <%=taxInfo.detailList(i).unitCost%></li>
+                            <li>supplyCost (ê³µê¸‰ê°€ì•¡) : <%=taxInfo.detailList(i).supplyCost%></li>
+                            <li>tax (ì„¸ì•¡) : <%=taxInfo.detailList(i).tax%></li>
+                            <li>remark (ë¹„ê³ ) : <%=taxInfo.detailList(i).remark%></li>
                         </ul>
                         </fieldset>
                     <%
@@ -120,11 +120,11 @@
                         For i=0 To UBound(taxInfo.addContactList)-1
                     %>
                         <fieldset class="fieldset2">
-                            <legend>Ãß°¡´ã´çÀÚ Á¤º¸ <%=i+1%> </legend>
+                            <legend>ì¶”ê°€ë‹´ë‹¹ìž ì •ë³´ <%=i+1%> </legend>
                                 <ul>
-                                    <li>serialNum (ÀÏ·Ã¹øÈ£) : <%=taxInfo.addContactList(i).serialNum%></li>
-                                    <li>email (´ã´çÀÚ ¸ÞÀÏ) : <%=taxInfo.addContactList(i).email%></li>
-                                    <li>contactName (´ã´çÀÚ¸í) : <%=taxInfo.addContactList(i).contactName%></li>
+                                    <li>serialNum (ì¼ë ¨ë²ˆí˜¸) : <%=taxInfo.addContactList(i).serialNum%></li>
+                                    <li>email (ë‹´ë‹¹ìž ë©”ì¼) : <%=taxInfo.addContactList(i).email%></li>
+                                    <li>contactName (ë‹´ë‹¹ìžëª…) : <%=taxInfo.addContactList(i).contactName%></li>
                                 </ul>
                             </fieldset>
                     <%
@@ -132,7 +132,7 @@
                     %>
                 </ul>
 
-                <% 
+                <%
                     Else
                 %>
                     <ul>

@@ -1,45 +1,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Ãë¼Ò Çö±İ¿µ¼öÁõ µ¥ÀÌÅÍ¸¦ ÆËºô¿¡ ÀúÀå°ú µ¿½Ã¿¡ ¹ßÇàÇÏ¿© "¹ßÇà¿Ï·á" »óÅÂ·Î Ã³¸®ÇÕ´Ï´Ù.
-    ' - Ãë¼Ò Çö±İ¿µ¼öÁõÀÇ ±İ¾×Àº ¿øº» ±İ¾×À» ³ÑÀ» ¼ö ¾ø½À´Ï´Ù.
-    ' - Çö±İ¿µ¼öÁõ ±¹¼¼Ã» Àü¼Û Á¤Ã¥ [https://developers.popbill.com/guide/cashbill/asp/introduction/policy-of-send-to-nts]
-    ' - Ãë¼Ò Çö±İ¿µ¼öÁõ ¹ßÇà ½Ã ±¸¸ÅÀÚ ¸ŞÀÏÁÖ¼Ò·Î ¹ßÇà ¾È³» º£ÀÏÀÌ Àü¼ÛµÇ´Ï À¯ÀÇÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.
+    ' ì·¨ì†Œ í˜„ê¸ˆì˜ìˆ˜ì¦ ë°ì´í„°ë¥¼ íŒë¹Œì— ì €ì¥ê³¼ ë™ì‹œì— ë°œí–‰í•˜ì—¬ "ë°œí–‰ì™„ë£Œ" ìƒíƒœë¡œ ì²˜ë¦¬í•©ë‹ˆë‹¤.
+    ' - ì·¨ì†Œ í˜„ê¸ˆì˜ìˆ˜ì¦ì˜ ê¸ˆì•¡ì€ ì›ë³¸ ê¸ˆì•¡ì„ ë„˜ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+    ' - í˜„ê¸ˆì˜ìˆ˜ì¦ êµ­ì„¸ì²­ ì „ì†¡ ì •ì±… [https://developers.popbill.com/guide/cashbill/asp/introduction/policy-of-send-to-nts]
+    ' - ì·¨ì†Œ í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œí–‰ ì‹œ êµ¬ë§¤ì ë©”ì¼ì£¼ì†Œë¡œ ë°œí–‰ ì•ˆë‚´ ë² ì¼ì´ ì „ì†¡ë˜ë‹ˆ ìœ ì˜í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/issue#RevokeRegistIssue
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"				 
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
 
-    ' ¹®¼­¹øÈ£, °¡¸ÍÁ¡ »ç¾÷ÀÚ¹øÈ£ ´ÜÀ§ °íÀ¯¹øÈ£ ÇÒ´ç, 1~24ÀÚ¸® ¿µ¹®,¼ıÀÚÁ¶ÇÕÀ¸·Î Áßº¹¾øÀÌ ±¸¼º.
+    ' ë¬¸ì„œë²ˆí˜¸, ê°€ë§¹ì  ì‚¬ì—…ìë²ˆí˜¸ ë‹¨ìœ„ ê³ ìœ ë²ˆí˜¸ í• ë‹¹, 1~24ìë¦¬ ì˜ë¬¸,ìˆ«ìì¡°í•©ìœ¼ë¡œ ì¤‘ë³µì—†ì´ êµ¬ì„±.
     mgtKey = "20220720-ASP-102"
 
-    ' ¿øº» Çö±İ¿µ¼öÁõ ±¹¼¼Ã»½ÂÀÎ¹øÈ£
+    ' ì›ë³¸ í˜„ê¸ˆì˜ìˆ˜ì¦ êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸
     orgConfirmNum = "TB0000102"
 
-    ' ¿øº» Çö±İ¿µ¼öÁõ °Å·¡ÀÏÀÚ
+    ' ì›ë³¸ í˜„ê¸ˆì˜ìˆ˜ì¦ ê±°ë˜ì¼ì
     orgTradeDate = "20221108"
 
-    ' ¹ßÇà¾È³» ¹®ÀÚ Àü¼Û¿©ºÎ
+    ' ë°œí–‰ì•ˆë‚´ ë¬¸ì ì „ì†¡ì—¬ë¶€
     smssendYN = False
 
-    ' ¸Ş¸ğ
-    memo = "Áï½Ã¹ßÇà ¸Ş¸ğ"
+    ' ë©”ëª¨
+    memo = "ì¦‰ì‹œë°œí–‰ ë©”ëª¨"
 
-    ' ¾È³»¸ŞÀÏ Á¦¸ñ, °ø¹éÃ³¸®½Ã ±âº»¾ç½ÄÀ¸·Î Àü¼Û
+    ' ì•ˆë‚´ë©”ì¼ ì œëª©, ê³µë°±ì²˜ë¦¬ì‹œ ê¸°ë³¸ì–‘ì‹ìœ¼ë¡œ ì „ì†¡
     emailSubject = ""
 
-    ' °Å·¡ÀÏ½Ã, ³¯Â¥(yyyyMMddHHmmss)
-    ' ´çÀÏ, ÀüÀÏ¸¸ °¡´É, ¹ÌÀÔ·Â½Ã ±âº»°ª ¹ßÇàÀÏ½Ã Ã³¸®
+    ' ê±°ë˜ì¼ì‹œ, ë‚ ì§œ(yyyyMMddHHmmss)
+    ' ë‹¹ì¼, ì „ì¼ë§Œ ê°€ëŠ¥, ë¯¸ì…ë ¥ì‹œ ê¸°ë³¸ê°’ ë°œí–‰ì¼ì‹œ ì²˜ë¦¬
     tradeDT = ""
 
     On Error Resume Next
@@ -50,7 +50,7 @@
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
         confirmNum = Presponse.confirmNum
@@ -58,7 +58,7 @@
         tradeDT = Presponse.tradeDT
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 
 %>
     <body>
@@ -66,7 +66,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Ãë¼ÒÇö±İ¿µ¼öÁõ Áï½Ã¹ßÇà</legend>
+                <legend>ì·¨ì†Œí˜„ê¸ˆì˜ìˆ˜ì¦ ì¦‰ì‹œë°œí–‰</legend>
                 <ul>
                     <li> Response.code : <%=code%> </li>
                     <li> Response.message : <%=message%> </li>

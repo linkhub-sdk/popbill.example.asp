@@ -7,7 +7,7 @@ Class HTTaxinvoiceService
 
     Private m_PopbillBase
 
-    'Å×½ºÆ® ÇÃ·¡±×
+    'í…ŒìŠ¤íŠ¸ í”Œë˜ê·¸
     Public Property Let IsTest(ByVal value)
         m_PopbillBase.IsTest = value
     End Property
@@ -37,75 +37,75 @@ Class HTTaxinvoiceService
         m_PopbillBase.Initialize linkID,SecretKey
     End Sub
 
-    'È¸¿øÀÜ¾×Á¶È¸
+    'íšŒì›ì”ì•¡ì¡°íšŒ
     Public Function GetBalance(CorpNum)
         GetBalance = m_PopbillBase.GetBalance(CorpNum)
     End Function
-    'ÆÄÆ®³Ê ÀÜ¾×Á¶È¸
+    'íŒŒíŠ¸ë„ˆ ì”ì•¡ì¡°íšŒ
     Public Function GetPartnerBalance(CorpNum)
         GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
     End Function
-    
-    'ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL - 2017/08/29 Ãß°¡
+
+    'íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ íŒì—… URL - 2017/08/29 ì¶”ê°€
     Public Function GetPartnerURL(CorpNum, TOGO)
         GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
     End Function
 
-    'ÆËºô ±âº» URL
+    'íŒë¹Œ ê¸°ë³¸ URL
     Public Function GetPopbillURL(CorpNum , UserID , TOGO )
         GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
     End Function
-    'ÆËºô ·Î±×ÀÎ URL
+    'íŒë¹Œ ë¡œê·¸ì¸ URL
     Public Function GetAccessURL(CorpNum , UserID)
         GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
     End Function
 
-    'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀü URL
+    'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì¶©ì „ URL
     Public Function GetChargeURL(CorpNum , UserID)
         GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
     End Function
 
-    'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª URL
+    'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ URL
     Public Function GetPaymentURL(CorpNum, UserID)
         GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
     End Function
 
-    'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL
+    'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL
     Public Function GetUseHistoryURL(CorpNum, UserID)
         GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
     End Function
 
-    'È¸¿ø°¡ÀÔ ¿©ºÎ
+    'íšŒì›ê°€ì… ì—¬ë¶€
     Public Function CheckIsMember(CorpNum , linkID)
         Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
     End Function
-    'È¸¿ø°¡ÀÔ
+    'íšŒì›ê°€ì…
     Public Function JoinMember(JoinInfo)
         Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
     End Function
 
-    '´ã´çÀÚ Á¤º¸ È®ÀÎ
+    'ë‹´ë‹¹ì ì •ë³´ í™•ì¸
     Public Function GetContactInfo(CorpNum, ContactID, UserID)
         Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
-    End Function 
+    End Function
 
-    '´ã´çÀÚ ¸ñ·ÏÁ¶È¸
+    'ë‹´ë‹¹ì ëª©ë¡ì¡°íšŒ
     Public Function ListContact(CorpNum, UserID)
         Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
     End Function
-    '´ã´çÀÚ Á¤º¸¼öÁ¤
+    'ë‹´ë‹¹ì ì •ë³´ìˆ˜ì •
     Public Function UpdateContact(CorpNum, contInfo, UserId)
         Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
     End Function
-    '´ã´çÀÚ Ãß°¡ 
+    'ë‹´ë‹¹ì ì¶”ê°€
     Public Function RegistContact(CorpNum, contInfo, UserId)
         Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
     End Function
-    'È¸»çÁ¤º¸ ¼öÁ¤
+    'íšŒì‚¬ì •ë³´ ìˆ˜ì •
     Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
         Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
     End Function
-    'È¸»çÁ¤º¸ È®ÀÎ 
+    'íšŒì‚¬ì •ë³´ í™•ì¸
     Public Function GetCorpInfo(CorpNum, UserId)
         Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
     End Function
@@ -113,18 +113,64 @@ Class HTTaxinvoiceService
         Set CheckID = m_popbillBase.CheckID(id)
     End Function
 
-    '°ú±İÁ¤º¸ È®ÀÎ
+    'ê³¼ê¸ˆì •ë³´ í™•ì¸
     Public Function GetChargeInfo ( CorpNum, UserID )
         Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
 
         Dim chrgInfo : Set chrgInfo = New ChargeInfo
         chrgInfo.fromJsonInfo result
-        
-        Set GetChargeInfo = chrgInfo
-    End Function 
-    '''''''''''''  End of PopbillBase
 
-    '¼öÁı¿äÃ»
+        Set GetChargeInfo = chrgInfo
+    End Function
+
+'ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­
+Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
+    Set PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
+End Function
+
+'ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ ì¡°íšŒ
+Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+    Set GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+End Function
+
+'ì—°ë™íšŒì› ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­ ì •ë³´í™•ì¸
+Public Function GetSettleResult(CorpNum, SettleCode, UserID)
+    Set GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
+End Function
+
+'ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ í™•ì¸
+Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
+    Set GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
+End Function
+
+'ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆì‹ ì²­
+Public Function Refund(CorpNum, RefundForm, UserID)
+    Set Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
+End Function
+
+' í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸ ì¡°íšŒ
+Public Function GetRefundableBalance(CorpNum, UserID)
+    GetRefundableBalance = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
+End Function
+
+'ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆë‚´ì—­ í™•ì¸
+Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
+    Set GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
+End Function
+
+' í™˜ë¶ˆ ì‹ ì²­ ìƒíƒœ ì¡°íšŒ
+Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
+    Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
+End Function
+
+'íšŒì› íƒˆí‡´
+Public Function QuitMember(CorpNum, QuitReason, UserID)
+    Set QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
+End Function
+
+'''''''''''''  End of PopbillBase
+
+    'ìˆ˜ì§‘ìš”ì²­
     Public Function RequestJob(CorpNum , KeyType, DType, SDate, Edate, UserID)
         Dim uri
         uri = "/HomeTax/Taxinvoice/" & KeyType
@@ -136,25 +182,25 @@ Class HTTaxinvoiceService
         RequestJob = result.jobID
     End Function
 
-    '¼öÁı »óÅÂ È®ÀÎ
+    'ìˆ˜ì§‘ ìƒíƒœ í™•ì¸
     Public Function GetJobState(CorpNum, JobID, UserID)
         If Len(JobID) <> 18  Then
-            Err.Raise -99999999, "POPBILL", "ÀÛ¾÷¾ÆÀÌµğ°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "ì‘ì—…ì•„ì´ë””ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
         End If
 
         Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & JobID & "/State", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
 
-        Dim jobInfo : Set jobInfo = New HTTIJobState	
+        Dim jobInfo : Set jobInfo = New HTTIJobState
         jobInfo.fromJsonInfo result
         Set GetJobState = jobInfo
     End Function
 
-    '¼öÁı »óÅÂ ¸ñ·Ï È®ÀÎ
+    'ìˆ˜ì§‘ ìƒíƒœ ëª©ë¡ í™•ì¸
     Public Function ListActiveJob(CorpNum, UserID)
         Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/JobList", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
-        
+
         Dim jobList : Set jobList = CreateObject("Scripting.Dictionary")
 
         Dim i
@@ -167,53 +213,53 @@ Class HTTaxinvoiceService
         Set ListActiveJob = jobList
     End Function
 
-    '¼öÁı °á°ú Á¶È¸
+    'ìˆ˜ì§‘ ê²°ê³¼ ì¡°íšŒ
     Public Function Search ( CorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, Page, PerPage, Order, UserID, SearchString )
         If  Not ( Len ( JobID ) = 18 )  Then
-            Err.Raise -99999999, "POPBILL", "ÀÛ¾÷¾ÆÀÌµğ°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
-        End If 
+            Err.Raise -99999999, "POPBILL", "ì‘ì—…ì•„ì´ë””ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
+        End If
         Dim uri
         uri = "/HomeTax/Taxinvoice/" & JobID
 
         Dim i
         uri = uri & "?Type="
-        For i = 0 To UBound(TIType) -1 
+        For i = 0 To UBound(TIType) -1
             If i = UBound(TIType) -1 Then
                 uri = uri & TIType(i)
             Else
                 uri = uri & TIType(i) & ","
             End if
         Next
-        
+
         uri = uri & "&TaxType="
-        For i = 0 To UBound(TaxType) -1 
+        For i = 0 To UBound(TaxType) -1
             If i = UBound(TaxType) -1 Then
                 uri = uri & TaxType(i)
             Else
                 uri = uri & TaxType(i) & ","
             End if
         Next
-        
+
         uri = uri & "&PurposeType="
-        For i = 0 To UBound(PurposeType) -1 
+        For i = 0 To UBound(PurposeType) -1
             If i = UBound(PurposeType) -1 Then
                 uri = uri & PurposeType(i)
             Else
                 uri = uri & PurposeType(i) & ","
             End if
         Next
-        
+
         If TaxRegIDYN <> "" Then
             uri = uri & "&TaxRegIDYN=" & TaxRegIDYN
-        End If 
+        End If
 
         uri = uri & "&TaxRegIDType=" & TaxRegIDType
-        
+
         uri = uri & "&TaxRegID=" & TaxRegID
 
         If SearchString <> "" Then
             uri = uri & "&SearchString=" & Server.URLEncode(SearchString)
-        End If 
+        End If
 
         uri = uri & "&Page=" & CStr(Page)
         uri = uri & "&PerPage=" & CStr(PerPage)
@@ -223,70 +269,70 @@ Class HTTaxinvoiceService
 
         Dim searchResult : Set searchResult = New HTTaxinvoiceSerach
         searchResult.fromJsonInfo result
-        Set Search = searchResult 
+        Set Search = searchResult
 
-    End Function 
+    End Function
 
-    '¼öÁı °á°ú ¿ä¾àÁ¤º¸ Á¶È¸
+    'ìˆ˜ì§‘ ê²°ê³¼ ìš”ì•½ì •ë³´ ì¡°íšŒ
     Public Function Summary ( CorpNum, JobID, TIType, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, UserID, SearchString )
         If Not ( Len ( JobID ) = 18 ) Then
-            Err.Raise -99999999, "POPBILL", "ÀÛ¾÷¾ÆÀÌµğ°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
-        End If 
+            Err.Raise -99999999, "POPBILL", "ì‘ì—…ì•„ì´ë””ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
+        End If
         Dim uri
         uri = "/HomeTax/Taxinvoice/" & JobID & "/Summary"
-        
+
         Dim i
         uri = uri & "?Type="
-        For i = 0 To UBound(TIType) -1 
+        For i = 0 To UBound(TIType) -1
             If i = UBound(TIType) -1 Then
                 uri = uri & TIType(i)
             Else
                 uri = uri & TIType(i) & ","
             End if
         Next
-        
+
         uri = uri & "&TaxType="
-        For i = 0 To UBound(TaxType) -1 
+        For i = 0 To UBound(TaxType) -1
             If i = UBound(TaxType) -1 Then
                 uri = uri & TaxType(i)
             Else
                 uri = uri & TaxType(i) & ","
             End if
         Next
-        
+
         uri = uri & "&PurposeType="
-        For i = 0 To UBound(PurposeType) -1 
+        For i = 0 To UBound(PurposeType) -1
             If i = UBound(PurposeType) -1 Then
                 uri = uri & PurposeType(i)
             Else
                 uri = uri & PurposeType(i) & ","
             End if
         Next
-        
+
         uri = uri & "&TaxRegIDType=" & TaxRegIDType
 
         If TaxRegIDYN <> "" Then
             uri = uri & "&TaxRegIDYN=" & TaxRegIDYN
-        End If 
-        
+        End If
+
         uri = uri & "&TaxRegID=" & TaxRegID
 
         If SearchString <> "" Then
             uri = uri & "&SearchString=" & Server.URLEncode(SearchString)
-        End If 
+        End If
 
         Dim result : Set result = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), UserID)
-    
+
         Dim summaryResult : Set summaryResult = New HTTaxinvoiceSummary
         summaryResult.fromJsonInfo result
         Set Summary = summaryResult
 
     End Function
 
-    '»ó¼¼Á¤º¸ Á¶È¸ - JSON
+    'ìƒì„¸ì •ë³´ ì¡°íšŒ - JSON
     Public Function GetTaxinvoice ( CorpNum, NTSConfirmNum, UserID )
         If Not ( Len ( NTSConfirmNum ) = 24 ) Then
-            Err.Raise -99999999, "POPBILL", "±¹¼¼Ã»½ÂÀÎ¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
         End If
 
         Dim responseObj : Set responseObj = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNUm, _
@@ -296,70 +342,70 @@ Class HTTaxinvoiceService
         taxinvoiceDetail.fromJsonInfo responseObj
         Set GetTaxinvoice = taxinvoiceDetail
     End Function
-    
-    '»ó¼¼Á¤º¸ Á¶È¸ - XML
+
+    'ìƒì„¸ì •ë³´ ì¡°íšŒ - XML
     Public Function GetXML ( CorpNum, NTSConfirmNum, UserID )
         If Not ( Len ( NTSConfirmNum ) = 24 ) Then
-            Err.Raise -99999999, "POPBILL", "±¹¼¼Ã»½ÂÀÎ¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
         End If
-        
+
         Dim responseObj : Set responseObj = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNum & "?T=xml", _
                                 m_PopbillBase.getSession_token(CorpNum), UserID)
 
-        Dim taxinvoiceXML : Set taxinvoiceXML = New HTTaxinvoiceXML 
+        Dim taxinvoiceXML : Set taxinvoiceXML = New HTTaxinvoiceXML
         taxinvoiceXML.fromJsonInfo responseObj
         Set GetXML = taxinvoiceXML
     End Function
-    
-    'Á¤¾×Á¦ ½ÅÃ» ÆË¾÷ URL
+
+    'ì •ì•¡ì œ ì‹ ì²­ íŒì—… URL
     Public Function GetFlatRatePopUpURL ( CorpNum, UserID )
         Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice?TG=CHRG", _
                             m_PopbillBase.getSession_token(CorpNum), UserID)
         GetFlatRatePopUpURL = result.url
     End Function
-    
-    'Á¤¾×Á¦ »óÅÂ È®ÀÎ
-    Public Function GetFlatRateState ( CorpNum, UserID ) 
+
+    'ì •ì•¡ì œ ìƒíƒœ í™•ì¸
+    Public Function GetFlatRateState ( CorpNum, UserID )
         Dim responseObj : Set responseObj = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/Contract", _
                             m_PopbillBase.getSession_token(CorpNum), UserID)
 
         Dim flatRateObj : Set flatRateObj = New HTTIFlatRate
         flatRateObj.fromJsonInfo responseObj
         Set GetFlatRateState = flatrateObj
-    End Function 
+    End Function
 
-    '°øÀÎÀÎÁõ¼­ µî·Ï URL
+    'ê³µì¸ì¸ì¦ì„œ ë“±ë¡ URL
     Public Function GetCertificatePopUpURL ( CorpNum, UserID )
         Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice?TG=CERT", _
                         m_PopbillBase.getSession_token(CorpNum), UserID)
         GetCertificatePopUpURL = result.url
-    End Function 
+    End Function
 
-    '°øÀÎÀÎÁõ¼­ ¸¸·áÀÏÀÚ È®ÀÎ 
+    'ê³µì¸ì¸ì¦ì„œ ë§Œë£Œì¼ì í™•ì¸
     Public Function GetCertificateExpireDate ( CorpNum, UserID )
         Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/CertInfo", _
                     m_PopbillBase.getSession_token(CorpNum), UserID)
         GetCertificateExpireDate = result.certificateExpiration
-    End Function 
+    End Function
 
-    'È¨ÅÃ½º ÀüÀÚ¼¼±İ°è»ê¼­ º¸±â ÆË¾÷ URL
+    'í™ˆíƒìŠ¤ ì „ìì„¸ê¸ˆê³„ì‚°ì„œ ë³´ê¸° íŒì—… URL
     Public Function GetPopUpURL ( CorpNum, NTSConfirmNum, UserID )
         If Not ( Len ( NTSConfirmNum ) = 24 ) Then
-            Err.Raise -99999999, "POPBILL", "±¹¼¼Ã»½ÂÀÎ¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
         End If
-        
+
         Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNum & "/PopUp", _
                                 m_PopbillBase.getSession_token(CorpNum), UserID)
 
         GetPopUpURL = result.url
     End Function
 
-    'È¨ÅÃ½º ÀüÀÚ¼¼±İ°è»ê¼­ ÀÎ¼â ÆË¾÷ URL
+    'í™ˆíƒìŠ¤ ì „ìì„¸ê¸ˆê³„ì‚°ì„œ ì¸ì‡„ íŒì—… URL
     Public Function GetPrintURL ( CorpNum, NTSConfirmNum, UserID )
         If Not ( Len ( NTSConfirmNum ) = 24 ) Then
-            Err.Raise -99999999, "POPBILL", "±¹¼¼Ã»½ÂÀÎ¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
         End If
-        
+
         Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/" & NTSConfirmNum & "/Print", _
                                 m_PopbillBase.getSession_token(CorpNum), UserID)
 
@@ -367,40 +413,40 @@ Class HTTaxinvoiceService
     End Function
 
 
-    'È¨ÅÃ½º °øÀÎÀÎÁõ¼­ ·Î±×ÀÎ Å×½ºÆ®
+    'í™ˆíƒìŠ¤ ê³µì¸ì¸ì¦ì„œ ë¡œê·¸ì¸ í…ŒìŠ¤íŠ¸
     Public Function CheckCertValidation ( CorpNum, UserID )
         Set CheckCertValidation = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/CertCheck", m_PopbillBase.getSession_token(CorpNum), UserID)
     End Function
 
-    'ºÎ¼­»ç¿ëÀÚ °èÁ¤µî·Ï
+    'ë¶€ì„œì‚¬ìš©ì ê³„ì •ë“±ë¡
     Public Function RegistDeptUser ( CorpNum, DeptUserID, DeptUserPWD, UserID )
         If DeptUserID = "" Then
-            Err.Raise -99999999, "POPBILL", "È¨ÅÃ½º ºÎ¼­»ç¿ëÀÚ °èÁ¤ ¾ÆÀÌµğ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "í™ˆíƒìŠ¤ ë¶€ì„œì‚¬ìš©ì ê³„ì • ì•„ì´ë””ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         End If
         If DeptUserPWD = "" Then
-            Err.Raise -99999999, "POPBILL", "È¨ÅÃ½º ºÎ¼­»ç¿ëÀÚ °èÁ¤ ºñ¹Ğ¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
+            Err.Raise -99999999, "POPBILL", "í™ˆíƒìŠ¤ ë¶€ì„œì‚¬ìš©ì ê³„ì • ë¹„ë°€ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
         End If
 
         Dim tmp : Set tmp = JSON.parse("{}")
         tmp.Set "id", DeptUserID
         tmp.Set "pwd", DeptUserPWD
-        
-        Dim postdata : postdata = m_PopbillBase.toString(tmp)
 
-        Set RegistDeptUser = m_PopbillBase.httpPOST("/HomeTax/Taxinvoice/DeptUser", m_PopbillBase.getSession_token(CorpNum),"", postdata, UserID)
+        Dim postData : postData = m_PopbillBase.toString(tmp)
+
+        Set RegistDeptUser = m_PopbillBase.httpPOST("/HomeTax/Taxinvoice/DeptUser", m_PopbillBase.getSession_token(CorpNum),"", postData, UserID)
     End Function
 
-    'ºÎ¼­»ç¿ëÀÚ µî·ÏÁ¤º¸ È®ÀÎ
+    'ë¶€ì„œì‚¬ìš©ì ë“±ë¡ì •ë³´ í™•ì¸
     Public Function CheckDeptUser ( CorpNum, UserID )
         Set CheckDeptUser = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/DeptUser", m_PopbillBase.getSession_token(CorpNum), UserID)
     End Function
 
-    'ºÎ¼­»ç¿ëÀÚ ·Î±×ÀÎ Å×½ºÆ®
+    'ë¶€ì„œì‚¬ìš©ì ë¡œê·¸ì¸ í…ŒìŠ¤íŠ¸
     Public Function CheckLoginDeptUser ( CorpNum, UserID )
         Set CheckLoginDeptUser = m_PopbillBase.httpGET("/HomeTax/Taxinvoice/DeptUser/Check", m_PopbillBase.getSession_token(CorpNum), UserID)
     End Function
 
-    'ºÎ¼­»ç¿ëÀÚ µî·ÏÁ¤º¸ »èÁ¦
+    'ë¶€ì„œì‚¬ìš©ì ë“±ë¡ì •ë³´ ì‚­ì œ
     Public Function DeleteDeptUser ( CorpNum, UserID )
         Set DeleteDeptUser = m_PopbillBase.httpPOST("/HomeTax/Taxinvoice/DeptUser", m_PopbillBase.getSession_token(CorpNum),"DELETE", "", UserID)
     End Function
@@ -409,7 +455,7 @@ Class HTTaxinvoiceService
 ''End Of Class HTTaxinvoiceService
 End Class
 
-Class HTTIFlatRate 
+Class HTTIFlatRate
     Public referenceID
     Public contractDT
     Public useEndDate
@@ -432,10 +478,10 @@ Class HTTIFlatRate
             closeOnExpired = jsonInfo.closeOnExpired
             unPaidYN = jsonInfo.unPaidYN
         On Error GoTo 0
-    End Sub 
+    End Sub
 End class
 
-Class HTTaxinvoiceXML 
+Class HTTaxinvoiceXML
     Public ResultCode
     Public Message
     Public retObject
@@ -446,7 +492,7 @@ Class HTTaxinvoiceXML
             Message = jsonInfo.Message
             retObject = jsonInfo.retObject
         On Error GoTo 0
-    End Sub 
+    End Sub
 End Class
 
 Class HTTaxinvoice
@@ -513,10 +559,10 @@ Class HTTaxinvoice
     Public trusteeEmail
 
     Public detailList()
-    
+
     Public Sub Class_Initialize
         ReDim detailList(-1)
-    End Sub 
+    End Sub
 
 
 
@@ -539,7 +585,7 @@ Class HTTaxinvoice
             remark2 = jsonInfo.remark2
             remark3 = jsonInfo.remark3
             ntsconfirmNum = jsonInfo.ntsconfirmNum
-            
+
             modifyCode = jsonInfo.modifyCode
             orgNTSConfirmNum = jsonInfo.orgNTSConfirmNum
 
@@ -586,17 +632,17 @@ Class HTTaxinvoice
 
             ReDim detailList(jsonInfo.detailList.length)
             Dim i
-            For i = 0 To jsonInfo.detailList.length -1 
+            For i = 0 To jsonInfo.detailList.length -1
                 Dim tmpDetail : Set tmpDetail = New HTTaxinvoiceDetail
                 tmpDetail.FromJsonInfo jsonInfo.detailList.Get(i)
                 Set detailList(i) = tmpDetail
             Next
 
-        On Error GoTo 0 
+        On Error GoTo 0
     End Sub
-End Class 
+End Class
 
-Class HTTaxinvoiceDetail 
+Class HTTaxinvoiceDetail
     Public serialNum
     Public purchaseDT
     Public itemName
@@ -608,7 +654,7 @@ Class HTTaxinvoiceDetail
     Public remark
 
     Public Sub fromJsonInfo ( jsonInfo )
-        On Error Resume Next 
+        On Error Resume Next
         serialNum = jsonInfo.serialNum
         purchaseDT = jsonInfo.purchaseDT
         itemName = jsonInfo.itemName
@@ -617,9 +663,9 @@ Class HTTaxinvoiceDetail
         unitCost = jsonInfo.unitCost
         supplyCost = jsonInfo.supplyCost
         tax = jsonInfo.tax
-        remark = jsonInfo.remark 
-        On Error GoTo 0 
-    End Sub 
+        remark = jsonInfo.remark
+        On Error GoTo 0
+    End Sub
 
 End Class
 
@@ -629,16 +675,16 @@ Class HTTaxinvoiceSummary
     Public supplyCostTotal
     Public taxTotal
     Public amountTotal
-    
+
     Public Sub fromJsonInfo ( jsonInfo )
         On Error Resume Next
         count = jsonInfo.count
         supplyCostTotal = jsonInfo.supplyCostTotal
         taxTotal = jsonInfo.taxTotal
         amountTotal = jsonInfo.amountTotal
-        On Error GoTo 0 
-    End Sub 
-End Class 
+        On Error GoTo 0
+    End Sub
+End Class
 
 Class HTTaxinvoiceSerach
     Public code
@@ -648,11 +694,11 @@ Class HTTaxinvoiceSerach
     Public pageNum
     Public pageCount
     Public list()
-    
+
     Public Sub classs_initialize
         ReDim list(-1)
     End Sub
-    
+
     Public Sub fromJsonInfo ( jsonInfo )
         On Error Resume Next
         code = jsonInfo.code
@@ -661,7 +707,7 @@ Class HTTaxinvoiceSerach
         perPage = jsonInfo.perPage
         pageNum = jsonInfo.pageNum
         pageCount = jsonInfo.pageCount
-        
+
         ReDim list ( jsonInfo.list.length )
         Dim i
         For i = 0 To jsonInfo.list.length -1
@@ -669,10 +715,10 @@ Class HTTaxinvoiceSerach
             tmpObj.fromJsonInfo jsonInfo.list.Get(i)
             Set list(i) = tmpObj
         next
-        
-        On Error GoTo 0 
-    End Sub 
-End Class 
+
+        On Error GoTo 0
+    End Sub
+End Class
 
 Class HTTaxinvoiceAbbr
     Public ntsconfirmNum
@@ -716,10 +762,10 @@ Class HTTaxinvoiceAbbr
     Public trusteeCorpName
     Public trusteeCEOName
     Public trusteeEmail
-    
-    '¸ÅÀÔ/¸ÅÃâ ±¸ºĞ ÇÊµå Ãß°¡ (2017/08/29)
+
+    'ë§¤ì…/ë§¤ì¶œ êµ¬ë¶„ í•„ë“œ ì¶”ê°€ (2017/08/29)
     Public invoiceType
-    
+
     Public Sub fromJsonInfo ( jsonInfo )
         On Error Resume Next
         ntsconfirmNum = jsonInfo.ntsconfirmNum
@@ -743,7 +789,7 @@ Class HTTaxinvoiceAbbr
         qty = jsonInfo.qty
         unitCost = jsonInfo.unitCost
         supplyCost = jsonInfo.supplyCost
-        tax = jsonInfo.taxt 
+        tax = jsonInfo.taxt
         remark = jsonInfo.remark
 
         invoicerCorpNum = jsonInfo.invoicerCorpNum
@@ -768,7 +814,7 @@ Class HTTaxinvoiceAbbr
 
         invoiceType = jsonInfo.invoiceType
         On Error GoTo 0
-    End Sub 
+    End Sub
 
 End class
 
@@ -801,7 +847,7 @@ Class HTTIJobState
             jobEndDT = jsonInfo.jobEndDT
             collectCount = jsonInfo.collectCount
             regDT = jsonInfo.regDT
-        On Error GoTo 0 
+        On Error GoTo 0
     End sub
 End Class
 

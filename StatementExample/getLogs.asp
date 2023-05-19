@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÀüÀÚ¸í¼¼¼­ÀÇ »óÅÂ¿¡ ´ëÇÑ º¯°æÀÌ·ÂÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' ì „ìžëª…ì„¸ì„œì˜ ìƒíƒœì— ëŒ€í•œ ë³€ê²½ì´ë ¥ì„ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/statement/asp/api/info#GetLogs
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
-    testCorpNum = "1234567890"			
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-"ì œì™¸ 10ìžë¦¬
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
-    userID = "testkorea"				
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±ÝÇ¥), 126(¿µ¼öÁõ)
-    itemCode = "121"					
+    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ëž˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ìž…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+    itemCode = "121"
 
-    ' ¹®¼­¹øÈ£
-    mgtKey = "20220720-ASP-001"				
+    ' ë¬¸ì„œë²ˆí˜¸
+    mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -33,26 +33,26 @@
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÀüÀÚ¸í¼¼¼­ »óÅÂº¯°æ ÀÌ·Â </legend>
+                <legend>ì „ìžëª…ì„¸ì„œ ìƒíƒœë³€ê²½ ì´ë ¥ </legend>
                 <ul>
-                    <% If code = 0 Then 
+                    <% If code = 0 Then
                         For i=0 To result.Count-1%>
                         <fieldset class="fieldset2">
-                        <legend> ÀüÀÚ¸í¼¼¼­ »óÅÂº¯°æ ÀÌ·Â [<%=i+1%>]</legend>
+                        <legend> ì „ìžëª…ì„¸ì„œ ìƒíƒœë³€ê²½ ì´ë ¥ [<%=i+1%>]</legend>
                             <ul>
-                                <li>docLogType(·Î±×Å¸ÀÔ) : <%=result.Item(i).docLogType%> </li>
-                                <li>log(ÀÌ·ÂÁ¤º¸) : <%=result.Item(i).log%> </li>
-                                <li>procType(Ã³¸®ÇüÅÂ) : <%=result.Item(i).procType%> </li>
-                                <li>procMemo(Ã³¸®¸Þ¸ð) : <%=result.Item(i).procMemo%> </li>
-                                <li>regDT(µî·ÏÀÏ½Ã) : <%=result.Item(i).regDT%> </li>
-                                <li>ip(¾ÆÀÌÇÇ) : <%=result.Item(i).ip%> </li>
+                                <li>docLogType(ë¡œê·¸íƒ€ìž…) : <%=result.Item(i).docLogType%> </li>
+                                <li>log(ì´ë ¥ì •ë³´) : <%=result.Item(i).log%> </li>
+                                <li>procType(ì²˜ë¦¬í˜•íƒœ) : <%=result.Item(i).procType%> </li>
+                                <li>procMemo(ì²˜ë¦¬ë©”ëª¨) : <%=result.Item(i).procMemo%> </li>
+                                <li>regDT(ë“±ë¡ì¼ì‹œ) : <%=result.Item(i).regDT%> </li>
+                                <li>ip(ì•„ì´í”¼) : <%=result.Item(i).ip%> </li>
                             </ul>
                         </fieldset>
                     <%

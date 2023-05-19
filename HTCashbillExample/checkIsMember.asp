@@ -1,19 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' »ç¾÷ÀÚ¹øÈ£¸¦ Á¶È¸ÇÏ¿© ¿¬µ¿È¸¿ø °¡ÀÔ¿©ºÎ¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' ì‚¬ì—…ìë²ˆí˜¸ë¥¼ ì¡°íšŒí•˜ì—¬ ì—°ë™íšŒì› ê°€ì…ì—¬ë¶€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/member#CheckIsMember
     '**************************************************************
 
-    ' »ç¾÷ÀÚ¹øÈ£ ("-"Á¦¿Ü)
-    testCorpNum = "1231212312"		
-        
+    ' ì‚¬ì—…ìë²ˆí˜¸ ("-"ì œì™¸)
+    testCorpNum = "1231212312"
+
     On Error Resume Next
 
     Set Presponse = m_HTCashbillService.CheckIsMember(testCorpNum,LinkID)
@@ -35,7 +35,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¿¬µ¿È¸¿ø»ç °¡ÀÔ¿©ºÎ È®ÀÎ</legend>
+                <legend>ì—°ë™íšŒì›ì‚¬ ê°€ì…ì—¬ë¶€ í™•ì¸</legend>
                 <ul>
                     <li>Response.code : <%=CStr(code)%></li>
                     <li>Response.message : <%=message%></li>

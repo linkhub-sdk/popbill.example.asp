@@ -1,31 +1,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "°ø±Ş¹Ş´ÂÀÚ" ¿ë ¼¼±İ°è»ê¼­ 1°ÇÀ» ÀÎ¼âÇÏ±â À§ÇÑ ÆäÀÌÁöÀÇ ÆË¾÷ URLÀ» ¹İÈ¯ÇÕ´Ï´Ù.
-    ' - URL ¹İÈ¯µÇ´Â URLÀº º¸¾È Á¤Ã¥»ó 30ÃÊ µ¿¾È À¯È¿ÇÏ¸ç, ½Ã°£À» ÃÊ°úÇÑ ÈÄ¿¡´Â ÇØ´ç URLÀ» ÅëÇÑ ÆäÀÌÁö Á¢±ÙÀÌ ºÒ°¡ÇÕ´Ï´Ù.
+    ' "ê³µê¸‰ë°›ëŠ”ì" ìš© ì„¸ê¸ˆê³„ì‚°ì„œ 1ê±´ì„ ì¸ì‡„í•˜ê¸° ìœ„í•œ í˜ì´ì§€ì˜ íŒì—… URLì„ ë°˜í™˜í•©ë‹ˆë‹¤.
+    ' - URL ë°˜í™˜ë˜ëŠ” URLì€ ë³´ì•ˆ ì •ì±…ìƒ 30ì´ˆ ë™ì•ˆ ìœ íš¨í•˜ë©°, ì‹œê°„ì„ ì´ˆê³¼í•œ í›„ì—ëŠ” í•´ë‹¹ URLì„ í†µí•œ í˜ì´ì§€ ì ‘ê·¼ì´ ë¶ˆê°€í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/view#GetPrintURL
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
 
-    ' ¼¼±İ°è»ê¼­ ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
     KeyType = "SELL"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ë¬¸ì„œë²ˆí˜¸
     MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
-    
+
     url = m_TaxinvoiceService.GetEPrintURL(testCorpNum, KeyType, MgtKey, userID)
 
     If Err.Number <> 0 then
@@ -34,21 +34,21 @@
         Err.Clears
     End If
 
-    On Error GoTo 0 
+    On Error GoTo 0
 %>
     <body>
         <div id="content">
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±İ°è»ê¼­ ÀÎ¼â ÆË¾÷ URL - °ø±Ş¹Ş´ÂÀÚ¿ë </legend>
+                <legend>ì„¸ê¸ˆê³„ì‚°ì„œ ì¸ì‡„ íŒì—… URL - ê³µê¸‰ë°›ëŠ”ììš© </legend>
                     <ul>
                     <% If code = 0 Then%>
                         <li>URL : <%=url%> </li>
                     <% Else %>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message : <%=message%> </li>
-                    <% End If%>		
+                    <% End If%>
                 </ul>
             </fieldset>
          </div>

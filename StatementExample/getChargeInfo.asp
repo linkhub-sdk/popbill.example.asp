@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô ÀüÀÚ¸í¼¼¼­ API ¼­ºñ½º °ú±İÁ¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' íŒë¹Œ ì „ìëª…ì„¸ì„œ API ì„œë¹„ìŠ¤ ê³¼ê¸ˆì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/statement/asp/api/point#GetChargeInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
+    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
     itemCode = "121"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     UserID = "testkorea"
 
     On Error Resume Next
-    
+
     Set result = m_StatementService.GetChargeInfo(testCorpNum, ItemCode, UserID)
 
     If Err.Number <> 0 Then
@@ -37,14 +37,14 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>°ú±İÁ¤º¸ È®ÀÎ</legend>
+                <legend>ê³¼ê¸ˆì •ë³´ í™•ì¸</legend>
                 <%
                     If code = 0 Then
                 %>
                         <ul>
-                            <li> unitCost (¹ßÇà´Ü°¡) : <%=result.unitCost%></li>
-                            <li> chargeMethod (°ú±İÀ¯Çü) : <%=result.chargeMethod%></li>
-                            <li> rateSystem (°ú±İÁ¦µµ) : <%=result.rateSystem%></li>
+                            <li> unitCost (ë°œí–‰ë‹¨ê°€) : <%=result.unitCost%></li>
+                            <li> chargeMethod (ê³¼ê¸ˆìœ í˜•) : <%=result.chargeMethod%></li>
+                            <li> rateSystem (ê³¼ê¸ˆì œë„) : <%=result.rateSystem%></li>
                         </ul>
                 <%
                     Else
@@ -52,8 +52,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>

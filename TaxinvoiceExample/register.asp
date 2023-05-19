@@ -1,268 +1,268 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÀÛ¼ºµÈ ¼¼±Ý°è»ê¼­ µ¥ÀÌÅÍ¸¦ ÆËºô¿¡ ÀúÀåÇÕ´Ï´Ù.
-    ' - "ÀÓ½ÃÀúÀå" »óÅÂÀÇ ¼¼±Ý°è»ê¼­´Â ¹ßÇà(Issue) ÇÔ¼ö¸¦ È£ÃâÇÏ¿© "¹ßÇà¿Ï·á" Ã³¸®ÇÑ °æ¿ì¿¡¸¸ ±¹¼¼Ã»À¸·Î Àü¼ÛµË´Ï´Ù.
-    ' - Á¤¹ßÇà ½Ã ÀÓ½ÃÀúÀå(Register)°ú ¹ßÇà(Issue)À» ÇÑ¹øÀÇ È£Ãâ·Î Ã³¸®ÇÏ´Â Áï½Ã¹ßÇà(RegistIssue API) ÇÁ·Î¼¼½º ¿¬µ¿À» ±ÇÀåÇÕ´Ï´Ù.
-    ' - ¿ª¹ßÇà ½Ã ÀÓ½ÃÀúÀå(Register)°ú ¿ª¹ßÇà¿äÃ»(Request)À» ÇÑ¹øÀÇ È£Ãâ·Î Ã³¸®ÇÏ´Â Áï½Ã¿äÃ»(RegistRequest API) ÇÁ·Î¼¼½º ¿¬µ¿À» ±ÇÀåÇÕ´Ï´Ù.
-    ' - ¼¼±Ý°è»ê¼­ ÆÄÀÏÃ·ºÎ ±â´ÉÀ» ±¸ÇöÇÏ´Â °æ¿ì, ÀÓ½ÃÀúÀå(Register API) -> ÆÄÀÏÃ·ºÎ(AttachFile API) -> ¹ßÇà(Issue API) ÇÔ¼ö¸¦ Â÷·Ê·Î È£ÃâÇÕ´Ï´Ù.
-    ' - ÀÓ½ÃÀúÀåµÈ ¼¼±Ý°è»ê¼­´Â ÆËºô »çÀÌÆ® 'ÀÓ½Ã¹®¼­ÇÔ'¿¡¼­ È®ÀÎ °¡´ÉÇÕ´Ï´Ù.
+    ' ìž‘ì„±ëœ ì„¸ê¸ˆê³„ì‚°ì„œ ë°ì´í„°ë¥¼ íŒë¹Œì— ì €ìž¥í•©ë‹ˆë‹¤.
+    ' - "ìž„ì‹œì €ìž¥" ìƒíƒœì˜ ì„¸ê¸ˆê³„ì‚°ì„œëŠ” ë°œí–‰(Issue) í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ì—¬ "ë°œí–‰ì™„ë£Œ" ì²˜ë¦¬í•œ ê²½ìš°ì—ë§Œ êµ­ì„¸ì²­ìœ¼ë¡œ ì „ì†¡ë©ë‹ˆë‹¤.
+    ' - ì •ë°œí–‰ ì‹œ ìž„ì‹œì €ìž¥(Register)ê³¼ ë°œí–‰(Issue)ì„ í•œë²ˆì˜ í˜¸ì¶œë¡œ ì²˜ë¦¬í•˜ëŠ” ì¦‰ì‹œë°œí–‰(RegistIssue API) í”„ë¡œì„¸ìŠ¤ ì—°ë™ì„ ê¶Œìž¥í•©ë‹ˆë‹¤.
+    ' - ì—­ë°œí–‰ ì‹œ ìž„ì‹œì €ìž¥(Register)ê³¼ ì—­ë°œí–‰ìš”ì²­(Request)ì„ í•œë²ˆì˜ í˜¸ì¶œë¡œ ì²˜ë¦¬í•˜ëŠ” ì¦‰ì‹œìš”ì²­(RegistRequest API) í”„ë¡œì„¸ìŠ¤ ì—°ë™ì„ ê¶Œìž¥í•©ë‹ˆë‹¤.
+    ' - ì„¸ê¸ˆê³„ì‚°ì„œ íŒŒì¼ì²¨ë¶€ ê¸°ëŠ¥ì„ êµ¬í˜„í•˜ëŠ” ê²½ìš°, ìž„ì‹œì €ìž¥(Register API) -> íŒŒì¼ì²¨ë¶€(AttachFile API) -> ë°œí–‰(Issue API) í•¨ìˆ˜ë¥¼ ì°¨ë¡€ë¡œ í˜¸ì¶œí•©ë‹ˆë‹¤.
+    ' - ìž„ì‹œì €ìž¥ëœ ì„¸ê¸ˆê³„ì‚°ì„œëŠ” íŒë¹Œ ì‚¬ì´íŠ¸ 'ìž„ì‹œë¬¸ì„œí•¨'ì—ì„œ í™•ì¸ ê°€ëŠ¥í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#Register
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
-    
-    ' ¼¼±Ý°è»ê¼­ Á¤º¸ °´Ã¼ »ý¼º
+
+    ' ì„¸ê¸ˆê³„ì‚°ì„œ ì •ë³´ ê°ì²´ ìƒì„±
     Set newTaxinvoice = New Taxinvoice
 
-    ' ÀÛ¼ºÀÏÀÚ, ³¯Â¥Çü½Ä(yyyyMMdd)
+    ' ìž‘ì„±ì¼ìž, ë‚ ì§œí˜•ì‹(yyyyMMdd)
     newTaxinvoice.writeDate = "20220720"
 
-    ' {Á¤°ú±Ý, ¿ª°ú±Ý} Áß ±âÀç, '¿ª°ú±Ý'Àº ¿ª¹ßÇà ÇÁ·Î¼¼½º¿¡¼­¸¸ ÀÌ¿ë°¡´É
-    newTaxinvoice.chargeDirection = "Á¤°ú±Ý"
-    
-    ' ¹ßÇàÇüÅÂ, {Á¤¹ßÇà, ¿ª¹ßÇà, À§¼öÅ¹} Áß ±âÀç
-    newTaxinvoice.issueType = "Á¤¹ßÇà"
+    ' {ì •ê³¼ê¸ˆ, ì—­ê³¼ê¸ˆ} ì¤‘ ê¸°ìž¬, 'ì—­ê³¼ê¸ˆ'ì€ ì—­ë°œí–‰ í”„ë¡œì„¸ìŠ¤ì—ì„œë§Œ ì´ìš©ê°€ëŠ¥
+    newTaxinvoice.chargeDirection = "ì •ê³¼ê¸ˆ"
 
-    ' {¿µ¼ö, Ã»±¸, ¾øÀ½} Áß ±âÀç 
-    newTaxinvoice.purposeType = "¿µ¼ö"
-    
-    ' °ú¼¼ÇüÅÂ, {°ú¼¼, ¿µ¼¼, ¸é¼¼} Áß ±âÀç 
-    newTaxinvoice.taxType = "°ú¼¼"
-    
-    
+    ' ë°œí–‰í˜•íƒœ, {ì •ë°œí–‰, ì—­ë°œí–‰, ìœ„ìˆ˜íƒ} ì¤‘ ê¸°ìž¬
+    newTaxinvoice.issueType = "ì •ë°œí–‰"
+
+    ' {ì˜ìˆ˜, ì²­êµ¬, ì—†ìŒ} ì¤‘ ê¸°ìž¬
+    newTaxinvoice.purposeType = "ì˜ìˆ˜"
+
+    ' ê³¼ì„¸í˜•íƒœ, {ê³¼ì„¸, ì˜ì„¸, ë©´ì„¸} ì¤‘ ê¸°ìž¬
+    newTaxinvoice.taxType = "ê³¼ì„¸"
+
+
 
     '**************************************************************
-    '                       °ø±ÞÀÚ Á¤º¸
+    '                       ê³µê¸‰ìž ì •ë³´
     '**************************************************************
 
-    ' °ø±ÞÀÚ »ç¾÷ÀÚ¹øÈ£, '-' Á¦¿Ü 10ÀÚ¸®
+    ' ê³µê¸‰ìž ì‚¬ì—…ìžë²ˆí˜¸, '-' ì œì™¸ 10ìžë¦¬
     newTaxinvoice.invoicerCorpNum = "1234567890"
 
-    ' °ø±ÞÀÚ Á¾»ç¾÷ÀÚ ½Äº°¹øÈ£. ÇÊ¿ä½Ã ¼ýÀÚ 4ÀÚ¸® ±âÀç
-    newTaxinvoice.invoicerTaxRegID = ""	
+    ' ê³µê¸‰ìž ì¢…ì‚¬ì—…ìž ì‹ë³„ë²ˆí˜¸. í•„ìš”ì‹œ ìˆ«ìž 4ìžë¦¬ ê¸°ìž¬
+    newTaxinvoice.invoicerTaxRegID = ""
 
-    ' °ø±ÞÀÚ »óÈ£
-    newTaxinvoice.invoicerCorpName = "°ø±ÞÀÚ »óÈ£"
+    ' ê³µê¸‰ìž ìƒí˜¸
+    newTaxinvoice.invoicerCorpName = "ê³µê¸‰ìž ìƒí˜¸"
 
-    ' °ø±ÞÀÚ ¹®¼­¹øÈ£, 1~24ÀÚ¸® (¼ýÀÚ, ¿µ¹®, '-', '_') Á¶ÇÕÀ¸·Î
-    ' »ç¾÷ÀÚ º°·Î Áßº¹µÇÁö ¾Êµµ·Ï ±¸¼º
+    ' ê³µê¸‰ìž ë¬¸ì„œë²ˆí˜¸, 1~24ìžë¦¬ (ìˆ«ìž, ì˜ë¬¸, '-', '_') ì¡°í•©ìœ¼ë¡œ
+    ' ì‚¬ì—…ìž ë³„ë¡œ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ êµ¬ì„±
     newTaxinvoice.invoicerMgtKey = "20220720-ASP-002"
 
-    ' °ø±ÞÀÚ ´ëÇ¥ÀÚ ¼º¸í
-    newTaxinvoice.invoicerCEOName = "°ø±ÞÀÚ ´ëÇ¥ÀÚ ¼º¸í"
-    
-    ' °ø±ÞÀÚ ÁÖ¼Ò
-    newTaxinvoice.invoicerAddr = "°ø±ÞÀÚ ÁÖ¼Ò"
-    
-    ' °ø±ÞÀÚ Á¾¸ñ
-    newTaxinvoice.invoicerBizClass = "°ø±ÞÀÚ Á¾¸ñ"
-    
-    ' °ø±ÞÀÚ ¾÷ÅÂ
-    newTaxinvoice.invoicerBizType = "°ø±ÞÀÚ ¾÷ÅÂ,¾÷ÅÂ2"
-    
-    ' °ø±ÞÀÚ ´ã´çÀÚ¸í
-    newTaxinvoice.invoicerContactName = "°ø±ÞÀÚ ´ã´çÀÚ¸í"
-    
-    ' °ø±ÞÀÚ ´ã´çÀÚ ¸ÞÀÏÁÖ¼Ò 
+    ' ê³µê¸‰ìž ëŒ€í‘œìž ì„±ëª…
+    newTaxinvoice.invoicerCEOName = "ê³µê¸‰ìž ëŒ€í‘œìž ì„±ëª…"
+
+    ' ê³µê¸‰ìž ì£¼ì†Œ
+    newTaxinvoice.invoicerAddr = "ê³µê¸‰ìž ì£¼ì†Œ"
+
+    ' ê³µê¸‰ìž ì¢…ëª©
+    newTaxinvoice.invoicerBizClass = "ê³µê¸‰ìž ì¢…ëª©"
+
+    ' ê³µê¸‰ìž ì—…íƒœ
+    newTaxinvoice.invoicerBizType = "ê³µê¸‰ìž ì—…íƒœ,ì—…íƒœ2"
+
+    ' ê³µê¸‰ìž ë‹´ë‹¹ìžëª…
+    newTaxinvoice.invoicerContactName = "ê³µê¸‰ìž ë‹´ë‹¹ìžëª…"
+
+    ' ê³µê¸‰ìž ë‹´ë‹¹ìž ë©”ì¼ì£¼ì†Œ
     newTaxinvoice.invoicerEmail = ""
-    
-    ' °ø±ÞÀÚ ´ã´çÀÚ ¿¬¶ôÃ³ 
+
+    ' ê³µê¸‰ìž ë‹´ë‹¹ìž ì—°ë½ì²˜
     newTaxinvoice.invoicerTEL = ""
-    
-    ' °ø±ÞÀÚ ´ã´çÀÚ ÈÞ´ëÆù¹øÈ£
+
+    ' ê³µê¸‰ìž ë‹´ë‹¹ìž íœ´ëŒ€í°ë²ˆí˜¸
     newTaxinvoice.invoicerHP = ""
 
-    ' ¹ßÇà ¾È³» ¹®ÀÚ Àü¼Û¿©ºÎ (true / false Áß ÅÃ 1)
-    ' ¦¦ true = Àü¼Û , false = ¹ÌÀü¼Û
-    ' ¦¦ °ø±Þ¹Þ´ÂÀÚ (ÁÖ)´ã´çÀÚ ÈÞ´ëÆù¹øÈ£ {invoiceeHP1} °ªÀ¸·Î ¹®ÀÚ Àü¼Û
-    ' - Àü¼Û ½Ã Æ÷ÀÎÆ® Â÷°¨µÇ¸ç, Àü¼Û½ÇÆÐ½Ã È¯ºÒÃ³¸®
+    ' ë°œí–‰ ì•ˆë‚´ ë¬¸ìž ì „ì†¡ì—¬ë¶€ (true / false ì¤‘ íƒ 1)
+    ' â”” true = ì „ì†¡ , false = ë¯¸ì „ì†¡
+    ' â”” ê³µê¸‰ë°›ëŠ”ìž (ì£¼)ë‹´ë‹¹ìž íœ´ëŒ€í°ë²ˆí˜¸ {invoiceeHP1} ê°’ìœ¼ë¡œ ë¬¸ìž ì „ì†¡
+    ' - ì „ì†¡ ì‹œ í¬ì¸íŠ¸ ì°¨ê°ë˜ë©°, ì „ì†¡ì‹¤íŒ¨ì‹œ í™˜ë¶ˆì²˜ë¦¬
     newTaxinvoice.invoicerSMSSendYN = False
 
 
 
     '**************************************************************
-    '                        °ø±Þ¹Þ´ÂÀÚ Á¤º¸
+    '                        ê³µê¸‰ë°›ëŠ”ìž ì •ë³´
     '**************************************************************
 
-    ' °ø±Þ¹Þ´ÂÀÚ ±¸ºÐ, [»ç¾÷ÀÚ, °³ÀÎ, ¿Ü±¹ÀÎ] Áß ±âÀç
-    newTaxinvoice.invoiceeType = "»ç¾÷ÀÚ"
+    ' ê³µê¸‰ë°›ëŠ”ìž êµ¬ë¶„, [ì‚¬ì—…ìž, ê°œì¸, ì™¸êµ­ì¸] ì¤‘ ê¸°ìž¬
+    newTaxinvoice.invoiceeType = "ì‚¬ì—…ìž"
 
-    ' °ø±Þ¹Þ´ÂÀÚ »ç¾÷ÀÚ¹øÈ£
-    ' - {invoiceeType}ÀÌ "»ç¾÷ÀÚ" ÀÎ °æ¿ì, »ç¾÷ÀÚ¹øÈ£ (ÇÏÀÌÇÂ ('-') Á¦¿Ü 10ÀÚ¸®)
-    ' - {invoiceeType}ÀÌ "°³ÀÎ" ÀÎ °æ¿ì, ÁÖ¹Îµî·Ï¹øÈ£ (ÇÏÀÌÇÂ ('-') Á¦¿Ü 13ÀÚ¸®)
-    ' - {invoiceeType}ÀÌ "¿Ü±¹ÀÎ" ÀÎ °æ¿ì, "9999999999999" (ÇÏÀÌÇÂ ('-') Á¦¿Ü 13ÀÚ¸®)
+    ' ê³µê¸‰ë°›ëŠ”ìž ì‚¬ì—…ìžë²ˆí˜¸
+    ' - {invoiceeType}ì´ "ì‚¬ì—…ìž" ì¸ ê²½ìš°, ì‚¬ì—…ìžë²ˆí˜¸ (í•˜ì´í”ˆ ('-') ì œì™¸ 10ìžë¦¬)
+    ' - {invoiceeType}ì´ "ê°œì¸" ì¸ ê²½ìš°, ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ (í•˜ì´í”ˆ ('-') ì œì™¸ 13ìžë¦¬)
+    ' - {invoiceeType}ì´ "ì™¸êµ­ì¸" ì¸ ê²½ìš°, "9999999999999" (í•˜ì´í”ˆ ('-') ì œì™¸ 13ìžë¦¬)
     newTaxinvoice.invoiceeCorpNum = "8888888888"
 
-    ' °ø±Þ¹Þ´ÂÀÚ Á¾»ç¾÷ÀÚ ½Äº°¹øÈ£. ÇÊ¿ä½Ã ¼ýÀÚ 4ÀÚ¸® ±âÀç	
+    ' ê³µê¸‰ë°›ëŠ”ìž ì¢…ì‚¬ì—…ìž ì‹ë³„ë²ˆí˜¸. í•„ìš”ì‹œ ìˆ«ìž 4ìžë¦¬ ê¸°ìž¬
     newTaxinvoice.invoiceeTaxRegID = ""
-    
-    ' °ø±ÞÀÚ¹Þ´ÂÀÚ »óÈ£
-    newTaxinvoice.invoiceeCorpName = "°ø±Þ¹Þ´ÂÀÚ »óÈ£"
 
-    ' [¿ª¹ßÇà½Ã ÇÊ¼ö] °ø±Þ¹Þ´ÂÀÚ ¹®¼­¹øÈ£(¿ª¹ßÇà½Ã ÇÊ¼ö)
+    ' ê³µê¸‰ìžë°›ëŠ”ìž ìƒí˜¸
+    newTaxinvoice.invoiceeCorpName = "ê³µê¸‰ë°›ëŠ”ìž ìƒí˜¸"
+
+    ' [ì—­ë°œí–‰ì‹œ í•„ìˆ˜] ê³µê¸‰ë°›ëŠ”ìž ë¬¸ì„œë²ˆí˜¸(ì—­ë°œí–‰ì‹œ í•„ìˆ˜)
     newTaxinvoice.invoiceeMgtKey = ""
 
-    ' °ø±Þ¹Þ´ÂÀÚ ´ëÇ¥ÀÚ ¼º¸í
-    newTaxinvoice.invoiceeCEOName = "°ø±Þ¹Þ´ÂÀÚ ´ëÇ¥ÀÚ ¼º¸í"
-    
-    ' °ø±Þ¹Þ´ÂÀÚ ÁÖ¼Ò
-    newTaxinvoice.invoiceeAddr = "°ø±Þ¹Þ´ÂÀÚ ÁÖ¼Ò"
-    
-    ' °ø±Þ¹Þ´ÂÀÚ Á¾¸ñ
-    newTaxinvoice.invoiceeBizClass = "°ø±Þ¹Þ´ÂÀÚ Á¾¸ñ"
-    
-    ' °ø±Þ¹Þ´ÂÀÚ ¾÷ÅÂ
-    newTaxinvoice.invoiceeBizType = "°ø±Þ¹Þ´ÂÀÚ ¾÷ÅÂ"
-    
-    ' °ø±Þ¹Þ´ÂÀÚ ´ã´çÀÚ¸í
-    newTaxinvoice.invoiceeContactName1 = "°ø±Þ¹Þ´ÂÀÚ ´ã´çÀÚ¸í"
-    
-    ' °ø±Þ¹Þ´ÂÀÚ ´ã´çÀÚ ¸ÞÀÏÁÖ¼Ò
-    ' ÆËºô °³¹ßÈ¯°æ¿¡¼­ Å×½ºÆ®ÇÏ´Â °æ¿ì¿¡µµ ¾È³» ¸ÞÀÏÀÌ Àü¼ÛµÇ¹Ç·Î,
-    ' ½ÇÁ¦ °Å·¡Ã³ÀÇ ¸ÞÀÏÁÖ¼Ò°¡ ±âÀçµÇÁö ¾Êµµ·Ï ÁÖÀÇ
+    ' ê³µê¸‰ë°›ëŠ”ìž ëŒ€í‘œìž ì„±ëª…
+    newTaxinvoice.invoiceeCEOName = "ê³µê¸‰ë°›ëŠ”ìž ëŒ€í‘œìž ì„±ëª…"
+
+    ' ê³µê¸‰ë°›ëŠ”ìž ì£¼ì†Œ
+    newTaxinvoice.invoiceeAddr = "ê³µê¸‰ë°›ëŠ”ìž ì£¼ì†Œ"
+
+    ' ê³µê¸‰ë°›ëŠ”ìž ì¢…ëª©
+    newTaxinvoice.invoiceeBizClass = "ê³µê¸‰ë°›ëŠ”ìž ì¢…ëª©"
+
+    ' ê³µê¸‰ë°›ëŠ”ìž ì—…íƒœ
+    newTaxinvoice.invoiceeBizType = "ê³µê¸‰ë°›ëŠ”ìž ì—…íƒœ"
+
+    ' ê³µê¸‰ë°›ëŠ”ìž ë‹´ë‹¹ìžëª…
+    newTaxinvoice.invoiceeContactName1 = "ê³µê¸‰ë°›ëŠ”ìž ë‹´ë‹¹ìžëª…"
+
+    ' ê³µê¸‰ë°›ëŠ”ìž ë‹´ë‹¹ìž ë©”ì¼ì£¼ì†Œ
+    ' íŒë¹Œ ê°œë°œí™˜ê²½ì—ì„œ í…ŒìŠ¤íŠ¸í•˜ëŠ” ê²½ìš°ì—ë„ ì•ˆë‚´ ë©”ì¼ì´ ì „ì†¡ë˜ë¯€ë¡œ,
+    ' ì‹¤ì œ ê±°ëž˜ì²˜ì˜ ë©”ì¼ì£¼ì†Œê°€ ê¸°ìž¬ë˜ì§€ ì•Šë„ë¡ ì£¼ì˜
     newTaxinvoice.invoiceeEmail1 = ""
-    
-    ' °ø±Þ¹Þ´ÂÀÚ ¿¬¶ôÃ³
+
+    ' ê³µê¸‰ë°›ëŠ”ìž ì—°ë½ì²˜
     newTaxinvoice.invoiceeTEL1 = ""
-    
-    ' °ø±Þ¹Þ´ÂÀÚ ÈÞ´ëÆù¹øÈ£
+
+    ' ê³µê¸‰ë°›ëŠ”ìž íœ´ëŒ€í°ë²ˆí˜¸
     newTaxinvoice.invoiceeHP1 = ""
 
-    ' ¿ª¹ßÇà½Ã °ø±ÞÀÚ¿¡°Ô ¹ßÇà¾È³»¹®ÀÚ Àü¼Û¿©ºÎ
+    ' ì—­ë°œí–‰ì‹œ ê³µê¸‰ìžì—ê²Œ ë°œí–‰ì•ˆë‚´ë¬¸ìž ì „ì†¡ì—¬ë¶€
     newTaxinvoice.invoiceeSMSSendYN = False
 
 
 
     '**************************************************************
-    '                        ¼¼±Ý°è»ê¼­ Á¤º¸
+    '                        ì„¸ê¸ˆê³„ì‚°ì„œ ì •ë³´
     '**************************************************************
 
-    ' °ø±Þ°¡¾× ÇÕ°è
+    ' ê³µê¸‰ê°€ì•¡ í•©ê³„
     newTaxinvoice.supplyCostTotal = "100000"
 
-    ' ¼¼¾× ÇÕ°è
+    ' ì„¸ì•¡ í•©ê³„
     newTaxinvoice.taxTotal = "10000"
 
-    ' ÇÕ°è±Ý¾×, °ø±Þ°¡¾× ÇÕ°è + ¼¼¾×ÇÕ°è
-    newTaxinvoice.totalAmount = "110000"             
-    
-    ' ±âÀç »ó 'ÀÏ·Ã¹øÈ£' Ç×¸ñ
+    ' í•©ê³„ê¸ˆì•¡, ê³µê¸‰ê°€ì•¡ í•©ê³„ + ì„¸ì•¡í•©ê³„
+    newTaxinvoice.totalAmount = "110000"
+
+    ' ê¸°ìž¬ ìƒ 'ì¼ë ¨ë²ˆí˜¸' í•­ëª©
     newTaxinvoice.serialNum = "123"
 
-    ' ±âÀç »ó '±Ç' Ç×¸ñ, ÃÖ´ë°ª 32767
+    ' ê¸°ìž¬ ìƒ 'ê¶Œ' í•­ëª©, ìµœëŒ€ê°’ 32767
     newTaxinvoice.kwon = "1"
 
-    ' ±âÀç »ó 'È£' Ç×¸ñ, ÃÖ´ë°ª 32767
+    ' ê¸°ìž¬ ìƒ 'í˜¸' í•­ëª©, ìµœëŒ€ê°’ 32767
     newTaxinvoice.ho = "1"
 
-    ' ±âÀç »ó 'Çö±Ý' Ç×¸ñ
+    ' ê¸°ìž¬ ìƒ 'í˜„ê¸ˆ' í•­ëª©
     newTaxinvoice.cash = ""
-    
-    ' ±âÀç »ó '¼öÇ¥' Ç×¸ñ
+
+    ' ê¸°ìž¬ ìƒ 'ìˆ˜í‘œ' í•­ëª©
     newTaxinvoice.chkBill = ""
 
-    ' ±âÀç »ó '¾îÀ½' Ç×¸ñ
+    ' ê¸°ìž¬ ìƒ 'ì–´ìŒ' í•­ëª©
     newTaxinvoice.note = ""
-    
-    ' ±âÀç »ó '¿Ü»ó¹Ì¼ö±Ý' Ç×¸ñ
+
+    ' ê¸°ìž¬ ìƒ 'ì™¸ìƒë¯¸ìˆ˜ê¸ˆ' í•­ëª©
     newTaxinvoice.credit = ""
 
-    ' ºñ°í
-    ' {invoiceeType}ÀÌ "¿Ü±¹ÀÎ" ÀÌ¸é remark1 ÇÊ¼ö
-    ' - ¿Ü±¹ÀÎ µî·Ï¹øÈ£ ¶Ç´Â ¿©±Ç¹øÈ£ ÀÔ·Â
-    newTaxinvoice.remark1 = "ºñ°í1"
-    newTaxinvoice.remark2 = "ºñ°í2"
-    newTaxinvoice.remark3 = "ºñ°í3"
+    ' ë¹„ê³ 
+    ' {invoiceeType}ì´ "ì™¸êµ­ì¸" ì´ë©´ remark1 í•„ìˆ˜
+    ' - ì™¸êµ­ì¸ ë“±ë¡ë²ˆí˜¸ ë˜ëŠ” ì—¬ê¶Œë²ˆí˜¸ ìž…ë ¥
+    newTaxinvoice.remark1 = "ë¹„ê³ 1"
+    newTaxinvoice.remark2 = "ë¹„ê³ 2"
+    newTaxinvoice.remark3 = "ë¹„ê³ 3"
 
-    ' »ç¾÷ÀÚµî·ÏÁõ ÀÌ¹ÌÁö Ã·ºÎ¿©ºÎ  (true / false Áß ÅÃ 1)
-    ' ¦¦ true = Ã·ºÎ , false = ¹ÌÃ·ºÎ(±âº»°ª)
-    ' - ÆËºô »çÀÌÆ® ¶Ç´Â ÀÎ°¨ ¹× Ã·ºÎ¹®¼­ µî·Ï ÆË¾÷ URL (GetSealURL API) ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© µî·Ï
-    newTaxinvoice.businessLicenseYN = False 
+    ' ì‚¬ì—…ìžë“±ë¡ì¦ ì´ë¯¸ì§€ ì²¨ë¶€ì—¬ë¶€  (true / false ì¤‘ íƒ 1)
+    ' â”” true = ì²¨ë¶€ , false = ë¯¸ì²¨ë¶€(ê¸°ë³¸ê°’)
+    ' - íŒë¹Œ ì‚¬ì´íŠ¸ ë˜ëŠ” ì¸ê° ë° ì²¨ë¶€ë¬¸ì„œ ë“±ë¡ íŒì—… URL (GetSealURL API) í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ ë“±ë¡
+    newTaxinvoice.businessLicenseYN = False
 
-    ' ÅëÀå»çº» ÀÌ¹ÌÁö Ã·ºÎ¿©ºÎ  (true / false Áß ÅÃ 1)
-    ' ¦¦ true = Ã·ºÎ , false = ¹ÌÃ·ºÎ(±âº»°ª)
-    ' - ÆËºô »çÀÌÆ® ¶Ç´Â ÀÎ°¨ ¹× Ã·ºÎ¹®¼­ µî·Ï ÆË¾÷ URL (GetSealURL API) ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© µî·Ï
-    newTaxinvoice.bankBookYN = False    
+    ' í†µìž¥ì‚¬ë³¸ ì´ë¯¸ì§€ ì²¨ë¶€ì—¬ë¶€  (true / false ì¤‘ íƒ 1)
+    ' â”” true = ì²¨ë¶€ , false = ë¯¸ì²¨ë¶€(ê¸°ë³¸ê°’)
+    ' - íŒë¹Œ ì‚¬ì´íŠ¸ ë˜ëŠ” ì¸ê° ë° ì²¨ë¶€ë¬¸ì„œ ë“±ë¡ íŒì—… URL (GetSealURL API) í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ ë“±ë¡
+    newTaxinvoice.bankBookYN = False
 
-  
-    
-    
+
+
+
     '**************************************************************
-    '         ¼öÁ¤¼¼±Ý°è»ê¼­ Á¤º¸ (¼öÁ¤¼¼±Ý°è»ê¼­ ÀÛ¼º½Ã¿¡¸¸ ±âÀç
-    ' - ¼öÁ¤¼¼±Ý°è»ê¼­ °ü·Ã Á¤º¸´Â ¿¬µ¿¸Å´º¾ó ¶Ç´Â °³¹ß°¡ÀÌµå ¸µÅ© ÂüÁ¶
-    ' - [Âü°í] ¼öÁ¤¼¼±Ý°è»ê¼­ ÀÛ¼º¹æ¹ý ¾È³» - https://developers.popbill.com/guide/taxinvoice/asp/introduction/modified-taxinvoice
+    '         ìˆ˜ì •ì„¸ê¸ˆê³„ì‚°ì„œ ì •ë³´ (ìˆ˜ì •ì„¸ê¸ˆê³„ì‚°ì„œ ìž‘ì„±ì‹œì—ë§Œ ê¸°ìž¬
+    ' - ìˆ˜ì •ì„¸ê¸ˆê³„ì‚°ì„œ ê´€ë ¨ ì •ë³´ëŠ” ì—°ë™ë§¤ë‰´ì–¼ ë˜ëŠ” ê°œë°œê°€ì´ë“œ ë§í¬ ì°¸ì¡°
+    ' - [ì°¸ê³ ] ìˆ˜ì •ì„¸ê¸ˆê³„ì‚°ì„œ ìž‘ì„±ë°©ë²• ì•ˆë‚´ - https://developers.popbill.com/guide/taxinvoice/asp/introduction/modified-taxinvoice
     '**************************************************************
 
-    ' [¼öÁ¤¼¼±Ý°è»ê¼­ ¹ßÇà½Ã ÇÊ¼ö] ¼öÁ¤»çÀ¯ÄÚµå, ¼öÁ¤»çÀ¯¿¡ µû¶ó 1~6Áß ¼±ÅÃ±âÀç
+    ' [ìˆ˜ì •ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ì‹œ í•„ìˆ˜] ìˆ˜ì •ì‚¬ìœ ì½”ë“œ, ìˆ˜ì •ì‚¬ìœ ì— ë”°ë¼ 1~6ì¤‘ ì„ íƒê¸°ìž¬
     newTaxinvoice.modifyCode = ""
 
-    ' [¼öÁ¤¼¼±Ý°è»ê¼­ ¹ßÇà½Ã ÇÊ¼ö] ¿øº»¼¼±Ý°è»ê¼­ÀÇ ±¹¼¼Ã» ½ÂÀÎ¹øÈ£ ±âÀç
+    ' [ìˆ˜ì •ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ì‹œ í•„ìˆ˜] ì›ë³¸ì„¸ê¸ˆê³„ì‚°ì„œì˜ êµ­ì„¸ì²­ ìŠ¹ì¸ë²ˆí˜¸ ê¸°ìž¬
     newTaxinvoice.orgNTSConfirmNum = ""
 
 
     '**************************************************************
-    '                   »ó¼¼Ç×¸ñ(Ç°¸ñ) Á¤º¸
+    '                   ìƒì„¸í•­ëª©(í’ˆëª©) ì •ë³´
     '**************************************************************
     Set newDetail = New TaxinvoiceDetail
-    newDetail.serialNum = 1             'ÀÏ·Ã¹øÈ£ 1ºÎÅÍ ¼øÂ÷ ±âÀç
-    newDetail.purchaseDT = "20220720"   '°Å·¡ÀÏÀÚ  yyyyMMdd
-    newDetail.itemName = "Ç°¸í1¹ø"
-    newDetail.spec = "±Ô°Ý"
-    newDetail.qty = "1" '¼ö·®           ' ¼Ò¼ýÁ¡ 2ÀÚ¸®±îÁö ¹®ÀÚ¿­·Î ±âÀç°¡´É
-    newDetail.unitCost = "50000"       ' ¼Ò¼ýÁ¡ 2ÀÚ¸®±îÁö ¹®ÀÚ¿­·Î ±âÀç°¡´É
+    newDetail.serialNum = 1             'ì¼ë ¨ë²ˆí˜¸ 1ë¶€í„° ìˆœì°¨ ê¸°ìž¬
+    newDetail.purchaseDT = "20220720"   'ê±°ëž˜ì¼ìž  yyyyMMdd
+    newDetail.itemName = "í’ˆëª…1ë²ˆ"
+    newDetail.spec = "ê·œê²©"
+    newDetail.qty = "1" 'ìˆ˜ëŸ‰           ' ì†Œìˆ«ì  2ìžë¦¬ê¹Œì§€ ë¬¸ìžì—´ë¡œ ê¸°ìž¬ê°€ëŠ¥
+    newDetail.unitCost = "50000"       ' ì†Œìˆ«ì  2ìžë¦¬ê¹Œì§€ ë¬¸ìžì—´ë¡œ ê¸°ìž¬ê°€ëŠ¥
     newDetail.supplyCost = "50000"
     newDetail.tax = "5000"
-    newDetail.remark = "ºñ°í"
+    newDetail.remark = "ë¹„ê³ "
 
     newTaxinvoice.AddDetail newDetail
 
     Set newDetail = New TaxinvoiceDetail
-    newDetail.serialNum = 2             'ÀÏ·Ã¹øÈ£ 1ºÎÅÍ ¼øÂ÷ ±âÀç
-    newDetail.purchaseDT = "20220720"   '°Å·¡ÀÏÀÚ  yyyyMMdd
-    newDetail.itemName = "Ç°¸í2¹ø"
-    newDetail.spec = "±Ô°Ý"
-    newDetail.qty = "1" '¼ö·®           ' ¼Ò¼ýÁ¡ 2ÀÚ¸®±îÁö ¹®ÀÚ¿­·Î ±âÀç°¡´É
-    newDetail.unitCost = "50000"       ' ¼Ò¼ýÁ¡ 2ÀÚ¸®±îÁö ¹®ÀÚ¿­·Î ±âÀç°¡´É
+    newDetail.serialNum = 2             'ì¼ë ¨ë²ˆí˜¸ 1ë¶€í„° ìˆœì°¨ ê¸°ìž¬
+    newDetail.purchaseDT = "20220720"   'ê±°ëž˜ì¼ìž  yyyyMMdd
+    newDetail.itemName = "í’ˆëª…2ë²ˆ"
+    newDetail.spec = "ê·œê²©"
+    newDetail.qty = "1" 'ìˆ˜ëŸ‰           ' ì†Œìˆ«ì  2ìžë¦¬ê¹Œì§€ ë¬¸ìžì—´ë¡œ ê¸°ìž¬ê°€ëŠ¥
+    newDetail.unitCost = "50000"       ' ì†Œìˆ«ì  2ìžë¦¬ê¹Œì§€ ë¬¸ìžì—´ë¡œ ê¸°ìž¬ê°€ëŠ¥
     newDetail.supplyCost = "50000"
     newDetail.tax = "5000"
-    newDetail.remark = "ºñ°í"
-    
+    newDetail.remark = "ë¹„ê³ "
+
     newTaxinvoice.AddDetail newDetail
- 
+
 
 
     '**************************************************************
-    '                        Ãß°¡´ã´çÀÚ Á¤º¸
-    ' - ¼¼±Ý°è»ê¼­ ¹ßÇà¾È³» ¸ÞÀÏÀ» ¼ö½Å¹ÞÀ» °ø±Þ¹Þ´ÂÀÚ ´ã´çÀÚ°¡ ´Ù¼öÀÎ °æ¿ì
-    '   ´ã´çÀÚ Á¤º¸¸¦ Ãß°¡ÇÏ¿© ¹ßÇà¾È³»¸ÞÀÏÀ» ´Ù¼ö¿¡°Ô Àü¼ÛÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    '                        ì¶”ê°€ë‹´ë‹¹ìž ì •ë³´
+    ' - ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ì•ˆë‚´ ë©”ì¼ì„ ìˆ˜ì‹ ë°›ì„ ê³µê¸‰ë°›ëŠ”ìž ë‹´ë‹¹ìžê°€ ë‹¤ìˆ˜ì¸ ê²½ìš°
+    '   ë‹´ë‹¹ìž ì •ë³´ë¥¼ ì¶”ê°€í•˜ì—¬ ë°œí–‰ì•ˆë‚´ë©”ì¼ì„ ë‹¤ìˆ˜ì—ê²Œ ì „ì†¡í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
     '**************************************************************
 
     set newContact = New Contact
     newContact.serialNum = 1
-    newContact.contactName = "´ã´çÀÚ1 ¼º¸í"
-    newContact.email = "test@test.com"   
+    newContact.contactName = "ë‹´ë‹¹ìž1 ì„±ëª…"
+    newContact.email = "test@test.com"
     newTaxinvoice.AddContact newContact
 
     set newContact = New Contact
     newContact.serialNum = 2
-    newContact.contactName = "´ã´çÀÚ2 ¼º¸í"
+    newContact.contactName = "ë‹´ë‹¹ìž2 ì„±ëª…"
     newContact.email = "test@test.com"
     newTaxinvoice.AddContact newContact
 
 
-    ' °Å·¡¸í¼¼¼­ µ¿½ÃÀÛ¼º¿©ºÎ
-    writeSpecificationYN = False	
+    ' ê±°ëž˜ëª…ì„¸ì„œ ë™ì‹œìž‘ì„±ì—¬ë¶€
+    writeSpecificationYN = False
 
     On Error Resume Next
 
@@ -284,7 +284,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±Ý°è»ê¼­ ÀÓ½ÃÀúÀå</legend>
+                <legend>ì„¸ê¸ˆê³„ì‚°ì„œ ìž„ì‹œì €ìž¥</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

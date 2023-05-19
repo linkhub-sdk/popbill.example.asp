@@ -1,36 +1,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' È¨ÅÃ½º¿¡ ½Å°íµÈ ÀüÀÚ¼¼±İ°è»ê¼­ ¸ÅÀÔ/¸ÅÃâ ³»¿ª ¼öÁıÀ» ÆËºô¿¡ ¿äÃ»ÇÕ´Ï´Ù. (Á¶È¸±â°£ ´ÜÀ§ : ÃÖ´ë 3°³¿ù)
-    ' - ÁÖ±âÀûÀ¸·Î ÀÚÃ¼ DB¿¡ ¼¼±İ°è»ê¼­ Á¤º¸¸¦ INSERT ÇÏ´Â °æ¿ì, Á¶È¸ÇÒ ÀÏÀÚ À¯Çü(DType) °ªÀ» "S"·Î ÇÏ´Â °ÍÀ» ±ÇÀåÇÕ´Ï´Ù.
+    ' í™ˆíƒìŠ¤ì— ì‹ ê³ ëœ ì „ìì„¸ê¸ˆê³„ì‚°ì„œ ë§¤ì…/ë§¤ì¶œ ë‚´ì—­ ìˆ˜ì§‘ì„ íŒë¹Œì— ìš”ì²­í•©ë‹ˆë‹¤. (ì¡°íšŒê¸°ê°„ ë‹¨ìœ„ : ìµœëŒ€ 3ê°œì›”)
+    ' - ì£¼ê¸°ì ìœ¼ë¡œ ìì²´ DBì— ì„¸ê¸ˆê³„ì‚°ì„œ ì •ë³´ë¥¼ INSERT í•˜ëŠ” ê²½ìš°, ì¡°íšŒí•  ì¼ì ìœ í˜•(DType) ê°’ì„ "S"ë¡œ í•˜ëŠ” ê²ƒì„ ê¶Œì¥í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/job#RequestJob
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
-    testCorpNum = "1234567890"	
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    testUserID = "testkorea"		
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    testUserID = "testkorea"
 
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
-    KeyType= SELL					
+    ' ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
+    KeyType= SELL
 
-    ' °Ë»ö ÀÏÀÚÀ¯Çü, W-ÀÛ¼ºÀÏÀÚ, I-¹ßÇàÀÏÀÚ, S-Àü¼ÛÀÏÀÚ
-    DType = "S"						
+    ' ê²€ìƒ‰ ì¼ììœ í˜•, W-ì‘ì„±ì¼ì, I-ë°œí–‰ì¼ì, S-ì „ì†¡ì¼ì
+    DType = "S"
 
-    ' ½ÃÀÛÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
-    SDate = "20220701"			
-    
-    ' Á¾·áÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
-    EDate =	"20220720"				
+    ' ì‹œì‘ì¼ì, í‘œì‹œí˜•ì‹(yyyyMMdd)
+    SDate = "20220701"
 
-    
+    ' ì¢…ë£Œì¼ì, í‘œì‹œí˜•ì‹(yyyyMMdd)
+    EDate =	"20220720"
+
+
     On Error Resume Next
 
     jobID = m_HTTaxinvoiceService.requestJob(testCorpNum, KeyType, DType, SDate, EDate, testUserID)
@@ -48,16 +48,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼öÁı ¿äÃ»</legend>
+                <legend>ìˆ˜ì§‘ ìš”ì²­</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>jobID(ÀÛ¾÷¾ÆÀÌµğ) : <%=jobID%> </li>
+                        <li>jobID(ì‘ì—…ì•„ì´ë””) : <%=jobID%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

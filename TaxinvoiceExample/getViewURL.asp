@@ -1,29 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÆËºô »çÀÌÆ®¿Í µ¿ÀÏÇÑ ¼¼±Ý°è»ê¼­ 1°ÇÀÇ »ó¼¼Á¤º¸ ÆäÀÌÁö(»çÀÌÆ® »ó´Ü, ÁÂÃø ¸Þ´º ¹× ¹öÆ° Á¦¿Ü)ÀÇ ÆË¾÷ URLÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
-    ' - ¹ÝÈ¯µÇ´Â URLÀº º¸¾È Á¤Ã¥»ó 30ÃÊ µ¿¾È À¯È¿ÇÏ¸ç, ½Ã°£À» ÃÊ°úÇÑ ÈÄ¿¡´Â ÇØ´ç URLÀ» ÅëÇÑ ÆäÀÌÁö Á¢±ÙÀÌ ºÒ°¡ÇÕ´Ï´Ù.
+    ' íŒë¹Œ ì‚¬ì´íŠ¸ì™€ ë™ì¼í•œ ì„¸ê¸ˆê³„ì‚°ì„œ 1ê±´ì˜ ìƒì„¸ì •ë³´ íŽ˜ì´ì§€(ì‚¬ì´íŠ¸ ìƒë‹¨, ì¢Œì¸¡ ë©”ë‰´ ë° ë²„íŠ¼ ì œì™¸)ì˜ íŒì—… URLì„ ë°˜í™˜í•©ë‹ˆë‹¤.
+    ' - ë°˜í™˜ë˜ëŠ” URLì€ ë³´ì•ˆ ì •ì±…ìƒ 30ì´ˆ ë™ì•ˆ ìœ íš¨í•˜ë©°, ì‹œê°„ì„ ì´ˆê³¼í•œ í›„ì—ëŠ” í•´ë‹¹ URLì„ í†µí•œ íŽ˜ì´ì§€ ì ‘ê·¼ì´ ë¶ˆê°€í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/view#GetViewURL
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸ 10ìžë¦¬
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     userID = "testkorea"
 
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ìž…), TRUSTEE(ìœ„ìˆ˜íƒ)
     KeyType = "SELL"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ë¬¸ì„œë²ˆí˜¸
     MgtKey = "20220720-ASP-001"
-    
+
     On Error Resume Next
 
     url = m_TaxinvoiceService.GetViewURL(testCorpNum, KeyType, MgtKey, userID)
@@ -41,8 +41,8 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±Ý°è»ê¼­ º¸±â ÆË¾÷ URL</legend>
-                <% 
+                <legend>ì„¸ê¸ˆê³„ì‚°ì„œ ë³´ê¸° íŒì—… URL</legend>
+                <%
                     If code = 0 Then
                 %>
                     <ul>

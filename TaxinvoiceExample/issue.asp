@@ -1,56 +1,56 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "ÀÓ½ÃÀúÀå" ¶Ç´Â "(¿ª)¹ßÇà´ë±â" »óÅÂÀÇ ¼¼±İ°è»ê¼­¸¦ ¹ßÇà(ÀüÀÚ¼­¸í)ÇÏ¸ç, "¹ßÇà¿Ï·á" »óÅÂ·Î Ã³¸®ÇÕ´Ï´Ù.
-    ' - ¼¼±İ°è»ê¼­ ±¹¼¼Ã» Àü¼ÛÁ¤Ã¥ [https://developers.popbill.com/guide/taxinvoice/asp/introduction/policy-of-send-to-nts]
-    ' - "¹ßÇà¿Ï·á" µÈ ÀüÀÚ¼¼±İ°è»ê¼­´Â ±¹¼¼Ã» Àü¼Û ÀÌÀü¿¡ ¹ßÇàÃë¼Ò(CancelIssue API) ÇÔ¼ö·Î ±¹¼¼Ã» ½Å°í ´ë»ó¿¡¼­ Á¦¿ÜÇÒ ¼ö ÀÖ½À´Ï´Ù.
-    ' - ¼¼±İ°è»ê¼­ ¹ßÇàÀ» À§ÇØ¼­ °ø±ŞÀÚÀÇ ÀÎÁõ¼­°¡ ÆËºô ÀÎÁõ¼­¹ö¿¡ »çÀüµî·Ï µÇ¾î¾ß ÇÕ´Ï´Ù.
-    '   ¦¦ À§¼öÅ¹¹ßÇàÀÇ °æ¿ì, ¼öÅ¹ÀÚÀÇ ÀÎÁõ¼­ µî·ÏÀÌ ÇÊ¿äÇÕ´Ï´Ù.
-    ' - ¼¼±İ°è»ê¼­ ¹ßÇà ½Ã °ø±Ş¹Ş´ÂÀÚ¿¡°Ô ¹ßÇà ¸ŞÀÏÀÌ ¹ß¼ÛµË´Ï´Ù.
+    ' "ì„ì‹œì €ì¥" ë˜ëŠ” "(ì—­)ë°œí–‰ëŒ€ê¸°" ìƒíƒœì˜ ì„¸ê¸ˆê³„ì‚°ì„œë¥¼ ë°œí–‰(ì „ìì„œëª…)í•˜ë©°, "ë°œí–‰ì™„ë£Œ" ìƒíƒœë¡œ ì²˜ë¦¬í•©ë‹ˆë‹¤.
+    ' - ì„¸ê¸ˆê³„ì‚°ì„œ êµ­ì„¸ì²­ ì „ì†¡ì •ì±… [https://developers.popbill.com/guide/taxinvoice/asp/introduction/policy-of-send-to-nts]
+    ' - "ë°œí–‰ì™„ë£Œ" ëœ ì „ìì„¸ê¸ˆê³„ì‚°ì„œëŠ” êµ­ì„¸ì²­ ì „ì†¡ ì´ì „ì— ë°œí–‰ì·¨ì†Œ(CancelIssue API) í•¨ìˆ˜ë¡œ êµ­ì„¸ì²­ ì‹ ê³  ëŒ€ìƒì—ì„œ ì œì™¸í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+    ' - ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ì„ ìœ„í•´ì„œ ê³µê¸‰ìì˜ ì¸ì¦ì„œê°€ íŒë¹Œ ì¸ì¦ì„œë²„ì— ì‚¬ì „ë“±ë¡ ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
+    '   â”” ìœ„ìˆ˜íƒë°œí–‰ì˜ ê²½ìš°, ìˆ˜íƒìì˜ ì¸ì¦ì„œ ë“±ë¡ì´ í•„ìš”í•©ë‹ˆë‹¤.
+    ' - ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ ì‹œ ê³µê¸‰ë°›ëŠ”ìì—ê²Œ ë°œí–‰ ë©”ì¼ì´ ë°œì†¡ë©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#Issue
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     testUserID = "testkorea"
 
-    ' ¼¼±İ°è»ê¼­ ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
     KeyType= "SELL"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ë¬¸ì„œë²ˆí˜¸
     MgtKey = "20220720-ASP-002"
-    
-    ' ¸Ş¸ğ
-    Memo = "¹ßÇà ¸Ş¸ğ"
 
-    ' ¹ßÇà ¾È³»¸ŞÀÏ Á¦¸ñ, ¹Ì±âÀç½Ã ±âº»¾ç½ÄÀ¸·Î Àü¼Û
+    ' ë©”ëª¨
+    Memo = "ë°œí–‰ ë©”ëª¨"
+
+    ' ë°œí–‰ ì•ˆë‚´ë©”ì¼ ì œëª©, ë¯¸ê¸°ì¬ì‹œ ê¸°ë³¸ì–‘ì‹ìœ¼ë¡œ ì „ì†¡
     EmailSubject = ""
-    
-    ' Áö¿¬¹ßÇà °­Á¦¿©ºÎ  (true / false Áß ÅÃ 1)
-    ' ¦¦ true = °¡´É , false = ºÒ°¡´É
-    ' - ¹ßÇà¸¶°¨ÀÏÀÌ Áö³­ ¼¼±İ°è»ê¼­¸¦ ¹ßÇàÇÏ´Â °æ¿ì, °¡»ê¼¼°¡ ºÎ°úµÉ ¼ö ÀÖ½À´Ï´Ù.
-    ' - °¡»ê¼¼°¡ ºÎ°úµÇ´õ¶óµµ ¹ßÇàÀ» ÇØ¾ßÇÏ´Â °æ¿ì¿¡´Â forceIssueÀÇ °ªÀ»
-    '   true·Î ¼±¾ğÇÏ¿© ¹ßÇà(Issue API)¸¦ È£ÃâÇÏ½Ã¸é µË´Ï´Ù.
+
+    ' ì§€ì—°ë°œí–‰ ê°•ì œì—¬ë¶€  (true / false ì¤‘ íƒ 1)
+    ' â”” true = ê°€ëŠ¥ , false = ë¶ˆê°€ëŠ¥
+    ' - ë°œí–‰ë§ˆê°ì¼ì´ ì§€ë‚œ ì„¸ê¸ˆê³„ì‚°ì„œë¥¼ ë°œí–‰í•˜ëŠ” ê²½ìš°, ê°€ì‚°ì„¸ê°€ ë¶€ê³¼ë  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+    ' - ê°€ì‚°ì„¸ê°€ ë¶€ê³¼ë˜ë”ë¼ë„ ë°œí–‰ì„ í•´ì•¼í•˜ëŠ” ê²½ìš°ì—ëŠ” forceIssueì˜ ê°’ì„
+    '   trueë¡œ ì„ ì–¸í•˜ì—¬ ë°œí–‰(Issue API)ë¥¼ í˜¸ì¶œí•˜ì‹œë©´ ë©ë‹ˆë‹¤.
     ForceIssue = False
 
     On Error Resume Next
-    
+
     Set Presponse = m_TaxinvoiceService.Issue(testCorpNum, KeyType ,MgtKey, Memo ,EmailSubject, ForceIssue, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         ntsConfirmNum = ""
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
         ntsConfirmNum = Presponse.ntsConfirmNum
@@ -63,12 +63,12 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±İ°è»ê¼­ ¹ßÇà</legend>
+                <legend>ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰</legend>
                 <ul>
-                    <li>ÀÀ´äÄÚµå (Response.code) : <%=code%> </li>
-                    <li>ÀÀ´ä¸Ş½ÃÁö (Response.message) : <%=message%> </li>
+                    <li>ì‘ë‹µì½”ë“œ (Response.code) : <%=code%> </li>
+                    <li>ì‘ë‹µë©”ì‹œì§€ (Response.message) : <%=message%> </li>
                     <% If ntsConfirmNum <> "" Then %>
-                    <li>±¹¼¼Ã»½ÂÀÎ¹øÈ£ (Response.ntsConfirmNum) : <%=ntsConfirmNum%> </li>
+                    <li>êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸ (Response.ntsConfirmNum) : <%=ntsConfirmNum%> </li>
                     <% End If %>
                 </ul>
             </fieldset>

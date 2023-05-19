@@ -1,42 +1,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' πﬂ«‡ æ»≥ª∏ﬁ¿œ¿ª ¿Á¿¸º€«’¥œ¥Ÿ.
+    ' Î∞úÌñâ ÏïàÎÇ¥Î©îÏùºÏùÑ Ïû¨Ï†ÑÏÜ°Ìï©ÎãàÎã§.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#SendEmail
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
     testCorpNum = "1234567890"
 
-    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
+    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
     testUserID = "testkorea"
-    
-    ' πﬂ«‡¿Ø«¸ SELL(∏≈√‚), BUY(∏≈¿‘), TRUSTEE(¿ßºˆ≈π)
+
+    ' Î∞úÌñâÏú†Ìòï SELL(Îß§Ï∂ú), BUY(Îß§ÏûÖ), TRUSTEE(ÏúÑÏàòÌÉÅ)
     KeyType = "SELL"
 
-    ' πÆº≠π¯»£ 
-    MgtKey = "20220720-ASP-001"      
+    ' Î¨∏ÏÑúÎ≤àÌò∏
+    MgtKey = "20220720-ASP-001"
 
-    ' ¿Ã∏ﬁ¿œ¡÷º“
-    ' ∆À∫Ù ∞≥πﬂ»Ø∞Êø°º≠ ≈◊Ω∫∆Æ«œ¥¬ ∞ÊøÏø°µµ æ»≥ª ∏ﬁ¿œ¿Ã ¿¸º€µ«π«∑Œ,
-    ' Ω«¡¶ ∞≈∑°√≥¿« ∏ﬁ¿œ¡÷º“∞° ±‚¿Áµ«¡ˆ æ µµ∑œ ¡÷¿«
+    ' Ïù¥Î©îÏùºÏ£ºÏÜå
+    ' ÌåùÎπå Í∞úÎ∞úÌôòÍ≤ΩÏóêÏÑú ÌÖåÏä§Ìä∏ÌïòÎäî Í≤ΩÏö∞ÏóêÎèÑ ÏïàÎÇ¥ Î©îÏùºÏù¥ Ï†ÑÏÜ°ÎêòÎØÄÎ°ú,
+    ' Ïã§Ï†ú Í±∞ÎûòÏ≤òÏùò Î©îÏùºÏ£ºÏÜåÍ∞Ä Í∏∞Ïû¨ÎêòÏßÄ ÏïäÎèÑÎ°ù Ï£ºÏùò
     Receiver = "test@test.com"
 
     On Error Resume Next
-    
+
     Set Presponse = m_TaxinvoiceService.SendEmail(testCorpNum, KeyType, MgtKey, Receiver, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -48,7 +48,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ºº±›∞ËªÍº≠ ∏ﬁ¿œ ¿Á¿¸º€</legend>
+                <legend>ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î©îÏùº Ïû¨Ï†ÑÏÜ°</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

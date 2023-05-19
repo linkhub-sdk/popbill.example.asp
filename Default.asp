@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
     <body>
         <div id="content">
-            <p class="heading1">ÆËºô SDK ASP Example.</p>
+            <p class="heading1">íŒë¹Œ SDK ASP Example.</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÆËºô API ¸ñ·Ï</legend>
+                <legend>íŒë¹Œ API ëª©ë¡</legend>
                     <ul>
-                        <li><a href="TaxinvoiceExample">TaxinvoiceService</a> - ÀüÀÚ¼¼±İ°è»ê¼­ API</li>
-                        <li><a href="CashbillExample">CashbillService</a> - Çö±İ¿µ¼öÁõ API</li>
-                        <li><a href="StatementExample">StatementService</a> - ÀüÀÚ¸í¼¼¼­ API</li>
+                        <li><a href="TaxinvoiceExample">TaxinvoiceService</a> - ì „ìì„¸ê¸ˆê³„ì‚°ì„œ API</li>
+                        <li><a href="CashbillExample">CashbillService</a> - í˜„ê¸ˆì˜ìˆ˜ì¦ API</li>
+                        <li><a href="StatementExample">StatementService</a> - ì „ìëª…ì„¸ì„œ API</li>
 
-                        <li><a href="HTTaxinvoiceExample">HometaxTaxinvoiceService</a>  - È¨ÅÃ½º¿¬µ¿(ÀüÀÚ¼¼±İ°è»ê¼­) API</li>
-                        <li><a href="HTCashbillExample">HometaxCashbillService</a>  - È¨ÅÃ½º¿¬µ¿(Çö±İ¿µ¼öÁõ) API</li>
-                        <li><a href="ClosedownExample">ClosedownService</a> - ÈŞÆó¾÷Á¶È¸ API</li>
-                        <li><a href="BizInfoCheckExample">BizInfoCheckService</a> - ±â¾÷Á¤º¸Á¶È¸ API</li>
-                        <li><a href="EasyFinBankExample">EasyFinBankService</a> - °èÁÂÁ¶È¸ API</li>
-                        <li><a href="AccountCheckExample">AccountCheckService</a> - ¿¹±İÁÖÁ¶È¸ API</li>
+                        <li><a href="HTTaxinvoiceExample">HometaxTaxinvoiceService</a>  - í™ˆíƒìŠ¤ì—°ë™(ì „ìì„¸ê¸ˆê³„ì‚°ì„œ) API</li>
+                        <li><a href="HTCashbillExample">HometaxCashbillService</a>  - í™ˆíƒìŠ¤ì—°ë™(í˜„ê¸ˆì˜ìˆ˜ì¦) API</li>
+                        <li><a href="ClosedownExample">ClosedownService</a> - íœ´íì—…ì¡°íšŒ API</li>
+                        <li><a href="BizInfoCheckExample">BizInfoCheckService</a> - ê¸°ì—…ì •ë³´ì¡°íšŒ API</li>
+                        <li><a href="EasyFinBankExample">EasyFinBankService</a> - ê³„ì¢Œì¡°íšŒ API</li>
+                        <li><a href="AccountCheckExample">AccountCheckService</a> - ì˜ˆê¸ˆì£¼ì¡°íšŒ API</li>
 
-                        <li><a href="MessageExample">MessageService</a> - ¹®ÀÚ¸Ş½ÃÁö API</li>
-                        <li><a href="FaxExample">FaxService</a> - ÆÑ½º API</li>
-                        <li><a href="KakaoExample">KakaoService</a> -  Ä«Ä«¿ÀÅå API</li>
+                        <li><a href="MessageExample">MessageService</a> - ë¬¸ìë©”ì‹œì§€ API</li>
+                        <li><a href="FaxExample">FaxService</a> - íŒ©ìŠ¤ API</li>
+                        <li><a href="KakaoExample">KakaoService</a> -  ì¹´ì¹´ì˜¤í†¡ API</li>
                     </ul>
             </fieldset>
          </div>

@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÀüÀÚ¸í¼¼¼­ÀÇ 1°ÇÀÇ »óÅÂ ¹× ¿ä¾àÁ¤º¸ È®ÀÎÇÕ´Ï´Ù.
+    ' ì „ìëª…ì„¸ì„œì˜ 1ê±´ì˜ ìƒíƒœ ë° ìš”ì•½ì •ë³´ í™•ì¸í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/statement/asp/api/info#GetInfo
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
-    testCorpNum = "1234567890"	
-    
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
-    userID = "testkorea"				
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-"ì œì™¸ 10ìë¦¬
+    testCorpNum = "1234567890"
 
-    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­) 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
-    itemCode = "121"					
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    userID = "testkorea"
 
-    ' ¹®¼­¹øÈ£
-    mgtKey = "20220720-ASP-001"				
+    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ) 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+    itemCode = "121"
+
+    ' ë¬¸ì„œë²ˆí˜¸
+    mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
@@ -40,32 +40,32 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÀüÀÚ¸í¼¼¼­ »óÅÂ/¿ä¾à Á¤º¸È®ÀÎ</legend>
+                <legend>ì „ìëª…ì„¸ì„œ ìƒíƒœ/ìš”ì•½ ì •ë³´í™•ì¸</legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li> itemKey(¾ÆÀÌÅÛÅ°) : <%=result.itemKey %></li>
-                        <li> itemCode(¹®¼­Á¾·ùÄÚµå) : <%=result.itemCode %></li>
-                        <li> itemKey(ÆËºô¹øÈ£) : <%=result.itemKey %></li>
-                        <li> invoiceNum(ÆËºô½ÂÀÎ¹øÈ£) : <%=result.invoiceNum %></li>
-                        <li> mgtKey(ÆÄÆ®³Ê ¹®¼­¹øÈ£) : <%=result.mgtKey %></li>
-                        <li> taxType(¼¼±İÇüÅÂ) : <%=result.taxType %></li>
-                        <li> writeDate(ÀÛ¼ºÀÏÀÚ) : <%=result.writeDate %></li>
-                        <li> regDT(µî·ÏÀÏ½Ã) : <%=result.regDT %></li>
-                        <li> senderCorpName(¹ß½ÅÀÚ »óÈ£) : <%=result.senderCorpName %></li>
-                        <li> senderCorpNum(¹ß½ÅÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.senderCorpNum %></li>
-                        <li> senderPrintYN(¹ß½ÅÀÚ ÀÎ¼â¿©ºÎ) : <%=result.senderPrintYN %></li>
-                        <li> receiverCorpName(¼ö½ÅÀÚ »óÈ£) : <%=result.receiverCorpName %></li>
-                        <li> receiverCorpNum(¼ö½ÅÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.receiverCorpNum %></li>
-                        <li> receiverPrintYN(¼ö½ÅÀÚ ÀÎ¼â¿©ºÎ) : <%=result.receiverPrintYN %></li>
-                        <li> supplyCostTotal(°ø±Ş°¡¾× ÇÕ°è) : <%=result.supplyCostTotal %></li>
-                        <li> taxTotal(¼¼¾× ÇÕ°è) : <%=result.taxTotal %></li>
-                        <li> purposeType(¿µ¼ö/Ã»±¸) : <%=result.purposeType %></li>
-                        <li> issueDT(¹ßÇàÀÏ½Ã) : <%=result.issueDT %></li>
-                        <li> stateCode(»óÅÂÄÚµå) : <%=result.stateCode %></li>
-                        <li> stateDT(»óÅÂ º¯°æÀÏ½Ã) : <%=result.stateDT %></li>
-                        <li> stateMemo(»óÅÂ¸Ş¸ğ) : <%=result.stateMemo %></li>
-                        <li> openYN(¸ŞÀÏ °³ºÀ ¿©ºÎ) : <%=result.openYN %></li>
-                        <li> openDT(°³ºÀ ÀÏ½Ã) : <%=result.openDT %></li>
+                        <li> itemKey(ì•„ì´í…œí‚¤) : <%=result.itemKey %></li>
+                        <li> itemCode(ë¬¸ì„œì¢…ë¥˜ì½”ë“œ) : <%=result.itemCode %></li>
+                        <li> itemKey(íŒë¹Œë²ˆí˜¸) : <%=result.itemKey %></li>
+                        <li> invoiceNum(íŒë¹ŒìŠ¹ì¸ë²ˆí˜¸) : <%=result.invoiceNum %></li>
+                        <li> mgtKey(íŒŒíŠ¸ë„ˆ ë¬¸ì„œë²ˆí˜¸) : <%=result.mgtKey %></li>
+                        <li> taxType(ì„¸ê¸ˆí˜•íƒœ) : <%=result.taxType %></li>
+                        <li> writeDate(ì‘ì„±ì¼ì) : <%=result.writeDate %></li>
+                        <li> regDT(ë“±ë¡ì¼ì‹œ) : <%=result.regDT %></li>
+                        <li> senderCorpName(ë°œì‹ ì ìƒí˜¸) : <%=result.senderCorpName %></li>
+                        <li> senderCorpNum(ë°œì‹ ì ì‚¬ì—…ìë²ˆí˜¸) : <%=result.senderCorpNum %></li>
+                        <li> senderPrintYN(ë°œì‹ ì ì¸ì‡„ì—¬ë¶€) : <%=result.senderPrintYN %></li>
+                        <li> receiverCorpName(ìˆ˜ì‹ ì ìƒí˜¸) : <%=result.receiverCorpName %></li>
+                        <li> receiverCorpNum(ìˆ˜ì‹ ì ì‚¬ì—…ìë²ˆí˜¸) : <%=result.receiverCorpNum %></li>
+                        <li> receiverPrintYN(ìˆ˜ì‹ ì ì¸ì‡„ì—¬ë¶€) : <%=result.receiverPrintYN %></li>
+                        <li> supplyCostTotal(ê³µê¸‰ê°€ì•¡ í•©ê³„) : <%=result.supplyCostTotal %></li>
+                        <li> taxTotal(ì„¸ì•¡ í•©ê³„) : <%=result.taxTotal %></li>
+                        <li> purposeType(ì˜ìˆ˜/ì²­êµ¬) : <%=result.purposeType %></li>
+                        <li> issueDT(ë°œí–‰ì¼ì‹œ) : <%=result.issueDT %></li>
+                        <li> stateCode(ìƒíƒœì½”ë“œ) : <%=result.stateCode %></li>
+                        <li> stateDT(ìƒíƒœ ë³€ê²½ì¼ì‹œ) : <%=result.stateDT %></li>
+                        <li> stateMemo(ìƒíƒœë©”ëª¨) : <%=result.stateMemo %></li>
+                        <li> openYN(ë©”ì¼ ê°œë´‰ ì—¬ë¶€) : <%=result.openYN %></li>
+                        <li> openDT(ê°œë´‰ ì¼ì‹œ) : <%=result.openDT %></li>
                     <% Else %>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message: <%=message%> </li>

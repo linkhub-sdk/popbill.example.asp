@@ -1,43 +1,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' °ø±Ş¹Ş´ÂÀÚ°¡ ÀúÀåµÈ ¿ª¹ßÇà ¼¼±İ°è»ê¼­¸¦ °ø±ŞÀÚ¿¡°Ô ¼ÛºÎÇÏ¿© ¹ßÇà ¿äÃ»ÇÕ´Ï´Ù.
-    ' - ¿ª¹ßÇà ¼¼±İ°è»ê¼­ ÇÁ·Î¼¼½º¸¦ ±¸ÇöÇÏ±â À§ÇØ¼­´Â °ø±ŞÀÚ/°ø±Ş¹Ş´ÂÀÚ°¡ ¸ğµÎ ÆËºô¿¡ È¸¿øÀÌ¿©¾ß ÇÕ´Ï´Ù.
-    ' - ¿ª¹ßÇà ¿äÃ»ÈÄ °ø±ŞÀÚ°¡ [¹ßÇà] Ã³¸®½Ã Æ÷ÀÎÆ®°¡ Â÷°¨µÇ¸ç ¿ª¹ßÇà ¼¼±İ°è»ê¼­ Ç×¸ñÁß °ú±İ¹æÇâ(ChargeDirection) ¿¡ ±âÀçÇÑ °ª¿¡ µû¶ó
-    '   Á¤°ú±İ(°ø±ŞÀÚ°ú±İ) ¶Ç´Â ¿ª°ú±İ(°ø±Ş¹Ş´ÂÀÚ°ú±İ) Ã³¸®µË´Ï´Ù.
+    ' ê³µê¸‰ë°›ëŠ”ìê°€ ì €ì¥ëœ ì—­ë°œí–‰ ì„¸ê¸ˆê³„ì‚°ì„œë¥¼ ê³µê¸‰ìì—ê²Œ ì†¡ë¶€í•˜ì—¬ ë°œí–‰ ìš”ì²­í•©ë‹ˆë‹¤.
+    ' - ì—­ë°œí–‰ ì„¸ê¸ˆê³„ì‚°ì„œ í”„ë¡œì„¸ìŠ¤ë¥¼ êµ¬í˜„í•˜ê¸° ìœ„í•´ì„œëŠ” ê³µê¸‰ì/ê³µê¸‰ë°›ëŠ”ìê°€ ëª¨ë‘ íŒë¹Œì— íšŒì›ì´ì—¬ì•¼ í•©ë‹ˆë‹¤.
+    ' - ì—­ë°œí–‰ ìš”ì²­í›„ ê³µê¸‰ìê°€ [ë°œí–‰] ì²˜ë¦¬ì‹œ í¬ì¸íŠ¸ê°€ ì°¨ê°ë˜ë©° ì—­ë°œí–‰ ì„¸ê¸ˆê³„ì‚°ì„œ í•­ëª©ì¤‘ ê³¼ê¸ˆë°©í–¥(ChargeDirection) ì— ê¸°ì¬í•œ ê°’ì— ë”°ë¼
+    '   ì •ê³¼ê¸ˆ(ê³µê¸‰ìê³¼ê¸ˆ) ë˜ëŠ” ì—­ê³¼ê¸ˆ(ê³µê¸‰ë°›ëŠ”ìê³¼ê¸ˆ) ì²˜ë¦¬ë©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#Request
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
     testUserID = "testkorea"
 
-    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
+    ' ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
     KeyType = "BUY"
 
-    ' ¹®¼­¹øÈ£ 
+    ' ë¬¸ì„œë²ˆí˜¸
     MgtKey = "20220720-ASP-001"
 
-    ' ¸Ş¸ğ
-    Memo = "¿ª¹ßÇà ¿äÃ» ¸Ş¸ğ"
+    ' ë©”ëª¨
+    Memo = "ì—­ë°œí–‰ ìš”ì²­ ë©”ëª¨"
 
     On Error Resume Next
-    
+
     Set Presponse = m_TaxinvoiceService.Request(testCorpNum, KeyType ,MgtKey, Memo, testUserID)
-    
+
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description
         Err.Clears
-    Else 
+    Else
         code = Presponse.code
         message = Presponse.message
     End If
@@ -49,7 +49,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>¼¼±İ°è»ê¼­ ¿ª¹ßÇà¿äÃ»</legend>
+                <legend>ì„¸ê¸ˆê³„ì‚°ì„œ ì—­ë°œí–‰ìš”ì²­</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

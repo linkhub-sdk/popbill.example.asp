@@ -1,22 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>∆À∫Ù SDK ASP Example.</title>
+        <title>ÌåùÎπå SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ¿¸¿⁄ºº±›∞ËªÍº≠ πﬂ«‡ø° « ø‰«— ¿Œ¡ıº≠∏¶ ∆À∫Ù ¿Œ¡ıº≠πˆø° µÓ∑œ«œ±‚ ¿ß«— ∆‰¿Ã¡ˆ¿« ∆Àæ˜ URL¿ª π›»Ø«’¥œ¥Ÿ.
-    ' - π›»Øµ«¥¬ URL¿∫ ∫∏æ» ¡§√•ªÛ 30√  µøæ» ¿Ø»ø«œ∏Á, Ω√∞£¿ª √ ∞˙«— »ƒø°¥¬ «ÿ¥Á URL¿ª ≈Î«— ∆‰¿Ã¡ˆ ¡¢±Ÿ¿Ã ∫“∞°«’¥œ¥Ÿ.
-    ' - ¿Œ¡ıº≠ ∞ªΩ≈/¿Áπﬂ±ﬁ/∫Òπ–π¯»£ ∫Ø∞Ê«— ∞ÊøÏ, ∫Ø∞Êµ» ¿Œ¡ıº≠∏¶ ∆À∫Ù ¿Œ¡ıº≠πˆø° ¿ÁµÓ∑œ «ÿæﬂ«’¥œ¥Ÿ.
+    ' Ï†ÑÏûêÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î∞úÌñâÏóê ÌïÑÏöîÌïú Ïù∏Ï¶ùÏÑúÎ•º ÌåùÎπå Ïù∏Ï¶ùÏÑúÎ≤ÑÏóê Îì±Î°ùÌïòÍ∏∞ ÏúÑÌïú ÌéòÏù¥ÏßÄÏùò ÌåùÏóÖ URLÏùÑ Î∞òÌôòÌï©ÎãàÎã§.
+    ' - Î∞òÌôòÎêòÎäî URLÏùÄ Î≥¥Ïïà Ï†ïÏ±ÖÏÉÅ 30Ï¥à ÎèôÏïà Ïú†Ìö®ÌïòÎ©∞, ÏãúÍ∞ÑÏùÑ Ï¥àÍ≥ºÌïú ÌõÑÏóêÎäî Ìï¥Îãπ URLÏùÑ ÌÜµÌïú ÌéòÏù¥ÏßÄ Ï†ëÍ∑ºÏù¥ Î∂àÍ∞ÄÌï©ÎãàÎã§.
+    ' - Ïù∏Ï¶ùÏÑú Í∞±Ïã†/Ïû¨Î∞úÍ∏â/ÎπÑÎ∞ÄÎ≤àÌò∏ Î≥ÄÍ≤ΩÌïú Í≤ΩÏö∞, Î≥ÄÍ≤ΩÎêú Ïù∏Ï¶ùÏÑúÎ•º ÌåùÎπå Ïù∏Ï¶ùÏÑúÎ≤ÑÏóê Ïû¨Îì±Î°ù Ìï¥ÏïºÌï©ÎãàÎã§.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/cert#GetTaxCertURL
     '**************************************************************
 
-    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
-    testCorpNum = "1234567890"	 
+    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    testCorpNum = "1234567890"
 
-    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
+    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
     userID = "testkorea"
 
     On Error Resume Next
@@ -36,7 +36,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>∞¯¿Œ¿Œ¡ıº≠ µÓ∑œ ∆Àæ˜ URL</legend>
+                <legend>Í≥µÏù∏Ïù∏Ï¶ùÏÑú Îì±Î°ù ÌåùÏóÖ URL</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>URL : <%=CStr(url)%> </li>
@@ -45,7 +45,7 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
+                    </ul>
                 <%	End If	%>
             </fieldset>
          </div>

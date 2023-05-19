@@ -1,25 +1,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÆËºô SDK ASP Example.</title>
+        <title>íŒë¹Œ SDK ASP Example.</title>
     </head>
-<!--#include file="common.asp"--> 
+<!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ±¹¼¼Ã» ½ÂÀÎ¹øÈ£¸¦ ÅëÇØ ¼öÁıÇÑ ÀüÀÚ¼¼±İ°è»ê¼­ 1°ÇÀÇ »ó¼¼Á¤º¸¸¦ XML ÇüÅÂÀÇ ¹®ÀÚ¿­·Î ¹İÈ¯ÇÕ´Ï´Ù.
+    ' êµ­ì„¸ì²­ ìŠ¹ì¸ë²ˆí˜¸ë¥¼ í†µí•´ ìˆ˜ì§‘í•œ ì „ìì„¸ê¸ˆê³„ì‚°ì„œ 1ê±´ì˜ ìƒì„¸ì •ë³´ë¥¼ XML í˜•íƒœì˜ ë¬¸ìì—´ë¡œ ë°˜í™˜í•©ë‹ˆë‹¤.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/search#GetXML
     '**************************************************************
 
-    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
+    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
     testCorpNum = "1234567890"
 
-    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ 
-    UserID = "testkorea"				 
+    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    UserID = "testkorea"
 
-    ' ±¹¼¼Ã»½ÂÀÎ¹øÈ£ 
+    ' êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸
     NTSConfirmNum = "201611104100020300000cb2"
-    
+
     On Error Resume Next
 
     Set result = m_HTTaxinvoiceService.GetXML ( testCorpNum, NTSConfirmNum, UserID )
@@ -37,14 +37,14 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> »ó¼¼Á¤º¸ Á¶È¸ - XML</legend>
+                <legend> ìƒì„¸ì •ë³´ ì¡°íšŒ - XML</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> ResultCode (¿äÃ»¿¡ ´ëÇÑ ÀÀ´ä »óÅÂÄÚµå) : <%=result.ResultCode%></li>
-                        <li> Message (±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%=result.Message%></li>
-                        <li> retObject (ÀüÀÚ¼¼±İ°è»ê¼­ XML ¹®¼­) : <%=Replace(result.retObject, "<" ,"&lt")%></li>
+                        <li> ResultCode (ìš”ì²­ì— ëŒ€í•œ ì‘ë‹µ ìƒíƒœì½”ë“œ) : <%=result.ResultCode%></li>
+                        <li> Message (êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸) : <%=result.Message%></li>
+                        <li> retObject (ì „ìì„¸ê¸ˆê³„ì‚°ì„œ XML ë¬¸ì„œ) : <%=Replace(result.retObject, "<" ,"&lt")%></li>
                     </ul>
                 <%
                     Else
@@ -52,8 +52,8 @@
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
-                    </ul>	
-                <%	
+                    </ul>
+                <%
                     End If
                 %>
             </fieldset>
