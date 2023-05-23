@@ -363,7 +363,7 @@ End Function
 
 ' 팝빌회원 탈퇴 (QuitMember)
 Public Function QuitMember(CorpNum, QuitReason, UserID)
-    Set quitReasonForm = New QuitReasonForm
+    Dim quitReasonForm : Set quitReasonForm = New QuitReasonForm
     quitReasonForm.quitReason = QuitReason
 
     Dim postData: postData = m_Linkhub.toString(quitReasonForm.toJsonInfo)
