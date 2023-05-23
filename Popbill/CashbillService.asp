@@ -5,160 +5,160 @@ Private m_PopbillBase
 
 '테스트 플래그
 Public Property Let IsTest(ByVal value)
-    m_PopbillBase.IsTest = value
+	m_PopbillBase.IsTest = value
 End Property
 
 Public Property Let IPRestrictOnOff(ByVal value)
-    m_PopbillBase.IPRestrictOnOff = value
+	m_PopbillBase.IPRestrictOnOff = value
 End Property
 
 Public Property Let UseStaticIP(ByVal value)
-    m_PopbillBase.UseStaticIP = value
+	m_PopbillBase.UseStaticIP = value
 End Property
 
 Public Property Let UseGAIP(ByVal value)
-    m_PopbillBase.UseGAIP = value
+	m_PopbillBase.UseGAIP = value
 End Property
 
 Public Property Let UseLocalTimeYN(ByVal value)
-    m_PopbillBase.UseLocalTimeYN = value
+	m_PopbillBase.UseLocalTimeYN = value
 End Property
 
 Public Sub Class_Initialize
-    Set m_PopbillBase = New PopbillBase
-    m_PopbillBase.AddScope("140")
+	Set m_PopbillBase = New PopbillBase
+	m_PopbillBase.AddScope("140")
 End Sub
 
 Public Sub Initialize(linkID, SecretKey )
-    m_PopbillBase.Initialize linkID,SecretKey
+	m_PopbillBase.Initialize linkID,SecretKey
 End Sub
 
 '회원잔액조회
 Public Function GetBalance(CorpNum)
-    GetBalance = m_PopbillBase.GetBalance(CorpNum)
+	GetBalance = m_PopbillBase.GetBalance(CorpNum)
 End Function
 '파트너 잔액조회
 Public Function GetPartnerBalance(CorpNum)
-    GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
+	GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
 End Function
 '팝빌 기본 URL
 Public Function GetPopbillURL(CorpNum , UserID , TOGO )
-    GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
+	GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 End Function
 '팝빌 로그인 URL
 Public Function GetAccessURL(CorpNum , UserID)
-    GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
+	GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
 End Function
 
 '팝빌 연동회원 포인트 충전 URL
 Public Function GetChargeURL(CorpNum , UserID)
-    GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
+	GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
 End Function
 
 '팝빌 연동회원 포인트 결제내역 URL
 Public Function GetPaymentURL(CorpNum, UserID)
-    GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
+	GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
 End Function
 
 '팝빌 연동회원 포인트 사용내역 URL
 Public Function GetUseHistoryURL(CorpNum, UserID)
-    GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
+	GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
 End Function
 
 '파트너 포인트 충전 팝업 URL - 2017/08/29 추가
 Public Function GetPartnerURL(CorpNum, TOGO)
-    GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
+	GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
 End Function
 
 '회원가입 여부
 Public Function CheckIsMember(CorpNum , linkID)
-    Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
+	Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
 End Function
 '회원가입
 Public Function JoinMember(JoinInfo)
-    Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
+	Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
 '담당자 정보 확인
 Public Function GetContactInfo(CorpNum, ContactID, UserID)
-    Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
+	Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
 End Function
 '담당자 목록조회
 Public Function ListContact(CorpNum, UserID)
-    Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
+	Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
 End Function
 '담당자 정보수정
 Public Function UpdateContact(CorpNum, contInfo, UserId)
-    Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
+	Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
 End Function
 '담당자 추가
 Public Function RegistContact(CorpNum, contInfo, UserId)
-    Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
+	Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
 End Function
 '회사정보 수정
 Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
-    Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
+	Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
 End Function
 '회사정보 확인
 Public Function GetCorpInfo(CorpNum, UserId)
-    Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
+	Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
 End Function
 Public Function CheckID(id)
-    Set CheckID = m_popbillBase.CheckID(id)
+	Set CheckID = m_popbillBase.CheckID(id)
 End Function
 '과금정보 확인
 Public Function GetChargeInfo ( CorpNum, UserID )
-    Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
 
-    Dim chrgInfo : Set chrgInfo = New ChargeInfo
-    chrgInfo.fromJsonInfo result
+	Dim chrgInfo : Set chrgInfo = New ChargeInfo
+	chrgInfo.fromJsonInfo result
 
-    Set GetChargeInfo = chrgInfo
+	Set GetChargeInfo = chrgInfo
 End Function
 
 	'무통장 입금신청
 Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
-    Set PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
+	Set PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
 End Function
 
 '연동회원 포인트 결제내역 조회
 Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
-    Set GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+	Set GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
 End Function
 
 '연동회원 무통장 입금신청 정보확인
 Public Function GetSettleResult(CorpNum, SettleCode, UserID)
-    Set GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
+	Set GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
 End Function
 
 '연동회원 포인트 사용내역 확인
 Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
-    Set GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
+	Set GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
 End Function
 
 '연동회원 포인트 환불신청
 Public Function Refund(CorpNum, RefundForm, UserID)
-    Set Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
+	Set Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
 End Function
 
 ' 환불 가능 포인트 조회
 Public Function GetRefundableBalance(CorpNum, UserID)
-    m_refundable = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
-    GetRefundableBalance = m_refundable
+	m_refundable = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
+	GetRefundableBalance = m_refundable
 End Function
 
 '연동회원 포인트 환불내역 확인
 Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
-    Set GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
+	Set GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
 End Function
 
 ' 환불 신청 상태 조회
 Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
-    Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
+	Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
 End Function
 
 '회원 탈퇴
 Public Function QuitMember(CorpNum, QuitReason, UserID)
-    Set QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
+	Set QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
 End Function
 
 
@@ -166,459 +166,459 @@ End Function
 
 '단가확인
 Public Function GetUnitCost(CorpNum)
-    Dim result : Set result = m_PopbillBase.httpGET("/Cashbill?cfg=UNITCOST", m_PopbillBase.getSession_token(CorpNum),"")
-    GetUnitCost = result.unitCost
+	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill?cfg=UNITCOST", m_PopbillBase.getSession_token(CorpNum),"")
+	GetUnitCost = result.unitCost
 End Function
 
 '연동문서번호 사용여부 확인
 Public Function CheckMgtKeyInUse(CorpNum, mgtKey)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    On Error Resume Next
+	On Error Resume Next
 
-    Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum),"")
+	Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum),"")
 
-    If Err.Number = -14000003 Then
-        CheckMgtKeyInUse = False
-    Else
-        CheckMgtKeyInUse = True
-    End If
-    On Error Resume Next
+	If Err.Number = -14000003 Then
+		CheckMgtKeyInUse = False
+	Else
+		CheckMgtKeyInUse = True
+	End If
+	On Error Resume Next
 End Function
 
 
 '팝빌 SSO URL확인
 Public Function GetURL(CorpNum, UserID, TOGO)
-    Dim result : Set result = m_PopbillBase.httpGet("/Cashbill?TG=" + TOGO, m_PopbillBase.getSession_token(CorpNum),UserID)
-    GetURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGet("/Cashbill?TG=" + TOGO, m_PopbillBase.getSession_token(CorpNum),UserID)
+	GetURL = result.url
 End Function
 
 
 '현금영수증 보기 URL
 Public Function GetPopUpURL(CorpNum, mgtKey, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=POPUP", m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetPopUpURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=POPUP", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetPopUpURL = result.url
 End Function
 
 '현금영수증 보기 URL (메뉴/버튼 제외)
 Public Function GetViewURL(CorpNum, mgtKey, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=VIEW", m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetViewURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=VIEW", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetViewURL = result.url
 End Function
 
 '현금영수증 인쇄 URL
 Public Function GetPDFURL(CorpNum, mgtKey, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=PDF", m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetPDFURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=PDF", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetPDFURL = result.url
 End Function
 
 '현금영수증 인쇄 URL
 Public Function GetPrintURL(CorpNum, mgtKey, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=PRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetPrintURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=PRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetPrintURL = result.url
 End Function
 
 
 '현금영수증 인쇄 URL - 공급받는자
 Public Function GetEPrintURL(CorpNum, mgtKey, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=EPRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetEPrintURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=EPRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetEPrintURL = result.url
 End Function
 
 
 '현금영수증 이메일 링크 URL
 Public Function GetMailURL(CorpNum, mgtKey, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=MAIL", m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetMailURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=MAIL", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetMailURL = result.url
 End Function
 
 
 '다량 현금영수증 인쇄 URL
 Public Function GetMassPrintURL(CorpNum, mgtKeyList, UserID)
-    If isEmpty(mgtKeyList) Or isNull(mgtKeyList) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isEmpty(mgtKeyList) Or isNull(mgtKeyList) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("[]")
-    Dim i
-    For i=0 To UBound(mgtKeyList)-1
-        tmp.Set i, mgtKeyList(i)
-    Next
+	Dim tmp : Set tmp = JSON.parse("[]")
+	Dim i
+	For i=0 To UBound(mgtKeyList)-1
+		tmp.Set i, mgtKeyList(i)
+	Next
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/Cashbill/Prints", m_PopbillBase.getSession_token(CorpNum), "",postData, UserID)
+	Dim result : Set result = m_PopbillBase.httpPOST("/Cashbill/Prints", m_PopbillBase.getSession_token(CorpNum), "",postData, UserID)
 
-    GetMassPrintURL = result.url
+	GetMassPrintURL = result.url
 End Function
 
 Public Function AssignMgtKey(CorpNum, ItemKey, MgtKey)
-    If ItemKey = "" Or isEmpty(ItemKey) Then
-        Err.Raise -99999999, "POPBILL", "아이템키가 입력되지 않았습니다."
-    End If
+	If ItemKey = "" Or isEmpty(ItemKey) Then
+		Err.Raise -99999999, "POPBILL", "아이템키가 입력되지 않았습니다."
+	End If
 
-    If MgtKey = "" Or isEmpty(MgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If MgtKey = "" Or isEmpty(MgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Set AssignMgtKey = m_PopbillBase.httpPOST_ContentsType("/Cashbill/" & ItemKey,  _
-                                m_PopbillBase.getSession_token(CorpNum), "", "MgtKey="+MgtKey, "", "application/x-www-form-urlencoded; charset=utf-8")
+	Set AssignMgtKey = m_PopbillBase.httpPOST_ContentsType("/Cashbill/" & ItemKey,  _
+                        		m_PopbillBase.getSession_token(CorpNum), "", "MgtKey="+MgtKey, "", "application/x-www-form-urlencoded; charset=utf-8")
 
 End Function
 
 '현금영수증 임시저장
 Public Function Register(CorpNum, ByRef Cashbill, UserID)
-    Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo()
-    Dim postData : postData = m_PopbillBase.toString(tmpDic)
+	Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo()
+	Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Set Register = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
+	Set Register = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 
 '현금영수증 수정
 Public Function Update(CorpNum, mgtKey, ByRef Cashbill, UserID)
-    Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo()
-    Dim postData : postData = m_PopbillBase.toString(tmpDic)
+	Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo()
+	Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Set Update = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "PATCH", postData, UserID)
+	Set Update = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "PATCH", postData, UserID)
 End Function
 
 
 '현금영수증 발행
 Public Function Issue(CorpNum, mgtKey, Memo, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "memo", Memo
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
-    Set Issue = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "ISSUE", postData, UserID)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
+	Set Issue = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "ISSUE", postData, UserID)
 End Function
 
 
 '현금영수증 발행취소
 Public Function CancelIssue(CorpNum, mgtKey, Memo, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "memo", Memo
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
-    Set CancelIssue = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCELISSUE", postData, UserID)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
+	Set CancelIssue = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCELISSUE", postData, UserID)
 End Function
 
 
 '현금영수증 삭제
 Public Function Delete(CorpNum, mgtKey, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Set Delete = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "DELETE", "", UserID)
+	Set Delete = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "DELETE", "", UserID)
 End Function
 
 
 '현금영수증 상태정보 조회
 Public Function GetInfo(CorpNum, mgtKey, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), UserID)
 
-    Dim infoObj : Set infoObj = New CashbillInfo
-    infoObj.fromJsonInfo result
-    Set GetInfo = infoObj
+	Dim infoObj : Set infoObj = New CashbillInfo
+	infoObj.fromJsonInfo result
+	Set GetInfo = infoObj
 End Function
 
 
 '다량 현금영수증 상태정보 조회
 Public Function GetInfos(CorpNum, mgtKeyList, UserID)
-    If isNull(mgtKeyList) Or isEmpty(mgtKeyList) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKeyList) Or isEmpty(mgtKeyList) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("[]")
+	Dim tmp : Set tmp = JSON.parse("[]")
 
-    Dim i
-    For i=0 To UBound(mgtKeyList)-1
-        tmp.Set i, mgtKeyList(i)
-    Next
+	Dim i
+	For i=0 To UBound(mgtKeyList)-1
+		tmp.Set i, mgtKeyList(i)
+	Next
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/Cashbill/States", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
+	Dim result : Set result = m_PopbillBase.httpPOST("/Cashbill/States", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 
-    Dim tmpDic : Set tmpDic = CreateObject("Scripting.Dictionary")
+	Dim tmpDic : Set tmpDic = CreateObject("Scripting.Dictionary")
 
-    For i=0 To result.length-1
-        Dim cbInfo : Set cbInfo = New CashbillInfo
-        cbInfo.fromJsonInfo result.Get(i)
-        tmpDic.Add i, cbInfo
-    Next
+	For i=0 To result.length-1
+		Dim cbInfo : Set cbInfo = New CashbillInfo
+		cbInfo.fromJsonInfo result.Get(i)
+		tmpDic.Add i, cbInfo
+	Next
 
-    Set GetInfos = tmpDic
+	Set GetInfos = tmpDic
 End Function
 
 
 '현금영수증 이력확인
 Public Function GetLogs(CorpNum, mgtKey, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey+"/Logs", m_PopbillBase.getSession_token(CorpNum),UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey+"/Logs", m_PopbillBase.getSession_token(CorpNum),UserID)
 
-    Dim tmp : Set tmp = CreateObject("Scripting.Dictionary")
+	Dim tmp : Set tmp = CreateObject("Scripting.Dictionary")
 
-    Dim i
-    For i=0 To result.length-1
-        Dim chLog : Set chLog = New CashbillLog
-        chLog.fromJsonInfo result.Get(i)
-        tmp.Add i, chLog
-    Next
+	Dim i
+	For i=0 To result.length-1
+		Dim chLog : Set chLog = New CashbillLog
+		chLog.fromJsonInfo result.Get(i)
+		tmp.Add i, chLog
+	Next
 
-    Set GetLogs = tmp
+	Set GetLogs = tmp
 End Function
 
 
 '상세정보 확인
 Public Function GetDetailInfo(CorpNum, mgtKey, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey+"?Detail", m_PopbillBase.getSession_token(CorpNum),UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey+"?Detail", m_PopbillBase.getSession_token(CorpNum),UserID)
 
-    Dim tmp : Set tmp = New Cashbill
+	Dim tmp : Set tmp = New Cashbill
 
-    tmp.fromJsonInfo result
+	tmp.fromJsonInfo result
 
-    Set GetDetailInfo = tmp
+	Set GetDetailInfo = tmp
 End Function
 
 
 '알림메일 재전송
 Public Function SendEmail(CorpNum, mgtKey, Receiver, UsrID)
-    If isNull(mgtKey) Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "receiver", Receiver
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "receiver", Receiver
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendEmail = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "EMAIL", postData, UserID)
+	Set SendEmail = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "EMAIL", postData, UserID)
 End Function
 
 
 '알림문자 전송
 Public Function SendSMS(CorpNum, mgtKey, Sender, Receiver, Contents, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "receiver", Receiver
-    tmp.Set "sender", Sender
-    tmp.Set "contents", Contents
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "receiver", Receiver
+	tmp.Set "sender", Sender
+	tmp.Set "contents", Contents
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendSMS = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "SMS", postData, UserID)
+	Set SendSMS = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "SMS", postData, UserID)
 End Function
 
 
 '팩스 전송
 Public Function SendFAX(CorpNum, mgtKey, Sender, Receiver, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then
+		Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "receiver", Receiver
-    tmp.Set "sender", Sender
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "receiver", Receiver
+	tmp.Set "sender", Sender
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendFAX = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
+	Set SendFAX = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
 End Function
 
 '현금영수증 즉시발행
 Public Function RegistIssue(CorpNum, ByRef Cashbill, Memo, UserID, EmailSubject)
-    Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo
-    tmpDic.Set "memo", Memo
+	Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo
+	tmpDic.Set "memo", Memo
 
-    If EmailSubject <> "" Then
-        tmpDic.Set "emailSubject", EmailSubject
-    End If
+	If EmailSubject <> "" Then
+		tmpDic.Set "emailSubject", EmailSubject
+	End If
 
-    Dim postData : postData = m_PopbillBase.toString(tmpDic)
+	Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Set RegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "ISSUE", postData, UserID)
+	Set RegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "ISSUE", postData, UserID)
 End Function
 
 ' 현금영수증 초대량 발행 접수
 Public Function BulkSubmit(CorpNum, SubmitID, cashbillList, UserID)
 
-    If SubmitID = "" Or isEmpty(SubmitID) Then
-        Err.Raise -99999999, "POPBILL", "제출아이디가 입력되지 않았습니다."
-    End If
+	If SubmitID = "" Or isEmpty(SubmitID) Then
+		Err.Raise -99999999, "POPBILL", "제출아이디가 입력되지 않았습니다."
+	End If
 
-    If Ubound(cashbillList) = "" Or isEmpty(cashbillList) Then
-        Err.Raise -99999999, "POPBILL", "현금영수증 정보가 입력되지 않았습니다."
-    End If
+	If Ubound(cashbillList) = "" Or isEmpty(cashbillList) Then
+		Err.Raise -99999999, "POPBILL", "현금영수증 정보가 입력되지 않았습니다."
+	End If
 
-    Dim bulkCashbillSubmit : Set bulkCashbillSubmit = new BulkCashbillSubmit
+	Dim bulkCashbillSubmit : Set bulkCashbillSubmit = new BulkCashbillSubmit
 
-    Dim cashbill
+	Dim cashbill
 
-    For Each cashbill In cashbillList
-        bulkCashbillSubmit.AddCashbill cashbill
-    Next
+	For Each cashbill In cashbillList
+		bulkCashbillSubmit.AddCashbill cashbill
+	Next
 
-    Dim tmpDic : Set tmpDic = bulkCashbillSubmit.toJsonInfo
+	Dim tmpDic : Set tmpDic = bulkCashbillSubmit.toJsonInfo
 
-    Dim postData : postData = m_PopbillBase.toString(tmpDic)
+	Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Set BulkSubmit = m_PopbillBase.httpBulkPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "BULKISSUE", SubmitID, postData, UserID)
+	Set BulkSubmit = m_PopbillBase.httpBulkPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "BULKISSUE", SubmitID, postData, UserID)
 
 End Function
 
 ' 초대량 접수 결과 확인
 Public Function GetBulkResult(CorpNum, SubmitID, UserID)
 
-    If SubmitID = "" Or isEmpty(SubmitID) Then
-        Err.Raise -99999999, "POPBILL", "제출아이디가 입력되지 않았습니다."
-    End If
+	If SubmitID = "" Or isEmpty(SubmitID) Then
+		Err.Raise -99999999, "POPBILL", "제출아이디가 입력되지 않았습니다."
+	End If
 
-    Dim btResult : Set btResult = new BulkCashbillResult
+	Dim btResult : Set btResult = new BulkCashbillResult
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/BULK/" + SubmitID + "/State", m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/BULK/" + SubmitID + "/State", m_PopbillBase.getSession_token(CorpNum), UserID)
 
-    btResult.fromJsonInfo result
+	btResult.fromJsonInfo result
 
-    Set GetBulkResult = btResult
+	Set GetBulkResult = btResult
 
 End Function
 
 '취소현금영수증 즉시발행. 2017/08/17 추가
 Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID, emailSubject, tradeDT)
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "mgtKey", mgtKey
-    tmp.Set "orgConfirmNum", orgConfirmNum
-    tmp.Set "orgTradeDate", orgTradeDate
-    tmp.Set "memo", memo
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "mgtKey", mgtKey
+	tmp.Set "orgConfirmNum", orgConfirmNum
+	tmp.Set "orgTradeDate", orgTradeDate
+	tmp.Set "memo", memo
 
-    If smssendYN Then
-        tmp.Set "smssendYN", True
-    End If
+	If smssendYN Then
+		tmp.Set "smssendYN", True
+	End If
 
-    tmp.Set "emailSubject", emailSubject
-    tmp.Set "tradeDT", tradeDT
+	tmp.Set "emailSubject", emailSubject
+	tmp.Set "tradeDT", tradeDT
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set RevokeRegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postData, UserID)
+	Set RevokeRegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postData, UserID)
 End Function
 
 '취소현금영수증 임시저장. 2017/08/17 추가
 Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, userID)
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "mgtKey", mgtKey
-    tmp.Set "orgConfirmNum", orgConfirmNum
-    tmp.Set "orgTradeDate", orgTradeDate
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "mgtKey", mgtKey
+	tmp.Set "orgConfirmNum", orgConfirmNum
+	tmp.Set "orgTradeDate", orgTradeDate
 
-    If smssendYN Then
-        tmp.Set "smssendYN", True
-    End If
+	If smssendYN Then
+		tmp.Set "smssendYN", True
+	End If
 
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set RevokeRegister = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postData, UserID)
+	Set RevokeRegister = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postData, UserID)
 End Function
 
 '부분취소 현금영수증 즉시발행
 Public Function RevokeRegistIssue_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount, emailSubject, tradeDT)
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "mgtKey", mgtKey
-    tmp.Set "orgConfirmNum", orgConfirmNum
-    tmp.Set "orgTradeDate", orgTradeDate
-    tmp.Set "memo", memo
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "mgtKey", mgtKey
+	tmp.Set "orgConfirmNum", orgConfirmNum
+	tmp.Set "orgTradeDate", orgTradeDate
+	tmp.Set "memo", memo
 
-    If smssendYN Then
-        tmp.Set "smssendYN", True
-    End If
+	If smssendYN Then
+		tmp.Set "smssendYN", True
+	End If
 
-    tmp.Set "isPartCancel", isPartCancel
-    tmp.Set "cancelType", cancelType
-    tmp.Set "supplyCost", supplyCost
-    tmp.Set "tax", tax
-    tmp.Set "serviceFee", serviceFee
-    tmp.Set "totalAmount", totalAmount
-    tmp.Set "emailSubject", emailSubject
-    tmp.Set "tradeDT", tradeDT
+	tmp.Set "isPartCancel", isPartCancel
+	tmp.Set "cancelType", cancelType
+	tmp.Set "supplyCost", supplyCost
+	tmp.Set "tax", tax
+	tmp.Set "serviceFee", serviceFee
+	tmp.Set "totalAmount", totalAmount
+	tmp.Set "emailSubject", emailSubject
+	tmp.Set "tradeDT", tradeDT
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set RevokeRegistIssue_Part = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postData, UserID)
+	Set RevokeRegistIssue_Part = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postData, UserID)
 End Function
 
 '부분취소 현금영수증 임시저장
 Public Function RevokeRegister_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, userID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount)
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "mgtKey", mgtKey
-    tmp.Set "orgConfirmNum", orgConfirmNum
-    tmp.Set "orgTradeDate", orgTradeDate
-    If smssendYN Then
-        tmp.Set "smssendYN", True
-    End If
-    tmp.Set "isPartCancel", isPartCancel
-    tmp.Set "cancelType", cancelType
-    tmp.Set "supplyCost", supplyCost
-    tmp.Set "tax", tax
-    tmp.Set "serviceFee", serviceFee
-    tmp.Set "totalAmount", totalAmount
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "mgtKey", mgtKey
+	tmp.Set "orgConfirmNum", orgConfirmNum
+	tmp.Set "orgTradeDate", orgTradeDate
+	If smssendYN Then
+		tmp.Set "smssendYN", True
+	End If
+	tmp.Set "isPartCancel", isPartCancel
+	tmp.Set "cancelType", cancelType
+	tmp.Set "supplyCost", supplyCost
+	tmp.Set "tax", tax
+	tmp.Set "serviceFee", serviceFee
+	tmp.Set "totalAmount", totalAmount
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set RevokeRegister_Part = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postData, UserID)
+	Set RevokeRegister_Part = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postData, UserID)
 End Function
 
 
@@ -626,480 +626,480 @@ End Function
 
 '현금영수증 목록 조회
 Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt, TaxationType, Order, Page, PerPage, QString, FranchiseTaxRegID)
-    If DType = "" Then
-        Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
-    End If
-    If SDate = "" Then
-        Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
-    End If
-    If EDate = "" Then
-        Err.Raise -99999999, "POPBILL", "종료일자가 이력되지 않았습니다."
-    End If
-    Dim uri
-    uri = "/Cashbill/Search"
-    uri = uri & "?DType=" & DType
-    uri = uri & "&SDate=" & SDate
-    uri = uri & "&EDate=" & EDate
+	If DType = "" Then
+		Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
+	End If
+	If SDate = "" Then
+		Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
+	End If
+	If EDate = "" Then
+		Err.Raise -99999999, "POPBILL", "종료일자가 이력되지 않았습니다."
+	End If
+	Dim uri
+	uri = "/Cashbill/Search"
+	uri = uri & "?DType=" & DType
+	uri = uri & "&SDate=" & SDate
+	uri = uri & "&EDate=" & EDate
 
-    uri = uri & "&State="
-    Dim i
-    For i=0 To UBound(State) -1
-        If i = UBound(State) -1 then
-            uri = uri & State(i)
-        Else
-            uri = uri & State(i) & ","
-        End If
-    Next
+	uri = uri & "&State="
+	Dim i
+	For i=0 To UBound(State) -1
+		If i = UBound(State) -1 then
+    		uri = uri & State(i)
+		Else
+    		uri = uri & State(i) & ","
+		End If
+	Next
 
-    uri = uri & "&TradeType="
-    For i=0 To UBound(TradeType) -1
-        If i = UBound(TradeType) -1 then
-            uri = uri & TradeType(i)
-        Else
-            uri = uri & TradeType(i) & ","
-        End If
-    Next
+	uri = uri & "&TradeType="
+	For i=0 To UBound(TradeType) -1
+		If i = UBound(TradeType) -1 then
+    		uri = uri & TradeType(i)
+		Else
+    		uri = uri & TradeType(i) & ","
+		End If
+	Next
 
-    uri = uri & "&TradeUsage="
-    For i=0 To UBound(TradeUsage) -1
-        If i = UBound(TradeUsage) -1 then
-            uri = uri & TradeUsage(i)
-        Else
-            uri = uri & TradeUsage(i) & ","
-        End If
-    Next
+	uri = uri & "&TradeUsage="
+	For i=0 To UBound(TradeUsage) -1
+		If i = UBound(TradeUsage) -1 then
+    		uri = uri & TradeUsage(i)
+		Else
+    		uri = uri & TradeUsage(i) & ","
+		End If
+	Next
 
-    uri = uri & "&TradeOpt="
-    For i=0 To UBound(TradeOpt) -1
-        If i = UBound(TradeOpt) -1 then
-            uri = uri & TradeOpt(i)
-        Else
-            uri = uri & TradeOpt(i) & ","
-        End If
-    Next
+	uri = uri & "&TradeOpt="
+	For i=0 To UBound(TradeOpt) -1
+		If i = UBound(TradeOpt) -1 then
+    		uri = uri & TradeOpt(i)
+		Else
+    		uri = uri & TradeOpt(i) & ","
+		End If
+	Next
 
-    uri = uri & "&TaxationType="
-    For i=0 To UBound(TaxationType) -1
-        If i = UBound(TaxationType) -1 then
-            uri = uri & TaxationType(i)
-        Else
-            uri = uri & TaxationType(i) & ","
-        End If
-    Next
-    uri = uri & "&QString=" & QString
-    uri = uri & "&Order=" & Order
-    uri = uri & "&Page=" & CStr(Page)
-    uri = uri & "&PerPage=" & CStr(PerPage)
-    uri = uri & "&FranchiseTaxRegID=" & FranchiseTaxRegID
+	uri = uri & "&TaxationType="
+	For i=0 To UBound(TaxationType) -1
+		If i = UBound(TaxationType) -1 then
+    		uri = uri & TaxationType(i)
+		Else
+    		uri = uri & TaxationType(i) & ","
+		End If
+	Next
+	uri = uri & "&QString=" & QString
+	uri = uri & "&Order=" & Order
+	uri = uri & "&Page=" & CStr(Page)
+	uri = uri & "&PerPage=" & CStr(PerPage)
+	uri = uri & "&FranchiseTaxRegID=" & FranchiseTaxRegID
 
-    Dim searchResult : Set searchResult = New CBSearchResult
-    Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
+	Dim searchResult : Set searchResult = New CBSearchResult
+	Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
 
-    searchResult.fromJsonInfo tmpObj
+	searchResult.fromJsonInfo tmpObj
 
-    Set Search = searchResult
+	Set Search = searchResult
 End Function
 
 '알림메일 전송목록 조회
 Public Function listEmailConfig(CorpNum, UserID)
-    If CorpNum = "" Or isEmpty(CorpNum) Then
-        Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
-    End If
+	If CorpNum = "" Or isEmpty(CorpNum) Then
+		Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/EmailSendConfig", m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/EmailSendConfig", m_PopbillBase.getSession_token(CorpNum), UserID)
 
-    Dim tmpDic : Set tmpDic = CreateObject("Scripting.Dictionary")
+	Dim tmpDic : Set tmpDic = CreateObject("Scripting.Dictionary")
 
-    Dim i
-    For i=0 To result.length-1
-        Dim emailObj : Set emailObj = New EmailSendConfig
-        emailObj.fromJsonInfo result.Get(i)
-        tmpDic.Add i, emailObj
-    Next
+	Dim i
+	For i=0 To result.length-1
+		Dim emailObj : Set emailObj = New EmailSendConfig
+		emailObj.fromJsonInfo result.Get(i)
+		tmpDic.Add i, emailObj
+	Next
 
-    Set listEmailConfig = tmpDic
+	Set listEmailConfig = tmpDic
 End Function
 
 '알림메일 전송설정 수정
 Public Function updateEmailConfig(CorpNum, mailType, sendYN, UserID)
-    If CorpNum = "" Or isEmpty(CorpNum) Then
-        Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
-    End If
+	If CorpNum = "" Or isEmpty(CorpNum) Then
+		Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
+	End If
 
-    If mailType = "" Or isEmpty(mailType) Then
-        Err.Raise -99999999, "POPBILL", "메일전송 타입이 입력되지 않았습니다."
-    End If
+	If mailType = "" Or isEmpty(mailType) Then
+		Err.Raise -99999999, "POPBILL", "메일전송 타입이 입력되지 않았습니다."
+	End If
 
-    If sendYN = "" Or isEmpty(sendYN) Then
-        Err.Raise -99999999, "POPBILL", "메일전송 여부 항목이 입력되지 않았습니다."
-    End If
+	If sendYN = "" Or isEmpty(sendYN) Then
+		Err.Raise -99999999, "POPBILL", "메일전송 여부 항목이 입력되지 않았습니다."
+	End If
 
-    If (sendYN) Then
-        sendYN="true"
-    Else
-        sendYN="false"
-    End If
+	If (sendYN) Then
+		sendYN="true"
+	Else
+		sendYN="false"
+	End If
 
-    Dim uri : uri = "/Cashbill/EmailSendConfig?EmailType="+mailType+"&SendYN="+sendYN
+	Dim uri : uri = "/Cashbill/EmailSendConfig?EmailType="+mailType+"&SendYN="+sendYN
 
-    Set updateEmailConfig = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", "", UserID)
+	Set updateEmailConfig = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", "", UserID)
 End Function
 
 End Class
 
 Class Cashbill
-    Public mgtKey
-    Public tradeDate
-    Public tradeDT
-    Public tradeUsage
-    Public tradeType
-    Public tradeOpt
-    Public taxationType
-    Public supplyCost
-    Public tax
-    Public serviceFee
-    Public totalAmount
+	Public mgtKey
+	Public tradeDate
+	Public tradeDT
+	Public tradeUsage
+	Public tradeType
+	Public tradeOpt
+	Public taxationType
+	Public supplyCost
+	Public tax
+	Public serviceFee
+	Public totalAmount
 
-    Public franchiseCorpNum
-    Public franchiseTaxRegID
-    Public franchiseCorpName
-    Public franchiseCEOName
-    Public franchiseAddr
-    Public franchiseTEL
+	Public franchiseCorpNum
+	Public franchiseTaxRegID
+	Public franchiseCorpName
+	Public franchiseCEOName
+	Public franchiseAddr
+	Public franchiseTEL
 
-    Public identityNum
-    Public customerName
-    Public itemName
-    Public orderNumber
+	Public identityNum
+	Public customerName
+	Public itemName
+	Public orderNumber
 
-    Public email
-    Public hp
-    Public fax
-    Public smssendYN
-    Public faxsendYN
+	Public email
+	Public hp
+	Public fax
+	Public smssendYN
+	Public faxsendYN
 
-    Public confirmNum
+	Public confirmNum
 
-    Public orgConfirmNum
-    Public orgTradeDate
-    Public cancelType
+	Public orgConfirmNum
+	Public orgTradeDate
+	Public cancelType
 
-    Public Sub fromJsonInfo(jsonInfo)
-        On Error Resume Next
-        mgtKey = jsonInfo.mgtKey
-        tradeDate = jsonInfo.tradeDate
-        tradeDT = jsonInfo.tradeDT
-        tradeUsage = jsonInfo.tradeUsage
-        tradeOpt = jsonInfo.tradeOpt
-        tradeType = jsonInfo.tradeType
-        taxationType = jsonInfo.taxationType
-        supplyCost = jsonInfo.supplyCost
-        tax = jsonInfo.tax
-        serviceFee = jsonInfo.serviceFee
-        totalAmount = jsonInfo.totalAmount
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		mgtKey = jsonInfo.mgtKey
+		tradeDate = jsonInfo.tradeDate
+		tradeDT = jsonInfo.tradeDT
+		tradeUsage = jsonInfo.tradeUsage
+		tradeOpt = jsonInfo.tradeOpt
+		tradeType = jsonInfo.tradeType
+		taxationType = jsonInfo.taxationType
+		supplyCost = jsonInfo.supplyCost
+		tax = jsonInfo.tax
+		serviceFee = jsonInfo.serviceFee
+		totalAmount = jsonInfo.totalAmount
 
-        franchiseCorpNum = jsonInfo.franchiseCorpNum
-        franchiseTaxRegID = jsonInfo.franchiseTaxRegID
-        franchiseCorpName = jsonInfo.franchiseCorpName
-        franchiseCEOName = jsonInfo.franchiseCEOName
-        franchiseAddr = jsonInfo.franchiseAddr
-        franchiseTEL = jsonInfo.franchiseTEL
+		franchiseCorpNum = jsonInfo.franchiseCorpNum
+		franchiseTaxRegID = jsonInfo.franchiseTaxRegID
+		franchiseCorpName = jsonInfo.franchiseCorpName
+		franchiseCEOName = jsonInfo.franchiseCEOName
+		franchiseAddr = jsonInfo.franchiseAddr
+		franchiseTEL = jsonInfo.franchiseTEL
 
-        identityNum = jsonInfo.identityNum
-        customerName = jsonInfo.customerName
-        itemName = jsonInfo.itemName
-        orderNumber = jsonInfo.orderNumber
+		identityNum = jsonInfo.identityNum
+		customerName = jsonInfo.customerName
+		itemName = jsonInfo.itemName
+		orderNumber = jsonInfo.orderNumber
 
-        email = jsonInfo.email
-        hp = jsonInfo.hp
-        fax = jsonInfo.fax
-        smssendYN = jsonInfo.smssendYN
-        faxsendYN = jsonInfo.faxsendYN
+		email = jsonInfo.email
+		hp = jsonInfo.hp
+		fax = jsonInfo.fax
+		smssendYN = jsonInfo.smssendYN
+		faxsendYN = jsonInfo.faxsendYN
 
-        confirmNum = jsonInfo.confirmNum
+		confirmNum = jsonInfo.confirmNum
 
-        orgConfirmNum = jsonInfo.orgConfirmNum
-        orgTradeDate = jsonInfo.orgTradeDate
+		orgConfirmNum = jsonInfo.orgConfirmNum
+		orgTradeDate = jsonInfo.orgTradeDate
 
-        cancelType = jsonInfo.cancelType
+		cancelType = jsonInfo.cancelType
 
-        On Error GoTo 0
-    End Sub
+		On Error GoTo 0
+	End Sub
 
-    Public Function toJsonInfo()
-        Set toJsonInfo = JSON.parse("{}")
-        toJsonInfo.Set "mgtKey", mgtKey
-        toJsonInfo.Set "tradeDate", tradeDate
-        toJsonInfo.Set "tradeDT", tradeDT
-        toJsonInfo.Set "tradeUsage", tradeUsage
-        toJsonInfo.Set "tradeOpt", tradeOpt
-        toJsonInfo.Set "tradeType", tradeType
-        toJsonInfo.Set "taxationType", taxationType
-        toJsonInfo.Set "supplyCost", supplyCost
-        toJsonInfo.Set "tax", tax
-        toJsonInfo.Set "serviceFee", serviceFee
-        toJsonInfo.Set "totalAmount", totalAmount
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.Set "mgtKey", mgtKey
+		toJsonInfo.Set "tradeDate", tradeDate
+		toJsonInfo.Set "tradeDT", tradeDT
+		toJsonInfo.Set "tradeUsage", tradeUsage
+		toJsonInfo.Set "tradeOpt", tradeOpt
+		toJsonInfo.Set "tradeType", tradeType
+		toJsonInfo.Set "taxationType", taxationType
+		toJsonInfo.Set "supplyCost", supplyCost
+		toJsonInfo.Set "tax", tax
+		toJsonInfo.Set "serviceFee", serviceFee
+		toJsonInfo.Set "totalAmount", totalAmount
 
-        toJsonInfo.Set "franchiseCorpNum", franchiseCorpNum
-        toJsonInfo.Set "franchiseTaxRegID", franchiseTaxRegID
-        toJsonInfo.Set "franchiseCorpName", franchiseCorpName
-        toJsonInfo.Set "franchiseCEOName", franchiseCEOName
-        toJsonInfo.Set "franchiseAddr", franchiseAddr
-        toJsonInfo.Set "franchiseTEL", franchiseTEL
+		toJsonInfo.Set "franchiseCorpNum", franchiseCorpNum
+		toJsonInfo.Set "franchiseTaxRegID", franchiseTaxRegID
+		toJsonInfo.Set "franchiseCorpName", franchiseCorpName
+		toJsonInfo.Set "franchiseCEOName", franchiseCEOName
+		toJsonInfo.Set "franchiseAddr", franchiseAddr
+		toJsonInfo.Set "franchiseTEL", franchiseTEL
 
-        toJsonInfo.Set "identityNum", identityNum
-        toJsonInfo.Set "customerName", customerName
-        toJsonInfo.Set "itemName", itemName
-        toJsonInfo.Set "orderNumber", orderNumber
+		toJsonInfo.Set "identityNum", identityNum
+		toJsonInfo.Set "customerName", customerName
+		toJsonInfo.Set "itemName", itemName
+		toJsonInfo.Set "orderNumber", orderNumber
 
-        toJsonInfo.Set "email", email
-        toJsonInfo.Set "hp", hp
-        toJsonInfo.Set "fax", fax
-        toJsonInfo.Set "smssendYN", smssendYN
-        toJsonInfo.Set "faxsendYN", faxsendYN
+		toJsonInfo.Set "email", email
+		toJsonInfo.Set "hp", hp
+		toJsonInfo.Set "fax", fax
+		toJsonInfo.Set "smssendYN", smssendYN
+		toJsonInfo.Set "faxsendYN", faxsendYN
 
-        toJsonInfo.Set "confirmNum", confirmNum
+		toJsonInfo.Set "confirmNum", confirmNum
 
-        toJsonInfo.Set "orgConfirmNum", orgConfirmNum
-        toJsonInfo.Set "orgTradeDate", orgTradeDate
-        toJsonInfo.Set "cancelType", cancelType
-    End Function
+		toJsonInfo.Set "orgConfirmNum", orgConfirmNum
+		toJsonInfo.Set "orgTradeDate", orgTradeDate
+		toJsonInfo.Set "cancelType", cancelType
+	End Function
 End Class
 
 
 Class CashbillLog
-    Public docLogType
-    Public log
-    Public procType
-    Public procMemo
-    Public procCorpName
-    Public regDT
-    Public ip
+	Public docLogType
+	Public log
+	Public procType
+	Public procMemo
+	Public procCorpName
+	Public regDT
+	Public ip
 
-    Public Sub fromJsonInfo(jsonInfo)
-        On Error Resume Next
-        docLogType = jsonInfo.docLogType
-        log = jsonInfo.log
-        procType = jsonInfo.procType
-        procMemo = jsonInfo.procMemo
-        procCorpName = jsonInfo.procCorpName
-        regDT = jsonInfo.regDT
-        ip = jsonInfo.ip
-        On Error GoTo 0
-    End Sub
-    End Class
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		docLogType = jsonInfo.docLogType
+		log = jsonInfo.log
+		procType = jsonInfo.procType
+		procMemo = jsonInfo.procMemo
+		procCorpName = jsonInfo.procCorpName
+		regDT = jsonInfo.regDT
+		ip = jsonInfo.ip
+		On Error GoTo 0
+	End Sub
+	End Class
 
 Class CashbillInfo
-    Public itemKey
-    Public mgtKey
-    Public tradeDate
-    Public tradeDT
-    Public issueDT
-    Public customerName
-    Public itemName
-    Public identityNum
-    Public taxationType
-    Public tradeOpt
+	Public itemKey
+	Public mgtKey
+	Public tradeDate
+	Public tradeDT
+	Public issueDT
+	Public customerName
+	Public itemName
+	Public identityNum
+	Public taxationType
+	Public tradeOpt
 
-    Public totalAmount
-    Public tradeUsage
-    Public tradeType
-    Public stateCode
-    Public stateMemo
-    Public stateDT
-    Public printYN
-    Public interOPYN
+	Public totalAmount
+	Public tradeUsage
+	Public tradeType
+	Public stateCode
+	Public stateMemo
+	Public stateDT
+	Public printYN
+	Public interOPYN
 
-    Public confirmNum
-    Public orgTradeDate
-    Public orgConfirmNum
+	Public confirmNum
+	Public orgTradeDate
+	Public orgConfirmNum
 
-    Public ntssendDT
-    Public ntsresult
-    Public ntsresultDT
-    Public ntsresultCode
-    Public ntsresultMessage
+	Public ntssendDT
+	Public ntsresult
+	Public ntsresultDT
+	Public ntsresultCode
+	Public ntsresultMessage
 
-    Public regDT
+	Public regDT
 
-    Public Sub fromJsonInfo(jsonInfo)
-        On Error Resume Next
-        itemKey = jsonInfo.itemKey
-        mgtKey = jsonInfo.mgtKey
-        tradeDate = jsonInfo.tradeDate
-        tradeDT = jsonInfo.tradeDT
-        issueDT = jsonInfo.issueDT
-        customerName = jsonInfo.customerName
-        itemName = jsonInfo.itemName
-        identityNum = jsonInfo.identityNum
-        taxationType = jsonInfo.taxationType
-        tradeOpt = jsonInfo.tradeOpt
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		itemKey = jsonInfo.itemKey
+		mgtKey = jsonInfo.mgtKey
+		tradeDate = jsonInfo.tradeDate
+		tradeDT = jsonInfo.tradeDT
+		issueDT = jsonInfo.issueDT
+		customerName = jsonInfo.customerName
+		itemName = jsonInfo.itemName
+		identityNum = jsonInfo.identityNum
+		taxationType = jsonInfo.taxationType
+		tradeOpt = jsonInfo.tradeOpt
 
-        totalAmount = jsonInfo.totalAmount
-        tradeUsage = jsonInfo.tradeUsage
-        tradeType = jsonInfo.tradeType
-        stateCode = jsonInfo.stateCode
-        stateMemo = jsonInfo.stateMemo
-        stateDT = jsonInfo.stateDT
-        printYN = jsonInfo.printYN
-        interOPYN = jsonInfo.interOPYN
+		totalAmount = jsonInfo.totalAmount
+		tradeUsage = jsonInfo.tradeUsage
+		tradeType = jsonInfo.tradeType
+		stateCode = jsonInfo.stateCode
+		stateMemo = jsonInfo.stateMemo
+		stateDT = jsonInfo.stateDT
+		printYN = jsonInfo.printYN
+		interOPYN = jsonInfo.interOPYN
 
-        confirmNum = jsonInfo.confirmNum
-        orgTradeDate = jsonInfo.orgTradeDate
-        orgConfirmNum = jsonInfo.orgConfirmNum
+		confirmNum = jsonInfo.confirmNum
+		orgTradeDate = jsonInfo.orgTradeDate
+		orgConfirmNum = jsonInfo.orgConfirmNum
 
-        ntssendDT = jsonInfo.ntssendDT
-        ntsresult = jsonInfo.ntsresult
-        ntsresultDT = jsonInfo.ntsresultDT
-        ntsresultCode = jsonInfo.ntsresultCode
-        ntsresultMessage = jsonInfo.ntsresultMessage
+		ntssendDT = jsonInfo.ntssendDT
+		ntsresult = jsonInfo.ntsresult
+		ntsresultDT = jsonInfo.ntsresultDT
+		ntsresultCode = jsonInfo.ntsresultCode
+		ntsresultMessage = jsonInfo.ntsresultMessage
 
-        regDT = jsonInfo.regDT
-        On Error GoTo 0
-    End Sub
+		regDT = jsonInfo.regDT
+		On Error GoTo 0
+	End Sub
 End Class
 
 Class CBSearchResult
-    Public code
-    Public total
-    Public perPage
-    Public pageNum
-    Public pageCount
-    Public message
-    Public list()
+	Public code
+	Public total
+	Public perPage
+	Public pageNum
+	Public pageCount
+	Public message
+	Public list()
 
-    Public Sub Class_Initialize
-        ReDim list(-1)
-    End Sub
+	Public Sub Class_Initialize
+		ReDim list(-1)
+	End Sub
 
-    Public Sub fromJsonInfo(jsonInfo)
-        On Error Resume Next
-        code = jsonInfo.code
-        total = jsonInfo.total
-        perPage = jsonInfo.perPage
-        pageNum = jsonInfo.pageNum
-        pageCount = jsonInfo.pageCount
-        message = jsonInfo.message
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		code = jsonInfo.code
+		total = jsonInfo.total
+		perPage = jsonInfo.perPage
+		pageNum = jsonInfo.pageNum
+		pageCount = jsonInfo.pageCount
+		message = jsonInfo.message
 
-        ReDim list(jsonInfo.list.length)
-        Dim i
-        For i = 0 To jsonInfo.list.length -1
-            Dim tmpObj : Set tmpObj = New CashbillInfo
-            tmpObj.fromJsonInfo jsonInfo.list.Get(i)
-            Set list(i) = tmpObj
-        Next
+		ReDim list(jsonInfo.list.length)
+		Dim i
+		For i = 0 To jsonInfo.list.length -1
+    		Dim tmpObj : Set tmpObj = New CashbillInfo
+    		tmpObj.fromJsonInfo jsonInfo.list.Get(i)
+    		Set list(i) = tmpObj
+		Next
 
-        On Error GoTo 0
-    End Sub
+		On Error GoTo 0
+	End Sub
 End Class
 
 
 
 Class EmailSendConfig
-    Public emailType
-    Public sendYN
+	Public emailType
+	Public sendYN
 
-    Public Sub fromJsonInfo(jsonInfo)
-        On Error Resume Next
-        emailType = jsonInfo.emailType
-        sendYN = jsonInfo.sendYN
-        On Error GoTo 0
-    End Sub
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		emailType = jsonInfo.emailType
+		sendYN = jsonInfo.sendYN
+		On Error GoTo 0
+	End Sub
 
-    Public Function toJsonInfo()
-        Set toJsonInfo = JSON.parse("{}")
-        toJsonInfo.Set "emailType", emailType
-        toJsonInfo.Set "sendYN", sendYN
-    End Function
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.Set "emailType", emailType
+		toJsonInfo.Set "sendYN", sendYN
+	End Function
 End Class
 
 Class BulkCashbillSubmit
-    Public cashbills()
+	Public cashbills()
 
-    Public Sub Class_Initialize
-        ReDim cashbills(-1)
-    End Sub
+	Public Sub Class_Initialize
+		ReDim cashbills(-1)
+	End Sub
 
-    Function toJsonInfo()
-        Set toJsonInfo = JSON.parse("{}")
+	Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
 
-        Dim cashbillsJsonInfo() : Redim cashbillsJsonInfo(UBound(cashbills))
-        Dim i, cashbill
-        i = 0
-        For Each cashbill In cashbills
-            Set cashbillsJsonInfo(i) = cashbills(i).toJsonInfo
-            i = i + 1
-        next
-        toJsonInfo.set "cashbills", cashbillsJsonInfo
-    End Function
+		Dim cashbillsJsonInfo() : Redim cashbillsJsonInfo(UBound(cashbills))
+		Dim i, cashbill
+		i = 0
+		For Each cashbill In cashbills
+    		Set cashbillsJsonInfo(i) = cashbills(i).toJsonInfo
+    		i = i + 1
+		next
+		toJsonInfo.set "cashbills", cashbillsJsonInfo
+	End Function
 
-    Public Sub AddCashbill(Cashbill)
-        ReDim Preserve cashbills(UBound(cashbills) + 1)
+	Public Sub AddCashbill(Cashbill)
+		ReDim Preserve cashbills(UBound(cashbills) + 1)
 
-        Set cashbills(Ubound(cashbills)) = Cashbill
-    End Sub
+		Set cashbills(Ubound(cashbills)) = Cashbill
+	End Sub
 End Class
 
 Class BulkCashbillResult
-    Public code
-    Public message
-    Public submitID
-    Public submitCount
-    Public successCount
-    Public failCount
-    Public txState
-    Public txResultCode
-    Public txStartDT
-    Public txEndDT
-    Public receiptDT
-    Public receiptID
-    Public issueResult()
+	Public code
+	Public message
+	Public submitID
+	Public submitCount
+	Public successCount
+	Public failCount
+	Public txState
+	Public txResultCode
+	Public txStartDT
+	Public txEndDT
+	Public receiptDT
+	Public receiptID
+	Public issueResult()
 
-    Public Sub fromJsonInfo(jsonInfo)
-        On Error Resume Next
-        code = jsonInfo.code
-        message = jsonInfo.message
-        submitID = jsonInfo.submitID
-        submitCount = jsonInfo.submitCount
-        successCount = jsonInfo.successCount
-        failCount = jsonInfo.failCount
-        txState = jsonInfo.txState
-        txResultCode = jsonInfo.txResultCode
-        txStartDT = jsonInfo.txStartDT
-        txEndDT = jsonInfo.txEndDT
-        receiptDT = jsonInfo.receiptDT
-        receiptID = jsonInfo.receiptID
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+		code = jsonInfo.code
+		message = jsonInfo.message
+		submitID = jsonInfo.submitID
+		submitCount = jsonInfo.submitCount
+		successCount = jsonInfo.successCount
+		failCount = jsonInfo.failCount
+		txState = jsonInfo.txState
+		txResultCode = jsonInfo.txResultCode
+		txStartDT = jsonInfo.txStartDT
+		txEndDT = jsonInfo.txEndDT
+		receiptDT = jsonInfo.receiptDT
+		receiptID = jsonInfo.receiptID
 
-        ReDim issueResult(jsonInfo.issueResult.length)
-        Dim i
-        For i = 0 To jsonInfo.issueResult.length -1
-            Dim tmpObj : Set tmpObj = New BulkCashbillissueResult
-            tmpObj.fromJsonInfo jsonInfo.issueResult.Get(i)
-            Set issueResult(i) = tmpObj
-        Next
-        On Error GoTo 0
-    End Sub
+		ReDim issueResult(jsonInfo.issueResult.length)
+		Dim i
+		For i = 0 To jsonInfo.issueResult.length -1
+    		Dim tmpObj : Set tmpObj = New BulkCashbillissueResult
+    		tmpObj.fromJsonInfo jsonInfo.issueResult.Get(i)
+    		Set issueResult(i) = tmpObj
+		Next
+		On Error GoTo 0
+	End Sub
 End Class
 
 Class BulkCashbillissueResult
-    Public mgtKey
-    Public code
-    Public message
-    Public confirmNum
-    Public tradeDate
-    Public tradeDT
-    Public issueDT
+	Public mgtKey
+	Public code
+	Public message
+	Public confirmNum
+	Public tradeDate
+	Public tradeDT
+	Public issueDT
 
-    Function fromJsonInfo(jsonInfo)
-        On Error Resume Next
-            mgtKey = jsonInfo.mgtKey
-            code = jsonInfo.code
-            message = jsonInfo.message
-            confirmNum = jsonInfo.confirmNum
-            tradeDate = jsonInfo.tradeDate
-            tradeDT = jsonInfo.tradeDT
-            issueDT = jsonInfo.issueDT
-        On Error GoTo 0
-    End Function
+	Function fromJsonInfo(jsonInfo)
+		On Error Resume Next
+    		mgtKey = jsonInfo.mgtKey
+    		code = jsonInfo.code
+    		message = jsonInfo.message
+    		confirmNum = jsonInfo.confirmNum
+    		tradeDate = jsonInfo.tradeDate
+    		tradeDT = jsonInfo.tradeDT
+    		issueDT = jsonInfo.issueDT
+		On Error GoTo 0
+	End Function
 End Class
 %>

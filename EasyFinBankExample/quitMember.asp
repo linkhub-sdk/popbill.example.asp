@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+    <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
@@ -28,7 +28,7 @@
 
     On Error Resume Next
 
-    Set response = m_EasyFinBankService.QuitMember(testCorpNum, m_QuitReason, UserID)
+    Set result =m_EasyFinBankService.QuitMember(testCorpNum, m_QuitReason, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -48,7 +48,6 @@
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
-                        <legend> QuitMember </legend>
                             <ul>
                                 <li> code (응답 코드) : <%=result.code%></li>
                                 <li> message (응답 메시지) : <%=result.message%></li>

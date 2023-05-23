@@ -5,656 +5,656 @@ Private m_PopbillBase
 
 '테스트 플래그
 Public Property Let IsTest(ByVal value)
-    m_PopbillBase.IsTest = value
+	m_PopbillBase.IsTest = value
 End Property
 
 Public Property Let IPRestrictOnOff(ByVal value)
-    m_PopbillBase.IPRestrictOnOff = value
+	m_PopbillBase.IPRestrictOnOff = value
 End Property
 
 Public Property Let UseStaticIP(ByVal value)
-    m_PopbillBase.UseStaticIP = value
+	m_PopbillBase.UseStaticIP = value
 End Property
 
 Public Property Let UseGAIP(ByVal value)
-    m_PopbillBase.UseGAIP = value
+	m_PopbillBase.UseGAIP = value
 End Property
 
 Public Property Let UseLocalTimeYN(ByVal value)
-    m_PopbillBase.UseLocalTimeYN = value
+	m_PopbillBase.UseLocalTimeYN = value
 End Property
 
 Public Sub Class_Initialize
-    Set m_PopbillBase = New PopbillBase
-    m_PopbillBase.AddScope("121")
-    m_PopbillBase.AddScope("122")
-    m_PopbillBase.AddScope("123")
-    m_PopbillBase.AddScope("124")
-    m_PopbillBase.AddScope("125")
-    m_PopbillBase.AddScope("126")
+	Set m_PopbillBase = New PopbillBase
+	m_PopbillBase.AddScope("121")
+	m_PopbillBase.AddScope("122")
+	m_PopbillBase.AddScope("123")
+	m_PopbillBase.AddScope("124")
+	m_PopbillBase.AddScope("125")
+	m_PopbillBase.AddScope("126")
 End Sub
 
 Public Sub Initialize(linkID, SecretKey )
-    m_PopbillBase.Initialize linkID,SecretKey
+	m_PopbillBase.Initialize linkID,SecretKey
 End Sub
 
 '회원잔액조회
 Public Function GetBalance(CorpNum)
-    GetBalance = m_PopbillBase.GetBalance(CorpNum)
+	GetBalance = m_PopbillBase.GetBalance(CorpNum)
 End Function
 '파트너 잔액조회
 Public Function GetPartnerBalance(CorpNum)
-    GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
+	GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
 End Function
 
 '파트너 포인트 충전 팝업 URL - 2017/08/29 추가
 Public Function GetPartnerURL(CorpNum, TOGO)
-    GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
+	GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
 End Function
 
 '팝빌 기본 URL
 Public Function GetPopbillURL(CorpNum , UserID , TOGO )
-    GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
+	GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 End Function
 '팝빌 로그인 URL
 Public Function GetAccessURL(CorpNum , UserID)
-    GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
+	GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
 End Function
 
 '팝빌 연동회원 포인트 충전 URL
 Public Function GetChargeURL(CorpNum , UserID)
-    GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
+	GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
 End Function
 
 '팝빌 연동회원 포인트 결제내역 URL
 Public Function GetPaymentURL(CorpNum, UserID)
-    GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
+	GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
 End Function
 
 '팝빌 연동회원 포인트 사용내역 URL
 Public Function GetUseHistoryURL(CorpNum, UserID)
-    GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
+	GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
 End Function
 
 '회원가입 여부
 Public Function CheckIsMember(CorpNum , linkID)
-    Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
+	Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
 End Function
 '회원가입
 Public Function JoinMember(JoinInfo)
-    Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
+	Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
 
 '담당자 정보 확인
 Public Function GetContactInfo(CorpNum, ContactID, UserID)
-    Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
+	Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
 End Function
 
 '담당자 목록조회
 Public Function ListContact(CorpNum, UserID)
-    Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
+	Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
 End Function
 '담당자 정보수정
 Public Function UpdateContact(CorpNum, contInfo, UserId)
-    Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
+	Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
 End Function
 '담당자 추가
 Public Function RegistContact(CorpNum, contInfo, UserId)
-    Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
+	Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
 End Function
 '회사정보 수정
 Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
-    Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
+	Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
 End Function
 '회사정보 확인
 Public Function GetCorpInfo(CorpNum, UserId)
-    Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
+	Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
 End Function
 Public Function CheckID(id)
-    Set CheckID = m_popbillBase.CheckID(id)
+	Set CheckID = m_popbillBase.CheckID(id)
 End Function
 
 '과금정보 확인
 Public Function GetChargeInfo ( CorpNum, ItemCode, UserID )
-    Dim result : Set result = m_PopbillBase.httpGET ( "/Statement/ChargeInfo/" + CStr(ItemCode), m_PopbillBase.getSession_token(CorpNum), UserID )
+	Dim result : Set result = m_PopbillBase.httpGET ( "/Statement/ChargeInfo/" + CStr(ItemCode), m_PopbillBase.getSession_token(CorpNum), UserID )
 
-    Dim chrgInfo : Set chrgInfo = New ChargeInfo
-    chrgInfo.fromJsonInfo result
+	Dim chrgInfo : Set chrgInfo = New ChargeInfo
+	chrgInfo.fromJsonInfo result
 
-    Set GetChargeInfo = chrgInfo
+	Set GetChargeInfo = chrgInfo
 End Function
 
 '무통장 입금신청
 Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
-    Set PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
+	Set PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
 End Function
 
 '연동회원 포인트 결제내역 조회
 Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
-    Set GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
+	Set GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
 End Function
 
 '연동회원 무통장 입금신청 정보확인
 Public Function GetSettleResult(CorpNum, SettleCode, UserID)
-    Set GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
+	Set GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
 End Function
 
 '연동회원 포인트 사용내역 확인
 Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
-    Set GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
+	Set GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
 End Function
 
 '연동회원 포인트 환불신청
 Public Function Refund(CorpNum, RefundForm, UserID)
-    Set Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
+	Set Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
 End Function
 
 ' 환불 가능 포인트 조회
 Public Function GetRefundableBalance(CorpNum, UserID)
-    GetRefundableBalance = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
+	GetRefundableBalance = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
 End Function
 
 '연동회원 포인트 환불내역 확인
 Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
-    Set GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
+	Set GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
 End Function
 
 ' 환불 신청 상태 조회
 Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
-    Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
+	Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
 End Function
 
 '회원 탈퇴
 Public Function QuitMember(CorpNum, QuitReason, UserID)
-    Set QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
+	Set QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
 End Function
 
 '''''''''''''  End of PopbillBase
 
 ''단가확인
 Public Function GetUnitCost(CorpNum, itemCode)
-    Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode) + "?cfg=UNITCOST", m_PopbillBase.getSession_token(CorpNum),"")
-    GetUnitCost = result.unitCost
+	Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode) + "?cfg=UNITCOST", m_PopbillBase.getSession_token(CorpNum),"")
+	GetUnitCost = result.unitCost
 End Function
 
 '연동문서번호 사용여부 확인
 Public Function CheckMgtKeyInUse(CorpNum, itemCode, mgtKey)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    On Error Resume Next
-    Dim result : Set result = m_PopbillBase.httpGet("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum),"")
+	On Error Resume Next
+	Dim result : Set result = m_PopbillBase.httpGet("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum),"")
 
-    If Err.Number = -12000004 Then
-        CheckMgtKeyInUse = False
-        Err.Clears
-    Else
-        CheckMgtKeyInUse = True
-        Err.Clears
-    End If
-    On Error GoTo 0
+	If Err.Number = -12000004 Then
+    	CheckMgtKeyInUse = False
+    	Err.Clears
+	Else
+    	CheckMgtKeyInUse = True
+    	Err.Clears
+	End If
+	On Error GoTo 0
 End Function
 
 
 '팝빌 SSO URL확인
 Public Function GetURL(CorpNum, UserID, TOGO)
-    Dim result : Set result = m_PopbillBase.httpGet("/Statement?TG=" + TOGO, m_PopbillBase.getSession_token(CorpNum),UserID)
-    GetURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGet("/Statement?TG=" + TOGO, m_PopbillBase.getSession_token(CorpNum),UserID)
+	GetURL = result.url
 End Function
 
 '임시저장
 Public Function Register(CorpNum, ByRef statement, UserID)
-    Dim tmpJson : Set tmpJson = statement.toJsonInfo
+	Dim tmpJson : Set tmpJson = statement.toJsonInfo
 
-    Dim postData : postData = m_PopbillBase.toString(tmpJson)
+	Dim postData : postData = m_PopbillBase.toString(tmpJson)
 
-    Set Register = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
+	Set Register = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 
 '수정
 Public Function Update(CorpNum, itemCode, mgtKey, ByRef statement, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmpJson : Set tmpJson = statement.toJsonInfo
+	Dim tmpJson : Set tmpJson = statement.toJsonInfo
 
-    Dim postData : postData = m_PopbillBase.toString(tmpJson)
+	Dim postData : postData = m_PopbillBase.toString(tmpJson)
 
-    Set Update = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "PATCH", postData, UserID)
+	Set Update = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "PATCH", postData, UserID)
 End Function
 
 '발행
 Public Function Issue(CorpNum, itemCode, mgtKey, Memo, EmailSubject, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "memo", Memo
-    tmp.Set "emailSubject", EmailSubject
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
+	tmp.Set "emailSubject", EmailSubject
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set Issue = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "ISSUE", postData, UserID)
+	Set Issue = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "ISSUE", postData, UserID)
 End Function
 
 
 '발행취소
 Public Function CancelIssue(CorpNum, itemCode, mgtKey, Memo, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "memo", Memo
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "memo", Memo
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set CancelIssue = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCEL", postData, UserID)
+	Set CancelIssue = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "CANCEL", postData, UserID)
 
 End Function
 
 '삭제
 Public Function Delete(CorpNum, itemCode, mgtKey, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Set Delete = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "DELETE", "", UserID)
+	Set Delete = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "DELETE", "", UserID)
 End Function
 
 
 '팝빌 인감 및 첨부문서 등록  URL확인
 Public Function GetSealURL(CorpNum, UserID)
-    Dim result : Set result = m_PopbillBase.httpGET("/?TG=SEAL", _
-                        m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetSealURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/?TG=SEAL", _
+                    	m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetSealURL = result.url
 End Function
 
 '파일 첨부
 Public Function AttachFile(CorpNum, itemCode, mgtKey, filePath, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Set AttachFile = m_PopbillBase.httpPOST_File("/Statement/"+CStr(itemCode)+"/"+mgtKey+"/Files", m_PopbillBase.getSession_token(CorpNum), filePath, UserID)
+	Set AttachFile = m_PopbillBase.httpPOST_File("/Statement/"+CStr(itemCode)+"/"+mgtKey+"/Files", m_PopbillBase.getSession_token(CorpNum), filePath, UserID)
 End Function
 
 
 '첨부파일 목록
 Public Function GetFiles(CorpNum, itemCode, mgtKey, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Set GetFiles = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"/Files", m_PopbillBase.getSession_token(CorpNum), UserID)
+	Set GetFiles = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"/Files", m_PopbillBase.getSession_token(CorpNum), UserID)
 End Function
 
 
 '첨부파일 삭제
 Public Function DeleteFile(CorpNum, itemCode, mgtKey, FileID, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Set DeleteFile = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey+"/Files/"+FileID, m_PopbillBase.getSession_token(CorpNum), "DELETE", "", UserID)
+	Set DeleteFile = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey+"/Files/"+FileID, m_PopbillBase.getSession_token(CorpNum), "DELETE", "", UserID)
 End Function
 
 
 '문서 상태 요약정보 확인
 Public Function GetInfo(CorpNum, itemCode, mgtKey, UserID)
-    If mgtKey = "" Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), UserID)
 
-    Dim infoObj : Set infoObj = New StatementInfo
-    infoObj.fromJsonInfo result
+	Dim infoObj : Set infoObj = New StatementInfo
+	infoObj.fromJsonInfo result
 
-    Set GetInfo = infoObj
+	Set GetInfo = infoObj
 
 End Function
 
 '다량 상태 요약정보 확인
 Public Function GetInfos(CorpNum, itemCode, mgtKeyList, UserID)
-    If isNull(mgtKeyList) Or isEmpty(mgtKeyList)  Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKeyList) Or isEmpty(mgtKeyList)  Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("[]")
+	Dim tmp : Set tmp = JSON.parse("[]")
 
-    Dim i
-    For i=0 To Ubound(mgtKeyList)-1
-        tmp.Set i, mgtKeyList(i)
-    Next
+	Dim i
+	For i=0 To Ubound(mgtKeyList)-1
+    	tmp.Set i, mgtKeyList(i)
+	Next
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim infoList : Set infoList = CreateObject("Scripting.Dictionary")
+	Dim infoList : Set infoList = CreateObject("Scripting.Dictionary")
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode), m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
+	Dim result : Set result = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode), m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 
-    For i=0 To result.length-1
-        Dim tmpObj : Set tmpObj = New StatementInfo
-        tmpObj.fromJsonInfo result.Get(i)
-        infoList.Add i, tmpObj
-    Next
+	For i=0 To result.length-1
+    	Dim tmpObj : Set tmpObj = New StatementInfo
+    	tmpObj.fromJsonInfo result.Get(i)
+    	infoList.Add i, tmpObj
+	Next
 
-    Set GetInfos = infoList
+	Set GetInfos = infoList
 End Function
 
 '이력 확인
 Public Function GetLogs(CorpNum, itemCode, mgtKey, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey)  Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey)  Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"/Logs", m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"/Logs", m_PopbillBase.getSession_token(CorpNum), UserID)
 
-    Dim logList : Set logList = CreateObject("Scripting.Dictionary")
+	Dim logList : Set logList = CreateObject("Scripting.Dictionary")
 
-    Dim i
-    For i=0 To result.length-1
-        Dim logObj : Set logObj = New StatementLog
-        logObj.fromJsonInfo result.Get(i)
-        logList.Add i, logObj
-    Next
+	Dim i
+	For i=0 To result.length-1
+    	Dim logObj : Set logObj = New StatementLog
+    	logObj.fromJsonInfo result.Get(i)
+    	logList.Add i, logObj
+	Next
 
-    Set GetLogs = logList
+	Set GetLogs = logList
 End Function
 
 
 
 '상세정보 확인
 Public Function GetDetailInfo(CorpNum, itemCode, mgtKey, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey)  Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey)  Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?Detail", m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?Detail", m_PopbillBase.getSession_token(CorpNum), UserID)
 
-    Dim infoObj : Set infoObj = New Statement
+	Dim infoObj : Set infoObj = New Statement
 
-    infoObj.fromJsonInfo result
+	infoObj.fromJsonInfo result
 
-    Set GetDetailInfo = infoObj
+	Set GetDetailInfo = infoObj
 End Function
 
 
 '알림메일 전송
 Public Function SendEmail(CorpNum, itemCode, mgtKey, receiver, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey)  Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey)  Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "receiver", receiver
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "receiver", receiver
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendEmail = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "EMAIL", postData, UserID)
+	Set SendEmail = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "EMAIL", postData, UserID)
 End Function
 
 
 '알림문자 전송
 Public Function SendSMS(CorpNum, itemCode, mgtKey, sender, receiver, contents, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "receiver", receiver
-    tmp.Set "sender", sender
-    tmp.Set "contents", contents
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "receiver", receiver
+	tmp.Set "sender", sender
+	tmp.Set "contents", contents
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendSMS = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "SMS", postData, UserID)
+	Set SendSMS = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "SMS", postData, UserID)
 End Function
 
 
 '전자명세서 팩스 전송
 Public Function SendFAX(CorpNum, itemCode, mgtKey, sender, receiver, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "receiver", receiver
-    tmp.Set "sender", sender
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "receiver", receiver
+	tmp.Set "sender", sender
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Set SendFAX = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
+	Set SendFAX = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
 End Function
 
 
 '전자명세서 보기 URL
 Public Function GetPopUpURL(CorpNum, itemCode, mgtKey, UserID)
-    Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?TG=POPUP", m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetPopUpURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?TG=POPUP", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetPopUpURL = result.url
 End Function
 
 '전자명세서 보기 URL
 Public Function GetViewURL(CorpNum, itemCode, mgtKey, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?TG=VIEW", m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetViewURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?TG=VIEW", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetViewURL = result.url
 End Function
 
 '인쇄 URL 호출
 Public Function GetPrintURL(CorpNum, itemCode, mgtKey, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?TG=PRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetPrintURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?TG=PRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetPrintURL = result.url
 End Function
 
 
 '인쇄 URL 호출(공급받는자용)
 Public Function GetEPrintURL(CorpNum, itemCode, mgtKey, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?TG=EPRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetEPrintURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?TG=EPRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetEPrintURL = result.url
 End Function
 
 
 '메일 링크 URL 호출
 Public Function GetMailURL(CorpNum, itemCode, mgtKey, UserID)
-    If isNull(mgtKey) Or isEmpty(mgtKey) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKey) Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?TG=MAIL", m_PopbillBase.getSession_token(CorpNum), UserID)
-    GetMailURL = result.url
+	Dim result : Set result = m_PopbillBase.httpGET("/Statement/"+CStr(itemCode)+"/"+mgtKey+"?TG=MAIL", m_PopbillBase.getSession_token(CorpNum), UserID)
+	GetMailURL = result.url
 End Function
 
 
 '다량 인쇄 URL 호출
 Public Function GetMassPrintURL(CorpNum, itemCode, mgtKeyList, UserID)
-    If isNull(mgtKeyList) Or isEmpty(mgtKeyList) Then
-        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
-    End If
+	If isNull(mgtKeyList) Or isEmpty(mgtKeyList) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmp : Set tmp = JSON.parse("[]")
-    Dim i
-    For i=0 To UBound(mgtKeyList)-1
-        tmp.Set i, mgtKeyList(i)
-    Next
+	Dim tmp : Set tmp = JSON.parse("[]")
+	Dim i
+	For i=0 To UBound(mgtKeyList)-1
+    	tmp.Set i, mgtKeyList(i)
+	Next
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
+	Dim postData : postData = m_PopbillBase.toString(tmp)
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"?Print", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
-    GetMassPrintURL = result.url
+	Dim result : Set result = m_PopbillBase.httpPOST("/Statement/"+CStr(itemCode)+"?Print", m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
+	GetMassPrintURL = result.url
 End Function
 
 '전자명세서 즉시발행
 Public Function RegistIssue(CorpNum, ByRef statement, Memo, UserID, EmailSubject)
-    If statement Is Nothing Then Err.raise -99999999,"POPBILL","등록할 전자명세서 정보가 입력되지 않았습니다."
+	If statement Is Nothing Then Err.raise -99999999,"POPBILL","등록할 전자명세서 정보가 입력되지 않았습니다."
 
-    Dim tmpDic : Set tmpDic = statement.toJsonInfo
+	Dim tmpDic : Set tmpDic = statement.toJsonInfo
 
-    If Memo <> "" Then
-        tmpDic.Set "memo", Memo
-    End If
+	If Memo <> "" Then
+    	tmpDic.Set "memo", Memo
+	End If
 
-    If EmailSubject <> "" Then
-        tmpDic.Set "emailSubject", EmailSubject
-    End If
+	If EmailSubject <> "" Then
+    	tmpDic.Set "emailSubject", EmailSubject
+	End If
 
 
-    Dim postData : postData = m_PopbillBase.toString(tmpDic)
+	Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Set RegistIssue = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), _
-                    "ISSUE", postData, UserID)
+	Set RegistIssue = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), _
+                	"ISSUE", postData, UserID)
 
 End Function
 
 '선팩스 전송
 Public Function FAXSend(CorpNum, ByRef statement, SendNum, ReceiveNum, UserID)
-    If statement Is Nothing Then Err.raise -99999999,"POPBILL","전송할 전자명세서 정보가 입력되지 않았습니다."
+	If statement Is Nothing Then Err.raise -99999999,"POPBILL","전송할 전자명세서 정보가 입력되지 않았습니다."
 
-    If isNull(ReceiveNum) Or isEmpty(ReceiveNum) Then
-        Err.Raise -99999999, "POPBILL", "수신팩스번호가 입력되지 않았습니다."
-    End If
+	If isNull(ReceiveNum) Or isEmpty(ReceiveNum) Then
+    	Err.Raise -99999999, "POPBILL", "수신팩스번호가 입력되지 않았습니다."
+	End If
 
-    Dim tmpDic : Set tmpDic = statement.toJsonInfo
-    tmpDic.Set "sendNum", SendNum
-    tmpDic.Set "receiveNum", ReceiveNum
+	Dim tmpDic : Set tmpDic = statement.toJsonInfo
+	tmpDic.Set "sendNum", SendNum
+	tmpDic.Set "receiveNum", ReceiveNum
 
-    Dim postData : postData = m_PopbillBase.toString(tmpDic)
+	Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
-    Dim result : Set result = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
-    FAXSend = result.receiptNum
+	Dim result : Set result = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
+	FAXSend = result.receiptNum
 
 End Function
 
 
 '전자명세서 목록 조회
 Public Function Search(CorpNum, DType, SDate, EDate, State, ItemCode, Order, Page, PerPage, QString)
-    If DType = "" Then
-        Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
-    End If
-    If SDate = "" Then
-        Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
-    End If
-    If EDate = "" Then
-        Err.Raise -99999999, "POPBILL", "종료일자가 이력되지 않았습니다."
-    End If
-    Dim uri
-    uri = "/Statement/Search"
-    uri = uri & "?DType=" & DType
-    uri = uri & "&SDate=" & SDate
-    uri = uri & "&EDate=" & EDate
+	If DType = "" Then
+    	Err.Raise -99999999, "POPBILL", "검색일자 유형이 입력되지 않았습니다."
+	End If
+	If SDate = "" Then
+    	Err.Raise -99999999, "POPBILL", "시작일자가 입력되지 않았습니다."
+	End If
+	If EDate = "" Then
+    	Err.Raise -99999999, "POPBILL", "종료일자가 이력되지 않았습니다."
+	End If
+	Dim uri
+	uri = "/Statement/Search"
+	uri = uri & "?DType=" & DType
+	uri = uri & "&SDate=" & SDate
+	uri = uri & "&EDate=" & EDate
 
-    uri = uri & "&State="
-    Dim i
-    For i=0 To UBound(State) -1
-        If i = UBound(State) -1 then
-            uri = uri & State(i)
-        Else
-            uri = uri & State(i) & ","
-        End If
-    Next
+	uri = uri & "&State="
+	Dim i
+	For i=0 To UBound(State) -1
+    	If i = UBound(State) -1 then
+        	uri = uri & State(i)
+    	Else
+        	uri = uri & State(i) & ","
+    	End If
+	Next
 
-    uri = uri & "&ItemCode="
-    For i=0 To UBound(Itemcode) -1
-        If i = UBound(Itemcode) -1  then
-            uri = uri & Itemcode(i)
-        Else
-            uri = uri & Itemcode(i) & ","
-        End If
-    Next
+	uri = uri & "&ItemCode="
+	For i=0 To UBound(Itemcode) -1
+    	If i = UBound(Itemcode) -1  then
+        	uri = uri & Itemcode(i)
+    	Else
+        	uri = uri & Itemcode(i) & ","
+    	End If
+	Next
 
-    uri = uri & "&QString=" & Server.URLEncode(QString)
-    uri = uri & "&Order=" & Order
-    uri = uri & "&Page=" & CStr(Page)
-    uri = uri & "&PerPage=" & CStr(PerPage)
+	uri = uri & "&QString=" & Server.URLEncode(QString)
+	uri = uri & "&Order=" & Order
+	uri = uri & "&Page=" & CStr(Page)
+	uri = uri & "&PerPage=" & CStr(PerPage)
 
-    Dim searchResult : Set searchResult = New StmtSearchResult
-    Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
+	Dim searchResult : Set searchResult = New StmtSearchResult
+	Dim tmpObj : Set tmpObj = m_PopbillBase.httpGET(uri, m_PopbillBase.getSession_token(CorpNum), "")
 
-    searchResult.fromJsonInfo tmpObj
+	searchResult.fromJsonInfo tmpObj
 
-    Set Search = searchResult
+	Set Search = searchResult
 End Function
 
 Public Function AttachStatement(CorpNum, ItemCode, MgtKey, SubItemCode, SubMgtKey)
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "ItemCode", SubItemCode
-    tmp.Set "MgtKey", SubMgtKey
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "ItemCode", SubItemCode
+	tmp.Set "MgtKey", SubMgtKey
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
-    Set AttachStatement = m_PopbillBase.httpPOST("/Statement/"+CStr(ItemCode)+"/"+mgtKey+"/AttachStmt", _
-                        m_PopbillBase.getSession_token(CorpNum), "", postData, "")
+	Dim postData : postData = m_PopbillBase.toString(tmp)
+	Set AttachStatement = m_PopbillBase.httpPOST("/Statement/"+CStr(ItemCode)+"/"+mgtKey+"/AttachStmt", _
+                    	m_PopbillBase.getSession_token(CorpNum), "", postData, "")
 End Function
 
 Public Function DetachStatement(CorpNum, ItemCode, MgtKey, SubItemCode, SubMgtKey)
-    Dim tmp : Set tmp = JSON.parse("{}")
-    tmp.Set "ItemCode", SubItemCode
-    tmp.Set "MgtKey", SubMgtKey
+	Dim tmp : Set tmp = JSON.parse("{}")
+	tmp.Set "ItemCode", SubItemCode
+	tmp.Set "MgtKey", SubMgtKey
 
-    Dim postData : postData = m_PopbillBase.toString(tmp)
-    Set DetachStatement = m_PopbillBase.httpPOST("/Statement/"+CStr(ItemCode)+"/"+mgtKey+"/DetachStmt", _
-                        m_PopbillBase.getSession_token(CorpNum), "", postData, "")
+	Dim postData : postData = m_PopbillBase.toString(tmp)
+	Set DetachStatement = m_PopbillBase.httpPOST("/Statement/"+CStr(ItemCode)+"/"+mgtKey+"/DetachStmt", _
+                    	m_PopbillBase.getSession_token(CorpNum), "", postData, "")
 End Function
 
 
 '알림메일 전송목록 조회
 Public Function listEmailConfig(CorpNum, UserID)
-    If CorpNum = "" Or isEmpty(CorpNum) Then
-        Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
-    End If
+	If CorpNum = "" Or isEmpty(CorpNum) Then
+    	Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
+	End If
 
-    Dim result : Set result = m_PopbillBase.httpGet("/Statement/EmailSendConfig", m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGet("/Statement/EmailSendConfig", m_PopbillBase.getSession_token(CorpNum), UserID)
 
-    Dim tmpDic : Set tmpDic = CreateObject("Scripting.Dictionary")
+	Dim tmpDic : Set tmpDic = CreateObject("Scripting.Dictionary")
 
-    Dim i
-    For i=0 To result.length-1
-        Dim emailObj : Set emailObj = New EmailSendConfig
-        emailObj.fromJsonInfo result.Get(i)
-        tmpDic.Add i, emailObj
-    Next
+	Dim i
+	For i=0 To result.length-1
+    	Dim emailObj : Set emailObj = New EmailSendConfig
+    	emailObj.fromJsonInfo result.Get(i)
+    	tmpDic.Add i, emailObj
+	Next
 
-    Set listEmailConfig = tmpDic
+	Set listEmailConfig = tmpDic
 End Function
 
 '알림메일 전송설정 수정
 Public Function updateEmailConfig(CorpNum, mailType, sendYN, UserID)
-    If CorpNum = "" Or isEmpty(CorpNum) Then
-        Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
-    End If
+	If CorpNum = "" Or isEmpty(CorpNum) Then
+    	Err.Raise -99999999, "POPBILL", "사업자등록번호가 올바르지 않습니다."
+	End If
 
-    If mailType = "" Or isEmpty(mailType) Then
-        Err.Raise -99999999, "POPBILL", "메일전송 타입이 입력되지 않았습니다."
-    End If
+	If mailType = "" Or isEmpty(mailType) Then
+    	Err.Raise -99999999, "POPBILL", "메일전송 타입이 입력되지 않았습니다."
+	End If
 
-    If sendYN = "" Or isEmpty(sendYN) Then
-        Err.Raise -99999999, "POPBILL", "메일전송 여부 항목이 입력되지 않았습니다."
-    End If
+	If sendYN = "" Or isEmpty(sendYN) Then
+    	Err.Raise -99999999, "POPBILL", "메일전송 여부 항목이 입력되지 않았습니다."
+	End If
 
-    If (sendYN) Then
-        sendYN="true"
-    Else
-        sendYN="false"
-    End If
+	If (sendYN) Then
+    	sendYN="true"
+	Else
+    	sendYN="false"
+	End If
 
-    Dim uri : uri = "/Statement/EmailSendConfig?EmailType="+mailType+"&SendYN="+sendYN
+	Dim uri : uri = "/Statement/EmailSendConfig?EmailType="+mailType+"&SendYN="+sendYN
 
-    Set updateEmailConfig = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", "", UserID)
+	Set updateEmailConfig = m_PopbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", "", UserID)
 End Function
 
 End Class
@@ -669,15 +669,15 @@ Public regDT
 Public ip
 
 Public Sub fromJsonInfo(jsonInfo)
-    On Error Resume Next
-    docLogType = jsonInfo.docLogType
-    log = jsonInfo.docLogType
-    procType = jsonInfo.procType
-    procCorpName = jsonInfo.procCorpName
-    procMemo = jsonInfo.procMemo
-    regDT = jsonInfo.regDT
-    ip = jsonInfo.ip
-    On Error GoTo 0
+	On Error Resume Next
+	docLogType = jsonInfo.docLogType
+	log = jsonInfo.docLogType
+	procType = jsonInfo.procType
+	procCorpName = jsonInfo.procCorpName
+	procMemo = jsonInfo.procMemo
+	regDT = jsonInfo.regDT
+	ip = jsonInfo.ip
+	On Error GoTo 0
 End Sub
 
 End Class
@@ -707,27 +707,27 @@ Public openYN
 Public openDT
 
 Public Sub fromJsonInfo(jsonInfo)
-    On Error Resume Next
-    itemCode = jsonInfo.itemCode
-    itemKey = jsonInfo.itemKey
-    invoiceNum = jsonInfo.invoiceNum
-    mgtKey = jsonInfo.mgtKey
-    taxType = jsonInfo.taxType
-    writeDate = jsonInfo.writeDate
-    regDT = jsonInfo.regDT
-    senderCorpName = jsonInfo.senderCorpName
-    senderCorpNum = jsonInfo.senderCorpNum
-    senderPrintYN = jsonInfo.senderPrintYN
-    receiverCorpName = jsonInfo.receiverCorpName
-    receiverCorpNum = jsonInfo.receiverCorpNum
-    receiverPrintYN = jsonInfo.receiverPrintYN
-    supplyCostTotal = jsonInfo.supplyCostTotal
-    taxTotal = jsonInfo.taxTotal
-    purposeType = jsonInfo.purposeType
-    issueDT = jsonInfo.issueDT
-    stateCode = jsonInfo.stateCode
-    stateDT = jsonInfo.stateDT
-    stateMemo = jsonInfo.stateMemo
+	On Error Resume Next
+	itemCode = jsonInfo.itemCode
+	itemKey = jsonInfo.itemKey
+	invoiceNum = jsonInfo.invoiceNum
+	mgtKey = jsonInfo.mgtKey
+	taxType = jsonInfo.taxType
+	writeDate = jsonInfo.writeDate
+	regDT = jsonInfo.regDT
+	senderCorpName = jsonInfo.senderCorpName
+	senderCorpNum = jsonInfo.senderCorpNum
+	senderPrintYN = jsonInfo.senderPrintYN
+	receiverCorpName = jsonInfo.receiverCorpName
+	receiverCorpNum = jsonInfo.receiverCorpNum
+	receiverPrintYN = jsonInfo.receiverPrintYN
+	supplyCostTotal = jsonInfo.supplyCostTotal
+	taxTotal = jsonInfo.taxTotal
+	purposeType = jsonInfo.purposeType
+	issueDT = jsonInfo.issueDT
+	stateCode = jsonInfo.stateCode
+	stateDT = jsonInfo.stateDT
+	stateMemo = jsonInfo.stateMemo
     openYN = jsonInfo.openYN
     openDT = jsonInfo.openDT
     On Error GoTo 0
