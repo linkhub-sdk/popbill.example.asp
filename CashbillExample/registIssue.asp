@@ -120,7 +120,6 @@
         message = Presponse.message
         confirmNum = Presponse.confirmNum
         tradeDate = Presponse.tradeDate
-        tradeDT = Presponse.tradeDT
     End If
 
     On Error GoTo 0
