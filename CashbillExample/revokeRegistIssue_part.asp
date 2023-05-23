@@ -87,7 +87,6 @@
         message = Presponse.message
         confirmNum = Presponse.confirmNum
         tradeDate = Presponse.tradeDate
-        tradeDT = Presponse.tradeDT
     End If
 
     On Error GoTo 0
@@ -107,9 +106,6 @@
                     <% End If %>
                     <% If tradeDate <> "" Then %>
                     <li> Response.tradeDate : <%=tradeDate%> </li>
-                    <% End If %>
-                    <% If tradeDT <> "" Then %>
-                    <li> Response.tradeDT : <%=tradeDT%> </li>
                     <% End If %>
                 </ul>
             </fieldset>
