@@ -37,7 +37,7 @@
                 <legend>080 수신거부 정보 확인</legend>
                 <fieldset class="fieldset2">
                 <ul>
-                    <li>smsdenyNumber(수신거부번호) : <%=Presponse.smsdenyNumber%> </li>
+                    <li>smsdenyNumber(전용 080 번호) : <%=Presponse.smsdenyNumber%> </li>
                     <li>regDT(등록일시) : <%=Presponse.regDT%> </li>
                 </ul>
                 </fieldset>

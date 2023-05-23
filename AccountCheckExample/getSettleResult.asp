@@ -45,7 +45,7 @@
                     	<legend> PaymentHistory </legend>
                     	<ul>
                         	<li>productType (결제 내용) : <%= result.productType %></li>
-                        	<li>productName (정액제 상품명) : <%= result.productName %></li>
+                        	<li>productName (결제 상품명) : <%= result.productName %></li>
                         	<li>settleType (결제유형) : <%= result.settleType %></li>
                         	<li>settlerName (담당자명) : <%= result.settlerName %></li>
                         	<li>settlerEmail (담당자메일) : <%= result.settlerEmail %></li>
