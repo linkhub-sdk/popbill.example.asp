@@ -15,26 +15,26 @@
 	'**************************************************************
 
 	' 팝빌회원 사업자번호, "-" 제외 10자리
-	testCorpNum = "1234567890"
+	CorpNum = "1234567890"
 
 	' 팝빌회원 아이디
-	userID = "testkorea"
+	UserID = "testkorea"
 
 	' 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
-	itemCode = "121"
+	ItemCode = "121"
 
 	' 문서번호
-	mgtKey = "20220720-ASP-002"
+	MgtKey = "20220720-ASP-002"
 
 	' 메모
-	memo = "전자명세서 발행 테스트"
+	Memo = "전자명세서 발행 테스트"
 
 	' 전자명세서 발행 안내메일 제목
-	emailSubject = "발행 안내메일의 제목"
+	EmailSubject = "발행 안내메일의 제목"
 
 	On Error Resume Next
 
-	Set result = m_StatementService.Issue(testCorpNum, itemCode, mgtKey, memo, emailSubject, userID)
+	Set result = m_StatementService.Issue(CorpNum, ItemCode, MgtKey, Memo, EmailSubject, UserID)
 
 	If Err.Number <> 0 Then
 		code = Err.Number
