@@ -476,7 +476,7 @@ Public Function SendFAX(CorpNum, mgtKey, Sender, Receiver, UserID)
 End Function
 
 '현금영수증 즉시발행
-Public Function RegistIssue(CorpNum, ByRef Cashbill, Memo, UserID, EmailSubject)
+Public Function RegistIssue(CorpNum, ByRef Cashbill, Memo, EmailSubject, UserID)
 	Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo
 	tmpDic.Set "memo", Memo
 

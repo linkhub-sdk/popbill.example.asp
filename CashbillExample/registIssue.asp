@@ -109,7 +109,7 @@
 
     On Error Resume Next
 
-    Set Presponse = m_CashbillService.RegistIssue(testCorpNum, CashbillObj, memo, userID, emailSubject)
+    Set Presponse = m_CashbillService.RegistIssue(testCorpNum, CashbillObj, memo, emailSubject, userID)
 
     If Err.Number <> 0 then
         code = Err.Number
