@@ -12,11 +12,11 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     On Error Resume Next
 
-    remainPoint = m_HTTaxinvoiceService.getBalance(testCorpNum)
+    remainPoint = m_HTTaxinvoiceService.getBalance(CorpNum)
 
     If Err.Number <> 0 then
         code = Err.Number

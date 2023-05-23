@@ -12,17 +12,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 확인할 담당자 아이디
     contactID = "testID"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     On Error Resume Next
 
-    Set conInfo = m_CashbillService.GetContactInfo(testCorpNum, contactID ,userID)
+    Set conInfo = m_CashbillService.GetContactInfo(CorpNum, contactID ,UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

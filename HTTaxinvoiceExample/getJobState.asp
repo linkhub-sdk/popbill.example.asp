@@ -18,7 +18,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 수집요청시 반환받은 작업아이디(jobID)
     JobID = "016111416000000024"
@@ -28,7 +28,7 @@
 
     On Error Resume Next
 
-    Set result = m_HTTaxinvoiceService.GetJobState(testCorpNum, JobID, UserID)
+    Set result = m_HTTaxinvoiceService.GetJobState(CorpNum, JobID, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

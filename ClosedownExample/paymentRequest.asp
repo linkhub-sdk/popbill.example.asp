@@ -12,7 +12,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     Dim m_PaymentForm : Set m_PaymentForm = New PaymentForm
 
@@ -37,7 +37,7 @@
 
     On Error Resume Next
 
-    Set result = m_ClosedownService.PaymentRequest(testCorpNum, m_PaymentForm, UserID)
+    Set result = m_ClosedownService.PaymentRequest(CorpNum, m_PaymentForm, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

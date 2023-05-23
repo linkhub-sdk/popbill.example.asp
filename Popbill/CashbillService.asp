@@ -534,7 +534,7 @@ Public Function GetBulkResult(CorpNum, SubmitID, UserID)
 End Function
 
 '취소현금영수증 즉시발행. 2017/08/17 추가
-Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID, emailSubject, tradeDT)
+Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, UserID, emailSubject, tradeDT)
 
 	Dim tmp : Set tmp = JSON.parse("{}")
 	tmp.Set "mgtKey", mgtKey
@@ -555,7 +555,7 @@ Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, 
 End Function
 
 '취소현금영수증 임시저장. 2017/08/17 추가
-Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, userID)
+Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, UserID)
 
 	Dim tmp : Set tmp = JSON.parse("{}")
 	tmp.Set "mgtKey", mgtKey
@@ -573,7 +573,7 @@ Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, sms
 End Function
 
 '부분취소 현금영수증 즉시발행
-Public Function RevokeRegistIssue_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, userID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount, emailSubject, tradeDT)
+Public Function RevokeRegistIssue_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, UserID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount, emailSubject, tradeDT)
 
 	Dim tmp : Set tmp = JSON.parse("{}")
 	tmp.Set "mgtKey", mgtKey
@@ -600,7 +600,7 @@ Public Function RevokeRegistIssue_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeD
 End Function
 
 '부분취소 현금영수증 임시저장
-Public Function RevokeRegister_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, userID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount)
+Public Function RevokeRegister_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, UserID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount)
 
 	Dim tmp : Set tmp = JSON.parse("{}")
 	tmp.Set "mgtKey", mgtKey

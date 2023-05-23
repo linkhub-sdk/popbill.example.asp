@@ -13,17 +13,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
-    ' 팩스 전송시 발급받은 접수번호(receiptNum)
-    receiptNum = "018092811205600001"
+    ' 팩스 전송시 발급받은 접수번호(ReceiptNum)
+    ReceiptNum = "018092811205600001"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     On Error Resume Next
 
-    url = m_FaxService.GetPreviewURL(testCorpNum, receiptNum, userID)
+    url = m_FaxService.GetPreviewURL(CorpNum, ReceiptNum, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

@@ -12,20 +12,20 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 예약문자 전송요청시 팝빌로부터 반환 받은 접수번호
-    receiptNum = "022102708000000003"
+    ReceiptNum = "022102708000000003"
 
     ' 예약문자 전송요청시 팝빌로 요청한 수신번호
-    receiveNum = "0102223333"
+    ReceiveNum = "0102223333"
 
     On Error Resume Next
 
-    Set result = m_MessageService.CancelReservebyRCV(testCorpNum, receiptNum, receiveNum, userID)
+    Set result = m_MessageService.CancelReservebyRCV(CorpNum, ReceiptNum, ReceiveNum, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

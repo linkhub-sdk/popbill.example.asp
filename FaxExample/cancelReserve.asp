@@ -12,17 +12,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
-    ' 팩스 전송시 발급받은 접수번호(receiptNum)
-    receiptNum = "015012713201000001"
+    ' 팩스 전송시 발급받은 접수번호(ReceiptNum)
+    ReceiptNum = "015012713201000001"
 
     On Error Resume Next
 
-    Set Presponse = m_FaxService.CancelReserve(testCorpNum, receiptNum, userID)
+    Set Presponse = m_FaxService.CancelReserve(CorpNum, ReceiptNum, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

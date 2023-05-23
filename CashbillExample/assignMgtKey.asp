@@ -12,7 +12,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 현금영수증 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
     itemKey = "020010910360800001"
@@ -23,7 +23,7 @@
 
     On Error Resume Next
 
-    Set Presponse = m_CashbillService.AssignMgtKey(testCorpNum, itemKey, mgtKey)
+    Set Presponse = m_CashbillService.AssignMgtKey(CorpNum, itemKey, mgtKey)
 
     If Err.Number <> 0 Then
         code = Err.Number

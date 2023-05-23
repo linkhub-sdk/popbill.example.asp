@@ -12,7 +12,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     '조회 기간의 시작일자
     SDate = "20230501"
@@ -34,7 +34,7 @@
 
     On Error Resume Next
 
-    Set result = m_BizInfoCheckService.GetUseHistory(testCorpNum, SDate,EDate,Page,PerPage,Order, UserID)
+    Set result = m_BizInfoCheckService.GetUseHistory(CorpNum, SDate,EDate,Page,PerPage,Order, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -72,7 +72,7 @@
                         <li> txPoint (증감 포인트) : <%=result.list(i).txPoint%></li>
                         <li> balance (잔여 포인트) : <%=result.list(i).balance%></li>
                         <li> txDT (포인트 증감 일시) : <%=result.list(i).txDT%></li>
-                        <li> userID (담당자 아이디) : <%=result.list(i).userID%></li>
+                        <li> UserID (담당자 아이디) : <%=result.list(i).UserID%></li>
                         <li> userName (담당자명) : <%=result.list(i).userName%></li>
                         </ul>
                     </fieldset>

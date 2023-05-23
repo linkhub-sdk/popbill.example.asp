@@ -13,14 +13,14 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외 10자리
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 문서번호
     mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
-    Presponse = m_CashbillService.CheckMgtKeyInUse(testCorpNum, mgtKey)
+    Presponse = m_CashbillService.CheckMgtKeyInUse(CorpNum, mgtKey)
 
     If Err.Number <> 0 Then
         code = Err.Number

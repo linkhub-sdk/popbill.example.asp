@@ -12,17 +12,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 전송유형 (ATS - 알림톡, FTS - 친구톡 텍스트, FMS - 친구톡 이미지)
     sendType = "ATS"
 
     On Error Resume Next
 
-    unitCost = m_KakaoService.GetUnitCost(testCorpNum, sendType)
+    unitCost = m_KakaoService.GetUnitCost(CorpNum, sendType)
 
     If Err.Number <> 0 then
         code = Err.Number

@@ -13,17 +13,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 확인할 발신번호
     SenderNumber = ""
 
     On Error Resume Next
 
-    Set result = m_MessageService.CheckSenderNumber(testCorpNum, SenderNumber, userID)
+    Set result = m_MessageService.CheckSenderNumber(CorpNum, SenderNumber, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

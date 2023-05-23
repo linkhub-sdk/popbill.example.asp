@@ -12,7 +12,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     '발행유형 SELL(매출), BUY(매입)
     KeyType= "BUY"
@@ -28,7 +28,7 @@
 
     On Error Resume Next
 
-    jobID = m_HTCashbillService.requestJob(testCorpNum, KeyType, SDate, EDate, testUserID)
+    jobID = m_HTCashbillService.requestJob(CorpNum, KeyType, SDate, EDate, testUserID)
 
     If Err.Number <> 0 then
         code = Err.Number

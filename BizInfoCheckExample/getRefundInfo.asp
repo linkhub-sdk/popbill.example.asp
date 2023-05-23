@@ -12,7 +12,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
 	'환불 코드
 	refundCode = "023040000017"
@@ -22,7 +22,7 @@
 
     On Error Resume Next
 
-    Set result = m_BizInfoCheckService.GetRefundInfo(testCorpNum, refundCode, UserID)
+    Set result = m_BizInfoCheckService.GetRefundInfo(CorpNum, refundCode, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

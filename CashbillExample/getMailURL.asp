@@ -13,17 +13,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 현금영수증 문서번호
     mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
 
-    url = m_CashbillService.GetMailURL(testCorpNum, mgtKey, userID)
+    url = m_CashbillService.GetMailURL(CorpNum, mgtKey, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

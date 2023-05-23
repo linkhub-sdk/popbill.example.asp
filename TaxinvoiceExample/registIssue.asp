@@ -12,7 +12,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 거래명세서 동시작성여부
     writeSpecificationYN = False
@@ -34,7 +34,7 @@
     emailSubject = ""
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
 
     ' 세금계산서 정보 객체 생성
@@ -270,8 +270,8 @@
 
     On Error Resume Next
 
-    Set Presponse = m_TaxinvoiceService.RegistIssue(testCorpNum, newTaxinvoice, writeSpecificationYN, _
-                                                    dealInvoiceMgtKey, forceIssue, memo, emailSubject, userID)
+    Set Presponse = m_TaxinvoiceService.RegistIssue(CorpNum, newTaxinvoice, writeSpecificationYN, _
+                                                    dealInvoiceMgtKey, forceIssue, memo, emailSubject, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

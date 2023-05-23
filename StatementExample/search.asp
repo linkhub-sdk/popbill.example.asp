@@ -12,7 +12,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 검색일자 유형 ("R" , "W" , "I" 중 택 1)
     ' - R = 등록일자 , W = 작성일자 , I = 발행일자
@@ -56,7 +56,7 @@
 
     On Error Resume Next
 
-    Set result = m_StatementService.Search(testCorpNum, DType, SDate, EDate, State, ItemCode, Order, Page, PerPage, SQuery)
+    Set result = m_StatementService.Search(CorpNum, DType, SDate, EDate, State, ItemCode, Order, Page, PerPage, SQuery)
 
     If Err.Number <> 0 Then
         code = Err.Number

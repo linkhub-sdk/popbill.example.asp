@@ -13,10 +13,10 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 광고성 메시지 여부 ( true , false 중 택 1)
     ' └ true = 광고 , false = 일반
@@ -83,12 +83,12 @@
     ' 전송요청번호
     ' 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
     ' 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
-    requestNum = ""
+    RequestNum = ""
 
     On Error Resume Next
 
 
-    receiptNum = m_MessageService.SendXMS(testCorpNum, "", "", "", msgList, reserveDT, adsYN, requestNum, userID)
+    ReceiptNum = m_MessageService.SendXMS(CorpNum, "", "", "", msgList, reserveDT, adsYN, RequestNum, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number
@@ -106,7 +106,7 @@
                 <legend>단/장문 자동인식 문자메시지 100건 전송 </legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(접수번호) : <%=receiptNum%> </li>
+                        <li>ReceiptNum(접수번호) : <%=ReceiptNum%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>

@@ -12,7 +12,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     '목록 페이지번호
     Page = 1
@@ -25,7 +25,7 @@
 
     On Error Resume Next
 
-    Set result = m_HTCashbillService.GetRefundHistory(testCorpNum, Page, PerPage, UserID)
+    Set result = m_HTCashbillService.GetRefundHistory(CorpNum, Page, PerPage, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

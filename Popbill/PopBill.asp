@@ -439,7 +439,7 @@ Public Function httpPOST(url , BearerToken , override , postData ,  UserID)
 
 End Function
 
-Public Function httpBulkPOST(url, BearerToken, override, SubmitID, postData, userID)
+Public Function httpBulkPOST(url, BearerToken, override, SubmitID, postData, UserID)
 
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
 
@@ -916,7 +916,7 @@ Class UseHistory
     Public txPoint
     Public balance
     Public txDT
-    Public userID
+    Public UserID
     Public userName
 
     Public Sub fromJsonInfo(jsonInfo)
@@ -926,7 +926,7 @@ Class UseHistory
             txPoint = jsonInfo.txPoint
             balance = jsonInfo.balance
             txDT = jsonInfo.txDT
-            userID = jsonInfo.userID
+            UserID = jsonInfo.UserID
             userName = jsonInfo.userName
         On Error GoTo 0
     End Sub

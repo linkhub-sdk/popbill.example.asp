@@ -13,7 +13,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
     UserID = "testkorea"
@@ -65,7 +65,7 @@
 
     On Error Resume Next
 
-    Set result = m_HTTaxinvoiceService.Summary(testCorpNum, JobID, TIType, TaxType,  _
+    Set result = m_HTTaxinvoiceService.Summary(CorpNum, JobID, TIType, TaxType,  _
                             PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID, UserID, SearchString)
 
     If Err.Number <> 0 Then

@@ -12,10 +12,10 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 발송 메일 유형
     ' - CSH_ISSUE : 고객에게 현금영수증이 발행 되었음을 알려주는 메일
@@ -27,7 +27,7 @@
 
     On Error Resume Next
 
-    Set Presponse = m_CashbillService.updateEmailConfig(testCorpNum, emailType, sendYN, UserID)
+    Set Presponse = m_CashbillService.updateEmailConfig(CorpNum, emailType, sendYN, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

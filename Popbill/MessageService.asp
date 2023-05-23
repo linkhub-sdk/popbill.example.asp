@@ -182,23 +182,23 @@ Public Function CheckSenderNumber(CorpNum, SenderNumber, UserID)
     Set CheckSenderNumber = m_PopbillBase.httpGET("/Message/CheckSenderNumber/"&SenderNumber,m_PopbillBase.getSession_token(CorpNum),UserID)
 End Function
 
-'단문 메시지 전송 (requestNum)
-Public Function SendSMS(CorpNum, sender, Contents, Messages, reserveDT, adsYN, requestNum, UserID)
-    SendSMS = SendMessage("SMS", CorpNum, sender, "", Contents, Messages, reserveDT, adsYN, requestNum, UserID)
+'단문 메시지 전송 (RequestNum)
+Public Function SendSMS(CorpNum, sender, Contents, Messages, reserveDT, adsYN, RequestNum, UserID)
+    SendSMS = SendMessage("SMS", CorpNum, sender, "", Contents, Messages, reserveDT, adsYN, RequestNum, UserID)
 End Function
 
-'장문 메시지 전송 (requestNum)
-Public Function SendLMS(CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, requestNum, UserID)
-    SendLMS = SendMessage("LMS", CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, requestNum, UserID)
+'장문 메시지 전송 (RequestNum)
+Public Function SendLMS(CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, RequestNum, UserID)
+    SendLMS = SendMessage("LMS", CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, RequestNum, UserID)
 End Function
 
-'단/장문 메시지 자동인식 전송(requestNum)
-Public Function SendXMS(CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, requestNum, UserID)
-    SendXMS = SendMessage("XMS", CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, requestNum, UserID)
+'단/장문 메시지 자동인식 전송(RequestNum)
+Public Function SendXMS(CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, RequestNum, UserID)
+    SendXMS = SendMessage("XMS", CorpNum, sender, subject, Contents, Messages, reserveDT, adsYN, RequestNum, UserID)
 End Function
 
-'MMS 메시지 전송 (requestNum)
-Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, reserveDT, adsYN, requestNum, UserID)
+'MMS 메시지 전송 (RequestNum)
+Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, reserveDT, adsYN, RequestNum, UserID)
     If IsNull(msgList) Or IsEmpty(msgList) Then
         Err.raise -99999999, "POPBILL", "전송할 메시지가 입력되지 않았습니다."
     End If
@@ -212,7 +212,7 @@ Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, 
     If subject <> "" Then tmp.Set "subject", subject
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
     If adsYN <> "" Then tmp.Set "adsYN", adsYN
-    If requestNum <> "" Then tmp.Set "requestNum", requestNum
+    If RequestNum <> "" Then tmp.Set "RequestNum", RequestNum
 
     Dim msgs : Set msgs = JSON.parse("[]")
 
@@ -228,12 +228,12 @@ Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, 
     Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Dim result : Set result = m_PopbillBase.httpPost_Files("/MMS", m_PopbillBase.getSession_Token(CorpNum), postData, FilePaths, UserID)
-    SendMMS = result.receiptNum
+    SendMMS = result.ReceiptNum
 End Function
 
 
 
-Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList, reserveDT, adsYN, requestNum, UserID)
+Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList, reserveDT, adsYN, RequestNum, UserID)
     If IsNull(msgList) Or IsEmpty(msgList) Then
         Err.raise -99999999, "POPBILL", "전송할 메시지가 입력되지 않았습니다."
     End If
@@ -244,7 +244,7 @@ Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList,
     If Contents <> "" Then tmp.Set "content", Contents
     If subject <> "" Then tmp.Set "subject", subject
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
-    If requestNum <> "" Then tmp.Set "requestNum", requestNum
+    If RequestNum <> "" Then tmp.Set "RequestNum", RequestNum
     If adsYN Then tmp.Set "adsYN", adsYN
 
 
@@ -262,7 +262,7 @@ Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList,
     Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Set result = m_PopbillBase.httpPost("/"&MType, m_PopbillBase.getSession_Token(CorpNum), "", postData, UserID)
-    SendMessage = result.receiptNum
+    SendMessage = result.ReceiptNum
 
 End Function
 
@@ -551,7 +551,7 @@ Class MessageInfo
     Public content
     Public sendNum
     Public senderName
-    Public receiveNum
+    Public ReceiveNum
     Public receiveName
     Public reserveDT
     Public sendDT
@@ -559,8 +559,8 @@ Class MessageInfo
     Public sendResult
     Public tranNet
     Public receiptDT
-    Public requestNum
-    Public receiptNum
+    Public RequestNum
+    Public ReceiptNum
     Public interOPRefKey
 
     Public Sub fromJsonInfo(msgInfo)
@@ -572,7 +572,7 @@ Class MessageInfo
         content = msgInfo.content
         sendNum = msgInfo.sendNum
         senderName = msgInfo.senderName
-        receiveNum = msgInfo.receiveNum
+        ReceiveNum = msgInfo.ReceiveNum
         receiveName = msgInfo.receiveName
         reserveDT = msgInfo.reserveDT
         sendDT = msgInfo.sendDT
@@ -580,8 +580,8 @@ Class MessageInfo
         sendResult = msgInfo.sendResult
         tranNet = msgInfo.tranNet
         receiptDT = msgInfo.receiptDT
-        requestNum = msgInfo.requestNum
-        receiptNum = msgInfo.receiptNum
+        RequestNum = msgInfo.RequestNum
+        ReceiptNum = msgInfo.ReceiptNum
         interOPRefKey = msgInfo.interOPRefKey
         On Error GoTo 0
     End Sub

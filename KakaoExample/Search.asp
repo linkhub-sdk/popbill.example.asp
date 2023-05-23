@@ -14,7 +14,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     '시작일자
     SDate = "20220701"
@@ -66,7 +66,7 @@
 
     On Error Resume Next
 
-    Set resultObj = m_KakaoService.Search(testCorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
+    Set resultObj = m_KakaoService.Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
 
     If Err.Number <> 0 then
         code = Err.Number
@@ -103,7 +103,7 @@
                                     <li>result (전송결과 코드) : <%=resultObj.list(i).result%> </li>
                                     <li>resultDT (전송결과 수신일시) : <%=resultObj.list(i).resultDT%> </li>
                                     <li>contentType (카카오톡 유형) : <%=resultObj.list(i).contentType%> </li>
-                                    <li>receiveNum (수신번호) : <%=resultObj.list(i).receiveNum%> </li>
+                                    <li>ReceiveNum (수신번호) : <%=resultObj.list(i).ReceiveNum%> </li>
                                     <li>receiveName (수신자명) : <%=resultObj.list(i).receiveName%> </li>
                                     <li>content (알림톡/친구톡 내용) : <%=resultObj.list(i).content%> </li>
                                     <li>altSubject (대체문자 제목) : <%=resultObj.list(i).altSubject%></li>
@@ -112,8 +112,8 @@
                                     <li>altSendDT (대체문자 전송일시) : <%=resultObj.list(i).altSendDT%> </li>
                                     <li>altResult (대체문자 전송결과 코드) : <%=resultObj.list(i).altResult%> </li>
                                     <li>altResultDT (대체문자 전송결과 수신일시) : <%=resultObj.list(i).altResultDT%> </li>
-                                    <li>receiptNum (접수번호) : <%=resultObj.list(i).receiptNum%> </li>
-                                    <li>requestNum (요청번호) : <%=resultObj.list(i).requestNum%> </li>
+                                    <li>ReceiptNum (접수번호) : <%=resultObj.list(i).ReceiptNum%> </li>
+                                    <li>RequestNum (요청번호) : <%=resultObj.list(i).RequestNum%> </li>
                                     <li>interOPRefKey (파트너 지정키) : <%=resultObj.list(i).interOPRefKey%> </li>
                                 </ul>
                             </fieldset>

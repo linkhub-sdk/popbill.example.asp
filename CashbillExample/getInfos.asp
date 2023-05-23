@@ -14,10 +14,10 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 조회할 현금영수증 문서번호 배열, 최대 1000건
     Dim mgtKeyList(3)
@@ -27,7 +27,7 @@
 
     On Error Resume Next
 
-    Set Presponse = m_CashbillService.GetInfos(testCorpNum, mgtKeyList, userID)
+    Set Presponse = m_CashbillService.GetInfos(CorpNum, mgtKeyList, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

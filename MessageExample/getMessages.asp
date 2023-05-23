@@ -12,17 +12,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 문자 전송시 발급받은 접수번호(ReceiptNum)
     ReceiptNum = "017071711000000002"
 
     On Error Resume Next
 
-    Set result = m_MessageService.GetMessages(testCorpNum, ReceiptNum, UserID)
+    Set result = m_MessageService.GetMessages(CorpNum, ReceiptNum, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number
@@ -52,15 +52,15 @@
                                 <li>type (메시지 유형) : <%=result.Item(i).msgType%> </li>
                                 <li>sendnum (발신번호) : <%=result.Item(i).sendnum%> </li>
                                 <li>senderName (발신자명) : <%=result.Item(i).senderName%> </li>
-                                <li>receiveNum (수신번호) : <%=result.Item(i).receiveNum%> </li>
+                                <li>ReceiveNum (수신번호) : <%=result.Item(i).ReceiveNum%> </li>
                                 <li>receiveName (수신자명) : <%=result.Item(i).receiveName%> </li>
                                 <li>receiptDT (접수일시) : <%=result.Item(i).receiptDT%> </li>
                                 <li>sendDT (전송일시) : <%=result.Item(i).sendDT%> </li>
                                 <li>resultDT (전송결과 수신일시) : <%=result.Item(i).resultDT%> </li>
                                 <li>reserveDT (예약일시) : <%=result.Item(i).reserveDT%> </li>
                                 <li>tranNet (전송처리 이동통신사명) : <%=result.Item(i).tranNet%> </li>
-                                <li>receiptNum (접수번호) : <%=result.Item(i).receiptNum%> </li>
-                                <li>requestNum (요청번호) : <%=result.Item(i).requestNum%> </li>
+                                <li>ReceiptNum (접수번호) : <%=result.Item(i).ReceiptNum%> </li>
+                                <li>RequestNum (요청번호) : <%=result.Item(i).RequestNum%> </li>
                                 <li>interOPRefKey (파트너 지정키) : <%=result.Item(i).interOPRefKey%> </li>
                             </ul>
                         </fieldset>

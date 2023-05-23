@@ -12,11 +12,11 @@
     '**************************************************************
 
     ' 사업자번호 ("-"제외)
-    testCorpNum = "1231212312"
+    CorpNum = "1231212312"
 
     On Error Resume Next
 
-    Set Presponse = m_HTCashbillService.CheckIsMember(testCorpNum,LinkID)
+    Set Presponse = m_HTCashbillService.CheckIsMember(CorpNum,LinkID)
 
     If Err.Number <> 0 Then
         code = Err.Number

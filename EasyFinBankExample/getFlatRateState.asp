@@ -12,7 +12,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     '기관코드
     BankCode = ""
@@ -24,7 +24,7 @@
     UserID = "testkorea"
 
     On Error Resume Next
-    Set result = m_EasyFinBankService.GetFlatRateState ( testCorpNum, BankCode, AccountNumber, UserID )
+    Set result = m_EasyFinBankService.GetFlatRateState ( CorpNum, BankCode, AccountNumber, UserID )
     If Err.Number <> 0 Then
         code = Err.Number
         message = Err.Description

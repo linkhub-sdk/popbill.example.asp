@@ -12,20 +12,20 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     '카카오톡 예약전송 접수시 팝빌로부터 반환 받은 접수번호
-    receiptNum = "018031513173900001"
+    ReceiptNum = "018031513173900001"
 
     '카카오톡 예약전송 접수시 팝빌로 요청한 수신번호
-    receiveNum = "010111222"
+    ReceiveNum = "010111222"
 
     On Error Resume Next
 
-    Set result = m_KakaoService.CancelReservebyRCV(testCorpNum, receiptNum, receiveNum, userID)
+    Set result = m_KakaoService.CancelReservebyRCV(CorpNum, ReceiptNum, ReceiveNum, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

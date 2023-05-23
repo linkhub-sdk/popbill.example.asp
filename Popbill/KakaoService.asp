@@ -277,7 +277,7 @@ Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
 End Function
 
 '알림톡 전송
-Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, requestNum, UserID, btnList, altSubject)
+Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, RequestNum, UserID, btnList, altSubject)
     If templateCode = "" Or IsNull(templateCode) Then
         Err.Raise -99999999, "POPBILL", "알림톡 템플릿 코드(TemplateCode)가 입력되지 않았습니다"
     End If
@@ -290,7 +290,7 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
     If altContent <> "" Then tmp.Set "altContent", altContent
     If altSendType <> "" Then tmp.Set "altSendType", altSendType
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
-    If requestNum <> "" Then tmp.Set "requestNum", requestNum
+    If RequestNum <> "" Then tmp.Set "RequestNum", RequestNum
     If altSubject <> "" Then tmp.Set "altSubject", altSubject
 
     Dim msgs : Set msgs = JSON.parse("[]")
@@ -318,12 +318,12 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
     Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Dim result : Set result = m_PopbillBase.httpPost("/ATS", m_PopbillBase.getSession_Token(CorpNum), "", postData, UserID)
-    SendATS = result.receiptNum
+    SendATS = result.ReceiptNum
 End Function
 
 
 '친구톡 텍스트 전송
-Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, requestNum, UserID, altSubject)
+Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, RequestNum, UserID, altSubject)
 
     If plusFriendID = "" Or IsNull(plusFriendID) Then
         Err.Raise -99999999, "POPBILL", "친구톡 플러스친구 아이디(plusFriendID)가 입력되지 않았습니다"
@@ -338,7 +338,7 @@ Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSend
     If altSendType <> "" Then tmp.Set "altSendType", altSendType
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
     If adsYN Then tmp.Set "adsYN", adsYN
-    If requestNum <> "" Then tmp.Set "requestNum", requestNum
+    If RequestNum <> "" Then tmp.Set "RequestNum", RequestNum
     If altSubject <> "" Then tmp.Set "altSubject", altSubject
 
     Dim msgs : Set msgs = JSON.parse("[]")
@@ -365,12 +365,12 @@ Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSend
     Dim postData : postData = m_PopbillBase.toString(tmp)
 
     Dim result : Set result = m_PopbillBase.httpPost("/FTS", m_PopbillBase.getSession_Token(CorpNum), "", postData, UserID)
-    SendFTS = result.receiptNum
+    SendFTS = result.ReceiptNum
 End Function
 
 
 '친구톡 이미지 전송
-Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, filePath, imageURL, requestNum, UserID, altSubject)
+Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, filePath, imageURL, RequestNum, UserID, altSubject)
 
     If plusFriendID = "" Or IsNull(plusFriendID) Then
         Err.Raise -99999999, "POPBILL", "친구톡 플러스친구 아이디(plusFriendID)가 입력되지 않았습니다"
@@ -386,7 +386,7 @@ Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSend
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
     If imageURL <> "" Then tmp.Set "imageURL", imageURL
     If adsYN Then tmp.Set "adsYN", adsYN
-    If requestNum <> "" Then tmp.Set "requestNum", requestNum
+    If RequestNum <> "" Then tmp.Set "RequestNum", RequestNum
     If altSubject <> "" Then tmp.Set "altSubject", altSubject
 
     Dim msgs : Set msgs = JSON.parse("[]")
@@ -412,7 +412,7 @@ Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSend
 
     Dim postData : postData = m_PopbillBase.toString(tmp)
     Dim result : Set result = m_PopbillBase.httpPost_Files("/FMS", m_PopbillBase.getSession_Token(CorpNum), postData, filePath, UserID)
-    SendFMS = result.receiptNum
+    SendFMS = result.ReceiptNum
 End Function
 
 
@@ -504,9 +504,9 @@ Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, 
 End Function
 
 '예약전송 일부 취소 (접수번호)
-Public Function CancelReservebyRCV(CorpNum, receiptNum,receiverNum, UserID)
-    IF isNull(receiptNum) Or receiptNum = "" Then
-        Err.raise receiptNum, "POPBILL", "접수번호가 입력되지 않았습니다."
+Public Function CancelReservebyRCV(CorpNum, ReceiptNum,receiverNum, UserID)
+    IF isNull(ReceiptNum) Or ReceiptNum = "" Then
+        Err.raise ReceiptNum, "POPBILL", "접수번호가 입력되지 않았습니다."
     End IF
     IF isNull(receiverNum) Or receiverNum = "" Then
         Err.raise receiverNum, "POPBILL", "수신번호가 입력되지 않았습니다."
@@ -516,16 +516,16 @@ Public Function CancelReservebyRCV(CorpNum, receiptNum,receiverNum, UserID)
     m_CancelReserve.receiverNum = receiverNum
     Dim tmp : Set tmp = m_CancelReserve.toJsonInfo
 
-    Dim uri : uri = "/KakaoTalk/" & receiptNum & "/Cancel"
+    Dim uri : uri = "/KakaoTalk/" & ReceiptNum & "/Cancel"
     Dim postData: postData = m_popbillBase.toString(tmp)
 
     Set CancelReservebyRCV = m_popbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 End Function
 
 '예약전송 일부 취소 (전송 요청번호)
-Public Function CancelReserveRNbyRCV(CorpNum, requestNum, receiverNum, UserID)
-    IF isNull(requestNum) Or requestNum = "" Then
-        Err.raise requestNum, "POPBILL", "전송요청번호가 입력되지 않았습니다."
+Public Function CancelReserveRNbyRCV(CorpNum, RequestNum, receiverNum, UserID)
+    IF isNull(RequestNum) Or RequestNum = "" Then
+        Err.raise RequestNum, "POPBILL", "전송요청번호가 입력되지 않았습니다."
     End IF
     IF isNull(receiverNum) Or  receiverNum = "" Then
         Err.raise receiverNum, "POPBILL", "수신번호가 입력되지 않았습니다."
@@ -535,7 +535,7 @@ Public Function CancelReserveRNbyRCV(CorpNum, requestNum, receiverNum, UserID)
     m_CancelReserve.receiverNum = receiverNum
     Dim tmp : Set tmp = m_CancelReserve.toJsonInfo
 
-    Dim uri : uri = "/KakaoTalk/Cancel/" & requestNum
+    Dim uri : uri = "/KakaoTalk/Cancel/" & RequestNum
     Dim postData: postData = m_popbillBase.toString(tmp)
 
     Set CancelReserveRNbyRCV = m_popbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
@@ -547,7 +547,7 @@ End Class ' end of KakaoService class
 Class KakaoSentDetail
     Public state
     Public sendDT
-    Public receiveNum
+    Public ReceiveNum
     Public receiveName
     Public contentType
     Public content
@@ -559,15 +559,15 @@ Class KakaoSentDetail
     Public altSendDT
     Public altResult
     Public altResultDT
-    Public requestNum
-    Public receiptNum
+    Public RequestNum
+    Public ReceiptNum
     Public interOPRefKey
 
     Public Sub fromJsonInfo(detailInfo)
         On Error Resume Next
             state = detailInfo.state
             sendDT = detailInfo.sendDT
-            receiveNum = detailInfo.receiveNum
+            ReceiveNum = detailInfo.ReceiveNum
             receiveName = detailInfo.receiveName
             contentType = detailInfo.contentType
             content = detailInfo.content
@@ -579,8 +579,8 @@ Class KakaoSentDetail
             altSendDT = detailInfo.altSendDT
             altResult = detailInfo.altResult
             altResultDT = detailInfo.altResultDT
-            requestNum = detailInfo.requestNum
-            receiptNum = detailInfo.receiptNum
+            RequestNum = detailInfo.RequestNum
+            ReceiptNum = detailInfo.ReceiptNum
             interOPRefKey = detailInfo.interOPRefKey
         on Error GoTo 0
     End Sub

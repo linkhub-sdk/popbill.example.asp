@@ -12,7 +12,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     '전송유형 (SMS - 단문, LMS - 장문, MMS-포토)
     sendType = "SMS"
@@ -22,7 +22,7 @@
 
     On Error Resume Next
 
-    Set result = m_MessageService.GetChargeInfo ( testCorpNum, sendType, UserID )
+    Set result = m_MessageService.GetChargeInfo ( CorpNum, sendType, UserID )
 
     If Err.Number <> 0 Then
         code = Err.Number

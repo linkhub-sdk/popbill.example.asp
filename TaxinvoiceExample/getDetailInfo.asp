@@ -12,7 +12,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외 10자리
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 세금계산서 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
     KeyType = "SELL"
@@ -22,7 +22,7 @@
 
     On Error Resume Next
 
-    Set taxInfo = m_TaxinvoiceService.GetDetailInfo(testCorpNum, KeyType, MgtKey)
+    Set taxInfo = m_TaxinvoiceService.GetDetailInfo(CorpNum, KeyType, MgtKey)
 
     If Err.Number <> 0 Then
         code = Err.Number

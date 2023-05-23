@@ -12,7 +12,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
 
     ' 일자 유형 ("R" , "T" , "I" 중 택 1)
@@ -79,7 +79,7 @@
 
     On Error Resume Next
 
-    Set SearchResult = m_CashbillService.Search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt, TaxationType, Order, Page, PerPage, QString, FranchiseTaxRegID)
+    Set SearchResult = m_CashbillService.Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt, TaxationType, Order, Page, PerPage, QString, FranchiseTaxRegID)
 
     If Err.Number <> 0 then
         code = Err.Number

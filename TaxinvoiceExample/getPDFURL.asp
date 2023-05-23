@@ -13,10 +13,10 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 세금계산서 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
     KeyType= "SELL"
@@ -26,7 +26,7 @@
 
     On Error Resume Next
 
-    url = m_TaxinvoiceService.GetPDFURL(testCorpNum, KeyType, MgtKey, userID)
+    url = m_TaxinvoiceService.GetPDFURL(CorpNum, KeyType, MgtKey, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

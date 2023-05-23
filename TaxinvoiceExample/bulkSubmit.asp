@@ -14,7 +14,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 제출아이디, 최대 36자리 (영문, 숫자, "-" 조합)
     SubmitID = "20220720-ASP-BULK001"
@@ -27,7 +27,7 @@
     forceIssue = False
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
 
     Dim taxinvoiceList(99)
@@ -271,7 +271,7 @@
 
     On Error Resume Next
 
-    Set Presponse = m_TaxinvoiceService.BulkSubmit(testCorpNum, SubmitID, taxinvoiceList, forceIssue, userID)
+    Set Presponse = m_TaxinvoiceService.BulkSubmit(CorpNum, SubmitID, taxinvoiceList, forceIssue, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

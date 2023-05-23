@@ -12,7 +12,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 홈택스에서 생성한 전자세금계산서 부서사용자 아이디
     deptUserID = "userid_test"
@@ -21,11 +21,11 @@
     deptUserPWD = "passwd_test"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     On Error Resume Next
 
-    Set Presponse = m_HTTaxinvoiceService.RegistDeptUser(testCorpNum, deptUserID, deptUserPWD, userID)
+    Set Presponse = m_HTTaxinvoiceService.RegistDeptUser(CorpNum, deptUserID, deptUserPWD, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

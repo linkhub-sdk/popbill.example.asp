@@ -13,7 +13,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 제출아이디, 최대 36자리 (영문, 숫자, "-" 조합)
     SubmitID = "20220720-ASP-BULK001"
@@ -23,7 +23,7 @@
 
     On Error Resume Next
 
-    Set result = m_TaxinvoiceService.GetBulkResult(testCorpNum, SubmitID, UserID)
+    Set result = m_TaxinvoiceService.GetBulkResult(CorpNum, SubmitID, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

@@ -12,7 +12,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
     UserID = ""
@@ -45,7 +45,7 @@
 
     On Error Resume Next
 
-    Set result = m_HTCashbillService.Search(testCorpNum, JobID, TradeType, TradeUsage, Page, PerPage, Order, UserID)
+    Set result = m_HTCashbillService.Search(CorpNum, JobID, TradeType, TradeUsage, Page, PerPage, Order, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

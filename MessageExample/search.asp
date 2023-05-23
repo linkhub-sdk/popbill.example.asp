@@ -14,7 +14,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 시작일자
     SDate = "20220701"
@@ -65,7 +65,7 @@
 
     On Error Resume Next
 
-    Set resultObj = m_MessageService.Search(testCorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
+    Set resultObj = m_MessageService.Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
 
     If Err.Number <> 0 then
         code = Err.Number
@@ -102,7 +102,7 @@
                                 <li>content (메시지 내용) : <%=resultObj.list(i).content%> </li>
                                 <li>sendnum (발신번호) : <%=resultObj.list(i).sendnum%> </li>
                                 <li>senderName (발신자명) : <%=resultObj.list(i).senderName%> </li>
-                                <li>receiveNum (수신번호) : <%=resultObj.list(i).receiveNum%> </li>
+                                <li>ReceiveNum (수신번호) : <%=resultObj.list(i).ReceiveNum%> </li>
                                 <li>receiveName (수신자명) : <%=resultObj.list(i).receiveName%> </li>
                                 <li>receiptDT (접수일시) : <%=resultObj.list(i).receiptDT%> </li>
                                 <li>sendDT (전송일시) : <%=resultObj.list(i).sendDT%> </li>
@@ -112,8 +112,8 @@
                                 <li>result (전송결과 코드) : <%=resultObj.list(i).result%> </li>
                                 <li>type (메시지 유형) : <%=resultObj.list(i).msgType%> </li>
                                 <li>tranNet (전송처리 이동통신사명) : <%=resultObj.list(i).tranNet%> </li>
-                                <li>receiptNum (접수번호) : <%=resultObj.list(i).receiptNum%> </li>
-                                <li>requestNum (요청번호) : <%=resultObj.list(i).requestNum%> </li>
+                                <li>ReceiptNum (접수번호) : <%=resultObj.list(i).ReceiptNum%> </li>
+                                <li>RequestNum (요청번호) : <%=resultObj.list(i).RequestNum%> </li>
                                 <li>interOPRefKey (파트너 지정키) : <%=resultObj.list(i).interOPRefKey%> </li>
                             </ul>
                         </fieldset>

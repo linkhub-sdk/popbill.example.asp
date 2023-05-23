@@ -16,10 +16,10 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
 
     ' 세금계산서 정보 객체 생성
@@ -101,7 +101,7 @@
     ' - {invoiceeType}이 "사업자" 인 경우, 사업자번호 (하이픈 ('-') 제외 10자리)
     ' - {invoiceeType}이 "개인" 인 경우, 주민등록번호 (하이픈 ('-') 제외 13자리)
     ' - {invoiceeType}이 "외국인" 인 경우, "9999999999999" (하이픈 ('-') 제외 13자리)
-    newTaxinvoice.invoiceeCorpNum = testCorpNum
+    newTaxinvoice.invoiceeCorpNum = CorpNum
 
     ' 공급받는자 종사업자 식별번호. 필요시 숫자 4자리 기재
     newTaxinvoice.invoiceeTaxRegID = ""
@@ -229,7 +229,7 @@
 
     On Error Resume Next
 
-    Set Presponse = m_TaxinvoiceService.RegistRequest(testCorpNum, newTaxinvoice, memo, userID)
+    Set Presponse = m_TaxinvoiceService.RegistRequest(CorpNum, newTaxinvoice, memo, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

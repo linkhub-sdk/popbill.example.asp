@@ -13,17 +13,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' TBOX(임시문서함), PBOX(발행문서함), WRITE(현금영수증 작성)
     TOGO = "PBOX"
 
     On Error Resume Next
 
-    url = m_CashbillService.GetURL(testCorpNum, userID, TOGO)
+    url = m_CashbillService.GetURL(CorpNum, UserID, TOGO)
 
     If Err.Number <> 0 then
         code = Err.Number

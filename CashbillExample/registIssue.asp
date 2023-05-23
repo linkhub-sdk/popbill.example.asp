@@ -14,10 +14,10 @@
 
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 문서번호, 가맹점 사업자단위 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
     mgtKey = "20221109-ASP-001"
@@ -59,7 +59,7 @@
 
 
     ' 가맹점 사업자번호, "-" 제외 10자리
-    CashbillObj.franchiseCorpNum = testCorpNum
+    CashbillObj.franchiseCorpNum = CorpNum
 
     ' 가맹점 종사업장 식별번호
     CashbillObj.franchiseTaxRegID = ""
@@ -109,7 +109,7 @@
 
     On Error Resume Next
 
-    Set Presponse = m_CashbillService.RegistIssue(testCorpNum, CashbillObj, memo, emailSubject, userID)
+    Set Presponse = m_CashbillService.RegistIssue(CorpNum, CashbillObj, memo, emailSubject, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

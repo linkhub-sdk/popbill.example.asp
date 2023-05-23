@@ -12,7 +12,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
     KeyType = "SELL"
@@ -29,7 +29,7 @@
 
     On Error Resume Next
 
-    Set Presponse = m_TaxinvoiceService.DetachStatement(testCorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey)
+    Set Presponse = m_TaxinvoiceService.DetachStatement(CorpNum, KeyType, MgtKey, SubItemCode, SubMgtKey)
 
     If Err.Number <> 0 Then
         code = Err.Number

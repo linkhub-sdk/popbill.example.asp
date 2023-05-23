@@ -532,12 +532,12 @@ Public Function FAXSend(CorpNum, ByRef statement, SendNum, ReceiveNum, UserID)
 
 	Dim tmpDic : Set tmpDic = statement.toJsonInfo
 	tmpDic.Set "sendNum", SendNum
-	tmpDic.Set "receiveNum", ReceiveNum
+	tmpDic.Set "ReceiveNum", ReceiveNum
 
 	Dim postData : postData = m_PopbillBase.toString(tmpDic)
 
 	Dim result : Set result = m_PopbillBase.httpPOST("/Statement", m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
-	FAXSend = result.receiptNum
+	FAXSend = result.ReceiptNum
 
 End Function
 

@@ -13,7 +13,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     '팝빌회원 아이디
     UserID = "testkorea"
@@ -36,7 +36,7 @@
 
     On Error Resume Next
 
-    Set result = m_EasyFinBankService.Summary(testCorpNum, JobID, TradeType, SearchString, UserID)
+    Set result = m_EasyFinBankService.Summary(CorpNum, JobID, TradeType, SearchString, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

@@ -12,11 +12,11 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     On Error Resume Next
 
-    Set Presponse = m_MessageService.GetAutoDenyList(testCorpNum)
+    Set Presponse = m_MessageService.GetAutoDenyList(CorpNum)
 
     If Err.Number <> 0 Then
         code = Err.Number

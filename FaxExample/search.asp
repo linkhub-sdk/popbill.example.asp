@@ -13,7 +13,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     '시작일자, yyyyMMdd
     SDate = "20220701"
@@ -56,7 +56,7 @@
 
     On Error Resume Next
 
-    Set result = m_FaxService.Search(testCorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Order, Page, PerPage, QString)
+    Set result = m_FaxService.Search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnlyYN, Order, Page, PerPage, QString)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -93,8 +93,8 @@
                                 <li>result (전송결과 코드) : <%=result.list(i).result%> </li>
                                 <li>sendNum (발신번호) : <%=result.list(i).sendNum%> </li>
                                 <li>senderName (발신자명) : <%=result.list(i).senderName%> </li>
-                                <li>receiveNum (수신번호) : <%=result.list(i).receiveNum%> </li>
-                                <li>receiveNumType (수신번호 유형) : <%=result.list(i).receiveNumType%> </li>
+                                <li>ReceiveNum (수신번호) : <%=result.list(i).ReceiveNum%> </li>
+                                <li>ReceiveNumType (수신번호 유형) : <%=result.list(i).ReceiveNumType%> </li>
                                 <li>receiveName (수신자명) : <%=result.list(i).receiveName%> </li>
                                 <li>title (팩스 제목) : <%=result.list(i).title %> </li>
                                 <li>sendPageCnt (페이지수) : <%=result.list(i).sendPageCnt%></li>
@@ -107,8 +107,8 @@
                                 <li>receiptDT (전송 접수시간) : <%=result.list(i).receiptDT%></li>
                                 <li>fileNames (전송파일명 배열) : <%=result.list(i).fileNames%></li>
                                 <li>interOPRefKey (파트너 지정키) : <%=result.list(i).interOPRefKey%> </li>
-                                <li>receiptNum (접수번호) : <%=result.list(i).receiptNum%> </li>
-                                <li>requestNum (요청번호) : <%=result.list(i).requestNum%> </li>
+                                <li>ReceiptNum (접수번호) : <%=result.list(i).ReceiptNum%> </li>
+                                <li>RequestNum (요청번호) : <%=result.list(i).RequestNum%> </li>
                                 <li>chargePageCnt (과금 페이지수) : <%=result.list(i).chargePageCnt%> </li>
                                 <li>tiffFileSize (변환파일용량 (단위 : byte)) : <%=result.list(i).tiffFileSize%> </li>
                             </ul>

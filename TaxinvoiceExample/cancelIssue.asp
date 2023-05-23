@@ -13,7 +13,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
     testUserID = "testkorea"
@@ -29,7 +29,7 @@
 
     On Error Resume Next
 
-    Set Presponse = m_TaxinvoiceService.CancelIssue(testCorpNum, KeyType ,MgtKey, Memo, testUserID)
+    Set Presponse = m_TaxinvoiceService.CancelIssue(CorpNum, KeyType ,MgtKey, Memo, testUserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

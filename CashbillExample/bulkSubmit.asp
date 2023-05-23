@@ -12,13 +12,13 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 제출아이디, 최대 36자리 (영문, 숫자, "-" 조합)
     SubmitID = "20220720-ASP-BULK001"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     Dim cashbillList(99)
     for i = 0 to 99
@@ -59,7 +59,7 @@
         CashbillObj.totalAmount = "11000"
 
         ' 가맹점 사업자번호, "-" 제외 10자리
-        CashbillObj.franchiseCorpNum = testCorpNum
+        CashbillObj.franchiseCorpNum = CorpNum
 
         ' 가맹점 종사업장 식별번호
         CashbillObj.franchiseTaxRegID = ""
@@ -112,7 +112,7 @@
 
     On Error Resume Next
 
-    Set Presponse = m_CashbillService.BulkSubmit(testCorpNum, SubmitID, cashbillList, userID)
+    Set Presponse = m_CashbillService.BulkSubmit(CorpNum, SubmitID, cashbillList, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

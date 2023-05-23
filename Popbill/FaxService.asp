@@ -108,7 +108,7 @@ Public Function CheckID(id)
 End Function
 '과금정보 확인
 Public Function GetChargeInfo ( CorpNum, UserID, ReceiveNumType )
-	Dim result : Set result = m_PopbillBase.httpGET("/FAX/ChargeInfo?receiveNumType=" & ReceiveNumType, m_PopbillBase.getSession_token(CorpNum), UserID)
+	Dim result : Set result = m_PopbillBase.httpGET("/FAX/ChargeInfo?ReceiveNumType=" & ReceiveNumType, m_PopbillBase.getSession_token(CorpNum), UserID)
 
 	Dim chrgInfo : Set chrgInfo = New ChargeInfo
 	chrgInfo.fromJsonInfo result
@@ -165,7 +165,7 @@ End Function
 
 ''단가확인
 Public Function GetUnitCost(CorpNum, ReceiveNumType)
-	Dim result : Set result = m_PopbillBase.httpGET("/FAX/UnitCost?receiveNumType=" & ReceiveNumType, m_PopbillBase.getSession_token(CorpNum),"")
+	Dim result : Set result = m_PopbillBase.httpGET("/FAX/UnitCost?ReceiveNumType=" & ReceiveNumType, m_PopbillBase.getSession_token(CorpNum),"")
 	GetUnitCost = result.unitCost
 End Function
 
@@ -215,7 +215,7 @@ Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
 End Function
 
 '팩스 전송
-Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT , UserID, adsYN, title, requestNum)
+Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT , UserID, adsYN, title, RequestNum)
 	If isNull(receivers) Or IsEmpty(receivers) Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
 	If UBound(receivers) < 0 Then Err.Raise -99999999, "POPBILL", "수신자정보 가 입력되지 않았습니다."
 	If isNull(FilePaths) Or IsEmpty(FilePaths) Then Err.Raise -99999999, "POPBILL", "전송할 파일경로가 입력되지 않았습니다."
@@ -227,7 +227,7 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
 	If reserveDT <> "" Then Form.set "sndDT", reserveDT
   	If adsYN Then Form.Set "adsYN", adsYN
 	If title <> "" Then Form.set "title", title
-	If requestNum <> "" Then Form.set "requestNum", requestNum
+	If RequestNum <> "" Then Form.set "RequestNum", RequestNum
 
 	Form.set "fCnt", UBound(FilePaths) + 1
 
@@ -246,20 +246,20 @@ Public Function SendFAX(CorpNum , sendNum , receivers , FilePaths ,  reserveDT ,
 	Dim postData : postData = m_PopbillBase.toString(Form)
 	Dim result : Set result = m_PopbillBase.httpPOST_Files("/FAX", m_PopbillBase.getSession_token(CorpNum), postData, FilePaths, UserID)
 
-	SendFAX = result.receiptNum
+	SendFAX = result.ReceiptNum
 End Function
 
 
 '팩스 재전송
-Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  reserveDT , UserID, title, requestNum)
-	If isNull(receiptNum) Or IsEmpty(receiptNum) Then Err.Raise -99999999, "POPBILL", "팩스 접수번호(receiptNum)가 입력되지 않았습니다."
+Public Function ResendFAX(CorpNum, ReceiptNum, sendNum, senderName, receivers,  reserveDT , UserID, title, RequestNum)
+	If isNull(ReceiptNum) Or IsEmpty(ReceiptNum) Then Err.Raise -99999999, "POPBILL", "팩스 접수번호(ReceiptNum)가 입력되지 않았습니다."
 
 	Dim Form : Set Form = JSON.parse("{}")
 
 	If sendNum <> "" Then Form.set "snd", sendNum
 	If senderName <> "" Then Form.set "sndnm", senderName
 	If reserveDT <> "" Then Form.set "sndDT", reserveDT
-	If requestNum <> "" Then Form.set "requestNum", requestNum
+	If RequestNum <> "" Then Form.set "RequestNum", RequestNum
 
 	If title <> "" Then Form.set "title", title
 
@@ -277,21 +277,21 @@ Public Function ResendFAX(CorpNum, receiptNum, sendNum, senderName, receivers,  
 	End If
 
 	Dim postData : postData = m_PopbillBase.toString(Form)
-	Dim result : Set result = m_PopbillBase.httpPOST("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
+	Dim result : Set result = m_PopbillBase.httpPOST("/FAX/"&ReceiptNum, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 
-	ResendFAX = result.receiptNum
+	ResendFAX = result.ReceiptNum
 End Function
 
 
 '팩스 재전송 (요청번호 할당)
-Public Function ResendFAXRN(CorpNum, orgRequestNum, sendNum, senderName, receivers,  reserveDT , UserID, title, requestNum)
+Public Function ResendFAXRN(CorpNum, orgRequestNum, sendNum, senderName, receivers,  reserveDT , UserID, title, RequestNum)
 	If isNull(orgRequestNum) Or IsEmpty(orgRequestNum) Then Err.Raise -99999999, "POPBILL", "원본 팩스 요청번호가 입력되지 않았습니다."
 	Dim Form : Set Form = JSON.parse("{}")
 
 	If sendNum <> "" Then Form.set "snd", sendNum
 	If senderName <> "" Then Form.set "sndnm", senderName
 	If reserveDT <> "" Then Form.set "sndDT", reserveDT
-	If requestNum <> "" Then Form.set "requestNum", requestNum
+	If RequestNum <> "" Then Form.set "RequestNum", RequestNum
 	If title <> "" Then Form.set "title", title
 
 	If UBound(receivers) >= 0 Then
@@ -310,17 +310,17 @@ Public Function ResendFAXRN(CorpNum, orgRequestNum, sendNum, senderName, receive
 	Dim postData : postData = m_PopbillBase.toString(Form)
 	Dim result : Set result = m_PopbillBase.httpPOST("/FAX/Resend/"&orgRequestNum, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 
-	ResendFAXRN = result.receiptNum
+	ResendFAXRN = result.ReceiptNum
 End Function
 
 
 '팩스 전송결과 확인
-Public Function GetFaxDetail(CorpNum, receiptNum, UserID)
-	If  isEmpty(receiptNum) Then
-        	Err.Raise -99999999, "POPBILL", "팩스 접수번호(receiptNum)가 입력되지 않았습니다."
+Public Function GetFaxDetail(CorpNum, ReceiptNum, UserID)
+	If  isEmpty(ReceiptNum) Then
+        	Err.Raise -99999999, "POPBILL", "팩스 접수번호(ReceiptNum)가 입력되지 않았습니다."
 	End If
 
-	Dim result : Set result = m_PopbillBase.httpGET("/FAX/"&receiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
+	Dim result : Set result = m_PopbillBase.httpGET("/FAX/"&ReceiptNum, m_PopbillBase.getSession_token(CorpNum),UserID)
 
 	Dim tmp : Set tmp = CreateObject("Scripting.Dictionary")
 
@@ -423,8 +423,8 @@ Public sendState
 Public convState
 Public sendNum
 Public senderName
-Public receiveNum
-Public receiveNumType
+Public ReceiveNum
+Public ReceiveNumType
 Public receiveName
 Public sendPageCnt
 Public successPageCnt
@@ -437,8 +437,8 @@ Public resultDT
 Public sendResult
 Public receiptDT
 Public fileNames
-Public requestNum
-Public receiptNum
+Public RequestNum
+Public ReceiptNum
 Public interOPRefKey
 Public chargePageCnt
 Public tiffFileSize
@@ -453,8 +453,8 @@ Public Sub fromJsonInfo(jsonInfo)
 	convState = jsonInfo.convState
 	sendNum = jsonInfo.sendNum
 	senderName = jsonInfo.senderName
-	receiveNum = jsonInfo.receiveNum
-	receiveNum = jsonInfo.receiveNumType
+	ReceiveNum = jsonInfo.ReceiveNum
+	ReceiveNum = jsonInfo.ReceiveNumType
 	receiveName = jsonInfo.receiveName
 	sendPageCnt = jsonInfo.sendPageCnt
 	successPageCnt = jsonInfo.successPageCnt
@@ -468,8 +468,8 @@ Public Sub fromJsonInfo(jsonInfo)
 	sendResult = jsonInfo.sendResult
 	receiptDT = jsonInfo.receiptDT
 	fileNames = jsonInfo.fileNames
-	requestNum = jsonInfo.requestNum
-	receiptNum = jsonInfo.receiptNum
+	RequestNum = jsonInfo.RequestNum
+	ReceiptNum = jsonInfo.ReceiptNum
 	interOPRefKey = jsonInfo.interOPRefKey
 	chargePageCnt = jsonInfo.chargePageCnt
 	tiffFileSize = jsonInfo.tiffFileSize

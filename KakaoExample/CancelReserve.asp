@@ -12,17 +12,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 카카오톡 전송시 발급받은 접수번호(ReceiptNum)
-    receiptNum = "018031513173900001"
+    ReceiptNum = "018031513173900001"
 
     On Error Resume Next
 
-    Set result = m_KakaoService.CancelReserve(testCorpNum, receiptNum, userID)
+    Set result = m_KakaoService.CancelReserve(CorpNum, ReceiptNum, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number

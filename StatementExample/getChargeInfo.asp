@@ -12,7 +12,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
     itemCode = "121"
@@ -22,7 +22,7 @@
 
     On Error Resume Next
 
-    Set result = m_StatementService.GetChargeInfo(testCorpNum, ItemCode, UserID)
+    Set result = m_StatementService.GetChargeInfo(CorpNum, ItemCode, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

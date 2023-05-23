@@ -12,17 +12,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
-    ' 전송 요청시 할당한 전송요청번호(requestNum)
-    requestNum = "20220720-0011"
+    ' 전송 요청시 할당한 전송요청번호(RequestNum)
+    RequestNum = "20220720-0011"
 
     On Error Resume Next
 
-    Set result = m_KakaoService.GetMessagesRN(testCorpNum, requestNum, UserID)
+    Set result = m_KakaoService.GetMessagesRN(CorpNum, RequestNum, UserID)
 
     If Err.Number <> 0 then
         code = Err.Number
@@ -82,7 +82,7 @@
                             <ul>
                                 <li>state (전송상태 코드) : <%=result.msgs(i).state%> </li>
                                 <li>sendDT (전송일시) : <%=result.msgs(i).sendDT%> </li>
-                                <li>receiveNum (수신번호) : <%=result.msgs(i).receiveNum%> </li>
+                                <li>ReceiveNum (수신번호) : <%=result.msgs(i).ReceiveNum%> </li>
                                 <li>receiveName (수신자명) : <%=result.msgs(i).receiveName%> </li>
                                 <li>content (알림톡/친구톡 내용) : <%=result.msgs(i).content%> </li>
                                 <li>result (알림톡/친구톡 전송결과 코드) : <%=result.msgs(i).result%> </li>
@@ -92,8 +92,8 @@
                                 <li>altSendDT (대체문자 전송일시) : <%=result.msgs(i).altSendDT%> </li>
                                 <li>altResult (대체문자 전송결과 코드) : <%=result.msgs(i).altResult%> </li>
                                 <li>altResultDT (대체문자 전송결과 수신일시) : <%=result.msgs(i).altResultDT%> </li>
-                                <li>receiptNum (접수번호) : <%=result.msgs(i).receiptNum%> </li>
-                                <li>requestNum (요청번호) : <%=result.msgs(i).requestNum%> </li>
+                                <li>ReceiptNum (접수번호) : <%=result.msgs(i).ReceiptNum%> </li>
+                                <li>RequestNum (요청번호) : <%=result.msgs(i).RequestNum%> </li>
                                 <li>interOPRefKey (파트너 지정키) : <%=result.msgs(i).interOPRefKey%> </li>
                             </ul>
                         </fieldset>

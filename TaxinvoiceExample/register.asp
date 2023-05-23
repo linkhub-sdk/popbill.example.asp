@@ -17,10 +17,10 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 세금계산서 정보 객체 생성
     Set newTaxinvoice = New Taxinvoice
@@ -266,7 +266,7 @@
 
     On Error Resume Next
 
-    Set Presponse = m_TaxinvoiceService.Register(testCorpNum, newTaxinvoice, writeSpecificationYN, userID)
+    Set Presponse = m_TaxinvoiceService.Register(CorpNum, newTaxinvoice, writeSpecificationYN, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

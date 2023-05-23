@@ -12,11 +12,11 @@
     '**************************************************************
 
     ' 사업자번호 ("-"제외)
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     On Error Resume Next
 
-    Set Presponse = m_MessageService.CheckIsMember(testCorpNum,LinkID)
+    Set Presponse = m_MessageService.CheckIsMember(CorpNum,LinkID)
 
     If Err.Number <> 0 Then
         code = Err.Number

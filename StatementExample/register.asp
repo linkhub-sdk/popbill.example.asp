@@ -13,10 +13,10 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 문서번호, 발행자별 고유번호 할당, 1~24자리 영문,숫자조합으로 중복없이 구성.
     mgtKey = "20220720-ASP-002"
@@ -49,7 +49,7 @@
     '**************************************************************
 
     ' 발신자 사업자번호, '-' 제외 10자리
-    newStatement.senderCorpNum = testCorpNum
+    newStatement.senderCorpNum = CorpNum
 
     ' 발신자 종사업장 식별번호, 필요시 기재, 형식은 숫자 4자리
     newStatement.senderTaxRegID = ""
@@ -210,7 +210,7 @@
 
     On Error Resume Next
 
-    Set result = m_StatementService.Register(testCorpNum, newStatement, userID)
+    Set result = m_StatementService.Register(CorpNum, newStatement, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

@@ -14,7 +14,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
     testUserID = "testkorea"
@@ -98,7 +98,7 @@
     ' 전송요청번호
     ' 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
     ' 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
-    requestNum = ""
+    RequestNum = ""
 
     ' 알림톡 버튼정보를 템플릿 신청시 기재한 버튼정보와 동일하게 전송하거나,
     ' 수신자별 개별 버튼 사용하는 경우 btnList를 선언만 하고 함수호출.
@@ -114,7 +114,7 @@
 
     On Error Resume Next
 
-    receiptNum = m_KakaoService.SendATS(testCorpNum, templateCode, senderNum, "", "", altSendType, reserveDT, receiverList, requestNum, testUserID, btnList, altSubject)
+    ReceiptNum = m_KakaoService.SendATS(CorpNum, templateCode, senderNum, "", "", altSendType, reserveDT, receiverList, RequestNum, testUserID, btnList, altSubject)
 
     If Err.Number <> 0 then
         code = Err.Number
@@ -132,7 +132,7 @@
                 <legend>알림톡 개별내용 대량전송</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(접수번호) : <%=receiptNum%> </li>
+                        <li>ReceiptNum(접수번호) : <%=ReceiptNum%> </li>
                     </ul>
                 <% Else %>
                     <ul>

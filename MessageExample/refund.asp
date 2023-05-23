@@ -12,7 +12,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     Dim m_RefundForm : Set m_RefundForm = New RefundForm
     '담당자명
@@ -42,7 +42,7 @@
 
     On Error Resume Next
 
-    Set result = m_MessageService.Refund(testCorpNum, m_RefundForm, UserID)
+    Set result = m_MessageService.Refund(CorpNum, m_RefundForm, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

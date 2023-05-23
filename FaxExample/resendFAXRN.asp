@@ -15,12 +15,12 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
-    ' 원본 팩스 전송시 할당한 전송요청번호(requestNum)
+    ' 원본 팩스 전송시 할당한 전송요청번호(RequestNum)
     orgRequestNum = "1"
 
     ' 발신자 번호
@@ -52,11 +52,11 @@
     ' 재전송 팩스의 전송요청번호
     ' 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
     ' 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
-    requestNum = ""
+    RequestNum = ""
 
     On Error Resume Next
 
-    url = m_FaxService.ResendFAXRN(testCorpNum, orgRequestNum, sendNum, senderName, receivers, reserveDT , userID, title, requestNum)
+    url = m_FaxService.ResendFAXRN(CorpNum, orgRequestNum, sendNum, senderName, receivers, reserveDT , UserID, title, RequestNum)
 
     If Err.Number <> 0 then
         code = Err.Number

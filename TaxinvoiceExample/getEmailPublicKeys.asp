@@ -12,11 +12,11 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외 10자리
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     On Error Resume Next
 
-    Set Presponse = m_TaxinvoiceService.GetEmailPublicKeys(testCorpNum)
+    Set Presponse = m_TaxinvoiceService.GetEmailPublicKeys(CorpNum)
 
     If Err.Number <> 0 then
         Response.Write("Error Number -> " & Err.Number)

@@ -15,7 +15,7 @@
     '**************************************************************
 
     '팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     '탈퇴 사유 객체
     Set m_QuitReason = New QuitReason
@@ -28,7 +28,7 @@
 
     On Error Resume Next
 
-    Set result =m_BizInfoCheckService.QuitMember(testCorpNum, m_QuitReason, UserID)
+    Set result =m_BizInfoCheckService.QuitMember(CorpNum, m_QuitReason, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

@@ -14,7 +14,7 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 발행유형 SELL(매출), BUY(매입), TRUSTEE(위수탁)
     KeyType = "SELL"
@@ -30,7 +30,7 @@
 
     On Error Resume Next
 
-    Set result = m_TaxinvoiceService.GetInfos(testCorpNum, KeyType, MgtKeyList, UserID)
+    Set result = m_TaxinvoiceService.GetInfos(CorpNum, KeyType, MgtKeyList, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number

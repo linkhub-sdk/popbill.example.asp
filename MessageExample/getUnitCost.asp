@@ -12,17 +12,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
     ' 전송유형 (SMS - 단문, LMS - 장문, MMS - 포토)
     sendType = "SMS"
 
     On Error Resume Next
 
-    unitCost = m_MessageService.GetUnitCost(testCorpNum, sendType)
+    unitCost = m_MessageService.GetUnitCost(CorpNum, sendType)
 
     If Err.Number <> 0 then
         code = Err.Number

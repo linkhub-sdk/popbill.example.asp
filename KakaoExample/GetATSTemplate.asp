@@ -12,7 +12,7 @@
         '**************************************************************
 
         ' 팝빌회원 사업자번호, "-" 제외
-        testCorpNum = "1234567890"
+        CorpNum = "1234567890"
 
         ' 템플릿 코드
         templateCode = "021120000347"
@@ -22,7 +22,7 @@
 
         On Error Resume Next
 
-        Set resultObj = m_KakaoService.GetATSTemplate(testCorpNum, templateCode, UserID)
+        Set resultObj = m_KakaoService.GetATSTemplate(CorpNum, templateCode, UserID)
 
         If Err.Number <> 0 then
             code = Err.Number

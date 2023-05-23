@@ -14,11 +14,11 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     On Error Resume Next
 
-    ntsConfig = m_TaxinvoiceService.GetSendToNTSConfig(testCorpNum)
+    ntsConfig = m_TaxinvoiceService.GetSendToNTSConfig(CorpNum)
 
     If Err.Number <> 0 then
         code = Err.Number

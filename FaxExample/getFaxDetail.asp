@@ -12,17 +12,17 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' 팝빌회원 아이디
-    userID = "testkorea"
+    UserID = "testkorea"
 
-    ' 팩스 전송시 발급받은 접수번호(receiptNum)
-    receiptNum = "021122409581300002"
+    ' 팩스 전송시 발급받은 접수번호(ReceiptNum)
+    ReceiptNum = "021122409581300002"
 
     On Error Resume Next
 
-    Set result = m_FaxService.GetFaxDetail(testCorpNum, receiptNum, userID)
+    Set result = m_FaxService.GetFaxDetail(CorpNum, ReceiptNum, UserID)
 
     If Err.Number <> 0 Then
         code = Err.Number
@@ -51,8 +51,8 @@
                                 <li>result (전송결과 코드) : <%=result.Item(i).result%> </li>
                                 <li>sendNum (발신번호) : <%=result.Item(i).sendNum%> </li>
                                 <li>senderName (발신자명) : <%=result.Item(i).senderName%> </li>
-                                <li>receiveNum (수신번호) : <%=result.Item(i).receiveNum%> </li>
-                                <li>receiveNumType (수신번호 유형) : <%=result.Item(i).receiveNumType%> </li>
+                                <li>ReceiveNum (수신번호) : <%=result.Item(i).ReceiveNum%> </li>
+                                <li>ReceiveNumType (수신번호 유형) : <%=result.Item(i).ReceiveNumType%> </li>
                                 <li>receiveName (수신자명) : <%=result.Item(i).receiveName%> </li>
                                 <li>title (팩스 제목) : <%=result.Item(i).title %> </li>
                                 <li>sendPageCnt (페이지수) : <%=result.Item(i).sendPageCnt%></li>
@@ -63,8 +63,8 @@
                                 <li>sendDT (발송시간) : <%=result.Item(i).sendDT%></li>
                                 <li>receiptDT (전송 접수시간) : <%=result.Item(i).receiptDT%></li>
                                 <li>fileNames (전송파일명 배열) : <%=result.Item(i).fileNames%></li>
-                                <li>receiptNum (접수번호) : <%=result.Item(i).receiptNum%> </li>
-                                <li>requestNum (요청번호) : <%=result.Item(i).requestNum%> </li>
+                                <li>ReceiptNum (접수번호) : <%=result.Item(i).ReceiptNum%> </li>
+                                <li>RequestNum (요청번호) : <%=result.Item(i).RequestNum%> </li>
                                 <li>interOPRefKey (파트너 지정키) : <%=result.Item(i).interOPRefKey%> </li>
                                 <li>chargePageCnt (과금 페이지수) : <%=result.Item(i).chargePageCnt%> </li>
                                 <li>refundPageCnt (환불 페이지수) : <%=result.Item(i).refundPageCnt%></li>

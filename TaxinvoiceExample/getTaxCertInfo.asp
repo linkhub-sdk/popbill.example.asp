@@ -12,11 +12,11 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외 10자리
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     On Error Resume Next
 
-    Set resultObj = m_TaxinvoiceService.GetTaxCertInfo(testCorpNum)
+    Set resultObj = m_TaxinvoiceService.GetTaxCertInfo(CorpNum)
 
     If Err.Number <> 0 Then
         code = Err.Number

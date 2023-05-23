@@ -13,14 +13,14 @@
     '**************************************************************
 
     ' 팝빌회원 사업자번호, "-" 제외
-    testCorpNum = "1234567890"
+    CorpNum = "1234567890"
 
     ' CHRG : 포인트충전 팝업
     TOGO = "CHRG"
 
     On Error Resume Next
 
-    url = m_MessageService.GetPartnerURL(testCorpNum, TOGO)
+    url = m_MessageService.GetPartnerURL(CorpNum, TOGO)
 
     If Err.Number <> 0 then
         code = Err.Number
