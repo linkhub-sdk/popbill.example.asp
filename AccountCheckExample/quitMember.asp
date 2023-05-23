@@ -48,7 +48,7 @@
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
-                        <legend> CorpInfo </legend>
+                        <legend> QuitMember </legend>
                             <ul>
                                 <li> code (응답 코드) : <%=result.code%></li>
                                 <li> message (응답 메시지) : <%=result.message%></li>
