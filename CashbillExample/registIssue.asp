@@ -137,6 +137,9 @@
                     <% If confirmNum <> "" Then %>
                     <li> Response.confirmNum : <%=confirmNum%> </li>
                     <% End If %>
+                    <% If tradeDate <> "" Then %>
+                    <li> Response.tradeDate : <%=tradeDate%> </li>
+                    <% End If %>
                 </ul>
             </fieldset>
         </div>
