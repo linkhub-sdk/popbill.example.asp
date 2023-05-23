@@ -363,8 +363,10 @@ End Function
 
 ' 팝빌회원 탈퇴 (QuitMember)
 Public Function QuitMember(CorpNum, QuitReason, UserID)
-    Dim t_QuitReason: Set t_QuitReason = QuitReason.toJsonInfo
-    Dim postData: postData = m_Linkhub.toString(t_QuitReason)
+    Set quitReasonForm = New QuitReasonForm
+    quitReasonForm.quitReason = QuitReason
+
+    Dim postData: postData = m_Linkhub.toString(quitReasonForm.toJsonInfo)
     Dim tmp: Set tmp  = httpPOST("/QuitRequest", getSession_token(CorpNum), "", postData, UserID)
     Set QuitMember = tmp
 End Function
@@ -867,7 +869,7 @@ Class RefundForm
 End Class
 
 '회원탈퇴 신청 객체정보
-Class QuitReason
+Class QuitReasonForm
     public quitReason
 
     Public Function toJsonInfo()
