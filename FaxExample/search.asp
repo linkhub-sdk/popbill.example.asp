@@ -16,10 +16,10 @@
     CorpNum = "1234567890"
 
     '시작일자, yyyyMMdd
-    SDate = "20220701"
+    SDate = "20230601"
 
     '종료일자, yyyyMMdd
-    EDate = "20220720"
+    EDate = "20230620"
 
     ' 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
     ' └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소
@@ -63,8 +63,8 @@
         message = Err.Description
         Err.Clears
     Else
-        code = Presponse.code
-        message = Presponse.message
+        code = result.code
+        message = result.message
     End If
 
     On Error GoTo 0
@@ -75,15 +75,15 @@
             <br/>
             <fieldset class="fieldset1">
                 <legend>팩스전송 전송내역 조회 </legend>
-                    <ul>
-                        <li> code (응답코드) : <%=result.code%></li>
-                        <li> total (총 검색결과 건수) : <%=result.total%></li>
-                        <li> pageNum (페이지 번호) : <%=result.pageNum%></li>
-                        <li> perPage (페이지당 목록개수) : <%=result.perPage%></li>
-                        <li> pageCount (페이지 개수) : <%=result.pageCount%></li>
-                        <li> message (응답메시지) : <%=result.message%></li>
-                    </ul>
-                <% If code = 0 Then
+                <ul>
+                    <li> code (응답코드) : <%=result.code%></li>
+                    <li> total (총 검색결과 건수) : <%=result.total%></li>
+                    <li> pageNum (페이지 번호) : <%=result.pageNum%></li>
+                    <li> perPage (페이지당 목록개수) : <%=result.perPage%></li>
+                    <li> pageCount (페이지 개수) : <%=result.pageCount%></li>
+                    <li> message (응답메시지) : <%=result.message%></li>
+                </ul>
+                <% If code <> 0 Then
                         For i=0 To UBound(result.list)-1
                 %>
                     <fieldset class="fieldset2">

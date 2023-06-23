@@ -454,7 +454,7 @@ Public Sub fromJsonInfo(jsonInfo)
 	sendNum = jsonInfo.sendNum
 	senderName = jsonInfo.senderName
 	ReceiveNum = jsonInfo.ReceiveNum
-	ReceiveNum = jsonInfo.ReceiveNumType
+	ReceiveNumType = jsonInfo.ReceiveNumType
 	receiveName = jsonInfo.receiveName
 	sendPageCnt = jsonInfo.sendPageCnt
 	successPageCnt = jsonInfo.successPageCnt
