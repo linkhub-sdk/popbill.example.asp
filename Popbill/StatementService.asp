@@ -283,6 +283,18 @@ Public Function AttachFile(CorpNum, itemCode, mgtKey, filePath, UserID)
 	Set AttachFile = m_PopbillBase.httpPOST_File("/Statement/"+CStr(itemCode)+"/"+mgtKey+"/Files", m_PopbillBase.getSession_token(CorpNum), filePath, UserID)
 End Function
 
+'파일 첨부
+Public Function AttachFile(CorpNum, itemCode, mgtKey, DisplayName, filePath, UserID)
+	If mgtKey = "" Or isEmpty(mgtKey) Then
+    	Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+	End If
+
+	If isEmpty(DisplayName) Or DisplayName = "" Then
+		Err.Rais -99999999, "POPBILL", "첨부파일명이 입력되지 않았습니다."
+	End If
+
+	Set AttachFile = m_PopbillBase.httpPOST_File("/Statement/"+CStr(itemCode)+"/"+mgtKey+"/Files", m_PopbillBase.getSession_token(CorpNum), filePath, DisplayName, UserID)
+End Function
 
 '첨부파일 목록
 Public Function GetFiles(CorpNum, itemCode, mgtKey, UserID)

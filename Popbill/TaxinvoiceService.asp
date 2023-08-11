@@ -235,6 +235,20 @@ Public Function AttachFile(CorpNum, KeyType, MgtKey, FilePath, UserID)
     Set AttachFile = m_PopbillBase.httpPOST_File("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files", m_PopbillBase.getSession_token(CorpNum), FilePath, UserID)
 End Function
 
+'파일 첨부
+Public Function AttachFile(CorpNu, KeyType, MgtKey, DisplayName, FilePath, UserID)
+    If MgtKey = "" Then
+        Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
+    End If	
+
+	If DisplayName = "" Then
+		Err.Rais -99999999, "POPBILL, "첨부파일명이 입력되지 않았습니다."
+	End If
+	On Error GoTo 0
+
+	Set AttachFile =  m_PopbillBase.httpPOST_File("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files", m_PopbillBase.getSession_token(CorpNum), FilePath, DisplayName, UserID)
+End Function
+
 '세금계산서 첨부파일 1개 삭제
 Public Function DeleteFile(CorpNum , KeyType , MgtKey , FileID,  UserID )
     If MgtKey = "" Then
