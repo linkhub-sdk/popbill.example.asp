@@ -1,52 +1,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒ©ìŠ¤ 1ê±´ì„ ì „ì†¡í•©ë‹ˆë‹¤. (ìµœëŒ€ ì „ì†¡íŒŒì¼ ê°œìˆ˜: 20ê°œ)
+    ' ÆÑ½º 1°ÇÀ» Àü¼ÛÇÕ´Ï´Ù. (ÃÖ´ë Àü¼ÛÆÄÀÏ °³¼ö: 20°³)
     ' - https://developers.popbill.com/reference/fax/asp/api/send#SendFAX
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ë°œì‹ ì ë²ˆí˜¸
+    ' ¹ß½ÅÀÚ ¹øÈ£
     sendNum = ""
 
-    ' ì „ì†¡ì˜ˆì•½ì‹œê°„ yyyyMMddHHmmss,  ê³µë°±ì²˜ë¦¬ì‹œ ì¦‰ì‹œì „ì†¡
+    ' Àü¼Û¿¹¾à½Ã°£ yyyyMMddHHmmss,  °ø¹éÃ³¸®½Ã Áï½ÃÀü¼Û
     reserveDT = ""
 
-    ' ìˆ˜ì‹ ì ì •ë³´
+    ' ¼ö½ÅÀÚ Á¤º¸
     Dim receivers(0)
     Set receivers(0) = New FaxReceiver
 
-    ' ìˆ˜ì‹ ë²ˆí˜¸
+    ' ¼ö½Å¹øÈ£
     receivers(0).receiverNum = ""
 
-    ' ìˆ˜ì‹ ìëª…
-    receivers(0).receiverName = "ìˆ˜ì‹ ì ëª…ì¹­"
+    ' ¼ö½ÅÀÚ¸í
+    receivers(0).receiverName = "¼ö½ÅÀÚ ¸íÄª"
 
-    ' íŒ©ìŠ¤ì „ì†¡í•  íŒŒì¼ (ìµœëŒ€ 20ê°œ)
-    FilePaths = Array("C:\popbill.example.asp\ëŒ€í•œë¯¼êµ­í—Œë²•.doc","C:\popbill.example.asp\test.jpg")
+    ' ÆÑ½ºÀü¼ÛÇÒ ÆÄÀÏ (ÃÖ´ë 20°³)
+    FilePaths = Array("C:\popbill.example.asp\´ëÇÑ¹Î±¹Çå¹ı.doc","C:\popbill.example.asp\test.jpg")
 
-    ' ê´‘ê³ íŒ©ìŠ¤ ì „ì†¡ì—¬ë¶€ , true / false ì¤‘ íƒ 1
-    ' â”” true = ê´‘ê³  , false = ì¼ë°˜
-    ' â”” ë¯¸ì…ë ¥ ì‹œ ê¸°ë³¸ê°’ false ì²˜ë¦¬
+    ' ±¤°íÆÑ½º Àü¼Û¿©ºÎ , true / false Áß ÅÃ 1
+    ' ¦¦ true = ±¤°í , false = ÀÏ¹İ
+    ' ¦¦ ¹ÌÀÔ·Â ½Ã ±âº»°ª false Ã³¸®
     adsYN = False
 
-    ' íŒ©ìŠ¤ì œëª©
-    title = "ASP  íŒ©ìŠ¤ ì „ì†¡ í…ŒìŠ¤íŠ¸"
+    ' ÆÑ½ºÁ¦¸ñ
+    title = "ASP  ÆÑ½º Àü¼Û Å×½ºÆ®"
 
-    ' ì „ì†¡ìš”ì²­ë²ˆí˜¸
-    ' íŒŒíŠ¸ë„ˆê°€ ì „ì†¡ ê±´ì— ëŒ€í•´ ê´€ë¦¬ë²ˆí˜¸ë¥¼ êµ¬ì„±í•˜ì—¬ ê´€ë¦¬í•˜ëŠ” ê²½ìš° ì‚¬ìš©.
-    ' 1~36ìë¦¬ë¡œ êµ¬ì„±. ì˜ë¬¸, ìˆ«ì, í•˜ì´í”ˆ(-), ì–¸ë”ë°”(_)ë¥¼ ì¡°í•©í•˜ì—¬ íŒë¹Œ íšŒì›ë³„ë¡œ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ í• ë‹¹.
+    ' Àü¼Û¿äÃ»¹øÈ£
+    ' ÆÄÆ®³Ê°¡ Àü¼Û °Ç¿¡ ´ëÇØ °ü¸®¹øÈ£¸¦ ±¸¼ºÇÏ¿© °ü¸®ÇÏ´Â °æ¿ì »ç¿ë.
+    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ıÀÚ, ÇÏÀÌÇÂ(-), ¾ğ´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
     RequestNum = ""
 
     On Error Resume Next
@@ -66,10 +66,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>íŒ©ìŠ¤ ì „ì†¡</legend>
+                <legend>ÆÑ½º Àü¼Û</legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>recepitNum (ì ‘ìˆ˜ë²ˆí˜¸) : <%=url%> </li>
+                        <li>recepitNum (Á¢¼ö¹øÈ£) : <%=url%> </li>
                     <% Else %>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message : <%=message%> </li>

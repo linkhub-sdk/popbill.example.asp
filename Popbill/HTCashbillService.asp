@@ -6,7 +6,7 @@ Class HTCashbillService
 
 	Private m_PopbillBase
 
-	'í…ŒìŠ¤íŠ¸ í”Œë˜ê·¸
+	'Å×½ºÆ® ÇÃ·¡±×
 	Public Property Let IsTest(ByVal value)
 		m_PopbillBase.IsTest = value
 	End Property
@@ -36,74 +36,74 @@ Class HTCashbillService
 		m_PopbillBase.Initialize linkID,SecretKey
 	End Sub
 
-	'íšŒì›ì”ì•¡ì¡°íšŒ
+	'È¸¿øÀÜ¾×Á¶È¸
 	Public Function GetBalance(CorpNum)
 		GetBalance = m_PopbillBase.GetBalance(CorpNum)
 	End Function
-	'íŒŒíŠ¸ë„ˆ ì”ì•¡ì¡°íšŒ
+	'ÆÄÆ®³Ê ÀÜ¾×Á¶È¸
 	Public Function GetPartnerBalance(CorpNum)
 		GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
 	End Function
-	'íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ íŒì—… URL - 2017/08/29 ì¶”ê°€
+	'ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL - 2017/08/29 Ãß°¡
 	Public Function GetPartnerURL(CorpNum, TOGO)
 		GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
 	End Function
 
-	'íŒë¹Œ ê¸°ë³¸ URL
+	'ÆËºô ±âº» URL
 	Public Function GetPopbillURL(CorpNum , UserID , TOGO )
 		GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 	End Function
-	'íŒë¹Œ ë¡œê·¸ì¸ URL
+	'ÆËºô ·Î±×ÀÎ URL
 	Public Function GetAccessURL(CorpNum , UserID)
 		GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
 	End Function
 
-	'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì¶©ì „ URL
+	'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀü URL
 	Public Function GetChargeURL(CorpNum , UserID)
 		GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
 	End Function
 
-	'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ URL
+	'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª URL
 	Public Function GetPaymentURL(CorpNum, UserID)
 		GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
 	End Function
 
-	'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL
+	'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL
 	Public Function GetUseHistoryURL(CorpNum, UserID)
 		GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
 	End Function
 
-	'íšŒì›ê°€ì… ì—¬ë¶€
+	'È¸¿ø°¡ÀÔ ¿©ºÎ
 	Public Function CheckIsMember(CorpNum , linkID)
 		Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
 	End Function
-	'íšŒì›ê°€ì…
+	'È¸¿ø°¡ÀÔ
 	Public Function JoinMember(JoinInfo)
 		Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 	End Function
 
-	'ë‹´ë‹¹ì ì •ë³´ í™•ì¸
+	'´ã´çÀÚ Á¤º¸ È®ÀÎ
 	Public Function GetContactInfo(CorpNum, ContactID, UserID)
 		Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
 	End Function
 
-	'ë‹´ë‹¹ì ëª©ë¡ì¡°íšŒ
+	'´ã´çÀÚ ¸ñ·ÏÁ¶È¸
 	Public Function ListContact(CorpNum, UserID)
 		Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
 	End Function
-	'ë‹´ë‹¹ì ì •ë³´ìˆ˜ì •
+	'´ã´çÀÚ Á¤º¸¼öÁ¤
 	Public Function UpdateContact(CorpNum, contInfo, UserId)
 		Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
 	End Function
-	'ë‹´ë‹¹ì ì¶”ê°€
+	'´ã´çÀÚ Ãß°¡
 	Public Function RegistContact(CorpNum, contInfo, UserId)
 		Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
 	End Function
-	'íšŒì‚¬ì •ë³´ ìˆ˜ì •
+	'È¸»çÁ¤º¸ ¼öÁ¤
 	Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
 		Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
 	End Function
-	'íšŒì‚¬ì •ë³´ í™•ì¸
+	'È¸»çÁ¤º¸ È®ÀÎ
 	Public Function GetCorpInfo(CorpNum, UserId)
 		Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
 	End Function
@@ -111,7 +111,7 @@ Class HTCashbillService
 		Set CheckID = m_popbillBase.CheckID(id)
 	End Function
 
-	'ê³¼ê¸ˆì •ë³´ í™•ì¸
+	'°ú±İÁ¤º¸ È®ÀÎ
 	Public Function GetChargeInfo ( CorpNum, UserID )
 		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
 
@@ -121,54 +121,54 @@ Class HTCashbillService
 		Set GetChargeInfo = chrgInfo
 	End Function
 
-'ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­
+'¹«ÅëÀå ÀÔ±İ½ÅÃ»
 Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
 	Set PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ ì¡°íšŒ
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª Á¶È¸
 Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
 	Set GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
 End Function
 
-'ì—°ë™íšŒì› ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­ ì •ë³´í™•ì¸
+'¿¬µ¿È¸¿ø ¹«ÅëÀå ÀÔ±İ½ÅÃ» Á¤º¸È®ÀÎ
 Public Function GetSettleResult(CorpNum, SettleCode, UserID)
 	Set GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ í™•ì¸
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª È®ÀÎ
 Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
 	Set GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆì‹ ì²­
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® È¯ºÒ½ÅÃ»
 Public Function Refund(CorpNum, RefundForm, UserID)
 	Set Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
 End Function
 
-' í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸ ì¡°íšŒ
+' È¯ºÒ °¡´É Æ÷ÀÎÆ® Á¶È¸
 Public Function GetRefundableBalance(CorpNum, UserID)
 	GetRefundableBalance = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆë‚´ì—­ í™•ì¸
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® È¯ºÒ³»¿ª È®ÀÎ
 Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
 	Set GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
 End Function
 
-' í™˜ë¶ˆ ì‹ ì²­ ìƒíƒœ ì¡°íšŒ
+' È¯ºÒ ½ÅÃ» »óÅÂ Á¶È¸
 Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
 	Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
 End Function
 
-'íšŒì› íƒˆí‡´
+'È¸¿ø Å»Åğ
 Public Function QuitMember(CorpNum, QuitReason, UserID)
 	Set QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
 End Function
 
 '''''''''''''  End of PopbillBase
 
-	'ìˆ˜ì§‘ìš”ì²­
+	'¼öÁı¿äÃ»
 	Public Function RequestJob(CorpNum , KeyType, SDate, Edate, UserID)
 		Dim uri
 		uri = "/HomeTax/Cashbill/" & KeyType
@@ -179,10 +179,10 @@ End Function
 		RequestJob = result.jobID
 	End Function
 
-	'ìˆ˜ì§‘ ìƒíƒœ í™•ì¸
+	'¼öÁı »óÅÂ È®ÀÎ
 	Public Function GetJobState(CorpNum, JobID, UserID)
 		If Len(JobID) <> 18  Then
-    		Err.Raise -99999999, "POPBILL", "ì‘ì—…ì•„ì´ë””ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
+    		Err.Raise -99999999, "POPBILL", "ÀÛ¾÷¾ÆÀÌµğ°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
 		End If
 
 		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/" & JobID & "/State", _
@@ -193,7 +193,7 @@ End Function
 		Set GetJobState = jobInfo
 	End Function
 
-	'ìˆ˜ì§‘ ìƒíƒœ ëª©ë¡ í™•ì¸
+	'¼öÁı »óÅÂ ¸ñ·Ï È®ÀÎ
 	Public Function ListActiveJob(CorpNum, UserID)
 		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/JobList", _
                 		m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -210,10 +210,10 @@ End Function
 		Set ListActiveJob = jobList
 	End Function
 
-	'ìˆ˜ì§‘ ê²°ê³¼ ì¡°íšŒ
+	'¼öÁı °á°ú Á¶È¸
 	Public Function Search ( CorpNum, JobID, TradeType, TradeUsage, Page, PerPage, Order, UserID )
 		If  Not ( Len ( JobID ) = 18 )  Then
-    		Err.Raise -99999999, "POPBILL", "ì‘ì—…ì•„ì´ë””ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
+    		Err.Raise -99999999, "POPBILL", "ÀÛ¾÷¾ÆÀÌµğ°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
 		End If
 
 		Dim uri
@@ -250,10 +250,10 @@ End Function
 
 	End Function
 
-	'ìˆ˜ì§‘ ê²°ê³¼ ìš”ì•½ì •ë³´ ì¡°íšŒ
+	'¼öÁı °á°ú ¿ä¾àÁ¤º¸ Á¶È¸
 	Public Function Summary ( CorpNum, JobID, TradeType, TradeUsage, UserID )
 		If Not ( Len ( JobID ) = 18 ) Then
-    		Err.Raise -99999999, "POPBILL", "ì‘ì—…ì•„ì´ë””ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
+    		Err.Raise -99999999, "POPBILL", "ÀÛ¾÷¾ÆÀÌµğ°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
 		End If
 
 		Dim uri
@@ -286,14 +286,14 @@ End Function
 
 	End Function
 
-	'ì •ì•¡ì œ ì‹ ì²­ URL
+	'Á¤¾×Á¦ ½ÅÃ» URL
 	Public Function GetFlatRatePopUpURL ( CorpNum, UserID )
 		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill?TG=CHRG", _
                 		m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetFlatRatePopUpURL = result.url
 	End Function
 
-	'ì •ì•¡ì œ ìƒíƒœ í™•ì¸
+	'Á¤¾×Á¦ »óÅÂ È®ÀÎ
 	Public Function GetFlatRateState ( CorpNum, UserID )
 		Dim responseObj : Set responseObj = m_PopbillBase.httpGET("/HomeTax/Cashbill/Contract", _
                 		m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -303,34 +303,34 @@ End Function
 		Set GetFlatRateState = flatrateObj
 	End Function
 
-	'ê³µì¸ì¸ì¦ì„œ ë“±ë¡ URL
+	'°øÀÎÀÎÁõ¼­ µî·Ï URL
 	Public Function GetCertificatePopUpURL ( CorpNum, UserID )
 		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill?TG=CERT", _
                 		m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetCertificatePopUpURL = result.url
 	End Function
 
-	'ê³µì¸ì¸ì¦ì„œ ë§Œë£Œì¼ì í™•ì¸
+	'°øÀÎÀÎÁõ¼­ ¸¸·áÀÏÀÚ È®ÀÎ
 	Public Function GetCertificateExpireDate ( CorpNum, UserID )
 		Dim result : Set result = m_PopbillBase.httpGET("/HomeTax/Cashbill/CertInfo", _
             		m_PopbillBase.getSession_token(CorpNum), UserID)
 		GetCertificateExpireDate = result.certificateExpiration
 	End Function
 
-	'í™ˆíƒìŠ¤ ê³µì¸ì¸ì¦ì„œ ë¡œê·¸ì¸ í…ŒìŠ¤íŠ¸
+	'È¨ÅÃ½º °øÀÎÀÎÁõ¼­ ·Î±×ÀÎ Å×½ºÆ®
 	Public Function CheckCertValidation ( CorpNum, UserID )
 		Set CheckCertValidation = m_PopbillBase.httpGET("/HomeTax/Cashbill/CertCheck", m_PopbillBase.getSession_token(CorpNum), UserID)
 	End Function
 
 
 
-	'ë¶€ì„œì‚¬ìš©ì ê³„ì •ë“±ë¡
+	'ºÎ¼­»ç¿ëÀÚ °èÁ¤µî·Ï
 	Public Function RegistDeptUser ( CorpNum, DeptUserID, DeptUserPWD, UserID )
 		If DeptUserID = "" Then
-    		Err.Raise -99999999, "POPBILL", "í™ˆíƒìŠ¤ ë¶€ì„œì‚¬ìš©ì ê³„ì • ì•„ì´ë””ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+    		Err.Raise -99999999, "POPBILL", "È¨ÅÃ½º ºÎ¼­»ç¿ëÀÚ °èÁ¤ ¾ÆÀÌµğ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 		If DeptUserPWD = "" Then
-    		Err.Raise -99999999, "POPBILL", "í™ˆíƒìŠ¤ ë¶€ì„œì‚¬ìš©ì ê³„ì • ë¹„ë°€ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+    		Err.Raise -99999999, "POPBILL", "È¨ÅÃ½º ºÎ¼­»ç¿ëÀÚ °èÁ¤ ºñ¹Ğ¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		Dim tmp : Set tmp = JSON.parse("{}")
@@ -342,18 +342,18 @@ End Function
 		Set RegistDeptUser = m_PopbillBase.httpPOST("/HomeTax/Cashbill/DeptUser", m_PopbillBase.getSession_token(CorpNum),"", postData, UserID)
 	End Function
 
-	'ë¶€ì„œì‚¬ìš©ì ë“±ë¡ì •ë³´ í™•ì¸
+	'ºÎ¼­»ç¿ëÀÚ µî·ÏÁ¤º¸ È®ÀÎ
 	Public Function CheckDeptUser ( CorpNum, UserID )
 		Set CheckDeptUser = m_PopbillBase.httpGET("/HomeTax/Cashbill/DeptUser", m_PopbillBase.getSession_token(CorpNum), UserID)
 	End Function
 
 
-	'ë¶€ì„œì‚¬ìš©ì ë¡œê·¸ì¸ í…ŒìŠ¤íŠ¸
+	'ºÎ¼­»ç¿ëÀÚ ·Î±×ÀÎ Å×½ºÆ®
 	Public Function CheckLoginDeptUser ( CorpNum, UserID )
 		Set CheckLoginDeptUser = m_PopbillBase.httpGET("/HomeTax/Cashbill/DeptUser/Check", m_PopbillBase.getSession_token(CorpNum), UserID)
 	End Function
 
-	'ë¶€ì„œì‚¬ìš©ì ë“±ë¡ì •ë³´ ì‚­ì œ
+	'ºÎ¼­»ç¿ëÀÚ µî·ÏÁ¤º¸ »èÁ¦
 	Public Function DeleteDeptUser ( CorpNum, UserID )
 		Set DeleteDeptUser = m_PopbillBase.httpPOST("/HomeTax/Cashbill/DeptUser", m_PopbillBase.getSession_token(CorpNum),"DELETE", "", UserID)
 	End Function
@@ -459,7 +459,7 @@ Class HTCashbill
 	Public cardOwnerName
 	Public deductionType
 
-	'ë§¤ì…/ë§¤ì¶œ êµ¬ë¶„ ì¶”ê°€ - 2017/08/29
+	'¸ÅÀÔ/¸ÅÃâ ±¸ºĞ Ãß°¡ - 2017/08/29
 	Public invoiceType
 
 

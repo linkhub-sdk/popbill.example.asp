@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì—°ë™íšŒì›ì˜ íšŒì‚¬ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ¿¬µ¿È¸¿øÀÇ È¸»çÁ¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/closedown/asp/api/member#GetCorpInfo
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -34,18 +34,18 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>íšŒì‚¬ì •ë³´ ì¡°íšŒ</legend>
+                <legend>È¸»çÁ¤º¸ Á¶È¸</legend>
                 <%
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
                         <legend> CorpInfo </legend>
                             <ul>
-                                <li> ceoname (ëŒ€í‘œìëª…) : <%=result.ceoname%></li>
-                                <li> corpName (ìƒí˜¸) : <%=result.corpName%></li>
-                                <li> addr (ì£¼ì†Œ) : <%=result.addr%></li>
-                                <li> bizType (ì—…íƒœ) : <%=result.bizType%></li>
-                                <li> bizClass (ì¢…ëª©) : <%=result.bizClass%></li>
+                                <li> ceoname (´ëÇ¥ÀÚ¸í) : <%=result.ceoname%></li>
+                                <li> corpName (»óÈ£) : <%=result.corpName%></li>
+                                <li> addr (ÁÖ¼Ò) : <%=result.addr%></li>
+                                <li> bizType (¾÷ÅÂ) : <%=result.bizType%></li>
+                                <li> bizClass (Á¾¸ñ) : <%=result.bizClass%></li>
                             </ul>
                         </fieldset>
                 <%

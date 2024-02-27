@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
     <!--#include file="common.asp"-->
     <%
         '**************************************************************
-        ' ìŠ¹ì¸ëœ ì•Œë¦¼í†¡ í…œí”Œë¦¿ ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+        ' ½ÂÀÎµÈ ¾Ë¸²Åå ÅÛÇÃ¸´ Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
         ' - https://developers.popbill.com/reference/kakaotalk/asp/api/template#GetATSTemplate
         '**************************************************************
 
-        ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+        ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
         CorpNum = "1234567890"
 
-        ' í…œí”Œë¦¿ ì½”ë“œ
+        ' ÅÛÇÃ¸´ ÄÚµå
         templateCode = "021120000347"
 
-        ' íŒë¹ŒíšŒì› ì•„ì´ë””
+        ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
         UserID = "testkorea"
 
         On Error Resume Next
@@ -37,28 +37,28 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì•Œë¦¼í†¡ í…œí”Œë¦¿ ì •ë³´ í™•ì¸ </legend>
+                <legend>¾Ë¸²Åå ÅÛÇÃ¸´ Á¤º¸ È®ÀÎ </legend>
                     <%
                         If code = 0 Then
                     %>
                         <fieldset class="fieldset2">
-                            <legend>  í…œí”Œë¦¿ ì •ë³´ </legend>
+                            <legend>  ÅÛÇÃ¸´ Á¤º¸ </legend>
                             <ul>
-                                <li> templateCode (í…œí”Œë¦¿ ì½”ë“œ) : <%=resultObj.templateCode%></li>
-                                <li> templateName (í…œí”Œë¦¿ ì œëª©) : <%=resultObj.templateName%></li>
-                                <li> template (í…œí”Œë¦¿ ë‚´ìš©) : <%=resultObj.template%></li>
-                                <li> plusFriendID (ê²€ìƒ‰ìš© ì•„ì´ë””) : <%=resultObj.plusFriendID%></li>
-                                <li> ads (ê´‘ê³ ë©”ì‹œì§€ ë‚´ìš©) : <%=resultObj.ads%></li>
-                                <li> appendix (ë¶€ê°€ë©”ì‹œì§€ ë‚´ìš©) : <%=resultObj.appendix%></li>
-                                <li> secureYN (ë³´ì•ˆí…œí”Œë¦¿ ì—¬ë¶€) : <%=resultObj.secureYN%></li>
-                                <li> state (í…œí”Œë¦¿ ìƒíƒœ) : <%=resultObj.state%></li>
-                                <li> stateDT (í…œí”Œë¦¿ ìƒíƒœ ì¼ì‹œ) : <%=resultObj.stateDT%></li>
+                                <li> templateCode (ÅÛÇÃ¸´ ÄÚµå) : <%=resultObj.templateCode%></li>
+                                <li> templateName (ÅÛÇÃ¸´ Á¦¸ñ) : <%=resultObj.templateName%></li>
+                                <li> template (ÅÛÇÃ¸´ ³»¿ë) : <%=resultObj.template%></li>
+                                <li> plusFriendID (°Ë»ö¿ë ¾ÆÀÌµð) : <%=resultObj.plusFriendID%></li>
+                                <li> ads (±¤°í¸Þ½ÃÁö ³»¿ë) : <%=resultObj.ads%></li>
+                                <li> appendix (ºÎ°¡¸Þ½ÃÁö ³»¿ë) : <%=resultObj.appendix%></li>
+                                <li> secureYN (º¸¾ÈÅÛÇÃ¸´ ¿©ºÎ) : <%=resultObj.secureYN%></li>
+                                <li> state (ÅÛÇÃ¸´ »óÅÂ) : <%=resultObj.state%></li>
+                                <li> stateDT (ÅÛÇÃ¸´ »óÅÂ ÀÏ½Ã) : <%=resultObj.stateDT%></li>
                             </ul>
                         <%
                             For i=0 To UBound(resultObj.btns) -1
                         %>
                                 <fieldset class="fieldset3">
-                                    <legend> ë²„íŠ¼ì •ë³´ [ <%=i+1%> / <%= UBound(resultObj.btns)%> ] </legend>
+                                    <legend> ¹öÆ°Á¤º¸ [ <%=i+1%> / <%= UBound(resultObj.btns)%> ] </legend>
                                     <ul>
                                         <li>n : <%=resultObj.btns(i).n%> </li>
                                         <li>t : <%=resultObj.btns(i).t%> </li>

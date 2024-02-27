@@ -1,39 +1,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì—°ë™íšŒì› ì‚¬ì—…ìë²ˆí˜¸ì— ë“±ë¡ëœ ë‹´ë‹¹ì(íŒë¹Œ ë¡œê·¸ì¸ ê³„ì •) ì •ë³´ë¥¼ ìˆ˜ì •í•©ë‹ˆë‹¤.
+    ' ¿¬µ¿È¸¿ø »ç¾÷ÀÚ¹øÈ£¿¡ µî·ÏµÈ ´ã´çÀÚ(ÆËºô ·Î±×ÀÎ °èÁ¤) Á¤º¸¸¦ ¼öÁ¤ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/member#UpdateContact
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
 
-    ' ë‹´ë‹¹ì ì •ë³´ ê°ì²´ ìƒì„±
+    ' ´ã´çÀÚ Á¤º¸ °´Ã¼ »ı¼º
     Set contInfo = New ContactInfo
 
-    ' ë‹´ë‹¹ì ì•„ì´ë””
+    ' ´ã´çÀÚ ¾ÆÀÌµğ
     contInfo.id = UserID
 
-    ' ë‹´ë‹¹ìëª…
+    ' ´ã´çÀÚ¸í
     contInfo.personName = "ASPTest"
 
-    ' ë‹´ë‹¹ì ì—°ë½ì²˜
+    ' ´ã´çÀÚ ¿¬¶ôÃ³
     contInfo.tel = ""
 
-    ' ë‹´ë‹¹ì ì´ë©”ì¼ì£¼ì†Œ
+    ' ´ã´çÀÚ ÀÌ¸ŞÀÏÁÖ¼Ò
     contInfo.email = ""
 
-    ' ë‹´ë‹¹ì ì¡°íšŒê¶Œí•œ 1 - ê°œì¸ê¶Œí•œ / 2 - ì½ê¸°ê¶Œí•œ  / 3 - íšŒì‚¬ê¶Œí•œ
+    ' ´ã´çÀÚ Á¶È¸±ÇÇÑ 1 - °³ÀÎ±ÇÇÑ / 2 - ÀĞ±â±ÇÇÑ  / 3 - È¸»ç±ÇÇÑ
     contInfo.searchRole = 3
 
     On Error Resume Next
@@ -58,7 +58,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë‹´ë‹¹ì ì •ë³´ìˆ˜ì •</legend>
+                <legend>´ã´çÀÚ Á¤º¸¼öÁ¤</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

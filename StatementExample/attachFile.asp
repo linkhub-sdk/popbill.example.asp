@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "ì„ì‹œì €ì¥" ìƒíƒœì˜ ëª…ì„¸ì„œì— 1ê°œì˜ íŒŒì¼ì„ ì²¨ë¶€í•©ë‹ˆë‹¤. (ìµœëŒ€ 5ê°œ)
+    ' "ÀÓ½ÃÀúÀå" »óÅÂÀÇ ¸í¼¼¼­¿¡ 1°³ÀÇ ÆÄÀÏÀ» Ã·ºÎÇÕ´Ï´Ù. (ÃÖ´ë 5°³)
     ' - https://developers.popbill.com/reference/statement/asp/api/etc#AttachFile
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-"ì œì™¸ 10ìë¦¬
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ëª…ì„¸ì„œ ì¢…ë¥˜ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+    ' ¸í¼¼¼­ Á¾·ùÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
     itemCode = "121"
 
-    ' ë¬¸ì„œê´€ë¦¬ë²ˆí˜¸
+    ' ¹®¼­°ü¸®¹øÈ£
     mgtKey = "20220720-ASP-001"
 
-    ' ì²¨ë¶€ íŒŒì¼ ê²½ë¡œ
-    filePath = "C:\popbill.example.asp\Popbill\ë¡œê³ .gif"
+    ' Ã·ºÎ ÆÄÀÏ °æ·Î
+    filePath = "C:\popbill.example.asp\Popbill\·Î°í.gif"
 
     On Error Resume Next
 
@@ -47,7 +47,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì „ìëª…ì„¸ì„œ íŒŒì¼ì²¨ë¶€</legend>
+                <legend>ÀüÀÚ¸í¼¼¼­ ÆÄÀÏÃ·ºÎ</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

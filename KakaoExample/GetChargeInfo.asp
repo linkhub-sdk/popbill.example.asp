@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒë¹Œ ì¹´ì¹´ì˜¤í†¡ API ì„œë¹„ìŠ¤ ê³¼ê¸ˆì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ÆËºô Ä«Ä«¿ÀÅå API ¼­ºñ½º °ú±İÁ¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/point#GetChargeInfo
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' ì „ì†¡ìœ í˜• (ATS - ì•Œë¦¼í†¡, FTS - ì¹œêµ¬í†¡ í…ìŠ¤íŠ¸,  FMS-ì¹œêµ¬í†¡ ì´ë¯¸ì§€)
+    ' Àü¼ÛÀ¯Çü (ATS - ¾Ë¸²Åå, FTS - Ä£±¸Åå ÅØ½ºÆ®,  FMS-Ä£±¸Åå ÀÌ¹ÌÁö)
     sendType = "ATS"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -37,14 +37,14 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend><%=sendType%> ê³¼ê¸ˆì •ë³´ ì¡°íšŒ</legend>
+                <legend><%=sendType%> °ú±İÁ¤º¸ Á¶È¸</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> unitCost (ì „ì†¡ë‹¨ê°€) : <%=result.unitCost%></li>
-                        <li> chargeMethod (ê³¼ê¸ˆìœ í˜•) : <%=result.chargeMethod%></li>
-                        <li> rateSystem (ê³¼ê¸ˆì œë„) : <%=result.rateSystem%></li>
+                        <li> unitCost (Àü¼Û´Ü°¡) : <%=result.unitCost%></li>
+                        <li> chargeMethod (°ú±İÀ¯Çü) : <%=result.chargeMethod%></li>
+                        <li> rateSystem (°ú±İÁ¦µµ) : <%=result.rateSystem%></li>
                     </ul>
                 <%
                     Else

@@ -1,7 +1,7 @@
 <!--#include file="Linkhub.asp"--> 
 <html>
 <head>
-	<title>jsSHA - SHA Hashes in 유티에프 JavaScript</title>
+	<title>jsSHA - SHA Hashes in ??????? JavaScript</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 </head>
 <body>

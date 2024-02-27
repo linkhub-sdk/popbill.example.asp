@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="../Example.css" media="screen" />
-        <title>íœ´íì—…ì¡°íšŒ API SDK ASP Example.</title>
+        <title>ÈÞÆó¾÷Á¶È¸ API SDK ASP Example.</title>
     </head>
     <!--#include file="common.asp"-->
     <%
         '**************************************************************
-        ' ì‚¬ì—…ìžë²ˆí˜¸ 1ê±´ì— ëŒ€í•œ íœ´íì—…ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+        ' »ç¾÷ÀÚ¹øÈ£ 1°Ç¿¡ ´ëÇÑ ÈÞÆó¾÷Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
         ' - https://developers.popbill.com/reference/closedown/asp/api/check#CheckCorpNum
         '**************************************************************
 
-        ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸
+        ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
         UserCorpNum = "1234567890"
 
-        ' ì¡°íšŒí•  ì‚¬ì—…ìžë²ˆí˜¸
+        ' Á¶È¸ÇÒ »ç¾÷ÀÚ¹øÈ£
         CorpNum = request.QueryString("CorpNum")
 
         If CorpNum <> "" Then
@@ -37,22 +37,22 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>íœ´íì—…ì¡°íšŒ - ë‹¨ê±´</legend>
+                <legend>ÈÞÆó¾÷Á¶È¸ - ´Ü°Ç</legend>
                     <div class ="fieldset4">
                     <form method= "GET" id="corpnum_form" action="checkCorpNum.asp">
                         <%
                             If IsEmpty(result) then
                         %>
-                                <input class= "txtCorpNum left" type="text" placeholder="ì‚¬ì—…ìžë²ˆí˜¸ ê¸°ìž¬" id="CorpNum" name="CorpNum"  tabindex=1/>
+                                <input class= "txtCorpNum left" type="text" placeholder="»ç¾÷ÀÚ¹øÈ£ ±âÀç" id="CorpNum" name="CorpNum"  tabindex=1/>
                         <%
                             Else
                         %>
-                                <input class= "txtCorpNum left" type="text" placeholder="ì‚¬ì—…ìžë²ˆí˜¸ ê¸°ìž¬" id="CorpNum" name="CorpNum"  value="<%=result.corpNum%>" tabindex=1/>
+                                <input class= "txtCorpNum left" type="text" placeholder="»ç¾÷ÀÚ¹øÈ£ ±âÀç" id="CorpNum" name="CorpNum"  value="<%=result.corpNum%>" tabindex=1/>
                         <%
                             End if
                         %>
 
-                        <p class="find_btn find_btn01 hand" onclick="search()" tabindex=2>ì¡°íšŒ</p>
+                        <p class="find_btn find_btn01 hand" onclick="search()" tabindex=2>Á¶È¸</p>
                     </form>
                    </div>
             </fieldset>
@@ -60,17 +60,17 @@
                 If Not IsEmpty(result) Then
             %>
                 <fieldset class="fieldset2">
-                    <legend>íœ´íì—…ì¡°íšŒ - ë‹¨ê±´</legend>
+                    <legend>ÈÞÆó¾÷Á¶È¸ - ´Ü°Ç</legend>
                     <br/>
-                    <p class="info">> state (íœ´íì—…ìƒíƒœ) : null-ì•Œìˆ˜ì—†ìŒ, 0-ë“±ë¡ë˜ì§€ ì•Šì€ ì‚¬ì—…ìžë²ˆí˜¸, 1-ì‚¬ì—…ì¤‘, 2-íì—…, 3-íœ´ì—…</p>
-                    <p class="info">> taxType (ì‚¬ì—… ìœ í˜•) : null-ì•Œìˆ˜ì—†ìŒ, 10-ì¼ë°˜ê³¼ì„¸ìž, 20-ë©´ì„¸ê³¼ì„¸ìž, 30-ê°„ì´ê³¼ì„¸ìž, 31-ê°„ì´ê³¼ì„¸ìž(ì„¸ê¸ˆê³„ì‚°ì„œ ë°œê¸‰ì‚¬ì—…ìž), 40-ë¹„ì˜ë¦¬ë²•ì¸, êµ­ê°€ê¸°ê´€</p>
+                    <p class="info">> state (ÈÞÆó¾÷»óÅÂ) : null-¾Ë¼ö¾øÀ½, 0-µî·ÏµÇÁö ¾ÊÀº »ç¾÷ÀÚ¹øÈ£, 1-»ç¾÷Áß, 2-Æó¾÷, 3-ÈÞ¾÷</p>
+                    <p class="info">> taxType (»ç¾÷ À¯Çü) : null-¾Ë¼ö¾øÀ½, 10-ÀÏ¹Ý°ú¼¼ÀÚ, 20-¸é¼¼°ú¼¼ÀÚ, 30-°£ÀÌ°ú¼¼ÀÚ, 31-°£ÀÌ°ú¼¼ÀÚ(¼¼±Ý°è»ê¼­ ¹ß±Þ»ç¾÷ÀÚ), 40-ºñ¿µ¸®¹ýÀÎ, ±¹°¡±â°ü</p>
                     <ul>
-                        <li>ì‚¬ì—…ìžë²ˆí˜¸ (corpNum) : <%= result.corpNum%></li>
-                        <li>íœ´íì—…ìƒíƒœ (state) : <%= result.state%></li>
-                        <li>ì‚¬ì—…ìžìœ í˜• (taxType) : <%= result.taxType%></li>
-                        <li>íœ´íì—…ì¼ìž (stateDate) : <%= result.stateDate%></li>
-                        <li>ê³¼ì„¸ìœ í˜• ì „í™˜ì¼ìž (typeDate) : <%= result.typeDate%></li>
-                        <li>êµ­ì„¸ì²­ í™•ì¸ì¼ìž (checkDate) : <%= result.checkDate%></li>
+                        <li>»ç¾÷ÀÚ¹øÈ£ (corpNum) : <%= result.corpNum%></li>
+                        <li>ÈÞÆó¾÷»óÅÂ (state) : <%= result.state%></li>
+                        <li>»ç¾÷ÀÚÀ¯Çü (taxType) : <%= result.taxType%></li>
+                        <li>ÈÞÆó¾÷ÀÏÀÚ (stateDate) : <%= result.stateDate%></li>
+                        <li>°ú¼¼À¯Çü ÀüÈ¯ÀÏÀÚ (typeDate) : <%= result.typeDate%></li>
+                        <li>±¹¼¼Ã» È®ÀÎÀÏÀÚ (checkDate) : <%= result.checkDate%></li>
                     </ul>
                 </fieldset>
             <%
@@ -78,7 +78,7 @@
                 If Not IsEmpty(code) then
             %>
                 <fieldset class="fieldset2">
-                    <legend>íœ´íì—…ì¡°íšŒ - ë‹¨ê±´</legend>
+                    <legend>ÈÞÆó¾÷Á¶È¸ - ´Ü°Ç</legend>
                     <ul>
                         <li>Response.code : <%= code %> </li>
                         <li>Response.message : <%= message %></li>

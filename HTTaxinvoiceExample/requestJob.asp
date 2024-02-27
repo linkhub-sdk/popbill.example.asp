@@ -1,33 +1,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' í™ˆíƒìŠ¤ì— ì‹ ê³ ëœ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ë§¤ìž…/ë§¤ì¶œ ë‚´ì—­ ìˆ˜ì§‘ì„ íŒë¹Œì— ìš”ì²­í•©ë‹ˆë‹¤. (ì¡°íšŒê¸°ê°„ ë‹¨ìœ„ : ìµœëŒ€ 3ê°œì›”)
-    ' - ì£¼ê¸°ì ìœ¼ë¡œ ìžì²´ DBì— ì„¸ê¸ˆê³„ì‚°ì„œ ì •ë³´ë¥¼ INSERT í•˜ëŠ” ê²½ìš°, ì¡°íšŒí•  ì¼ìž ìœ í˜•(DType) ê°’ì„ "S"ë¡œ í•˜ëŠ” ê²ƒì„ ê¶Œìž¥í•©ë‹ˆë‹¤.
+    ' È¨ÅÃ½º¿¡ ½Å°íµÈ ÀüÀÚ¼¼±Ý°è»ê¼­ ¸ÅÀÔ/¸ÅÃâ ³»¿ª ¼öÁýÀ» ÆËºô¿¡ ¿äÃ»ÇÕ´Ï´Ù. (Á¶È¸±â°£ ´ÜÀ§ : ÃÖ´ë 3°³¿ù)
+    ' - ÁÖ±âÀûÀ¸·Î ÀÚÃ¼ DB¿¡ ¼¼±Ý°è»ê¼­ Á¤º¸¸¦ INSERT ÇÏ´Â °æ¿ì, Á¶È¸ÇÒ ÀÏÀÚ À¯Çü(DType) °ªÀ» "S"·Î ÇÏ´Â °ÍÀ» ±ÇÀåÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/job#RequestJob
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     testUserID = "testkorea"
 
-    ' ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ìž…), TRUSTEE(ìœ„ìˆ˜íƒ)
+    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
     KeyType= SELL
 
-    ' ê²€ìƒ‰ ì¼ìžìœ í˜•, W-ìž‘ì„±ì¼ìž, I-ë°œí–‰ì¼ìž, S-ì „ì†¡ì¼ìž
+    ' °Ë»ö ÀÏÀÚÀ¯Çü, W-ÀÛ¼ºÀÏÀÚ, I-¹ßÇàÀÏÀÚ, S-Àü¼ÛÀÏÀÚ
     DType = "S"
 
-    ' ì‹œìž‘ì¼ìž, í‘œì‹œí˜•ì‹(yyyyMMdd)
+    ' ½ÃÀÛÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
     SDate = "20220701"
 
-    ' ì¢…ë£Œì¼ìž, í‘œì‹œí˜•ì‹(yyyyMMdd)
+    ' Á¾·áÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
     EDate =	"20220720"
 
 
@@ -48,10 +48,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ìˆ˜ì§‘ ìš”ì²­</legend>
+                <legend>¼öÁý ¿äÃ»</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>jobID(ìž‘ì—…ì•„ì´ë””) : <%=jobID%> </li>
+                        <li>jobID(ÀÛ¾÷¾ÆÀÌµð) : <%=jobID%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>

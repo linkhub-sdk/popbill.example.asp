@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '***************************************************
-    ' íŒë¹Œì— ë“±ë¡ëœ í™ˆíƒìŠ¤ í˜„ê¸ˆì˜ìˆ˜ì¦ ìë£Œì¡°íšŒ ë¶€ì„œì‚¬ìš©ì ê³„ì •ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+    ' ÆËºô¿¡ µî·ÏµÈ È¨ÅÃ½º Çö±İ¿µ¼öÁõ ÀÚ·áÁ¶È¸ ºÎ¼­»ç¿ëÀÚ °èÁ¤À» »èÁ¦ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/cert#DeleteDeptUser
     '***************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -37,7 +37,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë¶€ì„œì‚¬ìš©ì ë“±ë¡ì •ë³´ ì‚­ì œ</legend>
+                <legend>ºÎ¼­»ç¿ëÀÚ µî·ÏÁ¤º¸ »èÁ¦</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

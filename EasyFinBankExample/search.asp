@@ -1,45 +1,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ìˆ˜ì§‘ ì‘ì—…ì´ ì™„ë£Œëœ ê³„ì¢Œì˜ ê±°ë˜ë‚´ì—­ì„ ì¡°íšŒí•©ë‹ˆë‹¤.
+    ' ¼öÁı ÀÛ¾÷ÀÌ ¿Ï·áµÈ °èÁÂÀÇ °Å·¡³»¿ªÀ» Á¶È¸ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/search#Search
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ìˆ˜ì§‘ ìš”ì²­(requestJob) ì‹œ ë°˜í™˜ë°›ì€ ì‘ì—…ì•„ì´ë””(jobID)
+    ' ¼öÁı ¿äÃ»(requestJob) ½Ã ¹İÈ¯¹ŞÀº ÀÛ¾÷¾ÆÀÌµğ(jobID)
     JobID = "020072416000000002"
 
-    ' ê±°ë˜ìœ í˜• ë°°ì—´ ("I" ì™€ "O" ì¤‘ ì„ íƒ, ë‹¤ì¤‘ ì„ íƒ ê°€ëŠ¥)
-    ' â”” I = ì…ê¸ˆ , O = ì¶œê¸ˆ
-    ' - ë¯¸ì…ë ¥ ì‹œ ì „ì²´ì¡°íšŒ
+    ' °Å·¡À¯Çü ¹è¿­ ("I" ¿Í "O" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
+    ' ¦¦ I = ÀÔ±İ , O = Ãâ±İ
+    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
     Dim TradeType(2)
     TradeType(0) = "I"
     TradeType(1) = "O"
 
-    ' "ì…Â·ì¶œê¸ˆì•¡" / "ë©”ëª¨" / "ë¹„ê³ " ì¤‘ ê²€ìƒ‰í•˜ê³ ì í•˜ëŠ” ê°’ ì…ë ¥
-    ' - ë©”ëª¨ = ê±°ë˜ë‚´ì—­ ë©”ëª¨ì €ì¥(SaveMemo)ì„ ì‚¬ìš©í•˜ì—¬ ì €ì¥í•œ ê°’
-    ' - ë¹„ê³  = EasyFinBankSearchDetailì˜ remark1, remark2, remark3 ê°’
-    ' - ë¯¸ì…ë ¥ì‹œ ì „ì²´ì¡°íšŒ
+    ' "ÀÔ¡¤Ãâ±İ¾×" / "¸Ş¸ğ" / "ºñ°í" Áß °Ë»öÇÏ°íÀÚ ÇÏ´Â °ª ÀÔ·Â
+    ' - ¸Ş¸ğ = °Å·¡³»¿ª ¸Ş¸ğÀúÀå(SaveMemo)À» »ç¿ëÇÏ¿© ÀúÀåÇÑ °ª
+    ' - ºñ°í = EasyFinBankSearchDetailÀÇ remark1, remark2, remark3 °ª
+    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
     SearchString = ""
 
-    'í˜ì´ì§€ ë²ˆí˜¸
+    'ÆäÀÌÁö ¹øÈ£
     Page  = 1
 
-    'í˜ì´ì§€ë‹¹ ëª©ë¡ê°œìˆ˜
+    'ÆäÀÌÁö´ç ¸ñ·Ï°³¼ö
     PerPage = 10
 
-    'ì •ë ¬ë°©í•­, D-ë‚´ë¦¼ì°¨ìˆœ, A-ì˜¤ë¦„ì°¨ìˆœ
+    'Á¤·Ä¹æÇ×, D-³»¸²Â÷¼ø, A-¿À¸§Â÷¼ø
     Order = "D"
 
     On Error Resume Next
@@ -60,38 +60,38 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ìˆ˜ì§‘ ê²°ê³¼ ì¡°íšŒ</legend>
+                <legend>¼öÁı °á°ú Á¶È¸</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> code (ì‘ë‹µì½”ë“œ) : <%=result.code%> </li>
-                        <li> message  (ì‘ë‹µë©”ì‹œì§€) : <%=result.message%> </li>
-                        <li> total (ì´ ê²€ìƒ‰ê²°ê³¼ ê±´ìˆ˜) : <%=result.total%> </li>
-                        <li> perPage (í˜ì´ì§€ë‹¹ ê²€ìƒ‰ê°œìˆ˜) : <%=result.perPage%> </li>
-                        <li> pageNum (í˜ì´ì§€ ë²ˆí˜¸) : <%=result.pageNum%> </li>
-                        <li> pageCount (í˜ì´ì§€ ê°œìˆ˜) : <%=result.pageCount%> </li>
-                        <li> lastScrapDT (ìµœì¢… ì¡°íšŒì¼ì‹œ) : <%=result.lastScrapDT%> </li>
-                        <li> balance (í˜„ì¬ ì”ì•¡) : <%=result.balance%> </li>
+                        <li> code (ÀÀ´äÄÚµå) : <%=result.code%> </li>
+                        <li> message  (ÀÀ´ä¸Ş½ÃÁö) : <%=result.message%> </li>
+                        <li> total (ÃÑ °Ë»ö°á°ú °Ç¼ö) : <%=result.total%> </li>
+                        <li> perPage (ÆäÀÌÁö´ç °Ë»ö°³¼ö) : <%=result.perPage%> </li>
+                        <li> pageNum (ÆäÀÌÁö ¹øÈ£) : <%=result.pageNum%> </li>
+                        <li> pageCount (ÆäÀÌÁö °³¼ö) : <%=result.pageCount%> </li>
+                        <li> lastScrapDT (ÃÖÁ¾ Á¶È¸ÀÏ½Ã) : <%=result.lastScrapDT%> </li>
+                        <li> balance (ÇöÀç ÀÜ¾×) : <%=result.balance%> </li>
                     </ul>
 
                 <%
                     For i=0 To UBound(result.list) -1
                 %>
                     <fieldset class="fieldset2">
-                        <legend>ê±°ë˜ë‚´ì—­ ì •ë³´ [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
+                        <legend>°Å·¡³»¿ª Á¤º¸ [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
                             <ul>
-                                <li> tid (ê±°ë˜ë‚´ì—­ ì•„ì´ë””) : <%= result.list(i).tid %></li>
-                                <li> trdate (ê±°ë˜ì¼ì) : <%= result.list(i).trdate %></li>
-                                <li> trserial (ê±°ë˜ì¼ìë³„ ê±°ë˜ë‚´ì—­ ìˆœë²ˆ) : <%= result.list(i).trserial %></li>
-                                <li> trdt (ê±°ë˜ì¼ì‹œ) : <%= result.list(i).trdt %></li>
-                                <li> accIn (ì…ê¸ˆì•¡) : <%= result.list(i).accIn %></li>
-                                <li> accOut (ì¶œê¸ˆì•¡) : <%= result.list(i).accOut %></li>
-                                <li> balance (ì”ì•¡) : <%= result.list(i).balance %></li>
-                                <li> remark1 (ë¹„ê³ 1) : <%= result.list(i).remark1 %></li>
-                                <li> remark2 (ë¹„ê³ 2) : <%= result.list(i).remark2 %></li>
-                                <li> remark3 (ë¹„ê³ 3) : <%= result.list(i).remark3 %></li>
-                                <li> memo (ë©”ëª¨) : <%= result.list(i).memo %></li>
+                                <li> tid (°Å·¡³»¿ª ¾ÆÀÌµğ) : <%= result.list(i).tid %></li>
+                                <li> trdate (°Å·¡ÀÏÀÚ) : <%= result.list(i).trdate %></li>
+                                <li> trserial (°Å·¡ÀÏÀÚº° °Å·¡³»¿ª ¼ø¹ø) : <%= result.list(i).trserial %></li>
+                                <li> trdt (°Å·¡ÀÏ½Ã) : <%= result.list(i).trdt %></li>
+                                <li> accIn (ÀÔ±İ¾×) : <%= result.list(i).accIn %></li>
+                                <li> accOut (Ãâ±İ¾×) : <%= result.list(i).accOut %></li>
+                                <li> balance (ÀÜ¾×) : <%= result.list(i).balance %></li>
+                                <li> remark1 (ºñ°í1) : <%= result.list(i).remark1 %></li>
+                                <li> remark2 (ºñ°í2) : <%= result.list(i).remark2 %></li>
+                                <li> remark3 (ºñ°í3) : <%= result.list(i).remark3 %></li>
+                                <li> memo (¸Ş¸ğ) : <%= result.list(i).memo %></li>
                             </ul>
                         </fieldset>
                 <%

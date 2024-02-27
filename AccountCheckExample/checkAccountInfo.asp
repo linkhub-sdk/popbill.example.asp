@@ -1,25 +1,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
     	<link rel="stylesheet" type="text/css" href="../Example.css" media="screen" />
-    	<title>ì˜ˆê¸ˆì£¼ì¡°íšŒ API SDK ASP Example.</title>
+    	<title>¿¹±İÁÖÁ¶È¸ API SDK ASP Example.</title>
 	</head>
 	<!--#include file="common.asp"-->
 	<%
     	'**************************************************************
-    	' 1ê±´ì˜ ì˜ˆê¸ˆì£¼ì„±ëª…ì„ ì¡°íšŒí•©ë‹ˆë‹¤.
+    	' 1°ÇÀÇ ¿¹±İÁÖ¼º¸íÀ» Á¶È¸ÇÕ´Ï´Ù.
     	' - https://developers.popbill.com/reference/accountcheck/asp/api/check#CheckAccountInfo
     	'**************************************************************
-    	'íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+    	'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
     	CorpNum = "1234567890"
 
-    	'íŒë¹ŒíšŒì› ì•„ì´ë””
+    	'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     	UserID = "testkorea"
 
-    	'ê¸°ê´€ì½”ë“œ
+    	'±â°üÄÚµå
     	BankCode = ""
 
-    	'ê³„ì¢Œë²ˆí˜¸
+    	'°èÁÂ¹øÈ£
     	AccountNumber = ""
 
     	On Error Resume Next
@@ -39,19 +39,19 @@
         	<p class="heading1">Response</p>
         	<br/>
         	<fieldset class="fieldset1">
-            	<legend>ê³„ì¢Œì„±ëª…ì¡°íšŒ</legend>
+            	<legend>°èÁÂ¼º¸íÁ¶È¸</legend>
         	<%
             	If Not IsEmpty(result) Then
 
         	%>
 
             	<ul>
-                	<li>bankCode (ê¸°ê´€ì½”ë“œ) : <%= result.bankCode%></li>
-                	<li>accountNumber (ê³„ì¢Œë²ˆí˜¸) : <%= result.accountNumber%></li>
-                	<li>accountName (ì˜ˆê¸ˆì£¼ ì„±ëª…) : <%= result.accountName%></li>
-                	<li>checkDate (í™•ì¸ì¼ì‹œ) : <%= result.checkDate%></li>
-                	<li>result (ì‘ë‹µì½”ë“œ) : <%= result.result%></li>
-                	<li>resultMessage (ì‘ë‹µë©”ì‹œì§€) : <%= result.resultMessage%></li>
+                	<li>bankCode (±â°üÄÚµå) : <%= result.bankCode%></li>
+                	<li>accountNumber (°èÁÂ¹øÈ£) : <%= result.accountNumber%></li>
+                	<li>accountName (¿¹±İÁÖ ¼º¸í) : <%= result.accountName%></li>
+                	<li>checkDate (È®ÀÎÀÏ½Ã) : <%= result.checkDate%></li>
+                	<li>result (ÀÀ´äÄÚµå) : <%= result.result%></li>
+                	<li>resultMessage (ÀÀ´ä¸Ş½ÃÁö) : <%= result.resultMessage%></li>
             	</ul>
 
         	<%

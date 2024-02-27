@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÌåùÎπå SDK ASP Example.</title>
+        <title>∆À∫Ù SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "ÏûÑÏãúÏ†ÄÏû•" ÏÉÅÌÉúÏùò Ï†ÑÏûêÎ™ÖÏÑ∏ÏÑúÏóê Ï≤®Î∂ÄÎêú 1Í∞úÏùò ÌååÏùºÏùÑ ÏÇ≠Ï†úÌï©ÎãàÎã§.
-    ' - ÌååÏùº ÏãùÎ≥ÑÏùÑ ÏúÑÌï¥ Ï≤®Î∂ÄÏãú Î∂ÄÏó¨ÎêòÎäî 'FileID'Îäî Ï≤®Î∂ÄÌååÏùº Î™©Î°ù ÌôïÏù∏(GetFiles API) Ìï®ÏàòÎ•º Ìò∏Ï∂úÌïòÏó¨ ÌôïÏù∏Ìï©ÎãàÎã§.
+    ' "¿”Ω√¿˙¿Â" ªÛ≈¬¿« ¿¸¿⁄∏Ìººº≠ø° √∑∫Œµ» 1∞≥¿« ∆ƒ¿œ¿ª ªË¡¶«’¥œ¥Ÿ.
+    ' - ∆ƒ¿œ Ωƒ∫∞¿ª ¿ß«ÿ √∑∫ŒΩ√ ∫Œø©µ«¥¬ 'FileID'¥¬ √∑∫Œ∆ƒ¿œ ∏Ò∑œ »Æ¿Œ(GetFiles API) «‘ºˆ∏¶ »£√‚«œø© »Æ¿Œ«’¥œ¥Ÿ.
     ' - https://developers.popbill.com/reference/statement/asp/api/etc#DeleteFile
     '**************************************************************
 
-    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-"Ï†úÏô∏ 10ÏûêÎ¶¨
+    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-"¡¶ø‹ 10¿⁄∏Æ
     CorpNum = "1234567890"
 
-    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
     UserID = "testkorea"
 
-    ' Î™ÖÏÑ∏ÏÑú ÏΩîÎìú - 121(Í±∞ÎûòÎ™ÖÏÑ∏ÏÑú), 122(Ï≤≠Íµ¨ÏÑú), 123(Í≤¨Ï†ÅÏÑú), 124(Î∞úÏ£ºÏÑú), 125(ÏûÖÍ∏àÌëú), 126(ÏòÅÏàòÏ¶ù)
+    ' ∏Ìººº≠ ƒ⁄µÂ - 121(∞≈∑°∏Ìººº≠), 122(√ª±∏º≠), 123(∞ﬂ¿˚º≠), 124(πﬂ¡÷º≠), 125(¿‘±›«•), 126(øµºˆ¡ı)
     itemCode = "121"
 
-    ' Î¨∏ÏÑúÎ≤àÌò∏
+    ' πÆº≠π¯»£
     mgtKey = "20220720-ASP-001"
 
-    ' ÌååÏùºÏïÑÏù¥Îîî, Ï≤®Î∂ÄÌååÏùºÎ™©Î°ù(getFiles) APIÏùò AttachedFileÍ∞í
+    ' ∆ƒ¿œæ∆¿Ãµ, √∑∫Œ∆ƒ¿œ∏Ò∑œ(getFiles) API¿« AttachedFile∞™
     FileID = "2556D18D-9380-4843-B748-5B8120C31BA5.PBF"
 
     On Error Resume Next
@@ -48,7 +48,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Ï≤®Î∂ÄÌååÏùº ÏÇ≠Ï†ú</legend>
+                <legend>√∑∫Œ∆ƒ¿œ ªË¡¶</legend>
                     <ul>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message: <%=message%> </li>

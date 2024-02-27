@@ -27,7 +27,7 @@ Private m_UseStaticIP
 Private m_UseGAIP
 Private m_UseLocalTimeYN
 
-'í…ŒìŠ¤íŠ¸ í”Œë˜ê·¸
+'Å×½ºÆ® ÇÃ·¡±×
 Public Property Let IsTest(ByVal value)
     m_IsTest = value
 End Property
@@ -126,62 +126,62 @@ Public Function getSession_token(CorpNum)
 
 End Function
 
-'íšŒì›ì”ì•¡ì¡°íšŒ
+'È¸¿øÀÜ¾×Á¶È¸
 Public Function GetBalance(CorpNum)
     GetBalance = m_Linkhub.GetBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), m_UseStaticIP, m_UseGAIP)
 End Function
 
-'íŒŒíŠ¸ë„ˆ ì”ì•¡ì¡°íšŒ
+'ÆÄÆ®³Ê ÀÜ¾×Á¶È¸
 Public Function GetPartnerBalance(CorpNum)
     GetPartnerBalance = m_Linkhub.GetPartnerBalance(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), m_UseStaticIP, m_UseGAIP)
 End Function
 
-'íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ URL - 2017/08/29 ì¶”ê°€
+'ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü URL - 2017/08/29 Ãß°¡
 Public Function GetPartnerURL(CorpNum, TOGO)
     GetPartnerURL = m_Linkhub.GetPartnerURL(getSession_token(CorpNum), IIf(m_IsTest, ServiceID_TEST, ServiceID_REAL), TOGO, m_UseStaticIP, m_UseGAIP)
 End Function
 
-'íŒë¹Œ ê¸°ë³¸ URL
+'ÆËºô ±âº» URL
 Public Function GetPopbillURL(CorpNum , UserID , TOGO)
 
     Dim result : Set result = httpGET("/?TG=" + TOGO, getSession_token(CorpNum), UserID)
     GetPopbillURL = result.url
 End Function
 
-'íŒë¹Œ ë¡œê·¸ì¸ URL
+'ÆËºô ·Î±×ÀÎ URL
 Public Function GetAccessURL(CorpNum , UserID)
 
     Dim result : Set result = httpGET("/?TG=LOGIN", getSession_token(CorpNum), UserID)
     GetAccessURL = result.url
 End Function
 
-'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì¶©ì „ URL
+'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀü URL
 Public Function GetChargeURL(CorpNum , UserID)
 
     Dim result : Set result = httpGET("/?TG=CHRG", getSession_token(CorpNum), UserID)
     GetChargeURL = result.url
 End Function
 
-'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ URL
+'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª URL
 Public Function GetPaymentURL(CorpNum, UserID)
 
     Dim result : Set result = httpGET("/?TG=PAYMENT", getSession_token(CorpNum), UserID)
     GetPaymentURL = result.url
 End Function
 
-'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL
+'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL
 Public Function GetUseHistoryURL(CorpNum, UserID)
 
     Dim result : Set result = httpGET("/?TG=USEHISTORY", getSession_token(CorpNum), UserID)
     GetUseHistoryURL = result.url
 End Function
 
-'íšŒì›ê°€ì… ì—¬ë¶€
+'È¸¿ø°¡ÀÔ ¿©ºÎ
 Public Function CheckIsMember(CorpNum , linkID)
     Set CheckIsMember = httpGET("/Join?CorpNum=" + CorpNum + "&LID=" + linkID, "","")
 End Function
 
-'íšŒì›ê°€ì…
+'È¸¿ø°¡ÀÔ
 Public Function JoinMember(JoinInfo)
     Dim tmp : Set tmp = JSON.parse("{}")
     tmp.set "LinkID", JoinInfo.linkID
@@ -205,7 +205,7 @@ Public Function JoinMember(JoinInfo)
     Set JoinMember = httpPOST("/Join", "", "", postData, "")
 End Function
 
-'ë‹´ë‹¹ì ì •ë³´ í™•ì¸
+'´ã´çÀÚ Á¤º¸ È®ÀÎ
 Public Function GetContactInfo(CorpNum, ContactID, UserID)
 
     postData = "{'id':" + "'" + ContactID  +"'}"
@@ -218,7 +218,7 @@ Public Function GetContactInfo(CorpNum, ContactID, UserID)
     Set GetContactInfo = contInfo
 End Function
 
-' ë‹´ë‹¹ì ëª©ë¡ì¡°íšŒ
+' ´ã´çÀÚ ¸ñ·ÏÁ¶È¸
 Public Function ListContact(CorpNum, UserID)
     Dim result : Set result = httpGET("/IDs",getSession_token(CorpNum), UserID)
 
@@ -233,7 +233,7 @@ Public Function ListContact(CorpNum, UserID)
     Set ListContact = infoObj
 End Function
 
-'ë‹´ë‹¹ì ìˆ˜ì •
+'´ã´çÀÚ ¼öÁ¤
 Public Function UpdateContact(CorpNum, ContactInfo, UserID)
     Dim tmp : Set tmp = ContactInfo.toJsonInfo
     Dim postData : postData = m_Linkhub.toString(tmp)
@@ -241,7 +241,7 @@ Public Function UpdateContact(CorpNum, ContactInfo, UserID)
     Set UpdateContact = httpPOST("/IDs", getSession_token(CorpNum), "", postData, UserID)
 End Function
 
-'ë‹´ë‹¹ì ì¶”ê°€
+'´ã´çÀÚ Ãß°¡
 Public Function RegistContact(CorpNum, ContactInfo, UserId)
     Dim tmp : Set tmp = ContactInfo.toJsonInfo
     Dim postData : postData = m_Linkhub.toString(tmp)
@@ -249,7 +249,7 @@ Public Function RegistContact(CorpNum, ContactInfo, UserId)
     Set RegistContact = httpPOST("/IDs/New", getSession_token(CorpNum), "", postData, UserId)
 End Function
 
-'íšŒì‚¬ì •ë³´ í™•ì¸
+'È¸»çÁ¤º¸ È®ÀÎ
 Public Function GetCorpInfo(CorpNum, UserID)
     Dim result : Set result = httpGET("/CorpInfo",getSession_token(CorpNum), UserID)
 
@@ -259,7 +259,7 @@ Public Function GetCorpInfo(CorpNum, UserID)
     Set GetCorpInfo = infoObj
 End Function
 
-'íšŒì‚¬ì •ë³´ ìˆ˜ì •
+'È¸»çÁ¤º¸ ¼öÁ¤
 Public Function UpdateCorpInfo(CorpNum, CorpInfo, UserID)
     Dim tmp : Set tmp = CorpInfo.toJsonInfo
     Dim postData : postData = m_Linkhub.toString(tmp)
@@ -267,12 +267,12 @@ Public Function UpdateCorpInfo(CorpNum, CorpInfo, UserID)
     Set UpdateCorpInfo = httpPOST("/CorpInfo", getSession_token(CorpNum), "", postData, UserID)
 End Function
 
-'ì•„ì´ë”” ì¤‘ë³µí™•ì¸
+'¾ÆÀÌµğ Áßº¹È®ÀÎ
 Public Function CheckID(id)
     Set CheckID = httpGET("/IDCheck?ID="+id, "", "")
 End Function
 
-' ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­ (PaymentRequest)
+' ¹«ÅëÀå ÀÔ±İ½ÅÃ» (PaymentRequest)
 Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
     Dim tmp: Set tmp = PaymentForm.toJsonInfo
     Dim postData: postData = m_Linkhub.toString(tmp)
@@ -283,10 +283,10 @@ Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
     Set PaymentRequest = m_paymentResult
 End Function
 
-' ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­ ì •ë³´í™•ì¸ (GetSettleResult)
+' ¹«ÅëÀå ÀÔ±İ½ÅÃ» Á¤º¸È®ÀÎ (GetSettleResult)
 Public Function GetSettleResult(CorpNum, SettleCode, UserID)
     If SettleCode = "" then
-        Err.Raise -99999999, "POPBILL", "ì •ì‚°ì½”ë“œê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+        Err.Raise -99999999, "POPBILL", "Á¤»êÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
     End If
 
     Dim tmp : Set tmp = httpGET("/Payment/"& SettleCode,getSession_token(CorpNum),UserID)
@@ -296,7 +296,7 @@ Public Function GetSettleResult(CorpNum, SettleCode, UserID)
     Set GetSettleResult = m_paymentHistory
 End Function
 
-' í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ (GetUseHistory)
+' Æ÷ÀÎÆ® »ç¿ë³»¿ª (GetUseHistory)
 Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
     Dim tmp : Set tmp = httpGET("/UseHistory?SDate=" & SDate &  "&EDate=" & EDate & "&Page=" & Page & "&PerPage=" & PerPage &  "&Order=" & Order,getSession_token(CorpNum),UserID)
     Dim infoObj : Set infoObj = CreateObject("Scripting.Dictionary")
@@ -308,7 +308,7 @@ Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserI
     Set GetUseHistory = useHistoryResult
 End Function
 
-' í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ (GetPaymentHistory)
+' Æ÷ÀÎÆ® °áÁ¦³»¿ª (GetPaymentHistory)
 Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
     Dim tmp: Set tmp = httpGET("/PaymentHistory?SDate=" &SDate&  "&EDate="&EDate &  "&Page="&Page&  "&PerPage=" &PerPage,getSession_token(CorpNum),UserID)
 
@@ -319,7 +319,7 @@ Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
     Set GetPaymentHistory = paymentHistoryResult
 End Function
 
-' í™˜ë¶ˆ ì‹ ì²­ (Refund)
+' È¯ºÒ ½ÅÃ» (Refund)
 Public Function Refund(CorpNum, RefundForm,  UserID)
     Dim tmp: Set tmp = RefundForm.toJsonInfo
     Dim postData: postData = m_Linkhub.toString(tmp)
@@ -330,7 +330,7 @@ Public Function Refund(CorpNum, RefundForm,  UserID)
     Set Refund = refundResponse
 End Function
 
-' í™˜ë¶ˆ ì‹ ì²­ë‚´ì—­ (GetRefundHistory)
+' È¯ºÒ ½ÅÃ»³»¿ª (GetRefundHistory)
 Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
     Dim tmp : Set tmp  = httpGET("/RefundHistory?Page="&Page & "&PerPage="&PerPage,getSession_token(CorpNum),UserID)
 
@@ -340,10 +340,10 @@ Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
     Set GetRefundHistory = refundHistoryResult
 End Function
 
-' í™˜ë¶ˆ ì‹ ì²­ìƒíƒœ í™•ì¸ (GetRefundInfo)
+' È¯ºÒ ½ÅÃ»»óÅÂ È®ÀÎ (GetRefundInfo)
 Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
     If RefundCode = "" then
-        Err.Raise -99999999, "POPBILL", "í™˜ë¶ˆì½”ë“œê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+        Err.Raise -99999999, "POPBILL", "È¯ºÒÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
     End If
 
 	Set tmp = httpGET("/Refund/"&RefundCode,getSession_token(CorpNum),UserID)
@@ -355,13 +355,13 @@ Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
 
 End Function
 
-' í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸ ì¡°íšŒ (GetRefundableBalance)
+' È¯ºÒ °¡´É Æ÷ÀÎÆ® Á¶È¸ (GetRefundableBalance)
 Public Function GetRefundableBalance(CorpNum, UserID)
 	Dim m_balance: Set m_balance = httpGET("/RefundPoint",getSession_token(CorpNum),UserID)
 	GetRefundableBalance = CDbl(m_balance.refundableBalance)
 End Function
 
-' íŒë¹ŒíšŒì› íƒˆí‡´ (QuitMember)
+' ÆËºôÈ¸¿ø Å»Åğ (QuitMember)
 Public Function QuitMember(CorpNum, QuitReason, UserID)
     Dim quitReasonForm : Set quitReasonForm = New QuitReasonForm
     quitReasonForm.quitReason = QuitReason
@@ -777,7 +777,7 @@ Public Function parse(jsonString)
 End Function
 End Class
 
-'íšŒì›ê°€ì… ì •ë³´
+'È¸¿ø°¡ÀÔ Á¤º¸
 Class JoinForm
     Public LinkID
     Public CorpNum
@@ -797,7 +797,7 @@ Class JoinForm
     Public ContactEmail
 End Class
 
-'ë‹´ë‹¹ì ì •ë³´
+'´ã´çÀÚ Á¤º¸
 Class ContactInfo
     Public id
     Public pwd
@@ -848,7 +848,7 @@ Class ContactInfo
 
 End Class
 
-'íšŒì‚¬ì •ë³´
+'È¸»çÁ¤º¸
 Class CorpInfo
     Public ceoname
     Public corpName
@@ -877,7 +877,7 @@ Class CorpInfo
 
 End Class
 
-'ê³¼ê¸ˆì •ë³´
+'°ú±İÁ¤º¸
 Class ChargeInfo
     Public unitCost
     Public chargeMethod
@@ -893,7 +893,7 @@ Class ChargeInfo
 
 End Class
 
-'ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­ ê°ì²´ì •ë³´
+'¹«ÅëÀå ÀÔ±İ½ÅÃ» °´Ã¼Á¤º¸
 Class PaymentForm
     Public SettlerName
     Public SettlerEmail
@@ -912,7 +912,7 @@ Class PaymentForm
 
 End Class
 
-' í™˜ë¶ˆì‹ ì²­ ê°ì²´ì •ë³´
+' È¯ºÒ½ÅÃ» °´Ã¼Á¤º¸
 Class RefundForm
     Public ContactName
     Public TEL
@@ -935,7 +935,7 @@ Class RefundForm
 
 End Class
 
-'íšŒì›íƒˆí‡´ ì‹ ì²­ ê°ì²´ì •ë³´
+'È¸¿øÅ»Åğ ½ÅÃ» °´Ã¼Á¤º¸
 Class QuitReasonForm
     public quitReason
 

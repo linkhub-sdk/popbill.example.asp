@@ -1,32 +1,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ê³µê¸‰ìê°€ ìš”ì²­ë°›ì€ ì—­ë°œí–‰ ì„¸ê¸ˆê³„ì‚°ì„œë¥¼ ë°œí–‰í•˜ê¸° ì „, ê³µê¸‰ë°›ëŠ”ìê°€ ì—­ë°œí–‰ìš”ì²­ì„ ì·¨ì†Œí•©ë‹ˆë‹¤.
-    ' - í•¨ìˆ˜ í˜¸ì¶œì‹œ ìƒíƒœ ê°’ì´ "ì·¨ì†Œ"ë¡œ ë³€ê²½ë˜ê³ , í•´ë‹¹ ì—­ë°œí–‰ ì„¸ê¸ˆê³„ì‚°ì„œëŠ” ê³µê¸‰ìì— ì˜í•´ ë°œí–‰ ë  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
-    ' - [ì·¨ì†Œ]í•œ ì„¸ê¸ˆê³„ì‚°ì„œì˜ ë¬¸ì„œë²ˆí˜¸ë¥¼ ì¬ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” ì‚­ì œ (Delete API) í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•´ì•¼ í•©ë‹ˆë‹¤.
+    ' °ø±ŞÀÚ°¡ ¿äÃ»¹ŞÀº ¿ª¹ßÇà ¼¼±İ°è»ê¼­¸¦ ¹ßÇàÇÏ±â Àü, °ø±Ş¹Ş´ÂÀÚ°¡ ¿ª¹ßÇà¿äÃ»À» Ãë¼ÒÇÕ´Ï´Ù.
+    ' - ÇÔ¼ö È£Ãâ½Ã »óÅÂ °ªÀÌ "Ãë¼Ò"·Î º¯°æµÇ°í, ÇØ´ç ¿ª¹ßÇà ¼¼±İ°è»ê¼­´Â °ø±ŞÀÚ¿¡ ÀÇÇØ ¹ßÇà µÉ ¼ö ¾ø½À´Ï´Ù.
+    ' - [Ãë¼Ò]ÇÑ ¼¼±İ°è»ê¼­ÀÇ ¹®¼­¹øÈ£¸¦ Àç»ç¿ëÇÏ±â À§ÇØ¼­´Â »èÁ¦ (Delete API) ÇÔ¼ö¸¦ È£ÃâÇØ¾ß ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#CancelRequest
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     testUserID = "testkorea"
 
-    ' ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
+    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
     KeyType = "BUY"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     MgtKey = "20220720-ASP-001"
 
-    'ë©”ëª¨
-    Memo = "ì—­ë°œí–‰ ìš”ì²­ ì·¨ì†Œ ë©”ëª¨"
+    '¸Ş¸ğ
+    Memo = "¿ª¹ßÇà ¿äÃ» Ãë¼Ò ¸Ş¸ğ"
 
     On Error Resume Next
 
@@ -47,7 +47,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì„¸ê¸ˆê³„ì‚°ì„œ ì—­ë°œí–‰ìš”ì²­ ì·¨ì†Œ</legend>
+                <legend>¼¼±İ°è»ê¼­ ¿ª¹ßÇà¿äÃ» Ãë¼Ò</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

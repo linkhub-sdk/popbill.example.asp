@@ -1,97 +1,97 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
     <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-    <title>íŒë¹Œ SDK ASP Example.</title>
+    <title>ÆËºô SDK ASP Example.</title>
 </head>
 <body>
 <div id="content">
-    <p class="heading1">íŒë¹Œ í˜„ê¸ˆì˜ìˆ˜ì¦ SDK ASP Example.</p>
+    <p class="heading1">ÆËºô Çö±Ý¿µ¼öÁõ SDK ASP Example.</p>
     <br/>
     <fieldset class="fieldset1">
-        <legend>í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œí–‰</legend>
+        <legend>Çö±Ý¿µ¼öÁõ ¹ßÇà</legend>
         <ul>
-            <li><a href="checkMgtKeyInUse.asp">checkMgtKeyInUse</a> -ë¬¸ì„œë²ˆí˜¸ í™•ì¸</li>
-            <li><a href="registIssue.asp">registIssue</a> -ì¦‰ì‹œë°œí–‰</li>
-            <li><a href="bulkSubmit.asp">bulkSubmit</a> -  ì´ˆëŒ€ëŸ‰ ë°œí–‰ ì ‘ìˆ˜</li>
-            <li><a href="getBulkResult.asp">getBulkResult</a> -  ì´ˆëŒ€ëŸ‰ ì ‘ìˆ˜ ê²°ê³¼ í™•ì¸</li>
-            <li><a href="delete.asp">delete</a> -ì‚­ì œ</li>
+            <li><a href="checkMgtKeyInUse.asp">checkMgtKeyInUse</a> -¹®¼­¹øÈ£ È®ÀÎ</li>
+            <li><a href="registIssue.asp">registIssue</a> -Áï½Ã¹ßÇà</li>
+            <li><a href="bulkSubmit.asp">bulkSubmit</a> -  ÃÊ´ë·® ¹ßÇà Á¢¼ö</li>
+            <li><a href="getBulkResult.asp">getBulkResult</a> -  ÃÊ´ë·® Á¢¼ö °á°ú È®ÀÎ</li>
+            <li><a href="delete.asp">delete</a> -»èÁ¦</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>ì·¨ì†Œí˜„ê¸ˆì˜ìˆ˜ì¦ ë°œí–‰</legend>
+        <legend>Ãë¼ÒÇö±Ý¿µ¼öÁõ ¹ßÇà</legend>
         <ul>
-            <li><a href="revokeRegistIssue.asp">revokeRegistIssue</a> -ì¦‰ì‹œë°œí–‰</li>
-            <li><a href="revokeRegistIssue_part.asp">revokeRegistIssue_part</a> -ë¶€ë¶„) ì¦‰ì‹œë°œí–‰</li>
+            <li><a href="revokeRegistIssue.asp">revokeRegistIssue</a> -Áï½Ã¹ßÇà</li>
+            <li><a href="revokeRegistIssue_part.asp">revokeRegistIssue_part</a> -ºÎºÐ) Áï½Ã¹ßÇà</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>í˜„ê¸ˆì˜ìˆ˜ì¦ ì •ë³´í™•ì¸</legend>
+        <legend>Çö±Ý¿µ¼öÁõ Á¤º¸È®ÀÎ</legend>
         <ul>
-            <li><a href="getInfo.asp">getInfo</a> -ìƒíƒœí™•ì¸</li>
-            <li><a href="getInfos.asp">getInfos</a> -ìƒíƒœ ëŒ€ëŸ‰ í™•ì¸</li>
-            <li><a href="getDetailInfo.asp">getDetailInfo</a> -ìƒì„¸ì •ë³´ í™•ì¸</li>
-            <li><a href="search.asp">search</a> -ëª©ë¡ ì¡°íšŒ</li>
-            <li><a href="getURL.asp">getURL</a> -í˜„ê¸ˆì˜ìˆ˜ì¦ ë¬¸ì„œí•¨ ê´€ë ¨ URL</li>
+            <li><a href="getInfo.asp">getInfo</a> -»óÅÂÈ®ÀÎ</li>
+            <li><a href="getInfos.asp">getInfos</a> -»óÅÂ ´ë·® È®ÀÎ</li>
+            <li><a href="getDetailInfo.asp">getDetailInfo</a> -»ó¼¼Á¤º¸ È®ÀÎ</li>
+            <li><a href="search.asp">search</a> -¸ñ·Ï Á¶È¸</li>
+            <li><a href="getURL.asp">getURL</a> -Çö±Ý¿µ¼öÁõ ¹®¼­ÇÔ °ü·Ã URL</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>í˜„ê¸ˆì˜ìˆ˜ì¦ ë³´ê¸°/ì¸ì‡„</legend>
+        <legend>Çö±Ý¿µ¼öÁõ º¸±â/ÀÎ¼â</legend>
         <ul>
-            <li><a href="getPopUpURL.asp">getPopUpURL</a> -í˜„ê¸ˆì˜ìˆ˜ì¦ ë³´ê¸° URL</li>
-            <li><a href="getViewURL.asp">getViewURL</a> -í˜„ê¸ˆì˜ìˆ˜ì¦ ë³´ê¸° URL (ë©”ë‰´/ë²„íŠ¼ ì œì™¸)</li>
-            <li><a href="getPrintURL.asp">getPrintURL</a> -í˜„ê¸ˆì˜ìˆ˜ì¦ ì¸ì‡„ URL</li>
-            <li><a href="getMassPrintURL.asp">getMassPrintURL</a> -í˜„ê¸ˆì˜ìˆ˜ì¦ ëŒ€ëŸ‰ ì¸ì‡„ URL</li>
-            <li><a href="getMailURL.asp">getMailURL</a> -í˜„ê¸ˆì˜ìˆ˜ì¦ ë©”ì¼ë§í¬ URL</li>
-            <li><a href="getPDFURL.asp">getPDFURL</a> -í˜„ê¸ˆì˜ìˆ˜ì¦ PDF ë‹¤ìš´ë¡œë“œ URL</li>
+            <li><a href="getPopUpURL.asp">getPopUpURL</a> -Çö±Ý¿µ¼öÁõ º¸±â URL</li>
+            <li><a href="getViewURL.asp">getViewURL</a> -Çö±Ý¿µ¼öÁõ º¸±â URL (¸Þ´º/¹öÆ° Á¦¿Ü)</li>
+            <li><a href="getPrintURL.asp">getPrintURL</a> -Çö±Ý¿µ¼öÁõ ÀÎ¼â URL</li>
+            <li><a href="getMassPrintURL.asp">getMassPrintURL</a> -Çö±Ý¿µ¼öÁõ ´ë·® ÀÎ¼â URL</li>
+            <li><a href="getMailURL.asp">getMailURL</a> -Çö±Ý¿µ¼öÁõ ¸ÞÀÏ¸µÅ© URL</li>
+            <li><a href="getPDFURL.asp">getPDFURL</a> -Çö±Ý¿µ¼öÁõ PDF ´Ù¿î·Îµå URL</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>ë¶€ê°€ê¸°ëŠ¥</legend>
+        <legend>ºÎ°¡±â´É</legend>
         <ul>
-            <li><a href="getAccessURL.asp">getAccessURL</a> -íŒë¹Œ ë¡œê·¸ì¸ URL</li>
-            <li><a href="sendEmail.asp">sendEmail</a> -ë©”ì¼ ì „ì†¡</li>
-            <li><a href="sendSMS.asp">sendSMS</a> -ë¬¸ìž ì „ì†¡</li>
-            <li><a href="sendFAX.asp">sendFAX</a> -íŒ©ìŠ¤ ì „ì†¡</li>
-            <li><a href="assignMgtKey.asp">assignMgtKey</a> -í˜„ê¸ˆì˜ìˆ˜ì¦ ë¬¸ì„œë²ˆí˜¸ í• ë‹¹</li>
-            <li><a href="listEmailConfig.asp">listEmailConfig</a> -í˜„ê¸ˆì˜ìˆ˜ì¦ ì•Œë¦¼ë©”ì¼ ì „ì†¡ëª©ë¡ ì¡°íšŒ</li>
-            <li><a href="updateEmailConfig.asp">updateEmailConfig</a> -í˜„ê¸ˆì˜ìˆ˜ì¦ ì•Œë¦¼ë©”ì¼ ì „ì†¡ì„¤ì • ìˆ˜ì •</li>
+            <li><a href="getAccessURL.asp">getAccessURL</a> -ÆËºô ·Î±×ÀÎ URL</li>
+            <li><a href="sendEmail.asp">sendEmail</a> -¸ÞÀÏ Àü¼Û</li>
+            <li><a href="sendSMS.asp">sendSMS</a> -¹®ÀÚ Àü¼Û</li>
+            <li><a href="sendFAX.asp">sendFAX</a> -ÆÑ½º Àü¼Û</li>
+            <li><a href="assignMgtKey.asp">assignMgtKey</a> -Çö±Ý¿µ¼öÁõ ¹®¼­¹øÈ£ ÇÒ´ç</li>
+            <li><a href="listEmailConfig.asp">listEmailConfig</a> -Çö±Ý¿µ¼öÁõ ¾Ë¸²¸ÞÀÏ Àü¼Û¸ñ·Ï Á¶È¸</li>
+            <li><a href="updateEmailConfig.asp">updateEmailConfig</a> -Çö±Ý¿µ¼öÁõ ¾Ë¸²¸ÞÀÏ Àü¼Û¼³Á¤ ¼öÁ¤</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>í¬ì¸íŠ¸ê´€ë¦¬</legend>
+        <legend>Æ÷ÀÎÆ®°ü¸®</legend>
         <ul>
-            <li><a href="getBalance.asp">getBalance</a> -ì—°ë™íšŒì› ìž”ì—¬í¬ì¸íŠ¸ í™•ì¸</li>
-            <li><a href="getChargeURL.asp">getChargeURL</a> -ì—°ë™íšŒì› í¬ì¸íŠ¸ì¶©ì „ URL</li>
-            <li><a href="getPaymentURL.asp">GetPaymentURL</a> - ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ìž¬ë‚´ì—­ URL</li>
-            <li><a href="getUseHistoryURL.asp">GetUseHistoryURL</a> - ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL</li>
-            <li><a href="getPartnerBalance.asp">getPartnerBalance</a> -íŒŒíŠ¸ë„ˆ ìž”ì—¬í¬ì¸íŠ¸ í™•ì¸</li>
-            <li><a href="getPartnerURL.asp">getPartnerURL</a> -íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ì¶©ì „ URL</li>
-            <li><a href="getUnitCost.asp">getUnitCost</a> -ë°œí–‰ ë‹¨ê°€ í™•ì¸</li>
-            <li><a href="getChargeInfo.asp">getChargeInfo</a> -ê³¼ê¸ˆì •ë³´ í™•ì¸</li>
-            <li><a href="paymentRequest.asp">paymentRequest</a> - ì—°ë™íšŒì› ë¬´í†µìž¥ ìž…ê¸ˆì‹ ì²­</li>
-            <li><a href="getSettleResult.asp">getSettleResult</a> - ì—°ë™íšŒì› ë¬´í†µìž¥ ìž…ê¸ˆì‹ ì²­ í™•ì¸</li>
-            <li><a href="getPaymentHistory.asp">getPaymentHistory</a> - ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ í™•ì¸</li>
-            <li><a href="getUseHistory.asp">getUseHistory</a> - ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ í™•ì¸</li>
-            <li><a href="refund.asp">refund</a> - ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆì‹ ì²­</li>
-            <li><a href="getRefundHistory.asp">getRefundHistory</a> - ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆë‚´ì—­ í™•ì¸</li>
-            <li><a href="getRefundInfo.asp">getRefundInfo</a> - í™˜ë¶ˆ ì‹ ì²­ ìƒíƒœ ì¡°íšŒ</li>
-			<li><a href="getRefundableBalance.asp">getRefundableBalance</a> - í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸ ì¡°íšŒ</li>
+            <li><a href="getBalance.asp">getBalance</a> -¿¬µ¿È¸¿ø ÀÜ¿©Æ÷ÀÎÆ® È®ÀÎ</li>
+            <li><a href="getChargeURL.asp">getChargeURL</a> -¿¬µ¿È¸¿ø Æ÷ÀÎÆ®ÃæÀü URL</li>
+            <li><a href="getPaymentURL.asp">GetPaymentURL</a> - ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÀç³»¿ª URL</li>
+            <li><a href="getUseHistoryURL.asp">GetUseHistoryURL</a> - ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL</li>
+            <li><a href="getPartnerBalance.asp">getPartnerBalance</a> -ÆÄÆ®³Ê ÀÜ¿©Æ÷ÀÎÆ® È®ÀÎ</li>
+            <li><a href="getPartnerURL.asp">getPartnerURL</a> -ÆÄÆ®³Ê Æ÷ÀÎÆ®ÃæÀü URL</li>
+            <li><a href="getUnitCost.asp">getUnitCost</a> -¹ßÇà ´Ü°¡ È®ÀÎ</li>
+            <li><a href="getChargeInfo.asp">getChargeInfo</a> -°ú±ÝÁ¤º¸ È®ÀÎ</li>
+            <li><a href="paymentRequest.asp">paymentRequest</a> - ¿¬µ¿È¸¿ø ¹«ÅëÀå ÀÔ±Ý½ÅÃ»</li>
+            <li><a href="getSettleResult.asp">getSettleResult</a> - ¿¬µ¿È¸¿ø ¹«ÅëÀå ÀÔ±Ý½ÅÃ» È®ÀÎ</li>
+            <li><a href="getPaymentHistory.asp">getPaymentHistory</a> - ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª È®ÀÎ</li>
+            <li><a href="getUseHistory.asp">getUseHistory</a> - ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª È®ÀÎ</li>
+            <li><a href="refund.asp">refund</a> - ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® È¯ºÒ½ÅÃ»</li>
+            <li><a href="getRefundHistory.asp">getRefundHistory</a> - ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® È¯ºÒ³»¿ª È®ÀÎ</li>
+            <li><a href="getRefundInfo.asp">getRefundInfo</a> - È¯ºÒ ½ÅÃ» »óÅÂ Á¶È¸</li>
+			<li><a href="getRefundableBalance.asp">getRefundableBalance</a> - È¯ºÒ °¡´É Æ÷ÀÎÆ® Á¶È¸</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
-        <legend>íšŒì›ì •ë³´</legend>
+        <legend>È¸¿øÁ¤º¸</legend>
         <ul>
-            <li><a href="checkIsMember.asp">checkIsMember</a> -ì—°ë™íšŒì› ê°€ìž…ì—¬ë¶€ í™•ì¸</li>
-            <li><a href="checkID.asp">checkID</a> -ì•„ì´ë”” ì¤‘ë³µ í™•ì¸</li>
-            <li><a href="joinMember.asp">joinMember</a> -ì—°ë™íšŒì› ì‹ ê·œê°€ìž…</li>
-            <li><a href="getCorpInfo.asp">getCorpInfo</a> -íšŒì‚¬ì •ë³´ í™•ì¸</li>
-            <li><a href="updateCorpInfo.asp">updateCorpInfo</a> -íšŒì‚¬ì •ë³´ ìˆ˜ì •</li>
-            <li><a href="registContact.asp">registContact</a> -ë‹´ë‹¹ìž ë“±ë¡</li>
-            <li><a href="getContactInfo.asp">getContactInfo</a> - ë‹´ë‹¹ìž ì •ë³´ í™•ì¸</li>
-            <li><a href="listContact.asp">listContact</a> -ë‹´ë‹¹ìž ëª©ë¡ í™•ì¸</li>
-            <li><a href="updateContact.asp">updateContact</a> -ë‹´ë‹¹ìž ì •ë³´ ìˆ˜ì •</li>
-            <li><a href="quitMember.asp">quitMember</a> - íŒë¹ŒíšŒì› íƒˆí‡´</li>
+            <li><a href="checkIsMember.asp">checkIsMember</a> -¿¬µ¿È¸¿ø °¡ÀÔ¿©ºÎ È®ÀÎ</li>
+            <li><a href="checkID.asp">checkID</a> -¾ÆÀÌµð Áßº¹ È®ÀÎ</li>
+            <li><a href="joinMember.asp">joinMember</a> -¿¬µ¿È¸¿ø ½Å±Ô°¡ÀÔ</li>
+            <li><a href="getCorpInfo.asp">getCorpInfo</a> -È¸»çÁ¤º¸ È®ÀÎ</li>
+            <li><a href="updateCorpInfo.asp">updateCorpInfo</a> -È¸»çÁ¤º¸ ¼öÁ¤</li>
+            <li><a href="registContact.asp">registContact</a> -´ã´çÀÚ µî·Ï</li>
+            <li><a href="getContactInfo.asp">getContactInfo</a> - ´ã´çÀÚ Á¤º¸ È®ÀÎ</li>
+            <li><a href="listContact.asp">listContact</a> -´ã´çÀÚ ¸ñ·Ï È®ÀÎ</li>
+            <li><a href="updateContact.asp">updateContact</a> -´ã´çÀÚ Á¤º¸ ¼öÁ¤</li>
+            <li><a href="quitMember.asp">quitMember</a> - ÆËºôÈ¸¿ø Å»Åð</li>
         </ul>
     </fieldset>
 </div>

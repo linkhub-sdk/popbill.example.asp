@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒë¹ŒíšŒì›ì— ë“±ë¡ëœ 080 ìˆ˜ì‹ ê±°ë¶€ ë²ˆí˜¸ ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ÆËºôÈ¸¿ø¿¡ µî·ÏµÈ 080 ¼ö½Å°ÅºÎ ¹øÈ£ Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/sms/asp/api/info#CheckAutoDenyNumber
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -34,11 +34,11 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>080 ìˆ˜ì‹ ê±°ë¶€ ì •ë³´ í™•ì¸</legend>
+                <legend>080 ¼ö½Å°ÅºÎ Á¤º¸ È®ÀÎ</legend>
                 <fieldset class="fieldset2">
                 <ul>
-                    <li>smsdenyNumber(ì „ìš© 080 ë²ˆí˜¸) : <%=Presponse.smsdenyNumber%> </li>
-                    <li>regDT(ë“±ë¡ì¼ì‹œ) : <%=Presponse.regDT%> </li>
+                    <li>smsdenyNumber(Àü¿ë 080 ¹øÈ£) : <%=Presponse.smsdenyNumber%> </li>
+                    <li>regDT(µî·ÏÀÏ½Ã) : <%=Presponse.regDT%> </li>
                 </ul>
                 </fieldset>
         </div>

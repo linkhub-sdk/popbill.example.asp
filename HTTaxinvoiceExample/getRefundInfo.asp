@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' í™˜ë¶ˆ ì‹ ì²­ ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' È¯ºÒ ½ÅÃ» Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/point#GetRefundInfo
     '**************************************************************
 
-    'íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-	'í™˜ë¶ˆ ì½”ë“œ
+	'È¯ºÒ ÄÚµå
 	refundCode = "023040000017"
 
-    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -37,20 +37,20 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>í™˜ë¶ˆ ì‹ ì²­ ìƒíƒœ ì¡°íšŒ</legend>
+                <legend>È¯ºÒ ½ÅÃ» »óÅÂ Á¶È¸</legend>
                 <%
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
                         <legend> GetRefundInfo </legend>
                             <ul>
-                                <li> reqDT (ì‹ ì²­ ì¼ì‹œ) : <%=result.reqDT%></li>
-                                <li> requestPoint (í™˜ë¶ˆ ì‹ ì²­í¬ì¸íŠ¸) : <%=result.requestPoint%></li>
-                                <li> accountBank (í™˜ë¶ˆê³„ì¢Œ ì€í–‰ëª…) : <%=result.accountBank%></li>
-                                <li> accountNum (í™˜ë¶ˆê³„ì¢Œë²ˆí˜¸) : <%=result.accountNum%></li>
-                                <li> accountName (í™˜ë¶ˆê³„ì¢Œ ì˜ˆê¸ˆì£¼ëª…) : <%=result.accountName%></li>
-                                <li> state (ìƒíƒœ) : <%=result.state%></li>
-                                <li> reason (í™˜ë¶ˆì‚¬ìœ ) : <%=result.reason%></li>
+                                <li> reqDT (½ÅÃ» ÀÏ½Ã) : <%=result.reqDT%></li>
+                                <li> requestPoint (È¯ºÒ ½ÅÃ»Æ÷ÀÎÆ®) : <%=result.requestPoint%></li>
+                                <li> accountBank (È¯ºÒ°èÁÂ ÀºÇà¸í) : <%=result.accountBank%></li>
+                                <li> accountNum (È¯ºÒ°èÁÂ¹øÈ£) : <%=result.accountNum%></li>
+                                <li> accountName (È¯ºÒ°èÁÂ ¿¹±İÁÖ¸í) : <%=result.accountName%></li>
+                                <li> state (»óÅÂ) : <%=result.state%></li>
+                                <li> reason (È¯ºÒ»çÀ¯) : <%=result.reason%></li>
                             </ul>
                         </fieldset>
                 <%

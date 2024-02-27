@@ -3,7 +3,7 @@ Class CashbillService
 
 Private m_PopbillBase
 
-'í…ŒìŠ¤íŠ¸ í”Œë˜ê·¸
+'Å×½ºÆ® ÇÃ·¡±×
 Public Property Let IsTest(ByVal value)
 	m_PopbillBase.IsTest = value
 End Property
@@ -33,79 +33,79 @@ Public Sub Initialize(linkID, SecretKey )
 	m_PopbillBase.Initialize linkID,SecretKey
 End Sub
 
-'íšŒì›ì”ì•¡ì¡°íšŒ
+'È¸¿øÀÜ¾×Á¶È¸
 Public Function GetBalance(CorpNum)
 	GetBalance = m_PopbillBase.GetBalance(CorpNum)
 End Function
-'íŒŒíŠ¸ë„ˆ ì”ì•¡ì¡°íšŒ
+'ÆÄÆ®³Ê ÀÜ¾×Á¶È¸
 Public Function GetPartnerBalance(CorpNum)
 	GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
 End Function
-'íŒë¹Œ ê¸°ë³¸ URL
+'ÆËºô ±âº» URL
 Public Function GetPopbillURL(CorpNum , UserID , TOGO )
 	GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 End Function
-'íŒë¹Œ ë¡œê·¸ì¸ URL
+'ÆËºô ·Î±×ÀÎ URL
 Public Function GetAccessURL(CorpNum , UserID)
 	GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
 End Function
 
-'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì¶©ì „ URL
+'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀü URL
 Public Function GetChargeURL(CorpNum , UserID)
 	GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
 End Function
 
-'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ URL
+'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª URL
 Public Function GetPaymentURL(CorpNum, UserID)
 	GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
 End Function
 
-'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL
+'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL
 Public Function GetUseHistoryURL(CorpNum, UserID)
 	GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
 End Function
 
-'íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ íŒì—… URL - 2017/08/29 ì¶”ê°€
+'ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL - 2017/08/29 Ãß°¡
 Public Function GetPartnerURL(CorpNum, TOGO)
 	GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
 End Function
 
-'íšŒì›ê°€ì… ì—¬ë¶€
+'È¸¿ø°¡ÀÔ ¿©ºÎ
 Public Function CheckIsMember(CorpNum , linkID)
 	Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
 End Function
-'íšŒì›ê°€ì…
+'È¸¿ø°¡ÀÔ
 Public Function JoinMember(JoinInfo)
 	Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
-'ë‹´ë‹¹ì ì •ë³´ í™•ì¸
+'´ã´çÀÚ Á¤º¸ È®ÀÎ
 Public Function GetContactInfo(CorpNum, ContactID, UserID)
 	Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
 End Function
-'ë‹´ë‹¹ì ëª©ë¡ì¡°íšŒ
+'´ã´çÀÚ ¸ñ·ÏÁ¶È¸
 Public Function ListContact(CorpNum, UserID)
 	Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
 End Function
-'ë‹´ë‹¹ì ì •ë³´ìˆ˜ì •
+'´ã´çÀÚ Á¤º¸¼öÁ¤
 Public Function UpdateContact(CorpNum, contInfo, UserId)
 	Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
 End Function
-'ë‹´ë‹¹ì ì¶”ê°€
+'´ã´çÀÚ Ãß°¡
 Public Function RegistContact(CorpNum, contInfo, UserId)
 	Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
 End Function
-'íšŒì‚¬ì •ë³´ ìˆ˜ì •
+'È¸»çÁ¤º¸ ¼öÁ¤
 Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
 	Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
 End Function
-'íšŒì‚¬ì •ë³´ í™•ì¸
+'È¸»çÁ¤º¸ È®ÀÎ
 Public Function GetCorpInfo(CorpNum, UserId)
 	Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
 End Function
 Public Function CheckID(id)
 	Set CheckID = m_popbillBase.CheckID(id)
 End Function
-'ê³¼ê¸ˆì •ë³´ í™•ì¸
+'°ú±İÁ¤º¸ È®ÀÎ
 Public Function GetChargeInfo ( CorpNum, UserID )
 	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/ChargeInfo", m_PopbillBase.getSession_token(CorpNum), UserID)
 
@@ -115,48 +115,48 @@ Public Function GetChargeInfo ( CorpNum, UserID )
 	Set GetChargeInfo = chrgInfo
 End Function
 
-	'ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­
+	'¹«ÅëÀå ÀÔ±İ½ÅÃ»
 Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
 	Set PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ ì¡°íšŒ
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª Á¶È¸
 Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
 	Set GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
 End Function
 
-'ì—°ë™íšŒì› ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­ ì •ë³´í™•ì¸
+'¿¬µ¿È¸¿ø ¹«ÅëÀå ÀÔ±İ½ÅÃ» Á¤º¸È®ÀÎ
 Public Function GetSettleResult(CorpNum, SettleCode, UserID)
 	Set GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ í™•ì¸
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª È®ÀÎ
 Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
 	Set GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆì‹ ì²­
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® È¯ºÒ½ÅÃ»
 Public Function Refund(CorpNum, RefundForm, UserID)
 	Set Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
 End Function
 
-' í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸ ì¡°íšŒ
+' È¯ºÒ °¡´É Æ÷ÀÎÆ® Á¶È¸
 Public Function GetRefundableBalance(CorpNum, UserID)
 	m_refundable = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
 	GetRefundableBalance = m_refundable
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆë‚´ì—­ í™•ì¸
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® È¯ºÒ³»¿ª È®ÀÎ
 Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
 	Set GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
 End Function
 
-' í™˜ë¶ˆ ì‹ ì²­ ìƒíƒœ ì¡°íšŒ
+' È¯ºÒ ½ÅÃ» »óÅÂ Á¶È¸
 Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
 	Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
 End Function
 
-'íšŒì› íƒˆí‡´
+'È¸¿ø Å»Åğ
 Public Function QuitMember(CorpNum, QuitReason, UserID)
 	Set QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
 End Function
@@ -164,16 +164,16 @@ End Function
 
 '''''''''''''  End of PopbillBase
 
-'ë‹¨ê°€í™•ì¸
+'´Ü°¡È®ÀÎ
 Public Function GetUnitCost(CorpNum)
 	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill?cfg=UNITCOST", m_PopbillBase.getSession_token(CorpNum),"")
 	GetUnitCost = result.unitCost
 End Function
 
-'ì—°ë™ë¬¸ì„œë²ˆí˜¸ ì‚¬ìš©ì—¬ë¶€ í™•ì¸
+'¿¬µ¿¹®¼­¹øÈ£ »ç¿ë¿©ºÎ È®ÀÎ
 Public Function CheckMgtKeyInUse(CorpNum, mgtKey)
 	If mgtKey = "" Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	On Error Resume Next
@@ -189,47 +189,47 @@ Public Function CheckMgtKeyInUse(CorpNum, mgtKey)
 End Function
 
 
-'íŒë¹Œ SSO URLí™•ì¸
+'ÆËºô SSO URLÈ®ÀÎ
 Public Function GetURL(CorpNum, UserID, TOGO)
 	Dim result : Set result = m_PopbillBase.httpGet("/Cashbill?TG=" + TOGO, m_PopbillBase.getSession_token(CorpNum),UserID)
 	GetURL = result.url
 End Function
 
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ë³´ê¸° URL
+'Çö±İ¿µ¼öÁõ º¸±â URL
 Public Function GetPopUpURL(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=POPUP", m_PopbillBase.getSession_token(CorpNum), UserID)
 	GetPopUpURL = result.url
 End Function
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ë³´ê¸° URL (ë©”ë‰´/ë²„íŠ¼ ì œì™¸)
+'Çö±İ¿µ¼öÁõ º¸±â URL (¸Ş´º/¹öÆ° Á¦¿Ü)
 Public Function GetViewURL(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=VIEW", m_PopbillBase.getSession_token(CorpNum), UserID)
 	GetViewURL = result.url
 End Function
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ì¸ì‡„ URL
+'Çö±İ¿µ¼öÁõ ÀÎ¼â URL
 Public Function GetPDFURL(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=PDF", m_PopbillBase.getSession_token(CorpNum), UserID)
 	GetPDFURL = result.url
 End Function
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ì¸ì‡„ URL
+'Çö±İ¿µ¼öÁõ ÀÎ¼â URL
 Public Function GetPrintURL(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=PRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -237,10 +237,10 @@ Public Function GetPrintURL(CorpNum, mgtKey, UserID)
 End Function
 
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ì¸ì‡„ URL - ê³µê¸‰ë°›ëŠ”ì
+'Çö±İ¿µ¼öÁõ ÀÎ¼â URL - °ø±Ş¹Ş´ÂÀÚ
 Public Function GetEPrintURL(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=EPRINT", m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -248,10 +248,10 @@ Public Function GetEPrintURL(CorpNum, mgtKey, UserID)
 End Function
 
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ì´ë©”ì¼ ë§í¬ URL
+'Çö±İ¿µ¼öÁõ ÀÌ¸ŞÀÏ ¸µÅ© URL
 Public Function GetMailURL(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim result : Set result = m_PopbillBase.httpGET("/Cashbill/"+mgtKey +"?TG=MAIL", m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -259,10 +259,10 @@ Public Function GetMailURL(CorpNum, mgtKey, UserID)
 End Function
 
 
-'ë‹¤ëŸ‰ í˜„ê¸ˆì˜ìˆ˜ì¦ ì¸ì‡„ URL
+'´Ù·® Çö±İ¿µ¼öÁõ ÀÎ¼â URL
 Public Function GetMassPrintURL(CorpNum, mgtKeyList, UserID)
 	If isEmpty(mgtKeyList) Or isNull(mgtKeyList) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim tmp : Set tmp = JSON.parse("[]")
@@ -280,11 +280,11 @@ End Function
 
 Public Function AssignMgtKey(CorpNum, ItemKey, MgtKey)
 	If ItemKey = "" Or isEmpty(ItemKey) Then
-		Err.Raise -99999999, "POPBILL", "ì•„ì´í…œí‚¤ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¾ÆÀÌÅÛÅ°°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	If MgtKey = "" Or isEmpty(MgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Set AssignMgtKey = m_PopbillBase.httpPOST_ContentsType("/Cashbill/" & ItemKey,  _
@@ -292,7 +292,7 @@ Public Function AssignMgtKey(CorpNum, ItemKey, MgtKey)
 
 End Function
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ì„ì‹œì €ì¥
+'Çö±İ¿µ¼öÁõ ÀÓ½ÃÀúÀå
 Public Function Register(CorpNum, ByRef Cashbill, UserID)
 	Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo()
 	Dim postData : postData = m_PopbillBase.toString(tmpDic)
@@ -301,7 +301,7 @@ Public Function Register(CorpNum, ByRef Cashbill, UserID)
 End Function
 
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ìˆ˜ì •
+'Çö±İ¿µ¼öÁõ ¼öÁ¤
 Public Function Update(CorpNum, mgtKey, ByRef Cashbill, UserID)
 	Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo()
 	Dim postData : postData = m_PopbillBase.toString(tmpDic)
@@ -310,10 +310,10 @@ Public Function Update(CorpNum, mgtKey, ByRef Cashbill, UserID)
 End Function
 
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œí–‰
+'Çö±İ¿µ¼öÁõ ¹ßÇà
 Public Function Issue(CorpNum, mgtKey, Memo, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim tmp : Set tmp = JSON.parse("{}")
@@ -324,10 +324,10 @@ Public Function Issue(CorpNum, mgtKey, Memo, UserID)
 End Function
 
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œí–‰ì·¨ì†Œ
+'Çö±İ¿µ¼öÁõ ¹ßÇàÃë¼Ò
 Public Function CancelIssue(CorpNum, mgtKey, Memo, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim tmp : Set tmp = JSON.parse("{}")
@@ -338,20 +338,20 @@ Public Function CancelIssue(CorpNum, mgtKey, Memo, UserID)
 End Function
 
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ì‚­ì œ
+'Çö±İ¿µ¼öÁõ »èÁ¦
 Public Function Delete(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Set Delete = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), "DELETE", "", UserID)
 End Function
 
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ìƒíƒœì •ë³´ ì¡°íšŒ
+'Çö±İ¿µ¼öÁõ »óÅÂÁ¤º¸ Á¶È¸
 Public Function GetInfo(CorpNum, mgtKey, UserID)
 	If mgtKey = "" Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey, m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -362,10 +362,10 @@ Public Function GetInfo(CorpNum, mgtKey, UserID)
 End Function
 
 
-'ë‹¤ëŸ‰ í˜„ê¸ˆì˜ìˆ˜ì¦ ìƒíƒœì •ë³´ ì¡°íšŒ
+'´Ù·® Çö±İ¿µ¼öÁõ »óÅÂÁ¤º¸ Á¶È¸
 Public Function GetInfos(CorpNum, mgtKeyList, UserID)
 	If isNull(mgtKeyList) Or isEmpty(mgtKeyList) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim tmp : Set tmp = JSON.parse("[]")
@@ -391,10 +391,10 @@ Public Function GetInfos(CorpNum, mgtKeyList, UserID)
 End Function
 
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ì´ë ¥í™•ì¸
+'Çö±İ¿µ¼öÁõ ÀÌ·ÂÈ®ÀÎ
 Public Function GetLogs(CorpNum, mgtKey, UserID)
 	If isNull(mgtKey) Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey+"/Logs", m_PopbillBase.getSession_token(CorpNum),UserID)
@@ -412,10 +412,10 @@ Public Function GetLogs(CorpNum, mgtKey, UserID)
 End Function
 
 
-'ìƒì„¸ì •ë³´ í™•ì¸
+'»ó¼¼Á¤º¸ È®ÀÎ
 Public Function GetDetailInfo(CorpNum, mgtKey, UserID)
 	If isNull(mgtKey) Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/"+mgtKey+"?Detail", m_PopbillBase.getSession_token(CorpNum),UserID)
@@ -428,10 +428,10 @@ Public Function GetDetailInfo(CorpNum, mgtKey, UserID)
 End Function
 
 
-'ì•Œë¦¼ë©”ì¼ ì¬ì „ì†¡
+'¾Ë¸²¸ŞÀÏ ÀçÀü¼Û
 Public Function SendEmail(CorpNum, mgtKey, Receiver, UsrID)
 	If isNull(mgtKey) Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim tmp : Set tmp = JSON.parse("{}")
@@ -443,10 +443,10 @@ Public Function SendEmail(CorpNum, mgtKey, Receiver, UsrID)
 End Function
 
 
-'ì•Œë¦¼ë¬¸ì ì „ì†¡
+'¾Ë¸²¹®ÀÚ Àü¼Û
 Public Function SendSMS(CorpNum, mgtKey, Sender, Receiver, Contents, UserID)
 	If isNull(mgtKey) Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim tmp : Set tmp = JSON.parse("{}")
@@ -460,10 +460,10 @@ Public Function SendSMS(CorpNum, mgtKey, Sender, Receiver, Contents, UserID)
 End Function
 
 
-'íŒ©ìŠ¤ ì „ì†¡
+'ÆÑ½º Àü¼Û
 Public Function SendFAX(CorpNum, mgtKey, Sender, Receiver, UserID)
 	If isNull(mgtKey) Or isEmpty(mgtKey) Then
-		Err.Raise -99999999, "POPBILL", "ë¬¸ì„œë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¹®¼­¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim tmp : Set tmp = JSON.parse("{}")
@@ -475,7 +475,7 @@ Public Function SendFAX(CorpNum, mgtKey, Sender, Receiver, UserID)
 	Set SendFAX = m_PopbillBase.httpPOST("/Cashbill/"+mgtKey , m_PopbillBase.getSession_token(CorpNum), "FAX", postData, UserID)
 End Function
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ì¦‰ì‹œë°œí–‰
+'Çö±İ¿µ¼öÁõ Áï½Ã¹ßÇà
 Public Function RegistIssue(CorpNum, ByRef Cashbill, Memo, EmailSubject, UserID)
 	Dim tmpDic : Set tmpDic = Cashbill.toJsonInfo
 	tmpDic.Set "memo", Memo
@@ -489,15 +489,15 @@ Public Function RegistIssue(CorpNum, ByRef Cashbill, Memo, EmailSubject, UserID)
 	Set RegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "ISSUE", postData, UserID)
 End Function
 
-' í˜„ê¸ˆì˜ìˆ˜ì¦ ì´ˆëŒ€ëŸ‰ ë°œí–‰ ì ‘ìˆ˜
+' Çö±İ¿µ¼öÁõ ÃÊ´ë·® ¹ßÇà Á¢¼ö
 Public Function BulkSubmit(CorpNum, SubmitID, cashbillList, UserID)
 
 	If SubmitID = "" Or isEmpty(SubmitID) Then
-		Err.Raise -99999999, "POPBILL", "ì œì¶œì•„ì´ë””ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "Á¦Ãâ¾ÆÀÌµğ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	If Ubound(cashbillList) = "" Or isEmpty(cashbillList) Then
-		Err.Raise -99999999, "POPBILL", "í˜„ê¸ˆì˜ìˆ˜ì¦ ì •ë³´ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "Çö±İ¿µ¼öÁõ Á¤º¸°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim bulkCashbillSubmit : Set bulkCashbillSubmit = new BulkCashbillSubmit
@@ -516,11 +516,11 @@ Public Function BulkSubmit(CorpNum, SubmitID, cashbillList, UserID)
 
 End Function
 
-' ì´ˆëŒ€ëŸ‰ ì ‘ìˆ˜ ê²°ê³¼ í™•ì¸
+' ÃÊ´ë·® Á¢¼ö °á°ú È®ÀÎ
 Public Function GetBulkResult(CorpNum, SubmitID, UserID)
 
 	If SubmitID = "" Or isEmpty(SubmitID) Then
-		Err.Raise -99999999, "POPBILL", "ì œì¶œì•„ì´ë””ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "Á¦Ãâ¾ÆÀÌµğ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	Dim btResult : Set btResult = new BulkCashbillResult
@@ -533,7 +533,7 @@ Public Function GetBulkResult(CorpNum, SubmitID, UserID)
 
 End Function
 
-'ì·¨ì†Œí˜„ê¸ˆì˜ìˆ˜ì¦ ì¦‰ì‹œë°œí–‰. 2017/08/17 ì¶”ê°€
+'Ãë¼ÒÇö±İ¿µ¼öÁõ Áï½Ã¹ßÇà. 2017/08/17 Ãß°¡
 Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, UserID, emailSubject, tradeDT)
 
 	Dim tmp : Set tmp = JSON.parse("{}")
@@ -554,7 +554,7 @@ Public Function RevokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, 
 	Set RevokeRegistIssue = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postData, UserID)
 End Function
 
-'ì·¨ì†Œí˜„ê¸ˆì˜ìˆ˜ì¦ ì„ì‹œì €ì¥. 2017/08/17 ì¶”ê°€
+'Ãë¼ÒÇö±İ¿µ¼öÁõ ÀÓ½ÃÀúÀå. 2017/08/17 Ãß°¡
 Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, UserID)
 
 	Dim tmp : Set tmp = JSON.parse("{}")
@@ -572,7 +572,7 @@ Public Function RevokeRegister(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, sms
 	Set RevokeRegister = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKE", postData, UserID)
 End Function
 
-'ë¶€ë¶„ì·¨ì†Œ í˜„ê¸ˆì˜ìˆ˜ì¦ ì¦‰ì‹œë°œí–‰
+'ºÎºĞÃë¼Ò Çö±İ¿µ¼öÁõ Áï½Ã¹ßÇà
 Public Function RevokeRegistIssue_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo, UserID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount, emailSubject, tradeDT)
 
 	Dim tmp : Set tmp = JSON.parse("{}")
@@ -599,7 +599,7 @@ Public Function RevokeRegistIssue_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeD
 	Set RevokeRegistIssue_Part = m_PopbillBase.httpPOST("/Cashbill", m_PopbillBase.getSession_token(CorpNum), "REVOKEISSUE", postData, UserID)
 End Function
 
-'ë¶€ë¶„ì·¨ì†Œ í˜„ê¸ˆì˜ìˆ˜ì¦ ì„ì‹œì €ì¥
+'ºÎºĞÃë¼Ò Çö±İ¿µ¼öÁõ ÀÓ½ÃÀúÀå
 Public Function RevokeRegister_Part(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, UserID, isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount)
 
 	Dim tmp : Set tmp = JSON.parse("{}")
@@ -624,16 +624,16 @@ End Function
 
 
 
-'í˜„ê¸ˆì˜ìˆ˜ì¦ ëª©ë¡ ì¡°íšŒ
+'Çö±İ¿µ¼öÁõ ¸ñ·Ï Á¶È¸
 Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt, TaxationType, Order, Page, PerPage, QString, FranchiseTaxRegID)
 	If DType = "" Then
-		Err.Raise -99999999, "POPBILL", "ê²€ìƒ‰ì¼ì ìœ í˜•ì´ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "°Ë»öÀÏÀÚ À¯ÇüÀÌ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 	If SDate = "" Then
-		Err.Raise -99999999, "POPBILL", "ì‹œì‘ì¼ìê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "½ÃÀÛÀÏÀÚ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 	If EDate = "" Then
-		Err.Raise -99999999, "POPBILL", "ì¢…ë£Œì¼ìê°€ ì´ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "Á¾·áÀÏÀÚ°¡ ÀÌ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 	Dim uri
 	uri = "/Cashbill/Search"
@@ -700,10 +700,10 @@ Public Function Search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsag
 	Set Search = searchResult
 End Function
 
-'ì•Œë¦¼ë©”ì¼ ì „ì†¡ëª©ë¡ ì¡°íšŒ
+'¾Ë¸²¸ŞÀÏ Àü¼Û¸ñ·Ï Á¶È¸
 Public Function listEmailConfig(CorpNum, UserID)
 	If CorpNum = "" Or isEmpty(CorpNum) Then
-		Err.Raise -99999999, "POPBILL", "ì‚¬ì—…ìë“±ë¡ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "»ç¾÷ÀÚµî·Ï¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
 	End If
 
 	Dim result : Set result = m_PopbillBase.httpGet("/Cashbill/EmailSendConfig", m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -720,18 +720,18 @@ Public Function listEmailConfig(CorpNum, UserID)
 	Set listEmailConfig = tmpDic
 End Function
 
-'ì•Œë¦¼ë©”ì¼ ì „ì†¡ì„¤ì • ìˆ˜ì •
+'¾Ë¸²¸ŞÀÏ Àü¼Û¼³Á¤ ¼öÁ¤
 Public Function updateEmailConfig(CorpNum, mailType, sendYN, UserID)
 	If CorpNum = "" Or isEmpty(CorpNum) Then
-		Err.Raise -99999999, "POPBILL", "ì‚¬ì—…ìë“±ë¡ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "»ç¾÷ÀÚµî·Ï¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù."
 	End If
 
 	If mailType = "" Or isEmpty(mailType) Then
-		Err.Raise -99999999, "POPBILL", "ë©”ì¼ì „ì†¡ íƒ€ì…ì´ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¸ŞÀÏÀü¼Û Å¸ÀÔÀÌ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	If sendYN = "" Or isEmpty(sendYN) Then
-		Err.Raise -99999999, "POPBILL", "ë©”ì¼ì „ì†¡ ì—¬ë¶€ í•­ëª©ì´ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+		Err.Raise -99999999, "POPBILL", "¸ŞÀÏÀü¼Û ¿©ºÎ Ç×¸ñÀÌ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 	End If
 
 	If (sendYN) Then

@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' í˜„ê¸ˆì˜ìˆ˜ì¦ ê´€ë ¨ ë©”ì¼ì „ì†¡ í•­ëª©ì— ëŒ€í•œ ì „ì†¡ì—¬ë¶€ë¥¼ ìˆ˜ì •í•©ë‹ˆë‹¤.
+    ' Çö±İ¿µ¼öÁõ °ü·Ã ¸ŞÀÏÀü¼Û Ç×¸ñ¿¡ ´ëÇÑ Àü¼Û¿©ºÎ¸¦ ¼öÁ¤ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#UpdateEmailConfig
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ë°œì†¡ ë©”ì¼ ìœ í˜•
-    ' - CSH_ISSUE : ê³ ê°ì—ê²Œ í˜„ê¸ˆì˜ìˆ˜ì¦ì´ ë°œí–‰ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼
-    ' - CSH_CANCEL : ê³ ê°ì—ê²Œ í˜„ê¸ˆì˜ìˆ˜ì¦ì´ ë°œí–‰ì·¨ì†Œ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼
+    ' ¹ß¼Û ¸ŞÀÏ À¯Çü
+    ' - CSH_ISSUE : °í°´¿¡°Ô Çö±İ¿µ¼öÁõÀÌ ¹ßÇà µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ŞÀÏ
+    ' - CSH_CANCEL : °í°´¿¡°Ô Çö±İ¿µ¼öÁõÀÌ ¹ßÇàÃë¼Ò µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ŞÀÏ
     emailType = "CSH_ISSUE"
 
-    ' ì „ì†¡ ì—¬ë¶€ (true = ì „ì†¡, false = ë¯¸ì „ì†¡)
+    ' Àü¼Û ¿©ºÎ (true = Àü¼Û, false = ¹ÌÀü¼Û)
     sendYN = true
 
     On Error Resume Next
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì•Œë¦¼ë©”ì¼ ì „ì†¡ì„¤ì • ìˆ˜ì •</legend>
+                <legend>¾Ë¸²¸ŞÀÏ Àü¼Û¼³Á¤ ¼öÁ¤</legend>
                 <ul>
                     <li> Response.code : <%=code%> </li>
                     <li> Response.message : <%=message%> </li>

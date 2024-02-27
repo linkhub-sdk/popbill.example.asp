@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' êµ­ì„¸ì²­ ìŠ¹ì¸ë²ˆí˜¸ë¥¼ í†µí•´ ìˆ˜ì§‘í•œ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ 1ê±´ì˜ ìƒì„¸ì •ë³´ë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
+    ' ±¹¼¼Ã» ½ÂÀÎ¹øÈ£¸¦ ÅëÇØ ¼öÁýÇÑ ÀüÀÚ¼¼±Ý°è»ê¼­ 1°ÇÀÇ »ó¼¼Á¤º¸¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/search#GetTaxinvoice
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
-    ' ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸
+    ' ÀüÀÚ¼¼±Ý°è»ê¼­ ±¹¼¼Ã»½ÂÀÎ¹øÈ£
     NTSConfirmNum = "201611104100020300000cb2"
 
     On Error Resume Next
@@ -39,69 +39,69 @@
             <br/>
             <fieldset class="fieldset1">
                 <% If code = 0 Then %>
-                <legend>ìƒì„¸ì •ë³´ ì¡°íšŒ</legend>
+                <legend>»ó¼¼Á¤º¸ Á¶È¸</legend>
                 <ul>
-                    <li>ntsconfirmNum (êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸) : <%=result.ntsconfirmNum%> </li>
-                    <li>writeDate (ìž‘ì„±ì¼ìž) : <%=result.writeDate%> </li>
-                    <li>issueDT (ë°œí–‰ì¼ì‹œ) : <%=result.issueDT%> </li>
-                    <li>invoiceType (ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ì¢…ë¥˜) : <%=result.invoiceType%> </li>
-                    <li>taxType (ê³¼ì„¸í˜•íƒœ) : <%=result.taxType%> </li>
-                    <li>taxTotal (ì„¸ì•¡ í•©ê³„) : <%=result.taxTotal%> </li>
-                    <li>supplyCostTotal (ê³µê¸‰ê°€ì•¡ í•©ê³„) : <%=result.supplyCostTotal%> </li>
-                    <li>totalAmount (í•©ê³„ê¸ˆì•¡) : <%=result.totalAmount%> </li>
-                    <li>purposeType (ì˜ìˆ˜/ì²­êµ¬) : <%=result.purposeType%> </li>
-                    <li>serialNum (ì¼ë ¨ë²ˆí˜¸) : <%=result.serialNum%> </li>
-                    <li>cash (í˜„ê¸ˆ) : <%=result.cash%> </li>
-                    <li>chkBill (ìˆ˜í‘œ) : <%=result.chkBill%> </li>
-                    <li>credit (ì™¸ìƒ) : <%=result.credit%> </li>
-                    <li>note (ì–´ìŒ) : <%=result.note%> </li>
-                    <li>remark1 (ë¹„ê³ 1) : <%=result.remark1%> </li>
-                    <li>remark2 (ë¹„ê³ 2) : <%=result.remark2%> </li>
-                    <li>remark3 (ë¹„ê³ 3) : <%=result.remark3%> </li>
+                    <li>ntsconfirmNum (±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%=result.ntsconfirmNum%> </li>
+                    <li>writeDate (ÀÛ¼ºÀÏÀÚ) : <%=result.writeDate%> </li>
+                    <li>issueDT (¹ßÇàÀÏ½Ã) : <%=result.issueDT%> </li>
+                    <li>invoiceType (ÀüÀÚ¼¼±Ý°è»ê¼­ Á¾·ù) : <%=result.invoiceType%> </li>
+                    <li>taxType (°ú¼¼ÇüÅÂ) : <%=result.taxType%> </li>
+                    <li>taxTotal (¼¼¾× ÇÕ°è) : <%=result.taxTotal%> </li>
+                    <li>supplyCostTotal (°ø±Þ°¡¾× ÇÕ°è) : <%=result.supplyCostTotal%> </li>
+                    <li>totalAmount (ÇÕ°è±Ý¾×) : <%=result.totalAmount%> </li>
+                    <li>purposeType (¿µ¼ö/Ã»±¸) : <%=result.purposeType%> </li>
+                    <li>serialNum (ÀÏ·Ã¹øÈ£) : <%=result.serialNum%> </li>
+                    <li>cash (Çö±Ý) : <%=result.cash%> </li>
+                    <li>chkBill (¼öÇ¥) : <%=result.chkBill%> </li>
+                    <li>credit (¿Ü»ó) : <%=result.credit%> </li>
+                    <li>note (¾îÀ½) : <%=result.note%> </li>
+                    <li>remark1 (ºñ°í1) : <%=result.remark1%> </li>
+                    <li>remark2 (ºñ°í2) : <%=result.remark2%> </li>
+                    <li>remark3 (ºñ°í3) : <%=result.remark3%> </li>
 
-                    <li>modifyCode (ìˆ˜ì • ì‚¬ìœ ì½”ë“œ ) : <%=result.modifyCode%> </li>
-                    <li>orgNTSConfirmNum (ì›ë³¸ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸) : <%=result.orgNTSConfirmNum%> </li>
+                    <li>modifyCode (¼öÁ¤ »çÀ¯ÄÚµå ) : <%=result.modifyCode%> </li>
+                    <li>orgNTSConfirmNum (¿øº» ÀüÀÚ¼¼±Ý°è»ê¼­ ±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%=result.orgNTSConfirmNum%> </li>
 
-                    <li>invoicerCorpNum (ê³µê¸‰ìž ì‚¬ì—…ìžë²ˆí˜¸) : <%=result.invoicerCorpNum%> </li>
-                    <li>invoicerMgtKey (ê³µê¸‰ìž ê´€ë¦¬ë²ˆí˜¸) : <%=result.invoicerMgtKey%> </li>
-                    <li>invoicerTaxRegID (ê³µê¸‰ìž ì¢…ì‚¬ì—…ìž¥ë²ˆí˜¸ ) : <%=result.invoicerTaxRegID%> </li>
-                    <li>invoicerCorpName (ê³µê¸‰ìž ìƒí˜¸) : <%=result.invoicerCorpName%> </li>
-                    <li>invoicerCEOName (ê³µê¸‰ìž ëŒ€í‘œìžì„±ëª…) : <%=result.invoicerCEOName%> </li>
-                    <li>invoicerAddr (ê³µê¸‰ìž ì£¼ì†Œ) : <%=result.invoicerAddr%> </li>
-                    <li>invoicerBizType (ê³µê¸‰ìž ì—…íƒœ) : <%=result.invoicerBizType%> </li>
-                    <li>invoicerBizClass (ê³µê¸‰ìž ì¢…ëª©) : <%=result.invoicerBizClass%> </li>
-                    <li>invoicerContactName (ê³µê¸‰ìž ë‹´ë‹¹ìž ì„±ëª…) : <%=result.invoicerContactName%> </li>
-                    <li>invoicerTEL (ê³µê¸‰ìž ì—°ë½ì²˜) : <%=result.invoicerTEL%> </li>
-                    <li>invoicerEmail (ê³µê¸‰ìž ì´ë©”ì¼) : <%=result.invoicerEmail%> </li>
+                    <li>invoicerCorpNum (°ø±ÞÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.invoicerCorpNum%> </li>
+                    <li>invoicerMgtKey (°ø±ÞÀÚ °ü¸®¹øÈ£) : <%=result.invoicerMgtKey%> </li>
+                    <li>invoicerTaxRegID (°ø±ÞÀÚ Á¾»ç¾÷Àå¹øÈ£ ) : <%=result.invoicerTaxRegID%> </li>
+                    <li>invoicerCorpName (°ø±ÞÀÚ »óÈ£) : <%=result.invoicerCorpName%> </li>
+                    <li>invoicerCEOName (°ø±ÞÀÚ ´ëÇ¥ÀÚ¼º¸í) : <%=result.invoicerCEOName%> </li>
+                    <li>invoicerAddr (°ø±ÞÀÚ ÁÖ¼Ò) : <%=result.invoicerAddr%> </li>
+                    <li>invoicerBizType (°ø±ÞÀÚ ¾÷ÅÂ) : <%=result.invoicerBizType%> </li>
+                    <li>invoicerBizClass (°ø±ÞÀÚ Á¾¸ñ) : <%=result.invoicerBizClass%> </li>
+                    <li>invoicerContactName (°ø±ÞÀÚ ´ã´çÀÚ ¼º¸í) : <%=result.invoicerContactName%> </li>
+                    <li>invoicerTEL (°ø±ÞÀÚ ¿¬¶ôÃ³) : <%=result.invoicerTEL%> </li>
+                    <li>invoicerEmail (°ø±ÞÀÚ ÀÌ¸ÞÀÏ) : <%=result.invoicerEmail%> </li>
 
-                    <li>invoiceeCorpNum (ê³µê¸‰ë°›ëŠ”ìž ì‚¬ì—…ìžë²ˆí˜¸) : <%=result.invoiceeCorpNum%> </li>
-                    <li>invoiceeType (ê³µê¸‰ë°›ëŠ”ìž êµ¬ë¶„) : <%=result.invoiceeType%> </li>
-                    <li>invoiceeMgtKey (ê³µê¸‰ë°›ëŠ”ìž ê´€ë¦¬ë²ˆí˜¸) : <%=result.invoiceeMgtKey%> </li>
-                    <li>invoiceeTaxRegID (ê³µê¸‰ë°›ëŠ”ìž ì¢…ì‚¬ì—…ìž¥ë²ˆí˜¸) : <%=result.invoiceeTaxRegID%> </li>
-                    <li>invoiceeCorpName (ê³µê¸‰ë°›ëŠ”ìž ìƒí˜¸) : <%=result.invoiceeCorpName%> </li>
-                    <li>invoiceeCEOName (ê³µê¸‰ë°›ëŠ”ìž ëŒ€í‘œìžì„±ëª…) : <%=result.invoiceeCEOName%> </li>
-                    <li>invoiceeAddr (ê³µê¸‰ë°›ëŠ”ìž ì£¼ì†Œ) : <%=result.invoiceeAddr%> </li>
-                    <li>invoiceeBizType (ê³µê¸‰ë°›ëŠ”ìž ì—…íƒœ) : <%=result.invoiceeBizType%> </li>
-                    <li>invoiceeBizClass (ê³µê¸‰ë°›ëŠ”ìž ì¢…ëª©) : <%=result.invoiceeBizClass%> </li>
-                    <li>invoiceeContactName1 (ê³µê¸‰ë°›ëŠ”ìž ë‹´ë‹¹ìž ì„±ëª…) : <%=result.invoiceeContactName1%> </li>
-                    <li>invoiceeTEL1 (ê³µê¸‰ë°›ëŠ”ìž ë‹´ë‹¹ìž ì—°ë½ì²˜) : <%=result.invoiceeTEL1%> </li>
-                    <li>invoiceeEmail1 (ê³µê¸‰ë°›ëŠ”ìž ë‹´ë‹¹ìž ì´ë©”ì¼) : <%=result.invoiceeEmail1%> </li>
+                    <li>invoiceeCorpNum (°ø±Þ¹Þ´ÂÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.invoiceeCorpNum%> </li>
+                    <li>invoiceeType (°ø±Þ¹Þ´ÂÀÚ ±¸ºÐ) : <%=result.invoiceeType%> </li>
+                    <li>invoiceeMgtKey (°ø±Þ¹Þ´ÂÀÚ °ü¸®¹øÈ£) : <%=result.invoiceeMgtKey%> </li>
+                    <li>invoiceeTaxRegID (°ø±Þ¹Þ´ÂÀÚ Á¾»ç¾÷Àå¹øÈ£) : <%=result.invoiceeTaxRegID%> </li>
+                    <li>invoiceeCorpName (°ø±Þ¹Þ´ÂÀÚ »óÈ£) : <%=result.invoiceeCorpName%> </li>
+                    <li>invoiceeCEOName (°ø±Þ¹Þ´ÂÀÚ ´ëÇ¥ÀÚ¼º¸í) : <%=result.invoiceeCEOName%> </li>
+                    <li>invoiceeAddr (°ø±Þ¹Þ´ÂÀÚ ÁÖ¼Ò) : <%=result.invoiceeAddr%> </li>
+                    <li>invoiceeBizType (°ø±Þ¹Þ´ÂÀÚ ¾÷ÅÂ) : <%=result.invoiceeBizType%> </li>
+                    <li>invoiceeBizClass (°ø±Þ¹Þ´ÂÀÚ Á¾¸ñ) : <%=result.invoiceeBizClass%> </li>
+                    <li>invoiceeContactName1 (°ø±Þ¹Þ´ÂÀÚ ´ã´çÀÚ ¼º¸í) : <%=result.invoiceeContactName1%> </li>
+                    <li>invoiceeTEL1 (°ø±Þ¹Þ´ÂÀÚ ´ã´çÀÚ ¿¬¶ôÃ³) : <%=result.invoiceeTEL1%> </li>
+                    <li>invoiceeEmail1 (°ø±Þ¹Þ´ÂÀÚ ´ã´çÀÚ ÀÌ¸ÞÀÏ) : <%=result.invoiceeEmail1%> </li>
                 </ul>
                 <fieldset class="fieldset2">
                 <%
                     For i=0 To UBound(result.detailList) -1
                 %>
-                        <legend>í’ˆëª©ì •ë³´ [<%=i+1%>]</legend>
+                        <legend>Ç°¸ñÁ¤º¸ [<%=i+1%>]</legend>
                         <ul>
-                            <li> serialNum (ì¼ë ¨ë²ˆí˜¸) : <%= result.detailList(i).serialNum %></li>
-                            <li> purchaseDT (ê±°ëž˜ì¼ìž) : <%= result.detailList(i).purchaseDT %></li>
-                            <li> itemName (í’ˆëª…) : <%= result.detailList(i).itemName %></li>
-                            <li> spec (ê·œê²©) : <%= result.detailList(i).spec %></li>
-                            <li> qty (ìˆ˜ëŸ‰) : <%= result.detailList(i).qty %></li>
-                            <li> unitCost (ë‹¨ê°€) : <%= result.detailList(i).unitCost %></li>
-                            <li> supplyCost (ê³µê¸‰ê°€ì•¡) : <%= result.detailList(i).supplyCost %></li>
-                            <li> tax (ì„¸ì•¡) : <%= result.detailList(i).tax %></li>
-                            <li> remark (ë¹„ê³ ) : <%= result.detailList(i).remark %></li>
+                            <li> serialNum (ÀÏ·Ã¹øÈ£) : <%= result.detailList(i).serialNum %></li>
+                            <li> purchaseDT (°Å·¡ÀÏÀÚ) : <%= result.detailList(i).purchaseDT %></li>
+                            <li> itemName (Ç°¸í) : <%= result.detailList(i).itemName %></li>
+                            <li> spec (±Ô°Ý) : <%= result.detailList(i).spec %></li>
+                            <li> qty (¼ö·®) : <%= result.detailList(i).qty %></li>
+                            <li> unitCost (´Ü°¡) : <%= result.detailList(i).unitCost %></li>
+                            <li> supplyCost (°ø±Þ°¡¾×) : <%= result.detailList(i).supplyCost %></li>
+                            <li> tax (¼¼¾×) : <%= result.detailList(i).tax %></li>
+                            <li> remark (ºñ°í) : <%= result.detailList(i).remark %></li>
                         </ul>
                 <%
                         Next

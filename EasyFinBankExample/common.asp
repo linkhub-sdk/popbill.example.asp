@@ -3,36 +3,43 @@
 <%
 
     '**************************************************************'
-    ' íŒë¹Œ ê³„ì¢Œì¡°íšŒ API ASP SDK Example
+    ' ÆËºô °èÁÂÁ¶È¸ API ASP SDK Example
+    ' ASP ¿¬µ¿ Æ©Åä¸®¾ó ¾È³» : https://developers.popbill.com/guide/fax/asp/getting-started/tutorial
     '
-    ' ASP SDK ì—°ë™í™˜ê²½ ì„¤ì •ë°©ë²• ì•ˆë‚´ : https://developers.popbill.com/guide/easyfinbank/asp/getting-started/environment-set-up
-    ' - ì—…ë°ì´íŠ¸ ì¼ìž : 2023-05-18
-    ' - ê¸°ìˆ ì§€ì› ì—°ë½ì²˜ : 1600-9854
-    ' - ê¸°ìˆ ì§€ì› ì´ë©”ì¼ : code@linkhubcorp.com
-    '
-    ' <í…ŒìŠ¤íŠ¸ ì—°ë™ê°œë°œ ì¤€ë¹„ì‚¬í•­>
-    ' 1) 19, 22ë²ˆ ë¼ì¸ì— ì„ ì–¸ëœ ë§í¬ì•„ì´ë””(LinkID)ì™€ ë¹„ë°€í‚¤(SecretKey)ë¥¼
-    '    ë§í¬í—ˆë¸Œ ê°€ìž…ì‹œ ë©”ì¼ë¡œ ë°œê¸‰ë°›ì€ ì¸ì¦ì •ë³´ë¥¼ ì°¸ì¡°í•˜ì—¬ ë³€ê²½í•©ë‹ˆë‹¤.
+    ' ¾÷µ¥ÀÌÆ® ÀÏÀÚ : 2024-02-27
+    ' ¿¬µ¿±â¼úÁö¿ø ¿¬¶ôÃ³ : 1600-9854
+    ' ¿¬µ¿±â¼úÁö¿ø ÀÌ¸ÞÀÏ : code@linkhubcorp.com
+    '         
+    ' <Å×½ºÆ® ¿¬µ¿°³¹ß ÁØºñ»çÇ×>
+    ' 1) API Key º¯°æ (¿¬µ¿½ÅÃ» ½Ã ¸ÞÀÏ·Î Àü´ÞµÈ Á¤º¸)
+    '     - LinkID : ¸µÅ©Çãºê¿¡¼­ ¹ß±ÞÇÑ ¸µÅ©¾ÆÀÌµð
+    '     - SecretKey : ¸µÅ©Çãºê¿¡¼­ ¹ß±ÞÇÑ ºñ¹ÐÅ°
+    ' 2) SDK È¯°æ¼³Á¤ ¿É¼Ç ¼³Á¤
+    '     - IsTest : ¿¬µ¿È¯°æ ¼³Á¤, True-Å×½ºÆ®, False-¿î¿µ(Production), (±âº»°ª:True)
+    '     - IPRestrictOnOff : ÀÎÁõÅäÅ« IP °ËÁõ ¼³Á¤, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:True)
+    '     - UseStaticIP : Åë½Å IP °íÁ¤, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:False)
+    '     - UseLocalTimeYN : ·ÎÄÃ½Ã½ºÅÛ ½Ã°£ »ç¿ë¿©ºÎ, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:True)
     '**************************************************************
 
-    ' ë§í¬ì•„ì´ë””
+    ' ¸µÅ©¾ÆÀÌµð
     LinkID = "TESTER"
 
-    ' ë¹„ë°€í‚¤
+    ' ºñ¹ÐÅ°
     SecretKey ="SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I="
 
     set m_EasyFinBankService = new EasyFinBankService
+
     m_EasyFinBankService.Initialize LinkID, SecretKey
 
-    ' ì—°ë™í™˜ê²½ ì„¤ì •ê°’, True-ê°œë°œìš©, false-ìƒì—…ìš©
+    ' ¿¬µ¿È¯°æ ¼³Á¤, True-Å×½ºÆ®, False-¿î¿µ(Production), (±âº»°ª:True)
     m_EasyFinBankService.IsTest = True
 
-    ' ì¸ì¦í† í° ë°œê¸‰ IP ì œí•œ On/Off, True-ì‚¬ìš©, false-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(True)
+    ' ÀÎÁõÅäÅ« IP °ËÁõ ¼³Á¤, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:True)
     m_EasyFinBankService.IPRestrictOnOff = True
 
-    ' íŒë¹Œ API ì„œë¹„ìŠ¤ ê³ ì • IP ì‚¬ìš©ì—¬ë¶€, True-ì‚¬ìš©, false-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(false)
+    ' Åë½Å IP °íÁ¤, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:False)
     m_EasyFinBankService.UseStaticIP = False
 
-    ' ë¡œì»¬ì‹œìŠ¤í…œ ì‹œê°„ ì‚¬ìš©ì—¬ë¶€ Ture-ì‚¬ìš©, False-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(True)
+    ' ·ÎÄÃ½Ã½ºÅÛ ½Ã°£ »ç¿ë¿©ºÎ, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:True)
     m_EasyFinBankService.UseLocalTimeYN = True
 %>

@@ -1,98 +1,98 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì´ë¯¸ì§€ê°€ ì²¨ë¶€ëœ ë‹¤ìˆ˜ê±´ì˜ ì¹œêµ¬í†¡ ì „ì†¡ì„ íŒë¹Œì— ì ‘ìˆ˜í•˜ë©°, ëª¨ë“  ìˆ˜ì‹ ìžì—ê²Œ ë™ì¼ ë‚´ìš©ì„ ì „ì†¡í•©ë‹ˆë‹¤. (ìµœëŒ€ 1,000ê±´)
-    ' - ì¹œêµ¬í†¡ì˜ ê²½ìš° ì•¼ê°„ ì „ì†¡ì€ ì œí•œë©ë‹ˆë‹¤. (20:00 ~ ìµì¼ 08:00)
-    ' - ì „ì†¡ì‹¤íŒ¨ì‹œ ì‚¬ì „ì— ì§€ì •í•œ ë³€ìˆ˜ 'altSendType' ê°’ìœ¼ë¡œ ëŒ€ì²´ë¬¸ìžë¥¼ ì „ì†¡í•  ìˆ˜ ìžˆê³ , ì´ ê²½ìš° ë¬¸ìž(SMS/LMS) ìš”ê¸ˆì´ ê³¼ê¸ˆë©ë‹ˆë‹¤.
+    ' ÀÌ¹ÌÁö°¡ Ã·ºÎµÈ ´Ù¼ö°ÇÀÇ Ä£±¸Åå Àü¼ÛÀ» ÆËºô¿¡ Á¢¼öÇÏ¸ç, ¸ðµç ¼ö½ÅÀÚ¿¡°Ô µ¿ÀÏ ³»¿ëÀ» Àü¼ÛÇÕ´Ï´Ù. (ÃÖ´ë 1,000°Ç)
+    ' - Ä£±¸ÅåÀÇ °æ¿ì ¾ß°£ Àü¼ÛÀº Á¦ÇÑµË´Ï´Ù. (20:00 ~ ÀÍÀÏ 08:00)
+    ' - Àü¼Û½ÇÆÐ½Ã »çÀü¿¡ ÁöÁ¤ÇÑ º¯¼ö 'altSendType' °ªÀ¸·Î ´ëÃ¼¹®ÀÚ¸¦ Àü¼ÛÇÒ ¼ö ÀÖ°í, ÀÌ °æ¿ì ¹®ÀÚ(SMS/LMS) ¿ä±ÝÀÌ °ú±ÝµË´Ï´Ù.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/send#SendFMS
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     testUserID = "testkorea"
 
-    ' íŒë¹Œì— ë“±ë¡ëœ ì¹´ì¹´ì˜¤í†¡ ê²€ìƒ‰ìš© ì•„ì´ë””
-    plusFriendID = "@íŒë¹Œ"
+    ' ÆËºô¿¡ µî·ÏµÈ Ä«Ä«¿ÀÅå °Ë»ö¿ë ¾ÆÀÌµð
+    plusFriendID = "@ÆËºô"
 
-    ' íŒë¹Œì— ì‚¬ì „ ë“±ë¡ëœ ë°œì‹ ë²ˆí˜¸
-    ' altSendType = 'C' / 'A' ì¼ ê²½ìš°, ëŒ€ì²´ë¬¸ìžë¥¼ ì „ì†¡í•  ë°œì‹ ë²ˆí˜¸
-    ' altSendType = '' ì¼ ê²½ìš°, null ë˜ëŠ” ê³µë°± ì²˜ë¦¬
-    ' â€» ëŒ€ì²´ë¬¸ìžë¥¼ ì „ì†¡í•˜ëŠ” ê²½ìš°ì—ëŠ” ì‚¬ì „ì— ë“±ë¡ëœ ë°œì‹ ë²ˆí˜¸ ìž…ë ¥ í•„ìˆ˜
+    ' ÆËºô¿¡ »çÀü µî·ÏµÈ ¹ß½Å¹øÈ£
+    ' altSendType = 'C' / 'A' ÀÏ °æ¿ì, ´ëÃ¼¹®ÀÚ¸¦ Àü¼ÛÇÒ ¹ß½Å¹øÈ£
+    ' altSendType = '' ÀÏ °æ¿ì, null ¶Ç´Â °ø¹é Ã³¸®
+    ' ¡Ø ´ëÃ¼¹®ÀÚ¸¦ Àü¼ÛÇÏ´Â °æ¿ì¿¡´Â »çÀü¿¡ µî·ÏµÈ ¹ß½Å¹øÈ£ ÀÔ·Â ÇÊ¼ö
     senderNum = ""
 
-    ' ì¹œêµ¬í†¡ ë‚´ìš©, ìµœëŒ€ 1000ìž
-    content = "ì¹œêµ¬í†¡ ë©”ì‹œì§€ ë‚´ìš©ìž…ë‹ˆë‹¤"
+    ' Ä£±¸Åå ³»¿ë, ÃÖ´ë 1000ÀÚ
+    content = "Ä£±¸Åå ¸Þ½ÃÁö ³»¿ëÀÔ´Ï´Ù"
 
-    ' ëŒ€ì²´ë¬¸ìž ì œëª©
-    ' ë©”ì‹œì§€ ê¸¸ì´(90byte)ì— ë”°ë¼ ìž¥ë¬¸(LMS)ì¸ ê²½ìš°ì—ë§Œ ì ìš©.
-    altSubject = "ëŒ€ì²´ë¬¸ìž ì œëª©"
+    ' ´ëÃ¼¹®ÀÚ Á¦¸ñ
+    ' ¸Þ½ÃÁö ±æÀÌ(90byte)¿¡ µû¶ó Àå¹®(LMS)ÀÎ °æ¿ì¿¡¸¸ Àû¿ë.
+    altSubject = "´ëÃ¼¹®ÀÚ Á¦¸ñ"
 
-    ' ëŒ€ì²´ë¬¸ìž ìœ í˜•(altSendType)ì´ "A"ì¼ ê²½ìš°, ëŒ€ì²´ë¬¸ìžë¡œ ì „ì†¡í•  ë‚´ìš© (ìµœëŒ€ 2000byte)
-    ' â”” íŒë¹Œì´ ë©”ì‹œì§€ ê¸¸ì´ì— ë”°ë¼ ë‹¨ë¬¸(90byte ì´í•˜) ë˜ëŠ” ìž¥ë¬¸(90byte ì´ˆê³¼)ìœ¼ë¡œ ì „ì†¡ì²˜ë¦¬
-    altContent = "ëŒ€ì²´ë¬¸ìž ë©”ì‹œì§€ ë‚´ìš©"
+    ' ´ëÃ¼¹®ÀÚ À¯Çü(altSendType)ÀÌ "A"ÀÏ °æ¿ì, ´ëÃ¼¹®ÀÚ·Î Àü¼ÛÇÒ ³»¿ë (ÃÖ´ë 2000byte)
+    ' ¦¦ ÆËºôÀÌ ¸Þ½ÃÁö ±æÀÌ¿¡ µû¶ó ´Ü¹®(90byte ÀÌÇÏ) ¶Ç´Â Àå¹®(90byte ÃÊ°ú)À¸·Î Àü¼ÛÃ³¸®
+    altContent = "´ëÃ¼¹®ÀÚ ¸Þ½ÃÁö ³»¿ë"
 
-    ' ëŒ€ì²´ë¬¸ìž ìœ í˜• (null , "C" , "A" ì¤‘ íƒ 1)
-    ' null = ë¯¸ì „ì†¡, C = ì•Œë¦¼í†¡ê³¼ ë™ì¼ ë‚´ìš© ì „ì†¡ , A = ëŒ€ì²´ë¬¸ìž ë‚´ìš©(altContent)ì— ìž…ë ¥í•œ ë‚´ìš© ì „ì†¡
+    ' ´ëÃ¼¹®ÀÚ À¯Çü (null , "C" , "A" Áß ÅÃ 1)
+    ' null = ¹ÌÀü¼Û, C = ¾Ë¸²Åå°ú µ¿ÀÏ ³»¿ë Àü¼Û , A = ´ëÃ¼¹®ÀÚ ³»¿ë(altContent)¿¡ ÀÔ·ÂÇÑ ³»¿ë Àü¼Û
     altSendType = "C"
 
-    ' ì˜ˆì•½ì „ì†¡ì‹œê°„ yyyyMMddHHmmss, reserveDTê°’ì´ ì—†ëŠ” ê²½ìš° ì¦‰ì‹œì „ì†¡
+    ' ¿¹¾àÀü¼Û½Ã°£ yyyyMMddHHmmss, reserveDT°ªÀÌ ¾ø´Â °æ¿ì Áï½ÃÀü¼Û
     reserveDT = ""
 
-    ' ê´‘ê³ ì„± ë©”ì‹œì§€ ì—¬ë¶€ ( true , false ì¤‘ íƒ 1)
-    ' â”” true = ê´‘ê³  , false = ì¼ë°˜
-    ' - ë¯¸ìž…ë ¥ ì‹œ ê¸°ë³¸ê°’ false ì²˜ë¦¬
+    ' ±¤°í¼º ¸Þ½ÃÁö ¿©ºÎ ( true , false Áß ÅÃ 1)
+    ' ¦¦ true = ±¤°í , false = ÀÏ¹Ý
+    ' - ¹ÌÀÔ·Â ½Ã ±âº»°ª false Ã³¸®
     adsYN = False
 
-    ' ì²¨ë¶€ì´ë¯¸ì§€ íŒŒì¼ ê²½ë¡œ
-    ' ì´ë¯¸ì§€ íŒŒì¼ ê·œê²©: ì „ì†¡ í¬ë§· - JPG íŒŒì¼ (.jpg, .jpeg), ìš©ëŸ‰ - ìµœëŒ€ 500 Kbyte, í¬ê¸° - ê°€ë¡œ 500px ì´ìƒ, ê°€ë¡œ ê¸°ì¤€ìœ¼ë¡œ ì„¸ë¡œ 0.5 ~ 1.3ë°° ë¹„ìœ¨ ê°€ëŠ¥
+    ' Ã·ºÎÀÌ¹ÌÁö ÆÄÀÏ °æ·Î
+    ' ÀÌ¹ÌÁö ÆÄÀÏ ±Ô°Ý: Àü¼Û Æ÷¸Ë - JPG ÆÄÀÏ (.jpg, .jpeg), ¿ë·® - ÃÖ´ë 500 Kbyte, Å©±â - °¡·Î 500px ÀÌ»ó, °¡·Î ±âÁØÀ¸·Î ¼¼·Î 0.5 ~ 1.3¹è ºñÀ² °¡´É
     filePaths = Array("C:\popbill.example.asp\test03.jpg")
 
-    ' ì´ë¯¸ì§€ ë§í¬ URL
-    ' â”” ìˆ˜ì‹ ìžê°€ ì¹œêµ¬í†¡ ìƒë‹¨ ì´ë¯¸ì§€ í´ë¦­ì‹œ í˜¸ì¶œë˜ëŠ” URL
-    ' ë¯¸ìž…ë ¥ì‹œ ì²¨ë¶€ëœ ì´ë¯¸ì§€ë¥¼ ë§í¬ ê¸°ëŠ¥ ì—†ì´ í‘œì‹œ
+    ' ÀÌ¹ÌÁö ¸µÅ© URL
+    ' ¦¦ ¼ö½ÅÀÚ°¡ Ä£±¸Åå »ó´Ü ÀÌ¹ÌÁö Å¬¸¯½Ã È£ÃâµÇ´Â URL
+    ' ¹ÌÀÔ·Â½Ã Ã·ºÎµÈ ÀÌ¹ÌÁö¸¦ ¸µÅ© ±â´É ¾øÀÌ Ç¥½Ã
     imageURL = "http://popbill.com"
 
     Set receiverList = CreateObject("Scripting.Dictionary")
 
-    ' ìˆ˜ì‹ ì •ë³´ ë°°ì—´, ìµœëŒ€ 1000ê±´
+    ' ¼ö½ÅÁ¤º¸ ¹è¿­, ÃÖ´ë 1000°Ç
     For i =0 To 9
         Set rcvInfo = New KakaoReceiver
 
-        'ìˆ˜ì‹ ìžë²ˆí˜¸
+        '¼ö½ÅÀÚ¹øÈ£
         rcvInfo.rcv = "01011222"+ CStr(i)
 
-        'ìˆ˜ì‹ ìžëª…
-        rcvInfo.rcvnm = " ìˆ˜ì‹ ìžì´ë¦„"
+        '¼ö½ÅÀÚ¸í
+        rcvInfo.rcvnm = " ¼ö½ÅÀÚÀÌ¸§"
 
         receiverList.Add i, rcvInfo
     Next
 
 
-    ' ì¹œêµ¬í†¡ ë²„íŠ¼ì •ë³´ êµ¬ì„±
+    ' Ä£±¸Åå ¹öÆ°Á¤º¸ ±¸¼º
     Set btnList = CreateObject("Scripting.Dictionary")
     Set btnInfo = New KakaoButton
-    btnInfo.n = "ë²„íŠ¼ì´ë¦„"
+    btnInfo.n = "¹öÆ°ÀÌ¸§"
     btnInfo.t = "WL"
     btnInfo.u1 = "http://www.popbil.com"
     btnInfo.u2 = "http://www.llinkhub.co.kr"
     btnList.Add 0, btnInfo
 
     Set btnInfo = New KakaoButton
-    btnInfo.n = "ë©”ì‹œì§€ ì „ë‹¬"
+    btnInfo.n = "¸Þ½ÃÁö Àü´Þ"
     btnInfo.t = "MD"
     btnList.Add 1, btnInfo
 
-    ' ì „ì†¡ìš”ì²­ë²ˆí˜¸
-    ' íŒë¹Œì´ ì ‘ìˆ˜ ë‹¨ìœ„ë¥¼ ì‹ë³„í•  ìˆ˜ ìžˆë„ë¡ íŒŒíŠ¸ë„ˆê°€ í• ë‹¹í•œ ì‹ë³„ë²ˆí˜¸.
-    ' 1~36ìžë¦¬ë¡œ êµ¬ì„±. ì˜ë¬¸, ìˆ«ìž, í•˜ì´í”ˆ(-), ì–¸ë”ë°”(_)ë¥¼ ì¡°í•©í•˜ì—¬ íŒë¹Œ íšŒì›ë³„ë¡œ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ í• ë‹¹.
+    ' Àü¼Û¿äÃ»¹øÈ£
+    ' ÆËºôÀÌ Á¢¼ö ´ÜÀ§¸¦ ½Äº°ÇÒ ¼ö ÀÖµµ·Ï ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ ½Äº°¹øÈ£.
+    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ýÀÚ, ÇÏÀÌÇÂ(-), ¾ð´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
     RequestNum = ""
 
     On Error Resume Next
@@ -113,10 +113,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì¹œêµ¬í†¡ ë™ì¼ë‚´ìš© ëŒ€ëŸ‰ ì „ì†¡</legend>
+                <legend>Ä£±¸Åå µ¿ÀÏ³»¿ë ´ë·® Àü¼Û</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(ì ‘ìˆ˜ë²ˆí˜¸) : <%=ReceiptNum%> </li>
+                        <li>ReceiptNum(Á¢¼ö¹øÈ£) : <%=ReceiptNum%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>

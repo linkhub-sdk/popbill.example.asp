@@ -1,29 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒë¹Œì— ë“±ë¡ëœ ê³„ì¢Œ ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ÆËºô¿¡ µî·ÏµÈ °èÁÂ Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#GetBankAccountInfo
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ê¸°ê´€ì½”ë“œ
-    ' ì‚°ì—…ì€í–‰-0002 / ê¸°ì—…ì€í–‰-0003 / êµ­ë¯¼ì€í–‰-0004 /ìˆ˜í˜‘ì€í–‰-0007 / ë†í˜‘ì€í–‰-0011 / ìš°ë¦¬ì€í–‰-0020
-    ' SCì€í–‰-0023 / ëŒ€êµ¬ì€í–‰-0031 / ë¶€ì‚°ì€í–‰-0032 / ê´‘ì£¼ì€í–‰-0034 / ì œì£¼ì€í–‰-0035 / ì „ë¶ì€í–‰-0037
-    ' ê²½ë‚¨ì€í–‰-0039 / ìƒˆë§ˆì„ê¸ˆê³ -0045 / ì‹ í˜‘ì€í–‰-0048 / ìš°ì²´êµ­-0071 / KEBí•˜ë‚˜ì€í–‰-0081 / ì‹ í•œì€í–‰-0088 /ì”¨í‹°ì€í–‰-0027
+    ' ±â°üÄÚµå
+    ' »ê¾÷ÀºÇà-0002 / ±â¾÷ÀºÇà-0003 / ±¹¹ÎÀºÇà-0004 /¼öÇùÀºÇà-0007 / ³óÇùÀºÇà-0011 / ¿ì¸®ÀºÇà-0020
+    ' SCÀºÇà-0023 / ´ë±¸ÀºÇà-0031 / ºÎ»êÀºÇà-0032 / ±¤ÁÖÀºÇà-0034 / Á¦ÁÖÀºÇà-0035 / ÀüºÏÀºÇà-0037
+    ' °æ³²ÀºÇà-0039 / »õ¸¶À»±İ°í-0045 / ½ÅÇùÀºÇà-0048 / ¿ìÃ¼±¹-0071 / KEBÇÏ³ªÀºÇà-0081 / ½ÅÇÑÀºÇà-0088 /¾¾Æ¼ÀºÇà-0027
     BankCode = ""
 
-    ' ê³„ì¢Œë²ˆí˜¸ í•˜ì´í”ˆ('-') ì œì™¸
+    ' °èÁÂ¹øÈ£ ÇÏÀÌÇÂ('-') Á¦¿Ü
     AccountNumber = ""
 
     On Error Resume Next
@@ -40,27 +40,27 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ê³„ì¢Œì •ë³´ ì¡°íšŒ</legend>
+                <legend>°èÁÂÁ¤º¸ Á¶È¸</legend>
                 <%
                     If code = 0 Then
                 %>
                         <ul>
 
-                            <li>accountNumber (ê³„ì¢Œë²ˆí˜¸) : <%=result.accountNumber%></li>
-                            <li>bankCode (ê¸°ê´€ì½”ë“œ) : <%=result.bankCode%></li>
-                            <li>accountName (ê³„ì¢Œ ë³„ì¹­) : <%=result.accountName%></li>
-                            <li>accountType (ê³„ì¢Œ ìœ í˜•) : <%=result.accountType%></li>
-                            <li>state (ê³„ì¢Œ ìƒíƒœ) : <%=result.state%></li>
-                            <li>regDT (ë“±ë¡ì¼ì‹œ) : <%=result.regDT%></li>
-                            <li>contractDT (ì •ì•¡ì œ ì„œë¹„ìŠ¤ ì‹œì‘ì¼ì‹œ) : <%=result.contractDT%></li>
-                            <li>useEndDate (ì •ì•¡ì œ ì„œë¹„ìŠ¤ ì¢…ë£Œì¼) : <%=result.useEndDate%></li>
-                            <li>baseDate (ìë™ì—°ì¥ ê²°ì œì¼) : <%=result.baseDate%></li>
-                            <li>contractState (ì •ì•¡ì œ ì„œë¹„ìŠ¤ ìƒíƒœ) : <%=result.contractState%></li>
-                            <li>closeRequestYN (ì •ì•¡ì œ ì„œë¹„ìŠ¤ í•´ì§€ì‹ ì²­ ì—¬ë¶€) : <%=result.closeRequestYN%></li>
-                            <li>useRestrictYN (ì •ì•¡ì œ ì„œë¹„ìŠ¤ ì‚¬ìš©ì œí•œ ì—¬ë¶€) : <%=result.useRestrictYN%></li>
-                            <li>closeOnExpired (ì •ì•¡ì œ ì„œë¹„ìŠ¤ ë§Œë£Œ ì‹œ í•´ì§€ ì—¬ë¶€) : <%=result.closeOnExpired%></li>
-                            <li>unPaidYN (ë¯¸ìˆ˜ê¸ˆ ë³´ìœ  ì—¬ë¶€) : <%=result.unPaidYN%></li>
-                            <li>memo (ë©”ëª¨) : <%=result.memo%></li>
+                            <li>accountNumber (°èÁÂ¹øÈ£) : <%=result.accountNumber%></li>
+                            <li>bankCode (±â°üÄÚµå) : <%=result.bankCode%></li>
+                            <li>accountName (°èÁÂ º°Äª) : <%=result.accountName%></li>
+                            <li>accountType (°èÁÂ À¯Çü) : <%=result.accountType%></li>
+                            <li>state (°èÁÂ »óÅÂ) : <%=result.state%></li>
+                            <li>regDT (µî·ÏÀÏ½Ã) : <%=result.regDT%></li>
+                            <li>contractDT (Á¤¾×Á¦ ¼­ºñ½º ½ÃÀÛÀÏ½Ã) : <%=result.contractDT%></li>
+                            <li>useEndDate (Á¤¾×Á¦ ¼­ºñ½º Á¾·áÀÏ) : <%=result.useEndDate%></li>
+                            <li>baseDate (ÀÚµ¿¿¬Àå °áÁ¦ÀÏ) : <%=result.baseDate%></li>
+                            <li>contractState (Á¤¾×Á¦ ¼­ºñ½º »óÅÂ) : <%=result.contractState%></li>
+                            <li>closeRequestYN (Á¤¾×Á¦ ¼­ºñ½º ÇØÁö½ÅÃ» ¿©ºÎ) : <%=result.closeRequestYN%></li>
+                            <li>useRestrictYN (Á¤¾×Á¦ ¼­ºñ½º »ç¿ëÁ¦ÇÑ ¿©ºÎ) : <%=result.useRestrictYN%></li>
+                            <li>closeOnExpired (Á¤¾×Á¦ ¼­ºñ½º ¸¸·á ½Ã ÇØÁö ¿©ºÎ) : <%=result.closeOnExpired%></li>
+                            <li>unPaidYN (¹Ì¼ö±İ º¸À¯ ¿©ºÎ) : <%=result.unPaidYN%></li>
+                            <li>memo (¸Ş¸ğ) : <%=result.memo%></li>
                         </ul>
                 <%
                     Else

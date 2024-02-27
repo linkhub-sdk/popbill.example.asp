@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒë¹Œì—ì„œ ë°˜í™˜ ë°›ì€ ì ‘ìˆ˜ë²ˆí˜¸ë¥¼ í†µí•´ íŒ©ìŠ¤ ì „ì†¡ìƒíƒœ ë° ê²°ê³¼ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ÆËºô¿¡¼­ ¹İÈ¯ ¹ŞÀº Á¢¼ö¹øÈ£¸¦ ÅëÇØ ÆÑ½º Àü¼Û»óÅÂ ¹× °á°ú¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/fax/asp/api/info#GetFaxResult
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' íŒ©ìŠ¤ ì „ì†¡ì‹œ ë°œê¸‰ë°›ì€ ì ‘ìˆ˜ë²ˆí˜¸(ReceiptNum)
+    ' ÆÑ½º Àü¼Û½Ã ¹ß±Ş¹ŞÀº Á¢¼ö¹øÈ£(ReceiptNum)
     ReceiptNum = "021122409581300002"
 
     On Error Resume Next
@@ -40,35 +40,35 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>íŒ©ìŠ¤ì „ì†¡ ì „ì†¡ê²°ê³¼ í™•ì¸ </legend>
+                <legend>ÆÑ½ºÀü¼Û Àü¼Û°á°ú È®ÀÎ </legend>
                 <% If code = 0 Then
                         For i=0 To result.Count-1
                 %>
                     <fieldset class="fieldset2">
-                            <legend> íŒ©ìŠ¤ ì „ì†¡ê²°ê³¼ [<%=i+1%>] </legend>
+                            <legend> ÆÑ½º Àü¼Û°á°ú [<%=i+1%>] </legend>
                             <ul>
-                                <li>state (ì „ì†¡ìƒíƒœ ì½”ë“œ) : <%=result.Item(i).state%> </li>
-                                <li>result (ì „ì†¡ê²°ê³¼ ì½”ë“œ) : <%=result.Item(i).result%> </li>
-                                <li>sendNum (ë°œì‹ ë²ˆí˜¸) : <%=result.Item(i).sendNum%> </li>
-                                <li>senderName (ë°œì‹ ìëª…) : <%=result.Item(i).senderName%> </li>
-                                <li>ReceiveNum (ìˆ˜ì‹ ë²ˆí˜¸) : <%=result.Item(i).ReceiveNum%> </li>
-                                <li>ReceiveNumType (ìˆ˜ì‹ ë²ˆí˜¸ ìœ í˜•) : <%=result.Item(i).ReceiveNumType%> </li>
-                                <li>receiveName (ìˆ˜ì‹ ìëª…) : <%=result.Item(i).receiveName%> </li>
-                                <li>title (íŒ©ìŠ¤ ì œëª©) : <%=result.Item(i).title %> </li>
-                                <li>sendPageCnt (í˜ì´ì§€ìˆ˜) : <%=result.Item(i).sendPageCnt%></li>
-                                <li>successPageCnt (ì„±ê³µ í˜ì´ì§€ìˆ˜) : <%=result.Item(i).successPageCnt%></li>
-                                <li>failPageCnt (ì‹¤íŒ¨ í˜ì´ì§€ìˆ˜) : <%=result.Item(i).failPageCnt%></li>
-                                <li>cancelPageCnt (ì·¨ì†Œ í˜ì´ì§€ìˆ˜) : <%=result.Item(i).cancelPageCnt%></li>
-                                <li>reserveDT (ì˜ˆì•½ì‹œê°„) : <%=result.Item(i).reserveDT%></li>
-                                <li>sendDT (ë°œì†¡ì‹œê°„) : <%=result.Item(i).sendDT%></li>
-                                <li>receiptDT (ì „ì†¡ ì ‘ìˆ˜ì‹œê°„) : <%=result.Item(i).receiptDT%></li>
-                                <li>fileNames (ì „ì†¡íŒŒì¼ëª… ë°°ì—´) : <%=result.Item(i).fileNames%></li>
-                                <li>ReceiptNum (ì ‘ìˆ˜ë²ˆí˜¸) : <%=result.Item(i).ReceiptNum%> </li>
-                                <li>RequestNum (ìš”ì²­ë²ˆí˜¸) : <%=result.Item(i).RequestNum%> </li>
-                                <li>interOPRefKey (íŒŒíŠ¸ë„ˆ ì§€ì •í‚¤) : <%=result.Item(i).interOPRefKey%> </li>
-                                <li>chargePageCnt (ê³¼ê¸ˆ í˜ì´ì§€ìˆ˜) : <%=result.Item(i).chargePageCnt%> </li>
-                                <li>refundPageCnt (í™˜ë¶ˆ í˜ì´ì§€ìˆ˜) : <%=result.Item(i).refundPageCnt%></li>
-                                <li>tiffFileSize (ë³€í™˜íŒŒì¼ìš©ëŸ‰ (ë‹¨ìœ„ : byte)) : <%=result.Item(i).tiffFileSize%> </li>
+                                <li>state (Àü¼Û»óÅÂ ÄÚµå) : <%=result.Item(i).state%> </li>
+                                <li>result (Àü¼Û°á°ú ÄÚµå) : <%=result.Item(i).result%> </li>
+                                <li>sendNum (¹ß½Å¹øÈ£) : <%=result.Item(i).sendNum%> </li>
+                                <li>senderName (¹ß½ÅÀÚ¸í) : <%=result.Item(i).senderName%> </li>
+                                <li>ReceiveNum (¼ö½Å¹øÈ£) : <%=result.Item(i).ReceiveNum%> </li>
+                                <li>ReceiveNumType (¼ö½Å¹øÈ£ À¯Çü) : <%=result.Item(i).ReceiveNumType%> </li>
+                                <li>receiveName (¼ö½ÅÀÚ¸í) : <%=result.Item(i).receiveName%> </li>
+                                <li>title (ÆÑ½º Á¦¸ñ) : <%=result.Item(i).title %> </li>
+                                <li>sendPageCnt (ÆäÀÌÁö¼ö) : <%=result.Item(i).sendPageCnt%></li>
+                                <li>successPageCnt (¼º°ø ÆäÀÌÁö¼ö) : <%=result.Item(i).successPageCnt%></li>
+                                <li>failPageCnt (½ÇÆĞ ÆäÀÌÁö¼ö) : <%=result.Item(i).failPageCnt%></li>
+                                <li>cancelPageCnt (Ãë¼Ò ÆäÀÌÁö¼ö) : <%=result.Item(i).cancelPageCnt%></li>
+                                <li>reserveDT (¿¹¾à½Ã°£) : <%=result.Item(i).reserveDT%></li>
+                                <li>sendDT (¹ß¼Û½Ã°£) : <%=result.Item(i).sendDT%></li>
+                                <li>receiptDT (Àü¼Û Á¢¼ö½Ã°£) : <%=result.Item(i).receiptDT%></li>
+                                <li>fileNames (Àü¼ÛÆÄÀÏ¸í ¹è¿­) : <%=result.Item(i).fileNames%></li>
+                                <li>ReceiptNum (Á¢¼ö¹øÈ£) : <%=result.Item(i).ReceiptNum%> </li>
+                                <li>RequestNum (¿äÃ»¹øÈ£) : <%=result.Item(i).RequestNum%> </li>
+                                <li>interOPRefKey (ÆÄÆ®³Ê ÁöÁ¤Å°) : <%=result.Item(i).interOPRefKey%> </li>
+                                <li>chargePageCnt (°ú±İ ÆäÀÌÁö¼ö) : <%=result.Item(i).chargePageCnt%> </li>
+                                <li>refundPageCnt (È¯ºÒ ÆäÀÌÁö¼ö) : <%=result.Item(i).refundPageCnt%></li>
+                                <li>tiffFileSize (º¯È¯ÆÄÀÏ¿ë·® (´ÜÀ§ : byte)) : <%=result.Item(i).tiffFileSize%> </li>
                             </ul>
                         </fieldset>
                 <%

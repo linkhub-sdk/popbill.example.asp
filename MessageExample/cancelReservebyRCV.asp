@@ -1,26 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒë¹Œì—ì„œ ë°˜í™˜ë°›ì€ ì ‘ìˆ˜ë²ˆí˜¸ì™€ ìˆ˜ì‹ ë²ˆí˜¸ë¥¼ í†µí•´ ì˜ˆì•½ì ‘ìˆ˜ëœ ë¬¸ì ë©”ì‹œì§€ ì „ì†¡ì„ ì·¨ì†Œí•©ë‹ˆë‹¤. (ì˜ˆì•½ì‹œê°„ 10ë¶„ ì „ê¹Œì§€ ê°€ëŠ¥)
+    ' ÆËºô¿¡¼­ ¹İÈ¯¹ŞÀº Á¢¼ö¹øÈ£¿Í ¼ö½Å¹øÈ£¸¦ ÅëÇØ ¿¹¾àÁ¢¼öµÈ ¹®ÀÚ ¸Ş½ÃÁö Àü¼ÛÀ» Ãë¼ÒÇÕ´Ï´Ù. (¿¹¾à½Ã°£ 10ºĞ Àü±îÁö °¡´É)
     ' - https://developers.popbill.com/reference/sms/asp/api/send#CancelReservebyRCV
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ì˜ˆì•½ë¬¸ì ì „ì†¡ìš”ì²­ì‹œ íŒë¹Œë¡œë¶€í„° ë°˜í™˜ ë°›ì€ ì ‘ìˆ˜ë²ˆí˜¸
+    ' ¿¹¾à¹®ÀÚ Àü¼Û¿äÃ»½Ã ÆËºô·ÎºÎÅÍ ¹İÈ¯ ¹ŞÀº Á¢¼ö¹øÈ£
     ReceiptNum = "022102708000000003"
 
-    ' ì˜ˆì•½ë¬¸ì ì „ì†¡ìš”ì²­ì‹œ íŒë¹Œë¡œ ìš”ì²­í•œ ìˆ˜ì‹ ë²ˆí˜¸
+    ' ¿¹¾à¹®ÀÚ Àü¼Û¿äÃ»½Ã ÆËºô·Î ¿äÃ»ÇÑ ¼ö½Å¹øÈ£
     ReceiveNum = "0102223333"
 
     On Error Resume Next
@@ -43,7 +43,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë¬¸ìì˜ˆì•½ì „ì†¡ ì·¨ì†Œ</legend>
+                <legend>¹®ÀÚ¿¹¾àÀü¼Û Ãë¼Ò</legend>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>

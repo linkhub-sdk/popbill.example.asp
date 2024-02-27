@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒë¹Œ ì „ìëª…ì„¸ì„œ API ì„œë¹„ìŠ¤ ê³¼ê¸ˆì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ÆËºô ÀüÀÚ¸í¼¼¼­ API ¼­ºñ½º °ú±İÁ¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/statement/asp/api/point#GetChargeInfo
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
     itemCode = "121"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -37,14 +37,14 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ê³¼ê¸ˆì •ë³´ í™•ì¸</legend>
+                <legend>°ú±İÁ¤º¸ È®ÀÎ</legend>
                 <%
                     If code = 0 Then
                 %>
                         <ul>
-                            <li> unitCost (ë°œí–‰ë‹¨ê°€) : <%=result.unitCost%></li>
-                            <li> chargeMethod (ê³¼ê¸ˆìœ í˜•) : <%=result.chargeMethod%></li>
-                            <li> rateSystem (ê³¼ê¸ˆì œë„) : <%=result.rateSystem%></li>
+                            <li> unitCost (¹ßÇà´Ü°¡) : <%=result.unitCost%></li>
+                            <li> chargeMethod (°ú±İÀ¯Çü) : <%=result.chargeMethod%></li>
+                            <li> rateSystem (°ú±İÁ¦µµ) : <%=result.rateSystem%></li>
                         </ul>
                 <%
                     Else

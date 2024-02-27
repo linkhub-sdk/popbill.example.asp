@@ -1,34 +1,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    '  ê³„ì¢Œ ê±°ëž˜ë‚´ì—­ì„ í™•ì¸í•˜ê¸° ìœ„í•´ íŒë¹Œì— ìˆ˜ì§‘ìš”ì²­ì„ í•©ë‹ˆë‹¤. (ì¡°íšŒê¸°ê°„ ë‹¨ìœ„ : ìµœëŒ€ 1ê°œì›”)
-    ' - ì¡°íšŒì¼ë¡œë¶€í„° ìµœëŒ€ 3ê°œì›” ì´ì „ ë‚´ì—­ê¹Œì§€ ì¡°íšŒí•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
-    ' - ë°˜í™˜ ë°›ì€ ìž‘ì—…ì•„ì´ë””ëŠ” í•¨ìˆ˜ í˜¸ì¶œ ì‹œì ë¶€í„° 1ì‹œê°„ ë™ì•ˆ ìœ íš¨í•©ë‹ˆë‹¤.
+    '  °èÁÂ °Å·¡³»¿ªÀ» È®ÀÎÇÏ±â À§ÇØ ÆËºô¿¡ ¼öÁý¿äÃ»À» ÇÕ´Ï´Ù. (Á¶È¸±â°£ ´ÜÀ§ : ÃÖ´ë 1°³¿ù)
+    ' - Á¶È¸ÀÏ·ÎºÎÅÍ ÃÖ´ë 3°³¿ù ÀÌÀü ³»¿ª±îÁö Á¶È¸ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' - ¹ÝÈ¯ ¹ÞÀº ÀÛ¾÷¾ÆÀÌµð´Â ÇÔ¼ö È£Ãâ ½ÃÁ¡ºÎÅÍ 1½Ã°£ µ¿¾È À¯È¿ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/job#RequestJob
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     testUserID = "testkorea"
 
-    ' ê¸°ê´€ì½”ë“œ
+    ' ±â°üÄÚµå
     BankCode = ""
 
-    ' ê³„ì¢Œë²ˆí˜¸
+    ' °èÁÂ¹øÈ£
     AccountNumber = ""
 
-    ' ì‹œìž‘ì¼ìž, í‘œì‹œí˜•ì‹(yyyyMMdd)
+    ' ½ÃÀÛÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
     SDate = "20220701"
 
-    ' ì¢…ë£Œì¼ìž, í‘œì‹œí˜•ì‹(yyyyMMdd)
+    ' Á¾·áÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
     EDate =	"20220720"
 
 
@@ -49,10 +49,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ìˆ˜ì§‘ ìš”ì²­</legend>
+                <legend>¼öÁý ¿äÃ»</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>jobID(ìž‘ì—…ì•„ì´ë””) : <%=jobID%> </li>
+                        <li>jobID(ÀÛ¾÷¾ÆÀÌµð) : <%=jobID%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>

@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì „ìžëª…ì„¸ì„œ ê´€ë ¨ ë©”ì¼ í•­ëª©ì— ëŒ€í•œ ë°œì†¡ì„¤ì •ì„ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ÀüÀÚ¸í¼¼¼­ °ü·Ã ¸ÞÀÏ Ç×¸ñ¿¡ ´ëÇÑ ¹ß¼Û¼³Á¤À» È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/statement/asp/api/etc#ListEmailConfig
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
     On Error Resume Next
@@ -34,26 +34,26 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì•Œë¦¼ë©”ì¼ ì „ì†¡ëª©ë¡ ì¡°íšŒ</legend>
+                <legend>¾Ë¸²¸ÞÀÏ Àü¼Û¸ñ·Ï Á¶È¸</legend>
                         <ul>
                         <%
                             If code = 0 Then
                             For i=0 To emailObj.Count-1
                         %>
                             <% If emailObj.Item(i).emailType = "SMT_ISSUE" Then %>
-                                    <li><%= emailObj.Item(i).emailType %> (ê³µê¸‰ë°›ëŠ”ìžì—ê²Œ ì „ìžëª…ì„¸ì„œê°€ ë°œí–‰ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li><%= emailObj.Item(i).emailType %> (°ø±Þ¹Þ´ÂÀÚ¿¡°Ô ÀüÀÚ¸í¼¼¼­°¡ ¹ßÇà µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "SMT_ACCEPT" Then %>
-                                    <li><%= emailObj.Item(i).emailType %> (ê³µê¸‰ìžì—ê²Œ ì „ìžëª…ì„¸ì„œê°€ ìŠ¹ì¸ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li><%= emailObj.Item(i).emailType %> (°ø±ÞÀÚ¿¡°Ô ÀüÀÚ¸í¼¼¼­°¡ ½ÂÀÎ µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "SMT_DENY" Then %>
-                                    <li><%= emailObj.Item(i).emailType %> (ê³µê¸‰ìžì—ê²Œ ì „ìžëª…ì„¸ì„œê°€ ê±°ë¶€ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li><%= emailObj.Item(i).emailType %> (°ø±ÞÀÚ¿¡°Ô ÀüÀÚ¸í¼¼¼­°¡ °ÅºÎ µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "SMT_CANCEL" Then %>
-                                    <li><%= emailObj.Item(i).emailType %> (ê³µê¸‰ë°›ëŠ”ìžì—ê²Œ ì „ìžëª…ì„¸ì„œê°€ ì·¨ì†Œ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li><%= emailObj.Item(i).emailType %> (°ø±Þ¹Þ´ÂÀÚ¿¡°Ô ÀüÀÚ¸í¼¼¼­°¡ Ãë¼Ò µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "SMT_CANCEL_ISSUE" Then %>
-                                    <li><%= emailObj.Item(i).emailType %> (ê³µê¸‰ë°›ëŠ”ìžì—ê²Œ ì „ìžëª…ì„¸ì„œê°€ ë°œí–‰ì·¨ì†Œ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li><%= emailObj.Item(i).emailType %> (°ø±Þ¹Þ´ÂÀÚ¿¡°Ô ÀüÀÚ¸í¼¼¼­°¡ ¹ßÇàÃë¼Ò µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                         <%
                             Next

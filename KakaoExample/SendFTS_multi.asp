@@ -1,86 +1,86 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' í…ìŠ¤íŠ¸ë¡œ êµ¬ì„±ëœ ë‹¤ìˆ˜ê±´ì˜ ì¹œêµ¬í†¡ ì „ì†¡ì„ íŒë¹Œì— ì ‘ìˆ˜í•˜ë©°, ìˆ˜ì‹ ìž ë³„ë¡œ ê°œë³„ ë‚´ìš©ì„ ì „ì†¡í•©ë‹ˆë‹¤. (ìµœëŒ€ 1,000ê±´)
-    ' - ì¹œêµ¬í†¡ì˜ ê²½ìš° ì•¼ê°„ ì „ì†¡ì€ ì œí•œë©ë‹ˆë‹¤. (20:00 ~ ìµì¼ 08:00)
-    ' - ì „ì†¡ì‹¤íŒ¨ì‹œ ì‚¬ì „ì— ì§€ì •í•œ ë³€ìˆ˜ 'altSendType' ê°’ìœ¼ë¡œ ëŒ€ì²´ë¬¸ìžë¥¼ ì „ì†¡í•  ìˆ˜ ìžˆê³ , ì´ ê²½ìš° ë¬¸ìž(SMS/LMS) ìš”ê¸ˆì´ ê³¼ê¸ˆë©ë‹ˆë‹¤.
+    ' ÅØ½ºÆ®·Î ±¸¼ºµÈ ´Ù¼ö°ÇÀÇ Ä£±¸Åå Àü¼ÛÀ» ÆËºô¿¡ Á¢¼öÇÏ¸ç, ¼ö½ÅÀÚ º°·Î °³º° ³»¿ëÀ» Àü¼ÛÇÕ´Ï´Ù. (ÃÖ´ë 1,000°Ç)
+    ' - Ä£±¸ÅåÀÇ °æ¿ì ¾ß°£ Àü¼ÛÀº Á¦ÇÑµË´Ï´Ù. (20:00 ~ ÀÍÀÏ 08:00)
+    ' - Àü¼Û½ÇÆÐ½Ã »çÀü¿¡ ÁöÁ¤ÇÑ º¯¼ö 'altSendType' °ªÀ¸·Î ´ëÃ¼¹®ÀÚ¸¦ Àü¼ÛÇÒ ¼ö ÀÖ°í, ÀÌ °æ¿ì ¹®ÀÚ(SMS/LMS) ¿ä±ÝÀÌ °ú±ÝµË´Ï´Ù.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/send#SendFTS
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     testUserID = "testkorea"
 
-    ' íŒë¹Œì— ë“±ë¡ëœ ì¹´ì¹´ì˜¤í†¡ ê²€ìƒ‰ìš© ì•„ì´ë””
-    plusFriendID = "@íŒë¹Œ"
+    ' ÆËºô¿¡ µî·ÏµÈ Ä«Ä«¿ÀÅå °Ë»ö¿ë ¾ÆÀÌµð
+    plusFriendID = "@ÆËºô"
 
-    ' íŒë¹Œì— ì‚¬ì „ ë“±ë¡ëœ ë°œì‹ ë²ˆí˜¸
-    ' altSendType = 'C' / 'A' ì¼ ê²½ìš°, ëŒ€ì²´ë¬¸ìžë¥¼ ì „ì†¡í•  ë°œì‹ ë²ˆí˜¸
-    ' altSendType = '' ì¼ ê²½ìš°, null ë˜ëŠ” ê³µë°± ì²˜ë¦¬
-    ' â€» ëŒ€ì²´ë¬¸ìžë¥¼ ì „ì†¡í•˜ëŠ” ê²½ìš°ì—ëŠ” ì‚¬ì „ì— ë“±ë¡ëœ ë°œì‹ ë²ˆí˜¸ ìž…ë ¥ í•„ìˆ˜
+    ' ÆËºô¿¡ »çÀü µî·ÏµÈ ¹ß½Å¹øÈ£
+    ' altSendType = 'C' / 'A' ÀÏ °æ¿ì, ´ëÃ¼¹®ÀÚ¸¦ Àü¼ÛÇÒ ¹ß½Å¹øÈ£
+    ' altSendType = '' ÀÏ °æ¿ì, null ¶Ç´Â °ø¹é Ã³¸®
+    ' ¡Ø ´ëÃ¼¹®ÀÚ¸¦ Àü¼ÛÇÏ´Â °æ¿ì¿¡´Â »çÀü¿¡ µî·ÏµÈ ¹ß½Å¹øÈ£ ÀÔ·Â ÇÊ¼ö
     senderNum = ""
 
-    ' ëŒ€ì²´ë¬¸ìž ìœ í˜• (null , "C" , "A" ì¤‘ íƒ 1)
-    ' null = ë¯¸ì „ì†¡, C = ì•Œë¦¼í†¡ê³¼ ë™ì¼ ë‚´ìš© ì „ì†¡ , A = ëŒ€ì²´ë¬¸ìž ë‚´ìš©(altContent)ì— ìž…ë ¥í•œ ë‚´ìš© ì „ì†¡
+    ' ´ëÃ¼¹®ÀÚ À¯Çü (null , "C" , "A" Áß ÅÃ 1)
+    ' null = ¹ÌÀü¼Û, C = ¾Ë¸²Åå°ú µ¿ÀÏ ³»¿ë Àü¼Û , A = ´ëÃ¼¹®ÀÚ ³»¿ë(altContent)¿¡ ÀÔ·ÂÇÑ ³»¿ë Àü¼Û
     altSendType = "A"
 
-    ' ëŒ€ì²´ë¬¸ìž ì œëª©
-    ' - ë©”ì‹œì§€ ê¸¸ì´(90byte)ì— ë”°ë¼ ìž¥ë¬¸(LMS)ì¸ ê²½ìš°ì—ë§Œ ì ìš©.
-    ' - ìˆ˜ì‹ ì •ë³´ ë°°ì—´ì— ëŒ€ì²´ë¬¸ìž ì œëª©ì´ ìž…ë ¥ë˜ì§€ ì•Šì€ ê²½ìš° ì ìš©.
-    ' - ëª¨ë“  ìˆ˜ì‹ ìžì—ê²Œ ë‹¤ë¥¸ ì œëª©ì„ ë³´ë‚¼ ê²½ìš° 65ë²ˆ ë¼ì¸ì— ìžˆëŠ” altsjt ë¥¼ ì´ìš©.
-    altSubject = "ëŒ€ì²´ë¬¸ìž ì œëª©"
+    ' ´ëÃ¼¹®ÀÚ Á¦¸ñ
+    ' - ¸Þ½ÃÁö ±æÀÌ(90byte)¿¡ µû¶ó Àå¹®(LMS)ÀÎ °æ¿ì¿¡¸¸ Àû¿ë.
+    ' - ¼ö½ÅÁ¤º¸ ¹è¿­¿¡ ´ëÃ¼¹®ÀÚ Á¦¸ñÀÌ ÀÔ·ÂµÇÁö ¾ÊÀº °æ¿ì Àû¿ë.
+    ' - ¸ðµç ¼ö½ÅÀÚ¿¡°Ô ´Ù¸¥ Á¦¸ñÀ» º¸³¾ °æ¿ì 65¹ø ¶óÀÎ¿¡ ÀÖ´Â altsjt ¸¦ ÀÌ¿ë.
+    altSubject = "´ëÃ¼¹®ÀÚ Á¦¸ñ"
 
-    ' ì˜ˆì•½ì „ì†¡ì‹œê°„ yyyyMMddHHmmss, reserveDTê°’ì´ ì—†ëŠ” ê²½ìš° ì¦‰ì‹œì „ì†¡
+    ' ¿¹¾àÀü¼Û½Ã°£ yyyyMMddHHmmss, reserveDT°ªÀÌ ¾ø´Â °æ¿ì Áï½ÃÀü¼Û
     reserveDT = ""
 
-    ' ê´‘ê³ ì„± ë©”ì‹œì§€ ì—¬ë¶€ ( true , false ì¤‘ íƒ 1)
-    ' â”” true = ê´‘ê³  , false = ì¼ë°˜
-    ' - ë¯¸ìž…ë ¥ ì‹œ ê¸°ë³¸ê°’ false ì²˜ë¦¬
+    ' ±¤°í¼º ¸Þ½ÃÁö ¿©ºÎ ( true , false Áß ÅÃ 1)
+    ' ¦¦ true = ±¤°í , false = ÀÏ¹Ý
+    ' - ¹ÌÀÔ·Â ½Ã ±âº»°ª false Ã³¸®
     adsYN = False
 
     Set receiverList = CreateObject("Scripting.Dictionary")
 
-    ' ìˆ˜ì‹ ì •ë³´ ë°°ì—´, ìµœëŒ€ 1000ê±´
+    ' ¼ö½ÅÁ¤º¸ ¹è¿­, ÃÖ´ë 1000°Ç
     For i =0 To 9
         Set rcvInfo = New KakaoReceiver
 
-        ' ìˆ˜ì‹ ìžë²ˆí˜¸
+        ' ¼ö½ÅÀÚ¹øÈ£
         rcvInfo.rcv = "01011222"+ CStr(i)
 
-        ' ìˆ˜ì‹ ìžëª…
-        rcvInfo.rcvnm = " ìˆ˜ì‹ ìžì´ë¦„"
+        ' ¼ö½ÅÀÚ¸í
+        rcvInfo.rcvnm = " ¼ö½ÅÀÚÀÌ¸§"
 
-        ' ì¹œêµ¬í†¡ ë‚´ìš©, ìµœëŒ€ 1000ìž
-        rcvInfo.msg = "ì¹œêµ¬í†¡ ë©”ì‹œì§€ ê°œë³„ ë‚´ìš©ìž…ë‹ˆë‹¤." +CStr(i)
+        ' Ä£±¸Åå ³»¿ë, ÃÖ´ë 1000ÀÚ
+        rcvInfo.msg = "Ä£±¸Åå ¸Þ½ÃÁö °³º° ³»¿ëÀÔ´Ï´Ù." +CStr(i)
 
-        ' ëŒ€ì²´ë¬¸ìž ì œëª©
-        ' - ë©”ì‹œì§€ ê¸¸ì´(90byte)ì— ë”°ë¼ ìž¥ë¬¸(LMS)ì¸ ê²½ìš°ì—ë§Œ ì ìš©.
-        ' - ëª¨ë“  ìˆ˜ì‹ ìžì—ê²Œ ë™ì¼í•œ ì œëª©ì„ ë³´ë‚¼ ê²½ìš° ë°°ì—´ì˜ ëª¨ë“  ì›ì†Œì— ë™ì¼í•œ ê°’ì„ ìž…ë ¥í•˜ê±°ë‚˜
-        '   ê°’ì„ ìž…ë ¥í•˜ì§€ ì•Šê³  36ë²ˆ ë¼ì¸ì— ìžˆëŠ” altSubject ë¥¼ ì´ìš©
-        rcvInfo.altsjt = "ëŒ€ì²´ë¬¸ìž ì œëª©" +CStr(i)
+        ' ´ëÃ¼¹®ÀÚ Á¦¸ñ
+        ' - ¸Þ½ÃÁö ±æÀÌ(90byte)¿¡ µû¶ó Àå¹®(LMS)ÀÎ °æ¿ì¿¡¸¸ Àû¿ë.
+        ' - ¸ðµç ¼ö½ÅÀÚ¿¡°Ô µ¿ÀÏÇÑ Á¦¸ñÀ» º¸³¾ °æ¿ì ¹è¿­ÀÇ ¸ðµç ¿ø¼Ò¿¡ µ¿ÀÏÇÑ °ªÀ» ÀÔ·ÂÇÏ°Å³ª
+        '   °ªÀ» ÀÔ·ÂÇÏÁö ¾Ê°í 36¹ø ¶óÀÎ¿¡ ÀÖ´Â altSubject ¸¦ ÀÌ¿ë
+        rcvInfo.altsjt = "´ëÃ¼¹®ÀÚ Á¦¸ñ" +CStr(i)
 
-        ' ëŒ€ì²´ë¬¸ìž ë©”ì‹œì§€ ë‚´ìš©
-        rcvInfo.altmsg = "ëŒ€ì²´ë¬¸ìž ë©”ì‹œì§€ ë‚´ìš©" +CStr(i)
+        ' ´ëÃ¼¹®ÀÚ ¸Þ½ÃÁö ³»¿ë
+        rcvInfo.altmsg = "´ëÃ¼¹®ÀÚ ¸Þ½ÃÁö ³»¿ë" +CStr(i)
 
-        ' ìˆ˜ì‹ ìžë³„ ê°œë³„ ë²„íŠ¼ ë‚´ìš© ì „ì†¡ì‹œ ì‚¬ìš©.
-        ' ìµœëŒ€ 5ê°œ ì‚¬ìš© ê°€ëŠ¥.
+        ' ¼ö½ÅÀÚº° °³º° ¹öÆ° ³»¿ë Àü¼Û½Ã »ç¿ë.
+        ' ÃÖ´ë 5°³ »ç¿ë °¡´É.
         ' Set btnInfo = new KakaoButton
-        ' btnInfo.n = "í…œí”Œë¦¿ ì•ˆë‚´"
+        ' btnInfo.n = "ÅÛÇÃ¸´ ¾È³»"
         ' btnInfo.t = "WL"
         ' btnInfo.u1 = "https://www.popbil.com" + Cstr(i)
         ' btnInfo.u2 = "http://www.llinkhub.co.kr"
         ' rcvInfo.AddBtn(btnInfo)
 
         ' Set btnInfo = new KakaoButton
-        ' btnInfo.n = "í…œí”Œë¦¿ ì•ˆë‚´"
+        ' btnInfo.n = "ÅÛÇÃ¸´ ¾È³»"
         ' btnInfo.t = "WL"
         ' btnInfo.u1 = "https://www.TEST.com" + Cstr(i)
         ' btnInfo.u2 = "http://www.TEST.co.kr"
@@ -90,24 +90,24 @@
     Next
 
 
-    ' ì¹œêµ¬í†¡ ë²„íŠ¼ì •ë³´ êµ¬ì„±
-    ' ìˆ˜ì‹ ìžë³„ ê°œë³„ ë²„íŠ¼ ì‚¬ìš©í•˜ê±°ë‚˜ ë²„íŠ¼ì„ ì‚¬ìš©í•˜ì§€ ì•Šì„ê²½ìš° btnListë¥¼ ì„ ì–¸ë§Œ í•˜ê³  í•¨ìˆ˜í˜¸ì¶œ.
+    ' Ä£±¸Åå ¹öÆ°Á¤º¸ ±¸¼º
+    ' ¼ö½ÅÀÚº° °³º° ¹öÆ° »ç¿ëÇÏ°Å³ª ¹öÆ°À» »ç¿ëÇÏÁö ¾ÊÀ»°æ¿ì btnList¸¦ ¼±¾ð¸¸ ÇÏ°í ÇÔ¼öÈ£Ãâ.
     Set btnList = CreateObject("Scripting.Dictionary")
     ' Set btnInfo = New KakaoButton
-    ' btnInfo.n = "ë²„íŠ¼ì´ë¦„"
+    ' btnInfo.n = "¹öÆ°ÀÌ¸§"
     ' btnInfo.t = "WL"
     ' btnInfo.u1 = "http://www.popbil.com"
     ' btnInfo.u2 = "http://www.llinkhub.co.kr"
     ' btnList.Add 0, btnInfo
 
     ' Set btnInfo = New KakaoButton
-    ' btnInfo.n = "ë©”ì‹œì§€ ì „ë‹¬"
+    ' btnInfo.n = "¸Þ½ÃÁö Àü´Þ"
     ' btnInfo.t = "MD"
     ' btnList.Add 1, btnInfo
 
-    ' ì „ì†¡ìš”ì²­ë²ˆí˜¸
-    ' íŒë¹Œì´ ì ‘ìˆ˜ ë‹¨ìœ„ë¥¼ ì‹ë³„í•  ìˆ˜ ìžˆë„ë¡ íŒŒíŠ¸ë„ˆê°€ í• ë‹¹í•œ ì‹ë³„ë²ˆí˜¸.
-    ' 1~36ìžë¦¬ë¡œ êµ¬ì„±. ì˜ë¬¸, ìˆ«ìž, í•˜ì´í”ˆ(-), ì–¸ë”ë°”(_)ë¥¼ ì¡°í•©í•˜ì—¬ íŒë¹Œ íšŒì›ë³„ë¡œ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ í• ë‹¹.
+    ' Àü¼Û¿äÃ»¹øÈ£
+    ' ÆËºôÀÌ Á¢¼ö ´ÜÀ§¸¦ ½Äº°ÇÒ ¼ö ÀÖµµ·Ï ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ ½Äº°¹øÈ£.
+    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ýÀÚ, ÇÏÀÌÇÂ(-), ¾ð´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
     RequestNum = ""
 
     On Error Resume Next
@@ -128,10 +128,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì¹œêµ¬í†¡ ë™ì¼ë‚´ìš© ëŒ€ëŸ‰ ì „ì†¡</legend>
+                <legend>Ä£±¸Åå µ¿ÀÏ³»¿ë ´ë·® Àü¼Û</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(ì ‘ìˆ˜ë²ˆí˜¸) : <%=ReceiptNum%> </li>
+                        <li>ReceiptNum(Á¢¼ö¹øÈ£) : <%=ReceiptNum%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>

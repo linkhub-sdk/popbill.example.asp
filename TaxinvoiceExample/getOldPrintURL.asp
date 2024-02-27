@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ 1ê±´ì„ êµ¬ë²„ì „ ì–‘ì‹ìœ¼ë¡œ ì¸ì‡„í•˜ê¸° ìœ„í•œ íŽ˜ì´ì§€ì˜ íŒì—… URLì„ ë°˜í™˜í•˜ë©°, íŽ˜ì´ì§€ë‚´ì—ì„œ ì¸ì‡„ ì„¤ì •ê°’ì„
-    '   "ê³µê¸‰ìž" / "ê³µê¸‰ë°›ëŠ”ìž" / "ê³µê¸‰ìž+ê³µê¸‰ë°›ëŠ”ìž"ìš© ì¤‘ í•˜ë‚˜ë¡œ ì§€ì •í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
-    ' - ë°˜í™˜ë˜ëŠ” URLì€ ë³´ì•ˆ ì •ì±…ìƒ 30ì´ˆ ë™ì•ˆ ìœ íš¨í•˜ë©°, ì‹œê°„ì„ ì´ˆê³¼í•œ í›„ì—ëŠ” í•´ë‹¹ URLì„ í†µí•œ íŽ˜ì´ì§€ ì ‘ê·¼ì´ ë¶ˆê°€í•©ë‹ˆë‹¤.
+    ' ÀüÀÚ¼¼±Ý°è»ê¼­ 1°ÇÀ» ±¸¹öÀü ¾ç½ÄÀ¸·Î ÀÎ¼âÇÏ±â À§ÇÑ ÆäÀÌÁöÀÇ ÆË¾÷ URLÀ» ¹ÝÈ¯ÇÏ¸ç, ÆäÀÌÁö³»¿¡¼­ ÀÎ¼â ¼³Á¤°ªÀ»
+    '   "°ø±ÞÀÚ" / "°ø±Þ¹Þ´ÂÀÚ" / "°ø±ÞÀÚ+°ø±Þ¹Þ´ÂÀÚ"¿ë Áß ÇÏ³ª·Î ÁöÁ¤ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' - ¹ÝÈ¯µÇ´Â URLÀº º¸¾È Á¤Ã¥»ó 30ÃÊ µ¿¾È À¯È¿ÇÏ¸ç, ½Ã°£À» ÃÊ°úÇÑ ÈÄ¿¡´Â ÇØ´ç URLÀ» ÅëÇÑ ÆäÀÌÁö Á¢±ÙÀÌ ºÒ°¡ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/view#GetOldPrintURL
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸ 10ìžë¦¬
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
-    ' ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ìž…), TRUSTEE(ìœ„ìˆ˜íƒ)
+    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
     KeyType = "SELL"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -42,7 +42,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì„¸ê¸ˆê³„ì‚°ì„œ (êµ¬)ì–‘ì‹ ì¸ì‡„ URL </legend>
+                <legend>¼¼±Ý°è»ê¼­ (±¸)¾ç½Ä ÀÎ¼â URL </legend>
                 <%
                     If code = 0 Then
                 %>

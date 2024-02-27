@@ -1,26 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì—°ë™íšŒì›ì˜ í¬ì¸íŠ¸ í™˜ë¶ˆì‹ ì²­ë‚´ì—­ì„ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ¿¬µ¿È¸¿øÀÇ Æ÷ÀÎÆ® È¯ºÒ½ÅÃ»³»¿ªÀ» È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/point#GetRefundHistory
     '**************************************************************
 
-    'íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    'ëª©ë¡ í˜ì´ì§€ë²ˆí˜¸
+    '¸ñ·Ï ÆäÀÌÁö¹øÈ£
     Page = 1
 
-    ' í˜ì´ì§€ë‹¹ í‘œì‹œí•  ëª©ë¡ê°œìˆ˜
+    ' ÆäÀÌÁö´ç Ç¥½ÃÇÒ ¸ñ·Ï°³¼ö
     PerPage = 500
 
-    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -40,17 +40,17 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-            <legend>ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆë‚´ì—­ í™•ì¸</legend>
+            <legend>¿¬µ¿È¸¿ø Æ÷ÀÎÆ® È¯ºÒ³»¿ª È®ÀÎ</legend>
             <%
                 If code = 0 Then
             %>
 
             <ul>
-                <li> code (ì‘ë‹µ ì½”ë“œ) : <%=result.code%></li>
-                <li> total (ì´ ê²€ìƒ‰ê²°ê³¼ ê±´ìˆ˜) : <%=result.total%></li>
-                <li> perPage (í˜ì´ì§€ë‹¹ ê²€ìƒ‰ê°œìˆ˜) : <%=result.perPage%></li>
-                <li> pageNum (í˜ì´ì§€ ë²ˆí˜¸) : <%=result.pageNum%></li>
-                <li> pageCount (í˜ì´ì§€ ê°œìˆ˜) : <%=result.pageCount%></li>
+                <li> code (ÀÀ´ä ÄÚµå) : <%=result.code%></li>
+                <li> total (ÃÑ °Ë»ö°á°ú °Ç¼ö) : <%=result.total%></li>
+                <li> perPage (ÆäÀÌÁö´ç °Ë»ö°³¼ö) : <%=result.perPage%></li>
+                <li> pageNum (ÆäÀÌÁö ¹øÈ£) : <%=result.pageNum%></li>
+                <li> pageCount (ÆäÀÌÁö °³¼ö) : <%=result.pageCount%></li>
             </ul>
                 <%
                     Dim i
@@ -59,13 +59,13 @@
                 <fieldset class="fieldset2">
                     <legend> RefundHistory  [ <%= i+1%> / <%=UBound(result.list)%>]</legend>
                     <ul>
-                        <li> reqDT (ì‹ ì²­ ì¼ì‹œ) : <%=result.list(i).reqDT%></li>
-                        <li> requestPoint (í™˜ë¶ˆ ì‹ ì²­í¬ì¸íŠ¸) : <%=result.list(i).requestPoint%></li>
-                        <li> accountBank (í™˜ë¶ˆê³„ì¢Œ ì€í–‰ëª…) : <%=result.list(i).accountBank%></li>
-                        <li> accountNum (í™˜ë¶ˆê³„ì¢Œë²ˆí˜¸) : <%=result.list(i).accountNum%></li>
-                        <li> accountName (í™˜ë¶ˆê³„ì¢Œ ì˜ˆê¸ˆì£¼ëª…) : <%=result.list(i).accountName%></li>
-                        <li> state (ìƒíƒœ) : <%=result.list(i).state%></li>
-                        <li> reason (í™˜ë¶ˆì‚¬ìœ ) : <%=result.list(i).reason%></li>
+                        <li> reqDT (½ÅÃ» ÀÏ½Ã) : <%=result.list(i).reqDT%></li>
+                        <li> requestPoint (È¯ºÒ ½ÅÃ»Æ÷ÀÎÆ®) : <%=result.list(i).requestPoint%></li>
+                        <li> accountBank (È¯ºÒ°èÁÂ ÀºÇà¸í) : <%=result.list(i).accountBank%></li>
+                        <li> accountNum (È¯ºÒ°èÁÂ¹øÈ£) : <%=result.list(i).accountNum%></li>
+                        <li> accountName (È¯ºÒ°èÁÂ ¿¹±İÁÖ¸í) : <%=result.list(i).accountName%></li>
+                        <li> state (»óÅÂ) : <%=result.list(i).state%></li>
+                        <li> reason (È¯ºÒ»çÀ¯) : <%=result.list(i).reason%></li>
                     </ul>
                 </fieldset>
                 <%

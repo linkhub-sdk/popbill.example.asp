@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒë¹Œ ì‚¬ì´íŠ¸ë¥¼ í†µí•´ ë°œí–‰í•˜ì—¬ ë¬¸ì„œë²ˆí˜¸ê°€ ë¶€ì—¬ë˜ì§€ ì•Šì€ ì„¸ê¸ˆê³„ì‚°ì„œì— ë¬¸ì„œë²ˆí˜¸ë¥¼ í• ë‹¹í•©ë‹ˆë‹¤.
+    ' ÆËºô »çÀÌÆ®¸¦ ÅëÇØ ¹ßÇàÇÏ¿© ¹®¼­¹øÈ£°¡ ºÎ¿©µÇÁö ¾ÊÀº ¼¼±İ°è»ê¼­¿¡ ¹®¼­¹øÈ£¸¦ ÇÒ´çÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#AssignMgtKey
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
+    ' ¼¼±İ°è»ê¼­ ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
     mgtKeyType= "SELL"
 
-    ' ì„¸ê¸ˆê³„ì‚°ì„œ ì•„ì´í…œí‚¤, ë¬¸ì„œ ëª©ë¡ì¡°íšŒ(Search) APIì˜ ë°˜í™˜í•­ëª©ì¤‘ ItemKey ì°¸ì¡°
+    ' ¼¼±İ°è»ê¼­ ¾ÆÀÌÅÛÅ°, ¹®¼­ ¸ñ·ÏÁ¶È¸(Search) APIÀÇ ¹İÈ¯Ç×¸ñÁß ItemKey ÂüÁ¶
     itemKey = "018082116393500001"
 
-    ' í• ë‹¹í•  ë¬¸ì„œë²ˆí˜¸, ìˆ«ì, ì˜ë¬¸ '-', '_' ì¡°í•©ìœ¼ë¡œ 1~24ìë¦¬ê¹Œì§€
-    ' ì‚¬ì—…ìë²ˆí˜¸ë³„ ì¤‘ë³µì—†ëŠ” ê³ ìœ ë²ˆí˜¸ í• ë‹¹
+    ' ÇÒ´çÇÒ ¹®¼­¹øÈ£, ¼ıÀÚ, ¿µ¹® '-', '_' Á¶ÇÕÀ¸·Î 1~24ÀÚ¸®±îÁö
+    ' »ç¾÷ÀÚ¹øÈ£º° Áßº¹¾ø´Â °íÀ¯¹øÈ£ ÇÒ´ç
     mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -44,7 +44,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë¬¸ì„œë²ˆí˜¸ í• ë‹¹ </legend>
+                <legend>¹®¼­¹øÈ£ ÇÒ´ç </legend>
                 <ul>
                     <li> Response.code : <%=code%></li>
                     <li> Response.message : <%=message%></li>

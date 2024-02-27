@@ -1,21 +1,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ë§¤ìž…/ë§¤ì¶œ ë‚´ì—­ ìˆ˜ì§‘ìš”ì²­ì— ëŒ€í•œ ìƒíƒœ ëª©ë¡ì„ í™•ì¸í•©ë‹ˆë‹¤.
-    ' - ìˆ˜ì§‘ ìš”ì²­ í›„ 1ì‹œê°„ì´ ê²½ê³¼í•œ ìˆ˜ì§‘ ìš”ì²­ê±´ì€ ìƒíƒœì •ë³´ê°€ ë°˜í™˜ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+    ' ÀüÀÚ¼¼±Ý°è»ê¼­ ¸ÅÀÔ/¸ÅÃâ ³»¿ª ¼öÁý¿äÃ»¿¡ ´ëÇÑ »óÅÂ ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' - ¼öÁý ¿äÃ» ÈÄ 1½Ã°£ÀÌ °æ°úÇÑ ¼öÁý ¿äÃ»°ÇÀº »óÅÂÁ¤º¸°¡ ¹ÝÈ¯µÇÁö ¾Ê½À´Ï´Ù.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/job#ListActiveJob
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
     On Error Resume Next
@@ -35,7 +35,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ìˆ˜ì§‘ ëª©ë¡ ì¡°íšŒ</legend>
+                <legend>¼öÁý ¸ñ·Ï Á¶È¸</legend>
                 <%
                     If code = 0 Then
                         For i=0 To result.Count-1
@@ -43,18 +43,18 @@
                             <fieldset class="fieldset2">
                                 <legend>ListActiveJob [ <%=i+1%> / <%=result.Count%> ] </legend>
                                     <ul>
-                                        <li> jobID (ìž‘ì—…ì•„ì´ë””) : <%=result.Item(i).jobID%></li>
-                                        <li> jobState (ìˆ˜ì§‘ìƒíƒœ) : <%=result.Item(i).jobState%></li>
-                                        <li> queryType (ìˆ˜ì§‘ìœ í˜•) : <%=result.Item(i).queryType%></li>
-                                        <li> queryDateType (ì¼ìžìœ í˜•) : <%=result.Item(i).queryDateType%></li>
-                                        <li> queryStDate (ì‹œìž‘ì¼ìž) : <%=result.Item(i).queryStDate%></li>
-                                        <li> queryEnDate (ì¢…ë£Œì¼ìž) : <%=result.Item(i).queryEnDate%></li>
-                                        <li> errorCode (ì˜¤ë¥˜ì½”ë“œ) : <%=result.Item(i).errorCode%></li>
-                                        <li> errorReason (ì˜¤ë¥˜ë©”ì‹œì§€) : <%=result.Item(i).errorReason%></li>
-                                        <li> jobStartDT (ìž‘ì—… ì‹œìž‘ì¼ì‹œ) : <%=result.Item(i).jobStartDT%></li>
-                                        <li> jobEndDT (ìž‘ì—… ì¢…ë£Œì¼ì‹œ) : <%=result.Item(i).jobEndDT%></li>
-                                        <li> collectCount (ìˆ˜ì§‘ê°œìˆ˜) : <%=result.Item(i).collectCount%></li>
-                                        <li> regDT (ìˆ˜ì§‘ ìš”ì²­ì¼ì‹œ) : <%=result.Item(i).regDT%></li>
+                                        <li> jobID (ÀÛ¾÷¾ÆÀÌµð) : <%=result.Item(i).jobID%></li>
+                                        <li> jobState (¼öÁý»óÅÂ) : <%=result.Item(i).jobState%></li>
+                                        <li> queryType (¼öÁýÀ¯Çü) : <%=result.Item(i).queryType%></li>
+                                        <li> queryDateType (ÀÏÀÚÀ¯Çü) : <%=result.Item(i).queryDateType%></li>
+                                        <li> queryStDate (½ÃÀÛÀÏÀÚ) : <%=result.Item(i).queryStDate%></li>
+                                        <li> queryEnDate (Á¾·áÀÏÀÚ) : <%=result.Item(i).queryEnDate%></li>
+                                        <li> errorCode (¿À·ùÄÚµå) : <%=result.Item(i).errorCode%></li>
+                                        <li> errorReason (¿À·ù¸Þ½ÃÁö) : <%=result.Item(i).errorReason%></li>
+                                        <li> jobStartDT (ÀÛ¾÷ ½ÃÀÛÀÏ½Ã) : <%=result.Item(i).jobStartDT%></li>
+                                        <li> jobEndDT (ÀÛ¾÷ Á¾·áÀÏ½Ã) : <%=result.Item(i).jobEndDT%></li>
+                                        <li> collectCount (¼öÁý°³¼ö) : <%=result.Item(i).collectCount%></li>
+                                        <li> regDT (¼öÁý ¿äÃ»ÀÏ½Ã) : <%=result.Item(i).regDT%></li>
                                     </ul>
                                 </fieldset>
                 <%

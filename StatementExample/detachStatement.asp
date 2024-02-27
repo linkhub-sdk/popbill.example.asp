@@ -1,29 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì „ìëª…ì„¸ì„œì— ì²¨ë¶€ëœ ë‹¤ë¥¸ ì „ìëª…ì„¸ì„œë¥¼ ì²¨ë¶€í•´ì œí•©ë‹ˆë‹¤.
+    ' ÀüÀÚ¸í¼¼¼­¿¡ Ã·ºÎµÈ ´Ù¸¥ ÀüÀÚ¸í¼¼¼­¸¦ Ã·ºÎÇØÁ¦ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/statement/asp/api/etc#DetachStatement
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
     CorpNum = "1234567890"
 
-    ' ì²¨ë¶€í•  ëª…ì„¸ì„œ ì¢…ë¥˜ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+    ' Ã·ºÎÇÒ ¸í¼¼¼­ Á¾·ùÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
     itemCode = 121
 
-    ' ì²¨ë¶€í•  ë¬¸ì„œë²ˆí˜¸
+    ' Ã·ºÎÇÒ ¹®¼­¹øÈ£
     mgtKey = "20220720-ASP-001"
 
-    ' ì²¨ë¶€í•´ì œí•  ëª…ì„¸ì„œ ì¢…ë¥˜ì½”ë“œ- 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+    ' Ã·ºÎÇØÁ¦ÇÒ ¸í¼¼¼­ Á¾·ùÄÚµå- 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
     subItemCode = 121
 
-    ' ì²¨ë¶€í•´ì œí•  ëª…ì„¸ì„œ ë¬¸ì„œë²ˆí˜¸
+    ' Ã·ºÎÇØÁ¦ÇÒ ¸í¼¼¼­ ¹®¼­¹øÈ£
     subMgtKey = "20220720-100"
 
     On Error Resume Next
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë‹¤ë¥¸ ì „ìëª…ì„¸ì„œ ì²¨ë¶€í•´ì œ</legend>
+                <legend>´Ù¸¥ ÀüÀÚ¸í¼¼¼­ Ã·ºÎÇØÁ¦</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

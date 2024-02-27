@@ -3,41 +3,47 @@
 <%
 
     '**************************************************************'
-    ' íŒë¹Œ í™ˆíƒìŠ¤ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ì—°ë™ API ASP SDK Example
+    ' ÆËºô È¨ÅÃ½º ÀüÀÚ¼¼±Ý°è»ê¼­ API ASP SDK Example
+    ' ASP ¿¬µ¿ Æ©Åä¸®¾ó ¾È³» : https://developers.popbill.com/guide/httaxinvoice/asp/getting-started/tutorial
     '
-    ' ASP SDK ì—°ë™í™˜ê²½ ì„¤ì •ë°©ë²• ì•ˆë‚´ : https://developers.popbill.com/guide/htcashbill/asp/getting-started/environment-set-up
-    ' - ì—…ë°ì´íŠ¸ ì¼ìž : 2023-05-18
-    ' - ì—°ë™ ê¸°ìˆ ì§€ì› ì—°ë½ì²˜ : 1600-9854
-    ' - ì—°ë™ ê¸°ìˆ ì§€ì› ì´ë©”ì¼ : code@linkhubcorp.com
-    '
-    ' <í…ŒìŠ¤íŠ¸ ì—°ë™ê°œë°œ ì¤€ë¹„ì‚¬í•­>
-    ' 1) 23, 26ë²ˆ ë¼ì¸ì— ì„ ì–¸ëœ ë§í¬ì•„ì´ë””(LinkID)ì™€ ë¹„ë°€í‚¤(SecretKey)ë¥¼
-    '    ë§í¬í—ˆë¸Œ ê°€ìž…ì‹œ ë©”ì¼ë¡œ ë°œê¸‰ë°›ì€ ì¸ì¦ì •ë³´ë¥¼ ì°¸ì¡°í•˜ì—¬ ë³€ê²½í•©ë‹ˆë‹¤.
-    ' 3) í™ˆíƒìŠ¤ ì¸ì¦ ì²˜ë¦¬ë¥¼ í•©ë‹ˆë‹¤. (ë¶€ì„œì‚¬ìš©ìžë“±ë¡ / ê³µì¸ì¸ì¦ì„œ ë“±ë¡)
-    '     - íŒë¹Œë¡œê·¸ì¸ > [í™ˆíƒìŠ¤ì—°ë™] > [í™˜ê²½ì„¤ì •] > [ì¸ì¦ ê´€ë¦¬] ë©”ë‰´
-    '     - í™ˆíƒìŠ¤ì—°ë™ ì¸ì¦ ê´€ë¦¬ íŒì—… URL(GetCertificatePopUpURL API) ë°˜í™˜ëœ URLì„ ì´ìš©í•˜ì—¬
-    '       í™ˆíƒìŠ¤ ì¸ì¦ ì²˜ë¦¬ë¥¼ í•©ë‹ˆë‹¤.
+    ' ¾÷µ¥ÀÌÆ® ÀÏÀÚ : 2024-02-27
+    ' ¿¬µ¿±â¼úÁö¿ø ¿¬¶ôÃ³ : 1600-9854
+    ' ¿¬µ¿±â¼úÁö¿ø ÀÌ¸ÞÀÏ : code@linkhubcorp.com
+    '         
+    ' <Å×½ºÆ® ¿¬µ¿°³¹ß ÁØºñ»çÇ×>
+    ' 1) API Key º¯°æ (¿¬µ¿½ÅÃ» ½Ã ¸ÞÀÏ·Î Àü´ÞµÈ Á¤º¸)
+    '     - LinkID : ¸µÅ©Çãºê¿¡¼­ ¹ß±ÞÇÑ ¸µÅ©¾ÆÀÌµð
+    '     - SecretKey : ¸µÅ©Çãºê¿¡¼­ ¹ß±ÞÇÑ ºñ¹ÐÅ°
+    ' 2) SDK È¯°æ¼³Á¤ ¿É¼Ç ¼³Á¤
+    '     - IsTest : ¿¬µ¿È¯°æ ¼³Á¤, True-Å×½ºÆ®, False-¿î¿µ(Production), (±âº»°ª:True)
+    '     - IPRestrictOnOff : ÀÎÁõÅäÅ« IP °ËÁõ ¼³Á¤, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:True)
+    '     - UseStaticIP : Åë½Å IP °íÁ¤, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:False)
+    '     - UseLocalTimeYN : ·ÎÄÃ½Ã½ºÅÛ ½Ã°£ »ç¿ë¿©ºÎ, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:True)
+    ' 3) È¨ÅÃ½º ·Î±×ÀÎ ÀÎÁõÁ¤º¸¸¦ µî·ÏÇÕ´Ï´Ù. (ºÎ¼­»ç¿ëÀÚµî·Ï / °øµ¿ÀÎÁõ¼­ µî·Ï)
+    '    - ÆËºô·Î±×ÀÎ > [È¨ÅÃ½º¿¬µ¿] > [È¯°æ¼³Á¤] > [ÀÎÁõ °ü¸®] ¸Þ´º
+    '    - È¨ÅÃ½º¿¬µ¿ ÀÎÁõ °ü¸® ÆË¾÷ URL(GetCertificatePopUpURL API) ¹ÝÈ¯µÈ URLÀ» ÀÌ¿ëÇÏ¿©
+    '      È¨ÅÃ½º ÀÎÁõ Ã³¸®¸¦ ÇÕ´Ï´Ù.
     '**************************************************************
 
-    'ë§í¬ì•„ì´ë””
+    ' ¸µÅ©¾ÆÀÌµð
     LinkID = "TESTER"
 
-    'ë¹„ë°€í‚¤
+    ' ºñ¹ÐÅ°
     SecretKey ="SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I="
 
     set m_HTTaxinvoiceService = new HTTaxinvoiceService
 
     m_HTTaxinvoiceService.Initialize LinkID, SecretKey
 
-    ' ì—°ë™í™˜ê²½ ì„¤ì •ê°’, True-ê°œë°œìš©, false-ìƒì—…ìš©
+    ' ¿¬µ¿È¯°æ ¼³Á¤, True-Å×½ºÆ®, False-¿î¿µ(Production), (±âº»°ª:True)
     m_HTTaxinvoiceService.IsTest = True
 
-    ' ì¸ì¦í† í° ë°œê¸‰ IP ì œí•œ On/Off, True-ì‚¬ìš©, false-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(True)
+    ' ÀÎÁõÅäÅ« IP °ËÁõ ¼³Á¤, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:True)
     m_HTTaxinvoiceService.IPRestrictOnOff = True
 
-    ' íŒë¹Œ API ì„œë¹„ìŠ¤ ê³ ì • IP ì‚¬ìš©ì—¬ë¶€, True-ì‚¬ìš©, false-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(false)
+    ' Åë½Å IP °íÁ¤, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:False)
     m_HTTaxinvoiceService.UseStaticIP = False
 
-    ' ë¡œì»¬ì‹œìŠ¤í…œ ì‹œê°„ ì‚¬ìš©ì—¬ë¶€ Ture-ì‚¬ìš©, False-ë¯¸ì‚¬ìš©, ê¸°ë³¸ê°’(True)
+    ' ·ÎÄÃ½Ã½ºÅÛ ½Ã°£ »ç¿ë¿©ºÎ, True-»ç¿ë, False-¹Ì»ç¿ë, (±âº»°ª:True)
     m_HTTaxinvoiceService.UseLocalTimeYN = True
 %>

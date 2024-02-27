@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒŒíŠ¸ë„ˆê°€ ì„¸ê¸ˆê³„ì‚°ì„œ ê´€ë¦¬ ëª©ì ìœ¼ë¡œ í• ë‹¹í•˜ëŠ” ë¬¸ì„œë²ˆí˜¸ì˜ ì‚¬ìš©ì—¬ë¶€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
-    ' - ì´ë¯¸ ì‚¬ìš© ì¤‘ì¸ ë¬¸ì„œë²ˆí˜¸ëŠ” ì¤‘ë³µ ì‚¬ìš©ì´ ë¶ˆê°€í•˜ê³ , ì„¸ê¸ˆê³„ì‚°ì„œê°€ ì‚­ì œëœ ê²½ìš°ì—ë§Œ ë¬¸ì„œë²ˆí˜¸ì˜ ì¬ì‚¬ìš©ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+    ' ÆÄÆ®³Ê°¡ ¼¼±İ°è»ê¼­ °ü¸® ¸ñÀûÀ¸·Î ÇÒ´çÇÏ´Â ¹®¼­¹øÈ£ÀÇ »ç¿ë¿©ºÎ¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' - ÀÌ¹Ì »ç¿ë ÁßÀÎ ¹®¼­¹øÈ£´Â Áßº¹ »ç¿ëÀÌ ºÒ°¡ÇÏ°í, ¼¼±İ°è»ê¼­°¡ »èÁ¦µÈ °æ¿ì¿¡¸¸ ¹®¼­¹øÈ£ÀÇ Àç»ç¿ëÀÌ °¡´ÉÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/info#CheckMgtKeyInUse
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     testUserID = "testkorea"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     mgtKey = "20220720-ASP-001"
 
-    ' ë°œí–‰í˜•íƒœ, (SELL-ë§¤ì¶œ) (BUY-ë§¤ì…) (TRUSTEE-ìœ„ìˆ˜íƒ)
+    ' ¹ßÇàÇüÅÂ, (SELL-¸ÅÃâ) (BUY-¸ÅÀÔ) (TRUSTEE-À§¼öÅ¹)
     keyType = "SELL"
 
     On Error Resume Next
@@ -33,10 +33,10 @@
     Else
         If checkMgtKeyInUse = True Then
             code = 1
-            message = "ì‚¬ìš©ì¤‘"
+            message = "»ç¿ëÁß"
         Else
             code = 0
-            message = "ë¯¸ì‚¬ìš©ì¤‘"
+            message = "¹Ì»ç¿ëÁß"
         End If
     End If
 
@@ -47,7 +47,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë¬¸ì„œë²ˆí˜¸ ì‚¬ìš©ì—¬ë¶€ í™•ì¸</legend>
+                <legend>¹®¼­¹øÈ£ »ç¿ë¿©ºÎ È®ÀÎ</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

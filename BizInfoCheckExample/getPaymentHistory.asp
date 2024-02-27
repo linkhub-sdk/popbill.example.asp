@@ -1,32 +1,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì—°ë™íšŒì›ì˜ í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ì„ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ¿¬µ¿È¸¿øÀÇ Æ÷ÀÎÆ® °áÁ¦³»¿ªÀ» È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/bizinfocheck/asp/api/point#GetPaymentHistory
     '**************************************************************
 
-    'íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' ì¡°íšŒ ê¸°ê°„ì˜ ì‹œì‘ì¼ì (í˜•ì‹ : yyyyMMdd)
+    ' Á¶È¸ ±â°£ÀÇ ½ÃÀÛÀÏÀÚ (Çü½Ä : yyyyMMdd)
     SDate = "20230401"
 
-    ' ì¡°íšŒ ê¸°ê°„ì˜ ì¢…ë£Œì¼ì (í˜•ì‹ : yyyyMMdd)
+    ' Á¶È¸ ±â°£ÀÇ Á¾·áÀÏÀÚ (Çü½Ä : yyyyMMdd)
     EDate = "20230530"
 
-    ' ëª©ë¡ í˜ì´ì§€ë²ˆí˜¸
+    ' ¸ñ·Ï ÆäÀÌÁö¹øÈ£
     Page = 1
 
-    ' í˜ì´ì§€ë‹¹ í‘œì‹œí•  ëª©ë¡ ê°œìˆ˜
+    ' ÆäÀÌÁö´ç Ç¥½ÃÇÒ ¸ñ·Ï °³¼ö
     PerPage = 500
 
-    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -46,16 +46,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ í™•ì¸</legend>
+                <legend>¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª È®ÀÎ</legend>
                 <%
                     If code = 0 Then
                 %>
                 <ul>
-                    <li> code (í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸) : <%=result.code%></li>
-                    <li> total (í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸) : <%=result.total%></li>
-                    <li> perPage (í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸) : <%=result.perPage%></li>
-                    <li> pageNum (í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸) : <%=result.pageNum%></li>
-                    <li> pageCount (í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸) : <%=result.pageCount%></li>
+                    <li> code (È¯ºÒ °¡´É Æ÷ÀÎÆ®) : <%=result.code%></li>
+                    <li> total (È¯ºÒ °¡´É Æ÷ÀÎÆ®) : <%=result.total%></li>
+                    <li> perPage (È¯ºÒ °¡´É Æ÷ÀÎÆ®) : <%=result.perPage%></li>
+                    <li> pageNum (È¯ºÒ °¡´É Æ÷ÀÎÆ®) : <%=result.pageNum%></li>
+                    <li> pageCount (È¯ºÒ °¡´É Æ÷ÀÎÆ®) : <%=result.pageCount%></li>
                 </ul>
                 <%
                     Dim i
@@ -64,16 +64,16 @@
                     <fieldset class="fieldset2">
                         <legend> PaymentHistory [ <%= i+1%> / <%=UBound(result.list)%>]</legend>
                         <ul>
-                            <li>productType (ê²°ì œ ë‚´ìš©) : <%= result.list(i).productType %></li>
-                            <li>productName (ê²°ì œ ìƒí’ˆëª…) : <%= result.list(i).productName %></li>
-                            <li>settleType (ê²°ì œìœ í˜•) : <%= result.list(i).settleType %></li>
-                            <li>settlerName (ë‹´ë‹¹ìëª…) : <%= result.list(i).settlerName %></li>
-                            <li>settlerEmail (ë‹´ë‹¹ìë©”ì¼) : <%= result.list(i).settlerEmail %></li>
-                            <li>settleCost (ê²°ì œê¸ˆì•¡) : <%= result.list(i).settleCost %></li>
-                            <li>settlePoint (ì¶©ì „í¬ì¸íŠ¸) : <%= result.list(i).settlePoint %></li>
-                            <li>settleState (ê²°ì œìƒíƒœ) : <%= result.list(i).settleState %></li>
-                            <li>regDT (ë“±ë¡ì¼ì‹œ ) : <%= result.list(i).regDT %></li>
-                            <li>stateDT (ìƒíƒœì¼ì‹œ ) : <%= result.list(i).stateDT %></li>
+                            <li>productType (°áÁ¦ ³»¿ë) : <%= result.list(i).productType %></li>
+                            <li>productName (°áÁ¦ »óÇ°¸í) : <%= result.list(i).productName %></li>
+                            <li>settleType (°áÁ¦À¯Çü) : <%= result.list(i).settleType %></li>
+                            <li>settlerName (´ã´çÀÚ¸í) : <%= result.list(i).settlerName %></li>
+                            <li>settlerEmail (´ã´çÀÚ¸ŞÀÏ) : <%= result.list(i).settlerEmail %></li>
+                            <li>settleCost (°áÁ¦±İ¾×) : <%= result.list(i).settleCost %></li>
+                            <li>settlePoint (ÃæÀüÆ÷ÀÎÆ®) : <%= result.list(i).settlePoint %></li>
+                            <li>settleState (°áÁ¦»óÅÂ) : <%= result.list(i).settleState %></li>
+                            <li>regDT (µî·ÏÀÏ½Ã ) : <%= result.list(i).regDT %></li>
+                            <li>stateDT (»óÅÂÀÏ½Ã ) : <%= result.list(i).stateDT %></li>
                         </ul>
                     </fieldset>
                 <%

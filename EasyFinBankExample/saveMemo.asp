@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' í•œ ê±´ì˜ ê±°ë˜ ë‚´ì—­ì— ë©”ëª¨ë¥¼ ì €ì¥í•©ë‹ˆë‹¤.
+    ' ÇÑ °ÇÀÇ °Å·¡ ³»¿ª¿¡ ¸Ş¸ğ¸¦ ÀúÀåÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/search#SaveMemo
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ê±°ë˜ë‚´ì—­ ì•„ì´ë””, Search API ë°˜í™˜í•­ëª© ì¤‘ TID
+    ' °Å·¡³»¿ª ¾ÆÀÌµğ, Search API ¹İÈ¯Ç×¸ñ Áß TID
     TID = "01912181100000000120191231000001"
 
-    ' ë©”ëª¨
-    Memo = "asp ë©”ëª¨ í…ŒìŠ¤íŠ¸"
+    ' ¸Ş¸ğ
+    Memo = "asp ¸Ş¸ğ Å×½ºÆ®"
 
     On Error Resume Next
 
@@ -45,7 +45,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ê±°ë˜ë‚´ì—­ ë©”ëª¨ ì €ì¥</legend>
+                <legend>°Å·¡³»¿ª ¸Ş¸ğ ÀúÀå</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

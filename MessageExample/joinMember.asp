@@ -1,53 +1,53 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì‚¬ìš©ìë¥¼ ì—°ë™íšŒì›ìœ¼ë¡œ ê°€ì…ì²˜ë¦¬í•©ë‹ˆë‹¤.
+    ' »ç¿ëÀÚ¸¦ ¿¬µ¿È¸¿øÀ¸·Î °¡ÀÔÃ³¸®ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/sms/asp/api/member#JoinMember
     '**************************************************************
 
-    ' íšŒì›ì •ë³´ ê°ì²´ ìƒì„±
+    ' È¸¿øÁ¤º¸ °´Ã¼ »ı¼º
     Set joinInfo = New JoinForm
 
-    ' ë§í¬ì•„ì´ë””
+    ' ¸µÅ©¾ÆÀÌµğ
     joinInfo.LinkID = "TESTER"
 
-    ' ì‚¬ì—…ìë²ˆí˜¸, "-"ì œì™¸ 10ìë¦¬
+    ' »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
     joinInfo.CorpNum = "1234567890"
 
-    ' ëŒ€í‘œìì„±ëª…
-    joinInfo.CEOName = "ëŒ€í‘œìì„±ëª…"
+    ' ´ëÇ¥ÀÚ¼º¸í
+    joinInfo.CEOName = "´ëÇ¥ÀÚ¼º¸í"
 
-    ' ìƒí˜¸ëª…
-    joinInfo.CorpName =  "ìƒí˜¸"
+    ' »óÈ£¸í
+    joinInfo.CorpName =  "»óÈ£"
 
-    ' ì£¼ì†Œ
-    joinInfo.Addr =   "ì£¼ì†Œ"
+    ' ÁÖ¼Ò
+    joinInfo.Addr =   "ÁÖ¼Ò"
 
-    ' ì—…íƒœ
-    joinInfo.BizType =  "ì—…íƒœ"
+    ' ¾÷ÅÂ
+    joinInfo.BizType =  "¾÷ÅÂ"
 
-    ' ì¢…ëª©
-    joinInfo.BizClass = "ì¢…ëª©"
+    ' Á¾¸ñ
+    joinInfo.BizClass = "Á¾¸ñ"
 
-    ' ì•„ì´ë”” (6ì ì´ìƒ 20ì ë¯¸ë§Œ)
+    ' ¾ÆÀÌµğ (6ÀÚ ÀÌ»ó 20ÀÚ ¹Ì¸¸)
     joinInfo.ID =  "userid"
 
-    ' ë¹„ë°€ë²ˆí˜¸ (8ì ì´ìƒ 20ì ì´í•˜) ì˜ë¬¸, ìˆ«ì ,íŠ¹ìˆ˜ë¬¸ì ì¡°í•©
+    ' ºñ¹Ğ¹øÈ£ (8ÀÚ ÀÌ»ó 20ÀÚ ÀÌÇÏ) ¿µ¹®, ¼ıÀÚ ,Æ¯¼ö¹®ÀÚ Á¶ÇÕ
     joinInfo.Password =  "asdf1234!@#$"
 
-    ' ë‹´ë‹¹ìëª…
-    joinInfo.ContactName = "ë‹´ë‹¹ìëª…"
+    ' ´ã´çÀÚ¸í
+    joinInfo.ContactName = "´ã´çÀÚ¸í"
 
-    ' ë‹´ë‹¹ìì—°ë½ì²˜
+    ' ´ã´çÀÚ¿¬¶ôÃ³
     joinInfo.ContactTEL = ""
 
-    ' ë‹´ë‹¹ì ì´ë©”ì¼
+    ' ´ã´çÀÚ ÀÌ¸ŞÀÏ
     joinInfo.ContactEmail = ""
 
 
@@ -73,7 +73,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì—°ë™íšŒì› ê°€ì…ìš”ì²­</legend>
+                <legend>¿¬µ¿È¸¿ø °¡ÀÔ¿äÃ»</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

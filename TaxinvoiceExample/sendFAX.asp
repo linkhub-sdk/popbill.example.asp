@@ -1,33 +1,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì„¸ê¸ˆê³„ì‚°ì„œë¥¼ íŒ©ìŠ¤ë¡œ ì „ì†¡í•˜ëŠ” í•¨ìˆ˜ë¡œ, íŒë¹Œ ì‚¬ì´íŠ¸ [ë¬¸ìÂ·íŒ©ìŠ¤] > [íŒ©ìŠ¤] > [ì „ì†¡ë‚´ì—­] ë©”ë‰´ì—ì„œ ì „ì†¡ê²°ê³¼ë¥¼ í™•ì¸ í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
-    ' - í•¨ìˆ˜ í˜¸ì¶œì‹œ í¬ì¸íŠ¸ê°€ ê³¼ê¸ˆë©ë‹ˆë‹¤.
+    ' ¼¼±İ°è»ê¼­¸¦ ÆÑ½º·Î Àü¼ÛÇÏ´Â ÇÔ¼ö·Î, ÆËºô »çÀÌÆ® [¹®ÀÚ¡¤ÆÑ½º] > [ÆÑ½º] > [Àü¼Û³»¿ª] ¸Ş´º¿¡¼­ Àü¼Û°á°ú¸¦ È®ÀÎ ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' - ÇÔ¼ö È£Ãâ½Ã Æ÷ÀÎÆ®°¡ °ú±İµË´Ï´Ù.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#SendFAX
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸ 10ìë¦¬
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     testUserID = "testkorea"
 
-    ' ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
+    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
     KeyType= "SELL"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     MgtKey = "20220720-ASP-001"
 
-    ' ë°œì‹ ë²ˆí˜¸
+    ' ¹ß½Å¹øÈ£
     Sender = ""
 
-    ' ìˆ˜ì‹ íŒ©ìŠ¤ë²ˆí˜¸
+    ' ¼ö½ÅÆÑ½º¹øÈ£
     Receiver = ""
 
     On Error Resume Next
@@ -49,7 +49,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>íŒ©ìŠ¤ ì¬ì „ì†¡</legend>
+                <legend>ÆÑ½º ÀçÀü¼Û</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

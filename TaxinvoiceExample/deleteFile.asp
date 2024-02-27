@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÌåùÎπå SDK ASP Example.</title>
+        <title>∆À∫Ù SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "ÏûÑÏãúÏ†ÄÏû•" ÏÉÅÌÉúÏùò ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑúÏóê Ï≤®Î∂ÄÎêú 1Í∞úÏùò ÌååÏùºÏùÑ ÏÇ≠Ï†úÌï©ÎãàÎã§.
-    ' - ÌååÏùºÏùÑ ÏãùÎ≥ÑÌïòÎäî ÌååÏùºÏïÑÏù¥ÎîîÎäî Ï≤®Î∂ÄÌååÏùº Î™©Î°ù(GetFiles API) Ïùò ÏùëÎãµÌï≠Î™© Ï§ë ÌååÏùºÏïÑÏù¥Îîî(AttachedFile) Í∞íÏùÑ ÌÜµÌï¥ ÌôïÏù∏Ìï† Ïàò ÏûàÏäµÎãàÎã§.
+    ' "¿”Ω√¿˙¿Â" ªÛ≈¬¿« ºº±›∞ËªÍº≠ø° √∑∫Œµ» 1∞≥¿« ∆ƒ¿œ¿ª ªË¡¶«’¥œ¥Ÿ.
+    ' - ∆ƒ¿œ¿ª Ωƒ∫∞«œ¥¬ ∆ƒ¿œæ∆¿Ãµ¥¬ √∑∫Œ∆ƒ¿œ ∏Ò∑œ(GetFiles API) ¿« ¿¿¥‰«◊∏Ò ¡ﬂ ∆ƒ¿œæ∆¿Ãµ(AttachedFile) ∞™¿ª ≈Î«ÿ »Æ¿Œ«“ ºˆ ¿÷Ω¿¥œ¥Ÿ.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#DeleteFile
     '**************************************************************
 
-    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
     CorpNum = "1234567890"
 
-    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
     testUserID = "testkorea"
 
-    ' ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î∞úÌñâÏú†Ìòï SELL(Îß§Ï∂ú), BUY(Îß§ÏûÖ), TRUSTEE(ÏúÑÏàòÌÉÅ)
+    ' ºº±›∞ËªÍº≠ πﬂ«‡¿Ø«¸ SELL(∏≈√‚), BUY(∏≈¿‘), TRUSTEE(¿ßºˆ≈π)
     KeyType = "SELL"
 
-    ' Î¨∏ÏÑúÎ≤àÌò∏
+    ' πÆº≠π¯»£
     MgtKey = "20220720-ASP-002"
 
-    ' ÌååÏùºÏïÑÏù¥Îîî, Ï≤®Î∂ÄÌååÏùº Î™©Î°ù(getFiles) AttachedFile Í∞í Ï∞∏Ï°∞.
+    ' ∆ƒ¿œæ∆¿Ãµ, √∑∫Œ∆ƒ¿œ ∏Ò∑œ(getFiles) AttachedFile ∞™ ¬¸¡∂.
     FileID = "7CB2F557-51F6-43A8-BECA-A856BDDB2CCB.PBF"
 
     On Error Resume Next
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Ï≤®Î∂ÄÌååÏùº ÏÇ≠Ï†ú</legend>
+                <legend>ºº±›∞ËªÍº≠ √∑∫Œ∆ƒ¿œ ªË¡¶</legend>
                     <ul>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message : <%=message%> </li>

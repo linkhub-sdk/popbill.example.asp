@@ -1,35 +1,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' í˜„ê¸ˆì˜ìˆ˜ì¦ê³¼ ê´€ë ¨ëœ ì•ˆë‚´ SMS(ë‹¨ë¬¸) ë¬¸ìžë¥¼ ìž¬ì „ì†¡í•˜ëŠ” í•¨ìˆ˜ë¡œ, íŒë¹Œ ì‚¬ì´íŠ¸ [ë¬¸ìžÂ·íŒ©ìŠ¤] > [ë¬¸ìž] > [ì „ì†¡ë‚´ì—­] ë©”ë‰´ì—ì„œ ì „ì†¡ê²°ê³¼ë¥¼ í™•ì¸ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
-    ' - ë©”ì‹œì§€ëŠ” ìµœëŒ€ 90byteê¹Œì§€ ìž…ë ¥ ê°€ëŠ¥í•˜ê³ , ì´ˆê³¼í•œ ë‚´ìš©ì€ ìžë™ìœ¼ë¡œ ì‚­ì œë˜ì–´ ì „ì†¡í•©ë‹ˆë‹¤. (í•œê¸€ ìµœëŒ€ 45ìž)
-    ' - ì•Œë¦¼ë¬¸ìž ì „ì†¡ì‹œ í¬ì¸íŠ¸ê°€ ì°¨ê°ë©ë‹ˆë‹¤. (ì „ì†¡ì‹¤íŒ¨ì‹œ í™˜ë¶ˆì²˜ë¦¬)
+    ' Çö±Ý¿µ¼öÁõ°ú °ü·ÃµÈ ¾È³» SMS(´Ü¹®) ¹®ÀÚ¸¦ ÀçÀü¼ÛÇÏ´Â ÇÔ¼ö·Î, ÆËºô »çÀÌÆ® [¹®ÀÚ¡¤ÆÑ½º] > [¹®ÀÚ] > [Àü¼Û³»¿ª] ¸Þ´º¿¡¼­ Àü¼Û°á°ú¸¦ È®ÀÎ ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' - ¸Þ½ÃÁö´Â ÃÖ´ë 90byte±îÁö ÀÔ·Â °¡´ÉÇÏ°í, ÃÊ°úÇÑ ³»¿ëÀº ÀÚµ¿À¸·Î »èÁ¦µÇ¾î Àü¼ÛÇÕ´Ï´Ù. (ÇÑ±Û ÃÖ´ë 45ÀÚ)
+    ' - ¾Ë¸²¹®ÀÚ Àü¼Û½Ã Æ÷ÀÎÆ®°¡ Â÷°¨µË´Ï´Ù. (Àü¼Û½ÇÆÐ½Ã È¯ºÒÃ³¸®)
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#SendSMS
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     mgtKey = "20220720-ASP-001"
 
-    ' ë°œì‹ ë²ˆí˜¸
+    ' ¹ß½Å¹øÈ£
     sender = ""
 
-    ' ìˆ˜ì‹ ë²ˆí˜¸
+    ' ¼ö½Å¹øÈ£
     receiver = ""
 
-    ' ë©”ì‹œì§€ ë‚´ìš©, 90byteë¥¼ ì´ˆê³¼í•œ ë‚´ìš©ì€ ê¸¸ì´ê°€ ì¡°ì •ë˜ì–´ ì „ì†¡ë©ë‹ˆë‹¤.
-    contents = "í˜„ê¸ˆì˜ìˆ˜ì¦ ì•Œë¦¼ë¬¸ìž í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤"
+    ' ¸Þ½ÃÁö ³»¿ë, 90byte¸¦ ÃÊ°úÇÑ ³»¿ëÀº ±æÀÌ°¡ Á¶Á¤µÇ¾î Àü¼ÛµË´Ï´Ù.
+    contents = "Çö±Ý¿µ¼öÁõ ¾Ë¸²¹®ÀÚ Å×½ºÆ®ÀÔ´Ï´Ù"
 
     On Error Resume Next
 
@@ -51,7 +51,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì•Œë¦¼ë¬¸ìž ìž¬ì „ì†¡ </legend>
+                <legend>¾Ë¸²¹®ÀÚ ÀçÀü¼Û </legend>
                 <ul>
                     <li>Response.code : <%=code%></li>
                     <li>Response.message : <%=message%></li>

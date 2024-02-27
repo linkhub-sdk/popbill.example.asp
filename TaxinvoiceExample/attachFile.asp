@@ -1,29 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÌåùÎπå SDK ASP Example.</title>
+        <title>∆À∫Ù SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "ÏûÑÏãúÏ†ÄÏû•" ÏÉÅÌÉúÏùò ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑúÏóê 1Í∞úÏùò ÌååÏùºÏùÑ Ï≤®Î∂ÄÌï©ÎãàÎã§. (ÏµúÎåÄ 5Í∞ú)
+    ' "¿”Ω√¿˙¿Â" ªÛ≈¬¿« ºº±›∞ËªÍº≠ø° 1∞≥¿« ∆ƒ¿œ¿ª √∑∫Œ«’¥œ¥Ÿ. (√÷¥Î 5∞≥)
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#AttachFile
     '**************************************************************
 
-    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
     CorpNum = "1234567890"
 
-    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
     testUserID = "testkorea"
 
-    ' Î∞úÌñâÏú†Ìòï SELL(Îß§Ï∂ú), BUY(Îß§ÏûÖ), TRUSTEE(ÏúÑÏàòÌÉÅ)
+    ' πﬂ«‡¿Ø«¸ SELL(∏≈√‚), BUY(∏≈¿‘), TRUSTEE(¿ßºˆ≈π)
     KeyType = "SELL"
 
-    ' Î¨∏ÏÑúÎ≤àÌò∏
+    ' πÆº≠π¯»£
     MgtKey = "20220720-ASP-002"
 
-    ' Ï≤®Î∂ÄÌï† ÌååÏùºÍ≤ΩÎ°ú
+    ' √∑∫Œ«“ ∆ƒ¿œ∞Ê∑Œ
     filePath = "C:\Users\jhPark\git\popbill.example.asp\test.jpg"
 
     On Error Resume Next
@@ -45,7 +45,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Ï≤®Î∂ÄÌååÏùº Ï∂îÍ∞Ä </legend>
+                <legend>ºº±›∞ËªÍº≠ √∑∫Œ∆ƒ¿œ √ﬂ∞° </legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

@@ -1,36 +1,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
 		<link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-		<title>íŒë¹Œ SDK ASP Example.</title>
+		<title>ÆËºô SDK ASP Example.</title>
 	</head>
 <!--#include file="common.asp"-->
 <%
 	'**************************************************************
-	' "ìž„ì‹œì €ìž¥" ìƒíƒœì˜ ì „ìžëª…ì„¸ì„œë¥¼ ë°œí–‰í•˜ì—¬, "ë°œí–‰ì™„ë£Œ" ìƒíƒœë¡œ ì²˜ë¦¬í•©ë‹ˆë‹¤.
-	' - íŒë¹Œ ì‚¬ì´íŠ¸ [ì „ìžëª…ì„¸ì„œ] > [í™˜ê²½ì„¤ì •] > [ì „ìžëª…ì„¸ì„œ ê´€ë¦¬] ë©”ë‰´ì˜ ë°œí–‰ì‹œ ìžë™ìŠ¹ì¸ ì˜µì…˜ ì„¤ì •ì„ í†µí•´
-	'   ì „ìžëª…ì„¸ì„œë¥¼ "ë°œí–‰ì™„ë£Œ" ìƒíƒœê°€ ì•„ë‹Œ "ìŠ¹ì¸ëŒ€ê¸°" ìƒíƒœë¡œ ë°œí–‰ ì²˜ë¦¬ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
-	' - ì „ìžëª…ì„¸ì„œ ë°œí–‰ í•¨ìˆ˜ í˜¸ì¶œì‹œ ìˆ˜ì‹ ìžì—ê²Œ ë°œí–‰ ì•ˆë‚´ ë©”ì¼ì´ ë°œì†¡ë©ë‹ˆë‹¤.
+	' "ÀÓ½ÃÀúÀå" »óÅÂÀÇ ÀüÀÚ¸í¼¼¼­¸¦ ¹ßÇàÇÏ¿©, "¹ßÇà¿Ï·á" »óÅÂ·Î Ã³¸®ÇÕ´Ï´Ù.
+	' - ÆËºô »çÀÌÆ® [ÀüÀÚ¸í¼¼¼­] > [È¯°æ¼³Á¤] > [ÀüÀÚ¸í¼¼¼­ °ü¸®] ¸Þ´ºÀÇ ¹ßÇà½Ã ÀÚµ¿½ÂÀÎ ¿É¼Ç ¼³Á¤À» ÅëÇØ
+	'   ÀüÀÚ¸í¼¼¼­¸¦ "¹ßÇà¿Ï·á" »óÅÂ°¡ ¾Æ´Ñ "½ÂÀÎ´ë±â" »óÅÂ·Î ¹ßÇà Ã³¸® ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+	' - ÀüÀÚ¸í¼¼¼­ ¹ßÇà ÇÔ¼ö È£Ãâ½Ã ¼ö½ÅÀÚ¿¡°Ô ¹ßÇà ¾È³» ¸ÞÀÏÀÌ ¹ß¼ÛµË´Ï´Ù.
 	' - https://developers.popbill.com/reference/statement/asp/api/issue#Issue
 	'**************************************************************
 
-	' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸ 10ìžë¦¬
+	' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
 	CorpNum = "1234567890"
 
-	' íŒë¹ŒíšŒì› ì•„ì´ë””
+	' ÆËºôÈ¸¿ø ¾ÆÀÌµð
 	UserID = "testkorea"
 
-	' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ëž˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ìž…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+	' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±ÝÇ¥), 126(¿µ¼öÁõ)
 	ItemCode = "121"
 
-	' ë¬¸ì„œë²ˆí˜¸
+	' ¹®¼­¹øÈ£
 	MgtKey = "20220720-ASP-002"
 
-	' ë©”ëª¨
-	Memo = "ì „ìžëª…ì„¸ì„œ ë°œí–‰ í…ŒìŠ¤íŠ¸"
+	' ¸Þ¸ð
+	Memo = "ÀüÀÚ¸í¼¼¼­ ¹ßÇà Å×½ºÆ®"
 
-	' ì „ìžëª…ì„¸ì„œ ë°œí–‰ ì•ˆë‚´ë©”ì¼ ì œëª©
-	EmailSubject = "ë°œí–‰ ì•ˆë‚´ë©”ì¼ì˜ ì œëª©"
+	' ÀüÀÚ¸í¼¼¼­ ¹ßÇà ¾È³»¸ÞÀÏ Á¦¸ñ
+	EmailSubject = "¹ßÇà ¾È³»¸ÞÀÏÀÇ Á¦¸ñ"
 
 	On Error Resume Next
 
@@ -52,7 +52,7 @@
     		<p class="heading1">Response</p>
     		<br/>
     		<fieldset class="fieldset1">
-        		<legend>ì „ìžëª…ì„¸ì„œ ë°œí–‰</legend>
+        		<legend>ÀüÀÚ¸í¼¼¼­ ¹ßÇà</legend>
         		<ul>
             		<li>Response.code : <%=code%> </li>
             		<li>Response.message: <%=message%> </li>

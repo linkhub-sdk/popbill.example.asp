@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì„¸ê¸ˆê³„ì‚°ì„œ ê´€ë ¨ ë©”ì¼ í•­ëª©ì— ëŒ€í•œ ë°œì†¡ì„¤ì •ì„ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ¼¼±Ý°è»ê¼­ °ü·Ã ¸ÞÀÏ Ç×¸ñ¿¡ ´ëÇÑ ¹ß¼Û¼³Á¤À» È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#ListEmailConfig
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
     On Error Resume Next
@@ -34,56 +34,56 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì•Œë¦¼ë©”ì¼ ì „ì†¡ëª©ë¡ ì¡°íšŒ</legend>
+                <legend>¾Ë¸²¸ÞÀÏ Àü¼Û¸ñ·Ï Á¶È¸</legend>
                         <ul>
                         <%
                             If code = 0 Then
                             For i=0 To emailObj.Count-1
                         %>
                             <% If emailObj.Item(i).emailType = "TAX_ISSUE" Then %>
-                                    <li>[ì •ë°œí–‰] <%= emailObj.Item(i).emailType %>(ê³µê¸‰ë°›ëŠ”ìžì—ê²Œ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[Á¤¹ßÇà] <%= emailObj.Item(i).emailType %>(°ø±Þ¹Þ´ÂÀÚ¿¡°Ô ÀüÀÚ¼¼±Ý°è»ê¼­ ¹ßÇà ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_ISSUE_INVOICER" Then %>
-                                    <li>[ì •ë°œí–‰] <%= emailObj.Item(i).emailType %>(ê³µê¸‰ìžì—ê²Œ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[Á¤¹ßÇà] <%= emailObj.Item(i).emailType %>(°ø±ÞÀÚ¿¡°Ô ÀüÀÚ¼¼±Ý°è»ê¼­ ¹ßÇà ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_CHECK" Then %>
-                                    <li>[ì •ë°œí–‰] <%= emailObj.Item(i).emailType %>(ê³µê¸‰ìžì—ê²Œ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ìˆ˜ì‹ í™•ì¸ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[Á¤¹ßÇà] <%= emailObj.Item(i).emailType %>(°ø±ÞÀÚ¿¡°Ô ÀüÀÚ¼¼±Ý°è»ê¼­ ¼ö½ÅÈ®ÀÎ ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_CANCEL_ISSUE" Then %>
-                                    <li>[ì •ë°œí–‰] <%= emailObj.Item(i).emailType %>(ê³µê¸‰ë°›ëŠ”ìžì—ê²Œ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ì·¨ì†Œ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[Á¤¹ßÇà] <%= emailObj.Item(i).emailType %>(°ø±Þ¹Þ´ÂÀÚ¿¡°Ô ÀüÀÚ¼¼±Ý°è»ê¼­ ¹ßÇàÃë¼Ò ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_REQUEST" Then %>
-                                    <li>[ì—­ë°œí–‰] <%= emailObj.Item(i).emailType %>(ê³µê¸‰ìžì—ê²Œ ì„¸ê¸ˆê³„ì‚°ì„œë¥¼ ë°œí–‰ìš”ì²­ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[¿ª¹ßÇà] <%= emailObj.Item(i).emailType %>(°ø±ÞÀÚ¿¡°Ô ¼¼±Ý°è»ê¼­¸¦ ¹ßÇà¿äÃ» ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_CANCEL_REQUEST" Then %>
-                                    <li>[ì—­ë°œí–‰] <%= emailObj.Item(i).emailType %>(ê³µê¸‰ë°›ëŠ”ìžì—ê²Œ ì„¸ê¸ˆê³„ì‚°ì„œ ì·¨ì†Œ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[¿ª¹ßÇà] <%= emailObj.Item(i).emailType %>(°ø±Þ¹Þ´ÂÀÚ¿¡°Ô ¼¼±Ý°è»ê¼­ Ãë¼Ò ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_REFUSE" Then %>
-                                    <li>[ì—­ë°œí–‰] <%= emailObj.Item(i).emailType %>(ê³µê¸‰ë°›ëŠ”ìžì—ê²Œ ì„¸ê¸ˆê³„ì‚°ì„œ ê±°ë¶€ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[¿ª¹ßÇà] <%= emailObj.Item(i).emailType %>(°ø±Þ¹Þ´ÂÀÚ¿¡°Ô ¼¼±Ý°è»ê¼­ °ÅºÎ ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_TRUST_ISSUE" Then %>
-                                    <li>[ìœ„ìˆ˜íƒë°œí–‰] <%= emailObj.Item(i).emailType %>(ìˆ˜íƒìžì—ê²Œ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[À§¼öÅ¹¹ßÇà] <%= emailObj.Item(i).emailType %>(¼öÅ¹ÀÚ¿¡°Ô ÀüÀÚ¼¼±Ý°è»ê¼­ ¹ßÇà ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_TRUST_ISSUE_TRUSTEE" Then %>
-                                    <li>[ìœ„ìˆ˜íƒë°œí–‰] <%= emailObj.Item(i).emailType %>(ìˆ˜íƒìžì—ê²Œ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[À§¼öÅ¹¹ßÇà] <%= emailObj.Item(i).emailType %>(¼öÅ¹ÀÚ¿¡°Ô ÀüÀÚ¼¼±Ý°è»ê¼­ ¹ßÇà ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_TRUST_ISSUE_INVOICER" Then %>
-                                    <li>[ìœ„ìˆ˜íƒë°œí–‰] <%= emailObj.Item(i).emailType %>(ê³µê¸‰ìžì—ê²Œ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[À§¼öÅ¹¹ßÇà] <%= emailObj.Item(i).emailType %>(°ø±ÞÀÚ¿¡°Ô ÀüÀÚ¼¼±Ý°è»ê¼­ ¹ßÇà ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_TRUST_CANCEL_ISSUE" Then %>
-                                    <li>[ìœ„ìˆ˜íƒë°œí–‰] <%= emailObj.Item(i).emailType %>(ê³µê¸‰ë°›ëŠ”ìžì—ê²Œ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ì·¨ì†Œ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[À§¼öÅ¹¹ßÇà] <%= emailObj.Item(i).emailType %>(°ø±Þ¹Þ´ÂÀÚ¿¡°Ô ÀüÀÚ¼¼±Ý°è»ê¼­ ¹ßÇàÃë¼Ò ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_TRUST_CANCEL_ISSUE_INVOICER" Then %>
-                                    <li>[ìœ„ìˆ˜íƒë°œí–‰] <%= emailObj.Item(i).emailType %>(ê³µê¸‰ìžì—ê²Œ ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ì·¨ì†Œ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[À§¼öÅ¹¹ßÇà] <%= emailObj.Item(i).emailType %>(°ø±ÞÀÚ¿¡°Ô ÀüÀÚ¼¼±Ý°è»ê¼­ ¹ßÇàÃë¼Ò ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_CLOSEDOWN" Then %>
-                                    <li>[ì²˜ë¦¬ê²°ê³¼ ]<%= emailObj.Item(i).emailType %>(ê±°ëž˜ì²˜ì˜ íœ´íì—… ì—¬ë¶€ í™•ì¸ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[Ã³¸®°á°ú ]<%= emailObj.Item(i).emailType %>(°Å·¡Ã³ÀÇ ÈÞÆó¾÷ ¿©ºÎ È®ÀÎ ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "TAX_NTSFAIL_INVOICER" Then %>
-                                    <li>[ì²˜ë¦¬ê²°ê³¼] <%= emailObj.Item(i).emailType %>(ì „ìžì„¸ê¸ˆê³„ì‚°ì„œ êµ­ì„¸ì²­ ì „ì†¡ì‹¤íŒ¨ ì•ˆë‚´ ë©”ì¼ ì „ì†¡ ì—¬ë¶€) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[Ã³¸®°á°ú] <%= emailObj.Item(i).emailType %>(ÀüÀÚ¼¼±Ý°è»ê¼­ ±¹¼¼Ã» Àü¼Û½ÇÆÐ ¾È³» ¸ÞÀÏ Àü¼Û ¿©ºÎ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                             <% If emailObj.Item(i).emailType = "ETC_CERT_EXPIRATION" Then %>
-                                    <li>[ì²˜ë¦¬ê²°ê³¼] <%= emailObj.Item(i).emailType %>(íŒë¹Œì— ë“±ë¡ëœ ì¸ì¦ì„œì˜ ë§Œë£Œì˜ˆì •ì„ ì•ˆë‚´í•˜ëŠ” ë©”ì¼) : <%= emailObj.Item(i).sendYN %></li>
+                                    <li>[Ã³¸®°á°ú] <%= emailObj.Item(i).emailType %>(ÆËºô¿¡ µî·ÏµÈ ÀÎÁõ¼­ÀÇ ¸¸·á¿¹Á¤À» ¾È³»ÇÏ´Â ¸ÞÀÏ) : <%= emailObj.Item(i).sendYN %></li>
                             <% End If %>
                         <%
                             Next

@@ -1,30 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ê³µê¸‰ìê°€ ê³µê¸‰ë°›ëŠ”ìì—ê²Œ ì—­ë°œí–‰ ìš”ì²­ ë°›ì€ ì„¸ê¸ˆê³„ì‚°ì„œì˜ ë°œí–‰ì„ ê±°ë¶€í•©ë‹ˆë‹¤.
+    ' °ø±ŞÀÚ°¡ °ø±Ş¹Ş´ÂÀÚ¿¡°Ô ¿ª¹ßÇà ¿äÃ» ¹ŞÀº ¼¼±İ°è»ê¼­ÀÇ ¹ßÇàÀ» °ÅºÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#Refuse
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     testUserID = "testkorea"
 
-    ' ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
+    ' ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
     KeyType = "SELL"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     MgtKey = "20220720-ASP-001"
 
-    ' ë©”ëª¨
-    Memo = "ì—­ë°œí–‰ ìš”ì²­ ê±°ë¶€ ë©”ëª¨"
+    ' ¸Ş¸ğ
+    Memo = "¿ª¹ßÇà ¿äÃ» °ÅºÎ ¸Ş¸ğ"
 
     On Error Resume Next
 
@@ -46,7 +46,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì—­ë°œí–‰ìš”ì²­ ê±°ë¶€</legend>
+                <legend>¿ª¹ßÇà¿äÃ» °ÅºÎ</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

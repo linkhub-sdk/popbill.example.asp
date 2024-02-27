@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì „ìëª…ì„¸ì„œ ë°œí–‰ì‹œ ê³¼ê¸ˆë˜ëŠ” í¬ì¸íŠ¸ ë‹¨ê°€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ÀüÀÚ¸í¼¼¼­ ¹ßÇà½Ã °ú±İµÇ´Â Æ÷ÀÎÆ® ´Ü°¡¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/statement/asp/api/point#GetUnitCost
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
     itemCode = "121"
 
     On Error Resume Next
@@ -34,10 +34,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì „ìëª…ì„¸ì„œ ë°œí–‰ë‹¨ê°€ í™•ì¸</legend>
+                <legend>ÀüÀÚ¸í¼¼¼­ ¹ßÇà´Ü°¡ È®ÀÎ</legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>ë°œí–‰ë‹¨ê°€ : <%=unitCost%> </li>
+                        <li>¹ßÇà´Ü°¡ : <%=unitCost%> </li>
                     <% Else %>
                         <li> Response.code : <%=code%> </li>
                         <li> Response.message : <%=message%> </li>

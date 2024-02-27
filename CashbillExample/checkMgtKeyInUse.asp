@@ -1,21 +1,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒŒíŠ¸ë„ˆê°€ í˜„ê¸ˆì˜ìˆ˜ì¦ ê´€ë¦¬ ëª©ì ìœ¼ë¡œ í• ë‹¹í•˜ëŠ” ë¬¸ì„œë²ˆí˜¸ ì‚¬ìš©ì—¬ë¶€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
-    ' - ì´ë¯¸ ì‚¬ìš© ì¤‘ì¸ ë¬¸ì„œë²ˆí˜¸ëŠ” ì¤‘ë³µ ì‚¬ìš©ì´ ë¶ˆê°€í•˜ê³ , í˜„ê¸ˆì˜ìˆ˜ì¦ì´ ì‚­ì œëœ ê²½ìš°ì—ë§Œ ë¬¸ì„œë²ˆí˜¸ì˜ ì¬ì‚¬ìš©ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+    ' ÆÄÆ®³Ê°¡ Çö±İ¿µ¼öÁõ °ü¸® ¸ñÀûÀ¸·Î ÇÒ´çÇÏ´Â ¹®¼­¹øÈ£ »ç¿ë¿©ºÎ¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' - ÀÌ¹Ì »ç¿ë ÁßÀÎ ¹®¼­¹øÈ£´Â Áßº¹ »ç¿ëÀÌ ºÒ°¡ÇÏ°í, Çö±İ¿µ¼öÁõÀÌ »èÁ¦µÈ °æ¿ì¿¡¸¸ ¹®¼­¹øÈ£ÀÇ Àç»ç¿ëÀÌ °¡´ÉÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/info#CheckMgtKeyInUse
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸ 10ìë¦¬
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
     CorpNum = "1234567890"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -28,10 +28,10 @@
     Else
         If Presponse = True Then
             code = 1
-            message = "ì‚¬ìš©ì¤‘"
+            message = "»ç¿ëÁß"
         Else
             code = 0
-            message = "ë¯¸ì‚¬ìš©ì¤‘"
+            message = "¹Ì»ç¿ëÁß"
         End If
     End If
 
@@ -43,7 +43,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë¬¸ì„œë²ˆí˜¸ ì‚¬ìš©ì—¬ë¶€ í™•ì¸</legend>
+                <legend>¹®¼­¹øÈ£ »ç¿ë¿©ºÎ È®ÀÎ</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

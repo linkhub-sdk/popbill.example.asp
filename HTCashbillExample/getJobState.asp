@@ -1,29 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ìˆ˜ì§‘ ìš”ì²­(RequestJob API) í•¨ìˆ˜ë¥¼ í†µí•´ ë°˜í™˜ ë°›ì€ ìž‘ì—… ì•„ì´ë””ì˜ ìƒíƒœë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
-    ' - ìˆ˜ì§‘ ê²°ê³¼ ì¡°íšŒ(Search API) í•¨ìˆ˜ ë˜ëŠ” ìˆ˜ì§‘ ê²°ê³¼ ìš”ì•½ ì •ë³´ ì¡°íšŒ(Summary API) í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ê¸° ì „ì—
-    '   ìˆ˜ì§‘ ìž‘ì—…ì˜ ì§„í–‰ ìƒíƒœ, ìˆ˜ì§‘ ìž‘ì—…ì˜ ì„±ê³µ ì—¬ë¶€ë¥¼ í™•ì¸í•´ì•¼ í•©ë‹ˆë‹¤.
-    ' - ìž‘ì—… ìƒíƒœ(jobState) = 3(ì™„ë£Œ)ì´ê³  ìˆ˜ì§‘ ê²°ê³¼ ì½”ë“œ(errorCode) = 1(ìˆ˜ì§‘ì„±ê³µ)ì´ë©´
-    '   ìˆ˜ì§‘ ê²°ê³¼ ì¡°íšŒ(Search) ë˜ëŠ” ìˆ˜ì§‘ ê²°ê³¼ ìš”ì•½ ì •ë³´ ì¡°íšŒ(Summary) ë¥¼ í•´ì•¼í•©ë‹ˆë‹¤.
-    ' - ìž‘ì—… ìƒíƒœ(jobState)ê°€ 3(ì™„ë£Œ)ì´ì§€ë§Œ ìˆ˜ì§‘ ê²°ê³¼ ì½”ë“œ(errorCode)ê°€ 1(ìˆ˜ì§‘ì„±ê³µ)ì´ ì•„ë‹Œ ê²½ìš°ì—ëŠ”
-    '   ì˜¤ë¥˜ë©”ì‹œì§€(errorReason)ë¡œ ìˆ˜ì§‘ ì‹¤íŒ¨ì— ëŒ€í•œ ì›ì¸ì„ íŒŒì•…í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+    ' ¼öÁý ¿äÃ»(RequestJob API) ÇÔ¼ö¸¦ ÅëÇØ ¹ÝÈ¯ ¹ÞÀº ÀÛ¾÷ ¾ÆÀÌµðÀÇ »óÅÂ¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' - ¼öÁý °á°ú Á¶È¸(Search API) ÇÔ¼ö ¶Ç´Â ¼öÁý °á°ú ¿ä¾à Á¤º¸ Á¶È¸(Summary API) ÇÔ¼ö¸¦ »ç¿ëÇÏ±â Àü¿¡
+    '   ¼öÁý ÀÛ¾÷ÀÇ ÁøÇà »óÅÂ, ¼öÁý ÀÛ¾÷ÀÇ ¼º°ø ¿©ºÎ¸¦ È®ÀÎÇØ¾ß ÇÕ´Ï´Ù.
+    ' - ÀÛ¾÷ »óÅÂ(jobState) = 3(¿Ï·á)ÀÌ°í ¼öÁý °á°ú ÄÚµå(errorCode) = 1(¼öÁý¼º°ø)ÀÌ¸é
+    '   ¼öÁý °á°ú Á¶È¸(Search) ¶Ç´Â ¼öÁý °á°ú ¿ä¾à Á¤º¸ Á¶È¸(Summary) ¸¦ ÇØ¾ßÇÕ´Ï´Ù.
+    ' - ÀÛ¾÷ »óÅÂ(jobState)°¡ 3(¿Ï·á)ÀÌÁö¸¸ ¼öÁý °á°ú ÄÚµå(errorCode)°¡ 1(¼öÁý¼º°ø)ÀÌ ¾Æ´Ñ °æ¿ì¿¡´Â
+    '   ¿À·ù¸Þ½ÃÁö(errorReason)·Î ¼öÁý ½ÇÆÐ¿¡ ´ëÇÑ ¿øÀÎÀ» ÆÄ¾ÇÇÒ ¼ö ÀÖ½À´Ï´Ù.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/job#GetJobState
     '**************************************************************
 
-    'íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    'ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
-    'ìˆ˜ì§‘ìš”ì²­ì‹œ ë°˜í™˜ë°›ì€ìž‘ì—…ì•„ì´ë””(jobID)
+    '¼öÁý¿äÃ»½Ã ¹ÝÈ¯¹ÞÀºÀÛ¾÷¾ÆÀÌµð(jobID)
     JobID = "016111417000000002"
 
     On Error Resume Next
@@ -43,23 +43,23 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ìˆ˜ì§‘ ìƒíƒœ í™•ì¸</legend>
+                <legend>¼öÁý »óÅÂ È®ÀÎ</legend>
                 <%
                     If code = 0 Then
                 %>
                         <ul>
-                            <li> jobID (ìž‘ì—…ì•„ì´ë””) : <%=result.jobID%></li>
-                            <li> jobState (ìˆ˜ì§‘ìƒíƒœ) : <%=result.jobState%></li>
-                            <li> queryType (ìˆ˜ì§‘ìœ í˜•) : <%=result.queryType%></li>
-                            <li> queryDateType (ì¼ìžìœ í˜•) : <%=result.queryDateType%></li>
-                            <li> queryStDate (ì‹œìž‘ì¼ìž) : <%=result.queryStDate%></li>
-                            <li> queryEnDate (ì¢…ë£Œì¼ìž) : <%=result.queryEnDate%></li>
-                            <li> errorCode (ì˜¤ë¥˜ì½”ë“œ) : <%=result.errorCode%></li>
-                            <li> errorReason (ì˜¤ë¥˜ë©”ì‹œì§€) : <%=result.errorReason%></li>
-                            <li> jobStartDT (ìž‘ì—… ì‹œìž‘ì¼ì‹œ) : <%=result.jobStartDT%></li>
-                            <li> jobEndDT (ìž‘ì—… ì¢…ë£Œì¼ì‹œ) : <%=result.jobEndDT%></li>
-                            <li> collectCount (ìˆ˜ì§‘ê°œìˆ˜) : <%=result.collectCount%></li>
-                            <li> regDT (ìˆ˜ì§‘ ìš”ì²­ì¼ì‹œ) : <%=result.regDT%></li>
+                            <li> jobID (ÀÛ¾÷¾ÆÀÌµð) : <%=result.jobID%></li>
+                            <li> jobState (¼öÁý»óÅÂ) : <%=result.jobState%></li>
+                            <li> queryType (¼öÁýÀ¯Çü) : <%=result.queryType%></li>
+                            <li> queryDateType (ÀÏÀÚÀ¯Çü) : <%=result.queryDateType%></li>
+                            <li> queryStDate (½ÃÀÛÀÏÀÚ) : <%=result.queryStDate%></li>
+                            <li> queryEnDate (Á¾·áÀÏÀÚ) : <%=result.queryEnDate%></li>
+                            <li> errorCode (¿À·ùÄÚµå) : <%=result.errorCode%></li>
+                            <li> errorReason (¿À·ù¸Þ½ÃÁö) : <%=result.errorReason%></li>
+                            <li> jobStartDT (ÀÛ¾÷ ½ÃÀÛÀÏ½Ã) : <%=result.jobStartDT%></li>
+                            <li> jobEndDT (ÀÛ¾÷ Á¾·áÀÏ½Ã) : <%=result.jobEndDT%></li>
+                            <li> collectCount (¼öÁý°³¼ö) : <%=result.collectCount%></li>
+                            <li> regDT (¼öÁý ¿äÃ»ÀÏ½Ã) : <%=result.regDT%></li>
                         </ul>
                 <%
                     Else

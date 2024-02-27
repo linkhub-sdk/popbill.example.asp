@@ -1,17 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>팝빌 SDK ASP Example.</title>
+        <title>�˺� SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 전자세금계산서 유통사업자의 메일 목록을 확인합니다.
+    ' ���ڼ��ݰ�꼭 ���������� ���� ����� Ȯ���մϴ�.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#GetEmailPublicKeys
     '**************************************************************
 
-    ' 팝빌회원 사업자번호, "-" 제외 10자리
+    ' �˺�ȸ�� ����ڹ�ȣ, "-" ���� 10�ڸ�
     CorpNum = "1234567890"
 
     On Error Resume Next
@@ -33,7 +33,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>유통사업자 이메일 목록 확인 </legend>
+                <legend>�������� �̸��� ��� Ȯ�� </legend>
                 <ul>
                 <%
                     For i=0 To Presponse.length -1

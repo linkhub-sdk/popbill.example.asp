@@ -177,7 +177,7 @@ Public Function GetPartnerBalance(BearerToken, serviceID, useStaticIP, useGAIP)
 
 End Function
 
-' ��Ʈ�� ����Ʈ ���� �˾� URL - 2017/08/29 �߰�
+' ????? ????? ???? ??? URL - 2017/08/29 ???
 Public Function GetPartnerURL(BearerToken, serviceID, TOGO, useStaticIP, useGAIP)
 
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")

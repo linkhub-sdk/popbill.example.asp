@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÌåùÎπå SDK ASP Example.</title>
+        <title>∆À∫Ù SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Ï†ÑÏûêÎ™ÖÏÑ∏ÏÑú ÏïàÎÇ¥Î©îÏùºÏùò ÏÉÅÏÑ∏Î≥¥Í∏∞ ÎßÅÌÅ¨ URLÏùÑ Î∞òÌôòÌï©ÎãàÎã§.
-    ' - Ìï®Ïàò Ìò∏Ï∂úÎ°ú Î∞òÌôò Î∞õÏùÄ URLÏóêÎäî Ïú†Ìö®ÏãúÍ∞ÑÏù¥ ÏóÜÏäµÎãàÎã§.
+    ' ¿¸¿⁄∏Ìººº≠ æ»≥ª∏ﬁ¿œ¿« ªÛºº∫∏±‚ ∏µ≈© URL¿ª π›»Ø«’¥œ¥Ÿ.
+    ' - «‘ºˆ »£√‚∑Œ π›»Ø πﬁ¿∫ URLø°¥¬ ¿Ø»øΩ√∞£¿Ã æ¯Ω¿¥œ¥Ÿ.
     ' - https://developers.popbill.com/reference/statement/asp/api/view#GetMailURL
     '**************************************************************
 
-    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
     CorpNum = "1234567890"
 
-    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
     UserID = "testkorea"
 
-    ' Î™ÖÏÑ∏ÏÑú ÏΩîÎìú - 121(Í±∞ÎûòÎ™ÖÏÑ∏ÏÑú), 122(Ï≤≠Íµ¨ÏÑú), 123(Í≤¨Ï†ÅÏÑú), 124(Î∞úÏ£ºÏÑú), 125(ÏûÖÍ∏àÌëú), 126(ÏòÅÏàòÏ¶ù)
+    ' ∏Ìººº≠ ƒ⁄µÂ - 121(∞≈∑°∏Ìººº≠), 122(√ª±∏º≠), 123(∞ﬂ¿˚º≠), 124(πﬂ¡÷º≠), 125(¿‘±›«•), 126(øµºˆ¡ı)
     itemCode = "121"
 
-    ' Î¨∏ÏÑúÎ≤àÌò∏
+    ' πÆº≠π¯»£
     mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -41,7 +41,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Î©îÏùº ÎßÅÌÅ¨ URL ÏöîÏ≤≠</legend>
+                <legend>∏ﬁ¿œ ∏µ≈© URL ø‰√ª</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>URL : <%=CStr(url)%> </li>

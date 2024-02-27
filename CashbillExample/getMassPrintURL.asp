@@ -1,24 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ë‹¤ìˆ˜ê±´ì˜ í˜„ê¸ˆì˜ìˆ˜ì¦ì„ ì¸ì‡„í•˜ê¸° ìœ„í•œ íŽ˜ì´ì§€ì˜ íŒì—… URLì„ ë°˜í™˜í•©ë‹ˆë‹¤. (ìµœëŒ€ 100ê±´)
-    ' - ë°˜í™˜ë˜ëŠ” URLì€ ë³´ì•ˆ ì •ì±…ìƒ 30ì´ˆ ë™ì•ˆ ìœ íš¨í•˜ë©°, ì‹œê°„ì„ ì´ˆê³¼í•œ í›„ì—ëŠ” í•´ë‹¹ URLì„ í†µí•œ íŽ˜ì´ì§€ ì ‘ê·¼ì´ ë¶ˆê°€í•©ë‹ˆë‹¤.
+    ' ´Ù¼ö°ÇÀÇ Çö±Ý¿µ¼öÁõÀ» ÀÎ¼âÇÏ±â À§ÇÑ ÆäÀÌÁöÀÇ ÆË¾÷ URLÀ» ¹ÝÈ¯ÇÕ´Ï´Ù. (ÃÖ´ë 100°Ç)
+    ' - ¹ÝÈ¯µÇ´Â URLÀº º¸¾È Á¤Ã¥»ó 30ÃÊ µ¿¾È À¯È¿ÇÏ¸ç, ½Ã°£À» ÃÊ°úÇÑ ÈÄ¿¡´Â ÇØ´ç URLÀ» ÅëÇÑ ÆäÀÌÁö Á¢±ÙÀÌ ºÒ°¡ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/view#GetMassPrintURL
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
-    ' í˜„ê¸ˆì˜ìˆ˜ì¦ ë¬¸ì„œë²ˆí˜¸, ìµœëŒ€ 100ê±´
+    ' Çö±Ý¿µ¼öÁõ ¹®¼­¹øÈ£, ÃÖ´ë 100°Ç
     Dim mgtKeyList(2)
     mgtKeyList(0) = "20220720-ASP-001"
     mgtKeyList(1) = "20220720-ASP-002"
@@ -41,7 +41,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>í˜„ê¸ˆì˜ìˆ˜ì¦ ì¸ì‡„ íŒì—… URL - ëŒ€ëŸ‰</legend>
+                <legend>Çö±Ý¿µ¼öÁõ ÀÎ¼â ÆË¾÷ URL - ´ë·®</legend>
                 <ul>
                     <% If code = 0 Then %>
                         <li>URL : <%=url%> </li>

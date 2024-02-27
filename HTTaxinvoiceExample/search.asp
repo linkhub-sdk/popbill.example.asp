@@ -1,74 +1,74 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ìˆ˜ì§‘ ìƒíƒœ í™•ì¸(GetJobState API) í•¨ìˆ˜ë¥¼ í†µí•´ ìƒíƒœ ì •ë³´ê°€ í™•ì¸ëœ ì‘ì—…ì•„ì´ë””ë¥¼ í™œìš©í•˜ì—¬ ìˆ˜ì§‘ëœ ì „ìì„¸ê¸ˆê³„ì‚°ì„œ ë§¤ì…/ë§¤ì¶œ ë‚´ì—­ì„ ì¡°íšŒí•©ë‹ˆë‹¤.
+    ' ¼öÁı »óÅÂ È®ÀÎ(GetJobState API) ÇÔ¼ö¸¦ ÅëÇØ »óÅÂ Á¤º¸°¡ È®ÀÎµÈ ÀÛ¾÷¾ÆÀÌµğ¸¦ È°¿ëÇÏ¿© ¼öÁıµÈ ÀüÀÚ¼¼±İ°è»ê¼­ ¸ÅÀÔ/¸ÅÃâ ³»¿ªÀ» Á¶È¸ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/search#Search
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ìˆ˜ì§‘ ìš”ì²­(requestJob) ì‹œ ë°˜í™˜ë°›ì€ ì‘ì—…ì•„ì´ë””(jobID)
+    ' ¼öÁı ¿äÃ»(requestJob) ½Ã ¹İÈ¯¹ŞÀº ÀÛ¾÷¾ÆÀÌµğ(jobID)
     JobID = "019102415000000014"
 
-    ' ë¬¸ì„œí˜•íƒœ ë°°ì—´ ("N" ì™€ "M" ì¤‘ ì„ íƒ, ë‹¤ì¤‘ ì„ íƒ ê°€ëŠ¥)
-    ' â”” N = ì¼ë°˜ , M = ìˆ˜ì •
-    ' - ë¯¸ì…ë ¥ ì‹œ ì „ì²´ì¡°íšŒ
+    ' ¹®¼­ÇüÅÂ ¹è¿­ ("N" ¿Í "M" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
+    ' ¦¦ N = ÀÏ¹İ , M = ¼öÁ¤
+    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
     Dim TIType(2)
     TIType(0) = "N"
     TIType(1) = "M"
 
-    ' ê³¼ì„¸í˜•íƒœ ë°°ì—´ ("T" , "N" , "Z" ì¤‘ ì„ íƒ, ë‹¤ì¤‘ ì„ íƒ ê°€ëŠ¥)
-    ' â”” T = ê³¼ì„¸, N = ë©´ì„¸, Z = ì˜ì„¸
-    ' - ë¯¸ì…ë ¥ ì‹œ ì „ì²´ì¡°íšŒ
+    ' °ú¼¼ÇüÅÂ ¹è¿­ ("T" , "N" , "Z" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
+    ' ¦¦ T = °ú¼¼, N = ¸é¼¼, Z = ¿µ¼¼
+    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
     Dim TaxType(3)
     TaxType(0) = "T"
     TaxType(1) = "N"
     TaxType(2) = "Z"
 
-    ' ë°œí–‰ëª©ì  ë°°ì—´ ("R" , "C", "N" ì¤‘ ì„ íƒ, ë‹¤ì¤‘ ì„ íƒ ê°€ëŠ¥)
-    ' â”” R = ì˜ìˆ˜, C = ì²­êµ¬, N = ì—†ìŒ
-    ' - ë¯¸ì…ë ¥ ì‹œ ì „ì²´ì¡°íšŒ
+    ' ¹ßÇà¸ñÀû ¹è¿­ ("R" , "C", "N" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
+    ' ¦¦ R = ¿µ¼ö, C = Ã»±¸, N = ¾øÀ½
+    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
     Dim PurposeType(3)
     PurposeType(0) = "R"
     PurposeType(1) = "C"
     PurposeType(2) = "N"
 
-    ' ì¢…ì‚¬ì—…ì¥ë²ˆí˜¸ ìœ ë¬´ (null , "0" , "1" ì¤‘ íƒ 1)
-    ' - null = ì „ì²´ , 0 = ì—†ìŒ, 1 = ìˆìŒ
+    ' Á¾»ç¾÷Àå¹øÈ£ À¯¹« (null , "0" , "1" Áß ÅÃ 1)
+    ' - null = ÀüÃ¼ , 0 = ¾øÀ½, 1 = ÀÖÀ½
     TaxRegIDYN = ""
 
-    ' ì¢…ì‚¬ì—…ì¥ë²ˆí˜¸ì˜ ì£¼ì²´ ("S" , "B" , "T" ì¤‘ íƒ 1)
-    ' â”” S = ê³µê¸‰ì , B = ê³µê¸‰ë°›ëŠ”ì , T = ìˆ˜íƒì
-    ' - ë¯¸ì…ë ¥ì‹œ ì „ì²´ì¡°íšŒ
+    ' Á¾»ç¾÷Àå¹øÈ£ÀÇ ÁÖÃ¼ ("S" , "B" , "T" Áß ÅÃ 1)
+    ' ¦¦ S = °ø±ŞÀÚ , B = °ø±Ş¹Ş´ÂÀÚ , T = ¼öÅ¹ÀÚ
+    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
     TaxRegIDType = "S"
 
-    ' ì¢…ì‚¬ì—…ì¥ë²ˆí˜¸
-    ' ë‹¤ìˆ˜ê¸°ì¬ì‹œ ì½¤ë§ˆ(",")ë¡œ êµ¬ë¶„í•˜ì—¬ êµ¬ì„± ex ) "0001,0002"
-    ' - ë¯¸ì…ë ¥ì‹œ ì „ì²´ì¡°íšŒ
+    ' Á¾»ç¾÷Àå¹øÈ£
+    ' ´Ù¼ö±âÀç½Ã ÄŞ¸¶(",")·Î ±¸ºĞÇÏ¿© ±¸¼º ex ) "0001,0002"
+    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
     TaxRegID = ""
 
-    ' í˜ì´ì§€ ë²ˆí˜¸
+    ' ÆäÀÌÁö ¹øÈ£
     Page  = 1
 
-    ' í˜ì´ì§€ë‹¹ ëª©ë¡ê°œìˆ˜
+    ' ÆäÀÌÁö´ç ¸ñ·Ï°³¼ö
     PerPage = 10
 
-    ' ì •ë ¬ë°©í•­, D-ë‚´ë¦¼ì°¨ìˆœ, A-ì˜¤ë¦„ì°¨ìˆœ
+    ' Á¤·Ä¹æÇ×, D-³»¸²Â÷¼ø, A-¿À¸§Â÷¼ø
     Order = "D"
 
-    ' ê±°ë˜ì²˜ ìƒí˜¸ / ì‚¬ì—…ìë²ˆí˜¸ (ì‚¬ì—…ì) / ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ (ê°œì¸) / "9999999999999" (ì™¸êµ­ì¸) ì¤‘ ê²€ìƒ‰í•˜ê³ ì í•˜ëŠ” ì •ë³´ ì…ë ¥
-    ' - ì‚¬ì—…ìë²ˆí˜¸ / ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ëŠ” í•˜ì´í”ˆ('-')ì„ ì œì™¸í•œ ìˆ«ìë§Œ ì…ë ¥
-    ' - ë¯¸ì…ë ¥ì‹œ ì „ì²´ì¡°íšŒ
+    ' °Å·¡Ã³ »óÈ£ / »ç¾÷ÀÚ¹øÈ£ (»ç¾÷ÀÚ) / ÁÖ¹Îµî·Ï¹øÈ£ (°³ÀÎ) / "9999999999999" (¿Ü±¹ÀÎ) Áß °Ë»öÇÏ°íÀÚ ÇÏ´Â Á¤º¸ ÀÔ·Â
+    ' - »ç¾÷ÀÚ¹øÈ£ / ÁÖ¹Îµî·Ï¹øÈ£´Â ÇÏÀÌÇÂ('-')À» Á¦¿ÜÇÑ ¼ıÀÚ¸¸ ÀÔ·Â
+    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
     SearchString = ""
 
     On Error Resume Next
@@ -89,69 +89,69 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ìˆ˜ì§‘ ê²°ê³¼ ì¡°íšŒ</legend>
+                <legend>¼öÁı °á°ú Á¶È¸</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> code (ì‘ë‹µì½”ë“œ) : <%=result.code%> </li>
-                        <li> message  (ì‘ë‹µë©”ì‹œì§€) : <%=result.message%> </li>
-                        <li> total (ì´ ê²€ìƒ‰ê²°ê³¼ ê±´ìˆ˜) : <%=result.total%> </li>
-                        <li> perPage (í˜ì´ì§€ë‹¹ ê²€ìƒ‰ê°œìˆ˜) : <%=result.perPage%> </li>
-                        <li> pageNum (í˜ì´ì§€ ë²ˆí˜¸) : <%=result.pageNum%> </li>
-                        <li> pageCount (í˜ì´ì§€ ê°œìˆ˜) : <%=result.pageCount%> </li>
+                        <li> code (ÀÀ´äÄÚµå) : <%=result.code%> </li>
+                        <li> message  (ÀÀ´ä¸Ş½ÃÁö) : <%=result.message%> </li>
+                        <li> total (ÃÑ °Ë»ö°á°ú °Ç¼ö) : <%=result.total%> </li>
+                        <li> perPage (ÆäÀÌÁö´ç °Ë»ö°³¼ö) : <%=result.perPage%> </li>
+                        <li> pageNum (ÆäÀÌÁö ¹øÈ£) : <%=result.pageNum%> </li>
+                        <li> pageCount (ÆäÀÌÁö °³¼ö) : <%=result.pageCount%> </li>
                     </ul>
 
                 <%
                     For i=0 To UBound(result.list) -1
                 %>
                     <fieldset class="fieldset2">
-                        <legend>ì„¸ê¸ˆê³„ì‚°ì„œ ì •ë³´ [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
+                        <legend>¼¼±İ°è»ê¼­ Á¤º¸ [ <%=i+1%> / <%= UBound(result.list) %> ] </legend>
                             <ul>
 
-                                <li> ntsconfirmNum (êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸) : <%= result.list(i).ntsconfirmNum %></li>
-                                <li> writeDate (ì‘ì„±ì¼ì) : <%= result.list(i).writeDate %></li>
-                                <li> issueDate (ë°œí–‰ì¼ì) : <%= result.list(i).issueDate %></li>
-                                <li> sendDate (ì „ì†¡ì¼ì) : <%= result.list(i).sendDate %></li>
-                                <li> taxType (ê³¼ì„¸í˜•íƒœ) : <%= result.list(i).taxType %></li>
-                                <li> invoiceType (ë§¤ì…/ë§¤ì¶œ) : <%= result.list(i).invoiceType %></li>
-                                <li> purposeType (ì˜ìˆ˜/ì²­êµ¬) : <%= result.list(i).purposeType %></li>
-                                <li> supplyCostTotal (ê³µê¸‰ê°€ì•¡ í•©ê³„) : <%= result.list(i).supplyCostTotal %></li>
-                                <li> taxTotal (ì„¸ì•¡ í•©ê³„) : <%= result.list(i).taxTotal %></li>
-                                <li> totalAmount (í•©ê³„ê¸ˆì•¡) : <%= result.list(i).totalAmount %></li>
-                                <li> remark1 (ë¹„ê³ ) : <%= result.list(i).remark1 %></li>
-                                <li> purchaseDate (ê±°ë˜ì¼ì) : <%= result.list(i).purchaseDate %></li>
-                                <li> itemName (í’ˆëª…) : <%= result.list(i).itemName %></li>
-                                <li> spec (ê·œê²©) : <%= result.list(i).spec %></li>
-                                <li> qty (ìˆ˜ëŸ‰) : <%= result.list(i).qty %></li>
-                                <li> unitCost (ë‹¨ê°€) : <%= result.list(i).unitCost %></li>
-                                <li> supplyCost (ê³µê¸‰ê°€ì•¡) : <%= result.list(i).supplyCost %></li>
-                                <li> tax (ì„¸ì•¡) : <%= result.list(i).tax %></li>
-                                <li> remark (ë¹„ê³ ) : <%= result.list(i).remark %></li>
-                                <li> modifyYN (ìˆ˜ì • ì „ìì„¸ê¸ˆê³„ì‚°ì„œ ì—¬ë¶€ ) : <%= result.list(i).modifyYN %></li>
-                                <li> orgNTSConfirmNum (ì›ë³¸ ì „ìì„¸ê¸ˆê³„ì‚°ì„œ êµ­ì„¸ì²­ìŠ¹ì¸ë²ˆí˜¸) : <%= result.list(i).orgNTSConfirmNum %></li>
+                                <li> ntsconfirmNum (±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%= result.list(i).ntsconfirmNum %></li>
+                                <li> writeDate (ÀÛ¼ºÀÏÀÚ) : <%= result.list(i).writeDate %></li>
+                                <li> issueDate (¹ßÇàÀÏÀÚ) : <%= result.list(i).issueDate %></li>
+                                <li> sendDate (Àü¼ÛÀÏÀÚ) : <%= result.list(i).sendDate %></li>
+                                <li> taxType (°ú¼¼ÇüÅÂ) : <%= result.list(i).taxType %></li>
+                                <li> invoiceType (¸ÅÀÔ/¸ÅÃâ) : <%= result.list(i).invoiceType %></li>
+                                <li> purposeType (¿µ¼ö/Ã»±¸) : <%= result.list(i).purposeType %></li>
+                                <li> supplyCostTotal (°ø±Ş°¡¾× ÇÕ°è) : <%= result.list(i).supplyCostTotal %></li>
+                                <li> taxTotal (¼¼¾× ÇÕ°è) : <%= result.list(i).taxTotal %></li>
+                                <li> totalAmount (ÇÕ°è±İ¾×) : <%= result.list(i).totalAmount %></li>
+                                <li> remark1 (ºñ°í) : <%= result.list(i).remark1 %></li>
+                                <li> purchaseDate (°Å·¡ÀÏÀÚ) : <%= result.list(i).purchaseDate %></li>
+                                <li> itemName (Ç°¸í) : <%= result.list(i).itemName %></li>
+                                <li> spec (±Ô°İ) : <%= result.list(i).spec %></li>
+                                <li> qty (¼ö·®) : <%= result.list(i).qty %></li>
+                                <li> unitCost (´Ü°¡) : <%= result.list(i).unitCost %></li>
+                                <li> supplyCost (°ø±Ş°¡¾×) : <%= result.list(i).supplyCost %></li>
+                                <li> tax (¼¼¾×) : <%= result.list(i).tax %></li>
+                                <li> remark (ºñ°í) : <%= result.list(i).remark %></li>
+                                <li> modifyYN (¼öÁ¤ ÀüÀÚ¼¼±İ°è»ê¼­ ¿©ºÎ ) : <%= result.list(i).modifyYN %></li>
+                                <li> orgNTSConfirmNum (¿øº» ÀüÀÚ¼¼±İ°è»ê¼­ ±¹¼¼Ã»½ÂÀÎ¹øÈ£) : <%= result.list(i).orgNTSConfirmNum %></li>
                                 <br/>
-                                <p><b>ê³µê¸‰ì ì •ë³´</b></p>
-                                <li> invoicerCorpNum (ì‚¬ì—…ìë²ˆí˜¸) : <%= result.list(i).invoicerCorpNum %></li>
-                                <li> invoicerTaxRegID (ì¢…ì‚¬ì—…ì¥ë²ˆí˜¸) : <%= result.list(i).invoicerTaxRegID %></li>
-                                <li> invoicerCorpName (ìƒí˜¸) : <%= result.list(i).invoicerCorpName %></li>
-                                <li> invoicerCEOName (ëŒ€í‘œì ì„±ëª…) : <%= result.list(i).invoicerCEOName %></li>
-                                <li> invoicerEmail (ë‹´ë‹¹ì ì´ë©”ì¼) : <%= result.list(i).invoicerEmail %></li>
+                                <p><b>°ø±ŞÀÚ Á¤º¸</b></p>
+                                <li> invoicerCorpNum (»ç¾÷ÀÚ¹øÈ£) : <%= result.list(i).invoicerCorpNum %></li>
+                                <li> invoicerTaxRegID (Á¾»ç¾÷Àå¹øÈ£) : <%= result.list(i).invoicerTaxRegID %></li>
+                                <li> invoicerCorpName (»óÈ£) : <%= result.list(i).invoicerCorpName %></li>
+                                <li> invoicerCEOName (´ëÇ¥ÀÚ ¼º¸í) : <%= result.list(i).invoicerCEOName %></li>
+                                <li> invoicerEmail (´ã´çÀÚ ÀÌ¸ŞÀÏ) : <%= result.list(i).invoicerEmail %></li>
                                 <br/>
-                                <p><b>ê³µê¸‰ë°›ëŠ”ì ì •ë³´</b></p>
-                                <li> invoiceeCorpNum (ì‚¬ì—…ìë²ˆí˜¸) : <%= result.list(i).invoiceeCorpNum %></li>
-                                <li> invoiceeType (ê³µê¸‰ë°›ëŠ”ì êµ¬ë¶„) : <%= result.list(i).invoiceeType %></li>
-                                <li> invoiceeTaxRegID (ì¢…ì‚¬ì—…ì¥ë²ˆí˜¸) : <%= result.list(i).invoiceeTaxRegID %></li>
-                                <li> invoiceeCorpName (ìƒí˜¸) : <%= result.list(i).invoiceeCorpName %></li>
-                                <li> invoiceeCEOName (ëŒ€í‘œì ì„±ëª…) : <%= result.list(i).invoiceeCEOName %></li>
-                                <li> invoiceeEmail1 (ë‹´ë‹¹ì ì´ë©”ì¼) : <%= result.list(i).invoiceeEmail1 %></li>
+                                <p><b>°ø±Ş¹Ş´ÂÀÚ Á¤º¸</b></p>
+                                <li> invoiceeCorpNum (»ç¾÷ÀÚ¹øÈ£) : <%= result.list(i).invoiceeCorpNum %></li>
+                                <li> invoiceeType (°ø±Ş¹Ş´ÂÀÚ ±¸ºĞ) : <%= result.list(i).invoiceeType %></li>
+                                <li> invoiceeTaxRegID (Á¾»ç¾÷Àå¹øÈ£) : <%= result.list(i).invoiceeTaxRegID %></li>
+                                <li> invoiceeCorpName (»óÈ£) : <%= result.list(i).invoiceeCorpName %></li>
+                                <li> invoiceeCEOName (´ëÇ¥ÀÚ ¼º¸í) : <%= result.list(i).invoiceeCEOName %></li>
+                                <li> invoiceeEmail1 (´ã´çÀÚ ÀÌ¸ŞÀÏ) : <%= result.list(i).invoiceeEmail1 %></li>
                                 <br/>
-                                <p><b>ìˆ˜íƒì ì •ë³´</b></p>
-                                <li> trusteeCorpNum (ì‚¬ì—…ìë²ˆí˜¸) : <%= result.list(i).trusteeCorpNum %></li>
-                                <li> trusteeTaxRegID (ì¢…ì‚¬ì—…ì¥ë²ˆí˜¸) : <%= result.list(i).trusteeTaxRegID %></li>
-                                <li> trusteeCorpName (ìƒí˜¸) : <%= result.list(i).trusteeCorpName %></li>
-                                <li> trusteeCEOName (ëŒ€í‘œì ì„±ëª…) : <%= result.list(i).trusteeCEOName %></li>
-                                <li> trusteeEmail (ë‹´ë‹¹ì ì´ë©”ì¼) : <%= result.list(i).trusteeEmail %></li>
+                                <p><b>¼öÅ¹ÀÚ Á¤º¸</b></p>
+                                <li> trusteeCorpNum (»ç¾÷ÀÚ¹øÈ£) : <%= result.list(i).trusteeCorpNum %></li>
+                                <li> trusteeTaxRegID (Á¾»ç¾÷Àå¹øÈ£) : <%= result.list(i).trusteeTaxRegID %></li>
+                                <li> trusteeCorpName (»óÈ£) : <%= result.list(i).trusteeCorpName %></li>
+                                <li> trusteeCEOName (´ëÇ¥ÀÚ ¼º¸í) : <%= result.list(i).trusteeCEOName %></li>
+                                <li> trusteeEmail (´ã´çÀÚ ÀÌ¸ŞÀÏ) : <%= result.list(i).trusteeEmail %></li>
 
                             </ul>
                         </fieldset>

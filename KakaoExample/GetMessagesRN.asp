@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒŒíŠ¸ë„ˆê°€ í• ë‹¹í•œ ì „ì†¡ìš”ì²­ ë²ˆí˜¸ë¥¼ í†µí•´ ì•Œë¦¼í†¡/ì¹œêµ¬í†¡ ì „ì†¡ìƒíƒœ ë° ê²°ê³¼ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ Àü¼Û¿äÃ» ¹øÈ£¸¦ ÅëÇØ ¾Ë¸²Åå/Ä£±¸Åå Àü¼Û»óÅÂ ¹× °á°ú¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/info#GetMessagesRN
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
-    ' ì „ì†¡ ìš”ì²­ì‹œ í• ë‹¹í•œ ì „ì†¡ìš”ì²­ë²ˆí˜¸(RequestNum)
+    ' Àü¼Û ¿äÃ»½Ã ÇÒ´çÇÑ Àü¼Û¿äÃ»¹øÈ£(RequestNum)
     RequestNum = "20220720-0011"
 
     On Error Resume Next
@@ -37,64 +37,64 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì¹´ì¹´ì˜¤í†¡ ì „ì†¡ê²°ê³¼ í™•ì¸</legend>
+                <legend>Ä«Ä«¿ÀÅå Àü¼Û°á°ú È®ÀÎ</legend>
                     <%
                         If code = 0 Then
                     %>
                     <ul>
-                        <li>contentType (ì¹´ì¹´ì˜¤í†¡ ìœ í˜•) : <%=result.contentType%></li>
-                        <li>templateCode (ì•Œë¦¼í†¡ í…œí”Œë¦¿ ì½”ë“œ) : <%=result.templateCode%></li>
-                        <li>plusFriendID (í”ŒëŸ¬ìŠ¤ì¹œêµ¬ ì•„ì´ë””) : <%=result.plusFriendID%></li>
-                        <li>sendNum (ë°œì‹ ë²ˆí˜¸) : <%=result.sendNum%></li>
-                        <li>altContent (ëŒ€ì²´ë¬¸ìž ë‚´ìš©) : <%=result.altContent%></li>
-                        <li>altSendType (ëŒ€ì²´ë¬¸ìž ìœ í˜•) : <%=result.altSendType%></li>
-                        <li>reserveDT (ì˜ˆì•½ì¼ì‹œ) : <%=result.reserveDT%></li>
-                        <li>adsYN (ê´‘ê³ ì „ì†¡ ì—¬ë¶€) : <%=result.adsYN%></li>
-                        <li>imageURL (ì¹œêµ¬í†¡ ì´ë¯¸ì§€ URL) : <%=result.imageURL%></li>
-                        <li>sendCnt (ì „ì†¡ê±´ìˆ˜) : <%=result.sendCnt%></li>
-                        <li>successCnt (ì„±ê³µê±´ìˆ˜) : <%=result.successCnt%></li>
-                        <li>failCnt (ì‹¤íŒ¨ê±´ìˆ˜) : <%=result.failCnt%></li>
-                        <li>altCnt (ëŒ€ì²´ë¬¸ìž ê±´ìˆ˜) : <%=result.altCnt%></li>
-                        <li>cancelCnt (ì·¨ì†Œê±´ìˆ˜) : <%=result.cancelCnt%></li>
+                        <li>contentType (Ä«Ä«¿ÀÅå À¯Çü) : <%=result.contentType%></li>
+                        <li>templateCode (¾Ë¸²Åå ÅÛÇÃ¸´ ÄÚµå) : <%=result.templateCode%></li>
+                        <li>plusFriendID (ÇÃ·¯½ºÄ£±¸ ¾ÆÀÌµð) : <%=result.plusFriendID%></li>
+                        <li>sendNum (¹ß½Å¹øÈ£) : <%=result.sendNum%></li>
+                        <li>altContent (´ëÃ¼¹®ÀÚ ³»¿ë) : <%=result.altContent%></li>
+                        <li>altSendType (´ëÃ¼¹®ÀÚ À¯Çü) : <%=result.altSendType%></li>
+                        <li>reserveDT (¿¹¾àÀÏ½Ã) : <%=result.reserveDT%></li>
+                        <li>adsYN (±¤°íÀü¼Û ¿©ºÎ) : <%=result.adsYN%></li>
+                        <li>imageURL (Ä£±¸Åå ÀÌ¹ÌÁö URL) : <%=result.imageURL%></li>
+                        <li>sendCnt (Àü¼Û°Ç¼ö) : <%=result.sendCnt%></li>
+                        <li>successCnt (¼º°ø°Ç¼ö) : <%=result.successCnt%></li>
+                        <li>failCnt (½ÇÆÐ°Ç¼ö) : <%=result.failCnt%></li>
+                        <li>altCnt (´ëÃ¼¹®ÀÚ °Ç¼ö) : <%=result.altCnt%></li>
+                        <li>cancelCnt (Ãë¼Ò°Ç¼ö) : <%=result.cancelCnt%></li>
                     </ul>
                     <%
                         For i=0 To Ubound(result.btns)-1
                     %>
                         <fieldset class="fieldset2">
-                            <legend>ë²„íŠ¼ì •ë³´ [<%=i+1%>]</legend>
+                            <legend>¹öÆ°Á¤º¸ [<%=i+1%>]</legend>
                             <ul>
-                                <li>n (ë²„íŠ¼ëª…) : <%=result.btns(i).n%> </li>
-                                <li>t (ë²„íŠ¼ìœ í˜•) : <%=result.btns(i).t%> </li>
-                                <li>u1 (ë²„íŠ¼ë§í¬1) : <%=result.btns(i).u1%> </li>
-                                <li>u2 (ë²„íŠ¼ë§í¬2) : <%=result.btns(i).u2%> </li>
+                                <li>n (¹öÆ°¸í) : <%=result.btns(i).n%> </li>
+                                <li>t (¹öÆ°À¯Çü) : <%=result.btns(i).t%> </li>
+                                <li>u1 (¹öÆ°¸µÅ©1) : <%=result.btns(i).u1%> </li>
+                                <li>u2 (¹öÆ°¸µÅ©2) : <%=result.btns(i).u2%> </li>
                             </ul>
                         </fieldset>
                     <%
                         Next
                     %>
                     <fieldset class="fieldset2">
-                        <legend>ì „ì†¡ê²°ê³¼ ì •ë³´ ëª©ë¡</legend>
+                        <legend>Àü¼Û°á°ú Á¤º¸ ¸ñ·Ï</legend>
                     <%
                         For i=0 To UBound(result.msgs) -1
                     %>
                         <fieldset class="fieldset3">
-                            <legend>ì „ì†¡ê²°ê³¼ ì •ë³´ [<%=i+1%>]</legend>
+                            <legend>Àü¼Û°á°ú Á¤º¸ [<%=i+1%>]</legend>
                             <ul>
-                                <li>state (ì „ì†¡ìƒíƒœ ì½”ë“œ) : <%=result.msgs(i).state%> </li>
-                                <li>sendDT (ì „ì†¡ì¼ì‹œ) : <%=result.msgs(i).sendDT%> </li>
-                                <li>ReceiveNum (ìˆ˜ì‹ ë²ˆí˜¸) : <%=result.msgs(i).ReceiveNum%> </li>
-                                <li>receiveName (ìˆ˜ì‹ ìžëª…) : <%=result.msgs(i).receiveName%> </li>
-                                <li>content (ì•Œë¦¼í†¡/ì¹œêµ¬í†¡ ë‚´ìš©) : <%=result.msgs(i).content%> </li>
-                                <li>result (ì•Œë¦¼í†¡/ì¹œêµ¬í†¡ ì „ì†¡ê²°ê³¼ ì½”ë“œ) : <%=result.msgs(i).result%> </li>
-                                <li>resultDT (ì•Œë¦¼í†¡/ì¹œêµ¬í†¡ ì „ì†¡ê²°ê³¼ ìˆ˜ì‹ ì¼ì‹œ) : <%=result.msgs(i).resultDT%> </li>
-                                <li>altContent (ëŒ€ì²´ë¬¸ìž ë‚´ìš©) : <%=result.msgs(i).altContent%> </li>
-                                <li>altContentType (ëŒ€ì²´ë¬¸ìž ì „ì†¡ìœ í˜•) : <%=result.msgs(i).altContentType%> </li>
-                                <li>altSendDT (ëŒ€ì²´ë¬¸ìž ì „ì†¡ì¼ì‹œ) : <%=result.msgs(i).altSendDT%> </li>
-                                <li>altResult (ëŒ€ì²´ë¬¸ìž ì „ì†¡ê²°ê³¼ ì½”ë“œ) : <%=result.msgs(i).altResult%> </li>
-                                <li>altResultDT (ëŒ€ì²´ë¬¸ìž ì „ì†¡ê²°ê³¼ ìˆ˜ì‹ ì¼ì‹œ) : <%=result.msgs(i).altResultDT%> </li>
-                                <li>ReceiptNum (ì ‘ìˆ˜ë²ˆí˜¸) : <%=result.msgs(i).ReceiptNum%> </li>
-                                <li>RequestNum (ìš”ì²­ë²ˆí˜¸) : <%=result.msgs(i).RequestNum%> </li>
-                                <li>interOPRefKey (íŒŒíŠ¸ë„ˆ ì§€ì •í‚¤) : <%=result.msgs(i).interOPRefKey%> </li>
+                                <li>state (Àü¼Û»óÅÂ ÄÚµå) : <%=result.msgs(i).state%> </li>
+                                <li>sendDT (Àü¼ÛÀÏ½Ã) : <%=result.msgs(i).sendDT%> </li>
+                                <li>ReceiveNum (¼ö½Å¹øÈ£) : <%=result.msgs(i).ReceiveNum%> </li>
+                                <li>receiveName (¼ö½ÅÀÚ¸í) : <%=result.msgs(i).receiveName%> </li>
+                                <li>content (¾Ë¸²Åå/Ä£±¸Åå ³»¿ë) : <%=result.msgs(i).content%> </li>
+                                <li>result (¾Ë¸²Åå/Ä£±¸Åå Àü¼Û°á°ú ÄÚµå) : <%=result.msgs(i).result%> </li>
+                                <li>resultDT (¾Ë¸²Åå/Ä£±¸Åå Àü¼Û°á°ú ¼ö½ÅÀÏ½Ã) : <%=result.msgs(i).resultDT%> </li>
+                                <li>altContent (´ëÃ¼¹®ÀÚ ³»¿ë) : <%=result.msgs(i).altContent%> </li>
+                                <li>altContentType (´ëÃ¼¹®ÀÚ Àü¼ÛÀ¯Çü) : <%=result.msgs(i).altContentType%> </li>
+                                <li>altSendDT (´ëÃ¼¹®ÀÚ Àü¼ÛÀÏ½Ã) : <%=result.msgs(i).altSendDT%> </li>
+                                <li>altResult (´ëÃ¼¹®ÀÚ Àü¼Û°á°ú ÄÚµå) : <%=result.msgs(i).altResult%> </li>
+                                <li>altResultDT (´ëÃ¼¹®ÀÚ Àü¼Û°á°ú ¼ö½ÅÀÏ½Ã) : <%=result.msgs(i).altResultDT%> </li>
+                                <li>ReceiptNum (Á¢¼ö¹øÈ£) : <%=result.msgs(i).ReceiptNum%> </li>
+                                <li>RequestNum (¿äÃ»¹øÈ£) : <%=result.msgs(i).RequestNum%> </li>
+                                <li>interOPRefKey (ÆÄÆ®³Ê ÁöÁ¤Å°) : <%=result.msgs(i).interOPRefKey%> </li>
                             </ul>
                         </fieldset>
                     <%

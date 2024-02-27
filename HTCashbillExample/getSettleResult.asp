@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì—°ë™íšŒì› í¬ì¸íŠ¸ ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­ë‚´ì—­ 1ê±´ì„ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ¹«ÅëÀå ÀÔ±İ½ÅÃ»³»¿ª 1°ÇÀ» È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/point#GetSettleResult
     '**************************************************************
 
-    'íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    'ì •ì‚°ì½”ë“œ
+    'Á¤»êÄÚµå
     SettleCode = "202305120000000035"
 
-    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -37,23 +37,23 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì—°ë™íšŒì› ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­ ì •ë³´í™•ì¸</legend>
+                <legend>¿¬µ¿È¸¿ø ¹«ÅëÀå ÀÔ±İ½ÅÃ» Á¤º¸È®ÀÎ</legend>
                 <%
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
                         <legend> PaymentHistory </legend>
                         <ul>
-                            <li>productType (ê²°ì œ ë‚´ìš©) : <%= result.productType %></li>
-                            <li>productName (ê²°ì œ ìƒí’ˆëª…) : <%= result.productName %></li>
-                            <li>settleType (ê²°ì œìœ í˜•) : <%= result.settleType %></li>
-                            <li>settlerName (ë‹´ë‹¹ìëª…) : <%= result.settlerName %></li>
-                            <li>settlerEmail (ë‹´ë‹¹ìë©”ì¼) : <%= result.settlerEmail %></li>
-                            <li>settleCost (ê²°ì œê¸ˆì•¡) : <%= result.settleCost %></li>
-                            <li>settlePoint (ì¶©ì „í¬ì¸íŠ¸) : <%= result.settlePoint %></li>
-                            <li>settleState (ê²°ì œìƒíƒœ) : <%= result.settleState %></li>
-                            <li>regDT (ë“±ë¡ì¼ì‹œ ) : <%= result.regDT %></li>
-                            <li>stateDT (ìƒíƒœì¼ì‹œ ) : <%= result.stateDT %></li>
+                            <li>productType (°áÁ¦ ³»¿ë) : <%= result.productType %></li>
+                            <li>productName (°áÁ¦ »óÇ°¸í) : <%= result.productName %></li>
+                            <li>settleType (°áÁ¦À¯Çü) : <%= result.settleType %></li>
+                            <li>settlerName (´ã´çÀÚ¸í) : <%= result.settlerName %></li>
+                            <li>settlerEmail (´ã´çÀÚ¸ŞÀÏ) : <%= result.settlerEmail %></li>
+                            <li>settleCost (°áÁ¦±İ¾×) : <%= result.settleCost %></li>
+                            <li>settlePoint (ÃæÀüÆ÷ÀÎÆ®) : <%= result.settlePoint %></li>
+                            <li>settleState (°áÁ¦»óÅÂ) : <%= result.settleState %></li>
+                            <li>regDT (µî·ÏÀÏ½Ã ) : <%= result.regDT %></li>
+                            <li>stateDT (»óÅÂÀÏ½Ã ) : <%= result.stateDT %></li>
                         </ul>
                     </fieldset>
                 <%

@@ -1,26 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' í˜„ê¸ˆì˜ìˆ˜ì¦ê³¼ ê´€ë ¨ëœ ì•ˆë‚´ ë©”ì¼ì„ ì¬ì „ì†¡ í•©ë‹ˆë‹¤.
+    ' Çö±İ¿µ¼öÁõ°ú °ü·ÃµÈ ¾È³» ¸ŞÀÏÀ» ÀçÀü¼Û ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/etc#SendEmail
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     mgtKey = "20220720-ASP-001"
 
-    ' ìˆ˜ì‹  ë©”ì¼ì£¼ì†Œ
+    ' ¼ö½Å ¸ŞÀÏÁÖ¼Ò
     receiver = ""
 
     On Error Resume Next
@@ -44,7 +44,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì•Œë¦¼ë©”ì¼ ì¬ì „ì†¡</legend>
+                <legend>¾Ë¸²¸ŞÀÏ ÀçÀü¼Û</legend>
                 <ul>
                     <li>Response.code : <%=code%></li>
                     <li>Response.message : <%=message%></li>

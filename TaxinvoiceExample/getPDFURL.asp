@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÌåùÎπå SDK ASP Example.</title>
+        <title>∆À∫Ù SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' 1Í±¥Ïùò Ï†ÑÏûêÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú PDF Îã§Ïö¥Î°úÎìú URLÏùÑ Î∞òÌôòÌï©ÎãàÎã§.
-    ' - Î∞òÌôòÎêòÎäî URLÏùÄ Î≥¥Ïïà Ï†ïÏ±ÖÏÉÅ 30Ï¥à ÎèôÏïà Ïú†Ìö®ÌïòÎ©∞, ÏãúÍ∞ÑÏùÑ Ï¥àÍ≥ºÌïú ÌõÑÏóêÎäî Ìï¥Îãπ URLÏùÑ ÌÜµÌïú ÌéòÏù¥ÏßÄ Ï†ëÍ∑ºÏù¥ Î∂àÍ∞ÄÌï©ÎãàÎã§.
+    ' 1∞«¿« ¿¸¿⁄ºº±›∞ËªÍº≠ PDF ¥ŸøÓ∑ŒµÂ URL¿ª π›»Ø«’¥œ¥Ÿ.
+    ' - π›»Øµ«¥¬ URL¿∫ ∫∏æ» ¡§√•ªÛ 30√  µøæ» ¿Ø»ø«œ∏Á, Ω√∞£¿ª √ ∞˙«— »ƒø°¥¬ «ÿ¥Á URL¿ª ≈Î«— ∆‰¿Ã¡ˆ ¡¢±Ÿ¿Ã ∫“∞°«’¥œ¥Ÿ.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/view#GetPDFURL
     '**************************************************************
 
-    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
     CorpNum = "1234567890"
 
-    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
     UserID = "testkorea"
 
-    ' ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î∞úÌñâÏú†Ìòï SELL(Îß§Ï∂ú), BUY(Îß§ÏûÖ), TRUSTEE(ÏúÑÏàòÌÉÅ)
+    ' ºº±›∞ËªÍº≠ πﬂ«‡¿Ø«¸ SELL(∏≈√‚), BUY(∏≈¿‘), TRUSTEE(¿ßºˆ≈π)
     KeyType= "SELL"
 
-    ' Î¨∏ÏÑúÎ≤àÌò∏
+    ' πÆº≠π¯»£
     MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -41,7 +41,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú PDF Îã§Ïö¥Î°úÎìú URL</legend>
+                <legend>ºº±›∞ËªÍº≠ PDF ¥ŸøÓ∑ŒµÂ URL</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>URL : <%=url%> </li>

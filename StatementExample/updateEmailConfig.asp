@@ -1,33 +1,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************'
-    ' ì „ìëª…ì„¸ì„œ ê´€ë ¨ ë©”ì¼ì „ì†¡ í•­ëª©ì— ëŒ€í•œ ì „ì†¡ì—¬ë¶€ë¥¼ ìˆ˜ì •í•œë‹¤.
+    ' ÀüÀÚ¸í¼¼¼­ °ü·Ã ¸ŞÀÏÀü¼Û Ç×¸ñ¿¡ ´ëÇÑ Àü¼Û¿©ºÎ¸¦ ¼öÁ¤ÇÑ´Ù.
     ' - https://developers.popbill.com/reference/statement/asp/api/etc#UpdateEmailConfig
     '
-    ' ë©”ì¼ì „ì†¡ìœ í˜•
-    ' SMT_ISSUE : ê³µê¸‰ë°›ëŠ”ìì—ê²Œ ì „ìëª…ì„¸ì„œê°€ ë°œí–‰ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼ì…ë‹ˆë‹¤.
-    ' SMT_ACCEPT : ê³µê¸‰ìì—ê²Œ ì „ìëª…ì„¸ì„œê°€ ìŠ¹ì¸ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼ì…ë‹ˆë‹¤.
-    ' SMT_DENY : ê³µê¸‰ìì—ê²Œ ì „ìëª…ì„¸ì„œê°€ ê±°ë¶€ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼ì…ë‹ˆë‹¤.
-    ' SMT_CANCEL : ê³µê¸‰ë°›ëŠ”ìì—ê²Œ ì „ìëª…ì„¸ì„œê°€ ì·¨ì†Œ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼ì…ë‹ˆë‹¤.
-    ' SMT_CANCEL_ISSUE : ê³µê¸‰ë°›ëŠ”ìì—ê²Œ ì „ìëª…ì„¸ì„œê°€ ë°œí–‰ì·¨ì†Œ ë˜ì—ˆìŒì„ ì•Œë ¤ì£¼ëŠ” ë©”ì¼ì…ë‹ˆë‹¤.
+    ' ¸ŞÀÏÀü¼ÛÀ¯Çü
+    ' SMT_ISSUE : °ø±Ş¹Ş´ÂÀÚ¿¡°Ô ÀüÀÚ¸í¼¼¼­°¡ ¹ßÇà µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ŞÀÏÀÔ´Ï´Ù.
+    ' SMT_ACCEPT : °ø±ŞÀÚ¿¡°Ô ÀüÀÚ¸í¼¼¼­°¡ ½ÂÀÎ µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ŞÀÏÀÔ´Ï´Ù.
+    ' SMT_DENY : °ø±ŞÀÚ¿¡°Ô ÀüÀÚ¸í¼¼¼­°¡ °ÅºÎ µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ŞÀÏÀÔ´Ï´Ù.
+    ' SMT_CANCEL : °ø±Ş¹Ş´ÂÀÚ¿¡°Ô ÀüÀÚ¸í¼¼¼­°¡ Ãë¼Ò µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ŞÀÏÀÔ´Ï´Ù.
+    ' SMT_CANCEL_ISSUE : °ø±Ş¹Ş´ÂÀÚ¿¡°Ô ÀüÀÚ¸í¼¼¼­°¡ ¹ßÇàÃë¼Ò µÇ¾úÀ½À» ¾Ë·ÁÁÖ´Â ¸ŞÀÏÀÔ´Ï´Ù.
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ë©”ì¼ ì „ì†¡ ìœ í˜•
+    ' ¸ŞÀÏ Àü¼Û À¯Çü
     emailType = "SMT_ISSUE"
 
-    ' ì „ì†¡ ì—¬ë¶€ (true = ì „ì†¡, false = ë¯¸ì „ì†¡)
+    ' Àü¼Û ¿©ºÎ (true = Àü¼Û, false = ¹ÌÀü¼Û)
     sendYN = true
 
     On Error Resume Next
@@ -51,7 +51,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì•Œë¦¼ë©”ì¼ ì „ì†¡ì„¤ì • ìˆ˜ì •</legend>
+                <legend>¾Ë¸²¸ŞÀÏ Àü¼Û¼³Á¤ ¼öÁ¤</legend>
                 <ul>
                     <li> Response.code : <%=code%> </li>
                     <li> Response.message : <%=message%> </li>

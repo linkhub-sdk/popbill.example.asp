@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì„¸ê¸ˆê³„ì‚°ì„œì— ì²¨ë¶€ëœ íŒŒì¼ëª©ë¡ì„ í™•ì¸í•©ë‹ˆë‹¤.
-    ' - ì‘ë‹µí•­ëª© ì¤‘ íŒŒì¼ì•„ì´ë””(AttachedFile) í•­ëª©ì€ íŒŒì¼ì‚­ì œ(DeleteFile API) í˜¸ì¶œì‹œ ì´ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+    ' ¼¼±İ°è»ê¼­¿¡ Ã·ºÎµÈ ÆÄÀÏ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
+    ' - ÀÀ´äÇ×¸ñ Áß ÆÄÀÏ¾ÆÀÌµğ(AttachedFile) Ç×¸ñÀº ÆÄÀÏ»èÁ¦(DeleteFile API) È£Ãâ½Ã ÀÌ¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#GetFiles
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸ 10ìë¦¬
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü 10ÀÚ¸®
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     testUserID = "testkorea"
 
-    ' ì„¸ê¸ˆê³„ì‚°ì„œ ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ì…), TRUSTEE(ìœ„ìˆ˜íƒ)
+    ' ¼¼±İ°è»ê¼­ ¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ), TRUSTEE(À§¼öÅ¹)
     KeyType = "SELL"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     MgtKey = "20220720-ASP-002"
 
     On Error Resume Next
@@ -41,18 +41,18 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì„¸ê¸ˆê³„ì‚°ì„œ ì²¨ë¶€íŒŒì¼ ëª©ë¡ í™•ì¸</legend>
+                <legend>¼¼±İ°è»ê¼­ Ã·ºÎÆÄÀÏ ¸ñ·Ï È®ÀÎ</legend>
                     <%
                         If code = 0 Then
                             For i=0 To Presponse.length -1
                     %>
                             <fieldset class="filedset2">
-                            <legend> ì²¨ë¶€íŒŒì¼ : <%=i+1%> </legend>
+                            <legend> Ã·ºÎÆÄÀÏ : <%=i+1%> </legend>
                                 <ul>
-                                    <li> serialNum(ìˆœë²ˆ) : <%=Presponse.Get(i).serialNum%></li>
-                                    <li> AttachedFile(íŒŒì¼ëª…) : <%=Presponse.Get(i).AttachedFile%></li>
-                                    <li> DisplayName(íŒŒì¼ì•„ì´ë””) : <%=Presponse.Get(i).DisplayName%></li>
-                                    <li> regDT(ë“±ë¡ì¼ì‹œ) : <%=Presponse.Get(i).regDT%></li>
+                                    <li> serialNum(¼ø¹ø) : <%=Presponse.Get(i).serialNum%></li>
+                                    <li> AttachedFile(ÆÄÀÏ¸í) : <%=Presponse.Get(i).AttachedFile%></li>
+                                    <li> DisplayName(ÆÄÀÏ¾ÆÀÌµğ) : <%=Presponse.Get(i).DisplayName%></li>
+                                    <li> regDT(µî·ÏÀÏ½Ã) : <%=Presponse.Get(i).regDT%></li>
                                 </ul>
                             </fieldset>
                     <%

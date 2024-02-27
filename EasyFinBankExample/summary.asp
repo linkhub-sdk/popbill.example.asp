@@ -1,37 +1,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ìˆ˜ì§‘ ìƒíƒœ í™•ì¸(GetJobState API) í•¨ìˆ˜ë¥¼ ìƒíƒœ ì •ë³´ê°€ í™•ì¸ëœ ìž‘ì—…ì•„ì´ë””ë¥¼ í™œìš©í•˜ì—¬ ê³„ì¢Œ ê±°ëž˜ë‚´ì—­ì˜ ìš”ì•½ ì •ë³´ë¥¼ ì¡°íšŒí•©ë‹ˆë‹¤.
-    ' - ìš”ì•½ ì •ë³´ëŠ” ìž…Â·ì¶œ ê¸ˆì•¡ í•©ê³„, ìž…Â·ì¶œ ê±°ëž˜ ê±´ìˆ˜ë¥¼ ê°€ë¦¬í‚µë‹ˆë‹¤.
+    ' ¼öÁý »óÅÂ È®ÀÎ(GetJobState API) ÇÔ¼ö¸¦ »óÅÂ Á¤º¸°¡ È®ÀÎµÈ ÀÛ¾÷¾ÆÀÌµð¸¦ È°¿ëÇÏ¿© °èÁÂ °Å·¡³»¿ªÀÇ ¿ä¾à Á¤º¸¸¦ Á¶È¸ÇÕ´Ï´Ù.
+    ' - ¿ä¾à Á¤º¸´Â ÀÔ¡¤Ãâ ±Ý¾× ÇÕ°è, ÀÔ¡¤Ãâ °Å·¡ °Ç¼ö¸¦ °¡¸®Åµ´Ï´Ù.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/search#Summary
     '**************************************************************
 
-    'íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    'ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
-    'ìˆ˜ì§‘ ìš”ì²­(requestJob) ì‹œ ë°˜í™˜ë°›ì€ ìž‘ì—…ì•„ì´ë””(jobID)
+    '¼öÁý ¿äÃ»(requestJob) ½Ã ¹ÝÈ¯¹ÞÀº ÀÛ¾÷¾ÆÀÌµð(jobID)
     JobID = "019123114000000010"
 
-    ' ê±°ëž˜ìœ í˜• ë°°ì—´ ("I" ì™€ "O" ì¤‘ ì„ íƒ, ë‹¤ì¤‘ ì„ íƒ ê°€ëŠ¥)
-    ' â”” I = ìž…ê¸ˆ , O = ì¶œê¸ˆ
-    ' - ë¯¸ìž…ë ¥ ì‹œ ì „ì²´ì¡°íšŒ
+    ' °Å·¡À¯Çü ¹è¿­ ("I" ¿Í "O" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
+    ' ¦¦ I = ÀÔ±Ý , O = Ãâ±Ý
+    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
     Dim TradeType(2)
     TradeType(0) = "I"
     TradeType(1) = "O"
 
-    ' "ìž…Â·ì¶œê¸ˆì•¡" / "ë©”ëª¨" / "ë¹„ê³ " ì¤‘ ê²€ìƒ‰í•˜ê³ ìž í•˜ëŠ” ê°’ ìž…ë ¥
-    ' - ë©”ëª¨ = ê±°ëž˜ë‚´ì—­ ë©”ëª¨ì €ìž¥(SaveMemo)ì„ ì‚¬ìš©í•˜ì—¬ ì €ìž¥í•œ ê°’
-    ' - ë¹„ê³  = EasyFinBankSearchDetailì˜ remark1, remark2, remark3 ê°’
-    ' - ë¯¸ìž…ë ¥ì‹œ ì „ì²´ì¡°íšŒ
+    ' "ÀÔ¡¤Ãâ±Ý¾×" / "¸Þ¸ð" / "ºñ°í" Áß °Ë»öÇÏ°íÀÚ ÇÏ´Â °ª ÀÔ·Â
+    ' - ¸Þ¸ð = °Å·¡³»¿ª ¸Þ¸ðÀúÀå(SaveMemo)À» »ç¿ëÇÏ¿© ÀúÀåÇÑ °ª
+    ' - ºñ°í = EasyFinBankSearchDetailÀÇ remark1, remark2, remark3 °ª
+    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
     SearchString = ""
 
     On Error Resume Next
@@ -51,16 +51,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ìˆ˜ì§‘ ê²°ê³¼ ìš”ì•½ì •ë³´ ì¡°íšŒ</legend>
+                <legend>¼öÁý °á°ú ¿ä¾àÁ¤º¸ Á¶È¸</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> count (ìˆ˜ì§‘ ê²°ê³¼ ê±´ìˆ˜) : <%=result.count%> </li>
-                        <li> cntAccIn (ìž…ê¸ˆê±°ëž˜ ê±´ìˆ˜) : <%=result.cntAccIn%> </li>
-                        <li> cntAccOut (ì¶œê¸ˆê±°ëž˜ ê±´ìˆ˜) : <%=result.cntAccOut%> </li>
-                        <li> totalAccIn (ìž…ê¸ˆì•¡ í•©ê³„) : <%=result.totalAccIn%> </li>
-                        <li> totalAccOut (ì¶œê¸ˆì•¡ í•©ê³„) : <%=result.totalAccOut%> </li>
+                        <li> count (¼öÁý °á°ú °Ç¼ö) : <%=result.count%> </li>
+                        <li> cntAccIn (ÀÔ±Ý°Å·¡ °Ç¼ö) : <%=result.cntAccIn%> </li>
+                        <li> cntAccOut (Ãâ±Ý°Å·¡ °Ç¼ö) : <%=result.cntAccOut%> </li>
+                        <li> totalAccIn (ÀÔ±Ý¾× ÇÕ°è) : <%=result.totalAccIn%> </li>
+                        <li> totalAccOut (Ãâ±Ý¾× ÇÕ°è) : <%=result.totalAccOut%> </li>
                     </ul>
                 <%
                     Else

@@ -1,17 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì‚¬ìš©í•˜ê³ ì í•˜ëŠ” ì•„ì´ë””ì˜ ì¤‘ë³µì—¬ë¶€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' »ç¿ëÇÏ°íÀÚ ÇÏ´Â ¾ÆÀÌµğÀÇ Áßº¹¿©ºÎ¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/member#CheckID
     '**************************************************************
 
-    ' ì¤‘ë³µí™•ì¸í•  ì•„ì´ë””
+    ' Áßº¹È®ÀÎÇÒ ¾ÆÀÌµğ
     testID = "testkorea124124"
 
     On Error Resume Next
@@ -34,7 +34,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì•„ì´ë”” ì¤‘ë³µí™•ì¸ </legend>
+                <legend>¾ÆÀÌµğ Áßº¹È®ÀÎ </legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

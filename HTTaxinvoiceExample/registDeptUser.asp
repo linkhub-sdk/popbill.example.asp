@@ -1,26 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' í™ˆíƒìŠ¤ì—°ë™ ì¸ì¦ì„ ìœ„í•´ íŒë¹Œì— ì „ìì„¸ê¸ˆê³„ì‚°ì„œìš© ë¶€ì„œì‚¬ìš©ì ê³„ì •ì„ ë“±ë¡í•©ë‹ˆë‹¤.
+    ' È¨ÅÃ½º¿¬µ¿ ÀÎÁõÀ» À§ÇØ ÆËºô¿¡ ÀüÀÚ¼¼±İ°è»ê¼­¿ë ºÎ¼­»ç¿ëÀÚ °èÁ¤À» µî·ÏÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/cert#RegistDeptUser
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' í™ˆíƒìŠ¤ì—ì„œ ìƒì„±í•œ ì „ìì„¸ê¸ˆê³„ì‚°ì„œ ë¶€ì„œì‚¬ìš©ì ì•„ì´ë””
+    ' È¨ÅÃ½º¿¡¼­ »ı¼ºÇÑ ÀüÀÚ¼¼±İ°è»ê¼­ ºÎ¼­»ç¿ëÀÚ ¾ÆÀÌµğ
     deptUserID = "userid_test"
 
-    ' í™ˆíƒìŠ¤ì—ì„œ ìƒì„±í•œ ì „ìì„¸ê¸ˆê³„ì‚°ì„œ ë¶€ì„œì‚¬ìš©ì ë¹„ë°€ë²ˆí˜¸
+    ' È¨ÅÃ½º¿¡¼­ »ı¼ºÇÑ ÀüÀÚ¼¼±İ°è»ê¼­ ºÎ¼­»ç¿ëÀÚ ºñ¹Ğ¹øÈ£
     deptUserPWD = "passwd_test"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -44,7 +44,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë¶€ì„œì‚¬ìš©ì ê³„ì •ë“±ë¡</legend>
+                <legend>ºÎ¼­»ç¿ëÀÚ °èÁ¤µî·Ï</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

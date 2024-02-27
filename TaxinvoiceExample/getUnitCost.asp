@@ -1,17 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÌåùÎπå SDK ASP Example.</title>
+        <title>∆À∫Ù SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Ï†ÑÏûêÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î∞úÌñâÎã®Í∞ÄÎ•º ÌôïÏù∏Ìï©ÎãàÎã§.
+    ' ¿¸¿⁄ºº±›∞ËªÍº≠ πﬂ«‡¥‹∞°∏¶ »Æ¿Œ«’¥œ¥Ÿ.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/point#GetUnitCost
     '**************************************************************
 
-    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
     CorpNum = "1234567890"
 
     On Error Resume Next
@@ -31,10 +31,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î∞úÌñâÎã®Í∞Ä ÌôïÏù∏ </legend>
+                <legend>ºº±›∞ËªÍº≠ πﬂ«‡¥‹∞° »Æ¿Œ </legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>Î∞úÌñâÎã®Í∞Ä : <%=unitCost%> </li>
+                        <li>πﬂ«‡¥‹∞° : <%=unitCost%> </li>
                     <% Else %>
                         <li> Response.code : <%=code%></li>
                         <li> Response.message : <%=message%></li>

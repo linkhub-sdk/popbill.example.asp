@@ -1,17 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì‚¬ì—…ìë²ˆí˜¸ë¥¼ ì¡°íšŒí•˜ì—¬ ì—°ë™íšŒì› ê°€ì…ì—¬ë¶€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' »ç¾÷ÀÚ¹øÈ£¸¦ Á¶È¸ÇÏ¿© ¿¬µ¿È¸¿ø °¡ÀÔ¿©ºÎ¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/statement/asp/api/member#CheckIsMember
     '**************************************************************
 
-    ' ì‚¬ì—…ìë²ˆí˜¸ ("-"ì œì™¸)
+    ' »ç¾÷ÀÚ¹øÈ£ ("-"Á¦¿Ü)
     CorpNum = "1234567890"
 
     On Error Resume Next
@@ -35,7 +35,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì—°ë™íšŒì› ê°€ì…ì—¬ë¶€ í™•ì¸</legend>
+                <legend>¿¬µ¿È¸¿ø °¡ÀÔ¿©ºÎ È®ÀÎ</legend>
                 <ul>
                     <li>Response.code : <%=code%></li>
                     <li>Response.message : <%=message%></li>

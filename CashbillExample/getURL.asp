@@ -1,24 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ë¡œê·¸ì¸ ìƒíƒœë¡œ íŒë¹Œ ì‚¬ì´íŠ¸ì˜ í˜„ê¸ˆì˜ìˆ˜ì¦ ë¬¸ì„œí•¨ ë©”ë‰´ì— ì ‘ê·¼í•  ìˆ˜ ìžˆëŠ” íŽ˜ì´ì§€ì˜ íŒì—… URLì„ ë°˜í™˜í•©ë‹ˆë‹¤.
-    ' - ë°˜í™˜ë˜ëŠ” URLì€ ë³´ì•ˆ ì •ì±…ìƒ 30ì´ˆ ë™ì•ˆ ìœ íš¨í•˜ë©°, ì‹œê°„ì„ ì´ˆê³¼í•œ í›„ì—ëŠ” í•´ë‹¹ URLì„ í†µí•œ íŽ˜ì´ì§€ ì ‘ê·¼ì´ ë¶ˆê°€í•©ë‹ˆë‹¤.
+    ' ·Î±×ÀÎ »óÅÂ·Î ÆËºô »çÀÌÆ®ÀÇ Çö±Ý¿µ¼öÁõ ¹®¼­ÇÔ ¸Þ´º¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Â ÆäÀÌÁöÀÇ ÆË¾÷ URLÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
+    ' - ¹ÝÈ¯µÇ´Â URLÀº º¸¾È Á¤Ã¥»ó 30ÃÊ µ¿¾È À¯È¿ÇÏ¸ç, ½Ã°£À» ÃÊ°úÇÑ ÈÄ¿¡´Â ÇØ´ç URLÀ» ÅëÇÑ ÆäÀÌÁö Á¢±ÙÀÌ ºÒ°¡ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/info#GetURL
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
-    ' TBOX(ìž„ì‹œë¬¸ì„œí•¨), PBOX(ë°œí–‰ë¬¸ì„œí•¨), WRITE(í˜„ê¸ˆì˜ìˆ˜ì¦ ìž‘ì„±)
+    ' TBOX(ÀÓ½Ã¹®¼­ÇÔ), PBOX(¹ßÇà¹®¼­ÇÔ), WRITE(Çö±Ý¿µ¼öÁõ ÀÛ¼º)
     TOGO = "PBOX"
 
     On Error Resume Next
@@ -38,7 +38,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>íŒë¹Œ í˜„ê¸ˆì˜ìˆ˜ì¦ ë¬¸ì„œí•¨ URL</legend>
+                <legend>ÆËºô Çö±Ý¿µ¼öÁõ ¹®¼­ÇÔ URL</legend>
                 <ul>
                     <% If code = 0 Then %>
                         <li>URL : <%=url%> </li>

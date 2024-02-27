@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒë¹Œì— ë“±ë¡ëœ ê³„ì¢Œì •ë³´ ëª©ë¡ì„ ë°˜í™˜í•©ë‹ˆë‹¤.
+    ' ÆËºô¿¡ µî·ÏµÈ °èÁÂÁ¤º¸ ¸ñ·ÏÀ» ¹İÈ¯ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/manage#ListBankAccount
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -34,7 +34,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ê³„ì¢Œ ëª©ë¡</legend>
+                <legend>°èÁÂ ¸ñ·Ï</legend>
                 <%
                     If code = 0 Then
                         For i=0 To result.Count-1
@@ -42,21 +42,21 @@
                             <fieldset class="fieldset2">
                                 <legend>ListBankAccount [ <%=i+1%> / <%=result.Count%> ] </legend>
                                     <ul>
-                                        <li>accountNumber (ê³„ì¢Œë²ˆí˜¸) : <%=result.Item(i).accountNumber%></li>
-                                        <li>bankCode (ê¸°ê´€ì½”ë“œ) : <%=result.Item(i).bankCode%></li>
-                                        <li>accountName (ê³„ì¢Œ ë³„ì¹­) : <%=result.Item(i).accountName%></li>
-                                        <li>accountType (ê³„ì¢Œìœ í˜•) : <%=result.Item(i).accountType%></li>
-                                        <li>state (ì •ì•¡ì œ ìƒíƒœ) : <%=result.Item(i).state%></li>
-                                        <li>regDT (ë“±ë¡ì¼ì‹œ) : <%=result.Item(i).regDT%></li>
-                                        <li>contractDT (ì •ì•¡ì œ ì„œë¹„ìŠ¤ ì‹œì‘ì¼ì‹œ) : <%=result.Item(i).contractDT %> </li>
-                                        <li>useEndDate (ì •ì•¡ì œ ì„œë¹„ìŠ¤ ì¢…ë£Œì¼) : <%=result.Item(i).useEndDate %> </li>
-                                        <li>baseDate (ìë™ì—°ì¥ ê²°ì œì¼) : <%=result.Item(i).baseDate %> </li>
-                                        <li>contractState (ì •ì•¡ì œ ì„œë¹„ìŠ¤ ìƒíƒœ) : <%=result.Item(i).contractState%> </li>
-                                        <li>closeRequestYN (ì •ì•¡ì œ ì„œë¹„ìŠ¤ í•´ì§€ì‹ ì²­ ì—¬ë¶€) : <%=result.Item(i).closeRequestYN%> </li>
-                                        <li>useRestrictYN (ì •ì•¡ì œ ì„œë¹„ìŠ¤ ì‚¬ìš©ì œí•œ ì—¬ë¶€) : <%=result.Item(i).useRestrictYN%> </li>
-                                        <li>closeOnExpired (ì •ì•¡ì œ ì„œë¹„ìŠ¤ ë§Œë£Œ ì‹œ í•´ì§€ ì—¬ë¶€) : <%=result.Item(i).closeOnExpired %> </li>
-                                        <li>unPaidYN (ë¯¸ìˆ˜ê¸ˆ ë³´ìœ  ì—¬ë¶€) : <%=result.Item(i).unPaidYN %> </li>
-                                        <li>memo (ë©”ëª¨) : <%=result.Item(i).memo%></li>
+                                        <li>accountNumber (°èÁÂ¹øÈ£) : <%=result.Item(i).accountNumber%></li>
+                                        <li>bankCode (±â°üÄÚµå) : <%=result.Item(i).bankCode%></li>
+                                        <li>accountName (°èÁÂ º°Äª) : <%=result.Item(i).accountName%></li>
+                                        <li>accountType (°èÁÂÀ¯Çü) : <%=result.Item(i).accountType%></li>
+                                        <li>state (Á¤¾×Á¦ »óÅÂ) : <%=result.Item(i).state%></li>
+                                        <li>regDT (µî·ÏÀÏ½Ã) : <%=result.Item(i).regDT%></li>
+                                        <li>contractDT (Á¤¾×Á¦ ¼­ºñ½º ½ÃÀÛÀÏ½Ã) : <%=result.Item(i).contractDT %> </li>
+                                        <li>useEndDate (Á¤¾×Á¦ ¼­ºñ½º Á¾·áÀÏ) : <%=result.Item(i).useEndDate %> </li>
+                                        <li>baseDate (ÀÚµ¿¿¬Àå °áÁ¦ÀÏ) : <%=result.Item(i).baseDate %> </li>
+                                        <li>contractState (Á¤¾×Á¦ ¼­ºñ½º »óÅÂ) : <%=result.Item(i).contractState%> </li>
+                                        <li>closeRequestYN (Á¤¾×Á¦ ¼­ºñ½º ÇØÁö½ÅÃ» ¿©ºÎ) : <%=result.Item(i).closeRequestYN%> </li>
+                                        <li>useRestrictYN (Á¤¾×Á¦ ¼­ºñ½º »ç¿ëÁ¦ÇÑ ¿©ºÎ) : <%=result.Item(i).useRestrictYN%> </li>
+                                        <li>closeOnExpired (Á¤¾×Á¦ ¼­ºñ½º ¸¸·á ½Ã ÇØÁö ¿©ºÎ) : <%=result.Item(i).closeOnExpired %> </li>
+                                        <li>unPaidYN (¹Ì¼ö±İ º¸À¯ ¿©ºÎ) : <%=result.Item(i).unPaidYN %> </li>
+                                        <li>memo (¸Ş¸ğ) : <%=result.Item(i).memo%></li>
 
                                     </ul>
                                 </fieldset>

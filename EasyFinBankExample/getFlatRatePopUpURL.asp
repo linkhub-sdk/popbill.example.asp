@@ -1,21 +1,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ê³„ì¢Œì¡°íšŒ ì •ì•¡ì œ ì„œë¹„ìŠ¤ ì‹ ì²­ íŽ˜ì´ì§€ì˜ íŒì—… URLì„ ë°˜í™˜í•©ë‹ˆë‹¤.
-    ' - ë°˜í™˜ë˜ëŠ” URLì€ ë³´ì•ˆì •ì±…ìƒ 30ì´ˆì˜ ìœ íš¨ì‹œê°„ì„ ê°–ìœ¼ë©°, ì´ ì‹œê°„ ì´ˆê³¼í›„ì—ëŠ” URLì„ ì‚¬ìš©í•´ë„ ì •ìƒì ì¸ íŽ˜ì´ì§€ì— ì ‘ê·¼í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+    ' °èÁÂÁ¶È¸ Á¤¾×Á¦ ¼­ºñ½º ½ÅÃ» ÆäÀÌÁöÀÇ ÆË¾÷ URLÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
+    ' - ¹ÝÈ¯µÇ´Â URLÀº º¸¾ÈÁ¤Ã¥»ó 30ÃÊÀÇ À¯È¿½Ã°£À» °®À¸¸ç, ÀÌ ½Ã°£ ÃÊ°úÈÄ¿¡´Â URLÀ» »ç¿ëÇØµµ Á¤»óÀûÀÎ ÆäÀÌÁö¿¡ Á¢±ÙÇÒ ¼ö ¾ø½À´Ï´Ù.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/point#GetFlatRatePopUpURL
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
     On Error Resume Next
@@ -34,7 +34,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì •ì•¡ì œ ì‹ ì²­ íŒì—… URL</legend>
+                <legend>Á¤¾×Á¦ ½ÅÃ» ÆË¾÷ URL</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>URL : <%=url%> </li>

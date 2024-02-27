@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
     	<link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-    	<title>íŒë¹Œ SDK ASP Example.</title>
+    	<title>ÆËºô SDK ASP Example.</title>
 	</head>
 <!--#include file="common.asp"-->
 <%
 	'**************************************************************
-	' ì˜ˆê¸ˆì£¼ ì„±ëª… ì¡°íšŒì‹œ ê³¼ê¸ˆë˜ëŠ” í¬ì¸íŠ¸ ë‹¨ê°€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+	' ¿¹±İÁÖ ¼º¸í Á¶È¸½Ã °ú±İµÇ´Â Æ÷ÀÎÆ® ´Ü°¡¸¦ È®ÀÎÇÕ´Ï´Ù.
 	' - https://developers.popbill.com/reference/accountcheck/asp/api/point#GetUnitCost
 	'**************************************************************
 
-	' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+	' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
 	CorpNum = "1234567890"
 
-	' íŒë¹ŒíšŒì› ì•„ì´ë””
+	' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
 	UserID = "testkorea"
 
-	' ì„œë¹„ìŠ¤ ìœ í˜• ("ì„±ëª…" / "ì‹¤ëª…" ì¤‘ íƒ 1 , ì„±ëª… = ì˜ˆê¸ˆì£¼ì„±ëª…ì¡°íšŒ, ì‹¤ëª… = ì˜ˆê¸ˆì£¼ì‹¤ëª…ì¡°íšŒ)
+	' ¼­ºñ½º À¯Çü ("¼º¸í" / "½Ç¸í" Áß ÅÃ 1 , ¼º¸í = ¿¹±İÁÖ¼º¸íÁ¶È¸, ½Ç¸í = ¿¹±İÁÖ½Ç¸íÁ¶È¸)
 	serviceType = ""
 
 	On Error Resume Next
@@ -37,10 +37,10 @@
         	<p class="heading1">Response</p>
         	<br/>
         	<fieldset class="fieldset1">
-            	<legend>ì˜ˆê¸ˆì£¼ì¡°íšŒ ë‹¨ê°€ í™•ì¸ </legend>
+            	<legend>¿¹±İÁÖÁ¶È¸ ´Ü°¡ È®ÀÎ </legend>
             	<ul>
                 	<% If code = 0 Then %>
-                    	<li>ì¡°íšŒë‹¨ê°€ : <%=unitCost%> </li>
+                    	<li>Á¶È¸´Ü°¡ : <%=unitCost%> </li>
                 	<% Else %>
                     	<li> Response.code : <%=code%> </li>
                     	<li> Response.message : <%=message%> </li>

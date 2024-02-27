@@ -1,38 +1,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì—°ë™íšŒì›ì˜ íšŒì‚¬ì •ë³´ë¥¼ ìˆ˜ì •í•©ë‹ˆë‹¤.
+    ' ¿¬µ¿È¸¿øÀÇ È¸»çÁ¤º¸¸¦ ¼öÁ¤ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/sms/asp/api/member#UpdateCorpInfo
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     Set infoObj = New CorpInfo
 
-    ' ëŒ€í‘œìëª…
-    infoObj.ceoname = "ë§í¬í—ˆë¸Œ ëŒ€í‘œì_ASP"
+    ' ´ëÇ¥ÀÚ¸í
+    infoObj.ceoname = "¸µÅ©Çãºê ´ëÇ¥ÀÚ_ASP"
 
-    ' ìƒí˜¸
-    infoObj.corpName = "ë§í¬í—ˆë¸Œ"
+    ' »óÈ£
+    infoObj.corpName = "¸µÅ©Çãºê"
 
-    ' ì£¼ì†Œ
-    infoObj.addr	= "ì£¼ì†Œìˆ˜ì •"
+    ' ÁÖ¼Ò
+    infoObj.addr	= "ÁÖ¼Ò¼öÁ¤"
 
-    ' ì—…íƒœ
-    infoObj.bizType = "ì—…íƒœì •ë³´"
+    ' ¾÷ÅÂ
+    infoObj.bizType = "¾÷ÅÂÁ¤º¸"
 
-    ' ì¢…ëª©
-    infoObj.bizClass = "ì¢…ëª©ì •ë³´"
+    ' Á¾¸ñ
+    infoObj.bizClass = "Á¾¸ñÁ¤º¸"
 
     On Error Resume Next
 
@@ -56,7 +56,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>íšŒì‚¬ì •ë³´ ìˆ˜ì •</legend>
+                <legend>È¸»çÁ¤º¸ ¼öÁ¤</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

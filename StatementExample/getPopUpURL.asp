@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì „ìžëª…ì„¸ì„œ 1ê±´ì˜ ìƒì„¸ ì •ë³´ íŽ˜ì´ì§€ì˜ íŒì—… URLì„ ë°˜í™˜í•©ë‹ˆë‹¤.
-    ' - ë°˜í™˜ë˜ëŠ” URLì€ ë³´ì•ˆ ì •ì±…ìƒ 30ì´ˆ ë™ì•ˆ ìœ íš¨í•˜ë©°, ì‹œê°„ì„ ì´ˆê³¼í•œ í›„ì—ëŠ” í•´ë‹¹ URLì„ í†µí•œ íŽ˜ì´ì§€ ì ‘ê·¼ì´ ë¶ˆê°€í•©ë‹ˆë‹¤.
+    ' ÀüÀÚ¸í¼¼¼­ 1°ÇÀÇ »ó¼¼ Á¤º¸ ÆäÀÌÁöÀÇ ÆË¾÷ URLÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
+    ' - ¹ÝÈ¯µÇ´Â URLÀº º¸¾È Á¤Ã¥»ó 30ÃÊ µ¿¾È À¯È¿ÇÏ¸ç, ½Ã°£À» ÃÊ°úÇÑ ÈÄ¿¡´Â ÇØ´ç URLÀ» ÅëÇÑ ÆäÀÌÁö Á¢±ÙÀÌ ºÒ°¡ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/statement/asp/api/view#GetPopUpURL
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
-    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ëž˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ìž…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±ÝÇ¥), 126(¿µ¼öÁõ)
     itemCode = "121"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -41,7 +41,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend> ì „ìžëª…ì„¸ì„œ ë³´ê¸° íŒì—… URL ìš”ì²­</legend>
+                <legend> ÀüÀÚ¸í¼¼¼­ º¸±â ÆË¾÷ URL ¿äÃ»</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>URL : <%=CStr(url)%> </li>

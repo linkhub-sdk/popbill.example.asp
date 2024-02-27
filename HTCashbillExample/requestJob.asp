@@ -1,29 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' í™ˆíƒìŠ¤ì— ì‹ ê³ ëœ í˜„ê¸ˆì˜ìˆ˜ì¦ ë§¤ìž…/ë§¤ì¶œ ë‚´ì—­ ìˆ˜ì§‘ì„ íŒë¹Œì— ìš”ì²­í•©ë‹ˆë‹¤. (ì¡°íšŒê¸°ê°„ ë‹¨ìœ„ : ìµœëŒ€ 3ê°œì›”)
+    ' È¨ÅÃ½º¿¡ ½Å°íµÈ Çö±Ý¿µ¼öÁõ ¸ÅÀÔ/¸ÅÃâ ³»¿ª ¼öÁýÀ» ÆËºô¿¡ ¿äÃ»ÇÕ´Ï´Ù. (Á¶È¸±â°£ ´ÜÀ§ : ÃÖ´ë 3°³¿ù)
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/job#RequestJob
     '**************************************************************
 
-    'íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    'ë°œí–‰ìœ í˜• SELL(ë§¤ì¶œ), BUY(ë§¤ìž…)
+    '¹ßÇàÀ¯Çü SELL(¸ÅÃâ), BUY(¸ÅÀÔ)
     KeyType= "BUY"
 
-    'ì‹œìž‘ì¼ìž, í‘œì‹œí˜•ì‹(yyyyMMdd)
+    '½ÃÀÛÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
     SDate = "20220701"
 
-    'ì¢…ë£Œì¼ìž, í‘œì‹œí˜•ì‹(yyyyMMdd)
+    'Á¾·áÀÏÀÚ, Ç¥½ÃÇü½Ä(yyyyMMdd)
     EDate =	"20220720"
 
-    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    'ÆËºôÈ¸¿ø ¾ÆÀÌµð
     testUserID = "testkorea"
 
     On Error Resume Next
@@ -43,10 +43,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ìˆ˜ì§‘ ìš”ì²­</legend>
+                <legend>¼öÁý ¿äÃ»</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>jobID(ìž‘ì—…ì•„ì´ë””) : <%=jobID%> </li>
+                        <li>jobID(ÀÛ¾÷¾ÆÀÌµð) : <%=jobID%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>

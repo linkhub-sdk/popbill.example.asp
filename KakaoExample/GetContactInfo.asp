@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì—°ë™íšŒì› ì‚¬ì—…ìžë²ˆí˜¸ì— ë“±ë¡ëœ ë‹´ë‹¹ìž(íŒë¹Œ ë¡œê·¸ì¸ ê³„ì •) ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ¿¬µ¿È¸¿ø »ç¾÷ÀÚ¹øÈ£¿¡ µî·ÏµÈ ´ã´çÀÚ(ÆËºô ·Î±×ÀÎ °èÁ¤) Á¤º¸¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/member#GetContactInfo
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' í™•ì¸í•  ë‹´ë‹¹ìž ì•„ì´ë””
+    ' È®ÀÎÇÒ ´ã´çÀÚ ¾ÆÀÌµð
     contactID = "testID"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
     On Error Resume Next
@@ -37,17 +37,17 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë‹´ë‹¹ìž ì •ë³´ í™•ì¸</legend>
+                <legend>´ã´çÀÚ Á¤º¸ È®ÀÎ</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li> id(ì•„ì´ë””) : <%=conInfo.id%></li>
-                        <li> personName(ë‹´ë‹¹ìž ì„±ëª…) : <%=conInfo.personName%></li>
-                        <li> email(ë‹´ë‹¹ìž ì´ë©”ì¼) : <%=conInfo.email%></li>
-                        <li> tel(ë‹´ë‹¹ìž ì—°ë½ì²˜) : <%=conInfo.tel%></li>
-                        <li> regDT(ë“±ë¡ì¼ì‹œ) : <%=conInfo.regDT%></li>
-                        <li> SearchRole(ë‹´ë‹¹ìž ì¡°íšŒê¶Œí•œ) : <%=conInfo.SearchRole%></li>
-                        <li> mgrYN(ê´€ë¦¬ìž ì—¬ë¶€) : <%=conInfo.mgrYN%></li>
-                        <li> state(ìƒíƒœ) : <%=conInfo.state%></li>
+                        <li> id(¾ÆÀÌµð) : <%=conInfo.id%></li>
+                        <li> personName(´ã´çÀÚ ¼º¸í) : <%=conInfo.personName%></li>
+                        <li> email(´ã´çÀÚ ÀÌ¸ÞÀÏ) : <%=conInfo.email%></li>
+                        <li> tel(´ã´çÀÚ ¿¬¶ôÃ³) : <%=conInfo.tel%></li>
+                        <li> regDT(µî·ÏÀÏ½Ã) : <%=conInfo.regDT%></li>
+                        <li> SearchRole(´ã´çÀÚ Á¶È¸±ÇÇÑ) : <%=conInfo.SearchRole%></li>
+                        <li> mgrYN(°ü¸®ÀÚ ¿©ºÎ) : <%=conInfo.mgrYN%></li>
+                        <li> state(»óÅÂ) : <%=conInfo.state%></li>
                     </ul>
                 <%	Else  %>
                     <ul>

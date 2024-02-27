@@ -1,27 +1,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÌåùÎπå SDK ASP Example.</title>
+        <title>∆À∫Ù SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' "Î∞úÌñâÏôÑÎ£å" ÏÉÅÌÉúÏùò Ï†ÑÏûêÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑúÎ•º Íµ≠ÏÑ∏Ï≤≠Ïóê Ï¶âÏãú Ï†ÑÏÜ°ÌïòÎ©∞, Ìï®Ïàò Ìò∏Ï∂ú ÌõÑ ÏµúÎåÄ 30Î∂Ñ Ïù¥ÎÇ¥Ïóê Ï†ÑÏÜ° Ï≤òÎ¶¨Í∞Ä ÏôÑÎ£åÎê©ÎãàÎã§.
-    ' - Íµ≠ÏÑ∏Ï≤≠ Ï¶âÏãúÏ†ÑÏÜ°ÏùÑ Ìò∏Ï∂úÌïòÏßÄ ÏïäÏùÄ ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑúÎäî Î∞úÌñâÏùº Í∏∞Ï§Ä Îã§Ïùå ÏòÅÏóÖÏùº Ïò§ÌõÑ 3ÏãúÏóê ÌåùÎπå ÏãúÏä§ÌÖúÏóêÏÑú ÏùºÍ¥ÑÏ†ÅÏúºÎ°ú Íµ≠ÏÑ∏Ï≤≠ÏúºÎ°ú Ï†ÑÏÜ°Ìï©ÎãàÎã§.
+    ' "πﬂ«‡øœ∑·" ªÛ≈¬¿« ¿¸¿⁄ºº±›∞ËªÍº≠∏¶ ±πºº√ªø° ¡ÔΩ√ ¿¸º€«œ∏Á, «‘ºˆ »£√‚ »ƒ √÷¥Î 30∫– ¿Ã≥ªø° ¿¸º€ √≥∏Æ∞° øœ∑·µÀ¥œ¥Ÿ.
+    ' - ±πºº√ª ¡ÔΩ√¿¸º€¿ª »£√‚«œ¡ˆ æ ¿∫ ºº±›∞ËªÍº≠¥¬ πﬂ«‡¿œ ±‚¡ÿ ¥Ÿ¿Ω øµæ˜¿œ ø¿»ƒ 3Ω√ø° ∆À∫Ù Ω√Ω∫≈€ø°º≠ ¿œ∞˝¿˚¿∏∑Œ ±πºº√ª¿∏∑Œ ¿¸º€«’¥œ¥Ÿ.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#SendToNTS
     '**************************************************************
 
-    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
     CorpNum = "1234567890"
 
-    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
     testUserID = "testkorea"
 
-    ' Î∞úÌñâÏú†Ìòï SELL(Îß§Ï∂ú), BUY(Îß§ÏûÖ), TRUSTEE(ÏúÑÏàòÌÉÅ)
+    ' πﬂ«‡¿Ø«¸ SELL(∏≈√‚), BUY(∏≈¿‘), TRUSTEE(¿ßºˆ≈π)
     KeyType = "SELL"
 
-    ' Î¨∏ÏÑúÎ≤àÌò∏
+    ' πÆº≠π¯»£
     MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -43,7 +43,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>Íµ≠ÏÑ∏Ï≤≠ Ï¶âÏãúÏ†ÑÏÜ°</legend>
+                <legend>±πºº√ª ¡ÔΩ√¿¸º€</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

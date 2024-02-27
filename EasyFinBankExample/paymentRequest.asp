@@ -1,38 +1,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì—°ë™íšŒì› í¬ì¸íŠ¸ ì¶©ì „ì„ ìœ„í•´ ë¬´í†µì¥ì…ê¸ˆì„ ì‹ ì²­í•©ë‹ˆë‹¤.
+    ' ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀüÀ» À§ÇØ ¹«ÅëÀåÀÔ±İÀ» ½ÅÃ»ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/easyfinbank/asp/api/point#PaymentRequest
     '**************************************************************
 
-    'íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
     Dim m_PaymentForm : Set m_PaymentForm = New PaymentForm
 
-    'ë‹´ë‹¹ìëª…
-    m_PaymentForm.SettlerName = "ë‹´ë‹¹ì"
+    '´ã´çÀÚ¸í
+    m_PaymentForm.SettlerName = "´ã´çÀÚ"
 
-    'ë‹´ë‹¹ì ì´ë©”ì¼
+    '´ã´çÀÚ ÀÌ¸ŞÀÏ
     m_PaymentForm.SettlerEmail = "email_damdang@email.com"
 
 
-    'ë‹´ë‹¹ì íœ´ëŒ€í°
+    '´ã´çÀÚ ÈŞ´ëÆù
     m_PaymentForm.NotifyHP = "010-1234-1234"
 
-    'ì…ê¸ˆìëª…
-    m_PaymentForm.PaymentName = "ì…ê¸ˆì"
+    'ÀÔ±İÀÚ¸í
+    m_PaymentForm.PaymentName = "ÀÔ±İÀÚ"
 
-    'ê²°ì œê¸ˆì•¡
+    '°áÁ¦±İ¾×
     m_PaymentForm.SettleCost = "10000"
 
-    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -52,16 +52,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì—°ë™íšŒì› ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­</legend>
+                <legend>¿¬µ¿È¸¿ø ¹«ÅëÀå ÀÔ±İ½ÅÃ»</legend>
                 <%
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
                         <legend> PaymentResponse </legend>
                             <ul>
-                                <li> code (ì‘ë‹µì½”ë“œ) : <%=result.code%></li>
-                                <li> message (ì‘ë‹µë©”ì‹œì§€) : <%=result.message%></li>
-                                <li> settleCode (ì •ì‚°ì½”ë“œ) : <%=result.settleCode%></li>
+                                <li> code (ÀÀ´äÄÚµå) : <%=result.code%></li>
+                                <li> message (ÀÀ´ä¸Ş½ÃÁö) : <%=result.message%></li>
+                                <li> settleCode (Á¤»êÄÚµå) : <%=result.settleCode%></li>
                             </ul>
                         </fieldset>
                 <%

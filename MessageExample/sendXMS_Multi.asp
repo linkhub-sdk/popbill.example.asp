@@ -1,53 +1,53 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ë©”ì‹œì§€ í¬ê¸°(90byte)ì— ë”°ë¼ ë‹¨ë¬¸/ìž¥ë¬¸(SMS/LMS)ì„ ìžë™ìœ¼ë¡œ ì¸ì‹í•˜ì—¬ 1ê±´ì˜ ë©”ì‹œì§€ë¥¼ ì „ì†¡ì„ íŒë¹Œì— ì ‘ìˆ˜í•˜ë©°, ìˆ˜ì‹ ìž ë³„ë¡œ ê°œë³„ ë‚´ìš©ì„ ì „ì†¡í•©ë‹ˆë‹¤. (ìµœëŒ€ 1,000ê±´)
-    ' - ë‹¨ë¬¸(SMS) = 90byte ì´í•˜ì˜ ë©”ì‹œì§€, ìž¥ë¬¸(LMS) = 2000byte ì´í•˜ì˜ ë©”ì‹œì§€.
+    ' ¸Þ½ÃÁö Å©±â(90byte)¿¡ µû¶ó ´Ü¹®/Àå¹®(SMS/LMS)À» ÀÚµ¿À¸·Î ÀÎ½ÄÇÏ¿© 1°ÇÀÇ ¸Þ½ÃÁö¸¦ Àü¼ÛÀ» ÆËºô¿¡ Á¢¼öÇÏ¸ç, ¼ö½ÅÀÚ º°·Î °³º° ³»¿ëÀ» Àü¼ÛÇÕ´Ï´Ù. (ÃÖ´ë 1,000°Ç)
+    ' - ´Ü¹®(SMS) = 90byte ÀÌÇÏÀÇ ¸Þ½ÃÁö, Àå¹®(LMS) = 2000byte ÀÌÇÏÀÇ ¸Þ½ÃÁö.
     ' - https://developers.popbill.com/reference/sms/asp/api/send#SendXMS
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
-    ' ê´‘ê³ ì„± ë©”ì‹œì§€ ì—¬ë¶€ ( true , false ì¤‘ íƒ 1)
-    ' â”” true = ê´‘ê³  , false = ì¼ë°˜
+    ' ±¤°í¼º ¸Þ½ÃÁö ¿©ºÎ ( true , false Áß ÅÃ 1)
+    ' ¦¦ true = ±¤°í , false = ÀÏ¹Ý
     adsYN = False
 
-    ' ì˜ˆì•½ì „ì†¡ì‹œê°„ yyyyMMddHHmmss, reserveDTê°’ì´ ì—†ëŠ” ê²½ìš° ì¦‰ì‹œì „ì†¡
+    ' ¿¹¾àÀü¼Û½Ã°£ yyyyMMddHHmmss, reserveDT°ªÀÌ ¾ø´Â °æ¿ì Áï½ÃÀü¼Û
     reserveDT = ""
 
 
-    ' ë¬¸ìžì „ì†¡ì •ë³´ ë°°ì—´, ìµœëŒ€ 1000ê±´
+    ' ¹®ÀÚÀü¼ÛÁ¤º¸ ¹è¿­, ÃÖ´ë 1000°Ç
     Set msgList = CreateObject("Scripting.Dictionary")
 
     For i = 0 To 5
         Set message = New Messages
 
-        ' ë°œì‹ ë²ˆí˜¸
+        ' ¹ß½Å¹øÈ£
         message.sender = ""
 
-        ' ë°œì‹ ìžëª…
-        message.senderName = "ë°œì‹ ìžëª…"
+        ' ¹ß½ÅÀÚ¸í
+        message.senderName = "¹ß½ÅÀÚ¸í"
 
-        ' ìˆ˜ì‹ ë²ˆí˜¸
+        ' ¼ö½Å¹øÈ£
         message.receiver = ""
 
-        ' ìˆ˜ì‹ ìžëª…
-        message.receivername = " ìˆ˜ì‹ ìžì´ë¦„"+CStr(i)
+        ' ¼ö½ÅÀÚ¸í
+        message.receivername = " ¼ö½ÅÀÚÀÌ¸§"+CStr(i)
 
-        ' ë©”ì‹œì§€ë‚´ìš©, 90byteê¸°ì¤€ìœ¼ë¡œ ë‹¨/ìž¥ë¬¸ ìžë™ì¸ì‹ ì „ì†¡
-        message.content = "ë¬¸ìžë‚´ìš©ì´ 90byte ì´í•˜ì¸ê²½ìš° ë‹¨ë¬¸(sms)ë¡œ ì „ì†¡ë©ë‹ˆë‹¤."
+        ' ¸Þ½ÃÁö³»¿ë, 90byte±âÁØÀ¸·Î ´Ü/Àå¹® ÀÚµ¿ÀÎ½Ä Àü¼Û
+        message.content = "¹®ÀÚ³»¿ëÀÌ 90byte ÀÌÇÏÀÎ°æ¿ì ´Ü¹®(sms)·Î Àü¼ÛµË´Ï´Ù."
 
-        ' íŒŒíŠ¸ë„ˆ ì§€ì •í‚¤, ìˆ˜ì‹ ìž êµ¬ë³„ìš© ë©”ëª¨
+        ' ÆÄÆ®³Ê ÁöÁ¤Å°, ¼ö½ÅÀÚ ±¸º°¿ë ¸Þ¸ð
         message.interOPRefKey = "20220720-00"+CStr(i)
 
         msgList.Add i, message
@@ -56,33 +56,33 @@
     For i = 6 To 9
         Set message = New Messages
 
-        ' ë°œì‹ ë²ˆí˜¸
+        ' ¹ß½Å¹øÈ£
         message.sender = ""
 
-        ' ë°œì‹ ìžëª…
-        message.senderName = "ë°œì‹ ìžëª…"
+        ' ¹ß½ÅÀÚ¸í
+        message.senderName = "¹ß½ÅÀÚ¸í"
 
-        ' ìˆ˜ì‹ ë²ˆí˜¸
+        ' ¼ö½Å¹øÈ£
         message.receiver = ""
 
-        ' ìˆ˜ì‹ ìžëª…
-        message.receivername = " ìˆ˜ì‹ ìžì´ë¦„"+CStr(i)
+        ' ¼ö½ÅÀÚ¸í
+        message.receivername = " ¼ö½ÅÀÚÀÌ¸§"+CStr(i)
 
-        ' ë©”ì‹œì§€ë‚´ìš©, 90byteê¸°ì¤€ìœ¼ë¡œ ë‹¨/ìž¥ë¬¸ ìžë™ì¸ì‹ ì „ì†¡
-        message.content = "ë‹¨/ìž¥ë¬¸ ìžë™ì¸ì‹ ë©”ì‹œì§€ í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤. ë¬¸ìžë‚´ìš©ì˜ ê¸¸ì´ê°€ 90byte ì´ìƒì¸ê²½ìš° ìž¥ë¬¸(LMS)ë¡œ ì „ì†¡ë©ë‹ˆë‹¤ ë‹¨/ìž¥ë¬¸ ìžë™ì¸ì‹ ë©”ì‹œì§€ í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤."
+        ' ¸Þ½ÃÁö³»¿ë, 90byte±âÁØÀ¸·Î ´Ü/Àå¹® ÀÚµ¿ÀÎ½Ä Àü¼Û
+        message.content = "´Ü/Àå¹® ÀÚµ¿ÀÎ½Ä ¸Þ½ÃÁö Å×½ºÆ®ÀÔ´Ï´Ù. ¹®ÀÚ³»¿ëÀÇ ±æÀÌ°¡ 90byte ÀÌ»óÀÎ°æ¿ì Àå¹®(LMS)·Î Àü¼ÛµË´Ï´Ù ´Ü/Àå¹® ÀÚµ¿ÀÎ½Ä ¸Þ½ÃÁö Å×½ºÆ®ÀÔ´Ï´Ù."
 
-        ' ë©”ì‹œì§€ì œëª©
-        message.subject = "ìž¥ë¬¸ ì œëª©ìž…ë‹ˆë‹¤"
+        ' ¸Þ½ÃÁöÁ¦¸ñ
+        message.subject = "Àå¹® Á¦¸ñÀÔ´Ï´Ù"
 
-        ' íŒŒíŠ¸ë„ˆ ì§€ì •í‚¤, ìˆ˜ì‹ ìž êµ¬ë³„ìš© ë©”ëª¨
+        ' ÆÄÆ®³Ê ÁöÁ¤Å°, ¼ö½ÅÀÚ ±¸º°¿ë ¸Þ¸ð
         message.interOPRefKey = "20220720-00"+CStr(i)
 
         msgList.Add i, message
     Next
 
-    ' ì „ì†¡ìš”ì²­ë²ˆí˜¸
-    ' íŒë¹Œì´ ì ‘ìˆ˜ ë‹¨ìœ„ë¥¼ ì‹ë³„í•  ìˆ˜ ìžˆë„ë¡ íŒŒíŠ¸ë„ˆê°€ í• ë‹¹í•œ ì‹ë³„ë²ˆí˜¸.
-    ' 1~36ìžë¦¬ë¡œ êµ¬ì„±. ì˜ë¬¸, ìˆ«ìž, í•˜ì´í”ˆ(-), ì–¸ë”ë°”(_)ë¥¼ ì¡°í•©í•˜ì—¬ íŒë¹Œ íšŒì›ë³„ë¡œ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ í• ë‹¹.
+    ' Àü¼Û¿äÃ»¹øÈ£
+    ' ÆËºôÀÌ Á¢¼ö ´ÜÀ§¸¦ ½Äº°ÇÒ ¼ö ÀÖµµ·Ï ÆÄÆ®³Ê°¡ ÇÒ´çÇÑ ½Äº°¹øÈ£.
+    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ýÀÚ, ÇÏÀÌÇÂ(-), ¾ð´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
     RequestNum = ""
 
     On Error Resume Next
@@ -103,10 +103,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë‹¨/ìž¥ë¬¸ ìžë™ì¸ì‹ ë¬¸ìžë©”ì‹œì§€ 100ê±´ ì „ì†¡ </legend>
+                <legend>´Ü/Àå¹® ÀÚµ¿ÀÎ½Ä ¹®ÀÚ¸Þ½ÃÁö 100°Ç Àü¼Û </legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ReceiptNum(ì ‘ìˆ˜ë²ˆí˜¸) : <%=ReceiptNum%> </li>
+                        <li>ReceiptNum(Á¢¼ö¹øÈ£) : <%=ReceiptNum%> </li>
                     </ul>
                 <%	Else  %>
                     <ul>

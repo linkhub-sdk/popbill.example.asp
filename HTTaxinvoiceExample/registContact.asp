@@ -1,41 +1,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì—°ë™íšŒì› ì‚¬ì—…ìë²ˆí˜¸ì— ë‹´ë‹¹ì(íŒë¹Œ ë¡œê·¸ì¸ ê³„ì •)ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
+    ' ¿¬µ¿È¸¿ø »ç¾÷ÀÚ¹øÈ£¿¡ ´ã´çÀÚ(ÆËºô ·Î±×ÀÎ °èÁ¤)¸¦ Ãß°¡ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/member#RegistContact
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ë‹´ë‹¹ì ì •ë³´ ê°ì²´ ìƒì„±
+    ' ´ã´çÀÚ Á¤º¸ °´Ã¼ »ı¼º
     Set contInfo = New ContactInfo
 
-    ' ë‹´ë‹¹ì ì•„ì´ë””, 6ìì´ìƒ 20ìë¯¸ë§Œ
+    ' ´ã´çÀÚ ¾ÆÀÌµğ, 6ÀÚÀÌ»ó 20ÀÚ¹Ì¸¸
     contInfo.id = "testkorea00000"
 
-    ' ë¹„ë°€ë²ˆí˜¸ (8ìì´ìƒ 20ì ì´í•˜) ì˜ë¬¸, ìˆ«ì, íŠ¹ìˆ˜ë¬¸ì ì¡°í•©
+    ' ºñ¹Ğ¹øÈ£ (8ÀÚÀÌ»ó 20ÀÚ ÀÌÇÏ) ¿µ¹®, ¼ıÀÚ, Æ¯¼ö¹®ÀÚ Á¶ÇÕ
     contInfo.Password = "asdf1234!@#$"
 
-    ' ë‹´ë‹¹ìëª…
+    ' ´ã´çÀÚ¸í
     contInfo.personName = "ASPTest"
 
-    ' ì—°ë½ì²˜
+    ' ¿¬¶ôÃ³
     contInfo.tel = ""
 
-    ' ë©”ì¼ì£¼ì†Œ
+    ' ¸ŞÀÏÁÖ¼Ò
     contInfo.email = ""
 
-    ' ë‹´ë‹¹ì ì¡°íšŒê¶Œí•œ 1 - ê°œì¸ê¶Œí•œ / 2 - ì½ê¸°ê¶Œí•œ  / 3 - íšŒì‚¬ê¶Œí•œ
+    ' ´ã´çÀÚ Á¶È¸±ÇÇÑ 1 - °³ÀÎ±ÇÇÑ / 2 - ÀĞ±â±ÇÇÑ  / 3 - È¸»ç±ÇÇÑ
     contInfo.searchRole = 3
 
 
@@ -61,7 +61,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë‹´ë‹¹ì ì¶”ê°€</legend>
+                <legend>´ã´çÀÚ Ãß°¡</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

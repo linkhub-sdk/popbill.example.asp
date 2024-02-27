@@ -1,61 +1,61 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
 
     '**************************************************************
-    ' ë™ì¼í•œ íŒ©ìŠ¤íŒŒì¼ì„ ë‹¤ìˆ˜ì˜ ìˆ˜ì‹ ìì—ê²Œ ì „ì†¡í•˜ê¸° ìœ„í•´ íŒë¹Œì— ì ‘ìˆ˜í•©ë‹ˆë‹¤. (ìµœëŒ€ ì „ì†¡íŒŒì¼ ê°œìˆ˜ : 20ê°œ) (ìµœëŒ€ 1,000ê±´)
+    ' µ¿ÀÏÇÑ ÆÑ½ºÆÄÀÏÀ» ´Ù¼öÀÇ ¼ö½ÅÀÚ¿¡°Ô Àü¼ÛÇÏ±â À§ÇØ ÆËºô¿¡ Á¢¼öÇÕ´Ï´Ù. (ÃÖ´ë Àü¼ÛÆÄÀÏ °³¼ö : 20°³) (ÃÖ´ë 1,000°Ç)
     ' - https://developers.popbill.com/reference/fax/asp/api/send#SendFAX
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ë°œì‹ ë²ˆí˜¸
+    ' ¹ß½Å¹øÈ£
     sendNum = ""
 
-    ' ì „ì†¡ì˜ˆì•½ì‹œê°„ yyyyMMddHHmmss, reserveDTê°’ì´ null ê²½ìš° ì¦‰ì‹œì „ì†¡
+    ' Àü¼Û¿¹¾à½Ã°£ yyyyMMddHHmmss, reserveDT°ªÀÌ null °æ¿ì Áï½ÃÀü¼Û
     reserveDT = ""
 
-    ' ìˆ˜ì‹ ì •ë³´ ë°°ì—´ ìµœëŒ€ 1000ê±´
+    ' ¼ö½ÅÁ¤º¸ ¹è¿­ ÃÖ´ë 1000°Ç
     Dim receivers(1)
     Set receivers(0) = New FaxReceiver
-    ' íŒ©ìŠ¤ ìˆ˜ì‹ ë²ˆí˜¸
+    ' ÆÑ½º ¼ö½Å¹øÈ£
     receivers(0).receiverNum = ""
-    ' íŒ©ìŠ¤ ìˆ˜ì‹ ìëª…
-    receivers(0).receiverName = "ìˆ˜ì‹ ì ëª…ì¹­"
-    ' íŒŒíŠ¸ë„ˆ ì§€ì •í‚¤, ìˆ˜ì‹ ì êµ¬ë³„ìš© ë©”ëª¨
+    ' ÆÑ½º ¼ö½ÅÀÚ¸í
+    receivers(0).receiverName = "¼ö½ÅÀÚ ¸íÄª"
+    ' ÆÄÆ®³Ê ÁöÁ¤Å°, ¼ö½ÅÀÚ ±¸º°¿ë ¸Ş¸ğ
     receivers(0).interOPRefKey = "20220720-001"
 
     Set receivers(1) = New FaxReceiver
-    ' íŒ©ìŠ¤ ìˆ˜ì‹ ë²ˆí˜¸
+    ' ÆÑ½º ¼ö½Å¹øÈ£
     receivers(1).receiverNum = ""
-    ' íŒ©ìŠ¤ ìˆ˜ì‹ ìëª…
-    receivers(1).receiverName = "ìˆ˜ì‹ ì ëª…ì¹­"
-    ' íŒŒíŠ¸ë„ˆ ì§€ì •í‚¤, ìˆ˜ì‹ ì êµ¬ë³„ìš© ë©”ëª¨
+    ' ÆÑ½º ¼ö½ÅÀÚ¸í
+    receivers(1).receiverName = "¼ö½ÅÀÚ ¸íÄª"
+    ' ÆÄÆ®³Ê ÁöÁ¤Å°, ¼ö½ÅÀÚ ±¸º°¿ë ¸Ş¸ğ
     receivers(1).interOPRefKey = "20220720-002"
 
-    ' íŒ©ìŠ¤ì „ì†¡í•  íŒŒì¼ (ìµœëŒ€ 20ê°œ)
-    FilePaths = Array("C:\popbill.example.asp\ëŒ€í•œë¯¼êµ­í—Œë²•.doc","C:\popbill.example.asp\test.jpg")
+    ' ÆÑ½ºÀü¼ÛÇÒ ÆÄÀÏ (ÃÖ´ë 20°³)
+    FilePaths = Array("C:\popbill.example.asp\´ëÇÑ¹Î±¹Çå¹ı.doc","C:\popbill.example.asp\test.jpg")
 
-    ' ê´‘ê³ íŒ©ìŠ¤ ì „ì†¡ì—¬ë¶€ , true / false ì¤‘ íƒ 1
-    ' â”” true = ê´‘ê³  , false = ì¼ë°˜
-    ' â”” ë¯¸ì…ë ¥ ì‹œ ê¸°ë³¸ê°’ false ì²˜ë¦¬
+    ' ±¤°íÆÑ½º Àü¼Û¿©ºÎ , true / false Áß ÅÃ 1
+    ' ¦¦ true = ±¤°í , false = ÀÏ¹İ
+    ' ¦¦ ¹ÌÀÔ·Â ½Ã ±âº»°ª false Ã³¸®
     adsYN = False
 
-    ' íŒ©ìŠ¤ì œëª©
-    title = "íŒ©ìŠ¤ ë™ë³´ì „ì†¡ ì œëª©"
+    ' ÆÑ½ºÁ¦¸ñ
+    title = "ÆÑ½º µ¿º¸Àü¼Û Á¦¸ñ"
 
-    ' ì „ì†¡ìš”ì²­ë²ˆí˜¸
-    ' íŒŒíŠ¸ë„ˆê°€ ì „ì†¡ ê±´ì— ëŒ€í•´ ê´€ë¦¬ë²ˆí˜¸ë¥¼ êµ¬ì„±í•˜ì—¬ ê´€ë¦¬í•˜ëŠ” ê²½ìš° ì‚¬ìš©.
-    ' 1~36ìë¦¬ë¡œ êµ¬ì„±. ì˜ë¬¸, ìˆ«ì, í•˜ì´í”ˆ(-), ì–¸ë”ë°”(_)ë¥¼ ì¡°í•©í•˜ì—¬ íŒë¹Œ íšŒì›ë³„ë¡œ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ í• ë‹¹.
+    ' Àü¼Û¿äÃ»¹øÈ£
+    ' ÆÄÆ®³Ê°¡ Àü¼Û °Ç¿¡ ´ëÇØ °ü¸®¹øÈ£¸¦ ±¸¼ºÇÏ¿© °ü¸®ÇÏ´Â °æ¿ì »ç¿ë.
+    ' 1~36ÀÚ¸®·Î ±¸¼º. ¿µ¹®, ¼ıÀÚ, ÇÏÀÌÇÂ(-), ¾ğ´õ¹Ù(_)¸¦ Á¶ÇÕÇÏ¿© ÆËºô È¸¿øº°·Î Áßº¹µÇÁö ¾Êµµ·Ï ÇÒ´ç.
     RequestNum = ""
 
     On Error Resume Next
@@ -75,10 +75,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>íŒ©ìŠ¤ ì „ì†¡</legend>
+                <legend>ÆÑ½º Àü¼Û</legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>recepitNum (ì ‘ìˆ˜ë²ˆí˜¸) : <%=url%> </li>
+                        <li>recepitNum (Á¢¼ö¹øÈ£) : <%=url%> </li>
                     <% Else %>
                         <li>Response.code : <%=code%> </li>
                         <li>Response.message : <%=message%> </li>

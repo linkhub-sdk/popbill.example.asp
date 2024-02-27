@@ -1,57 +1,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ê²€ìƒ‰ì¡°ê±´ì„ ì‚¬ìš©í•˜ì—¬ íŒ©ìŠ¤ì „ì†¡ ë‚´ì—­ì„ ì¡°íšŒí•©ë‹ˆë‹¤. (ì¡°íšŒê¸°ê°„ ë‹¨ìœ„ : ìµœëŒ€ 2ê°œì›”)
-    ' - íŒ©ìŠ¤ ì ‘ìˆ˜ì¼ì‹œë¡œë¶€í„° 2ê°œì›” ì´ë‚´ ì ‘ìˆ˜ê±´ë§Œ ì¡°íšŒí•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+    ' °Ë»öÁ¶°ÇÀ» »ç¿ëÇÏ¿© ÆÑ½ºÀü¼Û ³»¿ªÀ» Á¶È¸ÇÕ´Ï´Ù. (Á¶È¸±â°£ ´ÜÀ§ : ÃÖ´ë 2°³¿ù)
+    ' - ÆÑ½º Á¢¼öÀÏ½Ã·ÎºÎÅÍ 2°³¿ù ÀÌ³» Á¢¼ö°Ç¸¸ Á¶È¸ÇÒ ¼ö ÀÖ½À´Ï´Ù.
     ' - https://developers.popbill.com/reference/fax/asp/api/info#Search
     '**************************************************************
 
-    'íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    'ì‹œì‘ì¼ì, yyyyMMdd
+    '½ÃÀÛÀÏÀÚ, yyyyMMdd
     SDate = "20230601"
 
-    'ì¢…ë£Œì¼ì, yyyyMMdd
+    'Á¾·áÀÏÀÚ, yyyyMMdd
     EDate = "20230620"
 
-    ' ì „ì†¡ìƒíƒœ ë°°ì—´ ("1" , "2" , "3" , "4" ì¤‘ ì„ íƒ, ë‹¤ì¤‘ ì„ íƒ ê°€ëŠ¥)
-    ' â”” 1 = ëŒ€ê¸° , 2 = ì„±ê³µ , 3 = ì‹¤íŒ¨ , 4 = ì·¨ì†Œ
-    ' - ë¯¸ì…ë ¥ ì‹œ ì „ì²´ì¡°íšŒ
+    ' Àü¼Û»óÅÂ ¹è¿­ ("1" , "2" , "3" , "4" Áß ¼±ÅÃ, ´ÙÁß ¼±ÅÃ °¡´É)
+    ' ¦¦ 1 = ´ë±â , 2 = ¼º°ø , 3 = ½ÇÆĞ , 4 = Ãë¼Ò
+    ' - ¹ÌÀÔ·Â ½Ã ÀüÃ¼Á¶È¸
     Dim State(4)
     State(0) = "1"
     State(1) = "2"
     State(2) = "3"
     State(3) = "4"
 
-    ' ì˜ˆì•½ì—¬ë¶€ (false , true ì¤‘ íƒ 1)
-    ' false = ì „ì²´ì¡°íšŒ, true = ì˜ˆì•½ì „ì†¡ê±´ ì¡°íšŒ
-    ' ë¯¸ì…ë ¥ì‹œ ê¸°ë³¸ê°’ false ì²˜ë¦¬
+    ' ¿¹¾à¿©ºÎ (false , true Áß ÅÃ 1)
+    ' false = ÀüÃ¼Á¶È¸, true = ¿¹¾àÀü¼Û°Ç Á¶È¸
+    ' ¹ÌÀÔ·Â½Ã ±âº»°ª false Ã³¸®
     ReserveYN = False
 
-    ' ê°œì¸ì¡°íšŒ ì—¬ë¶€ (false , true ì¤‘ íƒ 1)
-    ' false = ì ‘ìˆ˜í•œ íŒ©ìŠ¤ ì „ì²´ ì¡°íšŒ (ê´€ë¦¬ìê¶Œí•œ)
-    ' true = í•´ë‹¹ ë‹´ë‹¹ì ê³„ì •ìœ¼ë¡œ ì ‘ìˆ˜í•œ íŒ©ìŠ¤ë§Œ ì¡°íšŒ (ê°œì¸ê¶Œí•œ)
-    ' ë¯¸ì…ë ¥ì‹œ ê¸°ë³¸ê°’ false ì²˜ë¦¬
+    ' °³ÀÎÁ¶È¸ ¿©ºÎ (false , true Áß ÅÃ 1)
+    ' false = Á¢¼öÇÑ ÆÑ½º ÀüÃ¼ Á¶È¸ (°ü¸®ÀÚ±ÇÇÑ)
+    ' true = ÇØ´ç ´ã´çÀÚ °èÁ¤À¸·Î Á¢¼öÇÑ ÆÑ½º¸¸ Á¶È¸ (°³ÀÎ±ÇÇÑ)
+    ' ¹ÌÀÔ·Â½Ã ±âº»°ª false Ã³¸®
     SenderOnlyYN = False
 
-    'ì •ë ¬ë°œí–¥, A-ì˜¤ë¦„ì°¨ìˆœ, D-ë‚´ë¦¼ì°¨ìˆœ
+    'Á¤·Ä¹ßÇâ, A-¿À¸§Â÷¼ø, D-³»¸²Â÷¼ø
     Order = "D"
 
-    'í˜ì´ì§€ ë²ˆí˜¸
+    'ÆäÀÌÁö ¹øÈ£
     Page = 1
 
-    'í˜ì´ì§€ë‹¹ ê²€ìƒ‰ê°œìˆ˜
+    'ÆäÀÌÁö´ç °Ë»ö°³¼ö
     PerPage = 20
 
-    ' ì¡°íšŒí•˜ê³ ì í•˜ëŠ” ë°œì‹ ìëª… ë˜ëŠ” ìˆ˜ì‹ ìëª…
-    ' - ë¯¸ì…ë ¥ì‹œ ì „ì²´ì¡°íšŒ
+    ' Á¶È¸ÇÏ°íÀÚ ÇÏ´Â ¹ß½ÅÀÚ¸í ¶Ç´Â ¼ö½ÅÀÚ¸í
+    ' - ¹ÌÀÔ·Â½Ã ÀüÃ¼Á¶È¸
     QString = ""
 
     On Error Resume Next
@@ -74,43 +74,43 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>íŒ©ìŠ¤ì „ì†¡ ì „ì†¡ë‚´ì—­ ì¡°íšŒ </legend>
+                <legend>ÆÑ½ºÀü¼Û Àü¼Û³»¿ª Á¶È¸ </legend>
                 <ul>
-                    <li> code (ì‘ë‹µì½”ë“œ) : <%=result.code%></li>
-                    <li> total (ì´ ê²€ìƒ‰ê²°ê³¼ ê±´ìˆ˜) : <%=result.total%></li>
-                    <li> pageNum (í˜ì´ì§€ ë²ˆí˜¸) : <%=result.pageNum%></li>
-                    <li> perPage (í˜ì´ì§€ë‹¹ ëª©ë¡ê°œìˆ˜) : <%=result.perPage%></li>
-                    <li> pageCount (í˜ì´ì§€ ê°œìˆ˜) : <%=result.pageCount%></li>
-                    <li> message (ì‘ë‹µë©”ì‹œì§€) : <%=result.message%></li>
+                    <li> code (ÀÀ´äÄÚµå) : <%=result.code%></li>
+                    <li> total (ÃÑ °Ë»ö°á°ú °Ç¼ö) : <%=result.total%></li>
+                    <li> pageNum (ÆäÀÌÁö ¹øÈ£) : <%=result.pageNum%></li>
+                    <li> perPage (ÆäÀÌÁö´ç ¸ñ·Ï°³¼ö) : <%=result.perPage%></li>
+                    <li> pageCount (ÆäÀÌÁö °³¼ö) : <%=result.pageCount%></li>
+                    <li> message (ÀÀ´ä¸Ş½ÃÁö) : <%=result.message%></li>
                 </ul>
                 <% If code <> 0 Then
                         For i=0 To UBound(result.list)-1
                 %>
                     <fieldset class="fieldset2">
-                            <legend> íŒ©ìŠ¤ ì „ì†¡ê²°ê³¼ [ <%=i+1%> /  <%=UBound(result.list)%> ] </legend>
+                            <legend> ÆÑ½º Àü¼Û°á°ú [ <%=i+1%> /  <%=UBound(result.list)%> ] </legend>
                             <ul>
-                                <li>state (ì „ì†¡ìƒíƒœ ì½”ë“œ) : <%=result.list(i).state%> </li>
-                                <li>result (ì „ì†¡ê²°ê³¼ ì½”ë“œ) : <%=result.list(i).result%> </li>
-                                <li>sendNum (ë°œì‹ ë²ˆí˜¸) : <%=result.list(i).sendNum%> </li>
-                                <li>senderName (ë°œì‹ ìëª…) : <%=result.list(i).senderName%> </li>
-                                <li>ReceiveNum (ìˆ˜ì‹ ë²ˆí˜¸) : <%=result.list(i).ReceiveNum%> </li>
-                                <li>ReceiveNumType (ìˆ˜ì‹ ë²ˆí˜¸ ìœ í˜•) : <%=result.list(i).ReceiveNumType%> </li>
-                                <li>receiveName (ìˆ˜ì‹ ìëª…) : <%=result.list(i).receiveName%> </li>
-                                <li>title (íŒ©ìŠ¤ ì œëª©) : <%=result.list(i).title %> </li>
-                                <li>sendPageCnt (í˜ì´ì§€ìˆ˜) : <%=result.list(i).sendPageCnt%></li>
-                                <li>successPageCnt (ì„±ê³µ í˜ì´ì§€ìˆ˜) : <%=result.list(i).successPageCnt%></li>
-                                <li>failPageCnt (ì‹¤íŒ¨ í˜ì´ì§€ìˆ˜) : <%=result.list(i).failPageCnt%></li>
-                                <li>refundPageCnt (í™˜ë¶ˆ í˜ì´ì§€ìˆ˜) : <%=result.list(i).refundPageCnt%></li>
-                                <li>cancelPageCnt (ì·¨ì†Œ í˜ì´ì§€ìˆ˜) : <%=result.list(i).cancelPageCnt%></li>
-                                <li>reserveDT (ì˜ˆì•½ì‹œê°„) : <%=result.list(i).reserveDT%></li>
-                                <li>sendDT (ë°œì†¡ì‹œê°„) : <%=result.list(i).sendDT%></li>
-                                <li>receiptDT (ì „ì†¡ ì ‘ìˆ˜ì‹œê°„) : <%=result.list(i).receiptDT%></li>
-                                <li>fileNames (ì „ì†¡íŒŒì¼ëª… ë°°ì—´) : <%=result.list(i).fileNames%></li>
-                                <li>interOPRefKey (íŒŒíŠ¸ë„ˆ ì§€ì •í‚¤) : <%=result.list(i).interOPRefKey%> </li>
-                                <li>ReceiptNum (ì ‘ìˆ˜ë²ˆí˜¸) : <%=result.list(i).ReceiptNum%> </li>
-                                <li>RequestNum (ìš”ì²­ë²ˆí˜¸) : <%=result.list(i).RequestNum%> </li>
-                                <li>chargePageCnt (ê³¼ê¸ˆ í˜ì´ì§€ìˆ˜) : <%=result.list(i).chargePageCnt%> </li>
-                                <li>tiffFileSize (ë³€í™˜íŒŒì¼ìš©ëŸ‰ (ë‹¨ìœ„ : byte)) : <%=result.list(i).tiffFileSize%> </li>
+                                <li>state (Àü¼Û»óÅÂ ÄÚµå) : <%=result.list(i).state%> </li>
+                                <li>result (Àü¼Û°á°ú ÄÚµå) : <%=result.list(i).result%> </li>
+                                <li>sendNum (¹ß½Å¹øÈ£) : <%=result.list(i).sendNum%> </li>
+                                <li>senderName (¹ß½ÅÀÚ¸í) : <%=result.list(i).senderName%> </li>
+                                <li>ReceiveNum (¼ö½Å¹øÈ£) : <%=result.list(i).ReceiveNum%> </li>
+                                <li>ReceiveNumType (¼ö½Å¹øÈ£ À¯Çü) : <%=result.list(i).ReceiveNumType%> </li>
+                                <li>receiveName (¼ö½ÅÀÚ¸í) : <%=result.list(i).receiveName%> </li>
+                                <li>title (ÆÑ½º Á¦¸ñ) : <%=result.list(i).title %> </li>
+                                <li>sendPageCnt (ÆäÀÌÁö¼ö) : <%=result.list(i).sendPageCnt%></li>
+                                <li>successPageCnt (¼º°ø ÆäÀÌÁö¼ö) : <%=result.list(i).successPageCnt%></li>
+                                <li>failPageCnt (½ÇÆĞ ÆäÀÌÁö¼ö) : <%=result.list(i).failPageCnt%></li>
+                                <li>refundPageCnt (È¯ºÒ ÆäÀÌÁö¼ö) : <%=result.list(i).refundPageCnt%></li>
+                                <li>cancelPageCnt (Ãë¼Ò ÆäÀÌÁö¼ö) : <%=result.list(i).cancelPageCnt%></li>
+                                <li>reserveDT (¿¹¾à½Ã°£) : <%=result.list(i).reserveDT%></li>
+                                <li>sendDT (¹ß¼Û½Ã°£) : <%=result.list(i).sendDT%></li>
+                                <li>receiptDT (Àü¼Û Á¢¼ö½Ã°£) : <%=result.list(i).receiptDT%></li>
+                                <li>fileNames (Àü¼ÛÆÄÀÏ¸í ¹è¿­) : <%=result.list(i).fileNames%></li>
+                                <li>interOPRefKey (ÆÄÆ®³Ê ÁöÁ¤Å°) : <%=result.list(i).interOPRefKey%> </li>
+                                <li>ReceiptNum (Á¢¼ö¹øÈ£) : <%=result.list(i).ReceiptNum%> </li>
+                                <li>RequestNum (¿äÃ»¹øÈ£) : <%=result.list(i).RequestNum%> </li>
+                                <li>chargePageCnt (°ú±İ ÆäÀÌÁö¼ö) : <%=result.list(i).chargePageCnt%> </li>
+                                <li>tiffFileSize (º¯È¯ÆÄÀÏ¿ë·® (´ÜÀ§ : byte)) : <%=result.list(i).tiffFileSize%> </li>
                             </ul>
                         </fieldset>
                 <%

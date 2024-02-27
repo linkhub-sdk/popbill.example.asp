@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>νλΉ SDK ASP Example.</title>
+        <title>ΖΛΊτ SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp" -->
 <%
     '**************************************************************
-    ' ν™λ¶ κ°€λ¥ν• ν¬μΈνΈλ¥Ό ν™•μΈν•©λ‹λ‹¤. (λ³΄λ„μ¤ ν¬μΈνΈλ” ν™λ¶κ°€λ¥ν¬μΈνΈμ—μ„ μ μ™Έλ©λ‹λ‹¤.)
+    ' Θ―ΊÒ °΅΄ΙΗΡ ΖχΐΞΖ®Έ¦ Θ®ΐΞΗΥ΄Ο΄Ω. (ΊΈ³Κ½Ί ΖχΐΞΖ®΄Β Θ―ΊÒ°΅΄ΙΖχΐΞΖ®Ώ΅Ό­ Α¦ΏάµΛ΄Ο΄Ω.)
     ' - https://developers.popbill.com/reference/bizinfocheck/asp/api/point#GetRefundableBalance
     '**************************************************************
 
-    'νλΉνμ› μ‚¬μ—…μλ²νΈ, "-" μ μ™Έ
+    'ΖΛΊτΘΈΏψ »ηΎχΐΪΉψΘ£, "-" Α¦Ώά
     CorpNum = "1234567890"
 
-    'νλΉνμ› μ•„μ΄λ””
+    'ΖΛΊτΘΈΏψ ΎΖΐΜµπ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -34,12 +34,12 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ν™λ¶ κ°€λ¥ ν¬μΈνΈ μ΅°ν</legend>
+                <legend>Θ―ΊÒ °΅΄Ι ΖχΐΞΖ® Α¶ΘΈ</legend>
                 <%
                     If code = 0 Then
                 %>
                     <ul>
-                        <li> refundableBalance (ν™λ¶ κ°€λ¥ ν¬μΈνΈ) : <%=refundableBalance%></li>
+                        <li> refundableBalance (Θ―ΊÒ °΅΄Ι ΖχΐΞΖ®) : <%=refundableBalance%></li>
                     </ul>
                 <%
                     Else

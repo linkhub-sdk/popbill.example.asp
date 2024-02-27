@@ -1,24 +1,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì¹´ì¹´ì˜¤í†¡ ë°œì‹ ë²ˆí˜¸ ë“±ë¡ì—¬ë¶€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
-    ' - ë°œì‹ ë²ˆí˜¸ ìƒíƒœê°€ 'ìŠ¹ì¸'ì¸ ê²½ìš°ì—ë§Œ ë¦¬í„´ê°’ 'Response'ì˜ ë³€ìˆ˜ 'code'ê°€ 1ë¡œ ë°˜í™˜ë©ë‹ˆë‹¤.
+    ' Ä«Ä«¿ÀÅå ¹ß½Å¹øÈ£ µî·Ï¿©ºÎ¸¦ È®ÀÎÇÕ´Ï´Ù.
+    ' - ¹ß½Å¹øÈ£ »óÅÂ°¡ '½ÂÀÎ'ÀÎ °æ¿ì¿¡¸¸ ¸®ÅÏ°ª 'Response'ÀÇ º¯¼ö 'code'°¡ 1·Î ¹İÈ¯µË´Ï´Ù.
     ' - https://developers.popbill.com/reference/kakaotalk/asp/api/sendnum#CheckSenderNumber
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' í™•ì¸í•  ë°œì‹ ë²ˆí˜¸
+    ' È®ÀÎÇÒ ¹ß½Å¹øÈ£
     SenderNumber = "01012341234"
 
     On Error Resume Next
@@ -41,7 +41,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë°œì‹ ë²ˆí˜¸ ë“±ë¡ì—¬ë¶€ í™•ì¸</legend>
+                <legend>¹ß½Å¹øÈ£ µî·Ï¿©ºÎ È®ÀÎ</legend>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>

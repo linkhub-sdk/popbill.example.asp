@@ -1,31 +1,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÌåùÎπå SDK ASP Example.</title>
+        <title>∆À∫Ù SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' Î∞úÌñâ ÏïàÎÇ¥Î©îÏùºÏùÑ Ïû¨Ï†ÑÏÜ°Ìï©ÎãàÎã§.
+    ' πﬂ«‡ æ»≥ª∏ﬁ¿œ¿ª ¿Á¿¸º€«’¥œ¥Ÿ.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/etc#SendEmail
     '**************************************************************
 
-    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏, "-" Ï†úÏô∏
+    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£, "-" ¡¶ø‹
     CorpNum = "1234567890"
 
-    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
     testUserID = "testkorea"
 
-    ' Î∞úÌñâÏú†Ìòï SELL(Îß§Ï∂ú), BUY(Îß§ÏûÖ), TRUSTEE(ÏúÑÏàòÌÉÅ)
+    ' πﬂ«‡¿Ø«¸ SELL(∏≈√‚), BUY(∏≈¿‘), TRUSTEE(¿ßºˆ≈π)
     KeyType = "SELL"
 
-    ' Î¨∏ÏÑúÎ≤àÌò∏
+    ' πÆº≠π¯»£
     MgtKey = "20220720-ASP-001"
 
-    ' Ïù¥Î©îÏùºÏ£ºÏÜå
-    ' ÌåùÎπå Í∞úÎ∞úÌôòÍ≤ΩÏóêÏÑú ÌÖåÏä§Ìä∏ÌïòÎäî Í≤ΩÏö∞ÏóêÎèÑ ÏïàÎÇ¥ Î©îÏùºÏù¥ Ï†ÑÏÜ°ÎêòÎØÄÎ°ú,
-    ' Ïã§Ï†ú Í±∞ÎûòÏ≤òÏùò Î©îÏùºÏ£ºÏÜåÍ∞Ä Í∏∞Ïû¨ÎêòÏßÄ ÏïäÎèÑÎ°ù Ï£ºÏùò
+    ' ¿Ã∏ﬁ¿œ¡÷º“
+    ' ∆À∫Ù ∞≥πﬂ»Ø∞Êø°º≠ ≈◊Ω∫∆Æ«œ¥¬ ∞ÊøÏø°µµ æ»≥ª ∏ﬁ¿œ¿Ã ¿¸º€µ«π«∑Œ,
+    ' Ω«¡¶ ∞≈∑°√≥¿« ∏ﬁ¿œ¡÷º“∞° ±‚¿Áµ«¡ˆ æ µµ∑œ ¡÷¿«
     Receiver = "test@test.com"
 
     On Error Resume Next
@@ -48,7 +48,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î©îÏùº Ïû¨Ï†ÑÏÜ°</legend>
+                <legend>ºº±›∞ËªÍº≠ ∏ﬁ¿œ ¿Á¿¸º€</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message : <%=message%> </li>

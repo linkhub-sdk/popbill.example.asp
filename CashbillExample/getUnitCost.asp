@@ -1,17 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œí–‰ì‹œ ê³¼ê¸ˆë˜ëŠ” í¬ì¸íŠ¸ ë‹¨ê°€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' Çö±İ¿µ¼öÁõ ¹ßÇà½Ã °ú±İµÇ´Â Æ÷ÀÎÆ® ´Ü°¡¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/point#GetUnitCost
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
     On Error Resume Next
@@ -31,10 +31,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œí–‰ë‹¨ê°€ í™•ì¸ </legend>
+                <legend>Çö±İ¿µ¼öÁõ ¹ßÇà´Ü°¡ È®ÀÎ </legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>ë°œí–‰ë‹¨ê°€ : <%=unitCost%> </li>
+                        <li>¹ßÇà´Ü°¡ : <%=unitCost%> </li>
                     <% Else %>
                         <li> Response.code : <%=code%> </li>
                         <li> Response.message : <%=message%> </li>

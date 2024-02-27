@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì—°ë™íšŒì› ì‚¬ì—…ìžë²ˆí˜¸ì— ë“±ë¡ëœ ë‹´ë‹¹ìž(íŒë¹Œ ë¡œê·¸ì¸ ê³„ì •) ëª©ë¡ì„ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ¿¬µ¿È¸¿ø »ç¾÷ÀÚ¹øÈ£¿¡ µî·ÏµÈ ´ã´çÀÚ(ÆËºô ·Î±×ÀÎ °èÁ¤) ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/member#ListContact
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
     On Error Resume Next
@@ -34,22 +34,22 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë‹´ë‹¹ìž ëª©ë¡ ì¡°íšŒ</legend>
+                <legend>´ã´çÀÚ ¸ñ·Ï Á¶È¸</legend>
                 <%
                     If code = 0 Then
                         For i=0 To result.Count-1
                 %>
                             <fieldset class="fieldset2">
-                                <legend> ë‹´ë‹¹ìžì •ë³´ [ <%=i+1%> / <%=result.Count%> ] </legend>
+                                <legend> ´ã´çÀÚÁ¤º¸ [ <%=i+1%> / <%=result.Count%> ] </legend>
                                     <ul>
-                                        <li> id(ì•„ì´ë””) : <%=result.Item(i).id%></li>
-                                        <li> personName(ë‹´ë‹¹ìž ì„±ëª…) : <%=result.Item(i).personName%></li>
-                                        <li> email(ë‹´ë‹¹ìž ì´ë©”ì¼) : <%=result.Item(i).email%></li>
-                                        <li> tel(ë‹´ë‹¹ìž ì—°ë½ì²˜) : <%=result.Item(i).tel%></li>
-                                        <li> regDT(ë“±ë¡ì¼ì‹œ) : <%=result.Item(i).regDT%></li>
-                                        <li> searchRole(ë‹´ë‹¹ìž ì¡°íšŒê¶Œí•œ) : <%=result.Item(i).searchRole%></li>
-                                        <li> mgrYN(ê´€ë¦¬ìž ì—¬ë¶€) : <%=result.Item(i).mgrYN%></li>
-                                        <li> state(ìƒíƒœ) : <%=result.Item(i).state%></li>
+                                        <li> id(¾ÆÀÌµð) : <%=result.Item(i).id%></li>
+                                        <li> personName(´ã´çÀÚ ¼º¸í) : <%=result.Item(i).personName%></li>
+                                        <li> email(´ã´çÀÚ ÀÌ¸ÞÀÏ) : <%=result.Item(i).email%></li>
+                                        <li> tel(´ã´çÀÚ ¿¬¶ôÃ³) : <%=result.Item(i).tel%></li>
+                                        <li> regDT(µî·ÏÀÏ½Ã) : <%=result.Item(i).regDT%></li>
+                                        <li> searchRole(´ã´çÀÚ Á¶È¸±ÇÇÑ) : <%=result.Item(i).searchRole%></li>
+                                        <li> mgrYN(°ü¸®ÀÚ ¿©ºÎ) : <%=result.Item(i).mgrYN%></li>
+                                        <li> state(»óÅÂ) : <%=result.Item(i).state%></li>
                                     </ul>
                                 </fieldset>
                 <%

@@ -1,43 +1,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì—°ë™íšŒì› í¬ì¸íŠ¸ë¥¼ í™˜ë¶ˆ ì‹ ì²­í•©ë‹ˆë‹¤.
+    ' ¿¬µ¿È¸¿ø Æ÷ÀÎÆ®¸¦ È¯ºÒ ½ÅÃ»ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/cashbill/asp/api/point#Refund
     '**************************************************************
 
-    'íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    'ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
     Dim m_RefundForm : Set m_RefundForm = New RefundForm
-    'ë‹´ë‹¹ìëª…
-    m_RefundForm.ContactName = "ë‹´ë‹¹ì ì´ë¦„"
+    '´ã´çÀÚ¸í
+    m_RefundForm.ContactName = "´ã´çÀÚ ÀÌ¸§"
 
-    'ë‹´ë‹¹ì ì—°ë½ì²˜
+    '´ã´çÀÚ ¿¬¶ôÃ³
     m_RefundForm.TEL = "010-1234-1234"
 
-    'í™˜ë¶ˆ ì‹ ì²­ í¬ì¸íŠ¸
+    'È¯ºÒ ½ÅÃ» Æ÷ÀÎÆ®
     m_RefundForm.RequestPoint = "1000"
 
-    'ì€í–‰ëª…
-    m_RefundForm.AccountBank = "ì‹ í•œ"
+    'ÀºÇà¸í
+    m_RefundForm.AccountBank = "½ÅÇÑ"
 
-    'ê³„ì¢Œë²ˆí˜¸
+    '°èÁÂ¹øÈ£
     m_RefundForm.AccountNum = "110-1234-12345"
 
-    'ì˜ˆê¸ˆì£¼ëª…
-    m_RefundForm.AccountName = "ì˜ˆê¸ˆì£¼_í…ŒìŠ¤íŠ¸"
+    '¿¹±İÁÖ¸í
+    m_RefundForm.AccountName = "¿¹±İÁÖ_Å×½ºÆ®"
 
-    'í™˜ë¶ˆì‚¬ìœ 
-    m_RefundForm.Reason = "í™˜ë¶ˆí•˜ê² ìŠµë‹ˆë‹¤"
+    'È¯ºÒ»çÀ¯
+    m_RefundForm.Reason = "È¯ºÒÇÏ°Ú½À´Ï´Ù"
 
 
-    'íŒë¹ŒíšŒì› ì•„ì´ë””
+    'ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -57,16 +57,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆì‹ ì²­</legend>
+                <legend>¿¬µ¿È¸¿ø Æ÷ÀÎÆ® È¯ºÒ½ÅÃ»</legend>
                 <%
                     If code = 0 Then
                 %>
                     <fieldset class="fieldset2">
                         <legend> result </legend>
                             <ul>
-                                <li> code (ì‘ë‹µ ì½”ë“œ) : <%=result.code%></li>
-                                <li> message (ì‘ë‹µ ë©”ì‹œì§€) : <%=result.message%></li>
-                                <li> refundCode (í™˜ë¶ˆì½”ë“œ) : <%=result.refundCode%></li>
+                                <li> code (ÀÀ´ä ÄÚµå) : <%=result.code%></li>
+                                <li> message (ÀÀ´ä ¸Ş½ÃÁö) : <%=result.message%></li>
+                                <li> refundCode (È¯ºÒÄÚµå) : <%=result.refundCode%></li>
                             </ul>
                         </fieldset>
                 <%

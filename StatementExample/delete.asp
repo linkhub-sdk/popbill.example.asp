@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì‚­ì œ ê°€ëŠ¥í•œ ìƒíƒœì˜ ì „ìëª…ì„¸ì„œë¥¼ ì‚­ì œí•©ë‹ˆë‹¤.
-    ' - ì „ìëª…ì„¸ì„œë¥¼ ì‚­ì œí•˜ë©´ ì‚¬ìš©ëœ ë¬¸ì„œë²ˆí˜¸(mgtKey)ë¥¼ ì¬ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
-    ' - ì‚­ì œ ê°€ëŠ¥í•œ ìƒíƒœ: "ì„ì‹œì €ì¥", "ì·¨ì†Œ", "ìŠ¹ì¸ê±°ë¶€", "ë°œí–‰ì·¨ì†Œ"
+    ' »èÁ¦ °¡´ÉÇÑ »óÅÂÀÇ ÀüÀÚ¸í¼¼¼­¸¦ »èÁ¦ÇÕ´Ï´Ù.
+    ' - ÀüÀÚ¸í¼¼¼­¸¦ »èÁ¦ÇÏ¸é »ç¿ëµÈ ¹®¼­¹øÈ£(mgtKey)¸¦ Àç»ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    ' - »èÁ¦ °¡´ÉÇÑ »óÅÂ: "ÀÓ½ÃÀúÀå", "Ãë¼Ò", "½ÂÀÎ°ÅºÎ", "¹ßÇàÃë¼Ò"
     ' - https://developers.popbill.com/reference/statement/asp/api/issue#Delete
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ëª…ì„¸ì„œ ì¢…ë¥˜ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ) 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+    ' ¸í¼¼¼­ Á¾·ùÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­) 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
     itemCode = "121"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     mgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -45,7 +45,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì „ìëª…ì„¸ì„œ ì‚­ì œ</legend>
+                <legend>ÀüÀÚ¸í¼¼¼­ »èÁ¦</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

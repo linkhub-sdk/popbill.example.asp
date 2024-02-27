@@ -1,26 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ì „ìëª…ì„¸ì„œ 1ê±´ì˜ ìƒì„¸ì •ë³´ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ÀüÀÚ¸í¼¼¼­ 1°ÇÀÇ »ó¼¼Á¤º¸ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/statement/asp/api/info#GetDetailInfo
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-"ì œì™¸ 10ìë¦¬
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
     itemCode = "121"
 
-    ' ë¬¸ì„œë²ˆí˜¸
+    ' ¹®¼­¹øÈ£
     mgtKey = "20220720-ASP-002"
 
     On Error Resume Next
@@ -40,54 +40,54 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì „ìëª…ì„¸ì„œ ìƒì„¸ì •ë³´</legend>
+                <legend>ÀüÀÚ¸í¼¼¼­ »ó¼¼Á¤º¸</legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li> itemCode(ëª…ì„¸ì„œ ì½”ë“œ) : <%=result.itemCode%> </li>
-                        <li> mgtKey(ë¬¸ì„œë²ˆí˜¸) : <%=result.mgtKey%> </li>
-                        <li> invoiceNum(íŒë¹Œ ìŠ¹ì¸ë²ˆí˜¸) : <%=result.invoiceNum%> </li>
-                        <li> formCode(ë§ì¶¤ì–‘ì‹ ì½”ë“œ) : <%=result.formCode%> </li>
-                        <li> writeDate(ì‘ì„±ì¼ì) : <%=result.writeDate%> </li>
-                        <li> taxType(ê³¼ì„¸í˜•íƒœ) : <%=result.taxType %> </li>
-                        <li> purposeType(ì˜ìˆ˜/ì²­êµ¬) : <%=result.purposeType%> </li>
-                        <li> serialNum(ê¸°ì¬ìƒ ì¼ë ¨ë²ˆí˜¸) : <%=result.serialNum%> </li>
-                        <li> taxTotal(ì„¸ì•¡ í•©ê³„) : <%=result.taxTotal%> </li>
-                        <li> supplyCostTotal(ê³µê¸‰ê°€ì•¡ í•©ê³„) : <%=result.supplyCostTotal%> </li>
-                        <li> totalAmount(í•©ê³„ê¸ˆì•¡) : <%=result.totalAmount%> </li>
-                        <li> remark1(ë¹„ê³ 1) : <%=result.remark1%> </li>
-                        <li> remark2(ë¹„ê³ 2) : <%=result.remark2%> </li>
-                        <li> remark3(ë¹„ê³ 3) : <%=result.remark3%> </li>
-                        <li> senderCorpNum(ë°œì‹ ì ì‚¬ì—…ìë²ˆí˜¸) : <%=result.senderCorpNum%> </li>
-                        <li> senderTaxRegID(ë°œì‹ ì ì¢…ì‚¬ì—…ì¥ë²ˆí˜¸) : <%=result.senderTaxRegID%> </li>
-                        <li> senderCorpName(ë°œì‹ ì ìƒí˜¸) : <%=result.senderCEOName%> </li>
-                        <li> senderCEOName(ë°œì‹ ì ëŒ€í‘œìì„±ëª…) : <%=result.senderCEOName%> </li>
-                        <li> senderAddr(ë°œì‹ ì ì£¼ì†Œ) : <%=result.senderAddr%> </li>
-                        <li> senderBizClass(ë°œì‹ ì ì¢…ëª©) : <%=result.senderBizClass%> </li>
-                        <li> senderBizType(ë°œì‹ ì ì—…íƒœ) : <%=result.senderBizType%> </li>
-                        <li> senderContactName(ë°œì‹ ì ë‹´ë‹¹ìëª…) : <%=result.senderContactName%> </li>
-                        <li> senderTEL(ë°œì‹ ì ì—°ë½ì²˜) : <%=result.senderTEL%> </li>
-                        <li> senderHP(ë°œì‹ ì íœ´ëŒ€í°ë²ˆí˜¸) : <%=result.senderHP%> </li>
-                        <li> senderEmail(ë°œì‹ ì ë©”ì¼ì£¼ì†Œ) : <%=result.senderEmail%> </li>
-                        <li> receiverCorpNum(ìˆ˜ì‹ ì ì‚¬ì—…ìë²ˆí˜¸) : <%=result.receiverCorpNum%> </li>
-                        <li> receiverTaxRegID(ìˆ˜ì‹ ì ì¢…ì‚¬ì—…ì¥ë²ˆí˜¸) : <%=result.receiverTaxRegID%> </li>
-                        <li> receiverCorpName(ìˆ˜ì‹ ì ìƒí˜¸) : <%=result.receiverCorpName%> </li>
-                        <li> receiverCEOName(ìˆ˜ì‹ ì ëŒ€í‘œìì„±ëª…) : <%=result.receiverCEOName%> </li>
-                        <li> receiverAddr(ìˆ˜ì‹ ì ì£¼ì†Œ) : <%=result.receiverAddr%> </li>
-                        <li> receiverBizClass(ìˆ˜ì‹ ì ì¢…ëª©) : <%=result.receiverBizClass%> </li>
-                        <li> receiverBizType(ìˆ˜ì‹ ì ì—…íƒœ) : <%=result.receiverBizType%> </li>
-                        <li> receiverContactName(ìˆ˜ì‹ ì ë‹´ë‹¹ìëª…) : <%=result.receiverContactName%> </li>
-                        <li> receiverTEL(ìˆ˜ì‹ ì ì—°ë½ì²˜) : <%=result.receiverTEL%> </li>
-                        <li> receiverHP(ìˆ˜ì‹ ì íœ´ëŒ€í°ë²ˆí˜¸) : <%=result.receiverHP%> </li>
-                        <li> receiverEmail(ìˆ˜ì‹ ì ë©”ì¼ì£¼ì†Œ) : <%=result.receiverEmail%> </li>
-                        <li> businessLicenseYN(ì‚¬ì—…ìë“±ë¡ì¦ ì²¨ë¶€ì—¬ë¶€) : <%=result.businessLicenseYN%> </li>
-                        <li> bankBookYN(í†µì¥ì‚¬ë³¸ ì²¨ë¶€ì—¬ë¶€) : <%=result.bankBookYN%> </li>
-                        <li> smssendYN(ì•Œë¦¼ë¬¸ì ì „ì†¡ì—¬ë¶€) : <%=result.smssendYN%> </li>
-                        <li> autoacceptYN(ë°œí–‰ì‹œ ìë™ìŠ¹ì¸ ì—¬ë¶€) : <%=result.autoacceptYN%> </li>
+                        <li> itemCode(¸í¼¼¼­ ÄÚµå) : <%=result.itemCode%> </li>
+                        <li> mgtKey(¹®¼­¹øÈ£) : <%=result.mgtKey%> </li>
+                        <li> invoiceNum(ÆËºô ½ÂÀÎ¹øÈ£) : <%=result.invoiceNum%> </li>
+                        <li> formCode(¸ÂÃã¾ç½Ä ÄÚµå) : <%=result.formCode%> </li>
+                        <li> writeDate(ÀÛ¼ºÀÏÀÚ) : <%=result.writeDate%> </li>
+                        <li> taxType(°ú¼¼ÇüÅÂ) : <%=result.taxType %> </li>
+                        <li> purposeType(¿µ¼ö/Ã»±¸) : <%=result.purposeType%> </li>
+                        <li> serialNum(±âÀç»ó ÀÏ·Ã¹øÈ£) : <%=result.serialNum%> </li>
+                        <li> taxTotal(¼¼¾× ÇÕ°è) : <%=result.taxTotal%> </li>
+                        <li> supplyCostTotal(°ø±Ş°¡¾× ÇÕ°è) : <%=result.supplyCostTotal%> </li>
+                        <li> totalAmount(ÇÕ°è±İ¾×) : <%=result.totalAmount%> </li>
+                        <li> remark1(ºñ°í1) : <%=result.remark1%> </li>
+                        <li> remark2(ºñ°í2) : <%=result.remark2%> </li>
+                        <li> remark3(ºñ°í3) : <%=result.remark3%> </li>
+                        <li> senderCorpNum(¹ß½ÅÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.senderCorpNum%> </li>
+                        <li> senderTaxRegID(¹ß½ÅÀÚ Á¾»ç¾÷Àå¹øÈ£) : <%=result.senderTaxRegID%> </li>
+                        <li> senderCorpName(¹ß½ÅÀÚ »óÈ£) : <%=result.senderCEOName%> </li>
+                        <li> senderCEOName(¹ß½ÅÀÚ ´ëÇ¥ÀÚ¼º¸í) : <%=result.senderCEOName%> </li>
+                        <li> senderAddr(¹ß½ÅÀÚ ÁÖ¼Ò) : <%=result.senderAddr%> </li>
+                        <li> senderBizClass(¹ß½ÅÀÚ Á¾¸ñ) : <%=result.senderBizClass%> </li>
+                        <li> senderBizType(¹ß½ÅÀÚ ¾÷ÅÂ) : <%=result.senderBizType%> </li>
+                        <li> senderContactName(¹ß½ÅÀÚ ´ã´çÀÚ¸í) : <%=result.senderContactName%> </li>
+                        <li> senderTEL(¹ß½ÅÀÚ ¿¬¶ôÃ³) : <%=result.senderTEL%> </li>
+                        <li> senderHP(¹ß½ÅÀÚ ÈŞ´ëÆù¹øÈ£) : <%=result.senderHP%> </li>
+                        <li> senderEmail(¹ß½ÅÀÚ ¸ŞÀÏÁÖ¼Ò) : <%=result.senderEmail%> </li>
+                        <li> receiverCorpNum(¼ö½ÅÀÚ »ç¾÷ÀÚ¹øÈ£) : <%=result.receiverCorpNum%> </li>
+                        <li> receiverTaxRegID(¼ö½ÅÀÚ Á¾»ç¾÷Àå¹øÈ£) : <%=result.receiverTaxRegID%> </li>
+                        <li> receiverCorpName(¼ö½ÅÀÚ »óÈ£) : <%=result.receiverCorpName%> </li>
+                        <li> receiverCEOName(¼ö½ÅÀÚ ´ëÇ¥ÀÚ¼º¸í) : <%=result.receiverCEOName%> </li>
+                        <li> receiverAddr(¼ö½ÅÀÚ ÁÖ¼Ò) : <%=result.receiverAddr%> </li>
+                        <li> receiverBizClass(¼ö½ÅÀÚ Á¾¸ñ) : <%=result.receiverBizClass%> </li>
+                        <li> receiverBizType(¼ö½ÅÀÚ ¾÷ÅÂ) : <%=result.receiverBizType%> </li>
+                        <li> receiverContactName(¼ö½ÅÀÚ ´ã´çÀÚ¸í) : <%=result.receiverContactName%> </li>
+                        <li> receiverTEL(¼ö½ÅÀÚ ¿¬¶ôÃ³) : <%=result.receiverTEL%> </li>
+                        <li> receiverHP(¼ö½ÅÀÚ ÈŞ´ëÆù¹øÈ£) : <%=result.receiverHP%> </li>
+                        <li> receiverEmail(¼ö½ÅÀÚ ¸ŞÀÏÁÖ¼Ò) : <%=result.receiverEmail%> </li>
+                        <li> businessLicenseYN(»ç¾÷ÀÚµî·ÏÁõ Ã·ºÎ¿©ºÎ) : <%=result.businessLicenseYN%> </li>
+                        <li> bankBookYN(ÅëÀå»çº» Ã·ºÎ¿©ºÎ) : <%=result.bankBookYN%> </li>
+                        <li> smssendYN(¾Ë¸²¹®ÀÚ Àü¼Û¿©ºÎ) : <%=result.smssendYN%> </li>
+                        <li> autoacceptYN(¹ßÇà½Ã ÀÚµ¿½ÂÀÎ ¿©ºÎ) : <%=result.autoacceptYN%> </li>
 
-                        <!--ê¸°íƒ€ ìƒì„¸í•­ëª© ìƒëµ-->
+                        <!--±âÅ¸ »ó¼¼Ç×¸ñ »ı·«-->
 
                         <fieldset class="fieldset2">
-                            <legend>ì¶”ê°€ì†ì„±</legend>
+                            <legend>Ãß°¡¼Ó¼º</legend>
                             <ul>
                             <% For Each propertyKey In result.propertyBag.keys() %>
                                 <li> <%=propertyKey%> : <%=result.propertyBag.get(propertyKey)%></li>
@@ -96,37 +96,37 @@
                         </fieldset>
                         <% For i=0 To Ubound(result.detailList)-1%>
                                 <fieldset class="fieldset2">
-                                <legend> ìƒì„¸í•­ëª© <%=i+1%> </legend>
+                                <legend> »ó¼¼Ç×¸ñ <%=i+1%> </legend>
                                     <ul>
-                                        <li> serialNum(ì¼ë ¨ë²ˆí˜¸) : <%=result.detailList(i).serialNum%> </li>
-                                        <li> purchaseDT(ê±°ë˜ì¼ì) : <%=result.detailList(i).purchaseDT%> </li>
-                                        <li> itemName(í’ˆëª©ëª…) : <%=result.detailList(i).itemName%> </li>
-                                        <li> spec(ê·œê²©) : <%=result.detailList(i).spec%> </li>
-                                        <li> qty(ìˆ˜ëŸ‰) : <%=result.detailList(i).qty%> </li>
-                                        <li> unitCost(ë‹¨ê°€) : <%=result.detailList(i).unitCost%> </li>
-                                        <li> supplyCost(ê³µê¸‰ê°€ì•¡) : <%=result.detailList(i).supplyCost%> </li>
-                                        <li> tax(ì„¸ì•¡) : <%=result.detailList(i).tax%> </li>
-                                        <li> remark(ë¹„ê³ ) : <%=result.detailList(i).remark%> </li>
-                                        <li> spare1(ì—¬ë¶„1) : <%=result.detailList(i).spare1%> </li>
-                                        <li> spare2(ì—¬ë¶„2) : <%=result.detailList(i).spare2%> </li>
-                                        <li> spare3(ì—¬ë¶„3) : <%=result.detailList(i).spare3%> </li>
-                                        <li> spare4(ì—¬ë¶„4) : <%=result.detailList(i).spare4%> </li>
-                                        <li> spare5(ì—¬ë¶„5) : <%=result.detailList(i).spare5%> </li>
-                                        <li> spare6(ì—¬ë¶„6) : <%=result.detailList(i).spare6%> </li>
-                                        <li> spare7(ì—¬ë¶„7) : <%=result.detailList(i).spare7%> </li>
-                                        <li> spare8(ì—¬ë¶„8) : <%=result.detailList(i).spare8%> </li>
-                                        <li> spare9(ì—¬ë¶„9) : <%=result.detailList(i).spare9%> </li>
-                                        <li> spare10(ì—¬ë¶„10) : <%=result.detailList(i).spare10%> </li>
-                                        <li> spare11(ì—¬ë¶„11) : <%=result.detailList(i).spare11%> </li>
-                                        <li> spare12(ì—¬ë¶„12) : <%=result.detailList(i).spare12%> </li>
-                                        <li> spare13(ì—¬ë¶„13) : <%=result.detailList(i).spare13%> </li>
-                                        <li> spare14(ì—¬ë¶„14) : <%=result.detailList(i).spare14%> </li>
-                                        <li> spare15(ì—¬ë¶„15) : <%=result.detailList(i).spare15%> </li>
-                                        <li> spare16(ì—¬ë¶„16) : <%=result.detailList(i).spare16%> </li>
-                                        <li> spare17(ì—¬ë¶„17) : <%=result.detailList(i).spare17%> </li>
-                                        <li> spare18(ì—¬ë¶„18) : <%=result.detailList(i).spare18%> </li>
-                                        <li> spare19(ì—¬ë¶„19) : <%=result.detailList(i).spare19%> </li>
-                                        <li> spare20(ì—¬ë¶„20) : <%=result.detailList(i).spare20%> </li>
+                                        <li> serialNum(ÀÏ·Ã¹øÈ£) : <%=result.detailList(i).serialNum%> </li>
+                                        <li> purchaseDT(°Å·¡ÀÏÀÚ) : <%=result.detailList(i).purchaseDT%> </li>
+                                        <li> itemName(Ç°¸ñ¸í) : <%=result.detailList(i).itemName%> </li>
+                                        <li> spec(±Ô°İ) : <%=result.detailList(i).spec%> </li>
+                                        <li> qty(¼ö·®) : <%=result.detailList(i).qty%> </li>
+                                        <li> unitCost(´Ü°¡) : <%=result.detailList(i).unitCost%> </li>
+                                        <li> supplyCost(°ø±Ş°¡¾×) : <%=result.detailList(i).supplyCost%> </li>
+                                        <li> tax(¼¼¾×) : <%=result.detailList(i).tax%> </li>
+                                        <li> remark(ºñ°í) : <%=result.detailList(i).remark%> </li>
+                                        <li> spare1(¿©ºĞ1) : <%=result.detailList(i).spare1%> </li>
+                                        <li> spare2(¿©ºĞ2) : <%=result.detailList(i).spare2%> </li>
+                                        <li> spare3(¿©ºĞ3) : <%=result.detailList(i).spare3%> </li>
+                                        <li> spare4(¿©ºĞ4) : <%=result.detailList(i).spare4%> </li>
+                                        <li> spare5(¿©ºĞ5) : <%=result.detailList(i).spare5%> </li>
+                                        <li> spare6(¿©ºĞ6) : <%=result.detailList(i).spare6%> </li>
+                                        <li> spare7(¿©ºĞ7) : <%=result.detailList(i).spare7%> </li>
+                                        <li> spare8(¿©ºĞ8) : <%=result.detailList(i).spare8%> </li>
+                                        <li> spare9(¿©ºĞ9) : <%=result.detailList(i).spare9%> </li>
+                                        <li> spare10(¿©ºĞ10) : <%=result.detailList(i).spare10%> </li>
+                                        <li> spare11(¿©ºĞ11) : <%=result.detailList(i).spare11%> </li>
+                                        <li> spare12(¿©ºĞ12) : <%=result.detailList(i).spare12%> </li>
+                                        <li> spare13(¿©ºĞ13) : <%=result.detailList(i).spare13%> </li>
+                                        <li> spare14(¿©ºĞ14) : <%=result.detailList(i).spare14%> </li>
+                                        <li> spare15(¿©ºĞ15) : <%=result.detailList(i).spare15%> </li>
+                                        <li> spare16(¿©ºĞ16) : <%=result.detailList(i).spare16%> </li>
+                                        <li> spare17(¿©ºĞ17) : <%=result.detailList(i).spare17%> </li>
+                                        <li> spare18(¿©ºĞ18) : <%=result.detailList(i).spare18%> </li>
+                                        <li> spare19(¿©ºĞ19) : <%=result.detailList(i).spare19%> </li>
+                                        <li> spare20(¿©ºĞ20) : <%=result.detailList(i).spare20%> </li>
                                     </ul>
                                 </fieldset>
                             <%

@@ -1,31 +1,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ë°œì‹ ìê°€ ë°œí–‰í•œ ì „ìëª…ì„¸ì„œë¥¼ ë°œí–‰ì·¨ì†Œí•©ë‹ˆë‹¤.
-    ' - "ë°œí–‰ì·¨ì†Œ" ìƒíƒœì˜ ì „ìëª…ì„¸ì„œë¥¼ ì‚­ì œ(Delete API) í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ë©´, ì „ìëª…ì„¸ì„œ ê´€ë¦¬ë¥¼ ìœ„í•´ ë¶€ì—¬í–ˆë˜ ë¬¸ì„œë²ˆí˜¸ë¥¼ ì¬ì‚¬ìš© í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+    ' ¹ß½ÅÀÚ°¡ ¹ßÇàÇÑ ÀüÀÚ¸í¼¼¼­¸¦ ¹ßÇàÃë¼ÒÇÕ´Ï´Ù.
+    ' - "¹ßÇàÃë¼Ò" »óÅÂÀÇ ÀüÀÚ¸í¼¼¼­¸¦ »èÁ¦(Delete API) ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¸é, ÀüÀÚ¸í¼¼¼­ °ü¸®¸¦ À§ÇØ ºÎ¿©Çß´ø ¹®¼­¹øÈ£¸¦ Àç»ç¿ë ÇÒ ¼ö ÀÖ½À´Ï´Ù.
     ' - https://developers.popbill.com/reference/statement/asp/api/issue#Cancel
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-"ì œì™¸ 10ìë¦¬
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-"Á¦¿Ü 10ÀÚ¸®
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
-    ' ëª…ì„¸ì„œ ì½”ë“œ - 121(ê±°ë˜ëª…ì„¸ì„œ), 122(ì²­êµ¬ì„œ), 123(ê²¬ì ì„œ), 124(ë°œì£¼ì„œ), 125(ì…ê¸ˆí‘œ), 126(ì˜ìˆ˜ì¦)
+    ' ¸í¼¼¼­ ÄÚµå - 121(°Å·¡¸í¼¼¼­), 122(Ã»±¸¼­), 123(°ßÀû¼­), 124(¹ßÁÖ¼­), 125(ÀÔ±İÇ¥), 126(¿µ¼öÁõ)
     itemCode = "121"
 
-    ' ë¬¸ì„œê´€ë¦¬ë²ˆí˜¸
+    ' ¹®¼­°ü¸®¹øÈ£
     mgtKey = "20220720-ASP-001"
 
-    ' ë©”ëª¨
-    memo = "ì „ìëª…ì„¸ì„œ ë°œí–‰ì·¨ì†Œ"
+    ' ¸Ş¸ğ
+    memo = "ÀüÀÚ¸í¼¼¼­ ¹ßÇàÃë¼Ò"
 
     On Error Resume Next
 
@@ -48,7 +48,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ì „ìëª…ì„¸ì„œ ë°œí–‰ì·¨ì†Œ</legend>
+                <legend>ÀüÀÚ¸í¼¼¼­ ¹ßÇàÃë¼Ò</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

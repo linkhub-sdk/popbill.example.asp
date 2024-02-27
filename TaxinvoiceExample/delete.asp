@@ -1,28 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>ÌåùÎπå SDK ASP Example.</title>
+        <title>∆À∫Ù SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ÏÇ≠Ï†ú Í∞ÄÎä•Ìïú ÏÉÅÌÉúÏùò ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑúÎ•º ÏÇ≠Ï†úÌï©ÎãàÎã§.
-    ' - ÏÇ≠Ï†ú Í∞ÄÎä•Ìïú ÏÉÅÌÉú: "ÏûÑÏãúÏ†ÄÏû•", "Î∞úÌñâÏ∑®ÏÜå", "Ïó≠Î∞úÌñâÍ±∞Î∂Ä", "Ïó≠Î∞úÌñâÏ∑®ÏÜå", "Ï†ÑÏÜ°Ïã§Ìå®"
-    ' - ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑúÎ•º ÏÇ≠Ï†úÌï¥ÏïºÎßå Î¨∏ÏÑúÎ≤àÌò∏(mgtKey)Î•º Ïû¨ÏÇ¨Ïö©Ìï† Ïàò ÏûàÏäµÎãàÎã§.
+    ' ªË¡¶ ∞°¥…«— ªÛ≈¬¿« ºº±›∞ËªÍº≠∏¶ ªË¡¶«’¥œ¥Ÿ.
+    ' - ªË¡¶ ∞°¥…«— ªÛ≈¬: "¿”Ω√¿˙¿Â", "πﬂ«‡√Îº“", "ø™πﬂ«‡∞≈∫Œ", "ø™πﬂ«‡√Îº“", "¿¸º€Ω«∆–"
+    ' - ºº±›∞ËªÍº≠∏¶ ªË¡¶«ÿæﬂ∏∏ πÆº≠π¯»£(mgtKey)∏¶ ¿ÁªÁøÎ«“ ºˆ ¿÷Ω¿¥œ¥Ÿ.
     ' - https://developers.popbill.com/reference/taxinvoice/asp/api/issue#Delete
     '**************************************************************
 
-    ' ÌåùÎπåÌöåÏõê ÏÇ¨ÏóÖÏûêÎ≤àÌò∏ ("-"Ï†úÏô∏)
+    ' ∆À∫Ù»∏ø¯ ªÁæ˜¿⁄π¯»£ ("-"¡¶ø‹)
     CorpNum = "1234567890"
 
-    ' ÌåùÎπåÌöåÏõê ÏïÑÏù¥Îîî
+    ' ∆À∫Ù»∏ø¯ æ∆¿Ãµ
     testUserID = "testkorea"
 
-    ' ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î∞úÌñâÏú†Ìòï, SELL(Îß§Ï∂ú), BUY(Îß§ÏûÖ), TRUSTEE(ÏúÑÏàòÌÉÅ)
+    ' ºº±›∞ËªÍº≠ πﬂ«‡¿Ø«¸, SELL(∏≈√‚), BUY(∏≈¿‘), TRUSTEE(¿ßºˆ≈π)
     KeyType= "SELL"
 
-    ' ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú Î¨∏ÏÑúÎ≤àÌò∏
+    ' ºº±›∞ËªÍº≠ πÆº≠π¯»£
     MgtKey = "20220720-ASP-001"
 
     On Error Resume Next
@@ -45,7 +45,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ÏÑ∏Í∏àÍ≥ÑÏÇ∞ÏÑú ÏÇ≠Ï†ú</legend>
+                <legend>ºº±›∞ËªÍº≠ ªË¡¶</legend>
                 <ul>
                     <li>Response.code : <%=code%> </li>
                     <li>Response.message: <%=message%> </li>

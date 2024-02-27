@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒë¹Œì— ë“±ë¡ëœ ì¸ì¦ì„œ ë§Œë£Œì¼ìžë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ÆËºô¿¡ µî·ÏµÈ ÀÎÁõ¼­ ¸¸·áÀÏÀÚ¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/httaxinvoice/asp/api/cert#GetCertificateExpireDate
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµð
     UserID = "testkorea"
 
     On Error Resume Next
@@ -34,10 +34,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ê³µì¸ì¸ì¦ì„œ ë§Œë£Œì¼ì‹œ í™•ì¸</legend>
+                <legend>°øÀÎÀÎÁõ¼­ ¸¸·áÀÏ½Ã È®ÀÎ</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>ê³µì¸ì¸ì¦ì„œ ë§Œë£Œì¼ì‹œ : <%=expireDate%> </li>
+                        <li>°øÀÎÀÎÁõ¼­ ¸¸·áÀÏ½Ã : <%=expireDate%> </li>
                     </ul>
                 <%	Else  %>
                 <ul>

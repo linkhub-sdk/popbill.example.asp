@@ -3,7 +3,7 @@ Class KakaoService
 
 Private m_PopbillBase
 
-'í…ŒìŠ¤íŠ¸ í”Œë˜ê·¸
+'Å×½ºÆ® ÇÃ·¡±×
 Public Property Let IsTest(ByVal value)
     m_PopbillBase.IsTest = value
 End Property
@@ -35,72 +35,72 @@ Public Sub Initialize(linkID, SecretKey )
     m_PopbillBase.Initialize linkID,SecretKey
 End Sub
 
-'íšŒì›ì”ì•¡ì¡°íšŒ
+'È¸¿øÀÜ¾×Á¶È¸
 Public Function GetBalance(CorpNum)
     GetBalance = m_PopbillBase.GetBalance(CorpNum)
 End Function
-'íŒŒíŠ¸ë„ˆ ì”ì•¡ì¡°íšŒ
+'ÆÄÆ®³Ê ÀÜ¾×Á¶È¸
 Public Function GetPartnerBalance(CorpNum)
     GetPartnerBalance = m_PopbillBase.GetPartnerBalance(CorpNum)
 End Function
-'íŒë¹Œ ê¸°ë³¸ URL
+'ÆËºô ±âº» URL
 Public Function GetPopbillURL(CorpNum , UserID , TOGO)
     GetPopbillURL = m_PopbillBase.GetPopbillURL(CorpNum , UserID , TOGO )
 End Function
-'íŒë¹Œ ë¡œê·¸ì¸ URL
+'ÆËºô ·Î±×ÀÎ URL
 Public Function GetAccessURL(CorpNum , UserID)
     GetAccessURL = m_PopbillBase.GetAccessURL(CorpNum , UserID )
 End Function
 
-'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì¶©ì „ URL
+'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® ÃæÀü URL
 Public Function GetChargeURL(CorpNum , UserID)
     GetChargeURL = m_PopbillBase.GetChargeURL(CorpNum , UserID )
 End Function
 
-'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ URL
+'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª URL
 Public Function GetPaymentURL(CorpNum, UserID)
     GetPaymentURL = m_PopbillBase.GetPaymentURL(CorpNum, UserID)
 End Function
 
-'íŒë¹Œ ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ URL
+'ÆËºô ¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª URL
 Public Function GetUseHistoryURL(CorpNum, UserID)
     GetUseHistoryURL = m_PopbillBase.GetUseHistoryURL(CorpNum, UserID)
 End Function
 
-'íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ íŒì—… URL - 2017/08/29 ì¶”ê°€
+'ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL - 2017/08/29 Ãß°¡
 Public Function GetPartnerURL(CorpNum, TOGO)
     GetPartnerURL = m_PopbillBase.GetPartnerURL(CorpNum,TOGO)
 End Function
 
-'íšŒì›ê°€ì… ì—¬ë¶€
+'È¸¿ø°¡ÀÔ ¿©ºÎ
 Public Function CheckIsMember(CorpNum , linkID)
     Set CheckIsMember = m_PopbillBase.CheckIsMember(CorpNum,linkID)
 End Function
-'íšŒì›ê°€ì…
+'È¸¿ø°¡ÀÔ
 Public Function JoinMember(JoinInfo)
     Set JoinMember = m_PopbillBase.JoinMember(JoinInfo)
 End Function
-'ë‹´ë‹¹ì ì •ë³´ í™•ì¸
+'´ã´çÀÚ Á¤º¸ È®ÀÎ
 Public Function GetContactInfo(CorpNum, ContactID, UserID)
     Set GetContactInfo = m_PopbillBase.GetContactInfo(CorpNum, ContactID, UserID)
 End Function
-'ë‹´ë‹¹ì ëª©ë¡ì¡°íšŒ
+'´ã´çÀÚ ¸ñ·ÏÁ¶È¸
 Public Function ListContact(CorpNum, UserID)
     Set ListContact = m_popbillBase.ListContact(CorpNum,UserID)
 End Function
-'ë‹´ë‹¹ì ì •ë³´ìˆ˜ì •
+'´ã´çÀÚ Á¤º¸¼öÁ¤
 Public Function UpdateContact(CorpNum, contInfo, UserId)
     Set UpdateContact = m_popbillBase.UpdateContact(CorpNum, contInfo, UserId)
 End Function
-'ë‹´ë‹¹ì ì¶”ê°€
+'´ã´çÀÚ Ãß°¡
 Public Function RegistContact(CorpNum, contInfo, UserId)
     Set RegistContact = m_popbillBase.RegistContact(CorpNum, contInfo, UserId)
 End Function
-'íšŒì‚¬ì •ë³´ ìˆ˜ì •
+'È¸»çÁ¤º¸ ¼öÁ¤
 Public Function UpdateCorpInfo(CorpNum, corpInfo, UserId)
     Set UpdateCorpInfo = m_popbillBase.UpdateCorpInfo(CorpNum, corpInfo, UserId)
 End Function
-'íšŒì‚¬ì •ë³´ í™•ì¸
+'È¸»çÁ¤º¸ È®ÀÎ
 Public Function GetCorpInfo(CorpNum, UserId)
     Set GetCorpInfo = m_popbillBase.GetCorpInfo(CorpNum, UserId)
 End Function
@@ -108,7 +108,7 @@ Public Function CheckID(id)
     Set CheckID = m_popbillBase.CheckID(id)
 End Function
 
-'ê³¼ê¸ˆì •ë³´ í™•ì¸
+'°ú±İÁ¤º¸ È®ÀÎ
 Public Function GetChargeInfo ( CorpNum, KType, UserID )
     Dim result : Set result = m_PopbillBase.httpGET ( "/KakaoTalk/ChargeInfo?Type=" &KType, m_PopbillBase.getSession_token(CorpNum), UserID )
 
@@ -118,54 +118,54 @@ Public Function GetChargeInfo ( CorpNum, KType, UserID )
     Set GetChargeInfo = chrgInfo
 End Function
 
-'ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­
+'¹«ÅëÀå ÀÔ±İ½ÅÃ»
 Public Function PaymentRequest(CorpNum, PaymentForm, UserID)
     Set PaymentRequest = m_popbillBase.PaymentRequest(CorpNum, PaymentForm, UserID)
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ ê²°ì œë‚´ì—­ ì¡°íšŒ
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® °áÁ¦³»¿ª Á¶È¸
 Public Function GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
     Set GetPaymentHistory = m_popbillBase.GetPaymentHistory(CorpNum, SDate, EDate, Page, PerPage, UserID)
 End Function
 
-'ì—°ë™íšŒì› ë¬´í†µì¥ ì…ê¸ˆì‹ ì²­ ì •ë³´í™•ì¸
+'¿¬µ¿È¸¿ø ¹«ÅëÀå ÀÔ±İ½ÅÃ» Á¤º¸È®ÀÎ
 Public Function GetSettleResult(CorpNum, SettleCode, UserID)
     Set GetSettleResult = m_popbillBase.GetSettleResult(CorpNum, SettleCode, UserID)
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ ì‚¬ìš©ë‚´ì—­ í™•ì¸
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® »ç¿ë³»¿ª È®ÀÎ
 Public Function GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
     Set GetUseHistory = m_PopbillBase.GetUseHistory(CorpNum, SDate, EDate, Page, PerPage, Order, UserID)
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆì‹ ì²­
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® È¯ºÒ½ÅÃ»
 Public Function Refund(CorpNum, RefundForm, UserID)
     Set Refund = m_popbillBase.Refund(CorpNum, RefundForm, UserID)
 End Function
 
-' í™˜ë¶ˆ ê°€ëŠ¥ í¬ì¸íŠ¸ ì¡°íšŒ
+' È¯ºÒ °¡´É Æ÷ÀÎÆ® Á¶È¸
 Public Function GetRefundableBalance(CorpNum, UserID)
     GetRefundableBalance = m_popbillBase.GetRefundableBalance(CorpNum, UserID)
 End Function
 
-'ì—°ë™íšŒì› í¬ì¸íŠ¸ í™˜ë¶ˆë‚´ì—­ í™•ì¸
+'¿¬µ¿È¸¿ø Æ÷ÀÎÆ® È¯ºÒ³»¿ª È®ÀÎ
 Public Function GetRefundHistory(CorpNum, Page, PerPage, UserID)
     Set GetRefundHistory = m_popbillBase.GetRefundHistory(CorpNum, Page, PerPage, UserID)
 End Function
 
-' í™˜ë¶ˆ ì‹ ì²­ ìƒíƒœ ì¡°íšŒ
+' È¯ºÒ ½ÅÃ» »óÅÂ Á¶È¸
 Public Function GetRefundInfo(CorpNum, RefundCode, UserID)
     Set GetRefundInfo = m_popbillBase.GetRefundInfo(CorpNum, RefundCode, UserID)
 End Function
 
-'íšŒì› íƒˆí‡´
+'È¸¿ø Å»Åğ
 Public Function QuitMember(CorpNum, QuitReason, UserID)
     Set QuitMember = m_popbillBase.QuitMember(CorpNum, QuitReason, UserID)
 End Function
 
 '''''''''''''  End of PopbillBase
 
-'ì¹´ì¹´ì˜¤í†¡ ê´€ë ¨ URL
+'Ä«Ä«¿ÀÅå °ü·Ã URL
 Public Function GetURL(CorpNum, UserID, TOGO)
     Dim result
     If TOGO = "SENDER" Then
@@ -176,61 +176,61 @@ Public Function GetURL(CorpNum, UserID, TOGO)
     GetURL = result.url
 End Function
 
-'í”ŒëŸ¬ìŠ¤ì¹œêµ¬ ê³„ì •ê´€ë¦¬ íŒì—… URL
+'ÇÃ·¯½ºÄ£±¸ °èÁ¤°ü¸® ÆË¾÷ URL
 Public Function GetPlusFriendMgtURL(CorpNum, UserID)
     Set result = m_PopbillBase.httpGet("/KakaoTalk/?TG=PLUSFRIEND", m_PopbillBase.getSession_token(CorpNum), UserID)
     GetPlusFriendMgtURL = result.url
 End Function
 
-'ë°œì‹ ë²ˆí˜¸ ê´€ë¦¬ íŒì—… URL
+'¹ß½Å¹øÈ£ °ü¸® ÆË¾÷ URL
 Public Function GetSenderNumberMgtURL(CorpNum, UserID)
     Set result = m_PopbillBase.httpGet("/Message/?TG=SENDER", m_PopbillBase.getSession_token(CorpNum), UserID)
     GetSenderNumberMgtURL = result.url
 End Function
 
-'ì•Œë¦¼í†¡ í…œí”Œë¦¿ê´€ë¦¬ íŒì—… URL
+'¾Ë¸²Åå ÅÛÇÃ¸´°ü¸® ÆË¾÷ URL
 Public Function GetATSTemplateMgtURL(CorpNum, UserID)
     Set result = m_PopbillBase.httpGet("/KakaoTalk/?TG=TEMPLATE", m_PopbillBase.getSession_token(CorpNum), UserID)
     GetATSTemplateMgtURL = result.url
 End Function
 
-'ì¹´ì¹´ì˜¤í†¡ ì „ì†¡ë‚´ì—­ íŒì—… URL
+'Ä«Ä«¿ÀÅå Àü¼Û³»¿ª ÆË¾÷ URL
 Public Function GetSentListURL(CorpNum, UserID)
     Set result = m_PopbillBase.httpGet("/KakaoTalk/?TG=BOX", m_PopbillBase.getSession_token(CorpNum), UserID)
     GetSentListURL = result.url
 End Function
 
 
-'í”ŒëŸ¬ìŠ¤ì¹œêµ¬ ê³„ì • ëª©ë¡ í™•ì¸
+'ÇÃ·¯½ºÄ£±¸ °èÁ¤ ¸ñ·Ï È®ÀÎ
 Public Function ListPlusFriendID(CorpNum)
     Set ListPlusFriendID = m_PopbillBase.httpGET("/KakaoTalk/ListPlusFriendID", m_PopbillBase.getSession_token(CorpNum), "")
 End Function
 
-'ë°œì‹ ë²ˆí˜¸ ëª©ë¡ í™•ì¸
+'¹ß½Å¹øÈ£ ¸ñ·Ï È®ÀÎ
 Public Function GetSenderNumberList(CorpNum)
     Set GetSenderNumberList = m_PopbillBase.httpGET("/Message/SenderNumber", m_PopbillBase.getSession_token(CorpNum), "")
 End Function
 
-'ë°œì‹ ë²ˆí˜¸ ë“±ë¡ì—¬ë¶€ í™•ì¸
+'¹ß½Å¹øÈ£ µî·Ï¿©ºÎ È®ÀÎ
 Public Function CheckSenderNumber(CorpNum, SenderNumber, UserID)
     If SenderNumber = "" Or IsNull(SenderNumber) Then
-        Err.Raise -99999999, "POPBILL", "ë°œì‹ ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+        Err.Raise -99999999, "POPBILL", "¹ß½Å¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
     End If
 
     Set CheckSenderNumber = m_PopbillBase.httpGET("/KakaoTalk/CheckSenderNumber/"&SenderNumber,m_PopbillBase.getSession_token(CorpNum),UserID)
 End Function
 
-'ë‹¨ê°€í™•ì¸
+'´Ü°¡È®ÀÎ
 Public Function GetUnitCost(CorpNum, KType)
     Dim result : Set result = m_PopbillBase.httpGET("/KakaoTalk/UnitCost?Type="&KType, m_PopbillBase.getSession_token(CorpNum),"")
     GetUnitCost = result.unitCost
 End Function
 
-'ì•Œë¦¼í†¡ í…œí”Œë¦¿ ì •ë³´ í™•ì¸
+'¾Ë¸²Åå ÅÛÇÃ¸´ Á¤º¸ È®ÀÎ
 Public Function GetATSTemplate(CorpNum, templateCode, UserID)
 
     If templateCode = "" Or isEmpty(templateCode) Then
-        Err.raise -99999999, "POPBILL", "í…œí”Œë¦¿ì½”ë“œê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+        Err.raise -99999999, "POPBILL", "ÅÛÇÃ¸´ÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
     End If
 
     Dim template : Set template = new KakaoATSTemplate
@@ -242,7 +242,7 @@ Public Function GetATSTemplate(CorpNum, templateCode, UserID)
 
 End Function
 
-'ì•Œë¦¼í†¡ í…œí”Œë¦¿ ëª©ë¡ í™•ì¸
+'¾Ë¸²Åå ÅÛÇÃ¸´ ¸ñ·Ï È®ÀÎ
 Public Function ListATSTemplate(CorpNum)
     Dim result : Set result = m_PopbillBase.httpGET("/KakaoTalk/ListATSTemplate", m_PopbillBase.getSession_token(CorpNum), "")
 
@@ -257,29 +257,29 @@ Public Function ListATSTemplate(CorpNum)
     Set ListATSTemplate = tmp
 End Function
 
-'ì˜ˆì•½ì „ì†¡ì·¨ì†Œ
+'¿¹¾àÀü¼ÛÃë¼Ò
 Public Function CancelReserve(CorpNum, ReceiptNum, UserID)
     If ReceiptNum = "" Or IsNull(ReceptNum) Then
-        Err.Raise -99999999, "POPBILL", "ì ‘ìˆ˜ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
+        Err.Raise -99999999, "POPBILL", "Á¢¼ö¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
     End If
 
     Set CancelReserve = m_PopbillBase.httpGet("/KakaoTalk/"&ReceiptNum&"/Cancel",m_PopbillBase.getSession_token(CorpNum),UserID)
 End Function
 
 
-'ì˜ˆì•½ ì „ì†¡ì·¨ì†Œ (ìš”ì²­ë²ˆí˜¸ í• ë‹¹)
+'¿¹¾à Àü¼ÛÃë¼Ò (¿äÃ»¹øÈ£ ÇÒ´ç)
 Public Function CancelReserveRN(CorpNum, RequestNum, UserID)
     If RequestNum = "" Or IsNull(RequestNum) Then
-        Err.Raise -99999999, "POPBILL", "ìš”ì²­ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
+        Err.Raise -99999999, "POPBILL", "¿äÃ»¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
     End If
 
     Set CancelReserveRN = m_PopbillBase.httpGet("/KakaoTalk/Cancel/"&RequestNum, m_PopbillBase.getSession_token(CorpNum), UserID)
 End Function
 
-'ì•Œë¦¼í†¡ ì „ì†¡
+'¾Ë¸²Åå Àü¼Û
 Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, altSendType, reserveDT, receiverList, RequestNum, UserID, btnList, altSubject)
     If templateCode = "" Or IsNull(templateCode) Then
-        Err.Raise -99999999, "POPBILL", "ì•Œë¦¼í†¡ í…œí”Œë¦¿ ì½”ë“œ(TemplateCode)ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
+        Err.Raise -99999999, "POPBILL", "¾Ë¸²Åå ÅÛÇÃ¸´ ÄÚµå(TemplateCode)°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
@@ -322,11 +322,11 @@ Public Function SendATS(CorpNum, templateCode, senderNum, content, altContent, a
 End Function
 
 
-'ì¹œêµ¬í†¡ í…ìŠ¤íŠ¸ ì „ì†¡
+'Ä£±¸Åå ÅØ½ºÆ® Àü¼Û
 Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, RequestNum, UserID, altSubject)
 
     If plusFriendID = "" Or IsNull(plusFriendID) Then
-        Err.Raise -99999999, "POPBILL", "ì¹œêµ¬í†¡ í”ŒëŸ¬ìŠ¤ì¹œêµ¬ ì•„ì´ë””(plusFriendID)ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
+        Err.Raise -99999999, "POPBILL", "Ä£±¸Åå ÇÃ·¯½ºÄ£±¸ ¾ÆÀÌµğ(plusFriendID)°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
@@ -369,11 +369,11 @@ Public Function SendFTS(CorpNum, plusFriendID, snd, content, altContent, altSend
 End Function
 
 
-'ì¹œêµ¬í†¡ ì´ë¯¸ì§€ ì „ì†¡
+'Ä£±¸Åå ÀÌ¹ÌÁö Àü¼Û
 Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSendType, sndDT, adsYN, receiverList, btnList, filePath, imageURL, RequestNum, UserID, altSubject)
 
     If plusFriendID = "" Or IsNull(plusFriendID) Then
-        Err.Raise -99999999, "POPBILL", "ì¹œêµ¬í†¡ í”ŒëŸ¬ìŠ¤ì¹œêµ¬ ì•„ì´ë””(plusFriendID)ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
+        Err.Raise -99999999, "POPBILL", "Ä£±¸Åå ÇÃ·¯½ºÄ£±¸ ¾ÆÀÌµğ(plusFriendID)°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
     End If
 
     Dim tmp : Set tmp = JSON.parse("{}")
@@ -416,10 +416,10 @@ Public Function SendFMS(CorpNum, plusFriendID, snd, content, altContent, altSend
 End Function
 
 
-'ì¹´ì¹´ì˜¤í†¡ ì „ì†¡ë‚´ì—­ í™•ì¸
+'Ä«Ä«¿ÀÅå Àü¼Û³»¿ª È®ÀÎ
 Public Function GetMessages(CorpNum, ReceiptNum, UserID)
     If ReceiptNum = "" Or IsNull(ReceptNum) Then
-        Err.Raise -99999999, "POPBILL", "ì ‘ìˆ˜ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
+        Err.Raise -99999999, "POPBILL", "Á¢¼ö¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
     End If
 
     Dim result : Set result = m_PopbillBase.httpGet("/KakaoTalk/"&ReceiptNum,m_PopbillBase.getSession_token(CorpNum),UserID)
@@ -431,10 +431,10 @@ Public Function GetMessages(CorpNum, ReceiptNum, UserID)
     Set GetMessages = resultObj
 End Function
 
-'ì¹´ì¹´ì˜¤í†¡ ì „ì†¡ë‚´ì—­ í™•ì¸ (ìš”ì²­ë²ˆí˜¸ í• ë‹¹)
+'Ä«Ä«¿ÀÅå Àü¼Û³»¿ª È®ÀÎ (¿äÃ»¹øÈ£ ÇÒ´ç)
 Public Function GetMessagesRN(CorpNum, RequestNum, UserID)
     If RequestNum = "" Or IsNull(RequestNum) Then
-        Err.Raise -99999999, "POPBILL", "ìš”ì²­ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"
+        Err.Raise -99999999, "POPBILL", "¿äÃ»¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"
     End If
 
     Dim result : Set result = m_PopbillBase.httpGet("/KakaoTalk/Get/"+RequestNum ,m_PopbillBase.getSession_token(CorpNum), UserID)
@@ -448,13 +448,13 @@ Public Function GetMessagesRN(CorpNum, RequestNum, UserID)
 End Function
 
 
-'ì¹´ì¹´ì˜¤í†¡ ì „ì†¡ë‚´ì—­ ëª©ë¡ ì¡°íšŒ
+'Ä«Ä«¿ÀÅå Àü¼Û³»¿ª ¸ñ·Ï Á¶È¸
 Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, Order, Page, PerPage, QString)
     If SDate = "" Then
-        Err.Raise -99999999, "POPBILL", "ì‹œì‘ì¼ìê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+        Err.Raise -99999999, "POPBILL", "½ÃÀÛÀÏÀÚ°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
     End If
     If EDate = "" Then
-        Err.Raise -99999999, "POPBILL", "ì¢…ë£Œì¼ìê°€ ì´ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+        Err.Raise -99999999, "POPBILL", "Á¾·áÀÏÀÚ°¡ ÀÌ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
     End If
 
     Dim uri
@@ -503,13 +503,13 @@ Public Function Search(CorpNum, SDate, EDate, State, Item, ReserveYN, SenderYN, 
     Set Search = searchResult
 End Function
 
-'ì˜ˆì•½ì „ì†¡ ì¼ë¶€ ì·¨ì†Œ (ì ‘ìˆ˜ë²ˆí˜¸)
+'¿¹¾àÀü¼Û ÀÏºÎ Ãë¼Ò (Á¢¼ö¹øÈ£)
 Public Function CancelReservebyRCV(CorpNum, ReceiptNum,receiverNum, UserID)
     IF isNull(ReceiptNum) Or ReceiptNum = "" Then
-        Err.raise ReceiptNum, "POPBILL", "ì ‘ìˆ˜ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+        Err.raise ReceiptNum, "POPBILL", "Á¢¼ö¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
     End IF
     IF isNull(receiverNum) Or receiverNum = "" Then
-        Err.raise receiverNum, "POPBILL", "ìˆ˜ì‹ ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+        Err.raise receiverNum, "POPBILL", "¼ö½Å¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
     End IF
 
     Set m_CancelReserve = New CancelReserveObj
@@ -522,13 +522,13 @@ Public Function CancelReservebyRCV(CorpNum, ReceiptNum,receiverNum, UserID)
     Set CancelReservebyRCV = m_popbillBase.httpPOST(uri, m_PopbillBase.getSession_token(CorpNum), "", postData, UserID)
 End Function
 
-'ì˜ˆì•½ì „ì†¡ ì¼ë¶€ ì·¨ì†Œ (ì „ì†¡ ìš”ì²­ë²ˆí˜¸)
+'¿¹¾àÀü¼Û ÀÏºÎ Ãë¼Ò (Àü¼Û ¿äÃ»¹øÈ£)
 Public Function CancelReserveRNbyRCV(CorpNum, RequestNum, receiverNum, UserID)
     IF isNull(RequestNum) Or RequestNum = "" Then
-        Err.raise RequestNum, "POPBILL", "ì „ì†¡ìš”ì²­ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+        Err.raise RequestNum, "POPBILL", "Àü¼Û¿äÃ»¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
     End IF
     IF isNull(receiverNum) Or  receiverNum = "" Then
-        Err.raise receiverNum, "POPBILL", "ìˆ˜ì‹ ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤."
+        Err.raise receiverNum, "POPBILL", "¼ö½Å¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
     End IF
 
     Set m_CancelReserve = New CancelReserveObj

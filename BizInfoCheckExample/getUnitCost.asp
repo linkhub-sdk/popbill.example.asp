@@ -1,20 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' ê¸°ì—…ì •ë³´ ì„±ëª… ì¡°íšŒì‹œ ê³¼ê¸ˆë˜ëŠ” í¬ì¸íŠ¸ ë‹¨ê°€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+    ' ±â¾÷Á¤º¸ ¼º¸í Á¶È¸½Ã °ú±İµÇ´Â Æ÷ÀÎÆ® ´Ü°¡¸¦ È®ÀÎÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/bizinfocheck/asp/api/point#GetUnitCost
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' íŒë¹ŒíšŒì› ì•„ì´ë””
+    ' ÆËºôÈ¸¿ø ¾ÆÀÌµğ
     UserID = "testkorea"
 
     On Error Resume Next
@@ -34,10 +34,10 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ê¸°ì—…ì •ë³´ì¡°íšŒ ë‹¨ê°€ í™•ì¸ </legend>
+                <legend>±â¾÷Á¤º¸Á¶È¸ ´Ü°¡ È®ÀÎ </legend>
                 <ul>
                     <% If code = 0 Then %>
-                        <li>ì¡°íšŒë‹¨ê°€ : <%=unitCost%> </li>
+                        <li>Á¶È¸´Ü°¡ : <%=unitCost%> </li>
                     <% Else %>
                         <li> Response.code : <%=code%> </li>
                         <li> Response.message : <%=message%> </li>

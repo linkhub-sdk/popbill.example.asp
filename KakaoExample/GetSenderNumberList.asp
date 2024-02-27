@@ -1,17 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
     <!--#include file="common.asp"-->
     <%
         '**************************************************************
-        ' íŒë¹Œì— ë“±ë¡í•œ ì—°ë™íšŒì›ì˜ ì¹´ì¹´ì˜¤í†¡ ë°œì‹ ë²ˆí˜¸ ëª©ë¡ì„ í™•ì¸í•©ë‹ˆë‹¤.
+        ' ÆËºô¿¡ µî·ÏÇÑ ¿¬µ¿È¸¿øÀÇ Ä«Ä«¿ÀÅå ¹ß½Å¹øÈ£ ¸ñ·ÏÀ» È®ÀÎÇÕ´Ï´Ù.
         ' - https://developers.popbill.com/reference/kakaotalk/asp/api/sendnum#GetSenderNumberList
         '**************************************************************
 
-        ' íŒë¹ŒíšŒì› ì‚¬ì—…ìë²ˆí˜¸, "-" ì œì™¸
+        ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
         CorpNum = "1234567890"
 
         On Error Resume Next
@@ -31,16 +31,16 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>ë°œì‹ ë²ˆí˜¸ ëª©ë¡ í™•ì¸</legend>
+                <legend>¹ß½Å¹øÈ£ ¸ñ·Ï È®ÀÎ</legend>
                 <%
                     For i=0 To Presponse.length -1
                 %>
                 <fieldset class="fieldset2">
                 <ul>
-                    <li>ë°œì‹ ë²ˆí˜¸ (number) : <%=Presponse.Get(i).number %> </li>
-                    <li>ë“±ë¡ìƒíƒœ (state) : <%=Presponse.Get(i).state %> </li>
-                    <li>ëŒ€í‘œë²ˆí˜¸ ì§€ì •ì—¬ë¶€ (representYN) : <%=Presponse.Get(i).representYN %> </li>
-                    <li>ë©”ëª¨ (memo) : <%=Presponse.Get(i).memo %> </li>
+                    <li>¹ß½Å¹øÈ£ (number) : <%=Presponse.Get(i).number %> </li>
+                    <li>µî·Ï»óÅÂ (state) : <%=Presponse.Get(i).state %> </li>
+                    <li>´ëÇ¥¹øÈ£ ÁöÁ¤¿©ºÎ (representYN) : <%=Presponse.Get(i).representYN %> </li>
+                    <li>¸Ş¸ğ (memo) : <%=Presponse.Get(i).memo %> </li>
                 </ul>
                 </fieldset>
                 <%

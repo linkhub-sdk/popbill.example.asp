@@ -1,21 +1,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>íŒë¹Œ SDK ASP Example.</title>
+        <title>ÆËºô SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"-->
 <%
     '**************************************************************
-    ' íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ì„ ìœ„í•œ íŽ˜ì´ì§€ì˜ íŒì—… URLì„ ë°˜í™˜í•©ë‹ˆë‹¤.
-    ' - ë°˜í™˜ë˜ëŠ” URLì€ ë³´ì•ˆ ì •ì±…ìƒ 30ì´ˆ ë™ì•ˆ ìœ íš¨í•˜ë©°, ì‹œê°„ì„ ì´ˆê³¼í•œ í›„ì—ëŠ” í•´ë‹¹ URLì„ í†µí•œ íŽ˜ì´ì§€ ì ‘ê·¼ì´ ë¶ˆê°€í•©ë‹ˆë‹¤.
+    ' ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀüÀ» À§ÇÑ ÆäÀÌÁöÀÇ ÆË¾÷ URLÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
+    ' - ¹ÝÈ¯µÇ´Â URLÀº º¸¾È Á¤Ã¥»ó 30ÃÊ µ¿¾È À¯È¿ÇÏ¸ç, ½Ã°£À» ÃÊ°úÇÑ ÈÄ¿¡´Â ÇØ´ç URLÀ» ÅëÇÑ ÆäÀÌÁö Á¢±ÙÀÌ ºÒ°¡ÇÕ´Ï´Ù.
     ' - https://developers.popbill.com/reference/htcashbill/asp/api/point#GetPartnerURL
     '**************************************************************
 
-    ' íŒë¹ŒíšŒì› ì‚¬ì—…ìžë²ˆí˜¸, "-" ì œì™¸
+    ' ÆËºôÈ¸¿ø »ç¾÷ÀÚ¹øÈ£, "-" Á¦¿Ü
     CorpNum = "1234567890"
 
-    ' CHRG : í¬ì¸íŠ¸ì¶©ì „ íŒì—…
+    ' CHRG : Æ÷ÀÎÆ®ÃæÀü ÆË¾÷
     TOGO = "CHRG"
 
     On Error Resume Next
@@ -35,7 +35,7 @@
             <p class="heading1">Response</p>
             <br/>
             <fieldset class="fieldset1">
-                <legend>íŒŒíŠ¸ë„ˆ í¬ì¸íŠ¸ ì¶©ì „ íŒì—… URL</legend>
+                <legend>ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL</legend>
                 <% If code = 0 Then %>
                     <ul>
                         <li>URL : <%=CStr(url)%> </li>
