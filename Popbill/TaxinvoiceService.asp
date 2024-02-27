@@ -232,7 +232,7 @@ Public Function AttachFile(CorpNum, KeyType, MgtKey, FilePath, UserID)
         Err.Raise -99999999, "POPBILL", "문서번호가 입력되지 않았습니다."
     End If
 
-    Set AttachFile = m_PopbillBase.httpPOST_File("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files", m_PopbillBase.getSession_token(CorpNum), FilePath, UserID)
+    Set AttachFile = m_PopbillBase.httpPOST_File("/Taxinvoice/" + KeyType + "/" + MgtKey + "/Files", m_PopbillBase.getSession_token(CorpNum), FilePath, null, UserID)
 End Function
 
 '세금계산서 첨부파일 1개 삭제

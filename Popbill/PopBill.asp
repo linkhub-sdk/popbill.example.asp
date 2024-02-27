@@ -522,7 +522,7 @@ End Function
 
 
 
-Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
+Public Function httpPOST_File(url , BearerToken , FilePath , DisplayName , UserID )
 
     Dim boundary : boundary = "---------------------popbill"
 
@@ -546,9 +546,19 @@ Public Function httpPOST_File(url , BearerToken , FilePath , UserID )
     Stream.Type = adTypeBinary
     Stream.Open
 
-    Dim fileHead : fileHead = vbCrLf & "--" & boundary & vbCrLf & _
+    Dim fileHead : fileHead = null
+
+    If isNull(DisplayName) Or isEmpty(DisplayName) Then
+        fileHead = vbCrLf & "--" & boundary & vbCrLf & _
            "Content-Disposition: form-data; name=""Filedata""; filename=""" & GetOnlyFileName(FilePath) & """" + vbCrLf & _
            "Content-Type: application/octet-stream" & vbCrLf & vbCrLf
+    Else
+        fileHead = vbCrLf & "--" & boundary & vbCrLf & _
+           "Content-Disposition: form-data; name=""Filedata""; filename=""" & DisplayName & """" + vbCrLf & _
+           "Content-Type: application/octet-stream" & vbCrLf & vbCrLf
+    End If
+
+
     Stream.Write StringToBytes(fileHead)
     Stream.Write GetFile(FilePath)
 
@@ -614,73 +624,6 @@ Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths , UserID )
     For Each FilePath In FilePaths
         Dim fileHead : fileHead = vbCrLf & "--" & boundary & vbCrLf & _
                "Content-Disposition: form-data; name=""file""; filename=""" & GetOnlyFileName(FilePath) & """" + vbCrLf & _
-               "Content-Type: application/octet-stream" & vbCrLf & vbCrLf
-
-        Stream.Write StringToBytes(fileHead)
-        Stream.Write GetFile(FilePath)
-    Next
-
-    Dim tail : tail = vbCrLf & "--" & boundary & "--" & vbCrLf
-    Stream.Write  StringToBytes(tail)
-
-    Stream.Flush
-    Stream.Position = 0
-    Dim btPostData : btPostData = Stream.Read
-    Stream.Close : Set Stream = Nothing
-
-    winhttp1.Send (btPostData)
-    winhttp1.WaitForResponse
-
-    Dim result : result = winhttp1.responseText
-
-    If winhttp1.Status <> 200 Then
-        Set winhttp1 = Nothing
-        Dim parsedDic : Set parsedDic = m_Linkhub.parse(result)
-        Err.raise parsedDic.code, "POPBILL", parsedDic.message
-    End If
-
-    Set winhttp1 = Nothing
-
-    Set httpPOST_Files = m_Linkhub.parse(Result)
-
-End Function
-
-Public Function httpPOST_Files(url , BearerToken ,postData, FilePaths, DisplayName, UserID )
-
-    Dim boundary : boundary = "---------------------popbill"
-
-    Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
-
-    Call winhttp1.Open("POST", getTargetURL() + url)
-    Call winhttp1.setRequestHeader("x-pb-version", APIVersion)
-    Call winhttp1.setRequestHeader("User-Agent", "Classic ASP POPBILL SDK")
-
-    If BearerToken <> "" Then
-        Call winhttp1.setRequestHeader("Authorization", "Bearer " + BearerToken)
-    End If
-
-    If UserID <> "" Then
-        Call winhttp1.setRequestHeader("x-pb-userid", UserID)
-    End If
-
-    Call winhttp1.setRequestHeader("Content-Type", "multipart/form-data; boundary=" + boundary)
-
-    Dim Stream : Set Stream = Server.CreateObject("ADODB.Stream")
-    Stream.Type = adTypeBinary
-    Stream.Open
-
-    If postData <> "" Then
-        Dim applicationform : applicationform = vbCrLf & "--" & boundary & vbCrLf & _
-                          "Content-Disposition: form-data; name=""form""" & vbCrLf & _
-                          "Content-Type: Application/json" & vbCrLf & vbCrLf & _
-                          postData
-        Stream.Write StringToBytes(applicationform)
-    End If
-
-    Dim FilePath
-    For Each FilePath In FilePaths
-        Dim fileHead : fileHead = vbCrLf & "--" & boundary & vbCrLf & _
-               "Content-Disposition: form-data; name=""file""; filename=""" & DisplayName & """" + vbCrLf & _
                "Content-Type: application/octet-stream" & vbCrLf & vbCrLf
 
         Stream.Write StringToBytes(fileHead)
