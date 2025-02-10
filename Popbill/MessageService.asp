@@ -212,7 +212,7 @@ Public Function SendMMS(CorpNum, sender, subject, Contents, msgList, FilePaths, 
     If subject <> "" Then tmp.Set "subject", subject
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
     If adsYN <> "" Then tmp.Set "adsYN", adsYN
-    If RequestNum <> "" Then tmp.Set "RequestNum", RequestNum
+    If RequestNum <> "" Then tmp.Set "requestNum", RequestNum
 
     Dim msgs : Set msgs = JSON.parse("[]")
 
@@ -244,7 +244,7 @@ Private Function SendMessage(MType, CorpNum, sender, subject, Contents, msgList,
     If Contents <> "" Then tmp.Set "content", Contents
     If subject <> "" Then tmp.Set "subject", subject
     If reserveDT <> "" Then tmp.Set "sndDT", reserveDT
-    If RequestNum <> "" Then tmp.Set "RequestNum", RequestNum
+    If RequestNum <> "" Then tmp.Set "requestNum", RequestNum
     If adsYN Then tmp.Set "adsYN", adsYN
 
 
